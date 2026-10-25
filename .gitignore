@@ -1,0 +1,9 @@
+# Godot caches
+game/.godot/
+*.import.tmp
+# Re-downloadable third-party assets (see tools/fetch_assets.py and docs/ASSET_MANIFEST.md)
+game/assets/thirdparty/polyhaven/
+tools/cache/
+# Generated captures (selected ones are copied into docs/)
+work/screens/
+*.part

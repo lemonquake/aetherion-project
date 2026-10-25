@@ -1,0 +1,256 @@
+extends Node
+## Saveable preferences (user://settings.cfg): graphics, audio, controls, accessibility and key bindings.
+## Values are applied immediately where the engine allows it; the world listens to `changed` for the rest.
+
+signal changed(section: String, key: String)
+
+const PATH := "user://settings.cfg"
+
+const DEFAULTS := {
+	"player": {"name": ""},
+	"graphics": {
+		"window_mode": "windowed", "resolution": "1600x900", "vsync": true, "max_fps": 0,
+		"preset": "high", "render_scale": 1.0, "upscaler": "off", "shadows": 2, "ssao": true, "ssil": false,
+		"volumetric_fog": true, "antialiasing": "taa", "brightness": 0.0, "fov": 80.0, "view_distance": 1.0,
+	},
+	"audio": {
+		"master": 0.9, "effects": 1.0, "voice": 1.0, "ambience": 0.8, "ui": 0.8,
+		"output": "headphones", "night_mode": false, "mic_device": "Default", "mic_gain": 1.0,
+		"voice_mode": "push", "voice_threshold": 0.04,
+	},
+	"controls": {
+		"mouse_sensitivity": 0.12, "ads_sensitivity": 0.75, "invert_y": false, "crouch_toggle": false,
+		"sprint_toggle": false, "gamepad_sensitivity": 2.4, "gamepad_deadzone": 0.18,
+	},
+	"accessibility": {"camera_motion": "normal", "smartab_text_scale": 1.0, "reduce_flashes": false, "smartab_brightness": 0.6},
+}
+
+## action -> [keyboard/mouse default, gamepad default]. Mouse buttons are "mouse:N", joypad buttons "joy:N",
+## joypad axes "axis:N:+/-".
+const BINDINGS := {
+	"move_forward": ["W", "axis:1:-"], "move_back": ["S", "axis:1:+"],
+	"move_left": ["A", "axis:0:-"], "move_right": ["D", "axis:0:+"],
+	"look_up": ["", "axis:3:-"], "look_down": ["", "axis:3:+"], "look_left": ["", "axis:2:-"], "look_right": ["", "axis:2:+"],
+	"jump": ["Space", "joy:0"], "crouch": ["C", "joy:1"], "sprint": ["Shift", "joy:7"], "walk": ["Ctrl", ""],
+	"fire": ["mouse:1", "axis:5:+"], "aim": ["mouse:2", "axis:4:+"], "reload": ["R", "joy:2"],
+	"interact": ["E", "joy:10"], "flashlight": ["F", "joy:9"], "smartab": ["Tab", "joy:4"],
+	"heal": ["H", "joy:12"], "weapon_1": ["1", ""], "weapon_2": ["2", ""], "weapon_3": ["3", ""],
+	"next_weapon": ["mouse:5", "joy:3"], "prev_weapon": ["mouse:4", ""], "holster": ["X", "joy:13"],
+	"fire_mode": ["B", "joy:14"], "push_to_talk": ["V", "joy:11"], "text_chat": ["Y", ""],
+	"drop_held": ["G", ""], "menu": ["Escape", "joy:6"], "map": ["M", ""],
+	"smartab_prev": ["Q", "joy:11"], "smartab_next": ["E", "joy:10"],
+}
+
+var data: Dictionary = {}
+var bindings: Dictionary = {}
+
+
+func _ready() -> void:
+	load_settings()
+	apply_bindings()
+	apply_all()
+
+
+func get_value(section: String, key: String):
+	return data.get(section, {}).get(key, DEFAULTS.get(section, {}).get(key))
+
+
+func set_value(section: String, key: String, value) -> void:
+	if not data.has(section):
+		data[section] = {}
+	data[section][key] = value
+	_apply(section, key)
+	changed.emit(section, key)
+
+
+func load_settings() -> void:
+	data = DEFAULTS.duplicate(true)
+	bindings = {}
+	for action in BINDINGS:
+		bindings[action] = BINDINGS[action].duplicate()
+	var cfg := ConfigFile.new()
+	if cfg.load(PATH) != OK:
+		return
+	for section in cfg.get_sections():
+		if section == "bindings":
+			for action in cfg.get_section_keys(section):
+				if bindings.has(action):
+					bindings[action] = cfg.get_value(section, action)
+			continue
+		if not data.has(section):
+			data[section] = {}
+		for key in cfg.get_section_keys(section):
+			data[section][key] = cfg.get_value(section, key)
+
+
+func save_settings() -> void:
+	var cfg := ConfigFile.new()
+	for section in data:
+		for key in data[section]:
+			cfg.set_value(section, key, data[section][key])
+	for action in bindings:
+		cfg.set_value("bindings", action, bindings[action])
+	cfg.save(PATH)
+
+
+# ------------------------------------------------------------------ bindings
+
+func apply_bindings() -> void:
+	for action in bindings:
+		if not InputMap.has_action(action):
+			InputMap.add_action(action, 0.25)
+		InputMap.action_erase_events(action)
+		for spec in bindings[action]:
+			var ev := event_from_spec(str(spec))
+			if ev:
+				InputMap.action_add_event(action, ev)
+
+
+func rebind(action: String, index: int, ev: InputEvent) -> void:
+	var spec := spec_from_event(ev)
+	if spec == "":
+		return
+	var list: Array = bindings.get(action, ["", ""])
+	while list.size() <= index:
+		list.append("")
+	list[index] = spec
+	bindings[action] = list
+	apply_bindings()
+	save_settings()
+
+
+func reset_bindings() -> void:
+	for action in BINDINGS:
+		bindings[action] = BINDINGS[action].duplicate()
+	apply_bindings()
+	save_settings()
+
+
+func event_from_spec(spec: String) -> InputEvent:
+	if spec == "":
+		return null
+	if spec.begins_with("mouse:"):
+		var mb := InputEventMouseButton.new()
+		mb.button_index = int(spec.substr(6)) as MouseButton
+		return mb
+	if spec.begins_with("joy:"):
+		var jb := InputEventJoypadButton.new()
+		jb.button_index = int(spec.substr(4)) as JoyButton
+		return jb
+	if spec.begins_with("axis:"):
+		var parts := spec.split(":")
+		var jm := InputEventJoypadMotion.new()
+		jm.axis = int(parts[1]) as JoyAxis
+		jm.axis_value = -1.0 if parts[2] == "-" else 1.0
+		return jm
+	var key := InputEventKey.new()
+	var code := OS.find_keycode_from_string(spec)
+	if code == KEY_NONE:
+		return null
+	key.physical_keycode = code
+	return key
+
+
+func spec_from_event(ev: InputEvent) -> String:
+	if ev is InputEventKey:
+		var code: Key = ev.physical_keycode if ev.physical_keycode != KEY_NONE else ev.keycode
+		return OS.get_keycode_string(code)
+	if ev is InputEventMouseButton:
+		return "mouse:%d" % ev.button_index
+	if ev is InputEventJoypadButton:
+		return "joy:%d" % ev.button_index
+	if ev is InputEventJoypadMotion and absf(ev.axis_value) > 0.5:
+		return "axis:%d:%s" % [ev.axis, "-" if ev.axis_value < 0.0 else "+"]
+	return ""
+
+
+func binding_label(action: String, index: int = 0) -> String:
+	var list: Array = bindings.get(action, [])
+	if index >= list.size() or str(list[index]) == "":
+		return "—"
+	var spec := str(list[index])
+	if spec.begins_with("mouse:"):
+		return {"mouse:1": "Left mouse", "mouse:2": "Right mouse", "mouse:3": "Middle mouse",
+			"mouse:4": "Wheel up", "mouse:5": "Wheel down"}.get(spec, spec)
+	return spec
+
+
+# ------------------------------------------------------------------ apply
+
+func apply_all() -> void:
+	for section in data:
+		for key in data[section]:
+			_apply(section, key)
+
+
+func _apply(section: String, key: String) -> void:
+	if DisplayServer.get_name() == "headless":
+		return
+	var v = get_value(section, key)
+	match section + "." + key:
+		"graphics.window_mode":
+			match str(v):
+				"fullscreen":
+					DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_EXCLUSIVE_FULLSCREEN)
+				"borderless":
+					DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_FULLSCREEN)
+				_:
+					DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_WINDOWED)
+					_apply("graphics", "resolution")
+		"graphics.resolution":
+			if DisplayServer.window_get_mode() == DisplayServer.WINDOW_MODE_WINDOWED:
+				var p := str(v).split("x")
+				if p.size() == 2:
+					var size := Vector2i(int(p[0]), int(p[1]))
+					var screen := DisplayServer.screen_get_size()
+					size = size.min(screen)
+					DisplayServer.window_set_size(size)
+					DisplayServer.window_set_position((screen - size) / 2)
+		"graphics.vsync":
+			DisplayServer.window_set_vsync_mode(DisplayServer.VSYNC_ENABLED if v else DisplayServer.VSYNC_DISABLED)
+		"graphics.max_fps":
+			Engine.max_fps = int(v)
+		"graphics.render_scale", "graphics.upscaler", "graphics.antialiasing":
+			_apply_viewport()
+		"audio.master", "audio.effects", "audio.voice", "audio.ambience", "audio.ui":
+			var bus: String = {"master": "Master", "effects": "Effects", "voice": "Voice", "ambience": "Ambience", "ui": "UI"}[key]
+			var idx := AudioServer.get_bus_index(bus)
+			if idx >= 0:
+				AudioServer.set_bus_volume_db(idx, linear_to_db(maxf(float(v), 0.0001)))
+		"audio.night_mode":
+			var mi := AudioServer.get_bus_index("Master")
+			for i in AudioServer.get_bus_effect_count(mi):
+				if AudioServer.get_bus_effect(mi, i) is AudioEffectCompressor:
+					AudioServer.set_bus_effect_enabled(mi, i, bool(v))
+		"audio.mic_device":
+			if str(v) in AudioServer.get_input_device_list():
+				AudioServer.input_device = str(v)
+	return
+
+
+func _apply_viewport() -> void:
+	var vp := get_viewport()
+	if vp == null:
+		return
+	var scale := clampf(float(get_value("graphics", "render_scale")), 0.5, 1.0)
+	var up := str(get_value("graphics", "upscaler"))
+	if up == "fsr2" and scale < 1.0:
+		vp.scaling_3d_mode = Viewport.SCALING_3D_MODE_FSR2
+	elif scale < 1.0:
+		vp.scaling_3d_mode = Viewport.SCALING_3D_MODE_FSR
+	else:
+		vp.scaling_3d_mode = Viewport.SCALING_3D_MODE_BILINEAR
+	vp.scaling_3d_scale = scale
+	var aa := str(get_value("graphics", "antialiasing"))
+	vp.use_taa = aa == "taa" and up != "fsr2"
+	vp.screen_space_aa = Viewport.SCREEN_SPACE_AA_FXAA if aa == "fxaa" else Viewport.SCREEN_SPACE_AA_DISABLED
+	vp.msaa_3d = Viewport.MSAA_2X if aa == "msaa" else Viewport.MSAA_DISABLED
+
+
+func player_name() -> String:
+	var n := str(get_value("player", "name")).strip_edges()
+	if n == "":
+		n = "Player%d" % (randi() % 900 + 100)
+		set_value("player", "name", n)
+		save_settings()
+	return n

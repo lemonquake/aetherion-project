@@ -1,0 +1,38 @@
+{
+  "_doc": "Ammunition and material data. Units: mass kg, velocity m/s, drag k in 1/m (quadratic drag a = -k*|v|*v), damage in health points at muzzle energy against an unprotected torso, resist in joules lost per centimetre of material, ricochet_deg is the maximum grazing angle that can ricochet.",
+  "gravity": 9.81,
+  "sim_substeps": 2,
+  "max_lifetime_s": 4.0,
+  "max_distance_m": 1600.0,
+  "min_lethal_speed": 60.0,
+  "min_damage": 3.0,
+  "damage_energy_exponent": 0.55,
+  "ammo": {
+    "9x19": {"name": "9mm", "mass": 0.008, "drag_k": 0.00144, "damage": 34, "pellets": 1, "armor_pen": 1.0, "tracer_brightness": 0.55},
+    "45acp": {"name": ".45 ACP", "mass": 0.0149, "drag_k": 0.00126, "damage": 40, "pellets": 1, "armor_pen": 0.9, "tracer_brightness": 0.5},
+    "357": {"name": ".357 Magnum", "mass": 0.0102, "drag_k": 0.00124, "damage": 48, "pellets": 1, "armor_pen": 1.25, "tracer_brightness": 0.55},
+    "12buck": {"name": "12 gauge buckshot", "mass": 0.0035, "drag_k": 0.0044, "damage": 14, "pellets": 9, "armor_pen": 0.6, "tracer_brightness": 0.25, "spread_deg": 2.4},
+    "12slug": {"name": "12 gauge slug", "mass": 0.028, "drag_k": 0.0018, "damage": 90, "pellets": 1, "armor_pen": 1.2, "tracer_brightness": 0.6},
+    "556": {"name": "5.56x45mm", "mass": 0.004, "drag_k": 0.00094, "damage": 42, "pellets": 1, "armor_pen": 2.2, "tracer_brightness": 0.7},
+    "762x39": {"name": "7.62x39mm", "mass": 0.0079, "drag_k": 0.00105, "damage": 48, "pellets": 1, "armor_pen": 2.0, "tracer_brightness": 0.7},
+    "308": {"name": ".308 / 7.62x51mm", "mass": 0.0095, "drag_k": 0.00073, "damage": 80, "pellets": 1, "armor_pen": 3.0, "tracer_brightness": 0.8}
+  },
+  "materials": {
+    "default": {"resist": 600, "ricochet_deg": 10, "ricochet_chance": 0.25, "max_thickness_cm": 30, "impact": "concrete"},
+    "concrete": {"resist": 1500, "ricochet_deg": 12, "ricochet_chance": 0.35, "max_thickness_cm": 30, "impact": "concrete"},
+    "hollow_block": {"resist": 500, "ricochet_deg": 10, "ricochet_chance": 0.3, "max_thickness_cm": 20, "impact": "concrete"},
+    "plaster": {"resist": 450, "ricochet_deg": 8, "ricochet_chance": 0.2, "max_thickness_cm": 20, "impact": "concrete"},
+    "wood": {"resist": 150, "ricochet_deg": 6, "ricochet_chance": 0.1, "max_thickness_cm": 25, "impact": "wood"},
+    "plywood": {"resist": 120, "ricochet_deg": 5, "ricochet_chance": 0.08, "max_thickness_cm": 10, "impact": "wood"},
+    "sheet_metal": {"resist": 450, "ricochet_deg": 18, "ricochet_chance": 0.45, "max_thickness_cm": 2, "impact": "metal"},
+    "steel": {"resist": 2600, "ricochet_deg": 22, "ricochet_chance": 0.6, "max_thickness_cm": 3, "impact": "metal"},
+    "glass": {"resist": 25, "ricochet_deg": 0, "ricochet_chance": 0.0, "max_thickness_cm": 2, "impact": "glass"},
+    "dirt": {"resist": 800, "ricochet_deg": 6, "ricochet_chance": 0.15, "max_thickness_cm": 30, "impact": "dirt"},
+    "sand": {"resist": 900, "ricochet_deg": 5, "ricochet_chance": 0.1, "max_thickness_cm": 40, "impact": "dirt"},
+    "water": {"resist": 70, "ricochet_deg": 7, "ricochet_chance": 0.6, "max_thickness_cm": 200, "impact": "water"},
+    "fabric": {"resist": 25, "ricochet_deg": 0, "ricochet_chance": 0.0, "max_thickness_cm": 40, "impact": "fabric"},
+    "plastic": {"resist": 60, "ricochet_deg": 4, "ricochet_chance": 0.05, "max_thickness_cm": 6, "impact": "plastic"},
+    "foliage": {"resist": 4, "ricochet_deg": 0, "ricochet_chance": 0.0, "max_thickness_cm": 200, "impact": "foliage"},
+    "flesh": {"resist": 70, "ricochet_deg": 0, "ricochet_chance": 0.0, "max_thickness_cm": 40, "impact": "flesh"}
+  }
+}

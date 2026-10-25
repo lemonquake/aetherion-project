@@ -1,0 +1,14 @@
+{
+  "source": "GitHub release",
+  "title": "Sky3D v2.1.0",
+  "url": "https://github.com/TokisanGames/Sky3D",
+  "authors": [
+    "TokisanGames (Cory Petkovsek, Roope Palmroos, J. Cuellar)"
+  ],
+  "license": "MIT",
+  "license_url": "https://github.com/TokisanGames/Sky3D/blob/main/LICENSE.txt",
+  "attribution_required": true,
+  "kind": "addon",
+  "modifications": "Removed binaries for Android, iOS, macOS, web, ARM and 32-bit targets; Windows x86_64 and Linux x86_64 kept.",
+  "retrieved": "2026-10-25"
+}

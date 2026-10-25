@@ -1,0 +1,422 @@
+Build a complete, playable, polished multiplayer survival battle royale titled **“Aetherion Project by Aljay Leodones.”**
+
+Act as a senior game developer, technical artist, level designer, sound designer, and QA engineer. Implement the actual game, assets, systems, and playable environments. This prompt is an implementation brief, not a request for a concept presentation.
+
+**1. Creative direction and player experience**
+
+The game combines PUBG-style parachute deployment, scavenging, tactical gunfights, and last-team-standing survival with an unusually strong emphasis on darkness, sound, physical interaction, and uncertainty.
+
+The essential experience is:
+
+- Landing somewhere unfamiliar with your teammates nearby.
+- Entering a dark house and searching desperately for weapons and batteries.
+- Finding a good weapon and feeling more confident, while realizing that dying means losing everything carried during that match.
+- Choosing a building to hide in, studying its entrances, and listening for movement.
+- Hearing a door open downstairs, glass break outside, furniture scrape across a floor, or a nearby enemy’s radio.
+- Deciding whether to stay silent, relocate, ambush, rescue a teammate, or risk a noisy firefight.
+- Surviving sudden, chaotic encounters that emerge naturally from player decisions and interacting systems.
+
+Quiet periods must build anticipation. Loud combat must feel dangerous and consequential. Avoid constant action that removes suspense and excessive downtime that becomes tedious.
+
+Use grounded, realistic visual design with a restrained near-future element represented by the player’s wrist-accessible handheld device, the **SmarTab**. Avoid supernatural powers, cartoon effects, glowing loot, and exaggerated movement.
+
+**2. Ownership, persistence, and autonomy**
+
+Be persistent in pursuing this project. Continue implementing, testing, diagnosing problems, and improving the game until the agreed requirements and acceptance checks are satisfied. Do not stop after a basic prototype, a visually impressive screenshot, or a partial implementation.
+
+Treat my satisfaction as the goal, but do not claim to know that I am satisfied without my feedback. Use observable completion criteria, demonstrate the result, and address feedback thoroughly.
+
+You may use my computer and available development tools for this project. You may download and install necessary project dependencies and obtain suitable 3D assets, materials, animations, sounds, fonts, and development utilities from legitimate sources. Respect applicable tool permissions and operating-system restrictions.
+
+Prefer assets licensed for the intended use. Maintain an asset manifest containing source URLs, authors, licenses, modifications, and attribution requirements. Ask before purchases, paid services, or accepting commitments on my behalf. Keep work organized and avoid modifying unrelated files or projects.
+
+Inspect the existing workspace, engine, hardware, and available tools before choosing the implementation approach. Reuse an existing suitable project where possible. If starting fresh, select a mature engine that supports the required multiplayer, physics, animation, audio, and rendering capabilities. Explain the choice briefly, then proceed.
+
+Make reasonable reversible decisions without repeatedly asking me to resolve routine implementation details. Document assumptions and expose important gameplay values as tunable settings.
+
+Be especially exacting about map design. Repeatedly inspect the environment from actual player viewpoints, in darkness, during combat, and while navigating between buildings.
+
+If blocked, identify the specific blocker, attempt reasonable alternatives, and continue independent work. Never disguise missing features, broken interactions, fake multiplayer, or nonfunctional UI as completed work.
+
+**3. Match structure and parachute deployment**
+
+Support solo play and team play through configurable match rules. Establish a stable, measurable player-count target for the first complete release; do not promise a large lobby without testing it.
+
+The match flow must include:
+
+- Main menu and essential settings.
+- Lobby, team assignment, and ready state.
+- Match loading and synchronized deployment.
+- Player-controlled parachute descent.
+- Scavenging, movement, combat, and survival.
+- A progressively restricted playable area.
+- Final surviving player or team.
+- Results, rematch, and reliable world reset.
+
+Every player begins airborne and must maneuver a parachute to land safely. Implement steering, forward movement, braking or flaring, descent speed, landing animation, and consequences for dangerous landings.
+
+Teammates must begin their descent very near each other, within a shared deployment cluster. Avoid overlapping parachutes, intersecting spawn positions, and immediate collision injuries. Players may intentionally separate while steering.
+
+Provide safe terrain and collision handling for rooftops, trees, slopes, water boundaries, and building edges. Players must not become permanently stuck in parachutes or spawn inside structures.
+
+The deployment sequence must allow meaningful destination choices without providing precise enemy-location information.
+
+Use a clearly communicated encroaching hazard or restricted-zone system to prevent indefinite hiding. Provide warnings and zone information through the SmarTab, restrained audio, and environmental cues. Players must have a reasonable opportunity to plan movement.
+
+**4. Map design and environmental quality**
+
+Create a cohesive, believable, mostly dark coastal settlement and its surrounding countryside. Include residential streets, isolated houses, small apartment buildings, shops, a clinic, workshops, warehouses, docks, drainage routes, wooded edges, and service alleys.
+
+Prioritize a dense, carefully designed playable area over a huge empty map.
+
+Buildings must feel inhabited and abandoned for a reason. Rooms should have plausible functions, believable furniture arrangements, sensible proportions, and coherent architectural styles. Do not scatter random props merely to fill space.
+
+Design each important area around:
+
+- Approaches, entrances, exits, and escape opportunities.
+- Interior cover and exterior observation positions.
+- Acoustic differences between rooms, floors, streets, and materials.
+- Loot value and exposure while searching.
+- Windows, stairwells, roof access, and potential ambush positions.
+- Routes for cautious players and riskier shortcuts.
+- Different tactical conditions as the safe zone changes.
+
+A desirable house should provide shelter and useful sightlines while retaining vulnerabilities. Avoid dominant buildings with perfect visibility, abundant loot, and only one easily defended entrance.
+
+Do not make every room identical or every structure equally valuable. Give locations recognizable silhouettes, spatial identities, and memorable landmarks so players can navigate without a minimap.
+
+Use believable environmental storytelling: damaged electrical equipment, abandoned meals, overturned chairs, repair tools, disrupted shops, and partially secured doors.
+
+Randomize loot, selected door states, some prop arrangements, and limited route availability between matches. Preserve enough geographical consistency for players to learn the map.
+
+Inspect and correct floating objects, visible seams, inaccessible loot, collision snags, unrealistic scale, empty interiors, repetitive dressing, unfair sightlines, and places where players can hide inside geometry.
+
+**5. Darkness, lighting, and flashlights**
+
+The overall environment must contain very few light sources. Use restrained moonlight, occasional emergency lighting, isolated streetlights, distant industrial lights, and sparse interior illumination.
+
+Darkness must produce uncertainty while preserving enough basic orientation for navigation. Avoid making the entire image uniformly black.
+
+Flashlights are invaluable. Implement:
+
+- Battery charge and continuous drain while powered.
+- Findable replacement batteries.
+- Batteries recoverable from dead players.
+- Readable charge status through the SmarTab or an appropriate physical indicator.
+- A battery replacement animation with a meaningful vulnerability window.
+- A readable low-battery warning and restrained low-charge instability.
+- Beam obstruction by walls, furniture, doors, and characters.
+- Realistic beam shape, falloff, and illumination of nearby surfaces.
+- Visible flashlight direction from other players’ perspectives.
+- Correct multiplayer synchronization of switching, aiming, battery changes, and depletion.
+
+Light must not pass through opaque geometry. Avoid using highly exaggerated volumetric beams everywhere; airborne dust, fog, and viewing angle should affect visibility.
+
+Balance battery availability carefully. Batteries should encourage searching and risky decisions without routinely leaving players unable to participate.
+
+Players must be able to aim their lights naturally while moving, searching, fighting, and interacting. Make the handling rules clear for weapon-mounted and handheld lights.
+
+**6. Sound as a primary gameplay system**
+
+Sound is fundamental game information. Implement reliable spatial audio with distance attenuation, obstruction, material response, room acoustics, and believable transmission between connected spaces.
+
+Nearby footsteps should be distinguishable by surface and movement type. Walking, running, crouching, landing, climbing, reloading, healing, manipulating equipment, opening containers, and handling weapons must produce appropriate sounds.
+
+Important sound sources include:
+
+- Wood, metal, tile, dirt, gravel, water, and broken glass.
+- Doors, hinges, locks, gates, and shutters.
+- Furniture scraping, falling, colliding, and breaking.
+- Bottles, glass fragments, dropped magazines, and shell casings.
+- Gunshots, bullet impacts, ricochets, and nearby projectile passage.
+- Injured breathing and exertion.
+- Parachute deployment and landing.
+- Flashlight switches and battery replacement.
+- SmarTab handling and teammate radio activation.
+
+Sound should communicate useful clues without providing exact wallhack-like positioning.
+
+Use doors and openings in sound propagation. A closed door should affect sound differently from an open doorway; opening a route or destroying a window should change what can be heard.
+
+Differentiate upstairs, downstairs, adjacent rooms, and outdoor spaces as reliably as the audio system permits.
+
+Do not let decorative audio drown out critical cues. Use dynamic range controls and sensible mixing so suspense does not depend on painfully loud playback.
+
+**7. Team communication and audible radios**
+
+Provide in-game team voice communication with push-to-talk support and appropriate microphone controls.
+
+Transmitting to teammates must produce a subtle, localized radio activation sound from the transmitting character. Nearby enemies can hear this within a short configurable perimeter. The sound must attenuate and be obstructed naturally.
+
+Team speech should remain routed to teammates by default; nearby enemies hear the localized radio cue rather than automatically receiving the full conversation.
+
+Avoid loud global beeps. Use restrained radio clicks, static, or equipment noise that rewards attentive listening.
+
+Ensure the cue follows actual transmission activity without producing an irritating repeated sound every frame. Text communication, if supported, should have explicitly defined behavior.
+
+Document that third-party voice applications cannot be forced to generate this cue. Do not design the entire balance around every squad using in-game voice.
+
+**8. Physical interaction and destructible objects**
+
+All movable gameplay props must have appropriate physics, mass, collision, friction, and material responses. Static architecture can remain structurally anchored; do not simulate every wall as a loose rigid body.
+
+Players must be able to pick up, carry, place, drop, throw, push, and pull suitable objects. Use weight and size limits.
+
+A bottle should be easy to throw. A chair should be manageable. A heavy table should require slower pushing or pulling and should generate substantial scraping noise.
+
+Implement:
+
+- Stable object grabbing and placement.
+- Collision-aware handling that prevents objects passing through walls.
+- Furniture that can obstruct doors or create temporary cover.
+- Material-specific impact and break sounds.
+- Glass windows, bottles, and vases that shatter.
+- Destructible chairs, tables, computers, and other appropriate props.
+- Damage-dependent breakage rather than every object exploding from a light touch.
+- Debris that contributes sound and visual aftermath without overwhelming performance.
+- Clear distinctions between concealment and ballistic protection.
+
+Physical interactions should enable distractions and emergent tactics. Players can throw bottles into another room, barricade a doorway, or accidentally reveal themselves by knocking something over.
+
+Prevent physics exploits such as launching players with held props, attacking through walls, duplicating objects, or creating unstable piles that crash the match.
+
+**9. Weapons, recoil, and projectile simulation**
+
+Implement grounded firearm handling with distinct weapon characteristics. Include a purposeful initial selection of handguns, shotguns, submachine guns, assault rifles, and precision rifles.
+
+Weapons require appropriate animations, magazine capacities, ammunition types, reload behavior, fire modes, recoil, handling times, and attachments where supported.
+
+Bullets must physically travel through the game world rather than relying exclusively on instantaneous hit detection.
+
+Model:
+
+- Muzzle velocity.
+- Gravity-driven drop.
+- Flight time.
+- Optional drag where justified.
+- Damage and penetration changes with distance and remaining energy.
+- Material-dependent penetration.
+- Constrained, believable ricochets.
+- Reliable high-speed collision detection.
+- Configurable projectile lifetime and maximum simulation distance.
+
+Use gravity-based curved trajectories. If drag is simulated, the path will not be a perfect mathematical parabola.
+
+Weapons should differ in practical range because of velocity, drop, dispersion, retained energy, sights, and ammunition. Do not make ordinary bullets disappear at implausibly short distances merely to distinguish weapon classes.
+
+Provide visible, short-lived projectile tails that fade as requested. Tune them so they communicate moving projectiles without resembling slow lasers, flooding dark scenes with light, or revealing every shot across the entire map.
+
+Keep the visible trail aligned with the simulated projectile path.
+
+Recoil must affect weapon orientation and aiming consistently. Different weapons should have distinct impulse, climb, recovery, and sustained-fire behavior. Support player recoil control while avoiding mechanically identical spray patterns across all guns.
+
+Account for aiming posture, movement, injuries, weapon handling, and firing mode. Synchronize muzzle position and sight alignment so close cover can obstruct a shot even when the player can see over it.
+
+**10. Health, armor, and injuries**
+
+Track hit locations for the head, torso, left arm, right arm, left leg, and right leg.
+
+Separate general survival condition, localized injuries, bleeding, and armor protection so each has understandable consequences.
+
+Arm injuries must cause subtle aim instability. The aiming direction and crosshair must sway together; do not merely animate the HUD while bullets continue straight.
+
+Leg injuries must reduce movement speed and produce a restrained uneven gait and camera response. Provide accessibility options to reduce camera motion while preserving the gameplay penalty.
+
+Headshots must deal extremely heavy damage and usually kill an unprotected player immediately.
+
+A heavy-plate helmet can absorb a qualifying impact and break before a lethal head injury occurs. Its protection must depend on coverage, durability, ammunition, and impact conditions. It must not guarantee survival against every projectile.
+
+Armor must provide localized protection. Show damaged or broken equipment clearly and update its protective state immediately.
+
+Include practical medical items for stopping bleeding, restoring treatable health, and stabilizing limb injuries. Treatment takes time, produces appropriate sounds, consumes supplies, and can be interrupted.
+
+Define a consistent team downed-and-revive system. Catastrophic damage can kill outright; revivable injuries should not be confused with death. Dead players transition to persistent corpses.
+
+Avoid excessive hidden random penalties. Players should understand their condition and treatment needs through physical behavior and the SmarTab.
+
+**11. Blood, impacts, and persistent bodies**
+
+Implement realistic hit reactions and blood effects appropriate to projectile direction, impact location, clothing, and nearby surfaces.
+
+Blood must visibly remain on the environment and affected players. Use suitable decals, character material layers, or equivalent techniques.
+
+Blood should adhere to the surface that received it. Blood on a movable object must move with that object. Avoid floating decals, obvious wall clipping, and identical effects for every injury.
+
+Support bleeding traces where they improve tracking and tension, with carefully controlled density and lifetime.
+
+Killed players must transition into convincing physics-driven ragdolls. Preserve momentum, impact direction, joint constraints, contact with stairs and furniture, and believable settling.
+
+Corpses must remain until the match ends or resets. They must not disappear immediately after death or after being looted.
+
+Preserve the dead player’s equipment and inventory as a lootable state. Batteries, ammunition, weapons, medical supplies, and usable armor can be recovered according to their actual condition.
+
+Use sleeping physics and distance-based presentation optimization while preserving corpse presence, loot state, and authoritative collision where relevant.
+
+**12. Minimal UI and the SmarTab**
+
+The normal gameplay view must be extremely minimal.
+
+There must be no minimap, permanently visible inventory grid, large health bars, floating loot labels everywhere, or enemy outlines.
+
+Use a small, restrained aiming reticle where appropriate. Essential interaction prompts should appear only when relevant and remain visually unobtrusive.
+
+Holding **TAB** must:
+
+1. Interrupt or safely finish the current compatible action.
+2. Lower and hide the weapon from the normal firing position.
+3. Raise the player’s left hand holding the **SmarTab**.
+4. Present a large square screen with readable information.
+
+Releasing TAB lowers the device and returns the weapon through a proper animation. Checking the device creates a deliberate period of vulnerability; firing is unavailable while it is raised.
+
+The SmarTab must show:
+
+- Current weapon and secondary weapon.
+- Loaded ammunition and reserve ammunition.
+- Magazine or chamber information where relevant.
+- A body diagram showing localized health.
+- Overall condition such as **NORMAL**, **INJURED**, and **CRITICAL**.
+- Left/right limb injuries, bleeding, and damaged armor.
+- Flashlight battery charge and spare batteries.
+- Compact inventory and essential survival information.
+- Team status without revealing enemy positions.
+- Match and zone information needed for fair navigation.
+
+A separate map page may exist inside the SmarTab, but no always-on minimap. Keep map data limited to geographical navigation, known zone information, and permitted team markers.
+
+The square display must be an actual in-world device integrated with hand animation. It must remain readable at supported resolutions and aspect ratios.
+
+Its screen should emit restrained light visible to nearby observers, creating a small tactical tradeoff. Provide brightness adjustment without allowing it to become a powerful replacement flashlight.
+
+**13. Inventory, scavenging, and interaction flow**
+
+Use a coherent inventory model with limited carrying capacity, weapon slots, ammunition, batteries, healing supplies, and equipment.
+
+Loot must appear in plausible locations. Medical supplies belong in clinics and bathrooms; tools in workshops; household batteries in drawers; weapons in believable storage or contested locations.
+
+Support inspecting, taking, dropping, transferring, equipping, and looting bodies without duplication or confusing state changes.
+
+Avoid forcing players through excessive menus for common actions. Provide quick actions for essential tasks while keeping detailed management within the SmarTab or a consistent physical interaction interface.
+
+Loot quantity and quality must create meaningful decisions. High-value areas should expose players to greater competition or less secure approaches.
+
+No bright loot beams or magical item outlines visible through walls.
+
+**14. Multiplayer and authoritative simulation**
+
+Build real multiplayer early. Do not postpone networking until after designing all systems around single-player assumptions.
+
+Use authoritative validation for movement, health, projectile damage, inventory, loot ownership, batteries, object interaction, destruction, and match state.
+
+Implement prediction, interpolation, and reconciliation where appropriate. Define and test latency handling for projectile combat instead of casually mixing incompatible hit-registration approaches.
+
+Ensure:
+
+- Two players cannot claim the same item.
+- A broken window is broken for everyone.
+- A barricade blocks the same route for all players.
+- Flashlight state and battery depletion remain consistent.
+- Corpses retain the correct inventory.
+- Reconnecting clients receive current world state.
+- Critical audio events correspond to authoritative actions.
+- Physics updates use appropriate relevance and bandwidth limits.
+- Ragdoll visual differences do not change loot availability or create contradictory cover.
+
+Do not transmit all hidden enemy information unnecessarily. Include basic protections against impossible movement, fabricated hits, unlimited ammunition, inventory duplication, and interaction through walls.
+
+Provide a local testing setup with multiple clients and a server, even when external hosting is unavailable.
+
+**15. Technical systems required**
+
+Implement and maintain clear modules for:
+
+- Input, rebinding, controller support where selected, and accessibility.
+- Character movement, stance, camera, and animation.
+- Parachute deployment and landing.
+- Weapon handling, ammunition, attachments, and recoil.
+- Projectile flight, collision, damage, penetration, and ricochet.
+- Hit zones, injuries, bleeding, healing, armor, death, and revival.
+- Inventory, loot generation, equipment, and corpse looting.
+- Flashlights, batteries, and world lighting.
+- Spatial audio, sound propagation, and team radio.
+- Object interaction, physics, destruction, and debris.
+- SmarTab rendering, UI state, and hand animation.
+- Match rules, teams, deployment, shrinking zone, victory, and reset.
+- Multiplayer replication and authoritative validation.
+- Environment streaming, visibility, and performance management.
+- Graphics, audio, controls, and accessibility settings.
+- Saveable preferences, diagnostic tools, and automated checks.
+
+Keep gameplay values data-driven. Avoid a monolithic implementation that makes tuning or networking unreliable.
+
+**16. Performance and visual consistency**
+
+Measure performance on the available target hardware and document the test conditions.
+
+Use appropriate level streaming, instancing, visibility culling, light budgets, physics sleeping, debris limits, texture budgets, and network relevance.
+
+Persistent corpses and destroyed objects must remain logically present even when their expensive simulation is reduced.
+
+Maintain consistent art direction across downloaded assets. Correct mismatched scale, material quality, texture density, collision, and lighting response.
+
+Prioritize stable frame times and responsive controls. Do not hide severe performance problems behind low player counts or empty test scenes.
+
+Test audio latency, input latency, low-light readability, flashlight shadow costs, projectile load, and the worst plausible accumulation of bodies and debris.
+
+**17. Implementation sequence**
+
+Start by inspecting the environment and creating a concrete plan with milestones and acceptance criteria.
+
+Then build a complete networked vertical slice containing:
+
+- One carefully designed neighborhood.
+- Several fully explorable buildings.
+- Controllable parachute insertion.
+- Team spawning.
+- Weapons and physical projectiles.
+- Flashlights and lootable batteries.
+- Spatial sound and audible radio cues.
+- Moveable furniture and breakable glass.
+- Body-part injuries and armor.
+- Functional SmarTab.
+- Lootable persistent ragdoll corpses.
+- A complete match loop.
+
+Use this slice to validate the central experience before expanding the map.
+
+Continue into content expansion, additional weapons and locations, balancing, optimization, and final polish. A milestone is a checkpoint, not permission to abandon the remaining requirements.
+
+Keep a living checklist distinguishing implemented, tested, incomplete, and blocked work. Report progress with evidence rather than inflated completion claims.
+
+**18. Required verification and definition of done**
+
+Run the game repeatedly and test actual scenarios, including:
+
+- Teammates deploy near each other and land safely.
+- A player navigates a dark house using a flashlight.
+- The battery runs out and can be replaced.
+- A dead enemy’s batteries can be looted and used.
+- Radio transmission reveals a nearby player through a subtle audible cue.
+- Doors, walls, and openings affect sound appropriately.
+- A thrown bottle distracts another player.
+- Moving furniture creates noise and changes access through a room.
+- Windows and props break consistently across clients.
+- Bullets have measurable flight time and drop.
+- Recoil and arm injuries change actual aim.
+- Leg injuries affect movement without making the camera intolerable.
+- Headshots and heavy-plate helmets behave according to their rules.
+- Blood remains attached to characters and environmental surfaces.
+- Ragdolls settle plausibly and remain lootable until match reset.
+- Holding TAB hides the weapon and raises a readable SmarTab.
+- No minimap appears during ordinary play.
+- Zone pressure forces meaningful relocation.
+- A match reaches a valid winner and resets all temporary state correctly.
+- Representative latency and concurrent destruction do not break gameplay.
+
+Verify from multiple players’ perspectives. Test both headphones and ordinary speakers, different supported resolutions, graphics settings, and brightness settings.
+
+Deliver the runnable project, organized source, documented launch instructions, dependency information, asset/license manifest, test results, and an honest list of any unresolved limitations.
+
+Present the exact title **“Aetherion Project by Aljay Leodones”** prominently in the main menu and appropriately in the finished build.
+
+Be a perfectionist about atmosphere, spatial design, sound readability, physical interaction, and the quality of the playable map. Keep iterating until the game consistently delivers the central feeling: finding a promising house in the dark, gathering what you need, settling into cover, and suddenly realizing that someone else is there.
