@@ -1,0 +1,19 @@
+{
+  "source": "Poly Haven",
+  "title": "Plastic Crate 01",
+  "url": "https://polyhaven.com/a/plastic_crate_01",
+  "authors": [
+    "PierreB3D"
+  ],
+  "license": "CC0-1.0",
+  "license_url": "https://polyhaven.com/license",
+  "attribution_required": false,
+  "kind": "model",
+  "modifications": "Decimated to its 1,800-triangle budget; textures 512 px; 18,320 -> 1,800 triangles, 1 material (tools/blender/process_props.py).",
+  "retrieved": "2026-10-25",
+  "files": {
+    "plastic_crate_01.gltf": "c44161498c1d00c9ca49217411d73ce0177516df48fe724c1189723101695d7e",
+    "plastic_crate_01.bin": "227cc087ae794dcf267f7e569f18b778fb811b415ad1ffed5c23d250a0025744"
+  },
+  "processed_from": "game/assets/thirdparty/polyhaven/models/plastic_crate_01/plastic_crate_01_1k.gltf"
+}

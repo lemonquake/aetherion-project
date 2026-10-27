@@ -1,69 +1,321 @@
 {
-  "_doc": "Item definitions. mass in kg. Stackable items carry a count; batteries carry individual charges (0..1). Use times in seconds.",
-  "items": {
-    "battery": {"name": "Battery", "kind": "battery", "mass": 0.05, "model": "battery"},
-    "flashlight": {"name": "Flashlight", "kind": "flashlight", "mass": 0.25, "model": "flashlight", "lumens": 1.0},
-    "bandage": {"name": "Bandage", "kind": "medical", "mass": 0.05, "stack": 10, "use_time": 3.2, "stops_bleeding": 1, "model": "bandage"},
-    "first_aid": {"name": "First Aid Kit", "kind": "medical", "mass": 0.6, "stack": 3, "use_time": 7.0, "heal": 45, "stops_bleeding": 2, "model": "first_aid"},
-    "splint": {"name": "Splint", "kind": "medical", "mass": 0.2, "stack": 4, "use_time": 4.5, "fixes_fracture": true, "model": "splint"},
-    "painkillers": {"name": "Painkillers", "kind": "medical", "mass": 0.04, "stack": 6, "use_time": 2.0, "pain_relief_s": 75, "model": "painkillers"},
-    "ammo_9x19": {"name": "9mm rounds", "kind": "ammo", "ammo": "9x19", "mass": 0.012, "stack": 120, "model": "ammo_box"},
-    "ammo_45acp": {"name": ".45 ACP rounds", "kind": "ammo", "ammo": "45acp", "mass": 0.021, "stack": 60, "model": "ammo_box"},
-    "ammo_357": {"name": ".357 rounds", "kind": "ammo", "ammo": "357", "mass": 0.016, "stack": 48, "model": "ammo_box"},
-    "ammo_12buck": {"name": "Buckshot shells", "kind": "ammo", "ammo": "12buck", "mass": 0.04, "stack": 40, "model": "ammo_box"},
-    "ammo_12slug": {"name": "Slug shells", "kind": "ammo", "ammo": "12slug", "mass": 0.04, "stack": 30, "model": "ammo_box"},
-    "ammo_556": {"name": "5.56 rounds", "kind": "ammo", "ammo": "556", "mass": 0.012, "stack": 120, "model": "ammo_box"},
-    "ammo_762x39": {"name": "7.62x39 rounds", "kind": "ammo", "ammo": "762x39", "mass": 0.017, "stack": 90, "model": "ammo_box"},
-    "ammo_308": {"name": ".308 rounds", "kind": "ammo", "ammo": "308", "mass": 0.025, "stack": 40, "model": "ammo_box"},
-    "vest_light": {"name": "Soft Armor Vest", "kind": "armor", "slot": "vest", "mass": 2.4, "covers": ["torso"], "protection": 900, "durability": 100, "blunt": 0.25, "model": "vest_light"},
-    "vest_heavy": {"name": "Plate Carrier", "kind": "armor", "slot": "vest", "mass": 7.5, "covers": ["torso"], "protection": 4200, "durability": 140, "blunt": 0.18, "model": "vest_heavy"},
-    "helmet_light": {"name": "Light Helmet", "kind": "armor", "slot": "helmet", "mass": 1.3, "covers": ["head"], "protection": 600, "durability": 50, "coverage": 0.7, "blunt": 0.35, "model": "helmet_light"},
-    "helmet_heavy": {"name": "Heavy-Plate Helmet", "kind": "armor", "slot": "helmet", "mass": 3.6, "covers": ["head"], "protection": 2200, "durability": 90, "coverage": 0.85, "blunt": 0.3, "break_absorbs_lethal": true, "model": "helmet_heavy"},
-    "backpack_small": {"name": "Small Backpack", "kind": "backpack", "slot": "backpack", "mass": 0.6, "capacity": 6.0, "model": "backpack_small"},
-    "backpack_large": {"name": "Large Backpack", "kind": "backpack", "slot": "backpack", "mass": 1.2, "capacity": 12.0, "model": "backpack_large"},
-    "weapon_light": {"name": "Weapon Light", "kind": "attachment", "mass": 0.12, "model": "weapon_light"},
-    "sight_reddot": {"name": "Red Dot Sight", "kind": "attachment", "mass": 0.12, "model": "sight_reddot"},
-    "sight_holo": {"name": "Holographic Sight", "kind": "attachment", "mass": 0.32, "model": "sight_holo"},
-    "scope_4x": {"name": "4x Prism Scope", "kind": "attachment", "mass": 0.45, "model": "scope_4x"},
-    "scope_6x": {"name": "6x Rifle Scope", "kind": "attachment", "mass": 0.6, "model": "scope_4x"}
-  },
-  "carry": {
-    "base_capacity": 7.0,
-    "overweight_slow_per_kg": 0.04
+ "_doc": "Item definitions. mass in kg. Stackable items carry a count; batteries carry individual charges (0..1). Use times in seconds. Weapon attachments are items too; their entries come from weapons.json (attachments). Ammunition colour: color is the calibre's RGB, shared by every box of it and every gun that fires it.",
+ "items": {
+  "battery": {
+   "name": "Battery",
+   "kind": "battery",
+   "mass": 0.05,
+   "model": "battery"
   },
   "flashlight": {
-    "battery_life_s": 540.0,
-    "weapon_light_battery_life_s": 420.0,
-    "low_charge": 0.15,
-    "dead_charge": 0.0,
-    "swap_time": 2.6,
-    "spot_range": 34.0,
-    "spot_angle_deg": 26.0,
-    "spot_energy": 6.5,
-    "weapon_light_range": 38.0,
-    "weapon_light_angle": 18.0,
-    "weapon_light_energy": 8.0,
-    "low_flicker_rate": 0.9
+   "name": "Flashlight",
+   "kind": "flashlight",
+   "mass": 0.25,
+   "model": "flashlight",
+   "lumens": 1.0
   },
-  "health": {
-    "max_health": 100.0,
-    "parts": {"head": 35, "torso": 85, "arm_l": 55, "arm_r": 55, "leg_l": 60, "leg_r": 60},
-    "part_multiplier": {"head": 4.2, "torso": 1.0, "arm_l": 0.6, "arm_r": 0.6, "leg_l": 0.7, "leg_r": 0.7},
-    "overflow_to_health": {"head": 1.0, "torso": 1.0, "arm_l": 0.55, "arm_r": 0.55, "leg_l": 0.6, "leg_r": 0.6},
-    "bleed_chance": {"head": 0.4, "torso": 0.55, "arm_l": 0.45, "arm_r": 0.45, "leg_l": 0.5, "leg_r": 0.5},
-    "heavy_bleed_damage": 28.0,
-    "bleed_light_per_s": 0.35,
-    "bleed_heavy_per_s": 1.05,
-    "fracture_threshold": 0.0,
-    "arm_sway_deg": 0.9,
-    "arm_sway_broken_deg": 2.1,
-    "leg_speed_injured": 0.82,
-    "leg_speed_broken": 0.6,
-    "downed_bleedout_s": 90.0,
-    "revive_time_s": 6.0,
-    "revive_health": 22.0,
-    "catastrophic_damage": 140.0,
-    "fall_damage_speed": 7.5,
-    "fall_lethal_speed": 18.0
+  "bandage": {
+   "name": "Bandage",
+   "kind": "medical",
+   "mass": 0.05,
+   "stack": 10,
+   "use_time": 3.2,
+   "stops_bleeding": 1,
+   "model": "bandage"
+  },
+  "first_aid": {
+   "name": "First Aid Kit",
+   "kind": "medical",
+   "mass": 0.6,
+   "stack": 3,
+   "use_time": 7.0,
+   "heal": 45,
+   "stops_bleeding": 2,
+   "model": "first_aid"
+  },
+  "splint": {
+   "name": "Splint",
+   "kind": "medical",
+   "mass": 0.2,
+   "stack": 4,
+   "use_time": 4.5,
+   "fixes_fracture": true,
+   "model": "splint"
+  },
+  "painkillers": {
+   "name": "Painkillers",
+   "kind": "medical",
+   "mass": 0.04,
+   "stack": 6,
+   "use_time": 2.0,
+   "pain_relief_s": 75,
+   "model": "painkillers"
+  },
+  "ammo_9x19": {
+   "name": "9mm rounds",
+   "kind": "ammo",
+   "ammo": "9x19",
+   "mass": 0.012,
+   "stack": 120,
+   "model": "ammo_9x19",
+   "color": [
+    226,
+    176,
+    34
+   ]
+  },
+  "ammo_45acp": {
+   "name": ".45 ACP rounds",
+   "kind": "ammo",
+   "ammo": "45acp",
+   "mass": 0.021,
+   "stack": 60,
+   "model": "ammo_45acp",
+   "color": [
+    52,
+    104,
+    214
+   ]
+  },
+  "ammo_357": {
+   "name": ".357 rounds",
+   "kind": "ammo",
+   "ammo": "357",
+   "mass": 0.016,
+   "stack": 48,
+   "model": "ammo_357",
+   "color": [
+    128,
+    128,
+    136
+   ]
+  },
+  "ammo_12buck": {
+   "name": "Buckshot shells",
+   "kind": "ammo",
+   "ammo": "12buck",
+   "mass": 0.04,
+   "stack": 40,
+   "model": "ammo_12buck",
+   "color": [
+    222,
+    96,
+    28
+   ]
+  },
+  "ammo_12slug": {
+   "name": "Slug shells",
+   "kind": "ammo",
+   "ammo": "12slug",
+   "mass": 0.04,
+   "stack": 30,
+   "model": "ammo_12slug",
+   "color": [
+    150,
+    56,
+    20
+   ]
+  },
+  "ammo_556": {
+   "name": "5.56 rounds",
+   "kind": "ammo",
+   "ammo": "556",
+   "mass": 0.012,
+   "stack": 120,
+   "model": "ammo_556",
+   "color": [
+    64,
+    156,
+    64
+   ]
+  },
+  "ammo_762x39": {
+   "name": "7.62x39 rounds",
+   "kind": "ammo",
+   "ammo": "762x39",
+   "mass": 0.017,
+   "stack": 90,
+   "model": "ammo_762x39",
+   "color": [
+    196,
+    48,
+    38
+   ]
+  },
+  "ammo_308": {
+   "name": ".308 rounds",
+   "kind": "ammo",
+   "ammo": "308",
+   "mass": 0.025,
+   "stack": 40,
+   "model": "ammo_308",
+   "color": [
+    120,
+    70,
+    170
+   ]
+  },
+  "vest_light": {
+   "name": "Soft Armor Vest",
+   "kind": "armor",
+   "slot": "vest",
+   "mass": 2.4,
+   "covers": [
+    "torso"
+   ],
+   "protection": 900,
+   "durability": 100,
+   "blunt": 0.25,
+   "model": "vest_light"
+  },
+  "vest_heavy": {
+   "name": "Plate Carrier",
+   "kind": "armor",
+   "slot": "vest",
+   "mass": 7.5,
+   "covers": [
+    "torso"
+   ],
+   "protection": 4200,
+   "durability": 140,
+   "blunt": 0.18,
+   "model": "vest_heavy"
+  },
+  "helmet_light": {
+   "name": "Light Helmet",
+   "kind": "armor",
+   "slot": "helmet",
+   "mass": 1.3,
+   "covers": [
+    "head"
+   ],
+   "protection": 600,
+   "durability": 50,
+   "coverage": 0.7,
+   "blunt": 0.35,
+   "model": "helmet_light"
+  },
+  "helmet_heavy": {
+   "name": "Heavy-Plate Helmet",
+   "kind": "armor",
+   "slot": "helmet",
+   "mass": 3.6,
+   "covers": [
+    "head"
+   ],
+   "protection": 2200,
+   "durability": 90,
+   "coverage": 0.85,
+   "blunt": 0.3,
+   "break_absorbs_lethal": true,
+   "model": "helmet_heavy"
+  },
+  "backpack_small": {
+   "name": "Small Backpack",
+   "kind": "backpack",
+   "slot": "backpack",
+   "mass": 0.6,
+   "capacity": 6.0,
+   "model": "backpack_small"
+  },
+  "backpack_large": {
+   "name": "Large Backpack",
+   "kind": "backpack",
+   "slot": "backpack",
+   "mass": 1.2,
+   "capacity": 12.0,
+   "model": "backpack_large"
+  },
+  "ammo_50ae": {
+   "name": ".50 AE rounds",
+   "kind": "ammo",
+   "ammo": "50ae",
+   "mass": 0.03,
+   "stack": 35,
+   "model": "ammo_50ae",
+   "color": [
+    32,
+    156,
+    160
+   ]
+  },
+  "frag_grenade": {
+   "name": "Frag grenade",
+   "kind": "throwable",
+   "mass": 0.6,
+   "stack": 4,
+   "model": "frag_grenade",
+   "fuse_s": 4.0,
+   "radius_m": 9.0,
+   "damage": 130,
+   "throw_speed": 17.0
   }
+ },
+ "carry": {
+  "base_capacity": 7.0,
+  "overweight_slow_per_kg": 0.04
+ },
+ "flashlight": {
+  "battery_life_s": 540.0,
+  "weapon_light_battery_life_s": 420.0,
+  "low_charge": 0.15,
+  "dead_charge": 0.0,
+  "swap_time": 2.6,
+  "spot_range": 34.0,
+  "spot_angle_deg": 26.0,
+  "spot_energy": 6.5,
+  "weapon_light_range": 38.0,
+  "weapon_light_angle": 18.0,
+  "weapon_light_energy": 8.0,
+  "low_flicker_rate": 0.9
+ },
+ "health": {
+  "max_health": 100.0,
+  "parts": {
+   "head": 35,
+   "torso": 85,
+   "arm_l": 55,
+   "arm_r": 55,
+   "leg_l": 60,
+   "leg_r": 60
+  },
+  "part_multiplier": {
+   "head": 4.2,
+   "torso": 1.0,
+   "arm_l": 0.6,
+   "arm_r": 0.6,
+   "leg_l": 0.7,
+   "leg_r": 0.7
+  },
+  "overflow_to_health": {
+   "head": 1.0,
+   "torso": 1.0,
+   "arm_l": 0.55,
+   "arm_r": 0.55,
+   "leg_l": 0.6,
+   "leg_r": 0.6
+  },
+  "bleed_chance": {
+   "head": 0.4,
+   "torso": 0.55,
+   "arm_l": 0.45,
+   "arm_r": 0.45,
+   "leg_l": 0.5,
+   "leg_r": 0.5
+  },
+  "heavy_bleed_damage": 28.0,
+  "bleed_light_per_s": 0.35,
+  "bleed_heavy_per_s": 1.05,
+  "fracture_threshold": 0.0,
+  "arm_sway_deg": 0.9,
+  "arm_sway_broken_deg": 2.1,
+  "leg_speed_injured": 0.82,
+  "leg_speed_broken": 0.6,
+  "downed_bleedout_s": 90.0,
+  "revive_time_s": 6.0,
+  "revive_health": 22.0,
+  "catastrophic_damage": 140.0,
+  "fall_damage_speed": 7.5,
+  "fall_lethal_speed": 18.0
+ }
 }

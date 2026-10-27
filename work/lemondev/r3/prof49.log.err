@@ -1,0 +1,91 @@
+WARNING: [Physics interpolation] MultiMesh interpolation is being triggered from outside physics process, this might lead to issues (possibly benign).
+   at: multimesh_instance_set_transform (servers/rendering/storage/mesh_storage.cpp:107)
+   GDScript backtrace (most recent call first):
+       [0] set_leaf_transform (res://src/world/dynamics.gd:381)
+       [1] _apply (res://src/world/door.gd:123)
+       [2] reset_state (res://src/world/door.gd:111)
+       [3] randomize_for_match (res://src/world/dynamics.gd:612)
+       [4] build (res://src/world/map_builder.gd:127)
+       [5] build (res://src/match/world.gd:73)
+       [6] _load_match (res://src/core/game.gd:202)
+       [7] start_match (res://src/core/game.gd:189)
+       [8] _autostart (res://src/core/game.gd:117)
+SCRIPT ERROR: Trying to assign invalid previously freed instance.
+   at: _decal (res://src/fx/effects.gd:237)
+   GDScript backtrace (most recent call first):
+       [0] _decal (res://src/fx/effects.gd:237)
+       [1] body_hit (res://src/fx/effects.gd:288)
+       [2] _ev_hit (res://src/match/world.gd:972)
+       [3] server_projectile_hit_character (res://src/match/world.gd:690)
+       [4] _advance (res://src/weapons/projectile_server.gd:103)
+       [5] step (res://src/weapons/projectile_server.gd:68)
+       [6] _prof_physics_process (res://src/match/world.gd:405)
+       [7] _physics_process (res://src/match/world.gd:1290)
+SCRIPT ERROR: Trying to assign invalid previously freed instance.
+   at: _decal (res://src/fx/effects.gd:237)
+   GDScript backtrace (most recent call first):
+       [0] _decal (res://src/fx/effects.gd:237)
+       [1] body_hit (res://src/fx/effects.gd:291)
+       [2] _ev_hit (res://src/match/world.gd:972)
+       [3] server_projectile_hit_character (res://src/match/world.gd:690)
+       [4] _advance (res://src/weapons/projectile_server.gd:103)
+       [5] step (res://src/weapons/projectile_server.gd:68)
+       [6] _prof_physics_process (res://src/match/world.gd:405)
+       [7] _physics_process (res://src/match/world.gd:1290)
+SCRIPT ERROR: Invalid assignment of property or key 'cull_mask' with value of type 'int' on a base object of type 'Nil'.
+   at: body_hit (res://src/fx/effects.gd:292)
+   GDScript backtrace (most recent call first):
+       [0] body_hit (res://src/fx/effects.gd:292)
+       [1] _ev_hit (res://src/match/world.gd:972)
+       [2] server_projectile_hit_character (res://src/match/world.gd:690)
+       [3] _advance (res://src/weapons/projectile_server.gd:103)
+       [4] step (res://src/weapons/projectile_server.gd:68)
+       [5] _prof_physics_process (res://src/match/world.gd:405)
+       [6] _physics_process (res://src/match/world.gd:1290)
+SCRIPT ERROR: Trying to assign invalid previously freed instance.
+   at: _decal (res://src/fx/effects.gd:237)
+   GDScript backtrace (most recent call first):
+       [0] _decal (res://src/fx/effects.gd:237)
+       [1] body_hit (res://src/fx/effects.gd:291)
+       [2] _ev_hit (res://src/match/world.gd:972)
+       [3] server_projectile_hit_character (res://src/match/world.gd:690)
+       [4] _advance (res://src/weapons/projectile_server.gd:103)
+       [5] step (res://src/weapons/projectile_server.gd:68)
+       [6] _prof_physics_process (res://src/match/world.gd:405)
+       [7] _physics_process (res://src/match/world.gd:1290)
+SCRIPT ERROR: Invalid assignment of property or key 'cull_mask' with value of type 'int' on a base object of type 'Nil'.
+   at: body_hit (res://src/fx/effects.gd:292)
+   GDScript backtrace (most recent call first):
+       [0] body_hit (res://src/fx/effects.gd:292)
+       [1] _ev_hit (res://src/match/world.gd:972)
+       [2] server_projectile_hit_character (res://src/match/world.gd:690)
+       [3] _advance (res://src/weapons/projectile_server.gd:103)
+       [4] step (res://src/weapons/projectile_server.gd:68)
+       [5] _prof_physics_process (res://src/match/world.gd:405)
+       [6] _physics_process (res://src/match/world.gd:1290)
+ERROR: 33 shaders of type SceneForwardClusteredShaderRD were never freed
+   at: ~ShaderRD (servers/rendering/renderer_rd/shader_rd.cpp:1236)
+ERROR: 1 shaders of type SkyShaderRD were never freed
+   at: ~ShaderRD (servers/rendering/renderer_rd/shader_rd.cpp:1236)
+WARNING: 1642 RIDs of type "UniformBuffer" were leaked.
+   at: _free_rids (servers/rendering/rendering_device.cpp:8686)
+WARNING: 1674 RIDs of type "IndexArray" were leaked.
+   at: _free_rids (servers/rendering/rendering_device.cpp:8686)
+WARNING: 1674 RIDs of type "IndexBuffer" were leaked.
+   at: _free_rids (servers/rendering/rendering_device.cpp:8686)
+WARNING: 780 RIDs of type "VertexArray" were leaked.
+   at: _free_rids (servers/rendering/rendering_device.cpp:8686)
+WARNING: 956 RIDs of type "VertexBuffer" were leaked.
+   at: _free_rids (servers/rendering/rendering_device.cpp:8686)
+WARNING: 48 RIDs of type "Framebuffer" were leaked.
+   at: _free_rids (servers/rendering/rendering_device.cpp:8686)
+WARNING: 1371 RIDs of type "Texture" were leaked.
+   at: finalize (servers/rendering/rendering_device.cpp:8900)
+WARNING: 26703 ObjectDB instances were leaked at exit (run with `--verbose` for details).
+   at: cleanup (core/object/object.cpp:2536)
+ERROR: 1106 resources still in use at exit (run with --verbose for details).
+   at: clear (core/io/resource.cpp:822)
+ERROR: Pages in use exist at exit in PagedAllocator: N12VariantPools12BucketMediumE
+   at: ~PagedAllocator (./core/templates/paged_allocator.h:170)
+ERROR: Pages in use exist at exit in PagedAllocator: N12VariantPools11BucketSmallE
+   at: ~PagedAllocator (./core/templates/paged_allocator.h:170)

@@ -1,0 +1,19 @@
+{
+  "source": "Poly Haven",
+  "title": "Medical Tape",
+  "url": "https://polyhaven.com/a/medical_tape",
+  "authors": [
+    "Miroslav Turura"
+  ],
+  "license": "CC0-1.0",
+  "license_url": "https://polyhaven.com/license",
+  "attribution_required": false,
+  "kind": "model",
+  "modifications": "Decimated to its 1,000-triangle budget; textures 512 px; 1,408 -> 1,000 triangles, 1 material (tools/blender/process_props.py).",
+  "retrieved": "2026-10-25",
+  "files": {
+    "medical_tape.gltf": "81ebd46a2482533e79936f55b12aa50a6914fd8a4052d47142cea2956ffba576",
+    "medical_tape.bin": "ce009e7b8d67223426cc1c49010d8ba258066ffd6dda0c4dd46e33d130b0d12b"
+  },
+  "processed_from": "game/assets/thirdparty/polyhaven/models/medical_tape/medical_tape_1k.gltf"
+}

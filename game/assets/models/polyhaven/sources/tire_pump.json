@@ -1,0 +1,19 @@
+{
+  "source": "Poly Haven",
+  "title": "Tire Pump",
+  "url": "https://polyhaven.com/a/tire_pump",
+  "authors": [
+    "Garrison Gager"
+  ],
+  "license": "CC0-1.0",
+  "license_url": "https://polyhaven.com/license",
+  "attribution_required": false,
+  "kind": "model",
+  "modifications": "Decimated to its 1,800-triangle budget; 6,572 -> 1,799 triangles, 1 material (tools/blender/process_props.py).",
+  "retrieved": "2026-10-25",
+  "files": {
+    "tire_pump.gltf": "436765b294f00edef2a48930ebceec4d82c756ba79a9f19f3ca3bae3ba9ca1bd",
+    "tire_pump.bin": "c14855cb2cdf48aa737b7c670f20dc55ef9144d161586bdf950f43dcc277c566"
+  },
+  "processed_from": "game/assets/thirdparty/polyhaven/models/tire_pump/tire_pump_1k.gltf"
+}

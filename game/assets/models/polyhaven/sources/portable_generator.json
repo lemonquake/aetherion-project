@@ -1,0 +1,19 @@
+{
+  "source": "Poly Haven",
+  "title": "Portable Generator",
+  "url": "https://polyhaven.com/a/portable_generator",
+  "authors": [
+    "James Ray Cock"
+  ],
+  "license": "CC0-1.0",
+  "license_url": "https://polyhaven.com/license",
+  "attribution_required": false,
+  "kind": "model",
+  "modifications": "Decimated to its 3,000-triangle budget; blend / transmission dropped, opaque (portable_generator_glass); 26,419 -> 2,999 triangles, 1 material (tools/blender/process_props.py).",
+  "retrieved": "2026-10-25",
+  "files": {
+    "portable_generator.gltf": "bdefe734c44d1e6434e3e68de91cfed7fa08202eb2c66491e8718fb4a3a514a4",
+    "portable_generator.bin": "620d8e13b2d50b91d56768c939b6504a0551ea3017494e0f0b2e7bf445cd25ba"
+  },
+  "processed_from": "game/assets/thirdparty/polyhaven/models/portable_generator/portable_generator_1k.gltf"
+}

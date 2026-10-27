@@ -1,0 +1,19 @@
+{
+  "source": "Poly Haven",
+  "title": "School Desk 01",
+  "url": "https://polyhaven.com/a/SchoolDesk_01",
+  "authors": [
+    "Ethan Place"
+  ],
+  "license": "CC0-1.0",
+  "license_url": "https://polyhaven.com/license",
+  "attribution_required": false,
+  "kind": "model",
+  "modifications": "Decimated to its 3,000-triangle budget; 4,162 -> 2,999 triangles, 1 material (tools/blender/process_props.py).",
+  "retrieved": "2026-10-25",
+  "files": {
+    "SchoolDesk_01.gltf": "dadcce5021f15fd6ec6eec42db3bdf54602a904f6fe56791e0e3f5303f8b47c4",
+    "SchoolDesk_01.bin": "ea7dec075b89e6ec8ab4ab4e5dfb39c81dd4d3741bb63ba9ead27c6bbecd9dfc"
+  },
+  "processed_from": "game/assets/thirdparty/polyhaven/models/SchoolDesk_01/SchoolDesk_01_1k.gltf"
+}

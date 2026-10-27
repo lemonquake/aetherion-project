@@ -1,0 +1,19 @@
+{
+  "source": "Poly Haven",
+  "title": "School Chair 01",
+  "url": "https://polyhaven.com/a/SchoolChair_01",
+  "authors": [
+    "Ethan Place"
+  ],
+  "license": "CC0-1.0",
+  "license_url": "https://polyhaven.com/license",
+  "attribution_required": false,
+  "kind": "model",
+  "modifications": "Decimated to its 3,000-triangle budget; 5,072 -> 3,000 triangles, 1 material (tools/blender/process_props.py).",
+  "retrieved": "2026-10-25",
+  "files": {
+    "SchoolChair_01.gltf": "a6b8c272a50824b71c8825169ed916e51d23f179990e4755807f68c203e0904f",
+    "SchoolChair_01.bin": "6a4096ffdb6f3d9ecb0da0736d8e958400bec22104bb7990b2592f6b5fcc58c3"
+  },
+  "processed_from": "game/assets/thirdparty/polyhaven/models/SchoolChair_01/SchoolChair_01_1k.gltf"
+}

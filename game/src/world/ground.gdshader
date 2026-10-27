@@ -17,15 +17,10 @@ uniform sampler2D sand_nrm : hint_normal, filter_linear_mipmap_anisotropic, repe
 uniform sampler2D path_alb : source_color, filter_linear_mipmap_anisotropic, repeat_enable;
 uniform sampler2D path_nrm : hint_normal, filter_linear_mipmap_anisotropic, repeat_enable;
 uniform float water_y = -0.6;
+uniform sampler2D noise_tex : filter_linear_mipmap, repeat_enable;
 
 varying vec3 wpos;
 
-float hash(vec2 p) { return fract(sin(dot(p, vec2(127.1, 311.7))) * 43758.5453); }
-float vnoise(vec2 p) {
-	vec2 i = floor(p); vec2 f = fract(p);
-	vec2 u = f * f * (3.0 - 2.0 * f);
-	return mix(mix(hash(i), hash(i + vec2(1, 0)), u.x), mix(hash(i + vec2(0, 1)), hash(i + vec2(1, 1)), u.x), u.y);
-}
 
 void vertex() {
 	wpos = (MODEL_MATRIX * vec4(VERTEX, 1.0)).xyz;
@@ -34,7 +29,7 @@ void vertex() {
 void fragment() {
 	vec2 suv = (wpos.xz - splat_origin) / splat_size;
 	vec4 s = texture(splat, suv);
-	float n = vnoise(wpos.xz * 0.15) * 0.6 + vnoise(wpos.xz * 0.6) * 0.4;
+	float n = texture(noise_tex, wpos.xz * (0.15 / 32.0)).g * 0.6 + texture(noise_tex, wpos.xz * (0.6 / 32.0)).a * 0.4;
 	vec2 uv = wpos.xz / 4.0;
 	vec2 uv2 = wpos.xz / 5.3 + vec2(0.37, 0.11);
 	float wm = clamp(s.r + (n - 0.5) * 0.4, 0.0, 1.0);
@@ -50,7 +45,11 @@ void fragment() {
 	float wet = 1.0 - smoothstep(water_y, water_y + 1.2, wpos.y);
 	wet = max(wet, wm * 0.5);
 	col *= mix(1.0, 0.55, wet);
-	ALBEDO = col * 0.9;
+	// Trodden settlement ground is grey-brown and grimy, not desert sand: pull the colour down and blotch it.
+	float lum = dot(col, vec3(0.3, 0.59, 0.11));
+	col = mix(vec3(lum), col, 0.45) * vec3(0.9, 0.88, 0.84);
+	col *= mix(0.5, 0.9, texture(noise_tex, wpos.xz * (0.05 / 32.0)).r);
+	ALBEDO = col * 0.52;
 	ROUGHNESS = mix(0.92, 0.35, wet);
 	NORMAL_MAP = nrm;
 	NORMAL_MAP_DEPTH = 1.0;

@@ -1,0 +1,19 @@
+{
+  "source": "Poly Haven",
+  "title": "Wooden Bucket 01",
+  "url": "https://polyhaven.com/a/wooden_bucket_01",
+  "authors": [
+    "James Ray Cock"
+  ],
+  "license": "CC0-1.0",
+  "license_url": "https://polyhaven.com/license",
+  "attribution_required": false,
+  "kind": "model",
+  "modifications": "Decimated to its 1,800-triangle budget; 5,116 -> 1,800 triangles, 1 material (tools/blender/process_props.py).",
+  "retrieved": "2026-10-25",
+  "files": {
+    "wooden_bucket_01.gltf": "4b7a175cc120931efbce8bced4e03769872499a336e1bf27dce67b5f1fc8b8ee",
+    "wooden_bucket_01.bin": "9e9a66edd2912ee5a08faa6f0c7d1af5071226959694d3a58881a2b045f7ac43"
+  },
+  "processed_from": "game/assets/thirdparty/polyhaven/models/wooden_bucket_01/wooden_bucket_01_1k.gltf"
+}

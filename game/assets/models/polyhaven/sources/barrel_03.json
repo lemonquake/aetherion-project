@@ -1,0 +1,19 @@
+{
+  "source": "Poly Haven",
+  "title": "Barrel 03",
+  "url": "https://polyhaven.com/a/barrel_03",
+  "authors": [
+    "Serhii Khromov"
+  ],
+  "license": "CC0-1.0",
+  "license_url": "https://polyhaven.com/license",
+  "attribution_required": false,
+  "kind": "model",
+  "modifications": "Re-exported unchanged (within budget, one material); 1,473 -> 1,473 triangles, 1 material (tools/blender/process_props.py).",
+  "retrieved": "2026-10-25",
+  "files": {
+    "barrel_03.gltf": "431e30fc62d260c1194501e01173e3c125ab0d28648e1c37ac2615f0f5eb463d",
+    "barrel_03.bin": "15f8650a6818dc8dd0e43baf5c1c288977f094c30205e828016408c2492d85fd"
+  },
+  "processed_from": "game/assets/thirdparty/polyhaven/models/barrel_03/barrel_03_1k.gltf"
+}

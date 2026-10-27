@@ -1,0 +1,19 @@
+{
+  "source": "Poly Haven",
+  "title": "Plastic Monobloc Chair 01",
+  "url": "https://polyhaven.com/a/plastic_monobloc_chair_01",
+  "authors": [
+    "Kuutti Siitonen"
+  ],
+  "license": "CC0-1.0",
+  "license_url": "https://polyhaven.com/license",
+  "attribution_required": false,
+  "kind": "model",
+  "modifications": "Decimated to its 3,000-triangle budget; 3,356 -> 3,000 triangles, 1 material (tools/blender/process_props.py).",
+  "retrieved": "2026-10-25",
+  "files": {
+    "plastic_monobloc_chair_01.gltf": "b80e6c25aaeadec6ad27ab3ad084a790e29a2715391e9072ca142171c4cc5dae",
+    "plastic_monobloc_chair_01.bin": "94397164dea89f177144575a09ab9bc5bcd8c7bd4114999781b275888bcf3ccc"
+  },
+  "processed_from": "game/assets/thirdparty/polyhaven/models/plastic_monobloc_chair_01/plastic_monobloc_chair_01_1k.gltf"
+}

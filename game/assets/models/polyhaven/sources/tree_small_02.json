@@ -1,0 +1,19 @@
+{
+  "source": "Poly Haven",
+  "title": "Tree Small 02",
+  "url": "https://polyhaven.com/a/tree_small_02",
+  "authors": [
+    "Rico Cilliers"
+  ],
+  "license": "CC0-1.0",
+  "license_url": "https://polyhaven.com/license",
+  "attribution_required": false,
+  "kind": "model",
+  "modifications": "Trunk: 28293 -> 3000 triangles; twigs: 94814 -> 1883 triangles (decimated, 8% kept); leaves: 30250 modelled leaves (1939380 triangles) -> 3525 two-triangle leaves enlarged 2.8x; 3 materials packed into one 1024x1280 atlas; blend / transmission dropped, opaque (tree_small_02_leaves); 2,062,487 -> 11,933 triangles, 1 material (tools/blender/process_props.py).",
+  "retrieved": "2026-10-25",
+  "files": {
+    "tree_small_02.gltf": "9a73f537caede33ba9f55722a72d665983de2500eecd147cd0c8922f068dceaa",
+    "tree_small_02.bin": "dcdcce6cd3e51d12c98e6573b65e663f26d96ee8ef3070ae6ebb8fff27afc49c"
+  },
+  "processed_from": "game/assets/thirdparty/polyhaven/models/tree_small_02/tree_small_02_1k.gltf"
+}

@@ -1,0 +1,21 @@
+{
+  "source": "Sketchfab (downloaded from the Objaverse mirror, allenai/objaverse on Hugging Face)",
+  "title": "Kriss Vector",
+  "url": "https://sketchfab.com/3d-models/47e55aeceb8d441493f77330a33d28b8",
+  "mirror_url": "https://huggingface.co/datasets/allenai/objaverse/resolve/main/glbs/000-050/47e55aeceb8d441493f77330a33d28b8.glb",
+  "authors": [
+    "Robin Vandenberghe"
+  ],
+  "author_url": "https://sketchfab.com/RobinVandenberghe",
+  "license": "CC-BY-4.0",
+  "license_url": "http://creativecommons.org/licenses/by/4.0/",
+  "attribution_required": true,
+  "kind": "model",
+  "purpose": "Vector 9mm submachine gun (realistic)",
+  "modifications": "Joined into one mesh, re-oriented (front along -Z in Godot), scaled to 0.620 m overall, centred, decimated 36123 -> 10000 triangles, textures reduced to 1024 px JPEG (tools/blender/process_items.py).",
+  "retrieved": "2026-10-27",
+  "files": {
+    "smg_vector.glb": ""
+  },
+  "processed_from": "tools/cache/sketchfab/smg_vector_c/smg_vector_c.glb"
+}

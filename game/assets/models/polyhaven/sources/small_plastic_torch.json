@@ -1,0 +1,19 @@
+{
+  "source": "Poly Haven",
+  "title": "Small Plastic Torch",
+  "url": "https://polyhaven.com/a/small_plastic_torch",
+  "authors": [
+    "Abiyyu Panggalih (Abiyyu_xyz)"
+  ],
+  "license": "CC0-1.0",
+  "license_url": "https://polyhaven.com/license",
+  "attribution_required": false,
+  "kind": "model",
+  "modifications": "Decimated to its 1,000-triangle budget; 2 materials packed into one 512x640 atlas; blend / transmission dropped, opaque (small_plastic_torch_glass); 13,252 -> 999 triangles, 1 material (tools/blender/process_props.py).",
+  "retrieved": "2026-10-25",
+  "files": {
+    "small_plastic_torch.gltf": "b2fd05020001f7d66b028d3f0ff7d2c2d4859d5299fbf5d8fe84248365cc52f1",
+    "small_plastic_torch.bin": "90d1ba0a7029585a7823a0424c550f7c9eaf29e1d0c241f0cdc7bd01307e83d2"
+  },
+  "processed_from": "game/assets/thirdparty/polyhaven/models/small_plastic_torch/small_plastic_torch_1k.gltf"
+}

@@ -1,0 +1,19 @@
+{
+  "source": "Poly Haven",
+  "title": "Compost Bags",
+  "url": "https://polyhaven.com/a/compost_bags",
+  "authors": [
+    "James Ray Cock"
+  ],
+  "license": "CC0-1.0",
+  "license_url": "https://polyhaven.com/license",
+  "attribution_required": false,
+  "kind": "model",
+  "modifications": "Kept one variant (compost_bags_standing) of the set, removed 3 other objects, re-centred on it; decimated to its 3,000-triangle budget; 4,884 -> 2,999 triangles, 1 material (tools/blender/process_props.py).",
+  "retrieved": "2026-10-25",
+  "files": {
+    "compost_bags.gltf": "575ffae5721528b7826c162b677ecd656cc0d6a55708540e3073530af037e1f7",
+    "compost_bags.bin": "5b368ab8f439b54630aa5615a2321b8397c68f90084ac0d2bf84c91fd6fdb19d"
+  },
+  "processed_from": "game/assets/thirdparty/polyhaven/models/compost_bags/compost_bags_1k.gltf"
+}

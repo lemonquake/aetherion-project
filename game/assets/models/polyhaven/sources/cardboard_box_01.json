@@ -1,0 +1,19 @@
+{
+  "source": "Poly Haven",
+  "title": "Cardboard Box 01",
+  "url": "https://polyhaven.com/a/cardboard_box_01",
+  "authors": [
+    "Rahul Chaudhary"
+  ],
+  "license": "CC0-1.0",
+  "license_url": "https://polyhaven.com/license",
+  "attribution_required": false,
+  "kind": "model",
+  "modifications": "Decimated to its 1,800-triangle budget; 16,952 -> 1,800 triangles, 1 material (tools/blender/process_props.py).",
+  "retrieved": "2026-10-25",
+  "files": {
+    "cardboard_box_01.gltf": "b340a828c1fb876e5bb467221ff73674544b3ff5f6e2d086f2f24fa7327b2654",
+    "cardboard_box_01.bin": "a0749dbfa8fddd5889c4fa60948ceef5bd1679f4770076f012aa2045c8472b25"
+  },
+  "processed_from": "game/assets/thirdparty/polyhaven/models/cardboard_box_01/cardboard_box_01_1k.gltf"
+}

@@ -1,0 +1,68 @@
+WARNING: [Physics interpolation] MultiMesh interpolation is being triggered from outside physics process, this might lead to issues (possibly benign).
+   at: multimesh_instance_set_transform (servers/rendering/storage/mesh_storage.cpp:107)
+   GDScript backtrace (most recent call first):
+       [0] set_leaf_transform (res://src/world/dynamics.gd:381)
+       [1] _apply (res://src/world/door.gd:123)
+       [2] reset_state (res://src/world/door.gd:111)
+       [3] randomize_for_match (res://src/world/dynamics.gd:612)
+       [4] build (res://src/world/map_builder.gd:127)
+       [5] build (res://src/match/world.gd:73)
+       [6] _load_match (res://src/core/game.gd:202)
+       [7] start_match (res://src/core/game.gd:189)
+       [8] _autostart (res://src/core/game.gd:117)
+SCRIPT ERROR: Trying to assign invalid previously freed instance.
+   at: _decal (res://src/fx/effects.gd:237)
+   GDScript backtrace (most recent call first):
+       [0] _decal (res://src/fx/effects.gd:237)
+       [1] impact (res://src/fx/effects.gd:200)
+       [2] _ev_impact (res://src/match/world.gd:952)
+       [3] server_impact (res://src/match/world.gd:946)
+       [4] _advance (res://src/weapons/projectile_server.gd:179)
+       [5] step (res://src/weapons/projectile_server.gd:68)
+       [6] _physics_process (res://src/match/world.gd:398)
+SCRIPT ERROR: Trying to assign invalid previously freed instance.
+   at: _decal (res://src/fx/effects.gd:237)
+   GDScript backtrace (most recent call first):
+       [0] _decal (res://src/fx/effects.gd:237)
+       [1] impact (res://src/fx/effects.gd:200)
+       [2] _ev_impact (res://src/match/world.gd:952)
+       [3] server_impact (res://src/match/world.gd:946)
+       [4] _advance (res://src/weapons/projectile_server.gd:179)
+       [5] step (res://src/weapons/projectile_server.gd:68)
+       [6] _physics_process (res://src/match/world.gd:398)
+SCRIPT ERROR: Trying to assign invalid previously freed instance.
+   at: _decal (res://src/fx/effects.gd:237)
+   GDScript backtrace (most recent call first):
+       [0] _decal (res://src/fx/effects.gd:237)
+       [1] impact (res://src/fx/effects.gd:200)
+       [2] _ev_impact (res://src/match/world.gd:952)
+       [3] server_impact (res://src/match/world.gd:946)
+       [4] _advance (res://src/weapons/projectile_server.gd:172)
+       [5] step (res://src/weapons/projectile_server.gd:68)
+       [6] _physics_process (res://src/match/world.gd:398)
+ERROR: 33 shaders of type SceneForwardClusteredShaderRD were never freed
+   at: ~ShaderRD (servers/rendering/renderer_rd/shader_rd.cpp:1236)
+ERROR: 1 shaders of type SkyShaderRD were never freed
+   at: ~ShaderRD (servers/rendering/renderer_rd/shader_rd.cpp:1236)
+WARNING: 1671 RIDs of type "UniformBuffer" were leaked.
+   at: _free_rids (servers/rendering/rendering_device.cpp:8686)
+WARNING: 1664 RIDs of type "IndexArray" were leaked.
+   at: _free_rids (servers/rendering/rendering_device.cpp:8686)
+WARNING: 1664 RIDs of type "IndexBuffer" were leaked.
+   at: _free_rids (servers/rendering/rendering_device.cpp:8686)
+WARNING: 742 RIDs of type "VertexArray" were leaked.
+   at: _free_rids (servers/rendering/rendering_device.cpp:8686)
+WARNING: 950 RIDs of type "VertexBuffer" were leaked.
+   at: _free_rids (servers/rendering/rendering_device.cpp:8686)
+WARNING: 48 RIDs of type "Framebuffer" were leaked.
+   at: _free_rids (servers/rendering/rendering_device.cpp:8686)
+WARNING: 1362 RIDs of type "Texture" were leaked.
+   at: finalize (servers/rendering/rendering_device.cpp:8900)
+WARNING: 26725 ObjectDB instances were leaked at exit (run with `--verbose` for details).
+   at: cleanup (core/object/object.cpp:2536)
+ERROR: 1098 resources still in use at exit (run with --verbose for details).
+   at: clear (core/io/resource.cpp:822)
+ERROR: Pages in use exist at exit in PagedAllocator: N12VariantPools12BucketMediumE
+   at: ~PagedAllocator (./core/templates/paged_allocator.h:170)
+ERROR: Pages in use exist at exit in PagedAllocator: N12VariantPools11BucketSmallE
+   at: ~PagedAllocator (./core/templates/paged_allocator.h:170)

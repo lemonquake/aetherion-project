@@ -1,0 +1,456 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+Vulkan 1.4.329 - Forward+ - Using Device #0: NVIDIA - NVIDIA GeForce RTX 4060
+
+[lagusan] { "segments": 97, "metres": 1510.29132175446, "lights": 209, "dead": 15, "gaps": 95, "shrines": 19, "walks": 19 }
+[looban] { "loobans": 25, "crate_stacks": 88, "low_walls": 146, "sandbags": 18, "kiosks": 25, "barricades": 9, "yard_walls": 99 }
+[dress] { "poles": 1000, "wires": 5503, "laundry": 437, "clutter": 1246, "props": 2925, "tags": 0, "puddles": 163, "plants": 1242, "vehicles": 66, "floating": 5, "loot": 469, "boxes": 67 }
+[vandal] { "wall": 1247, "covered": 355, "stains": 3298, "ground": 844, "spots": 9 }
+[world] map built in 17207 ms
+[map] 2118 buildings, 4494 doors, 9548 containers, 15415 props, #1375a694 on PC
+[game] autotest perf
+[perf] NVIDIA GeForce RTX 4060, window (1600, 900), shadows 2, ssao true, volumetric fog true, render scale 1.00
+[perf]   view tier -1 -> 2 at 325 m above ground (plane)
+[perf] plane           2784 fr  avg   2.16 ms (  462 fps)  p50   1.73  p95   4.39  p99   5.22  max   9.45  >16.7ms    0 | render cpu  0.63 gpu  1.39 | process  4.83 physics  5.91 | draws    201 objs    323 prims   226437 | agl 319
+[perf]   0.13 physics steps/frame; engine physics step avg 0.43 ms max 0.61 ms; active bodies 0, pairs 0, islands 0
+[perf]   ms/frame: 
+[perf]   worst single call (ms): 
+[perf] freefall         967 fr  avg   5.24 ms (  191 fps)  p50   4.75  p95   8.00  p99   9.35  max  12.12  >16.7ms    0 | render cpu  1.56 gpu  1.83 | process  7.13 physics  5.06 | draws    587 objs    705 prims   547103 | agl 109
+[perf]   0.32 physics steps/frame; engine physics step avg 0.56 ms max 1.00 ms; active bodies 0, pairs 0, islands 0
+[perf]   ms/frame: 
+[perf]   worst single call (ms): 
+[perf]   view tier 2 -> 1 at 91 m above ground (canopy_high)
+[perf] canopy_high      342 fr  avg   8.89 ms (  113 fps)  p50   8.85  p95  12.30  p99  13.95  max  16.58  >16.7ms    0 | render cpu  3.26 gpu  2.87 | process  9.82 physics  4.87 | draws   1569 objs   1708 prims  1461297 | agl 45
+[perf]   0.54 physics steps/frame; engine physics step avg 0.68 ms max 1.19 ms; active bodies 0, pairs 0, islands 0
+[perf]   ms/frame: 
+[perf]   worst single call (ms): 
+[perf]   view tier 1 -> 0 at 17 m above ground (canopy_low)
+[perf]   hitch 28.0 ms in canopy_low, tier 0, 15 m above ground
+[perf]   hitch 27.6 ms in canopy_low, tier 0, 8 m above ground
+[perf]   hitch 29.4 ms in canopy_low, tier 0, 7 m above ground
+[perf] canopy_low       457 fr  avg  12.08 ms (   83 fps)  p50  12.07  p95  16.29  p99  21.90  max  29.44  >16.7ms   17 | render cpu  4.87 gpu  4.29 | process 13.09 physics  4.57 | draws   2636 objs   2825 prims  2534312 | agl 3
+[perf]   0.73 physics steps/frame; engine physics step avg 0.69 ms max 1.10 ms; active bodies 0, pairs 0, islands 0
+[perf]   ms/frame: 
+[perf]   worst single call (ms): 
+[perf]   bot path searches (worker thread): 4, avg 5.71 ms, max 22.68 ms
+[perf]   hitch 29.1 ms in landed_pan, tier 0, 2 m above ground
+[perf] landed_pan       485 fr  avg  12.35 ms (   81 fps)  p50  12.47  p95  17.11  p99  22.26  max  29.14  >16.7ms   30 | render cpu  4.47 gpu  4.22 | process 12.88 physics  5.90 | draws   2685 objs   2773 prims  2965076 | agl 0
+[perf]   0.74 physics steps/frame; engine physics step avg 0.67 ms max 1.01 ms; active bodies 0, pairs 0, islands 0
+[perf]   ms/frame: 
+[perf]   worst single call (ms): 
+[perf]   bot path searches (worker thread): 62, avg 7.32 ms, max 24.20 ms
+[perf] market           456 fr  avg  13.15 ms (   76 fps)  p50  13.75  p95  16.76  p99  20.10  max  24.73  >16.7ms   27 | render cpu  4.47 gpu  4.41 | process 13.30 physics  7.71 | draws   2269 objs   2348 prims  2004872 | agl 0
+[perf]   0.79 physics steps/frame; engine physics step avg 0.67 ms max 0.96 ms; active bodies 0, pairs 0, islands 0
+[perf]   ms/frame: 
+[perf]   worst single call (ms): 
+[perf]   bot path searches (worker thread): 59, avg 6.87 ms, max 31.66 ms
+[perf]   hitch 25.5 ms in looban, tier 0, 2 m above ground
+[perf]   hitch 25.4 ms in looban, tier 0, 2 m above ground
+[perf]   hitch 25.3 ms in looban, tier 0, 2 m above ground
+[perf]   hitch 27.6 ms in looban, tier 0, 2 m above ground
+[perf]   hitch 25.2 ms in looban, tier 0, 2 m above ground
+[perf]   hitch 25.1 ms in looban, tier 0, 2 m above ground
+[perf]   hitch 27.5 ms in looban, tier 0, 2 m above ground
+[perf]   hitch 26.3 ms in looban, tier 0, 2 m above ground
+[perf]   hitch 25.5 ms in looban, tier 0, 2 m above ground
+[perf]   hitch 28.2 ms in looban, tier 0, 2 m above ground
+[perf]   hitch 25.7 ms in looban, tier 0, 2 m above ground
+[perf] looban           380 fr  avg  15.80 ms (   63 fps)  p50  15.73  p95  24.30  p99  26.31  max  28.20  >16.7ms  150 | render cpu  5.77 gpu  5.32 | process 14.19 physics  8.11 | draws   3077 objs   3150 prims  3408085 | agl 0
+[perf]   0.95 physics steps/frame; engine physics step avg 0.68 ms max 0.97 ms; active bodies 0, pairs 0, islands 0
+[perf]   ms/frame: 
+[perf]   worst single call (ms): 
+[perf]   bot path searches (worker thread): 42, avg 3.19 ms, max 29.00 ms
+[perf]   hitch 32.7 ms in looban_east, tier 0, 2 m above ground
+[perf]   hitch 25.6 ms in looban_east, tier 0, 2 m above ground
+[perf]   hitch 31.9 ms in looban_east, tier 0, 2 m above ground
+[perf]   hitch 28.6 ms in looban_east, tier 0, 2 m above ground
+[perf]   hitch 33.3 ms in looban_east, tier 0, 2 m above ground
+[perf]   hitch 26.8 ms in looban_east, tier 0, 2 m above ground
+[perf]   hitch 25.3 ms in looban_east, tier 0, 2 m above ground
+[perf]   hitch 27.6 ms in looban_east, tier 0, 2 m above ground
+[perf]   hitch 25.7 ms in looban_east, tier 0, 2 m above ground
+[perf]   hitch 25.6 ms in looban_east, tier 0, 2 m above ground
+[perf]   hitch 25.7 ms in looban_east, tier 0, 2 m above ground
+[perf]   hitch 28.1 ms in looban_east, tier 0, 2 m above ground
+[perf]   hitch 25.3 ms in looban_east, tier 0, 2 m above ground
+[perf]   hitch 39.8 ms in looban_east, tier 0, 2 m above ground
+[perf]   hitch 26.6 ms in looban_east, tier 0, 2 m above ground
+[perf]   hitch 27.8 ms in looban_east, tier 0, 2 m above ground
+[perf]   hitch 36.4 ms in looban_east, tier 0, 2 m above ground
+[perf]   hitch 28.0 ms in looban_east, tier 0, 2 m above ground
+[perf]   hitch 28.7 ms in looban_east, tier 0, 2 m above ground
+[perf]   hitch 27.5 ms in looban_east, tier 0, 2 m above ground
+[perf]   hitch 27.5 ms in looban_east, tier 0, 2 m above ground
+[perf]   hitch 26.7 ms in looban_east, tier 0, 2 m above ground
+[perf]   hitch 26.6 ms in looban_east, tier 0, 2 m above ground
+[perf]   hitch 28.1 ms in looban_east, tier 0, 2 m above ground
+[perf]   hitch 26.2 ms in looban_east, tier 0, 2 m above ground
+[perf]   hitch 27.5 ms in looban_east, tier 0, 2 m above ground
+[perf]   hitch 27.1 ms in looban_east, tier 0, 2 m above ground
+[perf]   hitch 26.8 ms in looban_east, tier 0, 2 m above ground
+[perf]   hitch 25.9 ms in looban_east, tier 0, 2 m above ground
+[perf]   hitch 25.7 ms in looban_east, tier 0, 2 m above ground
+[perf]   hitch 25.2 ms in looban_east, tier 0, 2 m above ground
+[perf]   hitch 27.5 ms in looban_east, tier 0, 2 m above ground
+[perf]   hitch 27.1 ms in looban_east, tier 0, 2 m above ground
+[perf]   hitch 31.6 ms in looban_east, tier 0, 2 m above ground
+[perf]   hitch 27.0 ms in looban_east, tier 0, 2 m above ground
+[perf]   hitch 29.6 ms in looban_east, tier 0, 2 m above ground
+[perf]   hitch 25.7 ms in looban_east, tier 0, 2 m above ground
+[perf]   hitch 25.7 ms in looban_east, tier 0, 2 m above ground
+[perf]   hitch 28.0 ms in looban_east, tier 0, 2 m above ground
+[perf]   hitch 25.1 ms in looban_east, tier 0, 2 m above ground
+[perf]   hitch 25.5 ms in looban_east, tier 0, 2 m above ground
+[perf]   hitch 36.7 ms in looban_east, tier 0, 2 m above ground
+[perf]   hitch 44.3 ms in looban_east, tier 0, 2 m above ground
+[perf]   hitch 25.6 ms in looban_east, tier 0, 2 m above ground
+[perf]   hitch 26.3 ms in looban_east, tier 0, 2 m above ground
+[perf]   hitch 25.1 ms in looban_east, tier 0, 2 m above ground
+[perf]   hitch 25.1 ms in looban_east, tier 0, 2 m above ground
+[perf]   hitch 26.5 ms in looban_east, tier 0, 2 m above ground
+[perf]   hitch 25.9 ms in looban_east, tier 0, 2 m above ground
+[perf]   hitch 25.6 ms in looban_east, tier 0, 2 m above ground
+[perf]   hitch 27.3 ms in looban_east, tier 0, 2 m above ground
+[perf]   hitch 25.8 ms in looban_east, tier 0, 2 m above ground
+[perf]   hitch 25.4 ms in looban_east, tier 0, 2 m above ground
+[perf]   hitch 25.1 ms in looban_east, tier 0, 2 m above ground
+[perf]   hitch 26.5 ms in looban_east, tier 0, 2 m above ground
+[perf]   hitch 25.4 ms in looban_east, tier 0, 2 m above ground
+[perf]   hitch 25.3 ms in looban_east, tier 0, 2 m above ground
+[perf]   hitch 28.8 ms in looban_east, tier 0, 2 m above ground
+[perf]   hitch 26.0 ms in looban_east, tier 0, 2 m above ground
+[perf]   hitch 26.8 ms in looban_east, tier 0, 2 m above ground
+[perf] looban_east      281 fr  avg  21.30 ms (   47 fps)  p50  19.69  p95  28.00  p99  36.66  max  44.34  >16.7ms  269 | render cpu  7.38 gpu  7.35 | process 20.38 physics 10.12 | draws   4165 objs   4265 prims  5281203 | agl 0
+[perf]   1.28 physics steps/frame; engine physics step avg 0.69 ms max 1.03 ms; active bodies 0, pairs 0, islands 0
+[perf]   ms/frame: 
+[perf]   worst single call (ms): 
+[perf]   bot path searches (worker thread): 34, avg 2.31 ms, max 22.51 ms
+[perf]   hitch 26.0 ms in rail, tier 0, 2 m above ground
+[perf]   hitch 28.7 ms in rail, tier 0, 2 m above ground
+[perf]   hitch 26.6 ms in rail, tier 0, 2 m above ground
+[perf]   hitch 27.9 ms in rail, tier 0, 2 m above ground
+[perf]   hitch 25.5 ms in rail, tier 0, 2 m above ground
+[perf]   hitch 26.5 ms in rail, tier 0, 2 m above ground
+[perf]   hitch 27.1 ms in rail, tier 0, 2 m above ground
+[perf]   hitch 25.5 ms in rail, tier 0, 2 m above ground
+[perf]   hitch 27.0 ms in rail, tier 0, 2 m above ground
+[perf]   hitch 27.4 ms in rail, tier 0, 2 m above ground
+[perf]   hitch 26.1 ms in rail, tier 0, 2 m above ground
+[perf]   hitch 25.5 ms in rail, tier 0, 2 m above ground
+[perf]   hitch 26.8 ms in rail, tier 0, 2 m above ground
+[perf]   hitch 26.5 ms in rail, tier 0, 2 m above ground
+[perf]   hitch 28.3 ms in rail, tier 0, 2 m above ground
+[perf]   hitch 25.1 ms in rail, tier 0, 2 m above ground
+[perf]   hitch 27.7 ms in rail, tier 0, 2 m above ground
+[perf] rail             419 fr  avg  14.31 ms (   70 fps)  p50  13.59  p95  24.11  p99  27.44  max  28.70  >16.7ms  115 | render cpu  5.00 gpu  4.73 | process 15.63 physics  7.73 | draws   2268 objs   2348 prims  2268632 | agl -0
+[perf]   0.86 physics steps/frame; engine physics step avg 0.70 ms max 1.08 ms; active bodies 0, pairs 0, islands 0
+[perf]   ms/frame: 
+[perf]   worst single call (ms): 
+[perf]   bot path searches (worker thread): 25, avg 3.17 ms, max 22.81 ms
+[perf]   hitch 27.6 ms in indoor_light, tier 0, 3 m above ground
+[perf]   hitch 25.1 ms in indoor_light, tier 0, 3 m above ground
+[perf]   hitch 26.9 ms in indoor_light, tier 0, 3 m above ground
+[perf]   hitch 25.2 ms in indoor_light, tier 0, 3 m above ground
+[perf]   hitch 25.1 ms in indoor_light, tier 0, 3 m above ground
+[perf]   hitch 27.8 ms in indoor_light, tier 0, 3 m above ground
+[perf]   hitch 27.7 ms in indoor_light, tier 0, 3 m above ground
+[perf]   hitch 28.1 ms in indoor_light, tier 0, 3 m above ground
+[perf]   hitch 28.0 ms in indoor_light, tier 0, 3 m above ground
+[perf]   hitch 28.6 ms in indoor_light, tier 0, 3 m above ground
+[perf]   hitch 32.4 ms in indoor_light, tier 0, 3 m above ground
+[perf]   hitch 28.3 ms in indoor_light, tier 0, 3 m above ground
+[perf]   hitch 29.1 ms in indoor_light, tier 0, 3 m above ground
+[perf]   hitch 28.4 ms in indoor_light, tier 0, 3 m above ground
+[perf]   hitch 28.1 ms in indoor_light, tier 0, 3 m above ground
+[perf]   hitch 28.3 ms in indoor_light, tier 0, 3 m above ground
+[perf]   hitch 28.3 ms in indoor_light, tier 0, 3 m above ground
+[perf]   hitch 29.0 ms in indoor_light, tier 0, 3 m above ground
+[perf]   hitch 28.5 ms in indoor_light, tier 0, 3 m above ground
+[perf]   hitch 29.6 ms in indoor_light, tier 0, 3 m above ground
+[perf]   hitch 27.5 ms in indoor_light, tier 0, 3 m above ground
+[perf]   hitch 27.5 ms in indoor_light, tier 0, 3 m above ground
+[perf]   hitch 27.3 ms in indoor_light, tier 0, 3 m above ground
+[perf]   hitch 29.7 ms in indoor_light, tier 0, 3 m above ground
+[perf]   hitch 27.9 ms in indoor_light, tier 0, 3 m above ground
+[perf]   hitch 26.2 ms in indoor_light, tier 0, 3 m above ground
+[perf]   hitch 26.7 ms in indoor_light, tier 0, 3 m above ground
+[perf]   hitch 27.0 ms in indoor_light, tier 0, 3 m above ground
+[perf]   hitch 26.8 ms in indoor_light, tier 0, 3 m above ground
+[perf]   hitch 26.2 ms in indoor_light, tier 0, 3 m above ground
+[perf] indoor_light     377 fr  avg  15.93 ms (   63 fps)  p50  14.58  p95  27.54  p99  29.07  max  32.41  >16.7ms  141 | render cpu  5.87 gpu  5.20 | process 14.52 physics  7.64 | draws   2766 objs   2857 prims  2875653 | agl 1
+[perf]   0.96 physics steps/frame; engine physics step avg 0.70 ms max 1.09 ms; active bodies 0, pairs 0, islands 0
+[perf]   ms/frame: 
+[perf]   worst single call (ms): 
+[perf]   bot path searches (worker thread): 21, avg 2.54 ms, max 18.37 ms
+[perf]   hitch 27.2 ms in tunnel, tier 0, 2 m above ground
+[perf]   hitch 27.8 ms in tunnel, tier 0, 2 m above ground
+[perf]   hitch 25.0 ms in tunnel, tier 0, 2 m above ground
+[perf]   hitch 26.0 ms in tunnel, tier 0, 2 m above ground
+[perf]   hitch 26.0 ms in tunnel, tier 0, 2 m above ground
+[perf]   hitch 25.3 ms in tunnel, tier 0, 2 m above ground
+[perf]   hitch 25.8 ms in tunnel, tier 0, 2 m above ground
+[perf]   hitch 25.8 ms in tunnel, tier 0, 2 m above ground
+[perf]   hitch 26.2 ms in tunnel, tier 0, 2 m above ground
+[perf]   hitch 25.2 ms in tunnel, tier 0, 2 m above ground
+[perf]   hitch 25.5 ms in tunnel, tier 0, 2 m above ground
+[perf]   hitch 25.1 ms in tunnel, tier 0, 2 m above ground
+[perf]   hitch 25.9 ms in tunnel, tier 0, 2 m above ground
+[perf]   hitch 25.8 ms in tunnel, tier 0, 2 m above ground
+[perf]   hitch 25.8 ms in tunnel, tier 0, 2 m above ground
+[perf]   hitch 25.8 ms in tunnel, tier 0, 2 m above ground
+[perf]   hitch 26.5 ms in tunnel, tier 0, 2 m above ground
+[perf]   hitch 28.4 ms in tunnel, tier 0, 2 m above ground
+[perf]   hitch 26.6 ms in tunnel, tier 0, 2 m above ground
+[perf]   hitch 28.1 ms in tunnel, tier 0, 2 m above ground
+[perf]   hitch 27.3 ms in tunnel, tier 0, 2 m above ground
+[perf]   hitch 27.1 ms in tunnel, tier 0, 2 m above ground
+[perf]   hitch 29.2 ms in tunnel, tier 0, 2 m above ground
+[perf]   hitch 30.3 ms in tunnel, tier 0, 2 m above ground
+[perf]   hitch 27.0 ms in tunnel, tier 0, 2 m above ground
+[perf]   hitch 27.9 ms in tunnel, tier 0, 2 m above ground
+[perf]   hitch 27.0 ms in tunnel, tier 0, 2 m above ground
+[perf]   hitch 27.2 ms in tunnel, tier 0, 2 m above ground
+[perf]   hitch 28.6 ms in tunnel, tier 0, 2 m above ground
+[perf]   hitch 26.6 ms in tunnel, tier 0, 2 m above ground
+[perf]   hitch 30.6 ms in tunnel, tier 0, 2 m above ground
+[perf]   hitch 25.8 ms in tunnel, tier 0, 2 m above ground
+[perf]   hitch 25.7 ms in tunnel, tier 0, 2 m above ground
+[perf]   hitch 36.9 ms in tunnel, tier 0, 2 m above ground
+[perf]   hitch 27.8 ms in tunnel, tier 0, 2 m above ground
+[perf]   hitch 30.7 ms in tunnel, tier 0, 2 m above ground
+[perf]   hitch 26.9 ms in tunnel, tier 0, 2 m above ground
+[perf]   hitch 27.4 ms in tunnel, tier 0, 2 m above ground
+[perf]   hitch 29.5 ms in tunnel, tier 0, 2 m above ground
+[perf]   hitch 27.4 ms in tunnel, tier 0, 2 m above ground
+[perf]   hitch 27.9 ms in tunnel, tier 0, 2 m above ground
+[perf]   hitch 26.9 ms in tunnel, tier 0, 2 m above ground
+[perf]   hitch 27.9 ms in tunnel, tier 0, 2 m above ground
+[perf]   hitch 29.6 ms in tunnel, tier 0, 2 m above ground
+[perf]   hitch 29.4 ms in tunnel, tier 0, 2 m above ground
+[perf]   hitch 28.1 ms in tunnel, tier 0, 2 m above ground
+[perf]   hitch 30.7 ms in tunnel, tier 0, 2 m above ground
+[perf]   hitch 29.1 ms in tunnel, tier 0, 2 m above ground
+[perf]   hitch 38.9 ms in tunnel, tier 0, 2 m above ground
+[perf]   hitch 28.8 ms in tunnel, tier 0, 2 m above ground
+[perf]   hitch 29.3 ms in tunnel, tier 0, 2 m above ground
+[perf]   hitch 30.5 ms in tunnel, tier 0, 2 m above ground
+[perf]   hitch 29.9 ms in tunnel, tier 0, 2 m above ground
+[perf]   hitch 36.6 ms in tunnel, tier 0, 2 m above ground
+[perf]   hitch 31.1 ms in tunnel, tier 0, 2 m above ground
+[perf]   hitch 32.7 ms in tunnel, tier 0, 2 m above ground
+[perf]   hitch 30.7 ms in tunnel, tier 0, 2 m above ground
+[perf]   hitch 31.5 ms in tunnel, tier 0, 2 m above ground
+[perf]   hitch 31.4 ms in tunnel, tier 0, 2 m above ground
+[perf]   hitch 31.3 ms in tunnel, tier 0, 2 m above ground
+[perf]   hitch 29.8 ms in tunnel, tier 0, 2 m above ground
+[perf]   hitch 30.0 ms in tunnel, tier 0, 2 m above ground
+[perf]   hitch 30.4 ms in tunnel, tier 0, 2 m above ground
+[perf]   hitch 29.7 ms in tunnel, tier 0, 2 m above ground
+[perf]   hitch 31.2 ms in tunnel, tier 0, 2 m above ground
+[perf]   hitch 30.3 ms in tunnel, tier 0, 2 m above ground
+[perf]   hitch 30.6 ms in tunnel, tier 0, 2 m above ground
+[perf]   hitch 25.1 ms in tunnel, tier 0, 2 m above ground
+[perf]   hitch 31.0 ms in tunnel, tier 0, 2 m above ground
+[perf]   hitch 29.9 ms in tunnel, tier 0, 2 m above ground
+[perf]   hitch 30.4 ms in tunnel, tier 0, 2 m above ground
+[perf]   hitch 31.5 ms in tunnel, tier 0, 2 m above ground
+[perf]   hitch 31.8 ms in tunnel, tier 0, 2 m above ground
+[perf]   hitch 36.7 ms in tunnel, tier 0, 2 m above ground
+[perf]   hitch 33.6 ms in tunnel, tier 0, 2 m above ground
+[perf]   hitch 33.4 ms in tunnel, tier 0, 2 m above ground
+[perf]   hitch 34.3 ms in tunnel, tier 0, 2 m above ground
+[perf]   hitch 31.1 ms in tunnel, tier 0, 2 m above ground
+[perf]   hitch 33.8 ms in tunnel, tier 0, 2 m above ground
+[perf]   hitch 31.1 ms in tunnel, tier 0, 2 m above ground
+[perf]   hitch 30.7 ms in tunnel, tier 0, 2 m above ground
+[perf]   hitch 46.5 ms in tunnel, tier 0, 2 m above ground
+[perf]   hitch 31.0 ms in tunnel, tier 0, 2 m above ground
+[perf]   hitch 31.1 ms in tunnel, tier 0, 2 m above ground
+[perf]   hitch 31.7 ms in tunnel, tier 0, 2 m above ground
+[perf]   hitch 30.0 ms in tunnel, tier 0, 2 m above ground
+[perf]   hitch 30.8 ms in tunnel, tier 0, 2 m above ground
+[perf]   hitch 31.3 ms in tunnel, tier 0, 2 m above ground
+[perf]   hitch 32.7 ms in tunnel, tier 0, 2 m above ground
+[perf]   hitch 33.8 ms in tunnel, tier 0, 2 m above ground
+[perf]   hitch 32.7 ms in tunnel, tier 0, 2 m above ground
+[perf]   hitch 32.4 ms in tunnel, tier 0, 2 m above ground
+[perf]   hitch 33.4 ms in tunnel, tier 0, 2 m above ground
+[perf]   hitch 31.9 ms in tunnel, tier 0, 2 m above ground
+[perf]   hitch 37.1 ms in tunnel, tier 0, 2 m above ground
+[perf]   hitch 33.3 ms in tunnel, tier 0, 2 m above ground
+[perf]   hitch 32.8 ms in tunnel, tier 0, 2 m above ground
+[perf]   hitch 33.2 ms in tunnel, tier 0, 2 m above ground
+[perf]   hitch 30.7 ms in tunnel, tier 0, 2 m above ground
+[perf]   hitch 31.4 ms in tunnel, tier 0, 2 m above ground
+[perf]   hitch 30.9 ms in tunnel, tier 0, 2 m above ground
+[perf]   hitch 31.6 ms in tunnel, tier 0, 2 m above ground
+[perf]   hitch 30.5 ms in tunnel, tier 0, 2 m above ground
+[perf]   hitch 30.8 ms in tunnel, tier 0, 2 m above ground
+[perf]   hitch 32.0 ms in tunnel, tier 0, 2 m above ground
+[perf]   hitch 30.3 ms in tunnel, tier 0, 2 m above ground
+[perf]   hitch 32.5 ms in tunnel, tier 0, 2 m above ground
+[perf]   hitch 30.8 ms in tunnel, tier 0, 2 m above ground
+[perf]   hitch 30.9 ms in tunnel, tier 0, 2 m above ground
+[perf]   hitch 29.8 ms in tunnel, tier 0, 2 m above ground
+[perf]   hitch 30.5 ms in tunnel, tier 0, 2 m above ground
+[perf]   hitch 33.6 ms in tunnel, tier 0, 2 m above ground
+[perf]   hitch 30.7 ms in tunnel, tier 0, 2 m above ground
+[perf]   hitch 31.2 ms in tunnel, tier 0, 2 m above ground
+[perf]   hitch 30.2 ms in tunnel, tier 0, 2 m above ground
+[perf]   hitch 30.1 ms in tunnel, tier 0, 2 m above ground
+[perf]   hitch 30.4 ms in tunnel, tier 0, 2 m above ground
+[perf]   hitch 29.8 ms in tunnel, tier 0, 2 m above ground
+[perf]   hitch 31.4 ms in tunnel, tier 0, 2 m above ground
+[perf]   hitch 29.1 ms in tunnel, tier 0, 2 m above ground
+[perf]   hitch 30.4 ms in tunnel, tier 0, 2 m above ground
+[perf]   hitch 28.0 ms in tunnel, tier 0, 2 m above ground
+[perf] tunnel           232 fr  avg  25.85 ms (   39 fps)  p50  25.67  p95  33.44  p99  37.07  max  46.46  >16.7ms  232 | render cpu  9.46 gpu  8.67 | process 19.37 physics 10.36 | draws   4809 objs   4898 prims  4947008 | agl 0
+[perf]   1.56 physics steps/frame; engine physics step avg 0.72 ms max 2.22 ms; active bodies 0, pairs 0, islands 0
+[perf]   ms/frame: 
+[perf]   worst single call (ms): 
+[perf]   bot path searches (worker thread): 41, avg 4.31 ms, max 20.46 ms
+[perf]   hitch 26.8 ms in looban_east_day, tier 0, 2 m above ground
+[perf]   hitch 26.3 ms in looban_east_day, tier 0, 2 m above ground
+[perf]   hitch 29.0 ms in looban_east_day, tier 0, 2 m above ground
+[perf]   hitch 28.6 ms in looban_east_day, tier 0, 2 m above ground
+[perf]   hitch 27.9 ms in looban_east_day, tier 0, 2 m above ground
+[perf]   hitch 26.2 ms in looban_east_day, tier 0, 2 m above ground
+[perf]   hitch 27.3 ms in looban_east_day, tier 0, 2 m above ground
+[perf]   hitch 25.7 ms in looban_east_day, tier 0, 2 m above ground
+[perf]   hitch 25.7 ms in looban_east_day, tier 0, 2 m above ground
+[perf]   hitch 25.1 ms in looban_east_day, tier 0, 2 m above ground
+[perf]   hitch 25.4 ms in looban_east_day, tier 0, 2 m above ground
+[perf]   hitch 26.0 ms in looban_east_day, tier 0, 2 m above ground
+[perf]   hitch 34.2 ms in looban_east_day, tier 0, 2 m above ground
+[perf]   hitch 26.8 ms in looban_east_day, tier 0, 2 m above ground
+[perf]   hitch 25.6 ms in looban_east_day, tier 0, 2 m above ground
+[perf]   hitch 25.6 ms in looban_east_day, tier 0, 2 m above ground
+[perf]   hitch 28.6 ms in looban_east_day, tier 0, 2 m above ground
+[perf]   hitch 29.8 ms in looban_east_day, tier 0, 2 m above ground
+[perf]   hitch 28.8 ms in looban_east_day, tier 0, 2 m above ground
+[perf]   hitch 29.8 ms in looban_east_day, tier 0, 2 m above ground
+[perf]   hitch 28.2 ms in looban_east_day, tier 0, 2 m above ground
+[perf]   hitch 25.8 ms in looban_east_day, tier 0, 2 m above ground
+[perf]   hitch 28.2 ms in looban_east_day, tier 0, 2 m above ground
+[perf]   hitch 39.8 ms in looban_east_day, tier 0, 2 m above ground
+[perf]   hitch 27.0 ms in looban_east_day, tier 0, 2 m above ground
+[perf]   hitch 31.0 ms in looban_east_day, tier 0, 2 m above ground
+[perf]   hitch 25.7 ms in looban_east_day, tier 0, 2 m above ground
+[perf]   hitch 26.3 ms in looban_east_day, tier 0, 2 m above ground
+[perf]   hitch 30.7 ms in looban_east_day, tier 0, 2 m above ground
+[perf]   hitch 28.8 ms in looban_east_day, tier 0, 2 m above ground
+[perf]   hitch 28.5 ms in looban_east_day, tier 0, 2 m above ground
+[perf]   hitch 27.7 ms in looban_east_day, tier 0, 2 m above ground
+[perf]   hitch 29.8 ms in looban_east_day, tier 0, 2 m above ground
+[perf]   hitch 28.0 ms in looban_east_day, tier 0, 2 m above ground
+[perf]   hitch 29.6 ms in looban_east_day, tier 0, 2 m above ground
+[perf]   hitch 27.6 ms in looban_east_day, tier 0, 2 m above ground
+[perf]   hitch 28.9 ms in looban_east_day, tier 0, 2 m above ground
+[perf]   hitch 29.0 ms in looban_east_day, tier 0, 2 m above ground
+[perf]   hitch 29.6 ms in looban_east_day, tier 0, 2 m above ground
+[perf]   hitch 31.4 ms in looban_east_day, tier 0, 2 m above ground
+[perf]   hitch 31.5 ms in looban_east_day, tier 0, 2 m above ground
+[perf]   hitch 29.6 ms in looban_east_day, tier 0, 2 m above ground
+[perf]   hitch 30.6 ms in looban_east_day, tier 0, 2 m above ground
+[perf]   hitch 37.4 ms in looban_east_day, tier 0, 2 m above ground
+[perf]   hitch 32.6 ms in looban_east_day, tier 0, 2 m above ground
+[perf]   hitch 29.8 ms in looban_east_day, tier 0, 2 m above ground
+[perf]   hitch 31.4 ms in looban_east_day, tier 0, 2 m above ground
+[perf]   hitch 29.6 ms in looban_east_day, tier 0, 2 m above ground
+[perf]   hitch 29.6 ms in looban_east_day, tier 0, 2 m above ground
+[perf]   hitch 28.6 ms in looban_east_day, tier 0, 2 m above ground
+[perf]   hitch 35.8 ms in looban_east_day, tier 0, 2 m above ground
+[perf]   hitch 33.7 ms in looban_east_day, tier 0, 2 m above ground
+[perf]   hitch 30.0 ms in looban_east_day, tier 0, 2 m above ground
+[perf]   hitch 32.5 ms in looban_east_day, tier 0, 2 m above ground
+[perf]   hitch 31.8 ms in looban_east_day, tier 0, 2 m above ground
+[perf]   hitch 29.7 ms in looban_east_day, tier 0, 2 m above ground
+[perf]   hitch 31.1 ms in looban_east_day, tier 0, 2 m above ground
+[perf]   hitch 30.3 ms in looban_east_day, tier 0, 2 m above ground
+[perf]   hitch 29.2 ms in looban_east_day, tier 0, 2 m above ground
+[perf]   hitch 28.0 ms in looban_east_day, tier 0, 2 m above ground
+[perf]   hitch 27.7 ms in looban_east_day, tier 0, 2 m above ground
+[perf]   hitch 29.6 ms in looban_east_day, tier 0, 2 m above ground
+[perf]   hitch 28.0 ms in looban_east_day, tier 0, 2 m above ground
+[perf]   hitch 28.5 ms in looban_east_day, tier 0, 2 m above ground
+[perf]   hitch 30.2 ms in looban_east_day, tier 0, 2 m above ground
+[perf]   hitch 29.5 ms in looban_east_day, tier 0, 2 m above ground
+[perf]   hitch 30.1 ms in looban_east_day, tier 0, 2 m above ground
+[perf]   hitch 30.7 ms in looban_east_day, tier 0, 2 m above ground
+[perf]   hitch 30.3 ms in looban_east_day, tier 0, 2 m above ground
+[perf]   hitch 28.8 ms in looban_east_day, tier 0, 2 m above ground
+[perf]   hitch 29.5 ms in looban_east_day, tier 0, 2 m above ground
+[perf]   hitch 28.2 ms in looban_east_day, tier 0, 2 m above ground
+[perf]   hitch 29.9 ms in looban_east_day, tier 0, 2 m above ground
+[perf]   hitch 31.0 ms in looban_east_day, tier 0, 2 m above ground
+[perf]   hitch 27.3 ms in looban_east_day, tier 0, 2 m above ground
+[perf]   hitch 26.6 ms in looban_east_day, tier 0, 2 m above ground
+[perf]   hitch 30.3 ms in looban_east_day, tier 0, 2 m above ground
+[perf]   hitch 29.7 ms in looban_east_day, tier 0, 2 m above ground
+[perf]   hitch 27.7 ms in looban_east_day, tier 0, 2 m above ground
+[perf]   hitch 34.5 ms in looban_east_day, tier 0, 2 m above ground
+[perf]   hitch 30.9 ms in looban_east_day, tier 0, 2 m above ground
+[perf]   hitch 30.8 ms in looban_east_day, tier 0, 2 m above ground
+[perf]   hitch 28.5 ms in looban_east_day, tier 0, 2 m above ground
+[perf]   hitch 29.2 ms in looban_east_day, tier 0, 2 m above ground
+[perf]   hitch 27.1 ms in looban_east_day, tier 0, 2 m above ground
+[perf]   hitch 28.3 ms in looban_east_day, tier 0, 2 m above ground
+[perf]   hitch 28.8 ms in looban_east_day, tier 0, 2 m above ground
+[perf]   hitch 28.4 ms in looban_east_day, tier 0, 2 m above ground
+[perf]   hitch 29.9 ms in looban_east_day, tier 0, 2 m above ground
+[perf]   hitch 28.5 ms in looban_east_day, tier 0, 2 m above ground
+[perf]   hitch 29.3 ms in looban_east_day, tier 0, 2 m above ground
+[perf]   hitch 31.6 ms in looban_east_day, tier 0, 2 m above ground
+[perf]   hitch 28.0 ms in looban_east_day, tier 0, 2 m above ground
+[perf]   hitch 28.8 ms in looban_east_day, tier 0, 2 m above ground
+[perf]   hitch 27.7 ms in looban_east_day, tier 0, 2 m above ground
+[perf]   hitch 27.8 ms in looban_east_day, tier 0, 2 m above ground
+[perf]   hitch 31.5 ms in looban_east_day, tier 0, 2 m above ground
+[perf]   hitch 27.4 ms in looban_east_day, tier 0, 2 m above ground
+[perf]   hitch 26.6 ms in looban_east_day, tier 0, 2 m above ground
+[perf]   hitch 26.9 ms in looban_east_day, tier 0, 2 m above ground
+[perf]   hitch 26.9 ms in looban_east_day, tier 0, 2 m above ground
+[perf]   hitch 26.6 ms in looban_east_day, tier 0, 2 m above ground
+[perf]   hitch 26.8 ms in looban_east_day, tier 0, 2 m above ground
+[perf]   hitch 27.1 ms in looban_east_day, tier 0, 2 m above ground
+[perf]   hitch 26.0 ms in looban_east_day, tier 0, 2 m above ground
+[perf]   hitch 27.1 ms in looban_east_day, tier 0, 2 m above ground
+[perf]   hitch 26.1 ms in looban_east_day, tier 0, 2 m above ground
+[perf]   hitch 26.9 ms in looban_east_day, tier 0, 2 m above ground
+[perf]   hitch 26.6 ms in looban_east_day, tier 0, 2 m above ground
+[perf]   hitch 26.5 ms in looban_east_day, tier 0, 2 m above ground
+[perf]   hitch 26.2 ms in looban_east_day, tier 0, 2 m above ground
+[perf]   hitch 25.3 ms in looban_east_day, tier 0, 2 m above ground
+[perf] looban_east_day   245 fr  avg  24.44 ms (   41 fps)  p50  23.70  p95  31.41  p99  35.77  max  39.84  >16.7ms  245 | render cpu  7.92 gpu  8.61 | process 17.39 physics 11.51 | draws   4057 objs   4161 prims  5468875 | agl 0
+[perf]   1.47 physics steps/frame; engine physics step avg 0.73 ms max 1.43 ms; active bodies 0, pairs 0, islands 0
+[perf]   ms/frame: 
+[perf]   worst single call (ms): 
+[perf]   bot path searches (worker thread): 48, avg 3.32 ms, max 19.11 ms
+[perf]   hitch 26.6 ms in market_day, tier 0, 2 m above ground
+[perf]   hitch 26.1 ms in market_day, tier 0, 2 m above ground
+[perf]   hitch 25.6 ms in market_day, tier 0, 2 m above ground
+[perf]   hitch 26.4 ms in market_day, tier 0, 2 m above ground
+[perf]   hitch 25.5 ms in market_day, tier 0, 2 m above ground
+[perf]   hitch 25.5 ms in market_day, tier 0, 2 m above ground
+[perf]   hitch 26.2 ms in market_day, tier 0, 2 m above ground
+[perf]   hitch 25.7 ms in market_day, tier 0, 2 m above ground
+[perf]   hitch 26.0 ms in market_day, tier 0, 2 m above ground
+[perf]   hitch 25.3 ms in market_day, tier 0, 2 m above ground
+[perf]   hitch 25.4 ms in market_day, tier 0, 2 m above ground
+[perf]   hitch 25.4 ms in market_day, tier 0, 2 m above ground
+[perf]   hitch 26.9 ms in market_day, tier 0, 2 m above ground
+[perf]   hitch 27.7 ms in market_day, tier 0, 2 m above ground
+[perf]   hitch 26.5 ms in market_day, tier 0, 2 m above ground
+[perf]   hitch 25.1 ms in market_day, tier 0, 2 m above ground
+[perf] market_day       345 fr  avg  17.35 ms (   58 fps)  p50  17.40  p95  24.93  p99  26.48  max  27.74  >16.7ms  192 | render cpu  6.37 gpu  6.04 | process 14.57 physics  8.71 | draws   2868 objs   2970 prims  2856876 | agl 0
+[perf]   1.04 physics steps/frame; engine physics step avg 0.70 ms max 1.11 ms; active bodies 0, pairs 0, islands 0
+[perf]   ms/frame: 
+[perf]   worst single call (ms): 
+[perf]   bot path searches (worker thread): 40, avg 3.13 ms, max 19.42 ms
+[autotest] PASS perf_recorded: 13 phases, worst average 25.85 ms
+[autotest] done: 1 checks, 0 failed
+ERROR: 1 RID allocations of type 'N10RendererRD5SkyRD3SkyE' were leaked at exit.
+ERROR: 1 RID allocations of type 'N26RendererEnvironmentStorage11EnvironmentE' were leaked at exit.
+ERROR: 209 RID allocations of type 'N10RendererRD11MeshStorage4MeshE' were leaked at exit.
+ERROR: 1677 RID allocations of type 'N10RendererRD15MaterialStorage8MaterialE' were leaked at exit.
+ERROR: 34 RID allocations of type 'N10RendererRD15MaterialStorage6ShaderE' were leaked at exit.
+ERROR: 719 RID allocations of type 'N10RendererRD14TextureStorage7TextureE' were leaked at exit.

@@ -1,0 +1,19 @@
+{
+  "source": "Poly Haven",
+  "title": "Wheelchair 01",
+  "url": "https://polyhaven.com/a/wheelchair_01",
+  "authors": [
+    "Garreth Dean"
+  ],
+  "license": "CC0-1.0",
+  "license_url": "https://polyhaven.com/license",
+  "attribution_required": false,
+  "kind": "model",
+  "modifications": "Decimated to its 3,000-triangle budget; 40,252 -> 2,999 triangles, 1 material (tools/blender/process_props.py).",
+  "retrieved": "2026-10-25",
+  "files": {
+    "wheelchair_01.gltf": "a81cabae0eb5fdcc9848a35a34ead51d1999899508bc40621ed890454ce4129d",
+    "wheelchair_01.bin": "ae66ef093f90d902e04e4327a3701b421121a2ac5af1964ae1122c1cfc018e1d"
+  },
+  "processed_from": "game/assets/thirdparty/polyhaven/models/wheelchair_01/wheelchair_01_1k.gltf"
+}

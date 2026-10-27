@@ -1,0 +1,19 @@
+{
+  "source": "Poly Haven",
+  "title": "Can Rusted",
+  "url": "https://polyhaven.com/a/can_rusted",
+  "authors": [
+    "Rahul Chaudhary"
+  ],
+  "license": "CC0-1.0",
+  "license_url": "https://polyhaven.com/license",
+  "attribution_required": false,
+  "kind": "model",
+  "modifications": "Decimated to its 1,000-triangle budget; textures 512 px; 3,520 -> 1,000 triangles, 1 material (tools/blender/process_props.py).",
+  "retrieved": "2026-10-25",
+  "files": {
+    "can_rusted.gltf": "af5f0360b14dad8b0b307ba5105076ad34271f0011e5359d6d6c04a815ebf416",
+    "can_rusted.bin": "c75714177d5a04494cab1d855f59165d0a35ceb4dd949ce5ab6ef82f72e6b1de"
+  },
+  "processed_from": "game/assets/thirdparty/polyhaven/models/can_rusted/can_rusted_1k.gltf"
+}

@@ -1,0 +1,19 @@
+{
+  "source": "Poly Haven",
+  "title": "Brass Pot 01",
+  "url": "https://polyhaven.com/a/brass_pot_01",
+  "authors": [
+    "Rico Cilliers"
+  ],
+  "license": "CC0-1.0",
+  "license_url": "https://polyhaven.com/license",
+  "attribution_required": false,
+  "kind": "model",
+  "modifications": "Decimated to its 1,800-triangle budget; textures 512 px; 3,760 -> 1,799 triangles, 1 material (tools/blender/process_props.py).",
+  "retrieved": "2026-10-25",
+  "files": {
+    "brass_pot_01.gltf": "5edd0d55831315548270c943ff9e5d1d085bcb9369f1eb5b3af4ef2029633f0d",
+    "brass_pot_01.bin": "0278687d9edab937011773d553b3548863d88bd56fe2d9e2a273b7f1be5f765d"
+  },
+  "processed_from": "game/assets/thirdparty/polyhaven/models/brass_pot_01/brass_pot_01_1k.gltf"
+}

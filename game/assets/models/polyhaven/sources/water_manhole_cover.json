@@ -1,0 +1,19 @@
+{
+  "source": "Poly Haven",
+  "title": "Water Manhole Cover",
+  "url": "https://polyhaven.com/a/water_manhole_cover",
+  "authors": [
+    "Raunox"
+  ],
+  "license": "CC0-1.0",
+  "license_url": "https://polyhaven.com/license",
+  "attribution_required": false,
+  "kind": "model",
+  "modifications": "Decimated to its 3,000-triangle budget; 6,301 -> 2,999 triangles, 1 material (tools/blender/process_props.py).",
+  "retrieved": "2026-10-25",
+  "files": {
+    "water_manhole_cover.gltf": "4c7655dd75cce25fe586c71b69def870ccaf71751b7822be6a4db353f8ccf059",
+    "water_manhole_cover.bin": "ec7c2bee75fde6f329e478f1ec6c3d9bdc00114d72e41b3fb0ea9e4608ef0f39"
+  },
+  "processed_from": "game/assets/thirdparty/polyhaven/models/water_manhole_cover/water_manhole_cover_1k.gltf"
+}

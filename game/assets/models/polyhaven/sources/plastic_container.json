@@ -1,0 +1,19 @@
+{
+  "source": "Poly Haven",
+  "title": "Plastic Container",
+  "url": "https://polyhaven.com/a/plastic_container",
+  "authors": [
+    "PierreB3D"
+  ],
+  "license": "CC0-1.0",
+  "license_url": "https://polyhaven.com/license",
+  "attribution_required": false,
+  "kind": "model",
+  "modifications": "Decimated to its 3,000-triangle budget; 4,070 -> 3,000 triangles, 1 material (tools/blender/process_props.py).",
+  "retrieved": "2026-10-25",
+  "files": {
+    "plastic_container.gltf": "a7801911b08fa4668d16d3fa69e12cdc920e7bdfe63112ad94a1ac6a162a0a80",
+    "plastic_container.bin": "596ca601b9cba18659f8f3ac938581e060205cca6e2f688ea1ea598eaa1fd4bb"
+  },
+  "processed_from": "game/assets/thirdparty/polyhaven/models/plastic_container/plastic_container_1k.gltf"
+}

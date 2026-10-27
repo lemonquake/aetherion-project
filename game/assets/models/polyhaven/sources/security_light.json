@@ -1,0 +1,19 @@
+{
+  "source": "Poly Haven",
+  "title": "Security Light",
+  "url": "https://polyhaven.com/a/security_light",
+  "authors": [
+    "Maximilian Schuster"
+  ],
+  "license": "CC0-1.0",
+  "license_url": "https://polyhaven.com/license",
+  "attribution_required": false,
+  "kind": "model",
+  "modifications": "Decimated to its 1,800-triangle budget; blend / transmission dropped, opaque (security_light_glass); 4,668 -> 1,799 triangles, 1 material (tools/blender/process_props.py).",
+  "retrieved": "2026-10-25",
+  "files": {
+    "security_light.gltf": "c0c0429d10e0e4a6757d6b07188a2424f10f842d7a6cb3edcb40ba7d91d5687f",
+    "security_light.bin": "5dd6a99429b5c68e212831a3650bc3b6584ae4cda82cc546027ba4aca5a5e2f5"
+  },
+  "processed_from": "game/assets/thirdparty/polyhaven/models/security_light/security_light_1k.gltf"
+}

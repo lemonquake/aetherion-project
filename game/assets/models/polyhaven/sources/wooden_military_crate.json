@@ -1,0 +1,19 @@
+{
+  "source": "Poly Haven",
+  "title": "Wooden Military Crate",
+  "url": "https://polyhaven.com/a/wooden_military_crate",
+  "authors": [
+    "Prabhjinder Singh"
+  ],
+  "license": "CC0-1.0",
+  "license_url": "https://polyhaven.com/license",
+  "attribution_required": false,
+  "kind": "model",
+  "modifications": "Decimated to its 4,000-triangle budget; 22,986 -> 4,000 triangles, 1 material (tools/blender/process_props.py).",
+  "retrieved": "2026-10-25",
+  "files": {
+    "wooden_military_crate.gltf": "6d0af0bd4e7be5af2e2892474e321afc701b635bbed5ca75532f962af8a94ef0",
+    "wooden_military_crate.bin": "0a3c20a85b0fd0641d0b85fc6185eb1d5ce842883e219ec1bdd1ffa51b4e6670"
+  },
+  "processed_from": "game/assets/thirdparty/polyhaven/models/wooden_military_crate/wooden_military_crate_1k.gltf"
+}

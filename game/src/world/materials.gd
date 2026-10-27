@@ -5,6 +5,7 @@ extends RefCounted
 
 const SHADER := preload("res://src/world/surface.gdshader")
 const TEX := "res://assets/thirdparty/polyhaven/textures/"
+const NOISE := preload("res://assets/fx/noise_rgba.png")
 
 const SURFACES := {
 	"yero_rust": {"tex": "rusty_corrugated_iron", "tile": 1.6, "phys": "sheet_metal", "metal": 0.35, "grime": 0.4},
@@ -115,8 +116,29 @@ func get_material(name: String) -> Material:
 			b.albedo_color = Color(0.02, 0.02, 0.02)
 			b.roughness = 1.0
 			m = b
+		"wire":
+			var wm := StandardMaterial3D.new()
+			wm.albedo_color = Color(0.015, 0.015, 0.016)
+			wm.roughness = 0.55
+			m = wm
+		"puddle":
+			var pm := ShaderMaterial.new()
+			pm.shader = preload("res://src/world/puddle.gdshader")
+			m = pm
+		"decal_atlas":
+			# Every wall and ground decal in one texture (tools/make_vandal_atlas.py): one draw call per chunk.
+			var am := ShaderMaterial.new()
+			am.shader = preload("res://src/world/decal.gdshader")
+			am.set_shader_parameter("tex", _tex("res://assets/fx/vandal_atlas.png"))
+			m = am
 		_:
-			m = _surface(name)
+			if name.begins_with("decal:"):
+				var dm := ShaderMaterial.new()
+				dm.shader = preload("res://src/world/decal.gdshader")
+				dm.set_shader_parameter("tex", _tex(name.substr(6)))
+				m = dm
+			else:
+				m = _surface(name)
 	_cache[name] = m
 	return m
 
@@ -149,6 +171,7 @@ func _surface(name: String) -> Material:
 	mat.set_shader_parameter("metallic", float(s.get("metal", 0.0)))
 	mat.set_shader_parameter("grime", float(s.get("grime", 0.5)))
 	mat.set_shader_parameter("paint_flake", float(s.get("flake", 0.55)))
+	mat.set_shader_parameter("noise_tex", NOISE)
 	return mat
 
 
@@ -159,6 +182,8 @@ func tile(name: String) -> float:
 func phys(name: String) -> String:
 	if name.begins_with("glass"):
 		return "glass"
+	if name.begins_with("decal:") or name == "puddle" or name == "wire" or name == "decal_atlas":
+		return "fabric"
 	return str(SURFACES.get(name, {}).get("phys", "default"))
 
 

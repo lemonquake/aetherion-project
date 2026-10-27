@@ -1,0 +1,52 @@
+{
+  "_doc": "Match rules and tuning. Distances in metres, times in seconds.",
+  "player_target": 32,
+  "max_players": 40,
+  "modes": {
+    "solo": {"team_size": 1},
+    "duo": {"team_size": 2},
+    "squad": {"team_size": 4}
+  },
+  "lobby": {"min_players_to_start": 1, "countdown_s": 5, "fill_with_bots": true},
+  "loading_timeout_s": 90,
+  "plane": {"altitude": 320.0, "speed": 70.0, "pre_jump_delay_s": 6.0, "path_margin": 120.0},
+  "deploy": {
+    "cluster_spacing": 7.0, "cluster_vertical_stagger": 4.0,
+    "freefall_speed": 52.0, "freefall_horizontal": 16.0, "auto_open_agl": 110.0, "min_freefall_s": 2.5,
+    "chute_descent": 5.2, "chute_descent_fast": 7.6, "chute_descent_brake": 3.6, "chute_forward": 8.5, "chute_forward_fast": 12.0,
+    "chute_forward_brake": 3.2, "chute_turn_deg_s": 55.0, "flare_window_agl": 4.0, "flare_descent": 1.6, "flare_duration_s": 1.4,
+    "separation_radius": 6.5, "separation_force": 5.0,
+    "hard_landing_speed": 6.0, "injury_landing_speed": 9.5, "stuck_timeout_s": 2.0
+  },
+  "zone": {
+    "start_radius_fraction": 0.62,
+    "phases": [
+      {"wait": 150, "shrink": 90, "radius": 0.62, "dps": 0.6},
+      {"wait": 120, "shrink": 75, "radius": 0.38, "dps": 1.2},
+      {"wait": 100, "shrink": 60, "radius": 0.22, "dps": 2.0},
+      {"wait": 80, "shrink": 50, "radius": 0.12, "dps": 3.5},
+      {"wait": 60, "shrink": 45, "radius": 0.06, "dps": 5.0},
+      {"wait": 45, "shrink": 40, "radius": 0.02, "dps": 8.0},
+      {"wait": 30, "shrink": 30, "radius": 0.0, "dps": 12.0}
+    ],
+    "warning_s": [60, 30, 10]
+  },
+  "radio": {"cue_radius": 14.0, "static_interval_s": 1.8, "min_cue_gap_s": 0.35},
+  "text_chat": {"tap_radius": 4.0},
+  "results_s": 25,
+  "corpse_ragdoll_sync_hz": 12,
+  "relevance": {"enemy_radius": 180.0, "prop_radius": 70.0, "sound_radius_scale": 1.0},
+  "net": {"snapshot_hz": 30, "interp_delay_s": 0.1, "max_rewind_s": 0.3, "input_redundancy": 4,
+          "max_speed_tolerance": 1.35, "max_fire_origin_error": 1.2, "interact_range": 2.4},
+  "movement": {
+    "walk_speed": 2.6, "run_speed": 4.4, "sprint_speed": 6.3, "crouch_speed": 1.6, "crawl_speed": 0.6,
+    "accel_ground": 18.0, "friction_ground": 12.0, "accel_air": 2.5, "jump_velocity": 4.3, "gravity": 9.81,
+    "stand_height": 1.78, "crouch_height": 1.15, "downed_height": 0.55, "radius": 0.3, "eye_offset": 0.12,
+    "step_height": 0.36, "wade_speed": 1.7, "swim_speed": 1.3, "ladder_speed": 1.8,
+    "carry_heavy_speed": 1.1, "aim_speed_mult": 0.65
+  },
+  "interaction": {
+    "reach": 2.3, "carry_mass_limit": 22.0, "throw_mass_limit": 6.0, "push_mass_limit": 120.0,
+    "throw_speed_max": 13.0, "hold_distance": 1.25, "max_held_speed": 7.0
+  }
+}

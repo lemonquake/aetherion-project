@@ -13,6 +13,10 @@ const BOT_NAMES := [
 	"Lolo Pepe", "Ate Bebang", "Kapitan Tikoy", "Totoy Bibo", "Inday Tsismis", "Mang Tani", "Dodong Lechon",
 	"Ka Pedring", "Bunso Badong", "Tita Baby", "Kumpare Ambo", "Aling Puring", "Utoy Kalabaw",
 	"Junjun Tisoy", "Ising Batingaw", "Kulot Sabaw", "Toto Pancit",
+	"Manong Guard", "Ate Siomai", "Kuya Tricycle", "Lola Basyang", "Mang Tomas", "Bebot Karaoke", "Pinsan Gardo",
+	"Tito Videoke", "Aling Taho", "Boy Pickup", "Mang Isko", "Kapitbahay Lito", "Tsong Balut", "Nanay Kakanin",
+	"Bayaw Erning", "Tatay Kulas", "Ate Load", "Kuya Fishball", "Lolo Kalesa", "Mang Jolo",
+	"Mang Tomas Ketchup", "Kuya Wifi", "Ate Load Dito", "Tito Karaoke King", "Lola Basyang Jr", "Pareng Pandesal", "Kumareng Marites", "Totoy Kulot", "Bossing Barbecue", "Inday Rice Cooker"
 ]
 
 var state := "boot"
@@ -52,6 +56,19 @@ func arg(key: String, default_value = null):
 
 func boot() -> void:
 	## Called by the boot scene once autoloads are ready.
+	if Settings.is_mobile():
+		# Menus and HUD drawn half as large again: buttons laid out for a monitor are a few millimetres tall on a phone.
+		get_tree().root.content_scale_factor = 1.5
+	if OS.get_name() == "Android" and not "android.permission.RECORD_AUDIO" in OS.get_granted_permissions():
+		# Ask for the microphone (team radio) at the menu, not when the first match starts.
+		OS.request_permission("android.permission.RECORD_AUDIO")
+	if arg("shot"):
+		# --shot=<png> [--shot_after=<s>]: save the screen and quit (menus and lobby at any window size).
+		get_tree().create_timer(float(arg("shot_after", 3.0))).timeout.connect(func():
+			await RenderingServer.frame_post_draw
+			get_viewport().get_texture().get_image().save_png(str(arg("shot")))
+			print("[game] shot %s" % str(arg("shot")))
+			get_tree().quit())
 	if arg("name"):
 		Settings.set_value("player", "name", str(arg("name")))
 	if arg("server"):
@@ -81,6 +98,8 @@ func _apply_arg_config() -> void:
 		Net.set_config("bots", int(arg("bots")) > 0)
 	if arg("seed") != null:
 		Net.set_config("map_seed", int(arg("seed")))
+	if arg("zone_speed") != null:
+		Net.set_config("zone_speed", float(arg("zone_speed")))
 	if arg("autostart"):
 		var wait := float(arg("autostart_after", 0.0)) if str(arg("autostart")) == "true" else float(arg("autostart"))
 		get_tree().create_timer(maxf(wait, 0.5)).timeout.connect(_autostart)
@@ -157,8 +176,8 @@ func start_match() -> void:
 			var t = names[i]
 			names[i] = names[j]
 			names[j] = t
-		var room := int(Defs.rule("max_players", 24)) - Net.players.size()
-		for i in mini(int(Net.config.get("bot_count", 7)), room):
+		var room := int(Defs.rule("max_players", 40)) - Net.players.size()
+		for i in mini(int(Net.config.get("bot_count", 20)), room):
 			Net.add_bot(names[i % names.size()])
 	Net.assign_teams()
 	for pid in Net.players:
@@ -181,16 +200,27 @@ func _load_match(cfg: Dictionary, seed_value: int) -> void:
 	world.name = "World"
 	add_child(world)
 	world.build(cfg, seed_value)
+	print("[map] %s on %s" % [world.map.fingerprint, Net.platform()])
 	if Net.is_server:
 		_on_peer_loaded(1)
 	else:
-		_client_loaded.rpc_id(1)
+		_client_loaded.rpc_id(1, world.map.fingerprint)
 
 
 @rpc("any_peer", "reliable")
-func _client_loaded() -> void:
-	if Net.is_server:
-		_on_peer_loaded(multiplayer.get_remote_sender_id())
+func _client_loaded(fingerprint: String = "") -> void:
+	if not Net.is_server:
+		return
+	var pid := multiplayer.get_remote_sender_id()
+	if world and world.map and fingerprint != world.map.fingerprint:
+		# Same version, different map: the client's doors, loot and props would not match the server's.
+		var p: Dictionary = Net.players.get(pid, {})
+		var msg := "%s (%s) built a different map: %s; server: %s" % [p.get("name", pid), p.get("platform", "?"), fingerprint, world.map.fingerprint]
+		print("[map] MISMATCH " + msg)
+		if world.match_server:
+			world.match_server.log_event("map mismatch: " + msg)
+		world.match_toast.rpc_id(pid, "Your game built a different map from the host's. Doors and loot may not line up.", "")
+	_on_peer_loaded(pid)
 
 
 func _on_peer_loaded(pid: int) -> void:
@@ -216,13 +246,27 @@ func _begin_match() -> void:
 	_set_state("match")
 	_match_started.rpc()
 	world.server_start_match()
+	if arg("autotest") and not Net.dedicated:
+		_add_autotest()
+
+
+func _add_autotest() -> void:
+	var scenario := str(arg("autotest"))
+	var path := "res://src/debug/autotest_net.gd" if scenario.begins_with("net") else "res://src/debug/autotest.gd"
+	var at: Node = load(path).new()
+	print("[game] autotest %s" % scenario)
+	at.name = "AutoTest"
+	world.add_child(at)
 
 
 @rpc("authority", "call_remote", "reliable")
 func _match_started() -> void:
 	_set_state("match")
+	print("[game] match started (client)")
 	if world:
 		world.client_match_started()
+		if arg("autotest"):
+			_add_autotest()
 
 
 func end_match_to_results(summary: Dictionary) -> void:
@@ -315,8 +359,11 @@ func relay_voice(from_pid: int, bytes: PackedByteArray) -> void:
 	if not _talking.has(from_pid) and world:
 		world.server_radio_event(from_pid, "on")
 	_talking[from_pid] = 0.0
-	for pid in Net.players:
-		var p: Dictionary = Net.players[pid]
-		if pid == from_pid or p.bot or not p.connected or p.team != team:
-			continue
-		Net.deliver_voice(pid, from_pid, bytes)
+	if world:
+		for tg in world.voice_targets(from_pid):
+			Net.deliver_voice(int(tg[0]), from_pid, bytes, int(tg[1]), int(tg[2]))
+	else:
+		for pid in Net.players:
+			var p: Dictionary = Net.players[pid]
+			if pid != from_pid and not p.bot and p.connected and p.team == team:
+				Net.deliver_voice(pid, from_pid, bytes, -1, 0)

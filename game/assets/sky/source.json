@@ -1,0 +1,15 @@
+{
+  "source": "Copied from the owner's Sleep project (assets/fields/sky)",
+  "title": "Moon colour map; cloud noise texture",
+  "url": "https://svs.gsfc.nasa.gov/4720 (NASA CGI Moon Kit, LRO colour map)",
+  "authors": [
+    "NASA Scientific Visualization Studio (moon)",
+    "Aljay Leodones / Sleep project tools/assets/make_cloud_noise.py (cloud noise)"
+  ],
+  "license": "Public domain (NASA imagery); owner's own generated texture",
+  "license_url": "https://www.nasa.gov/nasa-brand-center/images-and-media/",
+  "attribution_required": false,
+  "kind": "texture",
+  "modifications": "none; the night sky shader is adapted from Sleep's night_sky.gdshader / night_common.gdshaderinc (owner's code), whose cloud approach follows Velvet Katana Studios' CC0 'AAA Fake Volumetric Clouds'",
+  "retrieved": "2026-10-26"
+}

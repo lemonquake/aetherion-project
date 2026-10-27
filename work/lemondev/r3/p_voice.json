@@ -1,0 +1,5 @@
+[
+["signal voice_received(from_pid: int, bytes: PackedByteArray)", "## kind 0: your own team's radio (2D); 1: overheard from a teammate radio of the speaker (src_eid); 2: the speaker's\n## own voice nearby (src_eid).\nsignal voice_received(from_pid: int, bytes: PackedByteArray, src_eid: int, kind: int)"],
+["func deliver_voice(to_pid: int, from_pid: int, bytes: PackedByteArray) -> void:\n\tif to_pid == local_pid:\n\t\tvoice_received.emit(from_pid, bytes)\n\telse:\n\t\t_voice_down.rpc_id(to_pid, from_pid, bytes)", "func deliver_voice(to_pid: int, from_pid: int, bytes: PackedByteArray, src_eid: int = -1, kind: int = 0) -> void:\n\tif to_pid == local_pid:\n\t\tvoice_received.emit(from_pid, bytes, src_eid, kind)\n\telse:\n\t\t_voice_down.rpc_id(to_pid, from_pid, bytes, src_eid, kind)"],
+["func _voice_down(from_pid: int, bytes: PackedByteArray) -> void:\n\tvoice_received.emit(from_pid, bytes)", "func _voice_down(from_pid: int, bytes: PackedByteArray, src_eid: int, kind: int) -> void:\n\tvoice_received.emit(from_pid, bytes, src_eid, kind)"]
+]

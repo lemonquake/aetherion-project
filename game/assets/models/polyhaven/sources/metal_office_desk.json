@@ -1,0 +1,19 @@
+{
+  "source": "Poly Haven",
+  "title": "Metal Office Desk",
+  "url": "https://polyhaven.com/a/metal_office_desk",
+  "authors": [
+    "Ulan Cabanilla"
+  ],
+  "license": "CC0-1.0",
+  "license_url": "https://polyhaven.com/license",
+  "attribution_required": false,
+  "kind": "model",
+  "modifications": "Decimated to its 4,000-triangle budget; 6,898 -> 4,000 triangles, 1 material (tools/blender/process_props.py).",
+  "retrieved": "2026-10-25",
+  "files": {
+    "metal_office_desk.gltf": "38e24658da56b7eabcb306bd93b17bc8c037be3425788b0a7e43a23382f3882a",
+    "metal_office_desk.bin": "1aa5c2011a85a7dc45214f3888241613caed3a276434fab8daefd50e3743a5fe"
+  },
+  "processed_from": "game/assets/thirdparty/polyhaven/models/metal_office_desk/metal_office_desk_1k.gltf"
+}

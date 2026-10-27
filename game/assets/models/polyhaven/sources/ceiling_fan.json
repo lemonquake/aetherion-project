@@ -1,0 +1,19 @@
+{
+  "source": "Poly Haven",
+  "title": "Ceiling Fan",
+  "url": "https://polyhaven.com/a/ceiling_fan",
+  "authors": [
+    "Ulan Cabanilla"
+  ],
+  "license": "CC0-1.0",
+  "license_url": "https://polyhaven.com/license",
+  "attribution_required": false,
+  "kind": "model",
+  "modifications": "Decimated to its 4,000-triangle budget; 16,356 -> 4,000 triangles, 1 material (tools/blender/process_props.py).",
+  "retrieved": "2026-10-25",
+  "files": {
+    "ceiling_fan.gltf": "564a8eed26b9ef19fdf1a45bcf7df1ed0dd789ae9272240062e7c95893cd93a8",
+    "ceiling_fan.bin": "71ab421e060e7e92c6e26e237277893a9903390006c4933d56daa6196df7aa75"
+  },
+  "processed_from": "game/assets/thirdparty/polyhaven/models/ceiling_fan/ceiling_fan_1k.gltf"
+}

@@ -1,0 +1,48 @@
+
+
+# ------------------------------------------------------------------ 2026-10-27: ping and vault over the network
+
+func _ping_and_vault() -> void:
+	## Alpha pings (Bravo must see it on the minimap), then vaults through an open window from inside a house: the
+	## owner's prediction must agree with the server (vault state travels in the owner snapshot).
+	await _tap("ping")
+	_state_put({"ping": ch.eid})
+	await _wait(1.0)
+	var space = world.get_world_3d().direct_space_state
+	var best := {}
+	var bd := INF
+	for wnd in world.map.dyn.windows:
+		if not (str(wnd.type) in ["open", "plastic"]) or float(wnd.w) < 0.75 or float(wnd.h) < 0.9:
+			continue
+		var d: float = (wnd.xf as Transform3D).origin.distance_to(ch.global_position)
+		if d > bd:
+			continue
+		var out: Vector3 = wnd.outward
+		out.y = 0.0
+		out = out.normalized()
+		var sill: Vector3 = (wnd.xf as Transform3D).origin - Vector3.UP * float(wnd.h) * 0.5
+		var inside = space.intersect_ray(PhysicsRayQueryParameters3D.create(sill - out * 0.75 + Vector3.UP * 0.3, sill - out * 0.75 + Vector3.DOWN * 1.6, Defs.MOVE_MASK))
+		var outside = space.intersect_ray(PhysicsRayQueryParameters3D.create(sill + out * 0.95 + Vector3.UP * 0.3, sill + out * 0.95 + Vector3.DOWN * 2.0, Defs.MOVE_MASK))
+		var through = space.intersect_ray(PhysicsRayQueryParameters3D.create(sill - out * 0.4 + Vector3.UP * 0.45, sill + out * 1.3 + Vector3.UP * 0.45, Defs.MOVE_MASK))
+		if inside.is_empty() or outside.is_empty() or not through.is_empty():
+			continue
+		var h: float = sill.y - (inside.position as Vector3).y
+		if h < 0.6 or h > 1.3:
+			continue
+		bd = d
+		best = {"w": wnd, "feet": inside.position, "out": out}
+	if best.is_empty():
+		_check("vault_predicted", false, "no open window to vault")
+		return
+	var out2: Vector3 = best.out
+	await _teleport((best.feet as Vector3) + Vector3.UP * 0.05, (best.feet as Vector3) + out2 * 3.0 + Vector3.UP * 1.66)
+	ctl.pitch = 0.0
+	var c0: int = ctl.stats.corrections
+	ctl.stats.max_error = 0.0
+	var o: Vector3 = (best.w.xf as Transform3D).origin
+	await _tap("jump")
+	var vaulted: bool = await _until(func(): return ch.vault_t >= 0.0, 0.5)
+	await _wait(1.2)
+	var side := (ch.global_position - o).dot(out2)
+	_check("vault_predicted", vaulted and side > 0.2 and ctl.stats.max_error < 0.75,
+		"vaulted %s, now %.2f m outside the window, max prediction error %.3f m, %d corrections" % [str(vaulted), side, ctl.stats.max_error, ctl.stats.corrections - c0])

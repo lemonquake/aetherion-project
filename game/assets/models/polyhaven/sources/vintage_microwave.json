@@ -1,0 +1,19 @@
+{
+  "source": "Poly Haven",
+  "title": "Vintage Microwave",
+  "url": "https://polyhaven.com/a/vintage_microwave",
+  "authors": [
+    "Adam Nekola"
+  ],
+  "license": "CC0-1.0",
+  "license_url": "https://polyhaven.com/license",
+  "attribution_required": false,
+  "kind": "model",
+  "modifications": "Decimated to its 3,000-triangle budget; blend / transmission dropped, opaque (vintage_microwave_glass); 8,120 -> 3,000 triangles, 1 material (tools/blender/process_props.py).",
+  "retrieved": "2026-10-25",
+  "files": {
+    "vintage_microwave.gltf": "b44b5e83aeba1c28a2fb1f34ebcb0c6732c9f46cb733c29ef6c2425f5a784cf5",
+    "vintage_microwave.bin": "7fa79eef9e5430e5f8140d4268c55e995cee041cae235a2beebeb4a4521a06de"
+  },
+  "processed_from": "game/assets/thirdparty/polyhaven/models/vintage_microwave/vintage_microwave_1k.gltf"
+}

@@ -1,0 +1,19 @@
+{
+  "source": "Poly Haven",
+  "title": "Small Wooden Table 01",
+  "url": "https://polyhaven.com/a/small_wooden_table_01",
+  "authors": [
+    "Ulan Cabanilla"
+  ],
+  "license": "CC0-1.0",
+  "license_url": "https://polyhaven.com/license",
+  "attribution_required": false,
+  "kind": "model",
+  "modifications": "Decimated to its 3,000-triangle budget; 3,410 -> 2,999 triangles, 1 material (tools/blender/process_props.py).",
+  "retrieved": "2026-10-25",
+  "files": {
+    "small_wooden_table_01.gltf": "97bc5574f6e577e04e8fd039420ef57639537112c52d8b27326e61767141e819",
+    "small_wooden_table_01.bin": "38ffde23d453d1ef1d6a381209754fe9e1d9cad62bcfa044873ef49dcc1f2681"
+  },
+  "processed_from": "game/assets/thirdparty/polyhaven/models/small_wooden_table_01/small_wooden_table_01_1k.gltf"
+}

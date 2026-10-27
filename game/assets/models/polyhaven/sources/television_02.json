@@ -1,0 +1,19 @@
+{
+  "source": "Poly Haven",
+  "title": "Television 02",
+  "url": "https://polyhaven.com/a/television_02",
+  "authors": [
+    "Benny Weimer"
+  ],
+  "license": "CC0-1.0",
+  "license_url": "https://polyhaven.com/license",
+  "attribution_required": false,
+  "kind": "model",
+  "modifications": "Decimated to its 1,800-triangle budget; textures 512 px; 2,310 -> 1,800 triangles, 1 material (tools/blender/process_props.py).",
+  "retrieved": "2026-10-25",
+  "files": {
+    "television_02.gltf": "d7db5073e6934b61e8a4a85688a768cd879baa55e5325316ca60b52b6b88c3a7",
+    "television_02.bin": "3c652d4d060a4a9d96eac3ba802f2ee2219f3f6efcc0e32f29b7017ea4fdbb8a"
+  },
+  "processed_from": "game/assets/thirdparty/polyhaven/models/television_02/television_02_1k.gltf"
+}

@@ -1,0 +1,19 @@
+{
+  "source": "Poly Haven",
+  "title": "Wooden Stool 01",
+  "url": "https://polyhaven.com/a/wooden_stool_01",
+  "authors": [
+    "Kuutti Siitonen"
+  ],
+  "license": "CC0-1.0",
+  "license_url": "https://polyhaven.com/license",
+  "attribution_required": false,
+  "kind": "model",
+  "modifications": "Decimated to its 1,800-triangle budget; textures 512 px; 10,946 -> 1,800 triangles, 1 material (tools/blender/process_props.py).",
+  "retrieved": "2026-10-25",
+  "files": {
+    "wooden_stool_01.gltf": "3819374d521290d1eac9fd6941ccf948103fce714cdf600d910a626c478179b1",
+    "wooden_stool_01.bin": "24861f34a0118215718b3158cfcfb7a9b4e6e7d4509b6b58ace5b3738ac852a2"
+  },
+  "processed_from": "game/assets/thirdparty/polyhaven/models/wooden_stool_01/wooden_stool_01_1k.gltf"
+}

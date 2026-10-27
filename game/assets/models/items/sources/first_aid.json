@@ -1,0 +1,21 @@
+{
+  "source": "Sketchfab (downloaded from the Objaverse mirror, allenai/objaverse on Hugging Face)",
+  "title": "Tactical FIRST AID KIT",
+  "url": "https://sketchfab.com/3d-models/011c33c121284bc88bb765a85511dae1",
+  "mirror_url": "https://huggingface.co/datasets/allenai/objaverse/resolve/main/glbs/000-000/011c33c121284bc88bb765a85511dae1.glb",
+  "authors": [
+    "Ruslan Koschey"
+  ],
+  "author_url": "https://sketchfab.com/ruskoschey",
+  "license": "CC-BY-4.0",
+  "license_url": "http://creativecommons.org/licenses/by/4.0/",
+  "attribution_required": true,
+  "kind": "model",
+  "purpose": "medical kit item",
+  "modifications": "Joined into one mesh, re-oriented (front along -Z in Godot), scaled to 0.260 m overall, centred, decimated 3632 -> 3632 triangles, textures reduced to 1024 px JPEG (tools/blender/process_items.py).",
+  "retrieved": "2026-10-25",
+  "files": {
+    "first_aid.glb": ""
+  },
+  "processed_from": "tools/cache/sketchfab/first_aid_kit/first_aid_kit.glb"
+}

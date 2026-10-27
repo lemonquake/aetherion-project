@@ -1,0 +1,19 @@
+{
+  "source": "Poly Haven",
+  "title": "Wooden Bowl 01",
+  "url": "https://polyhaven.com/a/wooden_bowl_01",
+  "authors": [
+    "Oliver Harries"
+  ],
+  "license": "CC0-1.0",
+  "license_url": "https://polyhaven.com/license",
+  "attribution_required": false,
+  "kind": "model",
+  "modifications": "Decimated to its 1,800-triangle budget; textures 512 px; 14,122 -> 1,800 triangles, 1 material (tools/blender/process_props.py).",
+  "retrieved": "2026-10-25",
+  "files": {
+    "wooden_bowl_01.gltf": "c580e31e05c77e7222e7d970dc78d34a3a840833a846f5047329bc4635b91346",
+    "wooden_bowl_01.bin": "c94a416128c2e3aa571c5bcd6c67b0ed2b1b7d3b006ed49bf5d030cfa7430ebc"
+  },
+  "processed_from": "game/assets/thirdparty/polyhaven/models/wooden_bowl_01/wooden_bowl_01_1k.gltf"
+}

@@ -1,0 +1,27 @@
+func _blockers(f: Dictionary) -> Array:
+	## What the stuck player touches, probed with short rays (head up, forward at knee / chest / head, sideways),
+	## in flight coordinates (x toward the landing side, y up from the foot, z along the flight).
+	var space: PhysicsDirectSpaceState3D = world.get_world_3d().direct_space_state
+	var dir: Vector3 = f.dir
+	var side: Vector3 = ((f.top as Vector3) - (f.foot as Vector3))
+	side = side - dir * side.dot(dir)
+	side.y = 0.0
+	side = side.normalized()
+	var fb := Basis(side, Vector3.UP, dir)
+	var p: Vector3 = t.ch.global_position
+	var out := []
+	var probes := {"up": [p + Vector3.UP * 1.5, Vector3.UP * 0.6], "fwd_knee": [p + Vector3.UP * 0.4, dir * 0.6],
+		"fwd_chest": [p + Vector3.UP * 1.2, dir * 0.6], "fwd_head": [p + Vector3.UP * 1.7, dir * 0.6],
+		"side_in": [p + Vector3.UP * 1.0, side * 0.6], "side_out": [p + Vector3.UP * 1.0, -side * 0.6],
+		"up_fwd": [p + Vector3.UP * 1.5, (Vector3.UP + dir).normalized() * 0.8]}
+	for k in probes:
+		var a: Vector3 = probes[k][0]
+		var q := PhysicsRayQueryParameters3D.create(a, a + (probes[k][1] as Vector3), Defs.MOVE_MASK)
+		q.exclude = [t.ch.get_rid()]
+		var r := space.intersect_ray(q)
+		if not r.is_empty():
+			var rel: Vector3 = fb.inverse() * ((r.position as Vector3) - (f.foot as Vector3))
+			out.append("%s hit at %s n %s" % [k, str(rel.snapped(Vector3.ONE * 0.01)), str((fb.inverse() * (r.normal as Vector3)).snapped(Vector3.ONE * 0.01))])
+	return out
+
+

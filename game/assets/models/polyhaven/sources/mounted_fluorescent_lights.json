@@ -1,0 +1,19 @@
+{
+  "source": "Poly Haven",
+  "title": "Mounted Fluorescent Lights",
+  "url": "https://polyhaven.com/a/mounted_fluorescent_lights",
+  "authors": [
+    "Ulan Cabanilla"
+  ],
+  "license": "CC0-1.0",
+  "license_url": "https://polyhaven.com/license",
+  "attribution_required": false,
+  "kind": "model",
+  "modifications": "Kept one variant (mounted_fluorescent_lights_d) of the set, removed 6 other objects, re-centred on it; decimated to its 3,000-triangle budget; 3,540 -> 3,000 triangles, 1 material (tools/blender/process_props.py).",
+  "retrieved": "2026-10-25",
+  "files": {
+    "mounted_fluorescent_lights.gltf": "5b5971b93c22494a4dd553d9e8acaaac99f85cd0b415753ca6220e1eebbb4790",
+    "mounted_fluorescent_lights.bin": "b954521991dd2522340b9821bb11db2250e1a96c7af17a6fcaf0a9bd06943506"
+  },
+  "processed_from": "game/assets/thirdparty/polyhaven/models/mounted_fluorescent_lights/mounted_fluorescent_lights_1k.gltf"
+}

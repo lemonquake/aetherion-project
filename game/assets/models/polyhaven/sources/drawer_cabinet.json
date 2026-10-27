@@ -1,0 +1,19 @@
+{
+  "source": "Poly Haven",
+  "title": "Drawer Cabinet",
+  "url": "https://polyhaven.com/a/drawer_cabinet",
+  "authors": [
+    "Ulan Cabanilla"
+  ],
+  "license": "CC0-1.0",
+  "license_url": "https://polyhaven.com/license",
+  "attribution_required": false,
+  "kind": "model",
+  "modifications": "Decimated to its 4,000-triangle budget; 26,406 -> 3,999 triangles, 1 material (tools/blender/process_props.py).",
+  "retrieved": "2026-10-25",
+  "files": {
+    "drawer_cabinet.gltf": "3840ddec215a91e55d0bd79955a85c66681dbc6da75b7e32e0cea6b6a325aa1d",
+    "drawer_cabinet.bin": "17f6539bf42291f18b140b51d73a93ba9a5cf99a019e707640135478c07345ef"
+  },
+  "processed_from": "game/assets/thirdparty/polyhaven/models/drawer_cabinet/drawer_cabinet_1k.gltf"
+}

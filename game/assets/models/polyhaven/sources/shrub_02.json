@@ -1,0 +1,19 @@
+{
+  "source": "Poly Haven",
+  "title": "Shrub 02",
+  "url": "https://polyhaven.com/a/shrub_02",
+  "authors": [
+    "Rico Cilliers"
+  ],
+  "license": "CC0-1.0",
+  "license_url": "https://polyhaven.com/license",
+  "attribution_required": false,
+  "kind": "model",
+  "modifications": "Kept one variant (shrub_02_a) of the set, removed 3 other objects, re-centred on it; thinned to 53% of its blades / leaves, survivors enlarged 1.38x; blend / transmission dropped, opaque (shrub_02); 7,590 -> 4,736 triangles, 1 material (tools/blender/process_props.py).",
+  "retrieved": "2026-10-25",
+  "files": {
+    "shrub_02.gltf": "3393ebe34e1e1309bed343c904e67784e9a0f6d6aab45427664933d30ed93693",
+    "shrub_02.bin": "b8bf7086806453ba4314b3edcca1703fbecd99dbef9d3eb9fa04792c81c25714"
+  },
+  "processed_from": "game/assets/thirdparty/polyhaven/models/shrub_02/shrub_02_1k.gltf"
+}

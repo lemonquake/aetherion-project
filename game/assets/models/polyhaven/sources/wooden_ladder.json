@@ -1,0 +1,19 @@
+{
+  "source": "Poly Haven",
+  "title": "Wooden Ladder",
+  "url": "https://polyhaven.com/a/wooden_ladder",
+  "authors": [
+    "Miroslav Turura"
+  ],
+  "license": "CC0-1.0",
+  "license_url": "https://polyhaven.com/license",
+  "attribution_required": false,
+  "kind": "model",
+  "modifications": "Decimated to its 4,000-triangle budget; 8,492 -> 3,999 triangles, 1 material (tools/blender/process_props.py).",
+  "retrieved": "2026-10-25",
+  "files": {
+    "wooden_ladder.gltf": "db03b834b5e25f537deefdb32c09ef4f58aba4350180a29d82a44f5b17d857be",
+    "wooden_ladder.bin": "64a343ab1fc87382f113c8b1f3aa3372851f233749c5a2e63d5df3132a02e8db"
+  },
+  "processed_from": "game/assets/thirdparty/polyhaven/models/wooden_ladder/wooden_ladder_1k.gltf"
+}

@@ -1,0 +1,132 @@
+
+
+# ------------------------------------------------------------------ weapons, grenades, sounds
+
+func _all_weapons() -> void:
+	## Every gun: has its own model and a gunshot sound, draws, fires, kicks the view up (recoil is meant to be
+	## hard), reloads to a full magazine. Guns of one calibre share one ammunition (and its colour).
+	var rows := []
+	var bad := []
+	var cal := {}
+	for wid in Defs.weapons:
+		var d: Dictionary = Defs.weapon(wid)
+		cal[str(d.ammo)] = (cal.get(str(d.ammo), []) as Array) + [str(d.name)]
+		var md: Dictionary = world.map.item_visual(wid)
+		var snd := "shot_" + str(d.get("sound", ""))
+		if md.get("mesh") == null or md.get("placeholder", false) or not SoundSys.defs.has(snd):
+			bad.append("%s: model %s, sound %s" % [wid, str(md.get("mesh") != null), str(SoundSys.defs.has(snd))])
+	var tested := 0
+	for wid in Defs.weapons:
+		var d: Dictionary = Defs.weapon(wid)
+		# Fresh hands: empty the slots so the new gun is the one drawn.
+		for s in [1, 2, 3]:
+			t.ch.wpn.slots[s] = null
+		world.interaction.give(t.ch, {"id": wid, "n": 1})
+		world.interaction.give(t.ch, {"id": Defs.ammo_item(wid), "n": int(d.mag_size) * 3})
+		var slot := 1
+		for s in [1, 2, 3]:
+			if t.ch.wpn.slots[s] != null and str(t.ch.wpn.slots[s].id) == wid:
+				slot = s
+		t.ctl.slot = slot
+		var drawn: bool = await t._until(func(): return t.ch.wpn.current_id() == wid and t.ch.wpn.can_fire(), 4.0)
+		if not drawn:
+			bad.append("%s: not drawn" % wid)
+			continue
+		t.ctl.pitch = 0.0
+		var p0: float = t.ctl.pitch
+		var shots0: int = t.ch.wpn.shots
+		var auto: bool = "auto" in (d.fire_modes as Array)
+		if auto:
+			t._act_press("fire")
+			await t._wait(0.6)
+			t._act_release("fire")
+		else:
+			for k in 3:
+				await t._tap("fire")
+				await t._wait(maxf(60.0 / float(d.rpm), float(d.get("cycle_time", 0.0))) + 0.05)
+		await t._wait(0.15)
+		var fired: int = t.ch.wpn.shots - shots0
+		var climb := rad_to_deg(t.ctl.pitch - p0)
+		t.ctl.pitch = 0.0
+		await t._tap("reload")
+		var full: bool = await t._until(func(): return int(t.ch.wpn.weapon().get("mag", 0)) >= int(d.mag_size) and t.ch.wpn.state != t.ch.wpn.RELOAD, 12.0)
+		rows.append("%s %d shots, view +%.1f deg, reload %s" % [str(d.name), fired, climb, "ok" if full else "FAILED"])
+		if fired < (3 if not auto else 2) or climb < 0.8 or not full:
+			bad.append("%s: %d shots, climb %.1f deg, reloaded %s" % [wid, fired, climb, str(full)])
+		tested += 1
+		if tested == 1 or wid in ["rifle_scar", "smg_vector", "pistol_deagle"]:
+			await t._shot("weapon_%s" % wid)
+	print("[autotest] weapons: " + "; ".join(rows))
+	t._check("all_weapons_work", bad.is_empty() and tested >= 24, "%d guns tested; problems: %s" % [tested, str(bad)])
+	t._check("shared_calibres", (cal.get("556", []) as Array).size() >= 4 and (cal.get("762x39", []) as Array).size() >= 3,
+		"by calibre: %s" % str(cal))
+
+
+func _grenade() -> void:
+	## A frag thrown at a teammate standing in the open hurts them; the bag loses one; the blast is loud.
+	var mates: Array = t._teammates()
+	if mates.is_empty():
+		t._check("frag_grenade", false, "no teammate")
+		return
+	var mate = mates[0]
+	world.interaction.give(t.ch, {"id": "frag_grenade", "n": 2})
+	var n0: int = t.ch.inv.take("frag_grenade", 0)
+	var space = world.get_world_3d().direct_space_state
+	var fwd: Vector3 = -Basis(Vector3.UP, t.ctl.yaw).z
+	var spot: Vector3 = t.ch.global_position + fwd * 5.0
+	var h = space.intersect_ray(PhysicsRayQueryParameters3D.create(spot + Vector3.UP * 2.0, spot + Vector3.DOWN * 3.0, Defs.PHYS_WORLD))
+	if not h.is_empty():
+		spot = (h.position as Vector3) + Vector3.UP * 0.05
+	var hp0: float = mate.health.health
+	t.ctl.pitch = -0.35
+	await t._tap("throw_grenade")
+	var thrown: bool = await t._until(func(): return not world.grenades.live.is_empty(), 1.0)
+	var count_after := 0
+	for e in t.ch.inv.bag:
+		if str(e.id) == "frag_grenade":
+			count_after += int(e.n)
+	var g_pos := Vector3.ZERO
+	for i in 300:
+		await t.get_tree().physics_frame
+		if world.grenades.live.is_empty():
+			break
+		var g: Dictionary = world.grenades.live.values()[0]
+		g_pos = g.p
+		# Keep the teammate standing 2 m from where the grenade is.
+		mate.global_position = (g.p as Vector3) + Vector3(2.0, 0.0, 0.0)
+		mate.velocity = Vector3.ZERO
+	await t._wait(0.1)
+	await t._shot("frag_explosion")
+	var hp1: float = mate.health.health
+	t._check("frag_grenade", thrown and count_after == 1 and hp1 < hp0 - 10.0 and SoundSys.defs.has("explosion"),
+		"thrown %s, frags left %d, teammate 2 m away %.0f -> %.0f health, exploded at %s" % [str(thrown), count_after, hp0, hp1, str(g_pos.snapped(Vector3.ONE * 0.1))])
+
+
+func _work_sounds() -> void:
+	## Every file from work/sounds is used by some sound and loads.
+	var used := {}
+	for sid in SoundSys.defs:
+		for f in SoundSys.defs[sid].files:
+			if str(f).begins_with("assets/audio/work/"):
+				used[str(f)] = sid
+	var missing := []
+	var unloadable := []
+	for group in ["buttons", "guns", "player"]:
+		var dir := DirAccess.open("res://assets/audio/work/" + group)
+		if dir == null:
+			missing.append(group)
+			continue
+		for fn in dir.get_files():
+			if not fn.ends_with(".mp3"):
+				continue
+			var path := "assets/audio/work/%s/%s" % [group, fn]
+			if not used.has(path):
+				missing.append(path)
+			elif load("res://" + path) == null:
+				unloadable.append(path)
+	t._check("work_sounds_used", missing.is_empty() and unloadable.is_empty() and used.size() >= 46,
+		"%d work/sounds files in use; unused %s; not loading %s" % [used.size(), str(missing), str(unloadable)])
+	var dd: Dictionary = SoundSys.defs
+	t._check("door_sounds_60", absf(float(dd.door_open.db) - (float(dd.door_open.db_full) - 4.437)) < 0.05 and absf(float(Settings.DEFAULTS.audio.ambience) - 0.6) < 0.001,
+		"door open %.1f dB (was %.1f), door close %.1f dB (was %.1f), ambience default %.0f%%" % [float(dd.door_open.db), float(dd.door_open.db_full),
+			float(dd.door_close.db), float(dd.door_close.db_full), float(Settings.DEFAULTS.audio.ambience) * 100.0])

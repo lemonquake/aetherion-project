@@ -1,0 +1,19 @@
+{
+  "source": "Poly Haven",
+  "title": "Exterior Aircon Unit",
+  "url": "https://polyhaven.com/a/exterior_aircon_unit",
+  "authors": [
+    "Monsta3D"
+  ],
+  "license": "CC0-1.0",
+  "license_url": "https://polyhaven.com/license",
+  "attribution_required": false,
+  "kind": "model",
+  "modifications": "Kept one variant (exterior_aircon_unit_rusted) of the set, removed 1 other objects, re-centred on it; decimated to its 3,000-triangle budget; 2 materials packed into one 2048x1024 atlas; blend / transmission dropped, opaque (exterior_aircon_unit_rusted_02); 9,493 -> 3,000 triangles, 1 material (tools/blender/process_props.py).",
+  "retrieved": "2026-10-25",
+  "files": {
+    "exterior_aircon_unit.gltf": "2d8c73fabdb57786f7180da43ed4755f6644bb7ac2089e4f9db2dcd70af735c8",
+    "exterior_aircon_unit.bin": "1e11b89ab3aefecc815bebeee3118721c4ad5771c6510bba94ed258e0a47b92c"
+  },
+  "processed_from": "game/assets/thirdparty/polyhaven/models/exterior_aircon_unit/exterior_aircon_unit_1k.gltf"
+}

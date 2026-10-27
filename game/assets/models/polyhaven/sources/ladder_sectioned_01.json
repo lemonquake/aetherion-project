@@ -1,0 +1,19 @@
+{
+  "source": "Poly Haven",
+  "title": "Ladder Sectioned 01",
+  "url": "https://polyhaven.com/a/ladder_sectioned_01",
+  "authors": [
+    "MP"
+  ],
+  "license": "CC0-1.0",
+  "license_url": "https://polyhaven.com/license",
+  "attribution_required": false,
+  "kind": "model",
+  "modifications": "Decimated to its 4,000-triangle budget; 29,140 -> 4,000 triangles, 1 material (tools/blender/process_props.py).",
+  "retrieved": "2026-10-25",
+  "files": {
+    "ladder_sectioned_01.gltf": "41a3731700e0c5b8512e149cad1a1f39e0d675ddcdc758e7ce9303ad34a659a2",
+    "ladder_sectioned_01.bin": "189e7c02cab9ceba0adcbfc32dcc12e428812d70d6a7cdaece9cd1a00bc07aa2"
+  },
+  "processed_from": "game/assets/thirdparty/polyhaven/models/ladder_sectioned_01/ladder_sectioned_01_1k.gltf"
+}

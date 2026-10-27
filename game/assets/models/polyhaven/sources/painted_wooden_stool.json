@@ -1,0 +1,19 @@
+{
+  "source": "Poly Haven",
+  "title": "Painted Wooden Stool",
+  "url": "https://polyhaven.com/a/painted_wooden_stool",
+  "authors": [
+    "Kirill Sannikov"
+  ],
+  "license": "CC0-1.0",
+  "license_url": "https://polyhaven.com/license",
+  "attribution_required": false,
+  "kind": "model",
+  "modifications": "Re-exported unchanged (within budget, one material); 676 -> 676 triangles, 1 material (tools/blender/process_props.py).",
+  "retrieved": "2026-10-25",
+  "files": {
+    "painted_wooden_stool.gltf": "8ee539a8c81889b24c392f7583aea3acb86b995171cb9f6e40a9fcd207854e25",
+    "painted_wooden_stool.bin": "d61809c937d4304974b5b2a482dc6c5201c44fcf699a09e3aa7a94e17251b15b"
+  },
+  "processed_from": "game/assets/thirdparty/polyhaven/models/painted_wooden_stool/painted_wooden_stool_1k.gltf"
+}

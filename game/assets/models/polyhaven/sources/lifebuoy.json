@@ -1,0 +1,19 @@
+{
+  "source": "Poly Haven",
+  "title": "Lifebuoy",
+  "url": "https://polyhaven.com/a/lifebuoy",
+  "authors": [
+    "Hank Kaamura"
+  ],
+  "license": "CC0-1.0",
+  "license_url": "https://polyhaven.com/license",
+  "attribution_required": false,
+  "kind": "model",
+  "modifications": "Decimated to its 3,000-triangle budget; 10,728 -> 2,998 triangles, 1 material (tools/blender/process_props.py).",
+  "retrieved": "2026-10-25",
+  "files": {
+    "lifebuoy.gltf": "327e82fc143f92c1eb4ab8dfeee6a116e3702e3e3c7bfdb54edd2badb591f40a",
+    "lifebuoy.bin": "f8f035c4728b4cdcd70ca728e6134268cd6794fe4ff67223c00b8c818ea84acf"
+  },
+  "processed_from": "game/assets/thirdparty/polyhaven/models/lifebuoy/lifebuoy_1k.gltf"
+}

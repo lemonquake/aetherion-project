@@ -1,0 +1,19 @@
+{
+  "source": "Poly Haven",
+  "title": "Painted Wooden Sofa",
+  "url": "https://polyhaven.com/a/painted_wooden_sofa",
+  "authors": [
+    "Kirill Sannikov"
+  ],
+  "license": "CC0-1.0",
+  "license_url": "https://polyhaven.com/license",
+  "attribution_required": false,
+  "kind": "model",
+  "modifications": "Decimated to its 4,000-triangle budget; 5,826 -> 3,999 triangles, 1 material (tools/blender/process_props.py).",
+  "retrieved": "2026-10-25",
+  "files": {
+    "painted_wooden_sofa.gltf": "77a781cba899d970d6de60f7edb3be8d06f6b86c89d4e803607303c6a077dbea",
+    "painted_wooden_sofa.bin": "0054343998211f83962930ae9279390261db9a9f68074ec1e5cbe1fbc6dd7534"
+  },
+  "processed_from": "game/assets/thirdparty/polyhaven/models/painted_wooden_sofa/painted_wooden_sofa_1k.gltf"
+}

@@ -8,6 +8,8 @@ uniform float flow_speed = 0.12;
 uniform vec2 flow_dir = vec2(0.0, 1.0);
 uniform float wave_scale = 1.0;
 uniform float sea = 0.0;
+uniform sampler2D normal_tex : hint_normal, filter_linear_mipmap, repeat_enable;
+uniform sampler2D noise_tex : filter_linear_mipmap, repeat_enable;
 
 varying vec3 wpos;
 
@@ -32,15 +34,15 @@ void vertex() {
 void fragment() {
 	vec2 p = wpos.xz;
 	float t = TIME;
-	float e = 0.15;
-	float h0 = height(p, t);
-	float hx = height(p + vec2(e, 0.0), t);
-	float hz = height(p + vec2(0.0, e), t);
-	vec3 n = normalize(vec3((h0 - hx) * 0.6, 1.0, (h0 - hz) * 0.6));
-	NORMAL = (VIEW_MATRIX * vec4(n, 0.0)).xyz;
-	float scum = smoothstep(0.62, 0.8, vnoise(p * 0.08 + flow_dir * t * flow_speed * 0.2)) * (1.0 - sea);
+	vec2 f = flow_dir * t * flow_speed;
+	vec3 n1 = texture(normal_tex, p * 0.045 + f * 0.3).rgb;
+	vec3 n2 = texture(normal_tex, p * 0.11 - f * 0.55 + vec2(0.37, 0.71)).rgb;
+	vec3 n3 = texture(normal_tex, p * 0.012 + vec2(t * 0.004, 0.0)).rgb;
+	NORMAL_MAP = normalize(mix(mix(n1, n2, 0.5), n3, 0.25 + sea * 0.35));
+	NORMAL_MAP_DEPTH = mix(0.35, 0.8, sea) * wave_scale;
+	float scum = smoothstep(0.62, 0.8, texture(noise_tex, (p * 0.08 + f * 0.2) * (1.0 / 32.0)).g) * (1.0 - sea);
 	ALBEDO = mix(deep_color, scum_color, scum * 0.8);
-	ROUGHNESS = mix(0.06, 0.55, scum);
+	ROUGHNESS = mix(0.08, 0.6, scum);
 	METALLIC = 0.0;
-	SPECULAR = 0.6;
+	SPECULAR = 0.55;
 }

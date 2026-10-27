@@ -1,0 +1,20 @@
+{
+  "source": "Poly Haven",
+  "title": "Island Tree 01",
+  "url": "https://polyhaven.com/a/island_tree_01",
+  "authors": [
+    "Rob Tuytel",
+    "Rico Cilliers"
+  ],
+  "license": "CC0-1.0",
+  "license_url": "https://polyhaven.com/license",
+  "attribution_required": false,
+  "kind": "model",
+  "modifications": "Twigs: 504584 -> 2039 triangles (decimated, 2% kept); trunk: 34787 -> 2999 triangles; leaves: 44168 modelled leaves (1060032 triangles) -> 3499 two-triangle leaves enlarged 3.0x; 3 materials packed into one 2048x1280 atlas; blend / transmission dropped, opaque (island_tree_01_leaves); 1,599,403 -> 12,036 triangles, 1 material (tools/blender/process_props.py).",
+  "retrieved": "2026-10-25",
+  "files": {
+    "island_tree_01.gltf": "99e1ac2574d9615bfe9a7d6080272742f1f5805cf79e25ae876ef9f38fe764a6",
+    "island_tree_01.bin": "6b6a2444946038ddd8c192efb254d1ea90e57b1ee1816fd1aa530f0a58e5024d"
+  },
+  "processed_from": "game/assets/thirdparty/polyhaven/models/island_tree_01/island_tree_01_1k.gltf"
+}

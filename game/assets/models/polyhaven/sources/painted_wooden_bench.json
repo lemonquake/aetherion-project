@@ -1,0 +1,19 @@
+{
+  "source": "Poly Haven",
+  "title": "Painted Wooden Bench",
+  "url": "https://polyhaven.com/a/painted_wooden_bench",
+  "authors": [
+    "Kirill Sannikov"
+  ],
+  "license": "CC0-1.0",
+  "license_url": "https://polyhaven.com/license",
+  "attribution_required": false,
+  "kind": "model",
+  "modifications": "Re-exported unchanged (within budget, one material); 630 -> 630 triangles, 1 material (tools/blender/process_props.py).",
+  "retrieved": "2026-10-25",
+  "files": {
+    "painted_wooden_bench.gltf": "9e56cd4ea83706531906ff77c4e9c7f1600bf349b450a435cbb097f6a36d9f06",
+    "painted_wooden_bench.bin": "80aebdf38e68542f6090d9b81c5d2eee176acab6c72291ad5d7f971d676c0da8"
+  },
+  "processed_from": "game/assets/thirdparty/polyhaven/models/painted_wooden_bench/painted_wooden_bench_1k.gltf"
+}

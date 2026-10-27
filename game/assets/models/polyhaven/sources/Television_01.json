@@ -1,0 +1,19 @@
+{
+  "source": "Poly Haven",
+  "title": "Television 01",
+  "url": "https://polyhaven.com/a/Television_01",
+  "authors": [
+    "Gabriel Radić"
+  ],
+  "license": "CC0-1.0",
+  "license_url": "https://polyhaven.com/license",
+  "attribution_required": false,
+  "kind": "model",
+  "modifications": "Decimated to its 1,800-triangle budget; 1,918 -> 1,800 triangles, 1 material (tools/blender/process_props.py).",
+  "retrieved": "2026-10-25",
+  "files": {
+    "Television_01.gltf": "57488b8af6a284ee68d7fca787ca84353362d72353ed586b5a578b0b12c5acaf",
+    "Television_01.bin": "6442282fd9bd8185281a973a915fbe3992b63e19bfa2bd2ca1c7815db1fd81a8"
+  },
+  "processed_from": "game/assets/thirdparty/polyhaven/models/Television_01/Television_01_1k.gltf"
+}

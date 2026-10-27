@@ -1,0 +1,19 @@
+{
+  "source": "Poly Haven",
+  "title": "Wall Clock",
+  "url": "https://polyhaven.com/a/wall_clock",
+  "authors": [
+    "PierreB3D"
+  ],
+  "license": "CC0-1.0",
+  "license_url": "https://polyhaven.com/license",
+  "attribution_required": false,
+  "kind": "model",
+  "modifications": "Decimated to its 1,800-triangle budget; 2 materials packed into one 1024x512 atlas (10 tiling UV corners clamped); blend / transmission dropped, opaque (wall_clock_glass); 3,658 -> 1,800 triangles, 1 material (tools/blender/process_props.py).",
+  "retrieved": "2026-10-25",
+  "files": {
+    "wall_clock.gltf": "8483d3f5cea152ebec05d4202371f66d34b6f02cb21d02f3d3bc192dc0741172",
+    "wall_clock.bin": "bcf967737e36d1bc7274a195f999e24b4cbea5e6935fb417370ed3992bc36477"
+  },
+  "processed_from": "game/assets/thirdparty/polyhaven/models/wall_clock/wall_clock_1k.gltf"
+}

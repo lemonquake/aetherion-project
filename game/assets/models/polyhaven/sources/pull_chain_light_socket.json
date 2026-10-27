@@ -1,0 +1,19 @@
+{
+  "source": "Poly Haven",
+  "title": "Pull Chain Light Socket",
+  "url": "https://polyhaven.com/a/pull_chain_light_socket",
+  "authors": [
+    "Josh Dean"
+  ],
+  "license": "CC0-1.0",
+  "license_url": "https://polyhaven.com/license",
+  "attribution_required": false,
+  "kind": "model",
+  "modifications": "Decimated to its 1,000-triangle budget; textures 512 px; 10,902 -> 999 triangles, 1 material (tools/blender/process_props.py).",
+  "retrieved": "2026-10-25",
+  "files": {
+    "pull_chain_light_socket.gltf": "ead2dabed28f40fbc6a2656195de6effda8a5371fa79ddd1bb29f085b094092e",
+    "pull_chain_light_socket.bin": "284fd63a3225a2b547d71dbc279e3e060ea989d0a9ab9988aa8530a3c32f0043"
+  },
+  "processed_from": "game/assets/thirdparty/polyhaven/models/pull_chain_light_socket/pull_chain_light_socket_1k.gltf"
+}

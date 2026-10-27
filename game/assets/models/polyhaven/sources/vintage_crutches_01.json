@@ -1,0 +1,19 @@
+{
+  "source": "Poly Haven",
+  "title": "Vintage Crutches 01",
+  "url": "https://polyhaven.com/a/vintage_crutches_01",
+  "authors": [
+    "James Ray Cock"
+  ],
+  "license": "CC0-1.0",
+  "license_url": "https://polyhaven.com/license",
+  "attribution_required": false,
+  "kind": "model",
+  "modifications": "Decimated to its 4,000-triangle budget; 10,628 -> 4,000 triangles, 1 material (tools/blender/process_props.py).",
+  "retrieved": "2026-10-25",
+  "files": {
+    "vintage_crutches_01.gltf": "a8dcc85145231b28d15a706248bd5a3c1ec220493f825164317666f6418bb6bc",
+    "vintage_crutches_01.bin": "0ab389bf230c5aa88e07eaafcdc5f50182b19268b677e54df2ca27b1295d8867"
+  },
+  "processed_from": "game/assets/thirdparty/polyhaven/models/vintage_crutches_01/vintage_crutches_01_1k.gltf"
+}

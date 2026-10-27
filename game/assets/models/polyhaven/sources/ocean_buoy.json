@@ -1,0 +1,19 @@
+{
+  "source": "Poly Haven",
+  "title": "Ocean Buoy",
+  "url": "https://polyhaven.com/a/ocean_buoy",
+  "authors": [
+    "Mateusz Sadek"
+  ],
+  "license": "CC0-1.0",
+  "license_url": "https://polyhaven.com/license",
+  "attribution_required": false,
+  "kind": "model",
+  "modifications": "Decimated to its 4,000-triangle budget; 12,240 -> 4,000 triangles, 1 material (tools/blender/process_props.py).",
+  "retrieved": "2026-10-25",
+  "files": {
+    "ocean_buoy.gltf": "679c5164cfb41f8bc614f40b8c1619a0f1230575be8c313ccf54710644daffd2",
+    "ocean_buoy.bin": "9391de5bb994c389f79fefa90b556b0a202331e36f2a6fcd752eb056a2a94dbb"
+  },
+  "processed_from": "game/assets/thirdparty/polyhaven/models/ocean_buoy/ocean_buoy_1k.gltf"
+}

@@ -1,0 +1,19 @@
+{
+  "source": "Poly Haven",
+  "title": "Old Military Crate",
+  "url": "https://polyhaven.com/a/old_military_crate",
+  "authors": [
+    "Jack Mava"
+  ],
+  "license": "CC0-1.0",
+  "license_url": "https://polyhaven.com/license",
+  "attribution_required": false,
+  "kind": "model",
+  "modifications": "Kept one variant (old_military_crate_a, old_military_crate_cloth_a, old_military_crate_latch_a, old_military_crate_lid_a, old_military_crate_loop_a) of the set, removed 5 other objects, re-centred on it; decimated to its 3,000-triangle budget; 10,476 -> 3,000 triangles, 1 material (tools/blender/process_props.py).",
+  "retrieved": "2026-10-25",
+  "files": {
+    "old_military_crate.gltf": "9fa0350c532263cd9e77fbf2f7b6b847dac94296f763ee4d9bbde7b5a0ff9d66",
+    "old_military_crate.bin": "79be4000f3ebf1f803c08bd03819bcef55812946ca18dbcc5212d29752300578"
+  },
+  "processed_from": "game/assets/thirdparty/polyhaven/models/old_military_crate/old_military_crate_1k.gltf"
+}

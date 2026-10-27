@@ -85,6 +85,21 @@ func _build_buses() -> void:
 	duck.release_ms = 900.0
 	duck.sidechain = &"Effects"
 	ab.add_bus_effect(ab.get_bus_index("Ambience"), duck)
+	# Speech through a handheld radio: narrow band, a little grit. Sends into Voice, so the voice volume applies.
+	var radio := _add_bus("Radio", "Voice")
+	var bp := AudioEffectBandPassFilter.new()
+	bp.cutoff_hz = 1600.0
+	bp.resonance = 0.62
+	ab.add_bus_effect(radio, bp)
+	var hp := AudioEffectHighPassFilter.new()
+	hp.cutoff_hz = 380.0
+	ab.add_bus_effect(radio, hp)
+	var dist := AudioEffectDistortion.new()
+	dist.mode = AudioEffectDistortion.MODE_CLIP
+	dist.pre_gain = 6.0
+	dist.drive = 0.25
+	dist.post_gain = -5.0
+	ab.add_bus_effect(radio, dist)
 	var mic := _add_bus("Mic", "Master")
 	ab.set_bus_mute(mic, true)
 	ab.add_bus_effect(mic, AudioEffectCapture.new())
@@ -138,6 +153,13 @@ func _load_defs() -> void:
 			defs = d.get("sounds", {})
 
 
+func warm() -> void:
+	## Loads every sound while the map is being built, so none is read from disk the first time it plays.
+	for id in defs:
+		for f in defs[id].get("files", []):
+			_stream("res://" + str(f))
+
+
 func _stream(path: String) -> AudioStream:
 	if _streams.has(path):
 		return _streams[path]
@@ -157,7 +179,29 @@ func _pick(id: String) -> AudioStream:
 	if files.size() > 2 and _last_variant.get(id, -1) == i:
 		i = (i + 1) % files.size()
 	_last_variant[id] = i
-	return _stream("res://" + str(files[i]))
+	var path := "res://" + str(files[i])
+	if d.get("loop", false):
+		return _looping(path)
+	return _stream(path)
+
+
+func _looping(path: String) -> AudioStream:
+	## A copy of the stream set to loop over its whole length (sounds.json marks hums, static and engines).
+	var key := path + "#loop"
+	if _streams.has(key):
+		return _streams[key]
+	var s := _stream(path)
+	if s != null:
+		s = s.duplicate()
+		if s is AudioStreamWAV:
+			var w := s as AudioStreamWAV
+			w.loop_mode = AudioStreamWAV.LOOP_FORWARD
+			w.loop_begin = 0
+			w.loop_end = int(w.get_length() * w.mix_rate)
+		elif "loop" in s:
+			s.set("loop", true)
+	_streams[key] = s
+	return s
 
 
 func has_sound(id: String) -> bool:

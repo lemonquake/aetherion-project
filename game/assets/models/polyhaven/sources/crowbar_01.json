@@ -1,0 +1,19 @@
+{
+  "source": "Poly Haven",
+  "title": "Crowbar 01",
+  "url": "https://polyhaven.com/a/crowbar_01",
+  "authors": [
+    "Alexander Otterbeck"
+  ],
+  "license": "CC0-1.0",
+  "license_url": "https://polyhaven.com/license",
+  "attribution_required": false,
+  "kind": "model",
+  "modifications": "Decimated to its 1,800-triangle budget; 2,300 -> 1,800 triangles, 1 material (tools/blender/process_props.py).",
+  "retrieved": "2026-10-25",
+  "files": {
+    "crowbar_01.gltf": "26cb4be2add03b188cfac022ee7f764a6f163e8baf5a8105f093fa2601a8f455",
+    "crowbar_01.bin": "56fd5f0af3e89e0101f15e2f8de6fa68dddf669caca588d1ebe5b281f02200f6"
+  },
+  "processed_from": "game/assets/thirdparty/polyhaven/models/crowbar_01/crowbar_01_1k.gltf"
+}

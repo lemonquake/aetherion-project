@@ -1,0 +1,19 @@
+{
+  "source": "Poly Haven",
+  "title": "Folding Wooden Stool",
+  "url": "https://polyhaven.com/a/folding_wooden_stool",
+  "authors": [
+    "Ulan Cabanilla"
+  ],
+  "license": "CC0-1.0",
+  "license_url": "https://polyhaven.com/license",
+  "attribution_required": false,
+  "kind": "model",
+  "modifications": "Decimated to its 1,800-triangle budget; 6,324 -> 1,799 triangles, 1 material (tools/blender/process_props.py).",
+  "retrieved": "2026-10-25",
+  "files": {
+    "folding_wooden_stool.gltf": "6e59f55019b33016952f8a02418d2c70e94f2570377690379094bf3d9ed33f46",
+    "folding_wooden_stool.bin": "645cad5fef1b6ac05c9c41bec65c626d8edf154eea87fb3ea24a736d794b5cee"
+  },
+  "processed_from": "game/assets/thirdparty/polyhaven/models/folding_wooden_stool/folding_wooden_stool_1k.gltf"
+}

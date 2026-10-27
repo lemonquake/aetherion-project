@@ -15,12 +15,12 @@ var _setup: Control
 
 func _ready() -> void:
 	theme = UITheme.get_theme()
-	set_anchors_preset(Control.PRESET_FULL_RECT)
+	set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
 	var bg := preload("res://src/ui/menu_backdrop.gd").new()
-	bg.set_anchors_preset(Control.PRESET_FULL_RECT)
+	bg.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
 	add_child(bg)
 	var margin := MarginContainer.new()
-	margin.set_anchors_preset(Control.PRESET_FULL_RECT)
+	margin.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
 	for side in ["left", "right", "top", "bottom"]:
 		margin.add_theme_constant_override("margin_" + side, 64)
 	add_child(margin)
@@ -79,11 +79,11 @@ func _build_setup() -> Control:
 	r2.add_child(_bots)
 	_bot_count = SpinBox.new()
 	_bot_count.min_value = 0
-	_bot_count.max_value = 23
+	_bot_count.max_value = int(Defs.rule("max_players", 40)) - 1
 	_bot_count.value_changed.connect(func(val): Net.set_config("bot_count", int(val)))
 	r2.add_child(_bot_count)
 	v.add_child(r2)
-	v.add_child(UITheme.label("Target: %d players per match (humans and bots)." % int(Defs.rule("player_target", 16)), 17, UITheme.TEXT_DIM))
+	v.add_child(UITheme.label("Matches take up to %d players (humans and bots); 20 bots by default." % int(Defs.rule("max_players", 50)), 17, UITheme.TEXT_DIM))
 	_start_btn = UITheme.button("Start Match", func(): Game.start_match(), 0)
 	v.add_child(_start_btn)
 	return p
@@ -103,7 +103,7 @@ func _refresh() -> void:
 		if _mode.get_item_metadata(i) == mode:
 			_mode.select(i)
 	_bots.set_pressed_no_signal(bool(Net.config.get("bots", true)))
-	_bot_count.set_value_no_signal(int(Net.config.get("bot_count", 7)))
+	_bot_count.set_value_no_signal(int(Net.config.get("bot_count", 20)))
 	for c in _list.get_children():
 		c.queue_free()
 	var size := Net.team_size()
@@ -159,6 +159,8 @@ func _player_row(pid: int) -> Control:
 	var name_text: String = p.name + ("  (you)" if pid == Net.local_pid else "")
 	h.add_child(UITheme.label(name_text, 20, UITheme.TEXT if p.connected else UITheme.TEXT_DIM))
 	var tag := "Bot" if p.bot else ("Host" if pid == 1 else ("Ready" if p.ready else "Not ready"))
+	if not p.bot:
+		tag += "  ·  " + str(p.get("platform", "PC"))
 	h.add_child(UITheme.label(tag, 17, UITheme.ACCENT if (p.ready or pid == 1) else UITheme.TEXT_DIM))
 	return h
 

@@ -1,0 +1,19 @@
+{
+  "source": "Poly Haven",
+  "title": "Metal Jerrycan",
+  "url": "https://polyhaven.com/a/metal_jerrycan",
+  "authors": [
+    "Sean Buckley"
+  ],
+  "license": "CC0-1.0",
+  "license_url": "https://polyhaven.com/license",
+  "attribution_required": false,
+  "kind": "model",
+  "modifications": "Decimated to its 1,800-triangle budget; textures 512 px; 20,022 -> 1,800 triangles, 1 material (tools/blender/process_props.py).",
+  "retrieved": "2026-10-25",
+  "files": {
+    "metal_jerrycan.gltf": "bff90fa27f26cb46aee5c6729e6f81f671765b3574e70a7849c69662e6ed60ce",
+    "metal_jerrycan.bin": "72237849e95e2bfed63c7f6bd5393475deff2b72afb0a45e769371b7c7438d74"
+  },
+  "processed_from": "game/assets/thirdparty/polyhaven/models/metal_jerrycan/metal_jerrycan_1k.gltf"
+}

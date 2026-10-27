@@ -1,0 +1,21 @@
+{
+  "source": "Sketchfab (downloaded from the Objaverse mirror, allenai/objaverse on Hugging Face)",
+  "title": "Desert Eagle",
+  "url": "https://sketchfab.com/3d-models/cabde59f5cf24effaf80536e35d04e95",
+  "mirror_url": "https://huggingface.co/datasets/allenai/objaverse/resolve/main/glbs/000-155/cabde59f5cf24effaf80536e35d04e95.glb",
+  "authors": [
+    "ELIZION"
+  ],
+  "author_url": "https://sketchfab.com/ELIZION",
+  "license": "CC-BY-4.0",
+  "license_url": "http://creativecommons.org/licenses/by/4.0/",
+  "attribution_required": true,
+  "kind": "model",
+  "purpose": "Desert Eagle .50 AE pistol",
+  "modifications": "Joined into one mesh, re-oriented (front along -Z in Godot), scaled to 0.270 m overall, centred, decimated 12801 -> 9000 triangles, textures reduced to 1024 px JPEG (tools/blender/process_items.py).",
+  "retrieved": "2026-10-27",
+  "files": {
+    "pistol_deagle.glb": ""
+  },
+  "processed_from": "tools/cache/sketchfab/pistol_deagle/pistol_deagle.glb"
+}

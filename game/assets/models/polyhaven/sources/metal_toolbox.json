@@ -1,0 +1,19 @@
+{
+  "source": "Poly Haven",
+  "title": "Metal Toolbox",
+  "url": "https://polyhaven.com/a/metal_toolbox",
+  "authors": [
+    "Mateusz Sadek"
+  ],
+  "license": "CC0-1.0",
+  "license_url": "https://polyhaven.com/license",
+  "attribution_required": false,
+  "kind": "model",
+  "modifications": "Decimated to its 1,800-triangle budget; textures 512 px; 14,228 -> 1,800 triangles, 1 material (tools/blender/process_props.py).",
+  "retrieved": "2026-10-25",
+  "files": {
+    "metal_toolbox.gltf": "16130416c45ea207c30d281fa71333021d1febca6cfd0489246fb772d18cf1b1",
+    "metal_toolbox.bin": "4f06e644e01b27b8cce72e500b42299b7a31e09f21f67ee0f844a561b42e0e60"
+  },
+  "processed_from": "game/assets/thirdparty/polyhaven/models/metal_toolbox/metal_toolbox_1k.gltf"
+}

@@ -3,6 +3,8 @@ extends RefCounted
 ## both produce identical shot directions because recoil, sway and spread are deterministic functions of state,
 ## the server tick and a per-shot seed.
 
+const Attach := preload("res://src/weapons/attachments.gd")
+
 enum { IDLE, DRAW, RELOAD, CYCLE, BUSY }
 enum { HOLSTER, PRIMARY, SECONDARY, HANDGUN }
 
@@ -20,6 +22,7 @@ var shots := 0            # total shots fired (seeds spread)
 var burst := 0            # consecutive shots without pause (sustained recoil)
 var since_shot := 9.0
 var kick := Vector2.ZERO  # weapon-only offset (x = yaw deg, y = pitch deg), recovers
+var _reload_queued := false
 var climb_pending := 0.0  # view pitch climb the client applies to the camera (deg)
 var yaw_pending := 0.0
 var reserve_cache := {}   # ammo id -> count (mirror of inventory for prediction)
@@ -75,13 +78,30 @@ func fire_mode() -> String:
 
 
 func zoom() -> float:
-	var w := weapon()
 	var z := float(def().get("sight_zoom", 1.1))
-	for a in w.get("att", []):
-		var ad: Dictionary = Defs.attachments.get(a, {})
-		if ad.get("kind", "") == "sight":
-			z = float(ad.get("zoom", z))
-	return z
+	return float(Attach.sight(weapon()).get("zoom", z))
+
+
+func scoped() -> bool:
+	## A magnified optic is fitted: aiming shows the scope view.
+	return bool(Attach.sight(weapon()).get("scope", false))
+
+
+func mag_cap() -> int:
+	return Attach.mag_cap(weapon())
+
+
+func spread_deg(moving: float, crouching: bool) -> float:
+	## Current cone (degrees) for the aim state and movement; the reticle draws the same value.
+	var d := def()
+	var w := weapon()
+	var hip := float(d.get("spread_hip", 2.0)) * Attach.mult(w, "spread_hip_mult")
+	var spread := lerpf(hip, float(d.get("spread_ads", 0.2)), ads)
+	var mv := (float(d.get("move_spread", 1.5)) - 1.0) * Attach.mult(w, "move_spread_mult")
+	spread *= 1.0 + clampf(moving / 4.0, 0.0, 1.0) * mv
+	if crouching:
+		spread *= 0.8
+	return spread
 
 
 func has_attachment(kind: String) -> bool:
@@ -110,7 +130,8 @@ static func new_instance(id: String, rng: RandomNumberGenerator = null, loaded_f
 		n = int(round(cap * loaded_frac))
 	elif rng:
 		n = rng.randi_range(int(cap * 0.3), cap)
-	var chamber := bool(d.get("chamber", true)) and n > 0
+	# A revolver's next chamber counts as chambered (the trigger turns the cylinder).
+	var chamber := (bool(d.get("chamber", true)) or str(d.get("feed", "")) == "cylinder") and n > 0
 	if chamber:
 		n -= 1
 	return {"id": id, "mag": n, "chamber": chamber, "mode": 0, "att": []}
@@ -168,11 +189,18 @@ func step(cmd: Dictionary, dt: float, tick: int) -> Array:
 		var modes: Array = d.get("fire_modes", ["semi"])
 		w.mode = (int(w.get("mode", 0)) + 1) % modes.size()
 	_prev_mode = mode_t
-	if reload and not _prev_reload and state == IDLE and not blocked:
+	# A reload pressed while a shot is still cycling (pump, bolt, break action) or the gun is coming up is kept and
+	# starts as soon as the gun is ready, instead of being lost.
+	if reload and not _prev_reload and state in [CYCLE, DRAW]:
+		_reload_queued = true
+	if ((reload and not _prev_reload) or _reload_queued) and state == IDLE and not blocked:
+		_reload_queued = false
 		start_reload()
 	_prev_reload = reload
 	var fm := fire_mode()
 	var trigger := fire and (fm == "auto" or not _prev_fire)
+	if trigger and can_fire() and not w.chamber and str(d.get("feed", "")) == "cylinder":
+		_chamber_from_mag(w)  # double action: pulling the trigger brings the next round under the hammer
 	if trigger and can_fire():
 		if w.chamber:
 			out.append(_fire(tick))
@@ -188,10 +216,7 @@ func step(cmd: Dictionary, dt: float, tick: int) -> Array:
 
 
 func _ads_mult() -> float:
-	var m := 1.0
-	for a in weapon().get("att", []):
-		m = maxf(m, float(Defs.attachments.get(a, {}).get("ads_time_mult", 1.0)))
-	return m
+	return Attach.mult(weapon(), "ads_time_mult")
 
 
 func _fire(tick: int) -> Dictionary:
@@ -213,7 +238,8 @@ func _fire(tick: int) -> Dictionary:
 	_apply_recoil(seed)
 	var ammo_id: String = w.get("ammo", d.get("ammo", "9x19"))
 	return {"origin": muzzle_origin(), "dir": dir, "seed": seed, "ammo": ammo_id, "weapon": w.id,
-		"pellets": int(Defs.ammo(ammo_id).get("pellets", 1)), "velocity": float(d.get("muzzle_velocity", 400))}
+		"pellets": int(Defs.ammo(ammo_id).get("pellets", 1)), "velocity": float(d.get("muzzle_velocity", 400)),
+		"pellet_mult": Attach.mult(w, "pellet_spread_mult")}
 
 
 func _chamber_from_mag(w: Dictionary) -> void:
@@ -248,7 +274,7 @@ func sway_deg(tick: int) -> Vector2:
 		return Vector2.ZERO
 	var t := float(tick) / Defs.TICK_RATE
 	var e := float(ch.eid % 97) * 1.37
-	var amp := lerpf(0.55, 0.06, ads)  # breathing
+	var amp := lerpf(0.55, 0.06, ads) * Attach.mult(weapon(), "sway_mult")  # breathing
 	var arm := 0.0
 	var h = ch.health
 	if h:
@@ -265,15 +291,11 @@ func sway_deg(tick: int) -> Vector2:
 
 
 func shot_direction(tick: int, seed: int) -> Vector3:
-	var d := def()
 	var rng := RandomNumberGenerator.new()
 	rng.seed = seed
-	var spread := lerpf(float(d.get("spread_hip", 2.0)), float(d.get("spread_ads", 0.2)), ads)
+	var spread := spread_deg(0.0, false)
 	if ch:
-		var moving := Vector2(ch.velocity.x, ch.velocity.z).length()
-		spread *= 1.0 + clampf(moving / 4.0, 0.0, 1.0) * (float(d.get("move_spread", 1.5)) - 1.0)
-		if ch.crouching:
-			spread *= 0.8
+		spread = spread_deg(Vector2(ch.velocity.x, ch.velocity.z).length(), ch.crouching)
 		if not ch.is_on_floor() and ch.mode == Motor.GROUND:
 			spread *= 2.5
 	var off := aim_offset_deg(tick)
@@ -294,6 +316,8 @@ func _apply_recoil(seed: int) -> void:
 	var up := float(r.get("kick_up", 1.5)) * (1.0 + minf(burst * float(r.get("climb", 0.1)), 1.5))
 	up *= rng.randf_range(0.85, 1.15)
 	var sx := float(r.get("kick_side", 0.5)) * (side + rng.randf_range(-0.35, 0.35))
+	up *= Attach.mult(weapon(), "recoil_up_mult")
+	sx *= Attach.mult(weapon(), "recoil_side_mult")
 	var ads_mult := lerpf(1.0, 0.75, ads)
 	if ch and ch.crouching:
 		ads_mult *= 0.85
@@ -310,7 +334,7 @@ func _apply_recoil(seed: int) -> void:
 
 
 func _recover(dt: float) -> void:
-	var rate := float(def().get("recoil", {}).get("recovery", 12.0))
+	var rate := float(def().get("recoil", {}).get("recovery", 12.0)) * Attach.mult(weapon(), "recovery_mult")
 	kick = kick.move_toward(Vector2.ZERO, rate * dt * (0.4 if since_shot < 0.08 else 1.0))
 
 
@@ -328,14 +352,16 @@ func start_reload() -> void:
 	if w.is_empty():
 		return
 	var ammo_id := str(w.get("ammo", d.get("ammo", "")))
-	var cap := int(d.get("mag_size", 1))
-	if int(w.mag) >= cap or reserve(ammo_id) <= 0:
+	var cap := mag_cap()
+	var feed := str(d.get("feed", "mag"))
+	var full := int(w.mag) + (1 if w.chamber else 0) >= cap if feed == "break" else int(w.mag) >= cap
+	if full or reserve(ammo_id) <= 0:
 		return
 	state = RELOAD
 	reload_phase = 0
-	var feed := str(d.get("feed", "mag"))
-	if feed == "mag":
-		timer = float(d.get("reload_empty_time" if not w.chamber else "reload_time", 2.5))
+	var rm := Attach.mult(w, "reload_mult")
+	if feed == "mag" or feed == "break":
+		timer = float(d.get("reload_empty_time" if not w.chamber else "reload_time", 2.5)) * rm
 	else:
 		timer = float(d.get("reload_start", 0.5))
 	aiming = false
@@ -348,10 +374,18 @@ func _reload_step(dt: float, fire: bool) -> void:
 		state = IDLE
 		return
 	var ammo_id := str(w.get("ammo", d.get("ammo", "")))
-	var cap := int(d.get("mag_size", 1))
+	var cap := mag_cap()
 	var feed := str(d.get("feed", "mag"))
 	timer -= dt
 	if timer > 0.0:
+		return
+	if feed == "break":
+		# Break action: every barrel loaded at once; the round "chambered" is the next barrel to fire.
+		var have := int(w.mag) + (1 if w.chamber else 0)
+		var total := have + _take_ammo(ammo_id, cap - have)
+		w.chamber = total > 0
+		w.mag = maxi(total - 1, 0)
+		state = IDLE
 		return
 	if feed == "mag":
 		var need := cap - int(w.mag)
@@ -364,7 +398,7 @@ func _reload_step(dt: float, fire: bool) -> void:
 	# Tube or cylinder: one round at a time, interruptible by the trigger.
 	if reload_phase == 0:
 		reload_phase = 1
-		timer = float(d.get("reload_time", 0.5))
+		timer = float(d.get("reload_time", 0.5)) * Attach.mult(w, "reload_mult")
 		return
 	if reload_phase == 1:
 		if _take_ammo(ammo_id, 1) == 1:
@@ -378,7 +412,7 @@ func _reload_step(dt: float, fire: bool) -> void:
 			if feed == "cylinder" and not w.chamber:
 				_chamber_from_mag(w)
 		else:
-			timer = float(d.get("reload_time", 0.5))
+			timer = float(d.get("reload_time", 0.5)) * Attach.mult(w, "reload_mult")
 		return
 	if not w.chamber:
 		_chamber_from_mag(w)

@@ -1,0 +1,19 @@
+{
+  "source": "Poly Haven",
+  "title": "Jug 01",
+  "url": "https://polyhaven.com/a/jug_01",
+  "authors": [
+    "Kuutti Siitonen"
+  ],
+  "license": "CC0-1.0",
+  "license_url": "https://polyhaven.com/license",
+  "attribution_required": false,
+  "kind": "model",
+  "modifications": "Decimated to its 1,000-triangle budget; textures 512 px; 5,770 -> 999 triangles, 1 material (tools/blender/process_props.py).",
+  "retrieved": "2026-10-25",
+  "files": {
+    "jug_01.gltf": "59f8e516cb44001b7c9ab6bed27ffd47e8ab4e879310c5088b329b8368f183a5",
+    "jug_01.bin": "95e7adaf90586cde551ec02c2d39e7ef00d2cf05265313f34e7596a65c9e2b90"
+  },
+  "processed_from": "game/assets/thirdparty/polyhaven/models/jug_01/jug_01_1k.gltf"
+}

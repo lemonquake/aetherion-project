@@ -1,0 +1,19 @@
+{
+  "source": "Poly Haven",
+  "title": "Dustpan",
+  "url": "https://polyhaven.com/a/dustpan",
+  "authors": [
+    "Balen"
+  ],
+  "license": "CC0-1.0",
+  "license_url": "https://polyhaven.com/license",
+  "attribution_required": false,
+  "kind": "model",
+  "modifications": "Decimated to its 1,800-triangle budget; textures 512 px; 4,332 -> 1,800 triangles, 1 material (tools/blender/process_props.py).",
+  "retrieved": "2026-10-25",
+  "files": {
+    "dustpan.gltf": "850c7c2efbb9f6442636f2a99001ba35205d5b8adf67e727078bd2d1bccdaf7b",
+    "dustpan.bin": "8f9e98f7ed2dc0ff5d927dc362dd8f1168a1dfbb0fc57b420322310a1b21d5cf"
+  },
+  "processed_from": "game/assets/thirdparty/polyhaven/models/dustpan/dustpan_1k.gltf"
+}

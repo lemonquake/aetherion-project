@@ -1,0 +1,19 @@
+{
+  "source": "Poly Haven",
+  "title": "Covered Car",
+  "url": "https://polyhaven.com/a/covered_car",
+  "authors": [
+    "MP"
+  ],
+  "license": "CC0-1.0",
+  "license_url": "https://polyhaven.com/license",
+  "attribution_required": false,
+  "kind": "model",
+  "modifications": "Decimated to its 4,000-triangle budget; 12,592 -> 4,000 triangles, 1 material (tools/blender/process_props.py).",
+  "retrieved": "2026-10-25",
+  "files": {
+    "covered_car.gltf": "8c537bb53bd0bbe00baeeaceb178988b3eccaffb20b3ddcfc807b097998098d2",
+    "covered_car.bin": "3d1ca85aa832a4f534f3efab50a3121afb0a22f893840fc0b3edf91a955ec022"
+  },
+  "processed_from": "game/assets/thirdparty/polyhaven/models/covered_car/covered_car_1k.gltf"
+}

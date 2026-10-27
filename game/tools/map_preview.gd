@@ -5,6 +5,8 @@ extends Node3D
 const MapBuilder := preload("res://src/world/map_builder.gd")
 
 var is_server := false
+var match_info := {}
+var characters := {}
 var map = null
 var out_dir := "user://preview"
 var views := []
@@ -24,6 +26,12 @@ const VIEWS := {
 	"market": [Vector3(100, 2.2, -175), Vector3(124, 2.0, -146)],
 	"looban_east": ["street", Vector2(300, -24), 0.8],
 	"fishing": [Vector3(-330, 3.0, 340), Vector3(-330, 1.0, 420)],
+	"canopy_low": [Vector3(-60, 40, -150), Vector3(-90, 0, -230)],
+	"canopy_high": [Vector3(-60, 95, -100), Vector3(-60, 0, -230)],
+	"freefall": [Vector3(0, 230, 40), Vector3(-40, 0, -150)],
+	"plane": [Vector3(250, 320, 200), Vector3(0, 0, -100)],
+	"tunnel0": ["tunnel", 0], "tunnel1": ["tunnel", 7], "tunnel2": ["tunnel", 19], "tunnel3": ["tunnel", 31],
+	"looban0": ["looban", 0], "looban1": ["looban", 3], "looban2": ["looban", 8], "walk0": ["walkway", 0], "walk1": ["walkway", 5], "tunnel4": ["tunnel", 44], "tunnel5": ["tunnel", 60], "ladder0": ["ladder", 0], "ladder1": ["ladder", 11], "deck0": ["deck", 4],
 }
 
 
@@ -45,6 +53,15 @@ func _ready() -> void:
 	map.build(self, int(args.get("seed", 1729)), 1)
 	var build_ms := Time.get_ticks_msec() - t0
 	print("[preview] map built in %d ms: %s" % [build_ms, JSON.stringify(map.stats)])
+	if args.has("mmstats"):
+		_mm_stats()
+		get_tree().quit()
+		return
+	if args.has("doorcheck"):
+		await get_tree().physics_frame
+		_door_check()
+		get_tree().quit()
+		return
 	if bright:
 		map.lighting.env.ambient_light_energy = 6.0
 		map.lighting.moon.light_energy = 1.4
@@ -54,42 +71,166 @@ func _ready() -> void:
 	add_child(cam)
 	cam.current = true
 	await get_tree().process_frame
+	if args.has("perf"):
+		DisplayServer.window_set_vsync_mode(DisplayServer.VSYNC_DISABLED)
+		Engine.max_fps = 0
+		await _perf(str(args.get("perf")))
+		get_tree().quit()
+		return
+	# --times=0,450: each view at those match times (seconds; the artificial sun is up from 300 to 600).
+	var times: Array = str(args.get("times", "")).split(",", false)
+	if times.is_empty():
+		times = [""]
 	for v in views:
 		if not VIEWS.has(v):
 			continue
 		_place(VIEWS[v])
-		for i in 45:
-			await get_tree().process_frame
-		var img := get_viewport().get_texture().get_image()
-		var path := "%s/%s%s.png" % [out_dir, v, "_bright" if bright else ""]
-		img.save_png(path)
-		print("[preview] saved ", path, " fps ", Engine.get_frames_per_second())
+		for tm in times:
+			if str(tm) != "":
+				map.lighting.forced_time = float(tm)
+			for i in 75:
+				await get_tree().process_frame
+			var img := get_viewport().get_texture().get_image()
+			var path := "%s/%s%s%s.png" % [out_dir, v, "_bright" if bright else "", ("_t" + str(tm)) if str(tm) != "" else ""]
+			img.save_png(path)
+			print("[preview] saved ", path, " fps ", Engine.get_frames_per_second(), " luma ", _luma(img))
 	get_tree().quit()
 
 
+static func _luma(img: Image) -> float:
+	var s := 0.0
+	var n := 0
+	for y in range(0, img.get_height(), 8):
+		for x in range(0, img.get_width(), 8):
+			var c := img.get_pixel(x, y)
+			s += (0.2126 * c.r + 0.7152 * c.g + 0.0722 * c.b) * 255.0
+			n += 1
+	return s / maxf(n, 1)
+
+
+func _mm_stats() -> void:
+	## Instanced models by total triangles (instances x triangles per mesh), plus the cell count.
+	var by := {}
+	for key in map.dyn._mm:
+		var e: Dictionary = map.dyn._mm[key]
+		var name := str(key).split("|")[1]
+		var mesh: Mesh = e.mesh
+		var tris := 0
+		for s in mesh.get_surface_count():
+			var a := mesh.surface_get_arrays(s)
+			var idx = a[Mesh.ARRAY_INDEX]
+			tris += (idx.size() if idx != null and idx.size() > 0 else (a[Mesh.ARRAY_VERTEX] as PackedVector3Array).size()) / 3
+		var lods := 0
+		var lod_min := tris
+		if mesh is ArrayMesh:
+			var sd: Dictionary = RenderingServer.mesh_get_surface(mesh.get_rid(), 0)
+			lods = (sd.get("lods", []) as Array).size()
+			if lods > 0:
+				var last: Dictionary = sd.lods[lods - 1]
+				lod_min = (last.index_data as PackedByteArray).size() / (2 if int(sd.get("vertex_count", 0)) <= 65536 else 4) / 3
+		var r: Dictionary = by.get(name, {"inst": 0, "tris": tris, "cells": 0, "surf": mesh.get_surface_count(), "lods": lods, "lod_min": lod_min})
+		r.inst += (e.xforms as Array).size()
+		r.cells += 1
+		by[name] = r
+	var rows := []
+	var total := 0
+	for k in by:
+		rows.append([by[k].inst * by[k].tris, k])
+		total += by[k].inst * by[k].tris
+	rows.sort_custom(func(a, b): return a[0] > b[0])
+	print("[mmstats] %d models, %d cells, %d instanced triangles in total" % [by.size(), map.dyn._mm.size(), total])
+	for r in rows.slice(0, 45):
+		var d: Dictionary = by[r[1]]
+		print("[mmstats] %-28s inst %5d  tris %7d  surf %2d  cells %4d  total %9d  lods %d (last ~%d tris in surface 0)" % [r[1], d.inst, d.tris, d.surf, d.cells, r[0], d.lods, d.lod_min])
+	# Loot and physics load: containers by table, movable props by name (each is a dormant physics body).
+	var tables := {}
+	for c in map.dyn.containers:
+		tables[c.table] = int(tables.get(c.table, 0)) + 1
+	print("[mmstats] %d containers: %s" % [map.dyn.containers.size(), JSON.stringify(tables)])
+	var names := {}
+	var interior := 0
+	for p in map.dyn.props:
+		names[p.name] = int(names.get(p.name, 0)) + 1
+		interior += 1 if p.get("interior", false) else 0
+	var top := names.keys()
+	top.sort_custom(func(a, b): return names[a] > names[b])
+	print("[mmstats] %d movable props (%d indoors): %s" % [map.dyn.props.size(), interior, ", ".join(top.slice(0, 30).map(func(k): return "%s %d" % [k, names[k]]))])
+
+
+func _physics_process(dt: float) -> void:
+	# Lamps, the light manager and the view tiers run from the map tick, as in a match.
+	if map and map.has_method("physics_tick"):
+		map.physics_tick(dt)
+
+
 func _place(spec: Array) -> void:
-	if spec[0] is Vector3:
-		cam.global_position = spec[0]
-		cam.look_at(spec[1], Vector3.UP)
-		return
+	## VIEWS are written in the unscaled layout's coordinates; heights are not scaled.
 	var L = map.layout
+	var k: float = L.MAP_SCALE
+	if spec[0] is String and str(spec[0]) in ["tunnel", "looban", "ladder", "deck", "walkway"]:
+		_place_feature(str(spec[0]), int(spec[1]))
+		return
+	if spec[0] is Vector3:
+		cam.global_position = (spec[0] as Vector3) * Vector3(k, 1.0, k)
+		cam.look_at((spec[1] as Vector3) * Vector3(k, 1.0, k), Vector3.UP)
+		return
 	match str(spec[0]):
 		"street":
-			var p := _open_spot(spec[1])
+			var p := _open_spot((spec[1] as Vector2) * k)
 			var y: float = _floor_y(p)
 			cam.global_position = Vector3(p.x, y + 1.65, p.y)
 			cam.rotation = Vector3(-0.05, float(spec[2]), 0)
 		"river":
-			var z := float(spec[1])
+			var z := float(spec[1]) * k
 			var side := float(spec[2])
 			var x: float = L.river_x(z) + side * (L.river_hw(z) - 0.6)
 			cam.global_position = Vector3(x, L.WATER_Y + 1.55 + 1.65, z)
 			cam.look_at(Vector3(L.river_x(z + 40.0) + side * (L.river_hw(z + 40.0) - 0.6), L.WATER_Y + 3.0, z + 40.0), Vector3.UP)
 		"estero":
-			var x2 := float(spec[1])
+			var x2 := float(spec[1]) * k
 			var z2: float = L.estero_z(x2) + L.estero_w * 0.5 + 0.7
 			cam.global_position = Vector3(x2, L.WATER_Y + 1.5 + 1.65, z2)
 			cam.look_at(Vector3(x2 + 30.0, L.WATER_Y + 2.5, L.estero_z(x2 + 30.0) + L.estero_w * 0.5 + 0.7), Vector3.UP)
+
+
+func _place_feature(kind: String, i: int) -> void:
+	## Cameras on the r3 features, by index: inside a roofed lane looking along it, at a looban's edge, in front of a
+	## ladder, on a roof deck.
+	match kind:
+		"tunnel":
+			var lanes: Array = map.tunnels.filter(func(t): return t.kind == "lane" and (t.b as Vector2).distance_to(t.a) > 8.0)
+			var t: Dictionary = lanes[i % lanes.size()]
+			var a: Vector2 = t.a
+			var b: Vector2 = t.b
+			var p := a.lerp(b, 0.12)
+			cam.global_position = Vector3(p.x, map.layout.ground_height(p.x, p.y) + 1.65, p.y)
+			cam.look_at(Vector3(b.x, cam.global_position.y - 0.1, b.y), Vector3.UP)
+		"looban":
+			var lb: Dictionary = map.loobans[i % map.loobans.size()]
+			var c: Vector2 = lb.c
+			var h: Vector2 = lb.half
+			var ang: float = lb.ang
+			var corner: Vector2 = c + Vector2(cos(ang), sin(ang)) * (h.x + 1.0) + Vector2(-sin(ang), cos(ang)) * (h.y + 0.5)
+			cam.global_position = Vector3(corner.x, map.layout.ground_height(corner.x, corner.y) + 1.7, corner.y)
+			cam.look_at(Vector3(c.x, cam.global_position.y - 0.5, c.y), Vector3.UP)
+		"walkway":
+			var walks: Array = map.tunnels.filter(func(t): return t.kind == "walk" and (t.b as Vector2).distance_to(t.a) > 8.0)
+			var tw: Dictionary = walks[i % walks.size()]
+			var aw: Vector2 = tw.a
+			var bw: Vector2 = tw.b
+			var pw := aw.lerp(bw, 0.1)
+			cam.global_position = Vector3(pw.x, float(tw.y) + 1.65, pw.y)
+			cam.look_at(Vector3(bw.x, float(tw.y) + 1.5, bw.y), Vector3.UP)
+		"ladder", "deck":
+			var ld: Dictionary = map.ladders[i % map.ladders.size()]
+			var b3: Vector3 = ld.base
+			var n: Vector3 = ld.n
+			if kind == "ladder":
+				cam.global_position = b3 + n * 4.5 + Vector3.UP * 1.7 + n.cross(Vector3.UP) * 1.2
+				cam.look_at(b3 + Vector3.UP * 2.2, Vector3.UP)
+			else:
+				cam.global_position = b3 - n * 1.2 + Vector3.UP * (float(ld.top_y) - b3.y + 1.7)
+				cam.look_at(b3 - n * 6.0 + Vector3.UP * (float(ld.top_y) - b3.y + 0.8), Vector3.UP)
 
 
 func _floor_y(p: Vector2) -> float:
@@ -113,3 +254,131 @@ func _open_spot(c: Vector2) -> Vector2:
 			if absf(r.position.y - map.layout.ground_height(p.x, p.y)) < 0.4 and not map.layout.is_water(p.x, p.y):
 				return p
 	return c
+
+
+func _door_check() -> void:
+	## Swings every closed, unlocked outer door through its arc as a player outside would open it (doors swing toward
+	## whoever opens them) and reports what stops it. Light props are shoved aside; anything heavier shuts the house.
+	var checked := 0
+	var blocked := {}
+	var examples := []
+	for d in map.dyn.doors:
+		var dn = d.get("node")
+		if dn == null or dn.is_shutter or dn.locked or not d.get("outer", false) or not d.has("outward"):
+			continue
+		checked += 1
+		var outside: Vector3 = dn.center() + (d.outward as Vector3) * 1.1
+		var sgn := -float(dn.hinge_side_sign(outside))  # as Door.server_use
+		for k in range(1, 12):
+			var a: float = dn.MAX_ANGLE * sgn * k / 11.0
+			var what := _door_hit(dn, a)
+			if what != "":
+				blocked[what] = int(blocked.get(what, 0)) + 1
+				if examples.size() < 10:
+					examples.append("door %d at %s: %s at %.2f rad" % [int(d.id), str(dn.center().snapped(Vector3.ONE * 0.1)), what, a])
+				break
+	var n := 0
+	for k in blocked:
+		n += int(blocked[k])
+	print("[doorcheck] %d outer doors swung, %d blocked: %s" % [checked, n, JSON.stringify(blocked)])
+	for e in examples:
+		print("[doorcheck]   " + e)
+
+
+func _door_hit(dn, a: float) -> String:
+	## Door._would_hit without its side effects; names the first thing in the way.
+	var q := PhysicsShapeQueryParameters3D.new()
+	var bs := BoxShape3D.new()
+	bs.size = Vector3(dn.w - 0.08, dn.h - 0.1, dn.t + 0.02)
+	q.shape = bs
+	q.transform = dn.base * Transform3D(Basis(Vector3.UP, a), Vector3.ZERO) * Transform3D(Basis(), Vector3(dn.w * 0.5 + 0.03, dn.h * 0.5, 0))
+	q.collision_mask = Defs.PHYS_PROP | Defs.PHYS_CHAR | Defs.PHYS_CORPSE
+	q.exclude = [dn.body]
+	for r in PhysicsServer3D.space_get_direct_state(map.dyn.space_rid).intersect_shape(q, 4):
+		var c = r.collider
+		if c != null and c.has_meta("prop_id"):
+			if dn.light_resting_prop(int(c.get_meta("prop_id"))):
+				continue  # the door shoves it aside
+			return str(map.dyn.props[int(c.get_meta("prop_id"))].name)
+		return str(c) if c != null else "body %s" % str(r.rid)
+	return ""
+
+
+func _report(label: String, frames: int = 240) -> void:
+	## Frame time, the renderer's own CPU / GPU time and the draw count, averaged over frames (after a settle: toggling
+	## thousands of instances costs a few slow frames).
+	var vp := get_viewport().get_viewport_rid()
+	RenderingServer.viewport_set_measure_render_time(vp, true)
+	for i in 45:
+		await get_tree().process_frame
+	var cpu := 0.0
+	var gpu := 0.0
+	var t0 := Time.get_ticks_usec()
+	for i in frames:
+		await get_tree().process_frame
+		cpu += RenderingServer.viewport_get_measured_render_time_cpu(vp) + RenderingServer.get_frame_setup_time_cpu()
+		gpu += RenderingServer.viewport_get_measured_render_time_gpu(vp)
+	print("[perf] %-32s %6.2f ms  render cpu %5.2f gpu %5.2f  draws %5d  prims %8d" % [label, (Time.get_ticks_usec() - t0) / 1000.0 / frames,
+		cpu / frames, gpu / frames, RenderingServer.get_rendering_info(RenderingServer.RENDERING_INFO_TOTAL_DRAW_CALLS_IN_FRAME),
+		RenderingServer.get_rendering_info(RenderingServer.RENDERING_INFO_TOTAL_PRIMITIVES_IN_FRAME)])
+
+
+func _perf(view: String) -> void:
+	## Frame cost at one viewpoint with features toggled one at a time.
+	_place(VIEWS[view])
+	for i in 60:
+		await get_tree().process_frame
+	var env: Environment = map.lighting.env
+	var moon: DirectionalLight3D = map.lighting.moon
+	await _report(view + " baseline")
+	moon.shadow_enabled = false
+	await _report("moon shadows off")
+	moon.shadow_enabled = true
+	env.volumetric_fog_enabled = false
+	await _report("volumetric fog off")
+	env.volumetric_fog_enabled = true
+	env.ssao_enabled = false
+	await _report("ssao off")
+	env.ssao_enabled = true
+	var mm = map.root.get_children().filter(func(c): return c.name.begins_with("MM_"))
+	for c in mm:
+		c.visible = false
+	await _report("multimesh props hidden")
+	# Furnished rooms on their own: the instanced props on the Interior Props layer.
+	var inside = mm.filter(func(c): return (c as VisualInstance3D).layers == Defs.RENDER_INTERIOR_PROPS)
+	for c in mm:
+		c.visible = not inside.has(c)
+	await _report("interior props hidden")
+	for c in mm:
+		c.visible = true
+	# Outdoors: trees and plants, then the rest of the street props.
+	var green := []
+	var street := []
+	for key in map.dyn._mm:
+		var e: Dictionary = map.dyn._mm[key]
+		var parts := str(key).split("|")
+		if e.node == null or parts.size() < 3 or parts[2] != "e":
+			continue
+		(green if str(map.models.spec(parts[1]).get("kind", "")) in ["tree", "plant"] else street).append(e.node)
+	for c in green:
+		c.visible = false
+	await _report("trees and plants hidden")
+	for c in green:
+		c.visible = true
+	for c in street:
+		c.visible = false
+	await _report("other street props hidden")
+	for c in street:
+		c.visible = true
+	var casting = inside.filter(func(c): return (c as GeometryInstance3D).cast_shadow != GeometryInstance3D.SHADOW_CASTING_SETTING_OFF)
+	for c in casting:
+		(c as GeometryInstance3D).cast_shadow = GeometryInstance3D.SHADOW_CASTING_SETTING_OFF
+	await _report("interior props cast no shadows")
+	for c in casting:
+		(c as GeometryInstance3D).cast_shadow = GeometryInstance3D.SHADOW_CASTING_SETTING_ON
+	var chunks = map.root.get_children().filter(func(c): return c.name.begins_with("Chunk_"))
+	for c in chunks:
+		c.visible = false
+	await _report("chunk geometry hidden")
+	for c in chunks:
+		c.visible = true

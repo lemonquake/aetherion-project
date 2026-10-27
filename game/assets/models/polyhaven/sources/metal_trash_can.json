@@ -1,0 +1,19 @@
+{
+  "source": "Poly Haven",
+  "title": "Metal Trash Can",
+  "url": "https://polyhaven.com/a/metal_trash_can",
+  "authors": [
+    "GurJas Studios"
+  ],
+  "license": "CC0-1.0",
+  "license_url": "https://polyhaven.com/license",
+  "attribution_required": false,
+  "kind": "model",
+  "modifications": "Kept one variant (metal_trash_can_rust, metal_trash_can_rust_handle_left, metal_trash_can_rust_handle_right, metal_trash_can_rust_lid) of the set, removed 4 other objects, re-centred on it; decimated to its 3,000-triangle budget; 7,532 -> 3,000 triangles, 1 material (tools/blender/process_props.py).",
+  "retrieved": "2026-10-25",
+  "files": {
+    "metal_trash_can.gltf": "930eb24d5382225d3819125d06b90971f54c61c2a1633cc130b8b5679220f213",
+    "metal_trash_can.bin": "fc4c5e4828ddc9c659ca4ee2bbc62decd2403fdd342d9e673e46264b6cd4cd39"
+  },
+  "processed_from": "game/assets/thirdparty/polyhaven/models/metal_trash_can/metal_trash_can_1k.gltf"
+}

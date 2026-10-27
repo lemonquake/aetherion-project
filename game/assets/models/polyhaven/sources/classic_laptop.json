@@ -1,0 +1,19 @@
+{
+  "source": "Poly Haven",
+  "title": "Classic Laptop",
+  "url": "https://polyhaven.com/a/classic_laptop",
+  "authors": [
+    "Arrangemonk"
+  ],
+  "license": "CC0-1.0",
+  "license_url": "https://polyhaven.com/license",
+  "attribution_required": false,
+  "kind": "model",
+  "modifications": "Decimated to its 3,000-triangle budget; 2 materials packed into one 1024x1280 atlas; 14,450 -> 2,999 triangles, 1 material (tools/blender/process_props.py).",
+  "retrieved": "2026-10-25",
+  "files": {
+    "classic_laptop.gltf": "73f4c70140e06355c4cc6edff4aa2b3c52312ddd29aca16ce230cad4bea70212",
+    "classic_laptop.bin": "b51f99b914abf8a900d7dad2bc75ec1e359509b89cf6a2ad24e75fe490fe949c"
+  },
+  "processed_from": "game/assets/thirdparty/polyhaven/models/classic_laptop/classic_laptop_1k.gltf"
+}

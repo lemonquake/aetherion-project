@@ -5,6 +5,10 @@ extends Node
 signal changed(section: String, key: String)
 
 const PATH := "user://settings.cfg"
+## Bumped when defaults change in a way saved settings should pick up (see _migrate).
+const VERSION := 2
+## The master slider shows 0-100, but 100 plays at this fraction of full output unless debug.volume_unlock is on.
+const MASTER_CAP := 0.75
 
 const DEFAULTS := {
 	"player": {"name": ""},
@@ -12,17 +16,34 @@ const DEFAULTS := {
 		"window_mode": "windowed", "resolution": "1600x900", "vsync": true, "max_fps": 0,
 		"preset": "high", "render_scale": 1.0, "upscaler": "off", "shadows": 2, "ssao": true, "ssil": false,
 		"volumetric_fog": true, "antialiasing": "taa", "brightness": 0.0, "fov": 80.0, "view_distance": 1.0,
+		"flashlight_shadows": true, "light_distance": 1.0,
 	},
 	"audio": {
-		"master": 0.9, "effects": 1.0, "voice": 1.0, "ambience": 0.8, "ui": 0.8,
+		"master": 0.9, "effects": 1.0, "voice": 1.0, "ambience": 0.6, "ui": 0.8,
 		"output": "headphones", "night_mode": false, "mic_device": "Default", "mic_gain": 1.0,
 		"voice_mode": "push", "voice_threshold": 0.04,
 	},
 	"controls": {
 		"mouse_sensitivity": 0.12, "ads_sensitivity": 0.75, "invert_y": false, "crouch_toggle": false,
 		"sprint_toggle": false, "gamepad_sensitivity": 2.4, "gamepad_deadzone": 0.18,
+		"touch_controls": false, "touch_sensitivity": 0.3, "touch_aim_toggle": true,
 	},
 	"accessibility": {"camera_motion": "normal", "smartab_text_scale": 1.0, "reduce_flashes": false, "smartab_brightness": 0.6},
+	"debug": {"volume_unlock": false},
+}
+
+## What each graphics quality preset sets. Applied when a preset is picked; the individual options can still be
+## changed afterwards.
+const PRESETS := {
+	# Phones and tablets (the default there): no shadow maps, AO or fog volumes, 3D drawn at 70 % and scaled up,
+	# 2x MSAA (nearly free on tiled mobile GPUs), lamps culled sooner, a 60 fps cap to stay cool.
+	"mobile": {"shadows": 0, "ssao": false, "volumetric_fog": false, "view_distance": 0.6, "render_scale": 0.7,
+		"upscaler": "off", "antialiasing": "msaa", "flashlight_shadows": false, "light_distance": 0.6, "max_fps": 60},
+	"low": {"shadows": 0, "ssao": false, "volumetric_fog": false, "view_distance": 0.8, "flashlight_shadows": false,
+		"light_distance": 0.8},
+	"medium": {"shadows": 1, "ssao": false, "volumetric_fog": true, "view_distance": 0.9},
+	"high": {"shadows": 2, "ssao": true, "volumetric_fog": true, "view_distance": 1.0},
+	"ultra": {"shadows": 3, "ssao": true, "volumetric_fog": true, "view_distance": 1.2},
 }
 
 ## action -> [keyboard/mouse default, gamepad default]. Mouse buttons are "mouse:N", joypad buttons "joy:N",
@@ -33,16 +54,41 @@ const BINDINGS := {
 	"look_up": ["", "axis:3:-"], "look_down": ["", "axis:3:+"], "look_left": ["", "axis:2:-"], "look_right": ["", "axis:2:+"],
 	"jump": ["Space", "joy:0"], "crouch": ["C", "joy:1"], "sprint": ["Shift", "joy:7"], "walk": ["Ctrl", ""],
 	"fire": ["mouse:1", "axis:5:+"], "aim": ["mouse:2", "axis:4:+"], "reload": ["R", "joy:2"],
-	"interact": ["E", "joy:10"], "flashlight": ["F", "joy:9"], "smartab": ["Tab", "joy:4"],
+	"interact": ["E", "joy:10"], "grab": ["T", "joy:8"], "flashlight": ["F", "joy:9"], "smartab": ["Tab", "joy:4"],
 	"heal": ["H", "joy:12"], "weapon_1": ["1", ""], "weapon_2": ["2", ""], "weapon_3": ["3", ""],
 	"next_weapon": ["mouse:5", "joy:3"], "prev_weapon": ["mouse:4", ""], "holster": ["X", "joy:13"],
-	"fire_mode": ["B", "joy:14"], "push_to_talk": ["V", "joy:11"], "text_chat": ["Y", ""],
-	"drop_held": ["G", ""], "menu": ["Escape", "joy:6"], "map": ["M", ""],
+	"fire_mode": ["B", "joy:14"], "push_to_talk": ["CapsLock", "joy:11"], "ping": ["V", "joy:5"], "text_chat": ["Y", ""],
+	"drop_held": ["", ""], "throw_grenade": ["G", "joy:15"], "menu": ["Escape", "joy:6"], "map": ["M", ""],
 	"smartab_prev": ["Q", "joy:11"], "smartab_next": ["E", "joy:10"],
 }
 
 var data: Dictionary = {}
 var bindings: Dictionary = {}
+
+
+## Overrides of DEFAULTS on phones and tablets (or on a PC started with --mobile, to try the mobile profile).
+const MOBILE_DEFAULTS := {
+	"graphics": {"preset": "mobile", "vsync": true},
+	"controls": {"touch_controls": true},
+}
+
+static var _mobile := -1
+
+
+static func is_mobile() -> bool:
+	## A phone or tablet build, or a PC started with --mobile.
+	if _mobile < 0:
+		_mobile = 1 if OS.has_feature("mobile") or "--mobile" in OS.get_cmdline_user_args() else 0
+	return _mobile == 1
+
+
+func touch_active() -> bool:
+	return bool(get_value("controls", "touch_controls"))
+
+
+func play_mouse_mode() -> Input.MouseMode:
+	## Mouse mode while playing: captured for mouse look, free when touch controls are on.
+	return Input.MOUSE_MODE_VISIBLE if touch_active() else Input.MOUSE_MODE_CAPTURED
 
 
 func _ready() -> void:
@@ -61,15 +107,27 @@ func set_value(section: String, key: String, value) -> void:
 	data[section][key] = value
 	_apply(section, key)
 	changed.emit(section, key)
+	if section == "graphics" and key == "preset":
+		var p: Dictionary = PRESETS.get(str(value), {})
+		for k in p:
+			set_value("graphics", k, p[k])
 
 
 func load_settings() -> void:
 	data = DEFAULTS.duplicate(true)
+	if is_mobile():
+		for section in MOBILE_DEFAULTS:
+			for key in MOBILE_DEFAULTS[section]:
+				data[section][key] = MOBILE_DEFAULTS[section][key]
+		var mp: Dictionary = PRESETS.mobile
+		for key in mp:
+			data.graphics[key] = mp[key]
 	bindings = {}
 	for action in BINDINGS:
 		bindings[action] = BINDINGS[action].duplicate()
 	var cfg := ConfigFile.new()
-	if cfg.load(PATH) != OK:
+	# A PC trying the mobile profile (--mobile) starts from it rather than from its own saved settings.
+	if (is_mobile() and not OS.has_feature("mobile")) or cfg.load(PATH) != OK:
 		return
 	for section in cfg.get_sections():
 		if section == "bindings":
@@ -81,15 +139,34 @@ func load_settings() -> void:
 			data[section] = {}
 		for key in cfg.get_section_keys(section):
 			data[section][key] = cfg.get_value(section, key)
+	_migrate(int(cfg.get_value("meta", "version", 1)))
+
+
+func _migrate(from: int) -> void:
+	## Saved settings from an older build: move what changed meaning, keep everything the player chose.
+	if from < 2:
+		# V became the team ping and push to talk moved to Caps Lock; ambience defaults to 60 % (was 80 %).
+		if str((bindings.get("push_to_talk", [""]) as Array)[0]) == "V":
+			bindings.push_to_talk[0] = "CapsLock"
+		bindings.ping = BINDINGS.ping.duplicate()
+		bindings.grab = BINDINGS.grab.duplicate()
+		bindings.throw_grenade = BINDINGS.throw_grenade.duplicate()
+		if str((bindings.get("drop_held", [""]) as Array)[0]) == "G":
+			bindings.drop_held = BINDINGS.drop_held.duplicate()
+		if is_equal_approx(float(data.get("audio", {}).get("ambience", 0.6)), 0.8):
+			data.audio.ambience = 0.6
 
 
 func save_settings() -> void:
+	if is_mobile() and not OS.has_feature("mobile"):
+		return  # --mobile on a PC must not overwrite the PC's own settings
 	var cfg := ConfigFile.new()
 	for section in data:
 		for key in data[section]:
 			cfg.set_value(section, key, data[section][key])
 	for action in bindings:
 		cfg.set_value("bindings", action, bindings[action])
+	cfg.set_value("meta", "version", VERSION)
 	cfg.save(PATH)
 
 
@@ -177,6 +254,12 @@ func binding_label(action: String, index: int = 0) -> String:
 
 # ------------------------------------------------------------------ apply
 
+func master_output() -> float:
+	## What the Master bus actually gets: the slider value scaled by the cap (lifted by the debug option).
+	var cap := 1.0 if bool(get_value("debug", "volume_unlock")) else MASTER_CAP
+	return float(get_value("audio", "master")) * cap
+
+
 func apply_all() -> void:
 	for section in data:
 		for key in data[section]:
@@ -189,6 +272,10 @@ func _apply(section: String, key: String) -> void:
 	var v = get_value(section, key)
 	match section + "." + key:
 		"graphics.window_mode":
+			if OS.has_feature("mobile"):
+				# Phones: always fullscreen (Android's immersive mode hides the status and navigation bars).
+				DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_FULLSCREEN)
+				return
 			match str(v):
 				"fullscreen":
 					DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_EXCLUSIVE_FULLSCREEN)
@@ -212,7 +299,11 @@ func _apply(section: String, key: String) -> void:
 			Engine.max_fps = int(v)
 		"graphics.render_scale", "graphics.upscaler", "graphics.antialiasing":
 			_apply_viewport()
-		"audio.master", "audio.effects", "audio.voice", "audio.ambience", "audio.ui":
+		"audio.master", "debug.volume_unlock":
+			var mi0 := AudioServer.get_bus_index("Master")
+			if mi0 >= 0:
+				AudioServer.set_bus_volume_db(mi0, linear_to_db(maxf(master_output(), 0.0001)))
+		"audio.effects", "audio.voice", "audio.ambience", "audio.ui":
 			var bus: String = {"master": "Master", "effects": "Effects", "voice": "Voice", "ambience": "Ambience", "ui": "UI"}[key]
 			var idx := AudioServer.get_bus_index(bus)
 			if idx >= 0:
@@ -234,15 +325,17 @@ func _apply_viewport() -> void:
 		return
 	var scale := clampf(float(get_value("graphics", "render_scale")), 0.5, 1.0)
 	var up := str(get_value("graphics", "upscaler"))
-	if up == "fsr2" and scale < 1.0:
+	# FSR and TAA exist only in the Forward+ renderer; phones (Mobile) and old GPUs (Compatibility) scale bilinearly.
+	var fwd := RenderingServer.get_current_rendering_method() == "forward_plus"
+	if fwd and up == "fsr2" and scale < 1.0:
 		vp.scaling_3d_mode = Viewport.SCALING_3D_MODE_FSR2
-	elif scale < 1.0:
+	elif fwd and scale < 1.0:
 		vp.scaling_3d_mode = Viewport.SCALING_3D_MODE_FSR
 	else:
 		vp.scaling_3d_mode = Viewport.SCALING_3D_MODE_BILINEAR
 	vp.scaling_3d_scale = scale
 	var aa := str(get_value("graphics", "antialiasing"))
-	vp.use_taa = aa == "taa" and up != "fsr2"
+	vp.use_taa = fwd and aa == "taa" and up != "fsr2"
 	vp.screen_space_aa = Viewport.SCREEN_SPACE_AA_FXAA if aa == "fxaa" else Viewport.SCREEN_SPACE_AA_DISABLED
 	vp.msaa_3d = Viewport.MSAA_2X if aa == "msaa" else Viewport.MSAA_DISABLED
 

@@ -1,0 +1,86 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+Vulkan 1.4.329 - Forward+ - Using Device #0: NVIDIA - NVIDIA GeForce RTX 4060
+
+[lagusan] { "segments": 97, "metres": 1510.29132175446, "lights": 210, "dead": 19, "gaps": 94, "shrines": 20, "walks": 19 }
+[looban] { "loobans": 25, "crate_stacks": 88, "low_walls": 291, "sandbags": 18, "kiosks": 25, "barricades": 9, "yard_walls": 99, &"vacant": 80 }
+[dress] { "poles": 1000, "wires": 5503, "laundry": 437, "clutter": 1246, "props": 2925, "tags": 0, "puddles": 163, "plants": 1235, "vehicles": 66, "floating": 5, "loot": 469, "boxes": 67 }
+[vandal] { "wall": 1247, "covered": 355, "stains": 3298, "ground": 844, "spots": 9 }
+[world] map built in 20436 ms
+[map] 2118 buildings, 4494 doors, 9548 containers, 15415 props, #1375a694 on PC
+[game] autotest fixes
+[autotest] PASS floor_guns_in_houses: 5687 guns on the ground; 1755 of 1927 houses/shops/apartments (91%) have one lying on a floor
+[autotest] PASS balikbayan_has_guns: 32% of balikbayan box rolls are a gun
+[autotest] shot ../work/lemondev/r3/fixes_final/01_plane.png
+[autotest] PASS jump: left the plane
+[autotest] shot ../work/lemondev/r3/fixes_final/02_freefall.png
+[autotest] PASS view_tier_freefall: tier 2 at 265 m above ground, interiors hidden, AO false, local shadows 0
+[autotest] PASS team_cluster: 3 teammates, farthest 31.2 m at canopy
+[autotest] shot ../work/lemondev/r3/fixes_final/03_canopy_team.png
+[autotest] PASS landed: mode 3, health 100 at (171.0, 1.0, -197.0)
+[autotest] PASS view_tier_ground: tier 0 at 2 m above ground, interiors drawn, AO true, local shadows 8
+[autotest] shot ../work/lemondev/r3/fixes_final/04_landed.png
+[autotest] PASS use_takes_items: ["ammo_556: T left it true, E took it true", "rifle_scar: T left it true, E took it true"]; carrying 30 5.56 rounds, SCAR-L in a slot true
+[autotest] PASS stairs_recorded: 1642 indoor flights
+[autotest] shot ../work/lemondev/r3/fixes_final/05_stair_top_0.png
+[autotest] shot ../work/lemondev/r3/fixes_final/06_stair_down_view.png
+[autotest] shot ../work/lemondev/r3/fixes_final/07_stair_top_1.png
+[autotest] shot ../work/lemondev/r3/fixes_final/08_stair_top_2.png
+[autotest] shot ../work/lemondev/r3/fixes_final/09_stair_top_3.png
+[autotest] shot ../work/lemondev/r3/fixes_final/10_stair_top_4.png
+[autotest] shot ../work/lemondev/r3/fixes_final/11_stair_top_5.png
+[autotest] shot ../work/lemondev/r3/fixes_final/12_stair_top_6.png
+[autotest] shot ../work/lemondev/r3/fixes_final/13_stair_top_7.png
+[autotest] shot ../work/lemondev/r3/fixes_final/14_stair_top_8.png
+[autotest] shot ../work/lemondev/r3/fixes_final/15_stair_top_9.png
+[autotest] shot ../work/lemondev/r3/fixes_final/16_stair_top_10.png
+[autotest] shot ../work/lemondev/r3/fixes_final/17_stair_top_11.png
+[autotest] shot ../work/lemondev/r3/fixes_final/18_stair_top_12.png
+[autotest] shot ../work/lemondev/r3/fixes_final/19_stair_top_13.png
+[autotest] shot ../work/lemondev/r3/fixes_final/20_stair_top_14.png
+[autotest] shot ../work/lemondev/r3/fixes_final/21_stair_top_15.png
+[autotest] shot ../work/lemondev/r3/fixes_final/22_stair_top_16.png
+[autotest] shot ../work/lemondev/r3/fixes_final/23_stair_top_17.png
+[autotest] shot ../work/lemondev/r3/fixes_final/24_stair_top_18.png
+[autotest] shot ../work/lemondev/r3/fixes_final/25_stair_top_19.png
+[autotest] shot ../work/lemondev/r3/fixes_final/26_stair_top_20.png
+[autotest] shot ../work/lemondev/r3/fixes_final/27_stair_top_21.png
+[autotest] shot ../work/lemondev/r3/fixes_final/28_stair_top_22.png
+[autotest] shot ../work/lemondev/r3/fixes_final/29_stair_top_23.png
+[autotest] PASS stairs_climbable: 24 of 24 flights climbed, 24 stepped off on the upper floor; []
+[autotest] shot ../work/lemondev/r3/fixes_final/30_floor_gun_shotgun_double.png
+[autotest] PASS floor_gun_visible: shotgun_double at 3.1 m in an unlit room, no flashlight: 1702 pixels show the gun (mean luma 93.1)
+[autotest] shot ../work/lemondev/r3/fixes_final/31_tab_box_items.png
+[autotest] PASS tab_opens_box: beside lootbox_balikbayan: container shown true (id 3084, a loot box true, walked to 3084), page Items, its lid opened true, 1 entries listed (the box holds 1)
+[autotest] shot ../work/lemondev/r3/fixes_final/32_grab_holding_suitcase.png
+[autotest] PASS grab_with_t: suitcase: prompt 'T  Pick up', after E held -1, after T held true, after second T dropped true
+[autotest] shot ../work/lemondev/r3/fixes_final/33_minimap_before_ping.png
+[autotest] shot ../work/lemondev/r3/fixes_final/34_minimap_ping.png
+[autotest] PASS ping_minimap: ping shown true, 34 green pixels in the minimap, cleared after 5 s true, minimap visible true at (20.0, 20.0)
+[autotest] shot ../work/lemondev/r3/fixes_final/35_door_opened_forward.png
+[autotest] PASS door_opens_forward: door 4367 swung 95 deg, leaf on the far side true (player side +1, leaf side -1)
+[autotest] PASS door_walk_through: walked from (-260.7, 0.9, 173.7) through the doorway to (-260.9, 0.9, 176.4)
+[autotest] shot ../work/lemondev/r3/fixes_final/36_door_pushed.png
+[autotest] PASS door_push_swings: leaf at 52 deg, shoved 42 deg by a running player (swinging on its own afterwards true), now 67 deg
+[autotest] PASS door_latches_shut: angle 0.000, solid true
+[autotest] shot ../work/lemondev/r3/fixes_final/37_vault_through_window.png
+[autotest] PASS vault_through_window: 5 of 6 windows vaulted through; ["window 3193 (open, 0.90x1.07, sill 0.88 m): stayed at side -0.92 (no room to land (face 0.30, top 0.59, depth 0.82, climb false))"]
+[autotest] PASS vault_hides_weapon: gun lowered while vaulting true, back up after true
+[autotest] PASS trash_no_block: trashbag: blocks movement false, stops bullets false; 744 garbage heaps placed without collision
+[autotest] shot ../work/lemondev/r3/fixes_final/38_weapon_pistol_9.png
+[autotest] shot ../work/lemondev/r3/fixes_final/39_weapon_rifle_scar.png
+[autotest] shot ../work/lemondev/r3/fixes_final/40_weapon_smg_vector.png
+[autotest] shot ../work/lemondev/r3/fixes_final/41_weapon_pistol_deagle.png
+[autotest] weapons: P92 3 shots, view +4.0 deg, reload ok; P1911 3 shots, view +6.2 deg, reload ok; R1895 Revolver 3 shots, view +8.2 deg, reload ok; S1897 Pump 3 shots, view +13.8 deg, reload ok; MP5K 7 shots, view +5.8 deg, reload ok; Micro UZI 6 shots, view +5.4 deg, reload ok; AR-15 7 shots, view +11.5 deg, reload ok; AKM 5 shots, view +10.9 deg, reload ok; M24 3 shots, view +8.8 deg, reload ok; S686 2 shots, view +9.7 deg, reload ok; Sumpak 1 shots, view +6.4 deg, reload ok; SLR 3 shots, view +6.0 deg, reload ok; SCAR-L 6 shots, view +7.8 deg, reload ok; M416 6 shots, view +7.5 deg, reload ok; M249 8 shots, view +8.5 deg, reload ok; Mini 14 3 shots, view +4.0 deg, reload ok; Beryl M762 7 shots, view +17.8 deg, reload ok; SKS 3 shots, view +5.2 deg, reload ok; Kar98k 3 shots, view +10.4 deg, reload ok; UMP45 6 shots, view +4.8 deg, reload ok; Vector 9 shots, view +6.9 deg, reload ok; Tommy Gun 6 shots, view +5.6 deg, reload ok; S12K 3 shots, view +11.6 deg, reload ok; Deagle 3 shots, view +9.8 deg, reload ok
+[autotest] PASS all_weapons_work: 24 guns tested; problems: []
+[autotest] PASS shared_calibres: by calibre: { "9x19": ["P92", "MP5K", "Micro UZI", "Vector"], "45acp": ["P1911", "UMP45", "Tommy Gun"], "357": ["R1895 Revolver"], "12buck": ["S1897 Pump", "S686", "Sumpak", "S12K"], "556": ["AR-15", "SCAR-L", "M416", "M249", "Mini 14"], "762x39": ["AKM", "Beryl M762", "SKS"], "308": ["M24", "SLR", "Kar98k"], "50ae": ["Deagle"] }
+[autotest] shot ../work/lemondev/r3/fixes_final/42_frag_explosion.png
+[autotest] PASS frag_grenade: thrown true, frags left 1, teammate 2 m away 100 -> 17 health, exploded at (-274.3, 0.8, 166.7)
+[autotest] PASS work_sounds_used: 46 work/sounds files in use; unused []; not loading []
+[autotest] PASS door_sounds_60: door open -6.4 dB (was -2.0), door close -4.4 dB (was 0.0), ambience default 60%
+[autotest] done: 26 checks, 0 failed
+ERROR: 1 RID allocations of type 'N10RendererRD5SkyRD3SkyE' were leaked at exit.
+ERROR: 1 RID allocations of type 'N26RendererEnvironmentStorage11EnvironmentE' were leaked at exit.
+ERROR: 214 RID allocations of type 'N10RendererRD11MeshStorage4MeshE' were leaked at exit.
+ERROR: 1710 RID allocations of type 'N10RendererRD15MaterialStorage8MaterialE' were leaked at exit.
+ERROR: 35 RID allocations of type 'N10RendererRD15MaterialStorage6ShaderE' were leaked at exit.
+ERROR: 738 RID allocations of type 'N10RendererRD14TextureStorage7TextureE' were leaked at exit.

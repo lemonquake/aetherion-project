@@ -1,0 +1,19 @@
+{
+  "source": "Poly Haven",
+  "title": "Street Lamp 02",
+  "url": "https://polyhaven.com/a/street_lamp_02",
+  "authors": [
+    "Josh Dean"
+  ],
+  "license": "CC0-1.0",
+  "license_url": "https://polyhaven.com/license",
+  "attribution_required": false,
+  "kind": "model",
+  "modifications": "Decimated to its 4,000-triangle budget; blend / transmission dropped, opaque (street_lamp_02_glass); 20,338 -> 3,999 triangles, 1 material (tools/blender/process_props.py).",
+  "retrieved": "2026-10-25",
+  "files": {
+    "street_lamp_02.gltf": "77b35c880ed972daeffdcd3b5727b14b8c98ee7e984ed2eeebf5cae46a3f718d",
+    "street_lamp_02.bin": "86cdd42323fc59e63a7cb90eedfe8c0a88d31bbac066e20c42bb6caccf68713d"
+  },
+  "processed_from": "game/assets/thirdparty/polyhaven/models/street_lamp_02/street_lamp_02_1k.gltf"
+}

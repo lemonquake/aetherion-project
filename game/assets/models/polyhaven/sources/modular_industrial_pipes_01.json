@@ -1,0 +1,19 @@
+{
+  "source": "Poly Haven",
+  "title": "Modular Industrial Pipes 01",
+  "url": "https://polyhaven.com/a/modular_industrial_pipes_01",
+  "authors": [
+    "Jorge Camacho"
+  ],
+  "license": "CC0-1.0",
+  "license_url": "https://polyhaven.com/license",
+  "attribution_required": false,
+  "kind": "model",
+  "modifications": "Decimated to its 4,000-triangle budget; 2 materials packed into one 2048x1024 atlas; 12,340 -> 4,000 triangles, 1 material (tools/blender/process_props.py).",
+  "retrieved": "2026-10-25",
+  "files": {
+    "modular_industrial_pipes_01.gltf": "d6f8427f6ebca66a0bf401b289763df7db9ee3eef4bda1ef369cc0b387299ff7",
+    "modular_industrial_pipes_01.bin": "df20744799b92c4b1016f4a7783753dd08c59ba0a47b121a0ab405ddb66e1125"
+  },
+  "processed_from": "game/assets/thirdparty/polyhaven/models/modular_industrial_pipes_01/modular_industrial_pipes_01_1k.gltf"
+}

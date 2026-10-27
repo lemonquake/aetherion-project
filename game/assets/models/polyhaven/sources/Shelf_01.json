@@ -1,0 +1,19 @@
+{
+  "source": "Poly Haven",
+  "title": "Shelf 01",
+  "url": "https://polyhaven.com/a/Shelf_01",
+  "authors": [
+    "Gabriel Radić"
+  ],
+  "license": "CC0-1.0",
+  "license_url": "https://polyhaven.com/license",
+  "attribution_required": false,
+  "kind": "model",
+  "modifications": "Re-exported unchanged (within budget, one material); 182 -> 182 triangles, 1 material (tools/blender/process_props.py).",
+  "retrieved": "2026-10-25",
+  "files": {
+    "Shelf_01.gltf": "54f7ec748ffb7a3a9c0b47e2708f3887531eb84c964a999c89711b17abcbe9c7",
+    "Shelf_01.bin": "653fe75e53bc20e3fe871f45019231f54155fc8e3428e10c1d4465ef9691b8dc"
+  },
+  "processed_from": "game/assets/thirdparty/polyhaven/models/Shelf_01/Shelf_01_1k.gltf"
+}

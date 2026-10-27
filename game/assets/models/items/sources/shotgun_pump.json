@@ -1,0 +1,21 @@
+{
+  "source": "Sketchfab (downloaded from the Objaverse mirror, allenai/objaverse on Hugging Face)",
+  "title": "Remington 870 Shotgun",
+  "url": "https://sketchfab.com/3d-models/6db0ad4764d14eee8f063eea3600071b",
+  "mirror_url": "https://huggingface.co/datasets/allenai/objaverse/resolve/main/glbs/000-141/6db0ad4764d14eee8f063eea3600071b.glb",
+  "authors": [
+    "Andrei Milin"
+  ],
+  "author_url": "https://sketchfab.com/milinam2002",
+  "license": "CC-BY-4.0",
+  "license_url": "http://creativecommons.org/licenses/by/4.0/",
+  "attribution_required": true,
+  "kind": "model",
+  "purpose": "pump shotgun",
+  "modifications": "Joined into one mesh, re-oriented (front along -Z in Godot), scaled to 1.000 m overall, centred, decimated 6202 -> 6202 triangles, textures reduced to 1024 px JPEG (tools/blender/process_items.py).",
+  "retrieved": "2026-10-25",
+  "files": {
+    "shotgun_pump.glb": ""
+  },
+  "processed_from": "tools/cache/sketchfab/shotgun_870/shotgun_870.glb"
+}

@@ -1,0 +1,19 @@
+{
+  "source": "Poly Haven",
+  "title": "Korean Fire Extinguisher 01",
+  "url": "https://polyhaven.com/a/korean_fire_extinguisher_01",
+  "authors": [
+    "UM JOORIN"
+  ],
+  "license": "CC0-1.0",
+  "license_url": "https://polyhaven.com/license",
+  "attribution_required": false,
+  "kind": "model",
+  "modifications": "Decimated to its 3,000-triangle budget; 3 materials packed into one 1024x1280 atlas; blend / transmission dropped, opaque (korean_fire_extinguisher_01_glass, korean_fire_extinguisher_01_paper); 9,913 -> 3,000 triangles, 1 material (tools/blender/process_props.py).",
+  "retrieved": "2026-10-25",
+  "files": {
+    "korean_fire_extinguisher_01.gltf": "2f11e21e80d269a83df6010a3adff7411b73a23fd573af77903846427145add1",
+    "korean_fire_extinguisher_01.bin": "02bda183df6bf327f719d5661ed91db2efbde19c5109844648bb57f12ed9b039"
+  },
+  "processed_from": "game/assets/thirdparty/polyhaven/models/korean_fire_extinguisher_01/korean_fire_extinguisher_01_1k.gltf"
+}

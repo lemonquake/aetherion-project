@@ -1,0 +1,19 @@
+{
+  "source": "Poly Haven",
+  "title": "Vintage Day Bed",
+  "url": "https://polyhaven.com/a/vintage_day_bed",
+  "authors": [
+    "Aron Łyczek"
+  ],
+  "license": "CC0-1.0",
+  "license_url": "https://polyhaven.com/license",
+  "attribution_required": false,
+  "kind": "model",
+  "modifications": "Re-exported unchanged (within budget, one material); 2,715 -> 2,715 triangles, 1 material (tools/blender/process_props.py).",
+  "retrieved": "2026-10-25",
+  "files": {
+    "vintage_day_bed.gltf": "22e32ecee5816a071f36004bc59bbf63e7864675083078337fe23ae7d46e3b36",
+    "vintage_day_bed.bin": "c5475edbe2a48d3e77ceff4ee8599545ee17bbc9b99ce91f9897aadc8bda742b"
+  },
+  "processed_from": "game/assets/thirdparty/polyhaven/models/vintage_day_bed/vintage_day_bed_1k.gltf"
+}

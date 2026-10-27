@@ -1,0 +1,19 @@
+{
+  "source": "Poly Haven",
+  "title": "Service Pistol",
+  "url": "https://polyhaven.com/a/service_pistol",
+  "authors": [
+    "Mateusz Sadek"
+  ],
+  "license": "CC0-1.0",
+  "license_url": "https://polyhaven.com/license",
+  "attribution_required": false,
+  "kind": "model",
+  "modifications": "Kept one variant (service_pistol_hammer_a, service_pistol_pistol_a, service_pistol_slide_a, service_pistol_trigger_a) of the set, removed 7 other objects, re-centred on it; decimated to its 1,000-triangle budget; textures 512 px; 7,556 -> 1,000 triangles, 1 material (tools/blender/process_props.py).",
+  "retrieved": "2026-10-25",
+  "files": {
+    "service_pistol.gltf": "a42d1cbc5a745411df0041fab7e3129ad246713a4b4a8bd06e0772aebf9a31dc",
+    "service_pistol.bin": "cccd9766e2575c8c6b2bd62b3e3fa784741ec2db939621636400e8a385812f9e"
+  },
+  "processed_from": "game/assets/thirdparty/polyhaven/models/service_pistol/service_pistol_2k.gltf"
+}

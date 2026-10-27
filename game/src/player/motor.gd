@@ -18,6 +18,10 @@ const B_HEAL := 1024
 const B_FIREMODE := 2048
 const B_DROP := 4096
 const B_PTT := 8192
+const B_GRAB := 16384
+const B_PING := 32768
+const B_THROW := 65536
+const LadderMove := preload("res://src/player/ladder.gd")
 
 
 static func step(ch, cmd: Dictionary, dt: float) -> void:
@@ -25,7 +29,9 @@ static func step(ch, cmd: Dictionary, dt: float) -> void:
 	ch.pitch = clampf(float(cmd.get("pitch", ch.pitch)), -1.45, 1.45)
 	match ch.mode:
 		PLANE:
-			pass
+			if ch.world and ch.world.has_method("plane_pos") and not ch.world.match_info.is_empty():
+				ch.global_position = ch.world.plane_pos(float(cmd.get("tick", 0)))
+				ch.velocity = Vector3.ZERO
 		FREEFALL:
 			_freefall(ch, cmd, dt)
 		CHUTE:
@@ -45,6 +51,14 @@ static func wish_dir(ch, cmd: Dictionary) -> Vector3:
 
 static func _ground(ch, cmd: Dictionary, dt: float, downed: bool) -> void:
 	var btn := int(cmd.get("btn", 0))
+	if ch.vault_t >= 0.0:
+		Vault.step(ch, dt)
+		return
+	if not downed:
+		var ld := LadderMove.find(ch)
+		if LadderMove.wants(ch, cmd, ld):
+			LadderMove.step(ch, cmd, dt, ld)
+			return
 	var water = ch.water_depth()
 	# Stance
 	var want_crouch := (btn & B_CROUCH) != 0 and not downed
@@ -96,8 +110,15 @@ static func _ground(ch, cmd: Dictionary, dt: float, downed: bool) -> void:
 			hv = hv.move_toward(Vector3.ZERO, Defs.move("friction_ground") * dt)
 		v.x = hv.x
 		v.z = hv.z
-		if (btn & B_JUMP) != 0 and (ch.prev_buttons & B_JUMP) == 0 and not ch.crouching and not downed \
-				and ch.jump_cooldown <= 0.0 and water < 0.6:
+		var jump_press: bool = (btn & B_JUMP) != 0 and (ch.prev_buttons & B_JUMP) == 0 and not downed \
+				and ch.jump_cooldown <= 0.0 and water < 0.6
+		var vault := Vault.find(ch) if jump_press and ch.held_prop_id < 0 else {}
+		if not vault.is_empty():
+			# Close to something low enough to get over or through: vault instead of jumping.
+			Vault.start(ch, vault)
+			ch.jump_cooldown = 0.3
+			return
+		if jump_press and not ch.crouching:
 			v.y = Defs.move("jump_velocity")
 			ch.jump_cooldown = 0.45
 			ch.emit_motion_event("jump", 0.0)
@@ -136,7 +157,9 @@ static func _freefall(ch, cmd: Dictionary, dt: float) -> void:
 	var agl = ch.height_above_ground()
 	var btn := int(cmd.get("btn", 0))
 	var pressed_open = (btn & B_JUMP) != 0 and (ch.prev_buttons & B_JUMP) == 0
-	if ch.freefall_t > float(d.get("min_freefall_s", 2.5)) and (pressed_open or agl < float(d.get("auto_open_agl", 110.0))):
+	# With nothing below (off the edge of the map) the altitude itself decides.
+	var low: bool = agl < float(d.get("auto_open_agl", 110.0)) or (agl > 590.0 and ch.global_position.y < 120.0)
+	if ch.freefall_t > float(d.get("min_freefall_s", 2.5)) and (pressed_open or low):
 		ch.mode = CHUTE
 		ch.chute_yaw = ch.yaw
 		ch.chute_t = 0.0
@@ -187,13 +210,25 @@ static func _chute(ch, cmd: Dictionary, dt: float) -> void:
 		landed = true
 	if not landed and ch.get_slide_collision_count() > 0:
 		ch.chute_snag_t += dt
+		# Brushing a wall, a roof edge or a tree: the canopy drags the jumper off it and the descent continues.
+		var away := Vector3.ZERO
+		for i in ch.get_slide_collision_count():
+			away += ch.get_slide_collision(i).get_normal()
+		away.y = 0.0
+		if away.length_squared() > 1e-4:
+			away = away.normalized()
+			ch.velocity += away * 3.0 * dt * 10.0
 		var limit := float(d.get("stuck_timeout_s", 2.0))
-		if ch.chute_snag_t > limit:
-			# Caught on a roof edge or a tree: cut away the canopy and drop the last metres.
+		if ch.chute_snag_t > limit and agl < 3.2:
+			# Hung up just above the ground: cut away the canopy and drop the last metre or two.
 			ch.mode = GROUND
 			ch.emit_motion_event("chute_cut", 0.0)
 			ch.chute_snag_t = 0.0
 			return
+		if ch.chute_snag_t > limit * 2.0 and away != Vector3.ZERO:
+			# Still caught high up: the wind pulls the canopy free.
+			ch.global_position += away * 0.5
+			ch.chute_snag_t = 0.0
 	else:
 		ch.chute_snag_t = 0.0
 	if landed:

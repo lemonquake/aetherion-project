@@ -1,0 +1,21 @@
+{
+  "source": "Sketchfab (downloaded from the Objaverse mirror, allenai/objaverse on Hugging Face)",
+  "title": "AK-47 (Assault rifle)",
+  "url": "https://sketchfab.com/3d-models/46a36e92379341d495fdcd7750a7ebc3",
+  "mirror_url": "https://huggingface.co/datasets/allenai/objaverse/resolve/main/glbs/000-137/46a36e92379341d495fdcd7750a7ebc3.glb",
+  "authors": [
+    "quick_loop"
+  ],
+  "author_url": "https://sketchfab.com/so_O",
+  "license": "CC-BY-4.0",
+  "license_url": "http://creativecommons.org/licenses/by/4.0/",
+  "attribution_required": true,
+  "kind": "model",
+  "purpose": "7.62x39 assault rifle",
+  "modifications": "Joined into one mesh, re-oriented (front along -Z in Godot), scaled to 0.880 m overall, centred, decimated 19278 -> 12000 triangles, textures reduced to 1024 px JPEG (tools/blender/process_items.py).",
+  "retrieved": "2026-10-25",
+  "files": {
+    "rifle_762.glb": ""
+  },
+  "processed_from": "tools/cache/sketchfab/rifle_ak/rifle_ak.glb"
+}

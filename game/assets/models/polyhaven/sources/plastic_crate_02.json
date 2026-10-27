@@ -1,0 +1,19 @@
+{
+  "source": "Poly Haven",
+  "title": "Plastic Crate 02",
+  "url": "https://polyhaven.com/a/plastic_crate_02",
+  "authors": [
+    "Fabi_G"
+  ],
+  "license": "CC0-1.0",
+  "license_url": "https://polyhaven.com/license",
+  "attribution_required": false,
+  "kind": "model",
+  "modifications": "Decimated to its 1,800-triangle budget; blend / transmission dropped, opaque (plastic_crate_02); 5,840 -> 1,799 triangles, 1 material (tools/blender/process_props.py).",
+  "retrieved": "2026-10-25",
+  "files": {
+    "plastic_crate_02.gltf": "4d44c35b22fdc7ad16d12fb5739e1981b04677a987bbbcdfda868df0139292b3",
+    "plastic_crate_02.bin": "ce01f4ee4367156f7aec8eaa6cd4f00d605bc922b9f4422307a4056fb6558581"
+  },
+  "processed_from": "game/assets/thirdparty/polyhaven/models/plastic_crate_02/plastic_crate_02_1k.gltf"
+}

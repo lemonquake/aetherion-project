@@ -1,0 +1,19 @@
+{
+  "source": "Poly Haven",
+  "title": "Cement Bag",
+  "url": "https://polyhaven.com/a/cement_bag",
+  "authors": [
+    "PierreB3D"
+  ],
+  "license": "CC0-1.0",
+  "license_url": "https://polyhaven.com/license",
+  "attribution_required": false,
+  "kind": "model",
+  "modifications": "Re-exported unchanged (within budget, one material); 844 -> 844 triangles, 1 material (tools/blender/process_props.py).",
+  "retrieved": "2026-10-25",
+  "files": {
+    "cement_bag.gltf": "2a54221285fd4f6670b47397c5fa8cf25df7ba2ef82c6a1582a5f310303528b4",
+    "cement_bag.bin": "e02b92c3ef75ed35515db045046bb6827f8c2a254cb987a5294b33f51d5df492"
+  },
+  "processed_from": "game/assets/thirdparty/polyhaven/models/cement_bag/cement_bag_1k.gltf"
+}

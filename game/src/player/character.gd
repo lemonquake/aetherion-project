@@ -32,10 +32,17 @@ var chute_yaw := 0.0
 var flare_t := 0.0
 var chute_snag_t := 0.0
 var chute_separation := Vector3.ZERO
+var vault_t := -1.0         # time into a vault, -1 when not vaulting (Vault)
+var vault_d := 0.5          # its duration
+var vault_a := Vector3.ZERO # start, over-the-top point, landing
+var vault_m := Vector3.ZERO
+var vault_b := Vector3.ZERO
+var vault_h := 1.78         # body height while going over (fits a window opening)
 
 # --- gameplay state
 var flags := 0
 var weapon_id := ""        # currently drawn weapon (for visuals of remote characters)
+var weapon_att := 0        # its fitted attachments as a bit mask (Attachments.bitmask)
 var injury_speed := 1.0    # from leg injuries (server authoritative, mirrored to owner)
 var carry_speed := 1.0     # from carried weight/held object
 var stamina := 1.0
@@ -99,7 +106,10 @@ func _init() -> void:
 func height() -> float:
 	if mode == Motor.DOWNED:
 		return Defs.move("downed_height")
-	return lerpf(Defs.move("stand_height"), Defs.move("crouch_height"), clampf(crouch, 0.0, 1.0))
+	var h := lerpf(Defs.move("stand_height"), Defs.move("crouch_height"), clampf(crouch, 0.0, 1.0))
+	if vault_t >= 0.0:
+		h = minf(h, vault_h)
+	return h
 
 
 func apply_height() -> void:
@@ -179,7 +189,13 @@ func height_above_ground() -> float:
 func move_body(dt: float, airborne: bool = false) -> void:
 	var pre := global_position
 	var horizontal := Vector3(velocity.x, 0.0, velocity.z)
+	# move_and_slide moves by one physics step; a step that covers several ticks (bot level of detail) scales it.
+	var k := dt / get_physics_process_delta_time() if Engine.is_in_physics_frame() else 1.0
+	if k > 1.01:
+		velocity *= k
 	move_and_slide()
+	if k > 1.01:
+		velocity /= k
 	if not airborne and is_on_floor() and horizontal.length() > 0.2:
 		_try_step(pre, horizontal, dt)
 	_push_props(dt)
@@ -230,7 +246,8 @@ func emit_motion_event(kind: String, value: float) -> void:
 
 func get_state() -> Dictionary:
 	return {"pos": global_position, "vel": velocity, "mode": mode, "crouch": crouch, "crouching": crouching,
-		"jcd": jump_cooldown, "ff": freefall_t, "ct": chute_t, "cy": chute_yaw, "fl": flare_t, "pb": prev_buttons}
+		"jcd": jump_cooldown, "ff": freefall_t, "ct": chute_t, "cy": chute_yaw, "fl": flare_t, "pb": prev_buttons,
+		"vt": vault_t, "vd": vault_d, "va": vault_a, "vm": vault_m, "vb": vault_b, "vh": vault_h}
 
 
 func set_state(s: Dictionary) -> void:
@@ -245,6 +262,12 @@ func set_state(s: Dictionary) -> void:
 	chute_yaw = s.get("cy", chute_yaw)
 	flare_t = s.get("fl", 0.0)
 	prev_buttons = s.get("pb", prev_buttons)
+	vault_t = s.get("vt", -1.0)
+	vault_d = s.get("vd", vault_d)
+	vault_a = s.get("va", vault_a)
+	vault_m = s.get("vm", vault_m)
+	vault_b = s.get("vb", vault_b)
+	vault_h = s.get("vh", vault_h)
 	apply_height()
 
 
@@ -321,6 +344,7 @@ func interpolate(render_tick: float) -> void:
 	flags = int(b.flags) if f > 0.5 else int(a.flags)
 	velocity = (a.vel as Vector3).lerp(b.vel, f)
 	weapon_id = str(b.weapon)
+	weapon_att = int(b.get("att", 0))
 	chute_yaw = lerp_angle(float(a.get("cy", yaw)), float(b.get("cy", yaw)), f)
 	apply_height()
 

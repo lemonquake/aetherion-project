@@ -1,0 +1,25 @@
+[autotest-a] PASS connected_as_client: pid 1042729918, rtt 7 ms
+[autotest-a] PASS landed: mode 3 at (-78.0, 1.0, -24.0)
+[autotest-a] PASS floor_items_synced: 16228 floor items known to this client
+[autotest-a] PASS prediction: max error 0.000 m, 0 corrections, 2 replayed
+[autotest-a] at door: me (-93.37, 0.82, -21.16) (wanted (-93.37, 0.92, -21.16)), door centre (-93.71, 1.93, -22.21), use ray sees door
+[autotest-a] PASS door_open_local: door 964 target -1.65
+[autotest-a] PASS window_broken_local: window 2230
+[autotest-a] PASS vault_predicted: vaulted true, now 0.76 m outside the window, max prediction error 0.000 m, 0 corrections
+[autotest-a] PASS ladder_predicted: climbed 5.0 m to the roof true (y 5.93 / 5.90), max prediction error 0.000 m, 0 corrections
+[autotest-a] race: item 11534 at (-74.08, 5.92, 20.32) (node none), me (-73.35, 5.91, 20.56), eye-to-item 1.82 m, use ray sees item 11534; full ray hits nothing layer - at (0.0, 0.0, 0.0)
+[autotest-a] race: commands carrying Use: [2650, 2651] (tab false, paused false, mode 3)
+[autotest-a] PASS item_race_single_owner: Alpha got it: false, Bravo got it: true
+[autotest-a] done: 9 checks, 0 failed
+[autotest-b] PASS connected_as_client: pid 1396138864, rtt 20 ms
+[autotest-b] PASS landed: mode 3 at (-85.0, 1.0, -19.0)
+[autotest-b] PASS sees_teammate: Alpha found
+[autotest-b] PASS door_open_seen_by_other: door 964 target -1.65
+[autotest-b] PASS window_broken_seen_by_other: window 2230
+[autotest-b] PASS ping_seen_by_teammate: Alpha's ping (eid 1) on Bravo's minimap: true
+[autotest-b] PASS flashlight_seen_by_other: Alpha flags 1
+[autotest-b] PASS radio_cue_seen_by_teammate: radio flag seen true, 25 voice packets
+[autotest-b] race: item 11534 at (-74.08, 5.92, 20.32) (node none), me (-74.95, 5.91, 20.58), eye-to-item 1.88 m, use ray sees item 11534; full ray hits nothing layer - at (0.0, 0.0, 0.0)
+[autotest-b] race: commands carrying Use: [2622, 2623] (tab false, paused false, mode 3)
+[autotest-b] done: 8 checks, 0 failed
+alpha exit 0, bravo exit 0

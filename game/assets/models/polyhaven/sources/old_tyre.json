@@ -1,0 +1,19 @@
+{
+  "source": "Poly Haven",
+  "title": "Old Tyre",
+  "url": "https://polyhaven.com/a/old_tyre",
+  "authors": [
+    "MP"
+  ],
+  "license": "CC0-1.0",
+  "license_url": "https://polyhaven.com/license",
+  "attribution_required": false,
+  "kind": "model",
+  "modifications": "Decimated to its 900-triangle budget; 2,880 -> 899 triangles, 1 material (tools/blender/process_props.py).",
+  "retrieved": "2026-10-25",
+  "files": {
+    "old_tyre.gltf": "7b242401a2a4381beb6ec9b7137ac1b1b04612eb83613a61078bb30a7720bde5",
+    "old_tyre.bin": "0fe7726885e9c549d5995f8e84d72423ba88b551b0dca4c3764e94df402a5d01"
+  },
+  "processed_from": "game/assets/thirdparty/polyhaven/models/old_tyre/old_tyre_1k.gltf"
+}

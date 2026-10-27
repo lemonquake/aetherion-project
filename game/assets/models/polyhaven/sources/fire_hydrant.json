@@ -1,0 +1,19 @@
+{
+  "source": "Poly Haven",
+  "title": "Fire Hydrant",
+  "url": "https://polyhaven.com/a/fire_hydrant",
+  "authors": [
+    "Gonçalo Felício"
+  ],
+  "license": "CC0-1.0",
+  "license_url": "https://polyhaven.com/license",
+  "attribution_required": false,
+  "kind": "model",
+  "modifications": "Kept one variant (fire_hydrant_aged, fire_hydrant_cap_01_aged, fire_hydrant_cap_02_aged, fire_hydrant_cap_03_aged, fire_hydrant_chain_aged) of the set, removed 5 other objects, re-centred on it; decimated to its 3,000-triangle budget; 43,158 -> 3,000 triangles, 1 material (tools/blender/process_props.py).",
+  "retrieved": "2026-10-25",
+  "files": {
+    "fire_hydrant.gltf": "cbff78ed030bf800206e8d021959c95f1ce2aec0bebe0e8773949ec6c9f360f7",
+    "fire_hydrant.bin": "908f6d9a8e5a7f0c5dc68380d586cc06ac4b3f172a092b231ff93cbab1ac0dae"
+  },
+  "processed_from": "game/assets/thirdparty/polyhaven/models/fire_hydrant/fire_hydrant_1k.gltf"
+}

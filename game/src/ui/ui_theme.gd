@@ -106,6 +106,9 @@ static func button(text: String, cb: Callable, min_w: int = 0) -> Button:
 	var b := Button.new()
 	b.text = text
 	b.custom_minimum_size = Vector2(min_w, 44)
+	# Menu clicks (work/sounds/buttons): back / cancel / close sound different from everything else.
+	var back := text.to_lower().begins_with("back") or text.to_lower() in ["cancel", "close", "leave", "quit"]
+	b.pressed.connect(func(): SoundSys.play_ui("ui_back" if back else "ui_select"))
 	b.pressed.connect(cb)
 	return b
 

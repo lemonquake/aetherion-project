@@ -1,0 +1,20 @@
+{
+  "source": "Poly Haven",
+  "title": "Wine Bottles 01",
+  "url": "https://polyhaven.com/a/wine_bottles_01",
+  "authors": [
+    "Rico Cilliers",
+    "Jurita Burger"
+  ],
+  "license": "CC0-1.0",
+  "license_url": "https://polyhaven.com/license",
+  "attribution_required": false,
+  "kind": "model",
+  "modifications": "Kept one variant (wine_bottles_01_bordeaux) of the set, removed 3 other objects, re-centred on it; removed the hidden faces of wine_bottles_01_wine_red; decimated to its 1,000-triangle budget; 3 materials packed into one 512x640 atlas (2 tiling UV corners clamped); blend / transmission dropped, opaque (wine_bottles_01_glass_orange, wine_bottles_01_seal_cork, wine_bottles_01_wine_red, wine_bottles_01_ftero_vinea_02); 6,520 -> 1,000 triangles, 1 material (tools/blender/process_props.py).",
+  "retrieved": "2026-10-25",
+  "files": {
+    "wine_bottles_01.gltf": "1624a2a6aa6fd208a647bcf70bfab39476d889bf651a57ba167b97cff915b510",
+    "wine_bottles_01.bin": "6cbf539fc29336a3bf808bee45e10b4f2b6a9fca7fb5a32db6691a278c3c4796"
+  },
+  "processed_from": "game/assets/thirdparty/polyhaven/models/wine_bottles_01/wine_bottles_01_1k.gltf"
+}

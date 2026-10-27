@@ -1,0 +1,19 @@
+{
+  "source": "Poly Haven",
+  "title": "Hanging Industrial Lamp",
+  "url": "https://polyhaven.com/a/hanging_industrial_lamp",
+  "authors": [
+    "Kuutti Siitonen"
+  ],
+  "license": "CC0-1.0",
+  "license_url": "https://polyhaven.com/license",
+  "attribution_required": false,
+  "kind": "model",
+  "modifications": "Decimated to its 4,000-triangle budget; 2 materials packed into one 2048x1024 atlas; blend / transmission dropped, opaque (hanging_industrial_lamp_glass); 9,530 -> 4,000 triangles, 1 material (tools/blender/process_props.py).",
+  "retrieved": "2026-10-25",
+  "files": {
+    "hanging_industrial_lamp.gltf": "a11d309fba7ca3d7fd45a84ecd1d6ed457f71b40793dc1261a7bb1a9ce6c2084",
+    "hanging_industrial_lamp.bin": "56055c4fd2aba6ee38ea617c2cb4abfb9a22ae7e52675204384ad030175c944b"
+  },
+  "processed_from": "game/assets/thirdparty/polyhaven/models/hanging_industrial_lamp/hanging_industrial_lamp_1k.gltf"
+}

@@ -1,0 +1,19 @@
+{
+  "source": "Poly Haven",
+  "title": "Sungka Board",
+  "url": "https://polyhaven.com/a/sungka_board",
+  "authors": [
+    "Ulan Cabanilla"
+  ],
+  "license": "CC0-1.0",
+  "license_url": "https://polyhaven.com/license",
+  "attribution_required": false,
+  "kind": "model",
+  "modifications": "Decimated to its 3,000-triangle budget; 7,304 -> 3,000 triangles, 1 material (tools/blender/process_props.py).",
+  "retrieved": "2026-10-25",
+  "files": {
+    "sungka_board.gltf": "a197bb34304245847e89cbf062d8d813e21765d3b1df0294fa667970c6e08351",
+    "sungka_board.bin": "4b25cce245215f6aeea92432dab0850f51c87e4c77f738f0f5ecd790b47f0e86"
+  },
+  "processed_from": "game/assets/thirdparty/polyhaven/models/sungka_board/sungka_board_1k.gltf"
+}

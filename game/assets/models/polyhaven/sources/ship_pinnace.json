@@ -1,0 +1,22 @@
+{
+  "source": "Poly Haven",
+  "title": "Ship Pinnace",
+  "url": "https://polyhaven.com/a/ship_pinnace",
+  "authors": [
+    "James Ray Cock",
+    "Rico Cilliers",
+    "Nicolò Zubbini",
+    "Yann Kervran"
+  ],
+  "license": "CC0-1.0",
+  "license_url": "https://polyhaven.com/license",
+  "attribution_required": false,
+  "kind": "model",
+  "modifications": "Decimated to its 25,000-triangle budget; 7 materials packed into one 2048x1280 atlas (392 tiling UV corners clamped); blend / transmission dropped, opaque (ship_pinnace_sails); 168,317 -> 25,000 triangles, 1 material (tools/blender/process_props.py).",
+  "retrieved": "2026-10-25",
+  "files": {
+    "ship_pinnace.gltf": "17ebae78ac5eebb4ba6d22508f9dbceffeb623cb6e134cd4ec778508cee36336",
+    "ship_pinnace.bin": "5e47e966b125458b58b118c3fdd46b8652db863056e58176db98b22215a0c0bc"
+  },
+  "processed_from": "game/assets/thirdparty/polyhaven/models/ship_pinnace/ship_pinnace_1k.gltf"
+}

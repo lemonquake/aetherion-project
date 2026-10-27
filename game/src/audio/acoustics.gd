@@ -34,6 +34,7 @@ var zones: Array = []        # [{aabb, building, floor, reverb, floor_mat}]
 var portals: Array = []      # [{a, b, pos, kind, open}]
 var _adj: Dictionary = {}    # zone -> [portal ids]
 var _grid: Dictionary = {}   # Vector2i -> [zone ids]
+var _outer: Dictionary = {}  # building id -> [portal ids joining that building to the outdoors]
 var space: PhysicsDirectSpaceState3D = null
 
 
@@ -62,6 +63,11 @@ func add_portal(a: int, b: int, pos: Vector3, kind: String, openness: float = 1.
 	portals.append({"a": a, "b": b, "pos": pos, "kind": kind, "open": openness})
 	_adj[a].append(id)
 	_adj[b].append(id)
+	if a == OUTDOOR or b == OUTDOOR:
+		var bld: int = zones[b if a == OUTDOOR else a].building
+		if not _outer.has(bld):
+			_outer[bld] = []
+		_outer[bld].append(id)
 	return id
 
 
@@ -141,22 +147,20 @@ func propagate(src: Vector3, lis: Vector3, max_dist: float) -> Dictionary:
 
 
 func _route(zs: int, zl: int, src: Vector3, lis: Vector3, max_len: float) -> Dictionary:
-	## Dijkstra over portals. State = (zone, entry point). Cost = path length + loss expressed as distance.
+	## Dijkstra over portals with a binary heap. State = (zone, entry point). Cost = path length + loss expressed as
+	## distance. Crossing the outdoors only considers the openings of the listener's building: the outdoor zone
+	## touches every door and window on the map, and a detour through a third building is never the best path.
 	var dist := {zs: 0.0}
 	var loss := {zs: 0.0}
 	var occ := {zs: 0.0}
 	var point := {zs: src}
 	var lastp := {zs: src}
-	var open := [zs]
+	var open := [[0.0, zs]]
 	var visited := {}
 	var hops := {zs: 0}
+	var target_bld: int = zones[zl].building
 	while not open.is_empty():
-		var bi := 0
-		for i in open.size():
-			if _score(dist[open[i]], loss[open[i]]) < _score(dist[open[bi]], loss[open[bi]]):
-				bi = i
-		var z: int = open[bi]
-		open.remove_at(bi)
+		var z: int = _heap_pop(open)[1]
 		if visited.has(z):
 			continue
 		visited[z] = true
@@ -165,7 +169,8 @@ func _route(zs: int, zl: int, src: Vector3, lis: Vector3, max_len: float) -> Dic
 			return {"length": total, "loss": loss[z], "occ": occ[z], "last": lastp[z]}
 		if hops[z] >= 6:
 			continue
-		for pid in _adj[z]:
+		var edges: Array = _adj[z] if z != OUTDOOR else _outer.get(target_bld, [])
+		for pid in edges:
 			var P: Dictionary = portals[pid]
 			var nz: int = P.b if P.a == z else P.a
 			if visited.has(nz):
@@ -183,8 +188,44 @@ func _route(zs: int, zl: int, src: Vector3, lis: Vector3, max_len: float) -> Dic
 				point[nz] = P.pos
 				lastp[nz] = P.pos
 				hops[nz] = hops[z] + 1
-				open.append(nz)
+				_heap_push(open, [_score(nd, nl), nz])
 	return {}
+
+
+static func _heap_push(h: Array, item: Array) -> void:
+	h.append(item)
+	var i := h.size() - 1
+	while i > 0:
+		var p := (i - 1) / 2
+		if float(h[p][0]) <= float(h[i][0]):
+			break
+		var t = h[p]
+		h[p] = h[i]
+		h[i] = t
+		i = p
+
+
+static func _heap_pop(h: Array) -> Array:
+	var top: Array = h[0]
+	var last: Array = h.pop_back()
+	if not h.is_empty():
+		h[0] = last
+		var i := 0
+		while true:
+			var l := i * 2 + 1
+			var r := l + 1
+			var m := i
+			if l < h.size() and float(h[l][0]) < float(h[m][0]):
+				m = l
+			if r < h.size() and float(h[r][0]) < float(h[m][0]):
+				m = r
+			if m == i:
+				break
+			var t = h[m]
+			h[m] = h[i]
+			h[i] = t
+			i = m
+	return top
 
 
 func _score(d: float, l: float) -> float:

@@ -1,7 +1,7 @@
 {
   "_doc": "Match rules and tuning. Distances in metres, times in seconds.",
-  "player_target": 16,
-  "max_players": 24,
+  "player_target": 45,
+  "max_players": 50,
   "modes": {
     "solo": {"team_size": 1},
     "duo": {"team_size": 2},
@@ -31,7 +31,8 @@
     ],
     "warning_s": [60, 30, 10]
   },
-  "radio": {"cue_radius": 14.0, "static_interval_s": 1.8, "min_cue_gap_s": 0.35},
+  "radio": {"cue_radius": 14.0, "static_interval_s": 1.8, "min_cue_gap_s": 0.35, "eavesdrop": true, "eavesdrop_radius": 12.0, "voice_radius": 9.0},
+  "day_cycle": {"night_s": 300, "day_s": 300},
   "text_chat": {"tap_radius": 4.0},
   "results_s": 25,
   "corpse_ragdoll_sync_hz": 12,

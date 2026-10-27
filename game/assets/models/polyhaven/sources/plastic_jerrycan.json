@@ -1,0 +1,19 @@
+{
+  "source": "Poly Haven",
+  "title": "Plastic Jerrycan",
+  "url": "https://polyhaven.com/a/plastic_jerrycan",
+  "authors": [
+    "Ulan Cabanilla"
+  ],
+  "license": "CC0-1.0",
+  "license_url": "https://polyhaven.com/license",
+  "attribution_required": false,
+  "kind": "model",
+  "modifications": "Decimated to its 1,800-triangle budget; textures 512 px; 7,348 -> 1,800 triangles, 1 material (tools/blender/process_props.py).",
+  "retrieved": "2026-10-25",
+  "files": {
+    "plastic_jerrycan.gltf": "75085bda35329c5bbd80c8cf8d7f8a4712f6dffb6a75bb55108715e1c25a274b",
+    "plastic_jerrycan.bin": "7af440b5ddd8291731b3b36a1b170ddaa28747ffd34175aa6629aaa64d5f0ee0"
+  },
+  "processed_from": "game/assets/thirdparty/polyhaven/models/plastic_jerrycan/plastic_jerrycan_1k.gltf"
+}

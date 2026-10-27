@@ -5,8 +5,12 @@ extends RefCounted
 ## and an east bank; a narrow estero joins it from the west. Every slum district is bounded by water, roads, the
 ## old railway or the bay, and players cross between them over a handful of bridges of very different exposure.
 
-const HALF := 560.0
-const PLAY_HALF := 500.0
+## The geography below is written at its original size (1.1 km across, ~5,000 buildings) and scaled on load: 0.65
+## gives ~650 m of play area for 30-40 players. Positions, district extents and the coastline scale; river, road and
+## alley widths, buildings and bridge spans keep their real size.
+const MAP_SCALE := 0.65
+const HALF := 560.0 * MAP_SCALE
+const PLAY_HALF := 500.0 * MAP_SCALE
 const WATER_Y := -0.6
 const LAND_Y := 0.9
 const GRID := 2.0  # mask resolution (m)
@@ -26,6 +30,7 @@ var highway_x := 468.0
 var dump_c := Vector2(-462, -468)
 var dump_r := 78.0
 var dump_h := 24.0
+var coast_base := 398.0
 
 var _n: int
 var _water: PackedByteArray  # 1 = water (river/estero/sea)
@@ -50,6 +55,7 @@ func _init(seed_value: int) -> void:
 	_reserved = PackedByteArray()
 	_reserved.resize(_n * _n)
 	_define()
+	_apply_scale()
 	_build_luts()
 	_rasterize()
 
@@ -94,6 +100,14 @@ func _define() -> void:
 		{"name": "Ilalim", "kind": "under_highway", "c": Vector2(468, 0), "half": Vector2(10, 300), "ang": 0.0, "density": 1.0},
 		{"name": "Pantalan", "kind": "port", "c": Vector2(330, 366), "half": Vector2(200, 24), "ang": 0.0, "density": 1.0},
 		{"name": "Tambakan", "kind": "dump", "c": dump_c, "half": Vector2(70, 70), "ang": 0.0, "density": 0.6},
+		{"name": "Purok Uno", "kind": "dense", "c": Vector2(-330, -128), "half": Vector2(150, 42), "ang": deg_to_rad(-2.0), "density": 1.0},
+		{"name": "Purok Sais", "kind": "dense", "c": Vector2(-140, 44), "half": Vector2(80, 44), "ang": deg_to_rad(4.0), "density": 1.0},
+		{"name": "Purok Siete", "kind": "dense", "c": Vector2(-440, 40), "half": Vector2(60, 46), "ang": deg_to_rad(-3.0), "density": 0.9},
+		{"name": "Looban Norte", "kind": "dense", "c": Vector2(-140, -372), "half": Vector2(110, 30), "ang": deg_to_rad(-2.0), "density": 1.0},
+		{"name": "Purok Otso", "kind": "dense", "c": Vector2(310, -158), "half": Vector2(118, 30), "ang": deg_to_rad(-1.0), "density": 0.95},
+		{"name": "Purok Nuebe", "kind": "dense", "c": Vector2(330, 128), "half": Vector2(90, 34), "ang": deg_to_rad(2.0), "density": 0.95},
+		{"name": "Purok Diyes", "kind": "dense", "c": Vector2(118, -330), "half": Vector2(58, 80), "ang": deg_to_rad(5.0), "density": 1.0},
+		{"name": "Purok Onse", "kind": "dense", "c": Vector2(-400, 270), "half": Vector2(80, 40), "ang": deg_to_rad(1.0), "density": 0.9},
 	]
 
 	sites = [
@@ -101,7 +115,7 @@ func _define() -> void:
 		{"type": "court", "pos": Vector2(-150, -236), "ang": deg_to_rad(6.0), "name": "Looban half-court"},
 		{"type": "school", "pos": Vector2(-360, 64), "ang": deg_to_rad(2.0), "name": "Kalinaw Elementary School"},
 		{"type": "barangay_hall", "pos": Vector2(-262, 72), "ang": deg_to_rad(1.0), "name": "Barangay Hall"},
-		{"type": "clinic", "pos": Vector2(-232, 108), "ang": deg_to_rad(1.0), "name": "Health Center"},
+		{"type": "clinic", "pos": Vector2(-232, 102), "ang": deg_to_rad(1.0), "name": "Health Center"},
 		{"type": "covered_court", "pos": Vector2(-300, 150), "ang": deg_to_rad(2.0), "name": "Covered Court"},
 		{"type": "water_tower", "pos": Vector2(-420, 150), "ang": 0.0, "name": "Water Tower"},
 		{"type": "outpost", "pos": Vector2(-200, -178), "ang": 0.0, "name": "Tanod Outpost"},
@@ -111,7 +125,7 @@ func _define() -> void:
 		{"type": "church", "pos": Vector2(236, -124), "ang": deg_to_rad(-2.0), "name": "Simbahan ng Kalinaw"},
 		{"type": "shophouses", "pos": Vector2(214, -250), "ang": deg_to_rad(-88.0), "name": "Main Road shops", "count": 7},
 		{"type": "shophouses", "pos": Vector2(156, -40), "ang": deg_to_rad(-92.0), "name": "Main Road shops south", "count": 5},
-		{"type": "gas_station", "pos": Vector2(200, 30), "ang": deg_to_rad(-2.0), "name": "Old Gas Station"},
+		{"type": "gas_station", "pos": Vector2(212, 30), "ang": deg_to_rad(-2.0), "name": "Old Gas Station"},
 		{"type": "apartment", "pos": Vector2(64, 252), "ang": deg_to_rad(-4.0), "name": "Paupahan"},
 		{"type": "apartment", "pos": Vector2(380, 160), "ang": deg_to_rad(2.0), "name": "Paupahan Silangan"},
 		{"type": "scrapyard", "pos": Vector2(310, 236), "ang": deg_to_rad(1.0), "name": "Scrapyard"},
@@ -119,7 +133,7 @@ func _define() -> void:
 		{"type": "warehouse", "pos": Vector2(290, 372), "ang": 0.0, "name": "Bodega 2"},
 		{"type": "container_yard", "pos": Vector2(400, 372), "ang": 0.0, "name": "Container Yard"},
 		{"type": "fish_port", "pos": Vector2(120, 380), "ang": 0.0, "name": "Fish Port"},
-		{"type": "cell_tower", "pos": Vector2(410, -200), "ang": 0.0, "name": "Cell Tower"},
+		{"type": "cell_tower", "pos": Vector2(410, -218), "ang": 0.0, "name": "Cell Tower"},
 		{"type": "police", "pos": Vector2(220, 124), "ang": deg_to_rad(-2.0), "name": "Police Community Precinct"},
 	]
 
@@ -138,12 +152,51 @@ func _define() -> void:
 	crossings.append({"type": "culvert", "a": Vector2(-212, -58), "b": Vector2(-210, -30), "w": 6.0, "name": "Barangay Road culvert"})
 
 	landmarks = [
-		{"name": "Cell Tower", "pos": Vector2(410, -200)}, {"name": "Water Tower", "pos": Vector2(-420, 150)},
+		{"name": "Cell Tower", "pos": Vector2(410, -218)}, {"name": "Water Tower", "pos": Vector2(-420, 150)},
 		{"name": "Church", "pos": Vector2(236, -124)}, {"name": "Tambakan", "pos": dump_c},
 		{"name": "Crane", "pos": Vector2(400, 372)}, {"name": "Expressway", "pos": Vector2(highway_x, -80)},
 		{"name": "Rail Bridge", "pos": Vector2(4, -441)}, {"name": "Pumping Station", "pos": Vector2(-56, -12)},
 		{"name": "Palengke", "pos": Vector2(124, -146)}, {"name": "School", "pos": Vector2(-360, 64)},
 	]
+
+
+func _apply_scale() -> void:
+	## Shrinks the geography written in _define by MAP_SCALE about the map centre. A crossing keeps its own span
+	## (the water it crosses keeps its width) and moves with its midpoint.
+	var k := MAP_SCALE
+	river = _scaled(river)
+	estero = _scaled(estero)
+	railway = _scaled(railway)
+	for r in roads:
+		r.pts = _scaled(r.pts)
+	for d in districts:
+		if d.has("c"):
+			d.c = (d.c as Vector2) * k
+			d.half = (d.half as Vector2) * k
+		if d.has("z0"):
+			d.z0 = float(d.z0) * k
+			d.z1 = float(d.z1) * k
+	for s in sites:
+		s.pos = (s.pos as Vector2) * k
+	for c in crossings:
+		var mid := ((c.a as Vector2) + (c.b as Vector2)) * 0.5
+		var half_span := ((c.b as Vector2) - (c.a as Vector2)) * 0.5
+		c.a = mid * k - half_span
+		c.b = mid * k + half_span
+	for m in landmarks:
+		m.pos = (m.pos as Vector2) * k
+	highway_x *= k
+	dump_c *= k
+	dump_r *= k
+	dump_h *= k
+	coast_base *= k
+
+
+func _scaled(pts: PackedVector2Array) -> PackedVector2Array:
+	var out := PackedVector2Array()
+	for q in pts:
+		out.append(q * MAP_SCALE)
+	return out
 
 
 func _estero_z_slow(x: float) -> float:
@@ -209,7 +262,7 @@ func rail_z(x: float) -> float:
 
 
 func coast_z(x: float) -> float:
-	return 398.0 + 16.0 * sin(x * 0.011) + 9.0 * sin(x * 0.031 + 1.0)
+	return coast_base + 16.0 * sin(x * 0.011) + 9.0 * sin(x * 0.031 + 1.0)
 
 
 func river_info(p: Vector2) -> Vector3:
@@ -309,7 +362,7 @@ func is_water(x: float, z: float) -> bool:
 	var ix := int((x + HALF) / GRID)
 	var iz := int((z + HALF) / GRID)
 	if ix < 0 or iz < 0 or ix >= _n or iz >= _n:
-		return z > 300.0
+		return z > 300.0 * MAP_SCALE
 	return _water[iz * _n + ix] == 1
 
 
@@ -349,7 +402,7 @@ func _mark_poly(pts: PackedVector2Array, half_w: float, value: int) -> void:
 						_reserved[iz * _n + ix] = value
 
 
-func reserve_rect(center: Vector2, half: Vector2, ang: float, value: int, margin: float = 0.0) -> void:
+func reserve_rect(center: Vector2, half: Vector2, ang: float, value: int, margin: float = 0.0, only_free: bool = false) -> void:
 	var r := maxf(half.x, half.y) * 1.5 + margin
 	var c := cos(-ang)
 	var s := sin(-ang)
@@ -358,7 +411,8 @@ func reserve_rect(center: Vector2, half: Vector2, ang: float, value: int, margin
 			var p := Vector2(-HALF + (ix + 0.5) * GRID, -HALF + (iz + 0.5) * GRID) - center
 			var lp := Vector2(p.x * c - p.y * s, p.x * s + p.y * c)
 			if absf(lp.x) <= half.x + margin and absf(lp.y) <= half.y + margin:
-				_reserved[iz * _n + ix] = value
+				if not only_free or _reserved[iz * _n + ix] == 0:
+					_reserved[iz * _n + ix] = value
 
 
 func rect_free(center: Vector2, half: Vector2, ang: float, allow_water: bool = false, margin: float = 0.3) -> bool:

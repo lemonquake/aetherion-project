@@ -1,0 +1,19 @@
+{
+  "source": "Poly Haven",
+  "title": "Rusted Wheel Rim 01",
+  "url": "https://polyhaven.com/a/rusted_wheel_rim_01",
+  "authors": [
+    "John Hutcheson"
+  ],
+  "license": "CC0-1.0",
+  "license_url": "https://polyhaven.com/license",
+  "attribution_required": false,
+  "kind": "model",
+  "modifications": "Decimated to its 1,800-triangle budget; textures 512 px; 16,440 -> 1,800 triangles, 1 material (tools/blender/process_props.py).",
+  "retrieved": "2026-10-25",
+  "files": {
+    "rusted_wheel_rim_01.gltf": "152fefa4ddd75ff6483d1760f506d930166495ac044d65a505e7dbd42c82721d",
+    "rusted_wheel_rim_01.bin": "9d9498196a2eccdca555db546ac4f49515742ddeb81921e453a36ac7f5933bb4"
+  },
+  "processed_from": "game/assets/thirdparty/polyhaven/models/rusted_wheel_rim_01/rusted_wheel_rim_01_1k.gltf"
+}

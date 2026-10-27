@@ -1,0 +1,260 @@
+
+
+# ------------------------------------------------------------------ T grabs, E uses
+
+func _nearest_prop(pred: Callable) -> int:
+	var dyn = world.map.dyn
+	var best := -1
+	var bd := INF
+	for pr in dyn.props:
+		if str(pr.state) != "dormant" or not pred.call(world.map.models.spec(str(pr.name))):
+			continue
+		var d := (pr.xf as Transform3D).origin.distance_to(t.ch.global_position)
+		if d < bd:
+			bd = d
+			best = int(pr.id)
+	return best
+
+
+func _grab_vs_use() -> void:
+	## Pointing at a loose object: E does nothing to it, T picks it up, T again puts it down.
+	var pid := _nearest_prop(func(s): return float(s.get("mass", 99.0)) <= 6.0 and not s.get("no_block", false) and str(s.get("kind", "")) == "small")
+	if pid < 0:
+		t._check("grab_with_t", false, "no small prop")
+		return
+	var pr: Dictionary = world.map.dyn.props[pid]
+	var pp: Vector3 = (pr.xf as Transform3D).origin
+	if not t._stand_by(pp, pp.y, 1.1):
+		t._check("grab_with_t", false, "no room beside %s" % str(pr.name))
+		return
+	await t._wait(0.4)
+	t._look_at(pp + Vector3.UP * 0.08)
+	await t._wait(0.2)
+	var prompt := str(world.hud._prompt_text())
+	await t._tap("interact")
+	await t._wait(0.3)
+	var after_e: int = t.ch.held_prop_id
+	await t._tap("grab")
+	var held: bool = await t._until(func(): return t.ch.held_prop_id >= 0, 1.0)
+	await t._wait(0.3)
+	await t._shot("grab_holding_%s" % str(pr.name))
+	await t._tap("grab")
+	var dropped: bool = await t._until(func(): return t.ch.held_prop_id < 0, 1.0)
+	t._check("grab_with_t", after_e < 0 and held and dropped and prompt.begins_with("T "),
+		"%s: prompt '%s', after E held %d, after T held %s, after second T dropped %s" % [str(pr.name), prompt, after_e, str(held), str(dropped)])
+
+
+# ------------------------------------------------------------------ ping and the lite minimap
+
+func _ping_minimap() -> void:
+	## V: a radio click and your position blinking green on the minimap (top-left) for 5 s; enemies never shown.
+	var mm = world.hud.minimap
+	await t._shot("minimap_before_ping")
+	await t._tap("ping")
+	var ok: bool = await t._until(func(): return not mm.pings.is_empty(), 1.0)
+	await t._wait(0.2)
+	await RenderingServer.frame_post_draw
+	var img: Image = t.get_viewport().get_texture().get_image()
+	var scale := Vector2(img.get_size()) / Vector2(t.get_viewport().get_visible_rect().size)
+	var r := Rect2i(Vector2i(mm.global_position * scale), Vector2i(mm.size * scale))
+	var green := 0
+	for y in r.size.y:
+		for x in r.size.x:
+			var c := img.get_pixel(r.position.x + x, r.position.y + y)
+			if c.g > 0.55 and c.g > c.r * 1.5 and c.g > c.b * 1.4:
+				green += 1
+	await t._shot("minimap_ping")
+	await t._wait(5.3)
+	var gone: bool = mm.pings.is_empty()
+	t._check("ping_minimap", ok and green > 12 and gone and mm.visible,
+		"ping shown %s, %d green pixels in the minimap, cleared after 5 s %s, minimap visible %s at %s" % [str(ok), green, str(gone), str(mm.visible), str(mm.position)])
+
+
+# ------------------------------------------------------------------ doors
+
+func _nearest_door(shut: bool) -> Object:
+	var best = null
+	var bd := INF
+	for dd in world.map.dyn.doors:
+		var dn = dd.get("node")
+		if dn == null or dn.locked or (shut and absf(dn.angle) > 0.01):
+			continue
+		var d: float = dn.center().distance_to(t.ch.global_position)
+		if d < bd:
+			bd = d
+			best = dn
+	return best
+
+
+func _doors() -> void:
+	var dn = _nearest_door(true)
+	if dn == null:
+		t._check("door_opens_forward", false, "no shut door")
+		return
+	var n0: Vector3 = dn.base.basis.z.normalized()
+	var mid: Vector3 = dn.base * Vector3(dn.w * 0.5, 0.0, 0.0)
+	# Stand in front of the doorway on whichever side has floor, facing through it.
+	var stood := false
+	var space = world.get_world_3d().direct_space_state
+	for side in [1.0, -1.0]:
+		var spot: Vector3 = mid + n0 * side * 1.1
+		var hit = space.intersect_ray(PhysicsRayQueryParameters3D.create(spot + Vector3.UP * 1.0, spot + Vector3.DOWN * 0.6, Defs.PHYS_WORLD))
+		if hit.is_empty() or absf((hit.position as Vector3).y - mid.y) > 0.3:
+			continue
+		t._teleport((hit.position as Vector3) + Vector3.UP * 0.05, 0.0)
+		stood = true
+		break
+	if not stood:
+		t._check("door_opens_forward", false, "no floor in front of door %d" % dn.id)
+		return
+	await t._wait(0.3)
+	t._look_at(dn.center())
+	var me_side := signf((t.ch.global_position - mid).dot(n0))
+	await t._tap("interact")
+	await t._until(func(): return not dn.moving, 2.0)
+	var leaf_side := signf((dn.center() - mid).dot(n0))
+	await t._shot("door_opened_forward")
+	t._check("door_opens_forward", absf(dn.angle) > 1.2 and leaf_side != me_side,
+		"door %d swung %.0f deg, leaf on the far side %s (player side %+.0f, leaf side %+.0f)" % [dn.id, rad_to_deg(dn.angle), str(leaf_side != me_side), me_side, leaf_side])
+	# Walk through: the open leaf does not stop anyone.
+	var start: Vector3 = t.ch.global_position
+	var to_mid: Vector3 = mid - start
+	t.ctl.yaw = atan2(-to_mid.x, -to_mid.z)
+	t.ctl.pitch = 0.0
+	t._act_press("move_forward")
+	await t._until(func(): return signf((t.ch.global_position - mid).dot(n0)) != me_side, 3.0)
+	await t._wait(0.5)
+	t._act_release("move_forward")
+	var through := signf((t.ch.global_position - mid).dot(n0)) != me_side
+	t._check("door_walk_through", through, "walked from %s through the doorway to %s" % [str(start.snapped(Vector3.ONE * 0.1)), str(t.ch.global_position.snapped(Vector3.ONE * 0.1))])
+	# Push: stand facing the open leaf and run into it; it must swing away and keep going after contact.
+	var a0: float = dn.angle
+	dn.reset_state(0.9 * (signf(a0) if a0 != 0.0 else 1.0), false)
+	world.map_door_ev.rpc(dn.id, false, dn.angle, dn.angle, false, "open")
+	await t._wait(0.2)
+	var b: Basis = dn.current_transform().basis
+	var u: Vector3 = Vector3(b.x.x, 0.0, b.x.z).normalized()
+	var n := Vector3(-u.z, 0.0, u.x)
+	var leaf_mid: Vector3 = dn.base.origin + u * dn.w * 0.6
+	var spot2: Vector3 = leaf_mid - n * 1.2
+	var fl = space.intersect_ray(PhysicsRayQueryParameters3D.create(spot2 + Vector3.UP * 1.0, spot2 + Vector3.DOWN * 1.0, Defs.PHYS_WORLD))
+	if fl.is_empty() or not t._stand_by(leaf_mid + Vector3.UP * 0.0, mid.y, 1.2):
+		pass
+	t._teleport(((fl.position as Vector3) if not fl.is_empty() else spot2) + Vector3.UP * 0.05, 0.0)
+	var tl: Vector3 = leaf_mid - t.ch.global_position
+	t.ctl.yaw = atan2(-tl.x, -tl.z)
+	await t._wait(0.3)
+	var before: float = dn.angle
+	t._act_press("sprint")
+	t._act_press("move_forward")
+	await t._wait(0.6)
+	t._act_release("move_forward")
+	t._act_release("sprint")
+	var swung := absf(dn.angle - before)
+	var still_moving: bool = dn.moving and dn.free
+	await t._shot("door_pushed")
+	await t._until(func(): return not dn.moving, 4.0)
+	t._check("door_push_swings", swung > 0.3 or absf(dn.angle) < 0.01,
+		"leaf at %.0f deg, shoved %.0f deg by a running player (swinging on its own afterwards %s), now %.0f deg" % [rad_to_deg(before), rad_to_deg(swung), str(still_moving), rad_to_deg(dn.angle)])
+	# Swung back into the frame: latches shut (solid again, closing sound on the server).
+	dn.reset_state(0.6, false)
+	dn.free = true
+	dn.omega = -3.0
+	dn._start()
+	var latched: bool = await t._until(func(): return absf(dn.angle) < 0.001 and not dn.moving, 2.0)
+	t._check("door_latches_shut", latched and dn._solid, "angle %.3f, solid %s" % [dn.angle, str(dn._solid)])
+
+
+# ------------------------------------------------------------------ vaulting
+
+func _vault_window() -> void:
+	## Jump right in front of an open window from inside: the player goes through it, the gun drops out of sight
+	## while vaulting and comes back afterwards.
+	world.interaction.give(t.ch, {"id": "rifle_556", "n": 1})
+	var slot := 1
+	for s in [1, 2, 3]:
+		if t.ch.wpn.slots[s] != null and str(t.ch.wpn.slots[s].id) == "rifle_556":
+			slot = s
+	await t._tap("weapon_%d" % slot)
+	await t._until(func(): return t.ch.wpn.current_id() == "rifle_556", 3.0)
+	var tried := 0
+	var done := 0
+	var lowered := false
+	var back := false
+	var fails := []
+	var space = world.get_world_3d().direct_space_state
+	var wins := []
+	for wnd in world.map.dyn.windows:
+		if str(wnd.type) in ["open", "plastic"] and float(wnd.w) >= 0.75 and float(wnd.h) >= 0.9:
+			wins.append(wnd)
+	var here: Vector3 = t.ch.global_position
+	wins.sort_custom(func(a, b): return (a.xf as Transform3D).origin.distance_to(here) < (b.xf as Transform3D).origin.distance_to(here))
+	for wnd in wins:
+		if tried >= 6:
+			break
+		var xf: Transform3D = wnd.xf
+		var out: Vector3 = wnd.outward
+		out.y = 0.0
+		out = out.normalized()
+		var sill: Vector3 = xf.origin - Vector3.UP * float(wnd.h) * 0.5
+		var stand := sill - out * 0.75
+		var hit = space.intersect_ray(PhysicsRayQueryParameters3D.create(stand + Vector3.UP * 0.3, stand + Vector3.DOWN * 1.6, Defs.MOVE_MASK))
+		if hit.is_empty():
+			continue
+		var feet: Vector3 = hit.position
+		if sill.y - feet.y < 0.6 or sill.y - feet.y > 1.3:
+			continue
+		tried += 1
+		t._teleport(feet + Vector3.UP * 0.05, atan2(-out.x, -out.z))
+		await t._wait(0.5)
+		var side0 := (t.ch.global_position - xf.origin).dot(out)
+		await t._tap("jump")
+		await t._wait(0.1)
+		if t.ch.vault_t >= 0.0:
+			await t._wait(0.12)
+			if done == 0:
+				await t._shot("vault_through_window")
+			lowered = lowered or world.controller.vm._lower > 0.8
+		await t._wait(0.9)
+		var side1 := (t.ch.global_position - xf.origin).dot(out)
+		if side0 < 0.0 and side1 > 0.2:
+			done += 1
+			await t._wait(0.5)
+			back = back or (world.controller.vm._lower < 0.1 and t.ch.wpn.current_id() == "rifle_556")
+		else:
+			fails.append("window %d (%s, %.2fx%.2f, sill %.2f m): stayed at side %.2f" % [int(wnd.id), str(wnd.type), float(wnd.w), float(wnd.h), sill.y - feet.y, side1])
+	t._check("vault_through_window", done >= maxi(tried - 1, 1) and tried >= 3, "%d of %d windows vaulted through; %s" % [done, tried, str(fails)])
+	t._check("vault_hides_weapon", lowered and back, "gun lowered while vaulting %s, back up after %s" % [str(lowered), str(back)])
+
+
+# ------------------------------------------------------------------ trash
+
+func _trash_pass() -> void:
+	## A trash bag stops neither the player nor bullets; garbage heaps have no collision.
+	var pid := _nearest_prop(func(s): return s.get("no_block", false))
+	if pid < 0:
+		t._check("trash_no_block", false, "no trash prop")
+		return
+	var pr: Dictionary = world.map.dyn.props[pid]
+	var pp: Vector3 = (pr.xf as Transform3D).origin
+	var space = world.get_world_3d().direct_space_state
+	var q := PhysicsShapeQueryParameters3D.new()
+	var cap := CapsuleShape3D.new()
+	cap.radius = 0.3
+	cap.height = 1.7
+	q.shape = cap
+	q.transform = Transform3D(Basis(), pp + Vector3.UP * 0.9)
+	q.collision_mask = Defs.MOVE_MASK
+	var blocked := false
+	for b in space.intersect_shape(q, 8):
+		if b.collider != null and b.collider.has_meta("prop_id") and int(b.collider.get_meta("prop_id")) == pid:
+			blocked = true
+	var shot := PhysicsRayQueryParameters3D.create(pp + Vector3(0, 0.15, -1.0), pp + Vector3(0, 0.15, 1.0), Defs.SHOT_MASK)
+	var shot_hit = space.intersect_ray(shot)
+	var hits_bag: bool = not shot_hit.is_empty() and shot_hit.collider != null and shot_hit.collider.has_meta("prop_id") and int(shot_hit.collider.get_meta("prop_id")) == pid
+	var heaps := 0
+	for sp in world.map.dyn.static_props:
+		if str(sp[0]).begins_with("heap_"):
+			heaps += 1
+	t._check("trash_no_block", not blocked and not hits_bag,
+		"%s: blocks movement %s, stops bullets %s; %d garbage heaps placed without collision" % [str(pr.name), str(blocked), str(hits_bag), heaps])

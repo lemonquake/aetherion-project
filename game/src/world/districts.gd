@@ -10,6 +10,11 @@ extends RefCounted
 ##  subdivision  - a walled street of two-storey concrete houses
 ##  under_highway- shacks squeezed between the expressway pillars
 ##  port, dump   - warehouses / scavenger shacks (sites handle the big structures)
+##
+## r3 additions: narrow lanes in the dense districts are roofed over in runs (lagusan: tunnels lined with house
+## fronts, see lagusan.gd), some blocks are left open as loobans (courtyards with vault cover, see looban.gd), some
+## lanes are cut by junk barricades you vault, concrete houses get flat roof decks (many with a ladder), neighbours
+## knock crawl-through holes into each other's houses, and stretches of the estero boardwalk are roofed over.
 
 var mb = null  # MapBuilder
 var L = null   # Layout
@@ -87,11 +92,15 @@ func place(center: Vector2, front2d: Vector2, w: float, d: float, opts: Dictiona
 	var base_y := hmax + 0.08
 	if stilts:
 		base_y = maxf(float(opts.get("deck_y", L.LAND_Y + 0.35)), hmax + 0.15)
+	var fp: Vector2 = center + front2d.normalized() * (d * 0.5 + 0.45)
 	var spec := {
 		"xf": Transform3D(basis, Vector3(center.x, base_y, center.y)), "w": w, "d": d,
 		"floors": int(opts.get("floors", 1)), "style": str(opts.get("style", "wood")), "kind": str(opts.get("kind", "house")),
 		"stilts": stilts, "ground_y": hmin, "front": str(opts.get("front", "door")), "seed": rng.randi(),
 		"district": str(opts.get("district", "")), "can_overhang": bool(opts.get("can_overhang", true)),
+		"covered": bool(opts.get("covered", false)), "roof_deck": bool(opts.get("roof_deck", false)), "ladder": bool(opts.get("ladder", false)),
+		"parapet": bool(opts.get("parapet", true)), "side_holes": opts.get("side_holes", []),
+		"front_gy": float(opts.get("deck_y", -INF)) if stilts else L.ground_height(fp.x, fp.y),
 	}
 	if not stilts and hmax - hmin > 0.12:
 		# Plinth down to the lowest corner so the house does not float.
@@ -116,12 +125,23 @@ func _style_dense() -> String:
 
 
 func _floors_dense(density: float) -> int:
+	## About a fifth of a dense looban is three storeys: rooms added on top as families grow.
 	var r := rng.randf()
-	if r < 0.36 / density:
+	if r < 0.28 / density:
 		return 1
-	if r < 0.9:
+	if r < 0.78:
 		return 2
 	return 3
+
+
+func _deck_opts(style: String, floors: int, covered: bool, opts: Dictionary) -> Dictionary:
+	## Hollow-block and concrete houses often have a flat slab roof people use; most of those have a ladder up the
+	## front (not under a lane roof, and not three storeys up).
+	if covered or not (style in ["chb", "concrete"]) or rng.randf() > 0.34:
+		return opts
+	opts.roof_deck = true
+	opts.ladder = floors <= 2 and rng.randf() < 0.72
+	return opts
 
 
 # ------------------------------------------------------------------ dense looban
@@ -134,47 +154,102 @@ func _dense(D: Dictionary) -> void:
 	var za := Vector2(-sin(ang), cos(ang))
 	var us := [-half.x]
 	while us[-1] < half.x:
-		us.append(us[-1] + rng.randf_range(16.0, 25.0))
+		us.append(us[-1] + rng.randf_range(14.0, 22.0))
 	var vs := [-half.y]
 	while vs[-1] < half.y:
-		vs.append(vs[-1] + rng.randf_range(13.0, 21.0))
+		vs.append(vs[-1] + rng.randf_range(11.0, 17.0))
 	var aw_u := []
 	for i in us.size():
-		aw_u.append(rng.randf_range(1.3, 2.4) if rng.randf() < 0.8 else rng.randf_range(2.8, 3.6))
+		aw_u.append(rng.randf_range(1.2, 2.0) if rng.randf() < 0.8 else rng.randf_range(2.6, 3.4))
 	var aw_v := []
 	for i in vs.size():
-		aw_v.append(rng.randf_range(1.3, 2.4) if rng.randf() < 0.8 else rng.randf_range(2.8, 3.6))
+		aw_v.append(rng.randf_range(1.2, 2.0) if rng.randf() < 0.8 else rng.randf_range(2.6, 3.4))
+	for i in us.size():
+		var a: Vector2 = c + xa * float(us[i]) + za * (-half.y)
+		var b: Vector2 = c + xa * float(us[i]) + za * half.y
+		mb.alleys.append({"a": a, "b": b, "w": float(aw_u[i]), "kind": "alley"})
+	for j in vs.size():
+		var a2: Vector2 = c + xa * (-half.x) + za * float(vs[j])
+		var b2: Vector2 = c + xa * half.x + za * float(vs[j])
+		mb.alleys.append({"a": a2, "b": b2, "w": float(aw_v[j]), "kind": "alley"})
+	# Lagusan: stretches of the narrow lanes roofed over from house to house, in runs of one to four blocks.
+	var covered := {}
+	for j in range(1, vs.size() - 1):
+		if float(aw_v[j]) > 2.25:
+			continue
+		var run := 0
+		for i in us.size() - 1:
+			var p := (0.2 if run == 0 else 0.6) * float(D.density)
+			if run < 4 and rng.randf() < p:
+				covered[Vector2i(i, j)] = true
+				run += 1
+			else:
+				run = 0
+	for key in covered:
+		var i: int = key.x
+		var j: int = key.y
+		var ua: float = us[i] + aw_u[i] * 0.5
+		var ub: float = us[i + 1] - aw_u[i + 1] * 0.5
+		mb.tunnels.append({"a": c + xa * ua + za * float(vs[j]), "b": c + xa * ub + za * float(vs[j]), "w": float(aw_v[j]), "kind": "lane", "district": D.name})
 	for i in us.size() - 1:
 		for j in vs.size() - 1:
 			var u0: float = us[i] + aw_u[i] * 0.5
 			var u1: float = us[i + 1] - aw_u[i + 1] * 0.5
 			var v0: float = vs[j] + aw_v[j] * 0.5
 			var v1: float = vs[j + 1] - aw_v[j + 1] * 0.5
-			# Occasionally merge: a block with no alley through it forces long detours.
-			_fill_block(c, xa, za, u0, u1, v0, v1, D)
+			# A few blocks stay open: the looban, where the neighbourhood washes, plays and argues.
+			if u1 - u0 > 9.0 and v1 - v0 > 8.0 and not covered.has(Vector2i(i, j)) and not covered.has(Vector2i(i, j + 1)) \
+					and rng.randf() < 0.075:
+				mb.loobans.append({"c": c + xa * ((u0 + u1) * 0.5) + za * ((v0 + v1) * 0.5), "half": Vector2((u1 - u0) * 0.5, (v1 - v0) * 0.5),
+					"ang": ang, "district": D.name})
+				continue
+			_fill_block(c, xa, za, u0, u1, v0, v1, D, covered.has(Vector2i(i, j)), covered.has(Vector2i(i, j + 1)))
+	# Junk barricades across some open lanes: vault them, or go round.
+	for j in range(1, vs.size() - 1):
+		for i in us.size() - 1:
+			if covered.has(Vector2i(i, j)) or rng.randf() > 0.07:
+				continue
+			var ua2: float = us[i] + aw_u[i] * 0.5 + 1.5
+			var ub2: float = us[i + 1] - aw_u[i + 1] * 0.5 - 1.5
+			if ub2 <= ua2:
+				continue
+			var t := rng.randf_range(ua2, ub2)
+			mb.barricades.append({"c": c + xa * t + za * float(vs[j]), "along": xa, "w": float(aw_v[j]), "district": D.name})
 
 
-func _fill_block(c: Vector2, xa: Vector2, za: Vector2, u0: float, u1: float, v0: float, v1: float, D: Dictionary) -> void:
+func _fill_block(c: Vector2, xa: Vector2, za: Vector2, u0: float, u1: float, v0: float, v1: float, D: Dictionary,
+		cov0: bool = false, cov1: bool = false) -> void:
 	var bv := v1 - v0
 	var bu := u1 - u0
 	if bu < 3.0 or bv < 3.0:
 		return
-	var depth := minf(rng.randf_range(4.2, 7.0), bv * 0.5 if bv > 9.0 else bv)
+	# Two rows back to back fill the block; now and then a small looban (courtyard) is left in the middle.
+	var courtyard := rng.randf() < 0.1 and bv > 12.0
+	var depth := bv * 0.5 - (rng.randf_range(1.5, 2.5) if courtyard else 0.05)
+	if bv < 8.0:
+		depth = bv
+	depth = minf(depth, 8.5)
 	var rows := [[v0, -1.0]]
-	if bv > 9.0:
+	if bv >= 8.0:
 		rows.append([v1, 1.0])
 	for row in rows:
 		var edge: float = row[0]
 		var face: float = row[1]  # -1: faces the alley at v0 (front toward -za)
+		var row_cov: bool = cov0 if face < 0.0 else cov1
 		var u := u0
+		var hole_p := Vector2.INF   # a hole knocked through from the previous house, at this world point
 		while u < u1 - 2.8:
-			var w := rng.randf_range(3.0, 6.2)
+			var w := rng.randf_range(3.0, 5.6)
 			if u + w > u1:
 				w = u1 - u
 				if w < 2.8:
 					break
-			var d := depth * rng.randf_range(0.82, 1.0)
-			var setback := rng.randf_range(0.0, 0.35)
+			var d := depth * rng.randf_range(0.9, 1.0)
+			var setback := rng.randf_range(0.0, 0.2)
+			if not row_cov and d > 4.6 and rng.randf() < 0.18:
+				# Set back from the lane: a stoop, a bench, a strip of yard. The lane's edge is never a straight line.
+				setback = rng.randf_range(0.5, 1.0)
+				d -= setback   # shallower, so its back stays on the block's middle line (no overlap with the house behind)
 			var vc: float = edge - face * (d * 0.5 + setback)
 			var uc := u + w * 0.5
 			var center := c + xa * uc + za * vc
@@ -182,17 +257,33 @@ func _fill_block(c: Vector2, xa: Vector2, za: Vector2, u0: float, u1: float, v0:
 			# Slight misalignment: nothing in a looban is square.
 			var jitter := rng.randf_range(-0.05, 0.05)
 			front = front.rotated(jitter)
-			if rng.randf() < 0.06:
+			if rng.randf() < 0.03:
 				u += w + rng.randf_range(0.8, 1.6)  # a gap: someone's yard or a collapsed shack
+				hole_p = Vector2.INF
 				continue
 			var front_kind := "door"
 			if rng.randf() < 0.07:
 				front_kind = "store"
-			place(center, front, w - 0.1, d, {"floors": _floors_dense(float(D.density)), "style": _style_dense(), "front": front_kind,
-				"kind": "store" if front_kind == "store" else "house", "district": D.name})
-			u += w + rng.randf_range(0.0, 0.25)
+			var floors := _floors_dense(float(D.density))
+			var style := _style_dense()
+			var opts := {"floors": floors, "style": style, "front": front_kind,
+				"kind": "store" if front_kind == "store" else "house", "district": D.name, "covered": row_cov}
+			_deck_opts(style, floors, row_cov, opts)
+			var holes := []
+			if hole_p != Vector2.INF:
+				holes.append(hole_p)
+			var next_hole := Vector2.INF
+			if rng.randf() < 0.2:
+				# Through the wall into the next house down the row, in the front room.
+				next_hole = c + xa * (u + w) + za * (edge - face * (minf(d, 6.0) * 0.32 + setback))
+				holes.append(next_hole)
+			opts.side_holes = holes
+			if not place(center, front, w - 0.1, d, opts):
+				next_hole = Vector2.INF
+			hole_p = next_hole
+			u += w + rng.randf_range(0.0, 0.12)
 	# Side lots along the u edges when the block is deep enough.
-	if bv > 9.0 + 2.0 * depth * 0.5 and bu > 8.0:
+	if courtyard and bu > 8.0:
 		for side in [[u0, -1.0], [u1, 1.0]]:
 			var v := v0 + depth + 0.3
 			while v < v1 - depth - 2.8:
@@ -234,6 +325,9 @@ func _creek(D: Dictionary) -> void:
 	for side in [-1.0, 1.0]:
 		var x := x0
 		var walk_pts := []
+		var cov_run := 0
+		var cov_start := Vector2.INF
+		var prev_walk := Vector2.INF
 		while x < x1:
 			var w := rng.randf_range(3.0, 5.4)
 			var d := rng.randf_range(4.0, 6.0)
@@ -241,15 +335,31 @@ func _creek(D: Dictionary) -> void:
 			var dz: float = L.estero_z(x + w * 0.5 + 1.0) - z
 			var tang := Vector2(1.0, dz).normalized()
 			var nrm = Vector2(-tang.y, tang.x) * side
-			# Walk 1.3 m wide on the bank edge; houses behind it facing the water.
+			# Walk 1.3 m wide on the bank edge; houses behind it facing the water. Stretches of it run under the
+			# houses' own roofs, extended out over the walk: a dark arcade along the water.
+			var cov := rng.randf() < (0.62 if cov_run > 0 else 0.22) and cov_run < 7
 			var off: float = L.estero_w * 0.5 + 1.5 + d * 0.5
 			var center = Vector2(x + w * 0.5, z) + nrm * off
 			if rng.randf() > 0.07:
 				place(center, -nrm, w - 0.1, d, {"floors": 2 if rng.randf() < 0.6 else 1, "style": _style_dense(), "district": D.name,
-					"stilts": true, "deck_y": deck, "allow_water": true})
-			walk_pts.append(Vector2(x + w * 0.5, z) + nrm * (L.estero_w * 0.5 + 0.7))
+					"stilts": true, "deck_y": deck, "allow_water": true, "covered": cov})
+			var wp: Vector2 = Vector2(x + w * 0.5, z) + nrm * (L.estero_w * 0.5 + 0.7)
+			walk_pts.append(wp)
+			if cov:
+				if cov_run == 0:
+					cov_start = Vector2(x, L.estero_z(x)) + nrm * (L.estero_w * 0.5 + 0.7)
+				cov_run += 1
+			elif cov_run > 0:
+				mb.tunnels.append({"a": cov_start, "b": Vector2(x, L.estero_z(x)) + nrm * (L.estero_w * 0.5 + 0.7), "w": 1.3, "kind": "walk",
+					"y": deck, "house_side": nrm, "district": D.name})
+				cov_run = 0
 			x += w + rng.randf_range(0.0, 0.3)
+		if cov_run > 0:
+			mb.tunnels.append({"a": cov_start, "b": Vector2(x, L.estero_z(x) + side * (L.estero_w * 0.5 + 0.7)),
+				"w": 1.3, "kind": "walk", "y": deck, "house_side": Vector2(0, side), "district": D.name})
 		_boardwalk(walk_pts, 1.3, deck - 0.05)
+		for k in range(0, walk_pts.size() - 1, 3):
+			mb.alleys.append({"a": walk_pts[k], "b": walk_pts[mini(k + 3, walk_pts.size() - 1)], "w": 1.3, "kind": "walk", "y": deck})
 
 
 func _boardwalk(pts: Array, width: float, y: float) -> void:
@@ -304,6 +414,8 @@ func _river_bank(D: Dictionary) -> void:
 		walk_pts.append(Vector2(cx, z + w * 0.5) + nrm * (hw - 0.6))
 		z += w + rng.randf_range(0.0, 0.4)
 	_boardwalk(walk_pts, 1.4, deck - 0.05)
+	for k in range(0, walk_pts.size() - 1, 3):
+		mb.alleys.append({"a": walk_pts[k], "b": walk_pts[mini(k + 3, walk_pts.size() - 1)], "w": 1.4, "kind": "walk", "y": deck})
 
 
 # ------------------------------------------------------------------ mixed (Kalinaw Proper)
@@ -325,9 +437,15 @@ func _mixed(D: Dictionary) -> void:
 				var vc := v + (dd * 0.5 + 0.6 if face < 0 else depth * 2.0 + 0.6 - dd * 0.5)
 				var center := c + xa * (u + w * 0.5) + za * vc
 				var style := "chb" if rng.randf() < 0.55 else ("concrete" if rng.randf() < 0.6 else "wood")
-				place(center, za * face, w - 0.6, dd, {"floors": 1 if rng.randf() < 0.45 else 2, "style": style, "district": D.name,
-					"front": "store" if rng.randf() < 0.08 else "door"})
+				var fl := 1 if rng.randf() < 0.4 else (2 if rng.randf() < 0.8 else 3)
+				var mopts := {"floors": fl, "style": style, "district": D.name, "front": "store" if rng.randf() < 0.08 else "door"}
+				_deck_opts(style, fl, false, mopts)
+				if place(center, za * face, w - 0.6, dd, mopts) and rng.randf() < 0.45:
+					# A hip-high front wall round the yard, with a gap for the gate: cover you can vault.
+					mb.yard_walls.append({"c": center + za * face * (dd * 0.5 + 0.55), "along": xa, "len": w - 0.7, "district": D.name})
 				u += w + rng.randf_range(0.3, 1.5)
+		var sv := v + depth * 2.0 + 2.2
+		mb.alleys.append({"a": c + xa * (-half.x) + za * sv, "b": c + xa * half.x + za * sv, "w": 4.0, "kind": "street"})
 		v += depth * 2.0 + rng.randf_range(4.0, 5.0)  # a street between double rows
 
 
@@ -421,7 +539,7 @@ func _dump(D: Dictionary) -> void:
 	var c: Vector2 = D.c
 	for i in 14:
 		var a := rng.randf() * TAU
-		var r := rng.randf_range(50.0, 95.0)
+		var r := rng.randf_range(0.64, 1.22) * float(L.dump_r)
 		var p := c + Vector2(cos(a), sin(a)) * r
 		place(p, (c - p).normalized() * -1.0, rng.randf_range(3.0, 4.5), rng.randf_range(3.0, 4.5),
 			{"floors": 1, "style": "patch", "district": D.name, "can_overhang": false})

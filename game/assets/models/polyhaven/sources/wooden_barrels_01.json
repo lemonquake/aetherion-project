@@ -1,0 +1,19 @@
+{
+  "source": "Poly Haven",
+  "title": "Wooden Barrels 01",
+  "url": "https://polyhaven.com/a/wooden_barrels_01",
+  "authors": [
+    "James Ray Cock"
+  ],
+  "license": "CC0-1.0",
+  "license_url": "https://polyhaven.com/license",
+  "attribution_required": false,
+  "kind": "model",
+  "modifications": "Decimated to its 4,000-triangle budget; 3 materials packed into one 3072x1024 atlas; 33,142 -> 4,000 triangles, 1 material (tools/blender/process_props.py).",
+  "retrieved": "2026-10-25",
+  "files": {
+    "wooden_barrels_01.gltf": "394c095c1ee618e63f5be9ec154df4943c916a8b063be2dd5b5f6c8db7baaf59",
+    "wooden_barrels_01.bin": "10dbc8e5470877be3593d3bee4225a1d972f304d5d57cb8146534dbf020c9a02"
+  },
+  "processed_from": "game/assets/thirdparty/polyhaven/models/wooden_barrels_01/wooden_barrels_01_1k.gltf"
+}

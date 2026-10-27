@@ -1,0 +1,19 @@
+{
+  "source": "Poly Haven",
+  "title": "Wooden Crate 01",
+  "url": "https://polyhaven.com/a/wooden_crate_01",
+  "authors": [
+    "James Ray Cock"
+  ],
+  "license": "CC0-1.0",
+  "license_url": "https://polyhaven.com/license",
+  "attribution_required": false,
+  "kind": "model",
+  "modifications": "Decimated to its 3,000-triangle budget; 6,576 -> 3,000 triangles, 1 material (tools/blender/process_props.py).",
+  "retrieved": "2026-10-25",
+  "files": {
+    "wooden_crate_01.gltf": "f47199be2f2492e0276af42a5bce33c9f1812dc3c3c2294cea3ddd14767150f1",
+    "wooden_crate_01.bin": "14f073bae640b9d45bf28b534904494f662bd94ee2e5d6171faf2fd224df6b67"
+  },
+  "processed_from": "game/assets/thirdparty/polyhaven/models/wooden_crate_01/wooden_crate_01_1k.gltf"
+}

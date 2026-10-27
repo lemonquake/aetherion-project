@@ -1,0 +1,20 @@
+{
+  "source": "Poly Haven",
+  "title": "Metal Tool Chest",
+  "url": "https://polyhaven.com/a/metal_tool_chest",
+  "authors": [
+    "Yann Kervran",
+    "John Hutcheson"
+  ],
+  "license": "CC0-1.0",
+  "license_url": "https://polyhaven.com/license",
+  "attribution_required": false,
+  "kind": "model",
+  "modifications": "Decimated to its 3,000-triangle budget; 13,360 -> 3,000 triangles, 1 material (tools/blender/process_props.py).",
+  "retrieved": "2026-10-25",
+  "files": {
+    "metal_tool_chest.gltf": "0ffee209ff9402fb8ea30b22478e218cc896dbf5df31aba6bb2c957b58f6b487",
+    "metal_tool_chest.bin": "257b29b1e42b9b804a9aa1f8d712a2b54d3646332dc45f570dc2d4248ef4683f"
+  },
+  "processed_from": "game/assets/thirdparty/polyhaven/models/metal_tool_chest/metal_tool_chest_1k.gltf"
+}

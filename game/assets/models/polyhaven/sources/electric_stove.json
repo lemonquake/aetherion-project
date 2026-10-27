@@ -1,0 +1,19 @@
+{
+  "source": "Poly Haven",
+  "title": "Electric Stove",
+  "url": "https://polyhaven.com/a/electric_stove",
+  "authors": [
+    "Kuutti Siitonen"
+  ],
+  "license": "CC0-1.0",
+  "license_url": "https://polyhaven.com/license",
+  "attribution_required": false,
+  "kind": "model",
+  "modifications": "Decimated to its 3,000-triangle budget; blend / transmission dropped, opaque (electric_stove_glass); 13,914 -> 3,000 triangles, 1 material (tools/blender/process_props.py).",
+  "retrieved": "2026-10-25",
+  "files": {
+    "electric_stove.gltf": "92d9a5619cd99b991b3cba35b2eb8ae13aa12c0c6911d2536e570cdb428d9772",
+    "electric_stove.bin": "415cb5b92ef35ef59eeee5ffae9b2130e256a0f12fd98e40580cb6496a8d859a"
+  },
+  "processed_from": "game/assets/thirdparty/polyhaven/models/electric_stove/electric_stove_1k.gltf"
+}

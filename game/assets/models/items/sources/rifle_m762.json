@@ -1,0 +1,21 @@
+{
+  "source": "Sketchfab (downloaded from the Objaverse mirror, allenai/objaverse on Hugging Face)",
+  "title": "M762 Assault Rifle",
+  "url": "https://sketchfab.com/3d-models/57c1744d3fbf4c758dbcaabc5c05089b",
+  "mirror_url": "https://huggingface.co/datasets/allenai/objaverse/resolve/main/glbs/000-105/57c1744d3fbf4c758dbcaabc5c05089b.glb",
+  "authors": [
+    "417000"
+  ],
+  "author_url": "https://sketchfab.com/417000",
+  "license": "CC-BY-4.0",
+  "license_url": "http://creativecommons.org/licenses/by/4.0/",
+  "attribution_required": true,
+  "kind": "model",
+  "purpose": "M762 7.62x39 assault rifle",
+  "modifications": "Joined into one mesh, re-oriented (front along -Z in Godot), scaled to 0.900 m overall, centred, decimated 14758 -> 12000 triangles, textures reduced to 1024 px JPEG (tools/blender/process_items.py).",
+  "retrieved": "2026-10-27",
+  "files": {
+    "rifle_m762.glb": ""
+  },
+  "processed_from": "tools/cache/sketchfab/rifle_m762/rifle_m762.glb"
+}

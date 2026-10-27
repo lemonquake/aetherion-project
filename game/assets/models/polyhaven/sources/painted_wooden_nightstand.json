@@ -1,0 +1,19 @@
+{
+  "source": "Poly Haven",
+  "title": "Painted Wooden Nightstand",
+  "url": "https://polyhaven.com/a/painted_wooden_nightstand",
+  "authors": [
+    "Kirill Sannikov"
+  ],
+  "license": "CC0-1.0",
+  "license_url": "https://polyhaven.com/license",
+  "attribution_required": false,
+  "kind": "model",
+  "modifications": "Re-exported unchanged (within budget, one material); 470 -> 470 triangles, 1 material (tools/blender/process_props.py).",
+  "retrieved": "2026-10-25",
+  "files": {
+    "painted_wooden_nightstand.gltf": "c88af2a100f34cb18abfdb355049497ae1c9e86d7f3e0fd9b4a5e059f869a196",
+    "painted_wooden_nightstand.bin": "984b1f1863801bf97a8487edae40a3dcafdea3720cb596d71e06317596cc4093"
+  },
+  "processed_from": "game/assets/thirdparty/polyhaven/models/painted_wooden_nightstand/painted_wooden_nightstand_1k.gltf"
+}

@@ -13,13 +13,13 @@ var _bg: Control
 
 func _ready() -> void:
 	theme = UITheme.get_theme()
-	set_anchors_preset(Control.PRESET_FULL_RECT)
+	set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
 	_bg = preload("res://src/ui/menu_backdrop.gd").new()
-	_bg.set_anchors_preset(Control.PRESET_FULL_RECT)
+	_bg.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
 	add_child(_bg)
 
 	var margin := MarginContainer.new()
-	margin.set_anchors_preset(Control.PRESET_FULL_RECT)
+	margin.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
 	for side in ["left", "right", "top", "bottom"]:
 		margin.add_theme_constant_override("margin_" + side, 72)
 	add_child(margin)
@@ -52,11 +52,15 @@ func _ready() -> void:
 	_main_buttons.add_child(UITheme.button("Play", _toggle_play, 320))
 	_main_buttons.add_child(UITheme.button("Settings", _open_settings, 320))
 	_main_buttons.add_child(UITheme.button("Quit", func(): get_tree().quit(), 320))
-	col.add_child(_main_buttons)
-
+	# The Play choices open beside the buttons, not under them: on a phone (UI drawn larger) there is no room below.
+	var actions := UITheme.hbox(28)
+	_main_buttons.size_flags_vertical = Control.SIZE_SHRINK_BEGIN
+	actions.add_child(_main_buttons)
 	_play_panel = _build_play_panel()
 	_play_panel.visible = false
-	col.add_child(_play_panel)
+	_play_panel.size_flags_vertical = Control.SIZE_SHRINK_BEGIN
+	actions.add_child(_play_panel)
+	col.add_child(actions)
 
 	_status = UITheme.label("", 20, UITheme.WARN)
 	col.add_child(_status)
@@ -89,7 +93,7 @@ func _build_play_panel() -> Control:
 	v.add_child(join_row)
 	var prac := UITheme.hbox(10)
 	prac.add_child(UITheme.button("Practice with bots", _practice, 220))
-	prac.add_child(UITheme.label("Solo match on this computer.", 17, UITheme.TEXT_DIM))
+	prac.add_child(UITheme.label("Solo match on this device.", 17, UITheme.TEXT_DIM))
 	v.add_child(prac)
 	return p
 
@@ -113,7 +117,7 @@ func _practice() -> void:
 		return
 	Net.set_config("mode", "solo")
 	Net.set_config("bots", true)
-	Net.set_config("bot_count", 11)
+	Net.set_config("bot_count", 20)
 	Game.show_lobby()
 
 

@@ -5,6 +5,11 @@ var mb = null
 var L = null
 var sink = null
 var rng := RandomNumberGenerator.new()
+const WATERFRONT := ["pump_station", "fish_port", "container_yard"]  # built at the water's edge on purpose
+
+var _site := ""
+var _site_type := ""
+var _footprints := []  # [{site, type, p, half, ang}] every rectangle a site reserved, for _check_footprints
 
 
 func _init(map_builder) -> void:
@@ -18,6 +23,8 @@ func build_all() -> void:
 	for s in L.sites:
 		var p: Vector2 = s.pos
 		var ang := float(s.ang)
+		_site = str(s.name)
+		_site_type = str(s.type)
 		match str(s.type):
 			"chapel":
 				_chapel(p, ang)
@@ -59,6 +66,8 @@ func build_all() -> void:
 				_cell_tower(p)
 			"police":
 				_police(p, ang)
+	_site = ""
+	_check_footprints()
 	_highway()
 
 
@@ -75,6 +84,47 @@ func _xf(p: Vector2, ang: float, y: float = INF) -> Transform3D:
 
 func _reserve(p: Vector2, half: Vector2, ang: float, margin: float = 1.5) -> void:
 	L.reserve_rect(p, half, ang, 2, margin)
+	_footprints.append({"site": _site, "type": _site_type, "p": p, "half": half, "ang": ang})
+
+
+func _check_footprints() -> void:
+	## Sites are placed by hand and nothing stops one landing on a road, in the water or on another site (the layout
+	## is scaled, so a move elsewhere can cause it). Warn so the layout gets fixed; the build carries on.
+	var hits := {}
+	for f in _footprints:
+		var xa := Vector2(cos(f.ang), sin(f.ang))
+		var za := Vector2(-sin(f.ang), cos(f.ang))
+		var half: Vector2 = f.half
+		for i in 9:
+			for j in 9:
+				var q: Vector2 = f.p + xa * half.x * (i / 4.0 - 1.0) + za * half.y * (j / 4.0 - 1.0)
+				var what := ""
+				for r in L.roads:
+					if L.poly_dist(q, r.pts).x < float(r.w) * 0.5:
+						what = str(r.name)
+				if L.poly_dist(q, L.railway).x < 3.2:
+					what = "the railway"
+				if what == "" and not (f.type in WATERFRONT) and L.is_water(q.x, q.y):
+					what = "water"
+				for g in _footprints:
+					if g.site != f.site and what == "":
+						var lq: Vector2 = (q - g.p).rotated(-float(g.ang))
+						if absf(lq.x) < (g.half as Vector2).x and absf(lq.y) < (g.half as Vector2).y:
+							what = str(g.site)
+				if what != "":
+					var key := "%s|%s" % [f.site, what]
+					hits[key] = int(hits.get(key, 0)) + 1
+	for key in hits:
+		var parts: PackedStringArray = str(key).split("|")
+		push_warning("Sites: %s overlaps %s (%d of 81 sample points)" % [parts[0], parts[1], hits[key]])
+
+
+func _boxes(xf: Transform3D, n: int, half: Vector2, y: float, choices: Array) -> void:
+	## Loot boxes scattered on a site floor (xf local, within +-half), each [model, table].
+	for k in n:
+		var c: Array = _pick(choices)
+		var lp := Vector3(rng.randf_range(-half.x, half.x), y, rng.randf_range(-half.y, half.y))
+		mb.dyn.add_loot_box(str(c[0]), xf * Transform3D(Basis(Vector3.UP, rng.randf() * TAU), lp), str(c[1]), -1)
 
 
 func _slab(xf: Transform3D, w: float, d: float, mat: String = "cement") -> void:
@@ -231,6 +281,10 @@ func _scrapyard(p: Vector2, ang: float) -> void:
 	for k in 6:
 		var o := Vector3(rng.randf_range(-9, 9), 0, rng.randf_range(-9, 9))
 		mb.dyn.add_static_prop(_pick(["wheel_rim", "old_tyre", "drum", "plank_pile", "hollow_block_pile"]), xf * Transform3D(Basis(Vector3.UP, rng.randf() * TAU), o))
+	for k in 3:
+		var o2 := Vector3(rng.randf_range(-10, 0), 0.0, rng.randf_range(-10, 10))
+		var c: Array = _pick([["lootbox_toolbox", "box_toolbox"], ["lootbox_ammocan", "box_ammocan"]])
+		mb.dyn.add_loot_box(str(c[0]), xf * Transform3D(Basis(Vector3.UP, rng.randf() * TAU), o2), str(c[1]), -1)
 
 
 func _market(p: Vector2, ang: float) -> void:
@@ -248,6 +302,9 @@ func _market(p: Vector2, ang: float) -> void:
 				mb.dyn.add_container(xf * Vector3(lx, 0.9, lz), "store_shelf", -1, Vector3(1.8, 0.4, 0.8))
 			if rng.randf() < 0.3:
 				mb.dyn.add_loot_spot(xf * Vector3(lx + rng.randf_range(-0.6, 0.6), 0.88, lz), "floor_household", -1)
+			if rng.randf() < 0.22:
+				var c: Array = _pick([["lootbox_cooler", "box_cooler"], ["lootbox_bin", "box_bin"], ["lootbox_balikbayan", "box_balikbayan"]])
+				mb.dyn.add_loot_box(str(c[0]), xf * Transform3D(Basis(Vector3.UP, rng.randf_range(-0.3, 0.3)), Vector3(lx + 1.55, 0.05, lz + rng.randf_range(-0.3, 0.3))), str(c[1]), -1)
 	mb.dyn.add_light({"pos": xf * Vector3(6, 5.6, 2), "kind": "tube", "color": Color(0.85, 0.95, 1.0), "energy": 1.0, "range": 12.0, "flicker": 0.6})
 
 
@@ -322,6 +379,9 @@ func _warehouse(p: Vector2, ang: float) -> void:
 		mb.dyn.add_prop_spec(_pick(["crate_wood", "crate_wood2", "pallet", "cement_bag", "drum"]), xf * Transform3D(Basis(Vector3.UP, rng.randf() * TAU), o))
 	mb.dyn.add_container(xf * Vector3(10, 0.5, 6), "military_crate" if rng.randf() < 0.5 else "crate", -1, Vector3(1.2, 0.8, 0.8))
 	mb.dyn.add_loot_spot(xf * Vector3(-6, 0.05, 2), "floor_contested", -1)
+	mb.dyn.add_loot_spot(xf * Vector3(6, 0.05, -4), "floor_contested", -1)
+	_boxes(xf, rng.randi_range(3, 5), Vector2(13, 8), 0.05, [["lootbox_ammocan", "box_ammocan"], ["lootbox_footlocker", "box_footlocker"],
+		["lootbox_bin", "box_bin"], ["lootbox_riflecase", "box_riflecase"], ["lootbox_toolbox", "box_toolbox"]])
 	mb.dyn.add_light({"pos": xf * Vector3(0, h - 0.5, 0), "kind": "sodium", "color": Color(1.0, 0.7, 0.4), "energy": 0.9, "range": 16.0, "flicker": 0.5})
 
 
@@ -347,6 +407,12 @@ func _container_yard(p: Vector2, ang: float) -> void:
 	sink.box(cxf * Transform3D(Basis(), Vector3(0, 28.5, 0)), Vector3(32, 1.6, 7.0), "metal_paint", {"tint": Color(0.85, 0.65, 0.15), "paint": 0.9})
 	sink.box(cxf * Transform3D(Basis(), Vector3(0, 28.5, 18)), Vector3(3, 1.4, 30), "metal_paint", {"tint": Color(0.85, 0.65, 0.15), "paint": 0.9})
 	mb.dyn.add_light({"pos": cxf * Vector3(0, 29.6, 0), "kind": "beacon", "color": Color(1.0, 0.15, 0.05), "energy": 2.0, "range": 8.0, "blink": 1.1})
+	# Contested: rifle cases and ammunition left in the aisles between the stacks.
+	for k in 5:
+		var c: Array = _pick([["lootbox_riflecase", "box_riflecase"], ["lootbox_ammocan", "box_ammocan"], ["lootbox_footlocker", "box_footlocker"]])
+		var lp := Vector3(-24.0 + rng.randi_range(0, 5) * 9.0 + 4.5, 0.05, -12.0 + rng.randi_range(0, 3) * 8.0)
+		mb.dyn.add_loot_box(str(c[0]), xf * Transform3D(Basis(Vector3.UP, PI * 0.5 + rng.randf_range(-0.2, 0.2)), lp), str(c[1]), -1)
+		mb.dyn.add_loot_spot(xf * (lp + Vector3(0, 0, 1.2)), "floor_contested", -1)
 	mb.dyn.add_light({"pos": cxf * Vector3(10, 27.0, 0), "kind": "flood", "color": Color(1.0, 0.72, 0.45), "energy": 3.0, "range": 40.0, "flicker": 0.0})
 
 
@@ -361,6 +427,11 @@ func _fish_port(p: Vector2, ang: float) -> void:
 	_posts_roof(xf * Transform3D(Basis(), Vector3(0, 0, 6)), 9.0, 14.0, 4.0, "yero_rust", "metal_rust", 4.5)
 	for k in 5:
 		mb.dyn.add_static_prop("boat", xf * Transform3D(Basis(Vector3.UP, PI * 0.5 + rng.randf_range(-0.2, 0.2)), Vector3(-9.0 if k % 2 == 0 else 9.0, -1.9, 10.0 + k * 9.0)))
+	# Fishermen's iceboxes and gear on the pier.
+	for k in 6:
+		var c: Array = _pick([["lootbox_cooler", "box_cooler"], ["lootbox_cooler", "box_cooler"], ["lootbox_bin", "box_bin"], ["lootbox_toolbox", "box_toolbox"]])
+		mb.dyn.add_loot_box(str(c[0]), xf * Transform3D(Basis(Vector3.UP, rng.randf_range(-0.3, 0.3)), Vector3(rng.randf_range(-3.5, 3.5), 0.0, 2.0 + k * 8.0)), str(c[1]), -1)
+	mb.dyn.add_loot_spot(xf * Vector3(0, 0.02, 20), "floor_street", -1)
 
 
 func _cell_tower(p: Vector2) -> void:
@@ -395,15 +466,15 @@ func _highway() -> void:
 	## The elevated expressway along the east edge: pillars, a deck at 9 m, barriers. People live underneath.
 	var x = L.highway_x
 	var deck_y := 9.5
-	var z := -560.0
-	while z < 560.0:
+	var z: float = -L.HALF
+	while z < L.HALF:
 		var gy := maxf(L.ground_height(x, z), L.WATER_Y - 3.0)
 		if not (z > L.coast_z(x) + 20.0):
 			sink.box(Transform3D(Basis(), Vector3(x, (gy + deck_y) * 0.5 - 0.6, z)), Vector3(2.2, deck_y - gy - 1.2, 2.2), "concrete_dirty", {"dirt": 0.9, "occlude": true})
 			sink.box(Transform3D(Basis(), Vector3(x, deck_y - 1.0, z)), Vector3(14.0, 1.0, 2.0), "concrete", {"dirt": 0.5})
 		z += 30.0
-	z = -560.0
-	while z < 560.0:
+	z = -L.HALF
+	while z < L.HALF:
 		sink.box(Transform3D(Basis(), Vector3(x, deck_y, z + 15.0)), Vector3(14.0, 0.7, 30.0), "concrete", {"dirt": 0.4, "occlude": true})
 		for side in [-1.0, 1.0]:
 			sink.box(Transform3D(Basis(), Vector3(x + side * 6.8, deck_y + 0.8, z + 15.0)), Vector3(0.4, 0.9, 30.0), "concrete", {"dirt": 0.5})

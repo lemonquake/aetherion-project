@@ -1,0 +1,19 @@
+{
+  "source": "Poly Haven",
+  "title": "Hand Truck",
+  "url": "https://polyhaven.com/a/hand_truck",
+  "authors": [
+    "Mutanzom3D"
+  ],
+  "license": "CC0-1.0",
+  "license_url": "https://polyhaven.com/license",
+  "attribution_required": false,
+  "kind": "model",
+  "modifications": "Decimated to its 4,000-triangle budget; 13,220 -> 4,000 triangles, 1 material (tools/blender/process_props.py).",
+  "retrieved": "2026-10-25",
+  "files": {
+    "hand_truck.gltf": "d94cc1a6f19c3c1a16a4f183390ae78b3e9a1d55ad5660bc8b3087f1d5ece35e",
+    "hand_truck.bin": "67d973cad87b575e2d593d7130234fd8d53071addc6a9ded909a26647dc9c77e"
+  },
+  "processed_from": "game/assets/thirdparty/polyhaven/models/hand_truck/hand_truck_1k.gltf"
+}

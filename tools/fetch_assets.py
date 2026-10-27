@@ -279,6 +279,21 @@ def collect_records():
                     continue
                 rec['_path'] = os.path.relpath(dirpath, ROOT).replace('\\', '/')
                 rows.append(rec)
+            if os.path.basename(dirpath) == 'sources':
+                # Processed models keep one record per file: <folder>/sources/<id>.json describes <folder>/<id>.glb
+                # (or <id>.gltf).
+                for n in names:
+                    if not n.endswith('.json'):
+                        continue
+                    try:
+                        rec = json.load(open(os.path.join(dirpath, n), encoding='utf-8'))
+                    except Exception:
+                        continue
+                    glb = os.path.join(os.path.dirname(dirpath), n[:-5] + '.glb')
+                    if not os.path.exists(glb):
+                        glb = glb[:-4] + '.gltf'
+                    rec['_path'] = os.path.relpath(glb, ROOT).replace('\\', '/')
+                    rows.append(rec)
     uniq = {r['_path']: r for r in rows}
     return sorted(uniq.values(), key=lambda r: (r.get('source', ''), r['_path']))
 

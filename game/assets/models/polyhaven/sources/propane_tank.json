@@ -1,0 +1,19 @@
+{
+  "source": "Poly Haven",
+  "title": "Propane Tank",
+  "url": "https://polyhaven.com/a/propane_tank",
+  "authors": [
+    "Slinc"
+  ],
+  "license": "CC0-1.0",
+  "license_url": "https://polyhaven.com/license",
+  "attribution_required": false,
+  "kind": "model",
+  "modifications": "Decimated to its 1,800-triangle budget; 5,238 -> 1,800 triangles, 1 material (tools/blender/process_props.py).",
+  "retrieved": "2026-10-25",
+  "files": {
+    "propane_tank.gltf": "543067a5708587232becca5e788774691348b6f24138edffb96711ab654600c3",
+    "propane_tank.bin": "449706b95478a156116dbcc1787eaf9019a7d3e03ff93cca1407a5838b1552aa"
+  },
+  "processed_from": "game/assets/thirdparty/polyhaven/models/propane_tank/propane_tank_1k.gltf"
+}

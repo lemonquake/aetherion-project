@@ -1,0 +1,21 @@
+{
+  "source": "Sketchfab (downloaded from the Objaverse mirror, allenai/objaverse on Hugging Face)",
+  "title": "M16 Assault Rifle",
+  "url": "https://sketchfab.com/3d-models/339d0f7b21024387853dd926a5d51b50",
+  "mirror_url": "https://huggingface.co/datasets/allenai/objaverse/resolve/main/glbs/000-152/339d0f7b21024387853dd926a5d51b50.glb",
+  "authors": [
+    "SpatialNeglect"
+  ],
+  "author_url": "https://sketchfab.com/jeandiz",
+  "license": "CC-BY-4.0",
+  "license_url": "http://creativecommons.org/licenses/by/4.0/",
+  "attribution_required": true,
+  "kind": "model",
+  "purpose": "5.56 assault rifle",
+  "modifications": "Joined into one mesh, re-oriented (front along -Z in Godot), scaled to 1.000 m overall, centred, decimated 21549 -> 12000 triangles, textures reduced to 1024 px JPEG (tools/blender/process_items.py).",
+  "retrieved": "2026-10-25",
+  "files": {
+    "rifle_556.glb": ""
+  },
+  "processed_from": "tools/cache/sketchfab/rifle_m16/rifle_m16.glb"
+}

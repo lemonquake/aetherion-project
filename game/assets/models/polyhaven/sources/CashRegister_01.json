@@ -1,0 +1,19 @@
+{
+  "source": "Poly Haven",
+  "title": "Cash Register 01",
+  "url": "https://polyhaven.com/a/CashRegister_01",
+  "authors": [
+    "Joe Seabuhr"
+  ],
+  "license": "CC0-1.0",
+  "license_url": "https://polyhaven.com/license",
+  "attribution_required": false,
+  "kind": "model",
+  "modifications": "Decimated to its 3,000-triangle budget; 2 materials packed into one 1024x1280 atlas; blend / transmission dropped, opaque (CashRegister_01_glass); 9,927 -> 2,999 triangles, 1 material (tools/blender/process_props.py).",
+  "retrieved": "2026-10-25",
+  "files": {
+    "CashRegister_01.gltf": "a93e578ef14ce8265302db136753be658292a237e13587740c08a9732a6fa14f",
+    "CashRegister_01.bin": "dabbad9b261f655f9fdfdcc57590fa19a51fd4b2dadcf32561cd22685749f27f"
+  },
+  "processed_from": "game/assets/thirdparty/polyhaven/models/CashRegister_01/CashRegister_01_1k.gltf"
+}

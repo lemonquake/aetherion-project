@@ -1,0 +1,21 @@
+{
+  "source": "Sketchfab (downloaded from the Objaverse mirror, allenai/objaverse on Hugging Face)",
+  "title": "Colt 1911",
+  "url": "https://sketchfab.com/3d-models/e9c4fa703b6f4b388d84068c417da642",
+  "mirror_url": "https://huggingface.co/datasets/allenai/objaverse/resolve/main/glbs/000-078/e9c4fa703b6f4b388d84068c417da642.glb",
+  "authors": [
+    "Hung Do"
+  ],
+  "author_url": "https://sketchfab.com/hungdo",
+  "license": "CC-BY-4.0",
+  "license_url": "http://creativecommons.org/licenses/by/4.0/",
+  "attribution_required": true,
+  "kind": "model",
+  "purpose": ".45 handgun",
+  "modifications": "Joined into one mesh, re-oriented (front along -Z in Godot), scaled to 0.216 m overall, centred, decimated 12266 -> 9000 triangles, textures reduced to 1024 px JPEG (tools/blender/process_items.py).",
+  "retrieved": "2026-10-25",
+  "files": {
+    "pistol_45.glb": ""
+  },
+  "processed_from": "tools/cache/sketchfab/pistol_1911/pistol_1911.glb"
+}

@@ -1,0 +1,19 @@
+{
+  "source": "Poly Haven",
+  "title": "Rubber Boots",
+  "url": "https://polyhaven.com/a/rubber_boots",
+  "authors": [
+    "L"
+  ],
+  "license": "CC0-1.0",
+  "license_url": "https://polyhaven.com/license",
+  "attribution_required": false,
+  "kind": "model",
+  "modifications": "Kept one variant (rubber_boots_dirt_r, rubber_boots_dirty_l) of the set, removed 2 other objects, re-centred on it; decimated to its 1,800-triangle budget; textures 512 px; 28,064 -> 1,799 triangles, 1 material (tools/blender/process_props.py).",
+  "retrieved": "2026-10-25",
+  "files": {
+    "rubber_boots.gltf": "b11210feca5d0f541274bb64c67220ae2e4eeb9bf39ea035cfde84556a421df0",
+    "rubber_boots.bin": "0d74376594e9ded62cb6aa68377303dc8566db986df9ed6732cbc638028a890e"
+  },
+  "processed_from": "game/assets/thirdparty/polyhaven/models/rubber_boots/rubber_boots_1k.gltf"
+}

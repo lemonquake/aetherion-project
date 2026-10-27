@@ -1,0 +1,20 @@
+{
+  "source": "Poly Haven",
+  "title": "Weed Plant 02",
+  "url": "https://polyhaven.com/a/weed_plant_02",
+  "authors": [
+    "Rob Tuytel",
+    "Rico Cilliers"
+  ],
+  "license": "CC0-1.0",
+  "license_url": "https://polyhaven.com/license",
+  "attribution_required": false,
+  "kind": "model",
+  "modifications": "Kept one variant (weed_plant_02_a_LOD0) of the set, removed 4 other objects, re-centred on it; thinned to 67% of its blades / leaves, survivors enlarged 1.22x; textures 512 px; blend / transmission dropped, opaque (weed_plant_02); 2,967 -> 1,856 triangles, 1 material (tools/blender/process_props.py).",
+  "retrieved": "2026-10-25",
+  "files": {
+    "weed_plant_02.gltf": "c964e984548a75f87d10f3a69fe8c2c1d74fd68a31296a9f30116e8f58e7cf1d",
+    "weed_plant_02.bin": "fe0247130f3f4f1e3916f385a4271b868076edabfe38aa417ab313203d6d1b7f"
+  },
+  "processed_from": "game/assets/thirdparty/polyhaven/models/weed_plant_02/weed_plant_02_1k.gltf"
+}

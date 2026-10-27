@@ -1,0 +1,19 @@
+{
+  "source": "Poly Haven",
+  "title": "Painted Wooden Table",
+  "url": "https://polyhaven.com/a/painted_wooden_table",
+  "authors": [
+    "Kirill Sannikov"
+  ],
+  "license": "CC0-1.0",
+  "license_url": "https://polyhaven.com/license",
+  "attribution_required": false,
+  "kind": "model",
+  "modifications": "Re-exported unchanged (within budget, one material); 600 -> 600 triangles, 1 material (tools/blender/process_props.py).",
+  "retrieved": "2026-10-25",
+  "files": {
+    "painted_wooden_table.gltf": "9ae320e8bf80254f20b35fb8827a402da1fdba33ce6e8b069a847e9911a641d0",
+    "painted_wooden_table.bin": "87af0de93eb4a4054ac20e0a985ad30df49ba40b20a1239e27bd1b3eb5e285ce"
+  },
+  "processed_from": "game/assets/thirdparty/polyhaven/models/painted_wooden_table/painted_wooden_table_1k.gltf"
+}

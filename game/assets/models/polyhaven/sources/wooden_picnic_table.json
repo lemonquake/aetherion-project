@@ -1,0 +1,19 @@
+{
+  "source": "Poly Haven",
+  "title": "Wooden Picnic Table",
+  "url": "https://polyhaven.com/a/wooden_picnic_table",
+  "authors": [
+    "Ulan Cabanilla"
+  ],
+  "license": "CC0-1.0",
+  "license_url": "https://polyhaven.com/license",
+  "attribution_required": false,
+  "kind": "model",
+  "modifications": "Decimated to its 4,000-triangle budget; 2 materials packed into one 2048x1024 atlas; 10,210 -> 4,000 triangles, 1 material (tools/blender/process_props.py).",
+  "retrieved": "2026-10-25",
+  "files": {
+    "wooden_picnic_table.gltf": "2c0d9435c9956ebc7b850ec0fc183cbd5826f759f641499a8fec704482fecf1b",
+    "wooden_picnic_table.bin": "1416a62af2bb53ac55d2412c41fb6f6604104a7238739741a53bfed6d7d2525d"
+  },
+  "processed_from": "game/assets/thirdparty/polyhaven/models/wooden_picnic_table/wooden_picnic_table_1k.gltf"
+}

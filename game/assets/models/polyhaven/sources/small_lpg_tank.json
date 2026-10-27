@@ -1,0 +1,19 @@
+{
+  "source": "Poly Haven",
+  "title": "Small Lpg Tank",
+  "url": "https://polyhaven.com/a/small_lpg_tank",
+  "authors": [
+    "Ulan Cabanilla"
+  ],
+  "license": "CC0-1.0",
+  "license_url": "https://polyhaven.com/license",
+  "attribution_required": false,
+  "kind": "model",
+  "modifications": "Decimated to its 3,000-triangle budget; 15,042 -> 2,999 triangles, 1 material (tools/blender/process_props.py).",
+  "retrieved": "2026-10-25",
+  "files": {
+    "small_lpg_tank.gltf": "1b2fdb08f4a77b8467d574f4c371728b176977eb6a3622a59920d1f87a2ed3d9",
+    "small_lpg_tank.bin": "7b9aae1146ab8850ac869f91deaf46969ce346be42c5a30b4ae5cfc450bd2683"
+  },
+  "processed_from": "game/assets/thirdparty/polyhaven/models/small_lpg_tank/small_lpg_tank_1k.gltf"
+}

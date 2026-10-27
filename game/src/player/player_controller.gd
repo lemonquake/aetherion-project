@@ -5,12 +5,15 @@ extends Node
 const Viewmodel := preload("res://src/player/viewmodel.gd")
 const PauseMenu := preload("res://src/ui/pause_menu.gd")
 const Voice := preload("res://src/audio/voice.gd")
+const TouchControls := preload("res://src/ui/touch_controls.gd")
 
 var world = null
 var ch: Character = null
 var cam: Camera3D
 var vm = null
 var voice = null
+var touch = null              # on-screen controls (phones, tablets, or touch_controls on)
+var _touch_look := Vector2.ZERO
 
 var yaw := 0.0
 var pitch := 0.0
@@ -36,6 +39,14 @@ var _eye_smooth := 1.66
 var _last_light_toggle := -10.0
 var _mouse_delta := Vector2.ZERO
 var stats := {"corrections": 0, "replayed": 0, "acks": 0, "max_error": 0.0}
+## Taps seen as input events since the last command (bit per action); added to the next command so a press and
+## release inside one render frame still reaches the server.
+var _latched := 0
+const LATCH := {"interact": Motor.B_USE, "reload": Motor.B_RELOAD, "heal": Motor.B_HEAL, "fire_mode": Motor.B_FIREMODE,
+	"drop_held": Motor.B_DROP, "jump": Motor.B_JUMP, "fire": Motor.B_FIRE, "flashlight": Motor.B_LIGHT,
+	"grab": Motor.B_GRAB, "ping": Motor.B_PING, "throw_grenade": Motor.B_THROW}
+var _snap_ack := -1           # newest server state waiting to be reconciled in the next physics step
+var _snap_own: Dictionary = {}
 
 
 func setup(w, c: Character) -> void:
@@ -46,8 +57,11 @@ func setup(w, c: Character) -> void:
 	cam.name = "Camera"
 	cam.near = 0.03
 	cam.far = 1600.0
-	cam.cull_mask = Defs.RENDER_WORLD | Defs.RENDER_VIEWMODEL | Defs.RENDER_CHARACTERS
+	cam.cull_mask = Defs.RENDER_WORLD | Defs.RENDER_VIEWMODEL | Defs.RENDER_CHARACTERS | Defs.RENDER_INTERIOR | Defs.RENDER_INTERIOR_PROPS
 	cam.fov = float(Settings.get_value("graphics", "fov"))
+	# Placed every frame from the character's interpolated transform: interpolating it again between physics
+	# ticks would make it lag and step at the tick rate.
+	cam.physics_interpolation_mode = Node.PHYSICS_INTERPOLATION_MODE_OFF
 	world.add_child(cam)
 	cam.current = true
 	SoundSys.listener_node = cam
@@ -59,9 +73,16 @@ func setup(w, c: Character) -> void:
 	voice.name = "Voice"
 	add_child(voice)
 	voice.setup(world)
+	if Settings.touch_active():
+		var layer := CanvasLayer.new()
+		layer.layer = 20
+		add_child(layer)
+		touch = TouchControls.new()
+		layer.add_child(touch)
+		touch.setup(self)
 	yaw = ch.yaw
 	pitch = 0.0
-	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
+	Input.mouse_mode = Settings.play_mouse_mode()
 	ch.motion_event.connect(_on_motion_event)
 	Settings.changed.connect(func(s, k): if s == "graphics" and k == "fov": cam.fov = float(Settings.get_value("graphics", "fov")))
 
@@ -80,7 +101,11 @@ func _unhandled_input(event: InputEvent) -> void:
 		return
 	if paused or results:
 		return
-	if event is InputEventMouseMotion and Input.mouse_mode == Input.MOUSE_MODE_CAPTURED:
+	for a in LATCH:
+		if event.is_action_pressed(a):
+			_latched |= int(LATCH[a])
+	# Mouse look; touches also arrive as emulated mouse events (device -1), which must not turn the view.
+	if event is InputEventMouseMotion and Input.mouse_mode == Input.MOUSE_MODE_CAPTURED and event.device != InputEvent.DEVICE_ID_EMULATION:
 		_mouse_delta += event.relative
 	if event.is_action_pressed("weapon_1"):
 		slot = 1
@@ -118,23 +143,31 @@ func _toggle_pause() -> void:
 	if paused:
 		_pause_ui = PauseMenu.new()
 		Game.ui.add_child(_pause_ui)
-		_pause_ui.closed.connect(func(): paused = false; _pause_ui = null; Input.mouse_mode = Input.MOUSE_MODE_CAPTURED)
+		_pause_ui.closed.connect(func(): paused = false; _pause_ui = null; Input.mouse_mode = Settings.play_mouse_mode())
 		Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 	else:
 		if _pause_ui:
 			_pause_ui.queue_free()
 			_pause_ui = null
-		Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
+		Input.mouse_mode = Settings.play_mouse_mode()
+
+
+func add_touch_look(rel: Vector2) -> void:
+	## A finger dragging the view (screen units of the 1920x1080 layout).
+	_touch_look += rel
 
 
 func _look(dt: float) -> void:
 	var sens := float(Settings.get_value("controls", "mouse_sensitivity")) * 0.01
+	var tsens := float(Settings.get_value("controls", "touch_sensitivity")) * 0.01
 	if ch and ch.wpn.ads > 0.5:
-		sens *= float(Settings.get_value("controls", "ads_sensitivity")) / maxf(ch.wpn.zoom() * 0.75, 1.0)
+		var ads := float(Settings.get_value("controls", "ads_sensitivity")) / maxf(ch.wpn.zoom() * 0.75, 1.0)
+		sens *= ads
+		tsens *= ads
 	var inv_y := -1.0 if bool(Settings.get_value("controls", "invert_y")) else 1.0
 	if not tab_held:
-		yaw -= _mouse_delta.x * sens
-		pitch -= _mouse_delta.y * sens * inv_y
+		yaw -= _mouse_delta.x * sens + _touch_look.x * tsens
+		pitch -= (_mouse_delta.y * sens + _touch_look.y * tsens) * inv_y
 		var dz := float(Settings.get_value("controls", "gamepad_deadzone"))
 		var stick := Vector2(Input.get_axis("look_left", "look_right"), Input.get_axis("look_up", "look_down"))
 		if stick.length() > dz:
@@ -143,6 +176,7 @@ func _look(dt: float) -> void:
 			yaw -= stick.x * gs * dt
 			pitch -= stick.y * gs * dt * inv_y
 	_mouse_delta = Vector2.ZERO
+	_touch_look = Vector2.ZERO
 	# Recoil climb arrives over ~70 ms so the view kicks rather than teleports.
 	if _climb_left > 0.0:
 		var take := minf(_climb_left, maxf(_climb_left * dt * 18.0, dt * 8.0))
@@ -185,6 +219,8 @@ func _build_cmd() -> Dictionary:
 				btn |= Motor.B_RELOAD
 			if Input.is_action_pressed("interact"):
 				btn |= Motor.B_USE
+			if Input.is_action_pressed("grab"):
+				btn |= Motor.B_GRAB
 			if Input.is_action_pressed("heal"):
 				btn |= Motor.B_HEAL
 			if Input.is_action_pressed("fire_mode"):
@@ -195,8 +231,13 @@ func _build_cmd() -> Dictionary:
 			btn |= Motor.B_LIGHT
 		if tab_held:
 			btn |= Motor.B_TAB
+			# With the SmarTab up only the light, jump and ping taps carry through (weapon actions are blocked).
+			btn |= _latched & (Motor.B_LIGHT | Motor.B_JUMP | Motor.B_PING)
+		else:
+			btn |= _latched
 	else:
 		tab_held = false
+	_latched = 0
 	return {"seq": seq, "mx": mv.x, "my": mv.y, "yaw": yaw, "pitch": pitch, "btn": btn, "slot": slot,
 		"view_tick": int(Net.interp_tick()), "tick": Net.tick}
 
@@ -206,6 +247,10 @@ func _build_cmd() -> Dictionary:
 func _physics_process(dt: float) -> void:
 	if ch == null or not is_instance_valid(ch):
 		return
+	if _snap_ack >= 0 and not world.is_server:
+		var a := _snap_ack
+		_snap_ack = -1
+		_reconcile_now(a, _snap_own)
 	_look(dt)
 	seq += 1
 	var cmd := _build_cmd()
@@ -217,7 +262,7 @@ func _physics_process(dt: float) -> void:
 	# Predict
 	ch.events.clear()
 	ch.wpn.blocked = (cmd.btn & Motor.B_TAB) != 0 or ch.mode != Motor.GROUND or ch.water_depth() > 1.15 \
-		or ch.held_prop_id >= 0 or ch.light.swapping() or (ch.flags & Character.F_BUSY) != 0
+		or ch.held_prop_id >= 0 or ch.light.swapping() or (ch.flags & Character.F_BUSY) != 0 or ch.vault_t >= 0.0
 	if cmd.btn & Motor.B_TAB:
 		ch.flags |= Character.F_TAB
 		ch.wpn.cancel_reload()
@@ -271,6 +316,14 @@ func host_shot(s: Dictionary) -> void:
 
 
 func reconcile(ack: int, own: Dictionary) -> void:
+	## Called when a snapshot arrives (render frame). Kept until the next physics step: replaying commands calls
+	## move_and_slide(), which only uses the physics delta inside a physics frame.
+	if ack >= _snap_ack:
+		_snap_ack = ack
+		_snap_own = own
+
+
+func _reconcile_now(ack: int, own: Dictionary) -> void:
 	stats.acks += 1
 	ch.injury_speed = float(own.injury_speed)
 	ch.carry_speed = float(own.carry_speed)
@@ -290,6 +343,11 @@ func reconcile(ack: int, own: Dictionary) -> void:
 			pending.clear()
 		return
 	var predicted: Dictionary = pending[idx].state
+	if int(own.mode) == Motor.PLANE and int(predicted.mode) == Motor.PLANE:
+		# Aboard the aircraft the server places everyone on its path; there is nothing to predict.
+		pending = pending.slice(idx + 1)
+		_hard_set(own)
+		return
 	var err := (predicted.pos as Vector3).distance_to(own.pos)
 	stats.max_error = maxf(stats.max_error, err)
 	var mode_diff := int(predicted.mode) != int(own.mode)
@@ -300,6 +358,10 @@ func reconcile(ack: int, own: Dictionary) -> void:
 	if err < 0.04 and not mode_diff and not w_diff:
 		return
 	stats.corrections += 1
+	if err > 0.25 and Game.arg("netdebug") != null:
+		print("[netdebug] correction %.2f m at ack %d (pending %d): predicted %s vel %s mode %d / server %s vel %s mode %d" % [err, ack,
+			pending.size(), str((predicted.pos as Vector3).snapped(Vector3.ONE * 0.01)), str((predicted.vel as Vector3).snapped(Vector3.ONE * 0.01)),
+			int(predicted.mode), str((own.pos as Vector3).snapped(Vector3.ONE * 0.01)), str((own.vel as Vector3).snapped(Vector3.ONE * 0.01)), int(own.mode)])
 	var before := ch.global_position
 	_hard_set(own)
 	ch.replaying = true
@@ -321,7 +383,9 @@ func reconcile(ack: int, own: Dictionary) -> void:
 
 func _hard_set(own: Dictionary) -> void:
 	ch.set_state({"pos": own.pos, "vel": own.vel, "mode": int(own.mode), "crouch": float(own.crouch), "crouching": bool(own.crouching),
-		"jcd": float(own.jcd), "ff": float(own.ff), "ct": float(own.ct), "cy": float(own.cy), "fl": float(own.fl), "pb": int(own.pb)})
+		"jcd": float(own.jcd), "ff": float(own.ff), "ct": float(own.ct), "cy": float(own.cy), "fl": float(own.fl), "pb": int(own.pb),
+		"vt": float(own.get("vt", -1.0)), "vd": float(own.get("vd", 0.5)), "va": own.get("va", Vector3.ZERO), "vm": own.get("vm", Vector3.ZERO),
+		"vb": own.get("vb", Vector3.ZERO), "vh": float(own.get("vh", 1.78))})
 	ch.wpn.set_state(own.wpn)
 
 
@@ -357,7 +421,7 @@ func _pick_spectate() -> void:
 
 func set_results_mode(on: bool) -> void:
 	results = on
-	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE if on else Input.MOUSE_MODE_CAPTURED
+	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE if on else Settings.play_mouse_mode()
 
 
 func on_hit(part: String, dir: Vector3, damage: float, absorbed: String) -> void:
@@ -370,6 +434,9 @@ func _on_motion_event(kind: String, value: float) -> void:
 	match kind:
 		"land":
 			_land_jolt = clampf(value / 9.0, 0.0, 1.0)
+		"ladder":
+			if not world.is_server:
+				SoundSys.play_at("ladder_step", ch.global_position + Vector3.UP * 0.9)
 		"jump":
 			pass
 
@@ -417,6 +484,8 @@ func _process(dt: float) -> void:
 	if ch.mode == Motor.PLANE:
 		_plane_camera(dt)
 		return
+	if vm and not vm.visible:
+		vm.visible = true
 	cam.global_transform = Transform3D(Basis.from_euler(Vector3(p_view + shake.y * motion_k, y_view + shake.x * motion_k, _cam_roll)), pos)
 	var zoom: float = lerpf(1.0, ch.wpn.zoom(), ch.wpn.ads) if ch.wpn else 1.0
 	cam.fov = float(Settings.get_value("graphics", "fov")) / zoom
@@ -425,8 +494,7 @@ func _process(dt: float) -> void:
 
 
 func _plane_camera(dt: float) -> void:
-	var plane: Node3D = world.match_server_plane_node() if world.has_method("match_server_plane_node") else null
-	var target := ch.global_position
+	var target: Vector3 = world.plane_pos(Net.interp_tick() if not world.is_server else float(Net.tick))
 	var b := Basis.from_euler(Vector3(pitch, yaw, 0))
 	cam.global_transform = Transform3D(b, target - b.z * -1.0 * 0.0 + b * Vector3(0, 6, 22))
 	cam.fov = float(Settings.get_value("graphics", "fov"))
@@ -454,3 +522,5 @@ func _spectate_camera(dt: float) -> void:
 	cam.global_transform = Transform3D(b, desired)
 	if world.hud:
 		world.hud.set_spectating(t)
+
+

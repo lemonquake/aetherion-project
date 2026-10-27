@@ -28,7 +28,7 @@ func spawn(shooter, shot: Dictionary, view_tick: int, tick: int) -> int:
 	var mass := float(ammo.get("mass", 0.008))
 	var e0 := Ballistics.energy(mass, v0)
 	var pellets := int(shot.get("pellets", 1))
-	var spread := float(ammo.get("spread_deg", 0.0))
+	var spread := float(ammo.get("spread_deg", 0.0)) * float(shot.get("pellet_mult", 1.0))
 	var rng := RandomNumberGenerator.new()
 	rng.seed = int(shot.seed)
 	var id := _next_id

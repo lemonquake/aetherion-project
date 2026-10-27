@@ -1,0 +1,1127 @@
+{
+ "size": 2048,
+ "cells": [
+  {
+   "name": "rust_0",
+   "kind": "streak",
+   "rect": [
+    0,
+    0,
+    146,
+    293
+   ],
+   "aspect": 0.498
+  },
+  {
+   "name": "rust_1",
+   "kind": "streak",
+   "rect": [
+    150,
+    0,
+    146,
+    293
+   ],
+   "aspect": 0.498
+  },
+  {
+   "name": "water_0",
+   "kind": "streak",
+   "rect": [
+    300,
+    0,
+    146,
+    293
+   ],
+   "aspect": 0.498
+  },
+  {
+   "name": "water_1",
+   "kind": "streak",
+   "rect": [
+    450,
+    0,
+    146,
+    293
+   ],
+   "aspect": 0.498
+  },
+  {
+   "name": "soot",
+   "kind": "stain",
+   "rect": [
+    600,
+    0,
+    146,
+    293
+   ],
+   "aspect": 0.498
+  },
+  {
+   "name": "graffiti_0",
+   "kind": "graffiti",
+   "rect": [
+    750,
+    0,
+    293,
+    146
+   ],
+   "aspect": 2.007
+  },
+  {
+   "name": "graffiti_1",
+   "kind": "graffiti",
+   "rect": [
+    1047,
+    0,
+    293,
+    146
+   ],
+   "aspect": 2.007
+  },
+  {
+   "name": "graffiti_2",
+   "kind": "graffiti",
+   "rect": [
+    1344,
+    0,
+    293,
+    146
+   ],
+   "aspect": 2.007
+  },
+  {
+   "name": "graffiti_3",
+   "kind": "graffiti",
+   "rect": [
+    1641,
+    0,
+    293,
+    146
+   ],
+   "aspect": 2.007
+  },
+  {
+   "name": "sign_00",
+   "kind": "sign",
+   "rect": [
+    0,
+    297,
+    293,
+    146
+   ],
+   "aspect": 2.007
+  },
+  {
+   "name": "sign_01",
+   "kind": "sign",
+   "rect": [
+    297,
+    297,
+    293,
+    146
+   ],
+   "aspect": 2.007
+  },
+  {
+   "name": "sign_02",
+   "kind": "sign",
+   "rect": [
+    594,
+    297,
+    293,
+    146
+   ],
+   "aspect": 2.007
+  },
+  {
+   "name": "sign_03",
+   "kind": "sign",
+   "rect": [
+    891,
+    297,
+    293,
+    146
+   ],
+   "aspect": 2.007
+  },
+  {
+   "name": "sign_04",
+   "kind": "sign",
+   "rect": [
+    1188,
+    297,
+    293,
+    146
+   ],
+   "aspect": 2.007
+  },
+  {
+   "name": "sign_05",
+   "kind": "sign",
+   "rect": [
+    1485,
+    297,
+    293,
+    146
+   ],
+   "aspect": 2.007
+  },
+  {
+   "name": "sign_06",
+   "kind": "sign",
+   "rect": [
+    0,
+    447,
+    293,
+    146
+   ],
+   "aspect": 2.007
+  },
+  {
+   "name": "sign_07",
+   "kind": "sign",
+   "rect": [
+    297,
+    447,
+    293,
+    146
+   ],
+   "aspect": 2.007
+  },
+  {
+   "name": "throw_00",
+   "kind": "throw",
+   "rect": [
+    594,
+    447,
+    293,
+    146
+   ],
+   "aspect": 2.007
+  },
+  {
+   "name": "throw_01",
+   "kind": "throw",
+   "rect": [
+    891,
+    447,
+    293,
+    146
+   ],
+   "aspect": 2.007
+  },
+  {
+   "name": "throw_02",
+   "kind": "throw",
+   "rect": [
+    1188,
+    447,
+    293,
+    146
+   ],
+   "aspect": 2.007
+  },
+  {
+   "name": "throw_03",
+   "kind": "throw",
+   "rect": [
+    1485,
+    447,
+    293,
+    146
+   ],
+   "aspect": 2.007
+  },
+  {
+   "name": "throw_04",
+   "kind": "throw",
+   "rect": [
+    0,
+    597,
+    293,
+    146
+   ],
+   "aspect": 2.007
+  },
+  {
+   "name": "throw_05",
+   "kind": "throw",
+   "rect": [
+    297,
+    597,
+    293,
+    146
+   ],
+   "aspect": 2.007
+  },
+  {
+   "name": "spray_00",
+   "kind": "tag",
+   "rect": [
+    594,
+    597,
+    293,
+    146
+   ],
+   "aspect": 2.007
+  },
+  {
+   "name": "spray_01",
+   "kind": "tag",
+   "rect": [
+    891,
+    597,
+    293,
+    146
+   ],
+   "aspect": 2.007
+  },
+  {
+   "name": "spray_02",
+   "kind": "tag",
+   "rect": [
+    1188,
+    597,
+    293,
+    146
+   ],
+   "aspect": 2.007
+  },
+  {
+   "name": "spray_03",
+   "kind": "tag",
+   "rect": [
+    1485,
+    597,
+    293,
+    146
+   ],
+   "aspect": 2.007
+  },
+  {
+   "name": "spray_04",
+   "kind": "tag",
+   "rect": [
+    0,
+    747,
+    293,
+    146
+   ],
+   "aspect": 2.007
+  },
+  {
+   "name": "spray_05",
+   "kind": "tag",
+   "rect": [
+    297,
+    747,
+    293,
+    146
+   ],
+   "aspect": 2.007
+  },
+  {
+   "name": "spray_06",
+   "kind": "tag",
+   "rect": [
+    594,
+    747,
+    293,
+    146
+   ],
+   "aspect": 2.007
+  },
+  {
+   "name": "spray_07",
+   "kind": "tag",
+   "rect": [
+    891,
+    747,
+    293,
+    146
+   ],
+   "aspect": 2.007
+  },
+  {
+   "name": "spray_08",
+   "kind": "tag",
+   "rect": [
+    1188,
+    747,
+    293,
+    146
+   ],
+   "aspect": 2.007
+  },
+  {
+   "name": "spray_09",
+   "kind": "tag",
+   "rect": [
+    1485,
+    747,
+    293,
+    146
+   ],
+   "aspect": 2.007
+  },
+  {
+   "name": "spray_10",
+   "kind": "tag",
+   "rect": [
+    0,
+    897,
+    293,
+    146
+   ],
+   "aspect": 2.007
+  },
+  {
+   "name": "spray_11",
+   "kind": "tag",
+   "rect": [
+    297,
+    897,
+    293,
+    146
+   ],
+   "aspect": 2.007
+  },
+  {
+   "name": "stencil_00",
+   "kind": "stencil",
+   "rect": [
+    594,
+    897,
+    293,
+    146
+   ],
+   "aspect": 2.007
+  },
+  {
+   "name": "stencil_01",
+   "kind": "stencil",
+   "rect": [
+    891,
+    897,
+    293,
+    146
+   ],
+   "aspect": 2.007
+  },
+  {
+   "name": "stencil_02",
+   "kind": "stencil",
+   "rect": [
+    1188,
+    897,
+    293,
+    146
+   ],
+   "aspect": 2.007
+  },
+  {
+   "name": "stencil_03",
+   "kind": "stencil",
+   "rect": [
+    1485,
+    897,
+    293,
+    146
+   ],
+   "aspect": 2.007
+  },
+  {
+   "name": "stencil_04",
+   "kind": "stencil",
+   "rect": [
+    0,
+    1047,
+    293,
+    146
+   ],
+   "aspect": 2.007
+  },
+  {
+   "name": "stencil_05",
+   "kind": "stencil",
+   "rect": [
+    297,
+    1047,
+    293,
+    146
+   ],
+   "aspect": 2.007
+  },
+  {
+   "name": "stencil_06",
+   "kind": "stencil",
+   "rect": [
+    594,
+    1047,
+    293,
+    146
+   ],
+   "aspect": 2.007
+  },
+  {
+   "name": "stencil_07",
+   "kind": "stencil",
+   "rect": [
+    891,
+    1047,
+    293,
+    146
+   ],
+   "aspect": 2.007
+  },
+  {
+   "name": "eerie_00",
+   "kind": "eerie",
+   "rect": [
+    1188,
+    1047,
+    293,
+    146
+   ],
+   "aspect": 2.007
+  },
+  {
+   "name": "eerie_01",
+   "kind": "eerie",
+   "rect": [
+    1485,
+    1047,
+    293,
+    146
+   ],
+   "aspect": 2.007
+  },
+  {
+   "name": "eerie_02",
+   "kind": "eerie",
+   "rect": [
+    0,
+    1197,
+    293,
+    146
+   ],
+   "aspect": 2.007
+  },
+  {
+   "name": "eerie_03",
+   "kind": "eerie",
+   "rect": [
+    297,
+    1197,
+    293,
+    146
+   ],
+   "aspect": 2.007
+  },
+  {
+   "name": "eerie_04",
+   "kind": "eerie",
+   "rect": [
+    594,
+    1197,
+    293,
+    146
+   ],
+   "aspect": 2.007
+  },
+  {
+   "name": "eerie_05",
+   "kind": "eerie",
+   "rect": [
+    891,
+    1197,
+    293,
+    146
+   ],
+   "aspect": 2.007
+  },
+  {
+   "name": "jesus_lord",
+   "kind": "poster",
+   "rect": [
+    1188,
+    1197,
+    293,
+    146
+   ],
+   "aspect": 2.007
+  },
+  {
+   "name": "load_dito",
+   "kind": "poster",
+   "rect": [
+    1485,
+    1197,
+    293,
+    146
+   ],
+   "aspect": 2.007
+  },
+  {
+   "name": "tag_00",
+   "kind": "tag",
+   "rect": [
+    1782,
+    1197,
+    146,
+    146
+   ],
+   "aspect": 1.0
+  },
+  {
+   "name": "tag_01",
+   "kind": "tag",
+   "rect": [
+    0,
+    1347,
+    146,
+    146
+   ],
+   "aspect": 1.0
+  },
+  {
+   "name": "tag_02",
+   "kind": "tag",
+   "rect": [
+    150,
+    1347,
+    146,
+    146
+   ],
+   "aspect": 1.0
+  },
+  {
+   "name": "tag_03",
+   "kind": "tag",
+   "rect": [
+    300,
+    1347,
+    146,
+    146
+   ],
+   "aspect": 1.0
+  },
+  {
+   "name": "tag_04",
+   "kind": "tag",
+   "rect": [
+    450,
+    1347,
+    146,
+    146
+   ],
+   "aspect": 1.0
+  },
+  {
+   "name": "tag_05",
+   "kind": "tag",
+   "rect": [
+    600,
+    1347,
+    146,
+    146
+   ],
+   "aspect": 1.0
+  },
+  {
+   "name": "tag_06",
+   "kind": "tag",
+   "rect": [
+    750,
+    1347,
+    146,
+    146
+   ],
+   "aspect": 1.0
+  },
+  {
+   "name": "tag_07",
+   "kind": "tag",
+   "rect": [
+    900,
+    1347,
+    146,
+    146
+   ],
+   "aspect": 1.0
+  },
+  {
+   "name": "tag_08",
+   "kind": "tag",
+   "rect": [
+    1050,
+    1347,
+    146,
+    146
+   ],
+   "aspect": 1.0
+  },
+  {
+   "name": "tag_09",
+   "kind": "tag",
+   "rect": [
+    1200,
+    1347,
+    146,
+    146
+   ],
+   "aspect": 1.0
+  },
+  {
+   "name": "tag_10",
+   "kind": "tag",
+   "rect": [
+    1350,
+    1347,
+    146,
+    146
+   ],
+   "aspect": 1.0
+  },
+  {
+   "name": "tag_11",
+   "kind": "tag",
+   "rect": [
+    1500,
+    1347,
+    146,
+    146
+   ],
+   "aspect": 1.0
+  },
+  {
+   "name": "tag_12",
+   "kind": "tag",
+   "rect": [
+    1650,
+    1347,
+    146,
+    146
+   ],
+   "aspect": 1.0
+  },
+  {
+   "name": "tag_13",
+   "kind": "tag",
+   "rect": [
+    1800,
+    1347,
+    146,
+    146
+   ],
+   "aspect": 1.0
+  },
+  {
+   "name": "tag_14",
+   "kind": "tag",
+   "rect": [
+    0,
+    1497,
+    146,
+    146
+   ],
+   "aspect": 1.0
+  },
+  {
+   "name": "tag_15",
+   "kind": "tag",
+   "rect": [
+    150,
+    1497,
+    146,
+    146
+   ],
+   "aspect": 1.0
+  },
+  {
+   "name": "hands_red",
+   "kind": "eerie",
+   "rect": [
+    300,
+    1497,
+    146,
+    146
+   ],
+   "aspect": 1.0
+  },
+  {
+   "name": "hands_black",
+   "kind": "eerie",
+   "rect": [
+    450,
+    1497,
+    146,
+    146
+   ],
+   "aspect": 1.0
+  },
+  {
+   "name": "eye_red",
+   "kind": "eerie",
+   "rect": [
+    600,
+    1497,
+    146,
+    146
+   ],
+   "aspect": 1.0
+  },
+  {
+   "name": "eye_white",
+   "kind": "eerie",
+   "rect": [
+    750,
+    1497,
+    146,
+    146
+   ],
+   "aspect": 1.0
+  },
+  {
+   "name": "x_red",
+   "kind": "eerie",
+   "rect": [
+    900,
+    1497,
+    146,
+    146
+   ],
+   "aspect": 1.0
+  },
+  {
+   "name": "x_white",
+   "kind": "eerie",
+   "rect": [
+    1050,
+    1497,
+    146,
+    146
+   ],
+   "aspect": 1.0
+  },
+  {
+   "name": "poster_00",
+   "kind": "poster",
+   "rect": [
+    1200,
+    1497,
+    146,
+    146
+   ],
+   "aspect": 1.0
+  },
+  {
+   "name": "poster_01",
+   "kind": "poster",
+   "rect": [
+    1350,
+    1497,
+    146,
+    146
+   ],
+   "aspect": 1.0
+  },
+  {
+   "name": "poster_02",
+   "kind": "poster",
+   "rect": [
+    1500,
+    1497,
+    146,
+    146
+   ],
+   "aspect": 1.0
+  },
+  {
+   "name": "poster_03",
+   "kind": "poster",
+   "rect": [
+    1650,
+    1497,
+    146,
+    146
+   ],
+   "aspect": 1.0
+  },
+  {
+   "name": "poster_04",
+   "kind": "poster",
+   "rect": [
+    1800,
+    1497,
+    146,
+    146
+   ],
+   "aspect": 1.0
+  },
+  {
+   "name": "poster_05",
+   "kind": "poster",
+   "rect": [
+    0,
+    1647,
+    146,
+    146
+   ],
+   "aspect": 1.0
+  },
+  {
+   "name": "god_bless",
+   "kind": "poster",
+   "rect": [
+    150,
+    1647,
+    146,
+    146
+   ],
+   "aspect": 1.0
+  },
+  {
+   "name": "ice_water",
+   "kind": "poster",
+   "rect": [
+    300,
+    1647,
+    146,
+    146
+   ],
+   "aspect": 1.0
+  },
+  {
+   "name": "rust_2",
+   "kind": "streak",
+   "rect": [
+    450,
+    1647,
+    146,
+    146
+   ],
+   "aspect": 1.0
+  },
+  {
+   "name": "rust_3",
+   "kind": "streak",
+   "rect": [
+    600,
+    1647,
+    146,
+    146
+   ],
+   "aspect": 1.0
+  },
+  {
+   "name": "mould_0",
+   "kind": "stain",
+   "rect": [
+    750,
+    1647,
+    146,
+    146
+   ],
+   "aspect": 1.0
+  },
+  {
+   "name": "mould_1",
+   "kind": "stain",
+   "rect": [
+    900,
+    1647,
+    146,
+    146
+   ],
+   "aspect": 1.0
+  },
+  {
+   "name": "mould_2",
+   "kind": "stain",
+   "rect": [
+    1050,
+    1647,
+    146,
+    146
+   ],
+   "aspect": 1.0
+  },
+  {
+   "name": "oil_0",
+   "kind": "ground",
+   "rect": [
+    1200,
+    1647,
+    146,
+    146
+   ],
+   "aspect": 1.0
+  },
+  {
+   "name": "oil_1",
+   "kind": "ground",
+   "rect": [
+    1350,
+    1647,
+    146,
+    146
+   ],
+   "aspect": 1.0
+  },
+  {
+   "name": "oil_2",
+   "kind": "ground",
+   "rect": [
+    1500,
+    1647,
+    146,
+    146
+   ],
+   "aspect": 1.0
+  },
+  {
+   "name": "mud_0",
+   "kind": "ground",
+   "rect": [
+    1650,
+    1647,
+    146,
+    146
+   ],
+   "aspect": 1.0
+  },
+  {
+   "name": "mud_1",
+   "kind": "ground",
+   "rect": [
+    1800,
+    1647,
+    146,
+    146
+   ],
+   "aspect": 1.0
+  },
+  {
+   "name": "tally",
+   "kind": "eerie",
+   "rect": [
+    0,
+    1797,
+    293,
+    73
+   ],
+   "aspect": 4.014
+  },
+  {
+   "name": "damp_0",
+   "kind": "damp",
+   "rect": [
+    297,
+    1797,
+    293,
+    73
+   ],
+   "aspect": 4.014
+  },
+  {
+   "name": "damp_1",
+   "kind": "damp",
+   "rect": [
+    594,
+    1797,
+    293,
+    73
+   ],
+   "aspect": 4.014
+  },
+  {
+   "name": "census_00",
+   "kind": "census",
+   "rect": [
+    891,
+    1797,
+    146,
+    73
+   ],
+   "aspect": 2.0
+  },
+  {
+   "name": "census_01",
+   "kind": "census",
+   "rect": [
+    1041,
+    1797,
+    146,
+    73
+   ],
+   "aspect": 2.0
+  },
+  {
+   "name": "census_02",
+   "kind": "census",
+   "rect": [
+    1191,
+    1797,
+    146,
+    73
+   ],
+   "aspect": 2.0
+  },
+  {
+   "name": "census_03",
+   "kind": "census",
+   "rect": [
+    1341,
+    1797,
+    146,
+    73
+   ],
+   "aspect": 2.0
+  },
+  {
+   "name": "census_04",
+   "kind": "census",
+   "rect": [
+    1491,
+    1797,
+    146,
+    73
+   ],
+   "aspect": 2.0
+  },
+  {
+   "name": "census_05",
+   "kind": "census",
+   "rect": [
+    1641,
+    1797,
+    146,
+    73
+   ],
+   "aspect": 2.0
+  },
+  {
+   "name": "census_06",
+   "kind": "census",
+   "rect": [
+    1791,
+    1797,
+    146,
+    73
+   ],
+   "aspect": 2.0
+  },
+  {
+   "name": "census_07",
+   "kind": "census",
+   "rect": [
+    0,
+    1874,
+    146,
+    73
+   ],
+   "aspect": 2.0
+  }
+ ]
+}

@@ -1,0 +1,19 @@
+{
+  "source": "Poly Haven",
+  "title": "Medical Box",
+  "url": "https://polyhaven.com/a/medical_box",
+  "authors": [
+    "Ulan Cabanilla"
+  ],
+  "license": "CC0-1.0",
+  "license_url": "https://polyhaven.com/license",
+  "attribution_required": false,
+  "kind": "model",
+  "modifications": "Decimated to its 1,800-triangle budget; 3,718 -> 1,800 triangles, 1 material (tools/blender/process_props.py).",
+  "retrieved": "2026-10-25",
+  "files": {
+    "medical_box.gltf": "a64977decb5b4b00b2f3109ef9fb0cdde73f11ec9ff69b0eecb9d07c5458307d",
+    "medical_box.bin": "f9edea48143c3fd415bef44fbe7a070398a72a7193a4954232a92ee022c89df0"
+  },
+  "processed_from": "game/assets/thirdparty/polyhaven/models/medical_box/medical_box_1k.gltf"
+}

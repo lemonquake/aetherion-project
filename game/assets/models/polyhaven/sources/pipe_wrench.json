@@ -1,0 +1,19 @@
+{
+  "source": "Poly Haven",
+  "title": "Pipe Wrench",
+  "url": "https://polyhaven.com/a/pipe_wrench",
+  "authors": [
+    "Will Evarts"
+  ],
+  "license": "CC0-1.0",
+  "license_url": "https://polyhaven.com/license",
+  "attribution_required": false,
+  "kind": "model",
+  "modifications": "Decimated to its 1,800-triangle budget; textures 512 px; 10,746 -> 1,799 triangles, 1 material (tools/blender/process_props.py).",
+  "retrieved": "2026-10-25",
+  "files": {
+    "pipe_wrench.gltf": "4543664f880f57f7dd98cc82649a3730a735f5094d35e132d4207a7fd265c760",
+    "pipe_wrench.bin": "09e4626cad6d7626549a44cfbc570f51d38f35476b2d297004338ab8d1888ee0"
+  },
+  "processed_from": "game/assets/thirdparty/polyhaven/models/pipe_wrench/pipe_wrench_1k.gltf"
+}

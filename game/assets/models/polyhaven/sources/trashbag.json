@@ -1,0 +1,19 @@
+{
+  "source": "Poly Haven",
+  "title": "Trashbag",
+  "url": "https://polyhaven.com/a/trashbag",
+  "authors": [
+    "Benny Weimer"
+  ],
+  "license": "CC0-1.0",
+  "license_url": "https://polyhaven.com/license",
+  "attribution_required": false,
+  "kind": "model",
+  "modifications": "Decimated to its 1,800-triangle budget; 4,482 -> 1,800 triangles, 1 material (tools/blender/process_props.py).",
+  "retrieved": "2026-10-25",
+  "files": {
+    "trashbag.gltf": "d65cf7993ffe9e0abc93ec439a8ab9863fa255fda3d8c2d71bb96ce555abeb41",
+    "trashbag.bin": "dfb7449f1d99a1b013da4967c1bf5c1e73f47ac2a1bda2275b848b7389f3f5dd"
+  },
+  "processed_from": "game/assets/thirdparty/polyhaven/models/trashbag/trashbag_1k.gltf"
+}

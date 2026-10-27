@@ -9,9 +9,13 @@ signal connected_to_server
 signal connection_failed(reason: String)
 signal disconnected(reason: String)
 signal snapshot_received(bytes: PackedByteArray)
-signal voice_received(from_pid: int, bytes: PackedByteArray)
+## kind 0: your own team's radio (2D); 1: overheard from a teammate radio of the speaker (src_eid); 2: the speaker's
+## own voice nearby (src_eid).
+signal voice_received(from_pid: int, bytes: PackedByteArray, src_eid: int, kind: int)
 
-const VERSION := "aetherion-0.1"
+## Players must run the same build: the map is generated on every machine. Raise application/config/version in
+## project.godot whenever the map, rules or netcode change.
+var VERSION: String = "aetherion-" + str(ProjectSettings.get_setting("application/config/version", "0"))
 const DEFAULT_PORT := 27415
 const CH_RELIABLE := 0
 const CH_SNAPSHOT := 1
@@ -28,7 +32,9 @@ var local_pid := 0
 ## pid -> {name, team, ready, bot, connected, in_match}
 var players: Dictionary = {}
 ## Match configuration chosen in the lobby by the host.
-var config: Dictionary = {"mode": "squad", "bots": true, "bot_count": 7, "map_seed": 1729, "zone_speed": 1.0}
+# bot_count 20 by default (the owner's choice, 2026-10-27), on phones and PCs alike; the lobby takes up to 50 players
+# (rules.json max_players), which is what matches are built and measured for (40-50 players).
+var config: Dictionary = {"mode": "squad", "bots": true, "bot_count": 20, "map_seed": 1729, "zone_speed": 1.0}
 
 ## Server tick (authoritative on the server, estimated on clients).
 var tick: int = 0
@@ -53,7 +59,7 @@ func _ready() -> void:
 func host(port: int = DEFAULT_PORT, as_dedicated: bool = false) -> Error:
 	shutdown()
 	peer = ENetMultiplayerPeer.new()
-	var err := peer.create_server(port, int(Defs.rule("max_players", 24)) + 2, 4)
+	var err := peer.create_server(port, int(Defs.rule("max_players", 40)) + 2, 4)
 	if err != OK:
 		return err
 	multiplayer.multiplayer_peer = peer
@@ -65,6 +71,7 @@ func host(port: int = DEFAULT_PORT, as_dedicated: bool = false) -> Error:
 	players.clear()
 	if not dedicated:
 		players[1] = _new_player(Settings.player_name(), false)
+		players[1].platform = platform()
 	_broadcast_lobby()
 	return OK
 
@@ -126,7 +133,12 @@ func human_peers() -> Array:
 # ------------------------------------------------------------------ events
 
 func _on_peer_connected(id: int) -> void:
-	pass  # wait for _hello
+	# Building the map blocks the main thread (and with it ENet's keep-alives) for 30-45 s; ENet's default timeout
+	# would drop the connection in the middle of loading. Allow up to three minutes of silence.
+	if peer and peer.host:
+		for p in peer.host.get_peers():
+			p.set_timeout(64, 90000, 180000)
+	# then wait for _hello
 
 
 func _on_peer_disconnected(id: int) -> void:
@@ -143,7 +155,7 @@ func _on_peer_disconnected(id: int) -> void:
 
 func _on_connected() -> void:
 	local_pid = multiplayer.get_unique_id()
-	_hello.rpc_id(1, Settings.player_name(), VERSION)
+	_hello.rpc_id(1, Settings.player_name(), VERSION, platform())
 
 
 func _fail(reason: String) -> void:
@@ -156,8 +168,15 @@ func _drop(reason: String) -> void:
 	disconnected.emit(reason)
 
 
+static func platform() -> String:
+	## Shown in the lobby: phones and PCs play in the same matches.
+	if OS.has_feature("mobile") or Settings.is_mobile():
+		return "Mobile"
+	return "PC"
+
+
 @rpc("any_peer", "reliable")
-func _hello(pname: String, version: String) -> void:
+func _hello(pname: String, version: String, plat: String = "PC") -> void:
 	if not is_server:
 		return
 	var id := multiplayer.get_remote_sender_id()
@@ -179,7 +198,7 @@ func _hello(pname: String, version: String) -> void:
 			_broadcast_lobby()
 			Game.on_peer_reconnected(id, pid)
 			return
-	if players.size() >= int(Defs.rule("max_players", 24)):
+	if players.size() >= int(Defs.rule("max_players", 40)):
 		_kick.rpc_id(id, "The game is full.")
 		peer.disconnect_peer(id)
 		return
@@ -190,6 +209,7 @@ func _hello(pname: String, version: String) -> void:
 		pname = "%s %d" % [base, n]
 		n += 1
 	players[id] = _new_player(pname, false)
+	players[id].platform = plat
 	_welcome.rpc_id(id, id)
 	_broadcast_lobby()
 	Game.on_peer_joined(id)
@@ -377,13 +397,13 @@ func _voice_up(bytes: PackedByteArray) -> void:
 		Game.relay_voice(multiplayer.get_remote_sender_id(), bytes)
 
 
-func deliver_voice(to_pid: int, from_pid: int, bytes: PackedByteArray) -> void:
+func deliver_voice(to_pid: int, from_pid: int, bytes: PackedByteArray, src_eid: int = -1, kind: int = 0) -> void:
 	if to_pid == local_pid:
-		voice_received.emit(from_pid, bytes)
+		voice_received.emit(from_pid, bytes, src_eid, kind)
 	else:
-		_voice_down.rpc_id(to_pid, from_pid, bytes)
+		_voice_down.rpc_id(to_pid, from_pid, bytes, src_eid, kind)
 
 
 @rpc("authority", "unreliable_ordered", "call_remote", CH_VOICE)
-func _voice_down(from_pid: int, bytes: PackedByteArray) -> void:
-	voice_received.emit(from_pid, bytes)
+func _voice_down(from_pid: int, bytes: PackedByteArray, src_eid: int, kind: int) -> void:
+	voice_received.emit(from_pid, bytes, src_eid, kind)

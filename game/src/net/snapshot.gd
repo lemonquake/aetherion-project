@@ -60,6 +60,13 @@ static func encode(tick: int, ack: int, me, others: Array, props: Array, weapon_
 		b.put_float(float(s.cy))
 		b.put_half(float(s.fl))
 		b.put_u32(int(s.pb))
+		b.put_half(float(s.vt))
+		if float(s.vt) >= 0.0:
+			b.put_half(float(s.vd))
+			_v3(b, s.va)
+			_v3(b, s.vm)
+			_v3(b, s.vb)
+			b.put_half(float(s.vh))
 		b.put_u32(me.compute_flags())
 		b.put_half(me.injury_speed)
 		b.put_half(me.carry_speed)
@@ -98,6 +105,7 @@ static func encode(tick: int, ack: int, me, others: Array, props: Array, weapon_
 		b.put_u32(ch.compute_flags())
 		var wi := weapon_ids.find(ch.weapon_id)
 		b.put_u8(255 if wi < 0 else wi)
+		b.put_u32(ch.weapon_att)
 		b.put_half(wrapf(ch.chute_yaw, -PI, PI))
 	b.put_u16(props.size())
 	for p in props:
@@ -132,6 +140,13 @@ static func decode(bytes: PackedByteArray, weapon_ids: Array) -> Dictionary:
 		s.cy = b.get_float()
 		s.fl = b.get_half()
 		s.pb = b.get_u32()
+		s.vt = b.get_half()
+		if s.vt >= 0.0:
+			s.vd = b.get_half()
+			s.va = _gv3(b)
+			s.vm = _gv3(b)
+			s.vb = _gv3(b)
+			s.vh = b.get_half()
 		s.flags = b.get_u32()
 		s.injury_speed = b.get_half()
 		s.carry_speed = b.get_half()
@@ -172,6 +187,7 @@ static func decode(bytes: PackedByteArray, weapon_ids: Array) -> Dictionary:
 		o.flags = b.get_u32()
 		var wi := b.get_u8()
 		o.weapon = "" if wi == 255 or wi >= weapon_ids.size() else weapon_ids[wi]
+		o.att = b.get_u32()
 		o.cy = b.get_half()
 		out.others.append(o)
 	var np := b.get_u16()

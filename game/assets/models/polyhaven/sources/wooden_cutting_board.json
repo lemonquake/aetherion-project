@@ -1,0 +1,19 @@
+{
+  "source": "Poly Haven",
+  "title": "Wooden Cutting Board",
+  "url": "https://polyhaven.com/a/wooden_cutting_board",
+  "authors": [
+    "Kuutti Siitonen"
+  ],
+  "license": "CC0-1.0",
+  "license_url": "https://polyhaven.com/license",
+  "attribution_required": false,
+  "kind": "model",
+  "modifications": "Decimated to its 1,800-triangle budget; textures 512 px; 3,520 -> 1,800 triangles, 1 material (tools/blender/process_props.py).",
+  "retrieved": "2026-10-25",
+  "files": {
+    "wooden_cutting_board.gltf": "aa269775fa38a56359dac08b85aa7b2480c8819585d3e0d91fd48511513c3673",
+    "wooden_cutting_board.bin": "0955e17c56b5ae552286b71fd128abf3ca5fc81d8f683a2006416e8da6c6a58e"
+  },
+  "processed_from": "game/assets/thirdparty/polyhaven/models/wooden_cutting_board/wooden_cutting_board_1k.gltf"
+}

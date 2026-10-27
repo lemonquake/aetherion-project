@@ -1,0 +1,19 @@
+{
+  "source": "Poly Haven",
+  "title": "Portable Welding Cart",
+  "url": "https://polyhaven.com/a/portable_welding_cart",
+  "authors": [
+    "Georgii Gorbunov"
+  ],
+  "license": "CC0-1.0",
+  "license_url": "https://polyhaven.com/license",
+  "attribution_required": false,
+  "kind": "model",
+  "modifications": "Decimated to its 4,000-triangle budget; blend / transmission dropped, opaque (portable_welding_cart_glass); 29,418 -> 4,000 triangles, 1 material (tools/blender/process_props.py).",
+  "retrieved": "2026-10-25",
+  "files": {
+    "portable_welding_cart.gltf": "99b7a24443b7511137631f25b6c8be8a6e4d1480a2669c75bd2d36f9a6585397",
+    "portable_welding_cart.bin": "debe9ecd1a5edcc7d81f48a6f0c32da3ee9b89ead79e28578d0cb2a628b9366d"
+  },
+  "processed_from": "game/assets/thirdparty/polyhaven/models/portable_welding_cart/portable_welding_cart_1k.gltf"
+}

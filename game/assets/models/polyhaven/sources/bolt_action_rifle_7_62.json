@@ -1,0 +1,19 @@
+{
+  "source": "Poly Haven",
+  "title": "Bolt Action Rifle 7.62",
+  "url": "https://polyhaven.com/a/bolt_action_rifle_7_62",
+  "authors": [
+    "Mateusz Sadek"
+  ],
+  "license": "CC0-1.0",
+  "license_url": "https://polyhaven.com/license",
+  "attribution_required": false,
+  "kind": "model",
+  "modifications": "Decimated to its 4,000-triangle budget; 3 materials packed into one 2048x1024 atlas; blend / transmission dropped, opaque (bolt_action_rifle_7_62_accesories_glass); 19,985 -> 4,000 triangles, 1 material (tools/blender/process_props.py).",
+  "retrieved": "2026-10-25",
+  "files": {
+    "bolt_action_rifle_7_62.gltf": "cfbde0a2c4bca71dcc59f6f440ab406458e5748b21b6faa44c071f7d89d23817",
+    "bolt_action_rifle_7_62.bin": "178d9cef33e3ad9c8fac7a129edff890bf7593dfcb091901e116243acf81b5e1"
+  },
+  "processed_from": "game/assets/thirdparty/polyhaven/models/bolt_action_rifle_7_62/bolt_action_rifle_7_62_2k.gltf"
+}

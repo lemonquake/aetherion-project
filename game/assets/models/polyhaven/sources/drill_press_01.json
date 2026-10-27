@@ -1,0 +1,19 @@
+{
+  "source": "Poly Haven",
+  "title": "Drill Press 01",
+  "url": "https://polyhaven.com/a/drill_press_01",
+  "authors": [
+    "Viktor"
+  ],
+  "license": "CC0-1.0",
+  "license_url": "https://polyhaven.com/license",
+  "attribution_required": false,
+  "kind": "model",
+  "modifications": "Decimated to its 3,000-triangle budget; 58,526 -> 3,000 triangles, 1 material (tools/blender/process_props.py).",
+  "retrieved": "2026-10-25",
+  "files": {
+    "drill_press_01.gltf": "b37037a35464e2bf1007aa68d6a5f1f4a30e5a0ab311428ba08e43d4ff0e32c4",
+    "drill_press_01.bin": "69bfa85471a84fec0e56be09f26f3f84c6b2782b5e81c490496d8d0df5657f32"
+  },
+  "processed_from": "game/assets/thirdparty/polyhaven/models/drill_press_01/drill_press_01_1k.gltf"
+}

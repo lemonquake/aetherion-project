@@ -1,0 +1,19 @@
+{
+  "source": "Poly Haven",
+  "title": "Ammo Box",
+  "url": "https://polyhaven.com/a/ammo_box",
+  "authors": [
+    "DanKit"
+  ],
+  "license": "CC0-1.0",
+  "license_url": "https://polyhaven.com/license",
+  "attribution_required": false,
+  "kind": "model",
+  "modifications": "Decimated to its 1,000-triangle budget; textures 512 px; 4,382 -> 999 triangles, 1 material (tools/blender/process_props.py).",
+  "retrieved": "2026-10-25",
+  "files": {
+    "ammo_box.gltf": "ad2faae8e6e06c13a588350c5f70761196a8a0f23d25bd6e20c6bf67f3acf6c5",
+    "ammo_box.bin": "ff9de134baebdfe1fe4b479469fbb92153ccfdb4e6f4a35ba1a6638a6d9d9bfc"
+  },
+  "processed_from": "game/assets/thirdparty/polyhaven/models/ammo_box/ammo_box_1k.gltf"
+}

@@ -1,0 +1,19 @@
+{
+  "source": "Poly Haven",
+  "title": "Old Bed Frame",
+  "url": "https://polyhaven.com/a/old_bed_frame",
+  "authors": [
+    "Luca B"
+  ],
+  "license": "CC0-1.0",
+  "license_url": "https://polyhaven.com/license",
+  "attribution_required": false,
+  "kind": "model",
+  "modifications": "Decimated to its 4,000-triangle budget; 49,990 -> 4,000 triangles, 1 material (tools/blender/process_props.py).",
+  "retrieved": "2026-10-25",
+  "files": {
+    "old_bed_frame.gltf": "e605ab0787d5965201a1221508288c9c18fd4de387dbeb9f73e668b7bb8bc6b5",
+    "old_bed_frame.bin": "9994979218c1ec68615c58c4de91cb7da810ca198f87892f35cf342b86b9f73a"
+  },
+  "processed_from": "game/assets/thirdparty/polyhaven/models/old_bed_frame/old_bed_frame_1k.gltf"
+}

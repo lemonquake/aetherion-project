@@ -1,0 +1,47 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+Vulkan 1.4.329 - Forward+ - Using Device #0: NVIDIA - NVIDIA GeForce RTX 4060
+
+[lagusan] { "segments": 97, "metres": 1510.29132175446, "lights": 210, "dead": 19, "gaps": 94, "shrines": 20, "walks": 19 }
+[looban] { "loobans": 25, "crate_stacks": 88, "low_walls": 291, "sandbags": 18, "kiosks": 25, "barricades": 9, "yard_walls": 99, &"vacant": 80 }
+[dress] { "poles": 1000, "wires": 5503, "laundry": 437, "clutter": 1246, "props": 2925, "tags": 0, "puddles": 163, "plants": 1235, "vehicles": 66, "floating": 5, "loot": 469, "boxes": 67 }
+[vandal] { "wall": 1247, "covered": 355, "stains": 3298, "ground": 844, "spots": 9 }
+[world] map built in 19760 ms
+[map] 2118 buildings, 4494 doors, 9548 containers, 15415 props, #1375a694 on PC
+[game] autotest r3
+[autotest] PASS map_tunnels: 97 roofed lanes and walks, 1510 m, 210 lamps (19 dead), 94 gaps in the roofs, 20 shrines
+[autotest] PASS map_three_storey: 328 of 2040 houses are three storeys (16%)
+[autotest] PASS map_roof_decks: 178 flat roof decks, 85 ladders
+[autotest] PASS map_vault_cover: 25 loobans, 88 crate stacks, 291 low walls, 18 sandbag rows, 9 barricades; 2646 glassless windows sized to vault through
+[autotest] PASS map_decals: 1247 wall decals (355 under lane roofs), 3298 stains, 844 on the ground
+[autotest] PASS day_cycle_schedule: night 0-300 s, day 300-600 s, repeating
+[autotest] shot ../work/lemondev/r3/r3_final/01_plane.png
+[autotest] PASS jump: left the plane
+[autotest] shot ../work/lemondev/r3/r3_final/02_freefall.png
+[autotest] PASS view_tier_freefall: tier 2 at 264 m above ground, interiors hidden, AO false, local shadows 0
+[autotest] PASS team_cluster: 3 teammates, farthest 33.1 m at canopy
+[autotest] shot ../work/lemondev/r3/r3_final/03_canopy_team.png
+[autotest] PASS landed: mode 3, health 86 at (83.0, 1.0, -218.0)
+[autotest] PASS view_tier_ground: tier 0 at 2 m above ground, interiors drawn, AO true, local shadows 8
+[autotest] shot ../work/lemondev/r3/r3_final/04_landed.png
+[autotest] shot ../work/lemondev/r3/r3_final/05_compass_120.png
+[autotest] PASS compass_bearing: compass under the minimap at (20.0, 258.0), 230 px wide; bearings 0/90/120/225/330 read back
+[autotest] PASS radio_eavesdrop: radio: kind 1 from teammate, voice: kind 2 from speaker, far: kind -1 from -; overheard frame plays at the teammate's radio on the Radio bus: true; teammates get every frame on their own radio
+[autotest] PASS radio_clicks: key-down click, squelch tail and a band-limited radio bus are loaded
+[autotest] shot ../work/lemondev/r3/r3_final/06_courtyard_night.png
+[autotest] shot ../work/lemondev/r3/r3_final/07_courtyard_noon.png
+[autotest] PASS artificial_sun_lights_map: courtyard view luma 32.3 at night, 99.0 at noon
+[autotest] PASS sun_ignites: luma 31.5 at 0.5 s after ignition, 98.5 at 12 s
+[autotest] shot ../work/lemondev/r3/r3_final/08_tunnel_noon.png
+[autotest] shot ../work/lemondev/r3/r3_final/09_tunnel_noon_flashlight.png
+[autotest] PASS tunnel_dark_at_noon: open courtyard at noon 99.0; inside roofed lanes at noon (flashlight off -> on): 12.6 -> 26.7, 26.9 -> 34.8, 6.8 -> 22.7
+[autotest] shot ../work/lemondev/r3/r3_final/10_ladder_on_roof.png
+[autotest] PASS ladder_climb: 4.8 m ladder: up yes (y 5.65 / 5.62), down yes; 5.1 m ladder: up yes (y 5.99 / 5.96), down yes; 2.6 m ladder: up yes (y 3.51 / 3.48), down yes
+[autotest] shot ../work/lemondev/r3/r3_final/11_crate_vault.png
+[autotest] PASS crate_vault: 0.86 m crate: rose -0.01 m, moved 0.12 m (path over blocked); 0.92 m crate: rose -0.03 m, moved 2.03 m; 1.38 m crate: rose -0.03 m, moved 2.03 m; 1.38 m crate: rose 0.02 m, moved 2.03 m
+[autotest] done: 19 checks, 0 failed
+ERROR: 1 RID allocations of type 'N10RendererRD5SkyRD3SkyE' were leaked at exit.
+ERROR: 1 RID allocations of type 'N26RendererEnvironmentStorage11EnvironmentE' were leaked at exit.
+ERROR: 214 RID allocations of type 'N10RendererRD11MeshStorage4MeshE' were leaked at exit.
+ERROR: 1728 RID allocations of type 'N10RendererRD15MaterialStorage8MaterialE' were leaked at exit.
+ERROR: 35 RID allocations of type 'N10RendererRD15MaterialStorage6ShaderE' were leaked at exit.
+ERROR: 739 RID allocations of type 'N10RendererRD14TextureStorage7TextureE' were leaked at exit.

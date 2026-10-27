@@ -1,0 +1,19 @@
+{
+  "source": "Poly Haven",
+  "title": "Utility Box 01",
+  "url": "https://polyhaven.com/a/utility_box_01",
+  "authors": [
+    "James Ray Cock"
+  ],
+  "license": "CC0-1.0",
+  "license_url": "https://polyhaven.com/license",
+  "attribution_required": false,
+  "kind": "model",
+  "modifications": "Decimated to its 3,000-triangle budget; 4,404 -> 2,999 triangles, 1 material (tools/blender/process_props.py).",
+  "retrieved": "2026-10-25",
+  "files": {
+    "utility_box_01.gltf": "f222cd82f115bb29dee901af7ca43d3890ce1cc65427b2ecbe163a9e0c9e30ea",
+    "utility_box_01.bin": "7ea5ede3637461041c412f59980eff0e87d4a368360e81e7d2b9df871f79711d"
+  },
+  "processed_from": "game/assets/thirdparty/polyhaven/models/utility_box_01/utility_box_01_1k.gltf"
+}

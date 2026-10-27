@@ -1,0 +1,19 @@
+{
+  "source": "Poly Haven",
+  "title": "Wicker Basket 01",
+  "url": "https://polyhaven.com/a/wicker_basket_01",
+  "authors": [
+    "Kuutti Siitonen"
+  ],
+  "license": "CC0-1.0",
+  "license_url": "https://polyhaven.com/license",
+  "attribution_required": false,
+  "kind": "model",
+  "modifications": "Decimated to its 1,800-triangle budget; textures 512 px; 22,276 -> 1,800 triangles, 1 material (tools/blender/process_props.py).",
+  "retrieved": "2026-10-25",
+  "files": {
+    "wicker_basket_01.gltf": "c8b1144673f590f091aafa596250709863fddeae768b8cb076479e2def4028f6",
+    "wicker_basket_01.bin": "95889f6dab77d4d6d9ba5a46cf3a3760fc71487d3bfca7b92781bfbbdb8a6dfc"
+  },
+  "processed_from": "game/assets/thirdparty/polyhaven/models/wicker_basket_01/wicker_basket_01_1k.gltf"
+}

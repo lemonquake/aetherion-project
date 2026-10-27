@@ -1,0 +1,19 @@
+{
+  "source": "Poly Haven",
+  "title": "Painted Wooden Shelves",
+  "url": "https://polyhaven.com/a/painted_wooden_shelves",
+  "authors": [
+    "Kirill Sannikov"
+  ],
+  "license": "CC0-1.0",
+  "license_url": "https://polyhaven.com/license",
+  "attribution_required": false,
+  "kind": "model",
+  "modifications": "Re-exported unchanged (within budget, one material); 524 -> 524 triangles, 1 material (tools/blender/process_props.py).",
+  "retrieved": "2026-10-25",
+  "files": {
+    "painted_wooden_shelves.gltf": "1950ae0c80b6dea836a88de4af26860d45f9ac672c52776509645925de24a12d",
+    "painted_wooden_shelves.bin": "483c95ac128f4658fadca0b9d91a246a72b3dc8e3800a02965281e343638e990"
+  },
+  "processed_from": "game/assets/thirdparty/polyhaven/models/painted_wooden_shelves/painted_wooden_shelves_1k.gltf"
+}

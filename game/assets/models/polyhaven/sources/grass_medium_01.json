@@ -1,0 +1,20 @@
+{
+  "source": "Poly Haven",
+  "title": "Grass Medium 01",
+  "url": "https://polyhaven.com/a/grass_medium_01",
+  "authors": [
+    "Rob Tuytel",
+    "Rico Cilliers"
+  ],
+  "license": "CC0-1.0",
+  "license_url": "https://polyhaven.com/license",
+  "attribution_required": false,
+  "kind": "model",
+  "modifications": "Kept one variant (grass_medium_01_large_a_LOD0) of the set, removed 16 other objects, re-centred on it; thinned to 39% of its blades / leaves, survivors enlarged 1.60x; textures 512 px; blend / transmission dropped, opaque (grass_medium_01); 6,422 -> 2,778 triangles, 1 material (tools/blender/process_props.py).",
+  "retrieved": "2026-10-25",
+  "files": {
+    "grass_medium_01.gltf": "9f6321738f4b4ab71156d26590fc187ed20f4d4338c617443b52945e9718f249",
+    "grass_medium_01.bin": "27d9e20392ff1e9743d213a47fda90536ce9bbf86b412158c8e90b591db4b596"
+  },
+  "processed_from": "game/assets/thirdparty/polyhaven/models/grass_medium_01/grass_medium_01_1k.gltf"
+}

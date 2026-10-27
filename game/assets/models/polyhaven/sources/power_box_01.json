@@ -1,0 +1,20 @@
+{
+  "source": "Poly Haven",
+  "title": "Power Box 01",
+  "url": "https://polyhaven.com/a/power_box_01",
+  "authors": [
+    "Rico Cilliers",
+    "Yann Kervran"
+  ],
+  "license": "CC0-1.0",
+  "license_url": "https://polyhaven.com/license",
+  "attribution_required": false,
+  "kind": "model",
+  "modifications": "Decimated to its 1,800-triangle budget; 21,272 -> 1,800 triangles, 1 material (tools/blender/process_props.py).",
+  "retrieved": "2026-10-25",
+  "files": {
+    "power_box_01.gltf": "60c33bed61580c85deb3c14f3a8d5d8c97cbb04ea7e807d5412eaa11752f2316",
+    "power_box_01.bin": "647609cf14470008ca76255a0dcc39ea7c5bef3a46953ae758c74e43b18bd57c"
+  },
+  "processed_from": "game/assets/thirdparty/polyhaven/models/power_box_01/power_box_01_1k.gltf"
+}

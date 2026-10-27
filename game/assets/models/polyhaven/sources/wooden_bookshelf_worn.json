@@ -1,0 +1,19 @@
+{
+  "source": "Poly Haven",
+  "title": "Wooden Bookshelf Worn",
+  "url": "https://polyhaven.com/a/wooden_bookshelf_worn",
+  "authors": [
+    "Ulan Cabanilla"
+  ],
+  "license": "CC0-1.0",
+  "license_url": "https://polyhaven.com/license",
+  "attribution_required": false,
+  "kind": "model",
+  "modifications": "Decimated to its 4,000-triangle budget; 10,106 -> 4,000 triangles, 1 material (tools/blender/process_props.py).",
+  "retrieved": "2026-10-25",
+  "files": {
+    "wooden_bookshelf_worn.gltf": "09b9269f3831d0fbb66f08d45fffb041b01dcca0cf648c69019ee842d47a2ad8",
+    "wooden_bookshelf_worn.bin": "80d590708194c8b33967df1bf689ee7c39fbf54923fada4ee39167a4603beb17"
+  },
+  "processed_from": "game/assets/thirdparty/polyhaven/models/wooden_bookshelf_worn/wooden_bookshelf_worn_1k.gltf"
+}

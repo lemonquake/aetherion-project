@@ -20,10 +20,17 @@ func setup(d, prop: Dictionary, s: Dictionary, shape: Dictionary, model: Diction
 	p = prop
 	spec = s
 	server = is_server
+	if not server:
+		# Clients place it every frame from snapshots (interpolate()); engine interpolation on top would step.
+		physics_interpolation_mode = Node.PHYSICS_INTERPOLATION_MODE_OFF
 	hp = float(prop.get("health", s.get("hp", 100)))
 	mass = maxf(float(s.get("mass", 5.0)), 0.2)
 	collision_layer = Defs.PHYS_PROP | Defs.PHYS_INTERACT
 	collision_mask = Defs.PHYS_WORLD | Defs.PHYS_PROP | Defs.PHYS_GLASS | Defs.PHYS_CHAR
+	if s.get("no_block", false):
+		# Trash: tumbles on the ground and can be carried, but people and bullets pass through it.
+		collision_layer = Defs.PHYS_DEBRIS | Defs.PHYS_INTERACT
+		collision_mask = Defs.PHYS_WORLD | Defs.PHYS_GLASS
 	set_meta("prop_id", int(prop.id))
 	set_meta("mat", str(s.get("mat", "wood")))
 	var pm := PhysicsMaterial.new()

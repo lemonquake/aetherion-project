@@ -1,0 +1,27 @@
+{
+  "source": "The Free Firearm Sound Library (Prepared SFX Library), via OpenGameArt",
+  "title": "Single shots cut from the library recordings; distant variants derived from them",
+  "url": "https://opengameart.org/content/the-free-firearm-sound-library",
+  "authors": [
+    "Ben Jaszczak",
+    "Brian Nelson",
+    "Kevin Heras",
+    "Matthew Nanney"
+  ],
+  "license": "CC0-1.0",
+  "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+  "attribution_required": false,
+  "kind": "audio",
+  "modifications": "Single shots cut, mixed to mono, resampled to 48 kHz, normalised; *_far files low-passed with a slap-back echo and synthetic tail (tools/build_audio.py); *_sup files: suppressed variants (high-passed, short envelope, synthetic gas puff and action click)",
+  "mapping": {
+    "pistol_9": "Walther PPQ",
+    "pistol_45": "1911",
+    "revolver_357": "Smith & Wesson 642",
+    "shotgun": "Mossberg",
+    "smg_9": "Carl Gustav M45",
+    "rifle_556": "AR-15",
+    "rifle_762": "AK-47",
+    "rifle_308": "Tikka"
+  },
+  "retrieved": "2026-10-26"
+}

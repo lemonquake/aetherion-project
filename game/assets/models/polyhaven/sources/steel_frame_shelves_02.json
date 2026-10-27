@@ -1,0 +1,19 @@
+{
+  "source": "Poly Haven",
+  "title": "Steel Frame Shelves 02",
+  "url": "https://polyhaven.com/a/steel_frame_shelves_02",
+  "authors": [
+    "James Ray Cock"
+  ],
+  "license": "CC0-1.0",
+  "license_url": "https://polyhaven.com/license",
+  "attribution_required": false,
+  "kind": "model",
+  "modifications": "Decimated to its 4,000-triangle budget; 4,348 -> 4,000 triangles, 1 material (tools/blender/process_props.py).",
+  "retrieved": "2026-10-25",
+  "files": {
+    "steel_frame_shelves_02.gltf": "e94cbb8b97e3561d844b8ea18890b4dbc29c0f4835e77e97b78f75cd1516f1de",
+    "steel_frame_shelves_02.bin": "087cf004b9808f28a6cf5c91f75b5671f2659a172237a567ce5e558785881e10"
+  },
+  "processed_from": "game/assets/thirdparty/polyhaven/models/steel_frame_shelves_02/steel_frame_shelves_02_1k.gltf"
+}

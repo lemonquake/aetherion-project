@@ -1,0 +1,19 @@
+{
+  "source": "Poly Haven",
+  "title": "Plastic Bottle Gallon",
+  "url": "https://polyhaven.com/a/plastic_bottle_gallon",
+  "authors": [
+    "Rahul Chaudhary"
+  ],
+  "license": "CC0-1.0",
+  "license_url": "https://polyhaven.com/license",
+  "attribution_required": false,
+  "kind": "model",
+  "modifications": "Decimated to its 1,000-triangle budget; textures 512 px; 13,728 -> 998 triangles, 1 material (tools/blender/process_props.py).",
+  "retrieved": "2026-10-25",
+  "files": {
+    "plastic_bottle_gallon.gltf": "4b9ee1301530af035d2297f6e617e4c4a82b01833a4af1e02fe9a167f18db2ec",
+    "plastic_bottle_gallon.bin": "ffc40cb2d3efd5e780776d3988ac0dd2c6e0ab5d18b2fa6c5fa543e2a803bc7a"
+  },
+  "processed_from": "game/assets/thirdparty/polyhaven/models/plastic_bottle_gallon/plastic_bottle_gallon_1k.gltf"
+}

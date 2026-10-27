@@ -1,0 +1,19 @@
+{
+  "source": "Poly Haven",
+  "title": "Vintage Wooden Drawer 01",
+  "url": "https://polyhaven.com/a/vintage_wooden_drawer_01",
+  "authors": [
+    "James Ray Cock"
+  ],
+  "license": "CC0-1.0",
+  "license_url": "https://polyhaven.com/license",
+  "attribution_required": false,
+  "kind": "model",
+  "modifications": "Decimated to its 4,000-triangle budget; 5,184 -> 4,000 triangles, 1 material (tools/blender/process_props.py).",
+  "retrieved": "2026-10-25",
+  "files": {
+    "vintage_wooden_drawer_01.gltf": "4951b470a7185b1c405509326ad8d5c11a3deea3d7a17352adff20461421d6e2",
+    "vintage_wooden_drawer_01.bin": "fa205f3f7fa6fa449c150031486bc0cf1ffedf2192bfa5ca82cb562a9af47a13"
+  },
+  "processed_from": "game/assets/thirdparty/polyhaven/models/vintage_wooden_drawer_01/vintage_wooden_drawer_01_1k.gltf"
+}

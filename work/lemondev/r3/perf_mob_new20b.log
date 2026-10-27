@@ -1,0 +1,85 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+Vulkan 1.4.329 - Forward Mobile - Using Device #0: NVIDIA - NVIDIA GeForce RTX 4060
+
+[lagusan] { "segments": 97, "metres": 1510.29132175446, "lights": 210, "dead": 19, "gaps": 94, "shrines": 20, "walks": 19 }
+[looban] { "loobans": 25, "crate_stacks": 88, "low_walls": 146, "sandbags": 18, "kiosks": 25, "barricades": 9, "yard_walls": 99 }
+[dress] { "poles": 1000, "wires": 5503, "laundry": 437, "clutter": 1246, "props": 2925, "tags": 0, "puddles": 163, "plants": 1242, "vehicles": 66, "floating": 5, "loot": 469, "boxes": 67 }
+[vandal] { "wall": 1247, "covered": 355, "stains": 3298, "ground": 844, "spots": 9 }
+[world] map built in 16792 ms
+[map] 2118 buildings, 4494 doors, 9548 containers, 15415 props, #1375a694 on Mobile
+[game] autotest perf
+[perf] NVIDIA GeForce RTX 4060, window (1600, 900), shadows 0, ssao false, volumetric fog false, render scale 0.70
+[perf]   view tier -1 -> 2 at 325 m above ground (plane)
+[perf] plane           3034 fr  avg   1.99 ms (  504 fps)  p50   1.67  p95   3.17  p99   4.67  max   6.30  >16.7ms    0 | render cpu  0.46 gpu  0.41 | process  3.50 physics  2.35 | draws    123 objs    332 prims    51946 | agl 319
+[perf]   0.12 physics steps/frame; engine physics step avg 0.37 ms max 0.51 ms; active bodies 0, pairs 0, islands 0
+[perf]   ms/frame: 
+[perf]   worst single call (ms): 
+[perf] freefall        1141 fr  avg   4.45 ms (  225 fps)  p50   4.19  p95   5.97  p99   6.74  max  15.28  >16.7ms    0 | render cpu  1.33 gpu  1.32 | process  5.57 physics  2.44 | draws    640 objs    876 prims   819492 | agl 109
+[perf]   0.27 physics steps/frame; engine physics step avg 0.43 ms max 1.00 ms; active bodies 0, pairs 0, islands 0
+[perf]   ms/frame: 
+[perf]   worst single call (ms): 
+[perf]   view tier 2 -> 1 at 63 m above ground (canopy_high)
+[perf] canopy_high      602 fr  avg   5.03 ms (  199 fps)  p50   4.63  p95   7.03  p99  10.59  max  13.93  >16.7ms    0 | render cpu  1.52 gpu  1.43 | process 10.04 physics  3.63 | draws    672 objs    912 prims   612168 | agl 45
+[perf]   0.30 physics steps/frame; engine physics step avg 0.47 ms max 1.08 ms; active bodies 0, pairs 0, islands 0
+[perf]   ms/frame: 
+[perf]   worst single call (ms): 
+[perf]   view tier 1 -> 0 at 18 m above ground (canopy_low)
+[perf] canopy_low      1027 fr  avg   5.78 ms (  173 fps)  p50   5.73  p95   8.03  p99   8.99  max  12.36  >16.7ms    0 | render cpu  1.82 gpu  1.84 | process  7.82 physics  3.23 | draws    784 objs   1028 prims   730690 | agl 0
+[perf]   0.35 physics steps/frame; engine physics step avg 0.47 ms max 0.87 ms; active bodies 0, pairs 0, islands 0
+[perf]   ms/frame: 
+[perf]   worst single call (ms): 
+[perf]   bot path searches (worker thread): 6, avg 0.05 ms, max 0.08 ms
+[perf] landed_pan       879 fr  avg   6.82 ms (  147 fps)  p50   6.44  p95   9.21  p99  10.41  max  13.64  >16.7ms    0 | render cpu  2.25 gpu  2.11 | process  8.03 physics  4.35 | draws    822 objs    988 prims   819881 | agl 0
+[perf]   0.41 physics steps/frame; engine physics step avg 0.48 ms max 0.69 ms; active bodies 0, pairs 0, islands 0
+[perf]   ms/frame: 
+[perf]   worst single call (ms): 
+[perf]   bot path searches (worker thread): 17, avg 3.93 ms, max 16.63 ms
+[perf] market           975 fr  avg   6.15 ms (  163 fps)  p50   5.61  p95   8.49  p99   9.49  max  11.04  >16.7ms    0 | render cpu  1.98 gpu  1.87 | process  7.24 physics  4.25 | draws    641 objs    807 prims   559234 | agl 0
+[perf]   0.37 physics steps/frame; engine physics step avg 0.47 ms max 0.68 ms; active bodies 0, pairs 0, islands 0
+[perf]   ms/frame: 
+[perf]   worst single call (ms): 
+[perf]   bot path searches (worker thread): 38, avg 5.24 ms, max 18.07 ms
+[perf] looban           795 fr  avg   7.55 ms (  132 fps)  p50   7.31  p95  10.62  p99  12.90  max  15.93  >16.7ms    0 | render cpu  2.56 gpu  2.42 | process 10.05 physics  5.22 | draws    680 objs    846 prims   730794 | agl 0
+[perf]   0.45 physics steps/frame; engine physics step avg 0.50 ms max 0.81 ms; active bodies 0, pairs 0, islands 0
+[perf]   ms/frame: 
+[perf]   worst single call (ms): 
+[perf]   bot path searches (worker thread): 23, avg 4.85 ms, max 16.28 ms
+[perf]   hitch 159.7 ms in looban_east, tier 0, 2 m above ground
+[perf] looban_east      816 fr  avg   7.41 ms (  135 fps)  p50   6.99  p95   9.91  p99  11.60  max 159.70  >16.7ms    1 | render cpu  2.66 gpu  2.38 | process 26.96 physics  5.24 | draws    926 objs   1092 prims  1051692 | agl 0
+[perf]   0.44 physics steps/frame; engine physics step avg 0.49 ms max 0.72 ms; active bodies 0, pairs 0, islands 0
+[perf]   ms/frame: 
+[perf]   worst single call (ms): 
+[perf]   bot path searches (worker thread): 23, avg 2.33 ms, max 18.07 ms
+[perf] rail            1023 fr  avg   5.86 ms (  171 fps)  p50   5.79  p95   9.36  p99  11.70  max  16.69  >16.7ms    0 | render cpu  1.92 gpu  1.70 | process  8.33 physics  4.65 | draws    526 objs    692 prims   534676 | agl -0
+[perf]   0.35 physics steps/frame; engine physics step avg 0.47 ms max 0.83 ms; active bodies 0, pairs 0, islands 0
+[perf]   ms/frame: 
+[perf]   worst single call (ms): 
+[perf]   bot path searches (worker thread): 16, avg 3.15 ms, max 16.78 ms
+[perf] indoor_light     912 fr  avg   6.57 ms (  152 fps)  p50   6.48  p95  10.45  p99  11.86  max  15.11  >16.7ms    0 | render cpu  2.27 gpu  2.04 | process  8.45 physics  4.38 | draws    575 objs    741 prims   599836 | agl 1
+[perf]   0.39 physics steps/frame; engine physics step avg 0.49 ms max 0.71 ms; active bodies 0, pairs 0, islands 0
+[perf]   ms/frame: 
+[perf]   worst single call (ms): 
+[perf]   bot path searches (worker thread): 14, avg 1.25 ms, max 16.52 ms
+[perf] tunnel           787 fr  avg   7.62 ms (  131 fps)  p50   7.36  p95   9.65  p99  11.13  max  13.15  >16.7ms    0 | render cpu  2.80 gpu  2.47 | process  7.98 physics  4.49 | draws    803 objs    970 prims   848332 | agl 0
+[perf]   0.46 physics steps/frame; engine physics step avg 0.50 ms max 0.68 ms; active bodies 0, pairs 0, islands 0
+[perf]   ms/frame: 
+[perf]   worst single call (ms): 
+[perf]   bot path searches (worker thread): 19, avg 2.66 ms, max 17.72 ms
+[perf] looban_east_day   697 fr  avg   8.61 ms (  116 fps)  p50   8.82  p95  11.85  p99  14.01  max  16.51  >16.7ms    0 | render cpu  3.06 gpu  2.80 | process  9.78 physics  5.39 | draws    933 objs   1099 prims  1048990 | agl 0
+[perf]   0.52 physics steps/frame; engine physics step avg 0.52 ms max 0.93 ms; active bodies 0, pairs 0, islands 0
+[perf]   ms/frame: 
+[perf]   worst single call (ms): 
+[perf]   bot path searches (worker thread): 19, avg 4.56 ms, max 18.38 ms
+[perf] market_day       835 fr  avg   7.18 ms (  139 fps)  p50   6.69  p95   9.46  p99  10.87  max  14.08  >16.7ms    0 | render cpu  2.34 gpu  2.20 | process  8.16 physics  4.93 | draws    651 objs    817 prims   567934 | agl 0
+[perf]   0.43 physics steps/frame; engine physics step avg 0.50 ms max 0.72 ms; active bodies 0, pairs 0, islands 0
+[perf]   ms/frame: 
+[perf]   worst single call (ms): 
+[perf]   bot path searches (worker thread): 21, avg 5.28 ms, max 20.02 ms
+[autotest] PASS perf_recorded: 13 phases, worst average 8.61 ms
+[autotest] done: 1 checks, 0 failed
+ERROR: 1 RID allocations of type 'N10RendererRD5SkyRD3SkyE' were leaked at exit.
+ERROR: 1 RID allocations of type 'N26RendererEnvironmentStorage11EnvironmentE' were leaked at exit.
+ERROR: 209 RID allocations of type 'N10RendererRD11MeshStorage4MeshE' were leaked at exit.
+ERROR: 1696 RID allocations of type 'N10RendererRD15MaterialStorage8MaterialE' were leaked at exit.
+ERROR: 34 RID allocations of type 'N10RendererRD15MaterialStorage6ShaderE' were leaked at exit.
+ERROR: 716 RID allocations of type 'N10RendererRD14TextureStorage7TextureE' were leaked at exit.

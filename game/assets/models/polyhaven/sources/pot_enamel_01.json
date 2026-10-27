@@ -1,0 +1,19 @@
+{
+  "source": "Poly Haven",
+  "title": "Pot Enamel 01",
+  "url": "https://polyhaven.com/a/pot_enamel_01",
+  "authors": [
+    "Kuutti Siitonen"
+  ],
+  "license": "CC0-1.0",
+  "license_url": "https://polyhaven.com/license",
+  "attribution_required": false,
+  "kind": "model",
+  "modifications": "Decimated to its 1,000-triangle budget; textures 512 px; 11,416 -> 1,000 triangles, 1 material (tools/blender/process_props.py).",
+  "retrieved": "2026-10-25",
+  "files": {
+    "pot_enamel_01.gltf": "737b1250fd21f6b810474ce6cc13de47655b2d62482951d451f75eab96d51872",
+    "pot_enamel_01.bin": "891278b2f0b88b61c2b9129002f66a93a84398752dcc63952a53180b717decd1"
+  },
+  "processed_from": "game/assets/thirdparty/polyhaven/models/pot_enamel_01/pot_enamel_01_1k.gltf"
+}
