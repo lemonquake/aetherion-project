@@ -1,0 +1,21 @@
+{
+  "source": "Sketchfab (downloaded from the Objaverse mirror, allenai/objaverse on Hugging Face)",
+  "title": "M24 Sniper Game Ready",
+  "url": "https://sketchfab.com/3d-models/da99b3c489d3445da576b0b94c62b310",
+  "mirror_url": "https://huggingface.co/datasets/allenai/objaverse/resolve/main/glbs/000-133/da99b3c489d3445da576b0b94c62b310.glb",
+  "authors": [
+    "Conner Safieddine"
+  ],
+  "author_url": "https://sketchfab.com/BaalSig",
+  "license": "CC-BY-4.0",
+  "license_url": "http://creativecommons.org/licenses/by/4.0/",
+  "attribution_required": true,
+  "kind": "model",
+  "purpose": "M24 bolt-action rifle",
+  "modifications": "Re-oriented (front along -Z in Godot), scaled to 1.090 m overall, centred, decimated 13813 -> 11998 triangles, textures reduced to 1024 px JPEG; moving parts kept as separate meshes: bolt, mag (tools/blender/process_items.py).",
+  "retrieved": "2026-10-28",
+  "files": {
+    "bolt_308.glb": ""
+  },
+  "processed_from": "tools/cache/sketchfab/bolt_m24/bolt_m24.glb"
+}

@@ -1,0 +1,26 @@
+{
+  "source": "Sketchfab (downloaded from the Objaverse mirror, allenai/objaverse on Hugging Face)",
+  "title": "Postapocalypse Gas Pump",
+  "url": "https://sketchfab.com/3d-models/b983f3959db641ef8b2870489de95b04",
+  "mirror_url": "https://huggingface.co/datasets/allenai/objaverse/resolve/main/glbs/000-119/b983f3959db641ef8b2870489de95b04.glb",
+  "authors": [
+    "mosak"
+  ],
+  "author_url": "https://sketchfab.com/mosak",
+  "license": "CC-BY-4.0",
+  "license_url": "http://creativecommons.org/licenses/by/4.0/",
+  "attribution_required": true,
+  "kind": "model",
+  "purpose": "gas station pump",
+  "modifications": "Removed 1 source objects (Object_6); scaled x0.9977 to real size; front turned to +Z (Godot), origin at the floor centre; 1024 px textures; 1,360 -> 1,360 triangles, 1 material, 1.12 x 1.98 x 1.21 m (w x h x l) (tools/blender/process_r7.py).",
+  "retrieved": "2026-10-28",
+  "files": {
+    "gas_pump_old.gltf": "dc4e2bfc244f85067659e392c67e23000f26ccc6ed28a79d08d4a9aa5ff40a8c",
+    "gas_pump_old.bin": "8408ffd278e5f1345ffdefa1c1728e4c2b1336623c03f918e630de947bade5d0",
+    "textures/gas_pump_old_diff.jpg": "d0a97e9e028498102c8ac2ebbffa6a7d700562d4d4681388ea0a7f13abb7a74f",
+    "textures/gas_pump_old_arm.jpg": "b7a5b6504a2171e870111c0fd1f87893864c3b910593765584d3abb6a36e0d11",
+    "textures/gas_pump_old_nor_gl.jpg": "bf8886c74e7dd70bfc23fbedba5175f7c387383312b9d2de52960de41135b177"
+  },
+  "processed_from": "tools/cache/sketchfab/gas_pump/gas_pump.glb",
+  "prop": "gas_pump_old"
+}

@@ -1,0 +1,26 @@
+{
+  "source": "Sketchfab (downloaded from the Objaverse mirror, allenai/objaverse on Hugging Face)",
+  "title": "Abandoned children's slide",
+  "url": "https://sketchfab.com/3d-models/11de2b21ec264c0a814ac024c45ab425",
+  "mirror_url": "https://huggingface.co/datasets/allenai/objaverse/resolve/main/glbs/000-075/11de2b21ec264c0a814ac024c45ab425.glb",
+  "authors": [
+    "sergeilihandristov"
+  ],
+  "author_url": "https://sketchfab.com/sergeilihandristov",
+  "license": "CC-BY-4.0",
+  "license_url": "http://creativecommons.org/licenses/by/4.0/",
+  "attribution_required": true,
+  "kind": "model",
+  "purpose": "playground slide",
+  "modifications": "Scaled x1.003 to real size; front turned to +Z (Godot), origin at the floor centre; 1024 px textures; 1,390 -> 1,390 triangles, 1 material, 0.63 x 2.10 x 3.22 m (w x h x l) (tools/blender/process_r7.py).",
+  "retrieved": "2026-10-28",
+  "files": {
+    "playground_slide.gltf": "e12666d1883aca45ead82b202ad05b3cb9240b6f62165852360bd4b51b7f9d7c",
+    "playground_slide.bin": "6d22a088220e2276c8ae19781835ffc8ddbd9a42455b106c9092ac6e6909b9da",
+    "textures/playground_slide_diff.jpg": "f26de63fc049a55cf91b366d4d50435e3367fc48a52a165aa28f28e6b02ca48e",
+    "textures/playground_slide_arm.jpg": "de60cf37e019208f852a35daa6e0d8b03ae6db4393ff68a79654f84ec6144bd6",
+    "textures/playground_slide_nor_gl.jpg": "000aa14b10dca3bee427a775d088a34216bafa76def1712038dc82a0a3d4418b"
+  },
+  "processed_from": "tools/cache/sketchfab/slide_abandoned/slide_abandoned.glb",
+  "prop": "playground_slide"
+}

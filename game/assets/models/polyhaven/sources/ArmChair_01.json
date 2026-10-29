@@ -1,0 +1,19 @@
+{
+  "source": "Poly Haven",
+  "title": "Arm Chair 01",
+  "url": "https://polyhaven.com/a/ArmChair_01",
+  "authors": [
+    "Kirill Sannikov"
+  ],
+  "license": "CC0-1.0",
+  "license_url": "https://polyhaven.com/license",
+  "attribution_required": false,
+  "kind": "model",
+  "modifications": "Decimated to its 3,000-triangle budget; 5,626 -> 3,000 triangles, 1 material (tools/blender/process_props.py).",
+  "retrieved": "2026-10-28",
+  "files": {
+    "ArmChair_01.gltf": "62c818b4ca07044d65528dd4a89e14c58152d9eebb15aea90d209f35994cd877",
+    "ArmChair_01.bin": "178ab637e7ff9d90e5347dc475434a8ac63dd224fdbf2be5f7873291c32948e7"
+  },
+  "processed_from": "game/assets/thirdparty/polyhaven/models/ArmChair_01/ArmChair_01_1k.gltf"
+}

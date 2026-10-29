@@ -1,0 +1,26 @@
+{
+  "source": "Sketchfab (downloaded from the Objaverse mirror, allenai/objaverse on Hugging Face)",
+  "title": "Air Conditioner Outdoor Unit",
+  "url": "https://sketchfab.com/3d-models/940781484cb64c6db6c615473bee996a",
+  "mirror_url": "https://huggingface.co/datasets/allenai/objaverse/resolve/main/glbs/000-034/940781484cb64c6db6c615473bee996a.glb",
+  "authors": [
+    "Pert Doherty"
+  ],
+  "author_url": "https://sketchfab.com/pertdoherty",
+  "license": "CC-BY-4.0",
+  "license_url": "http://creativecommons.org/licenses/by/4.0/",
+  "attribution_required": true,
+  "kind": "model",
+  "purpose": "house air-conditioner outdoor unit",
+  "modifications": "Scaled x0.9961 to real size; front turned to +Z (Godot), origin at the floor centre; 1024 px textures; 548 -> 548 triangles, 1 material, 0.64 x 0.85 x 0.37 m (w x h x l) (tools/blender/process_r7.py).",
+  "retrieved": "2026-10-28",
+  "files": {
+    "aircon_condenser.gltf": "00f624055f74b983b43cbec375e2d7e2fc0cbe770578f2f0ec81aaa955ddb3dc",
+    "aircon_condenser.bin": "b6bdfaf2880e3420f6b27aca0adae3ed063c84e6a7b5d040111bd7bc30b9aa8d",
+    "textures/aircon_condenser_diff.jpg": "3ff2a883935ceaa55b985758722122f53cfe6196a343d0bb2528d4d0a884788e",
+    "textures/aircon_condenser_arm.jpg": "a7dbaf25ded8e0a30777d6deed9d847dd6d16205e1c850e64df32511f9ddfaca",
+    "textures/aircon_condenser_nor_gl.jpg": "674383bfccadc79babb40f16756e164cdeab5df9119d52614e8ef4be2d50ab5e"
+  },
+  "processed_from": "tools/cache/sketchfab/aircon_condenser/aircon_condenser.glb",
+  "prop": "aircon_condenser"
+}

@@ -1,0 +1,26 @@
+{
+  "source": "Sketchfab (downloaded from the Objaverse mirror, allenai/objaverse on Hugging Face)",
+  "title": "Jeepney",
+  "url": "https://sketchfab.com/3d-models/0b8bcde5df19458da9fa5606989b1e7d",
+  "mirror_url": "https://huggingface.co/datasets/allenai/objaverse/resolve/main/glbs/000-024/0b8bcde5df19458da9fa5606989b1e7d.glb",
+  "authors": [
+    "Maclin Macalindong"
+  ],
+  "author_url": "https://sketchfab.com/maclinmacalindong",
+  "license": "CC-BY-4.0",
+  "license_url": "http://creativecommons.org/licenses/by/4.0/",
+  "attribution_required": true,
+  "kind": "model",
+  "purpose": "Philippine jeepney (stalled on the avenue)",
+  "modifications": "Scaled x0.271 to real size; front turned to +Z (Godot), origin at the floor centre; reduced to its 15,000-triangle budget (74,170 -> 34,710 by merging and dissolving flat faces within UV islands, 15,000 after collapsing); 17 materials packed into one 2048x1536 atlas (90 tiling UV corners clamped); 74,170 -> 15,000 triangles, 1 material, 2.36 x 2.38 x 6.60 m (w x h x l) (tools/blender/process_r7.py).",
+  "retrieved": "2026-10-28",
+  "files": {
+    "jeepney_painted.gltf": "c85668f3a05c6dc05ad2304226ed937699df9e1241bac97296a1f56129014250",
+    "jeepney_painted.bin": "c3438b43b7695abf4bfa42678791d57dc4f832c9fbf61c2b309de8a48c69379d",
+    "textures/jeepney_painted_atlas_diff.jpg": "208d68635984bcd981ad4cf8a7488b226e98d57525d82248f0da99e164d602e3",
+    "textures/jeepney_painted_atlas_arm.jpg": "3445711bacdf60fbd0684e821625ad6536f55fddfd3c3c27ac1e24fa8e72ab23",
+    "textures/jeepney_painted_atlas_nor_gl.jpg": "baec12e91d12e96168ce734145292156e0c44593eedab654f06571a84f9f9a51"
+  },
+  "processed_from": "tools/cache/sketchfab/jeepney/jeepney.glb",
+  "prop": "jeepney_painted"
+}

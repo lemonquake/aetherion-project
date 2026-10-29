@@ -1,0 +1,19 @@
+{
+  "source": "Poly Haven",
+  "title": "Sofa 01",
+  "url": "https://polyhaven.com/a/Sofa_01",
+  "authors": [
+    "Kirill Sannikov"
+  ],
+  "license": "CC0-1.0",
+  "license_url": "https://polyhaven.com/license",
+  "attribution_required": false,
+  "kind": "model",
+  "modifications": "Decimated to its 4,000-triangle budget; 4,101 -> 4,000 triangles, 1 material (tools/blender/process_props.py).",
+  "retrieved": "2026-10-28",
+  "files": {
+    "Sofa_01.gltf": "2cb2ce7b3cb7678b5c8aefe73bf7e92f92e9a33dfc54fb0b534e078554217d2e",
+    "Sofa_01.bin": "b93adc2d9054d3bd44c17da3a21ab6ad7418fd697ef8295c108a829344da30a5"
+  },
+  "processed_from": "game/assets/thirdparty/polyhaven/models/Sofa_01/Sofa_01_1k.gltf"
+}

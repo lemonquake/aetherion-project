@@ -1,0 +1,19 @@
+{
+  "source": "Poly Haven",
+  "title": "Wooden Table 02",
+  "url": "https://polyhaven.com/a/WoodenTable_02",
+  "authors": [
+    "Fran Calvente"
+  ],
+  "license": "CC0-1.0",
+  "license_url": "https://polyhaven.com/license",
+  "attribution_required": false,
+  "kind": "model",
+  "modifications": "Textures 512 px; 1,514 -> 1,514 triangles, 1 material (tools/blender/process_props.py).",
+  "retrieved": "2026-10-28",
+  "files": {
+    "WoodenTable_02.gltf": "a3859627b6d25dc124d5130153b16a226b1fba8e5486c30e1142bbcd0f26b273",
+    "WoodenTable_02.bin": "e6a79699d3d9beecc476d45b1bab0e39a8c9fd9fb919f13da53f497df611b0ba"
+  },
+  "processed_from": "game/assets/thirdparty/polyhaven/models/WoodenTable_02/WoodenTable_02_1k.gltf"
+}

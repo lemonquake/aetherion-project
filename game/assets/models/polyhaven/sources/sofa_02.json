@@ -1,0 +1,19 @@
+{
+  "source": "Poly Haven",
+  "title": "Sofa 02",
+  "url": "https://polyhaven.com/a/sofa_02",
+  "authors": [
+    "Kirill Sannikov"
+  ],
+  "license": "CC0-1.0",
+  "license_url": "https://polyhaven.com/license",
+  "attribution_required": false,
+  "kind": "model",
+  "modifications": "Re-exported unchanged (within budget, one material); 2,728 -> 2,728 triangles, 1 material (tools/blender/process_props.py).",
+  "retrieved": "2026-10-28",
+  "files": {
+    "sofa_02.gltf": "ea615a1e571c742eed1128d653577ab09b8aceda16d85eb618605e9869b7f695",
+    "sofa_02.bin": "1e6e2db847028ec14b26ee69fd31a449cfeb96d4ec0fb16caa1581c8dc4ce4a1"
+  },
+  "processed_from": "game/assets/thirdparty/polyhaven/models/sofa_02/sofa_02_1k.gltf"
+}

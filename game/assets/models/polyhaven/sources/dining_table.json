@@ -1,0 +1,19 @@
+{
+  "source": "Poly Haven",
+  "title": "Dining Table",
+  "url": "https://polyhaven.com/a/dining_table",
+  "authors": [
+    "Aron Łyczek"
+  ],
+  "license": "CC0-1.0",
+  "license_url": "https://polyhaven.com/license",
+  "attribution_required": false,
+  "kind": "model",
+  "modifications": "Re-exported unchanged (within budget, one material); 1,048 -> 1,048 triangles, 1 material (tools/blender/process_props.py).",
+  "retrieved": "2026-10-28",
+  "files": {
+    "dining_table.gltf": "24240a238bc6af98c3bb67fd9120a29021a1f85c6796f3e8187bf9bb9b33794b",
+    "dining_table.bin": "e55bf2c2e24efdf02c5a8135349c104ad6a9533e0ecd6e5e82659972b6f76052"
+  },
+  "processed_from": "game/assets/thirdparty/polyhaven/models/dining_table/dining_table_1k.gltf"
+}

@@ -12,7 +12,7 @@
   "attribution_required": true,
   "kind": "model",
   "purpose": "pump shotgun",
-  "modifications": "Joined into one mesh, re-oriented (front along -Z in Godot), scaled to 1.000 m overall, centred, decimated 6202 -> 6202 triangles, textures reduced to 1024 px JPEG (tools/blender/process_items.py).",
+  "modifications": "Re-oriented (front along -Z in Godot), scaled to 1.000 m overall, centred, decimated 6202 -> 6202 triangles, textures reduced to 1024 px JPEG; moving parts kept as separate meshes: pump (tools/blender/process_items.py).",
   "retrieved": "2026-10-25",
   "files": {
     "shotgun_pump.glb": ""

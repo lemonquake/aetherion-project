@@ -1,0 +1,26 @@
+{
+  "source": "Sketchfab (downloaded from the Objaverse mirror, allenai/objaverse on Hugging Face)",
+  "title": "Burned-out Cars",
+  "url": "https://sketchfab.com/3d-models/701066df6b914fd08318524c7ccd96a7",
+  "mirror_url": "https://huggingface.co/datasets/allenai/objaverse/resolve/main/glbs/000-083/701066df6b914fd08318524c7ccd96a7.glb",
+  "authors": [
+    "Renafox"
+  ],
+  "author_url": "https://sketchfab.com/kryik1023",
+  "license": "CC-BY-4.0",
+  "license_url": "http://creativecommons.org/licenses/by/4.0/",
+  "attribution_required": true,
+  "kind": "model",
+  "purpose": "burnt-out car wrecks",
+  "modifications": "Removed 1 source objects (default002); scaled x0.01493 to real size; front turned to +Z (Godot), origin at the floor centre; 1024 px textures; 1,957 -> 1,957 triangles, 1 material, 1.85 x 1.28 x 4.40 m (w x h x l) (tools/blender/process_r7.py).",
+  "retrieved": "2026-10-28",
+  "files": {
+    "car_burnt_a.gltf": "bb4ce4895c5bb9d77197f8e5a19368cc95d96740e09a360af469816a3223bad2",
+    "car_burnt_a.bin": "ec5bdb5432a6f06135127826737c307ecb0e615e0204993935e07d2750a4c3e9",
+    "textures/car_burnt_a_diff.jpg": "174b43aacd99763f88ef4aa3de40d467969381e62bbb04ec2f93e8f664b17086",
+    "textures/car_burnt_a_arm.jpg": "0c177bd16d82b411fe23417ed9b979f6f108970cd8e0c02156ba481e98e015dd",
+    "textures/car_burnt_a_nor_gl.jpg": "603a8f229a4ab961f1184e083fa3f59567e2bfa6955f6497a082c085083d32d2"
+  },
+  "processed_from": "tools/cache/sketchfab/car_burned_out/car_burned_out.glb",
+  "prop": "car_burnt_a"
+}

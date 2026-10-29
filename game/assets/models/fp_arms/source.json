@@ -1,0 +1,21 @@
+{
+  "source": "Sketchfab (downloaded from the Objaverse mirror, allenai/objaverse on Hugging Face)",
+  "title": "(Animation) FPS Arms For Games",
+  "url": "https://sketchfab.com/3d-models/c29feda751284a32b575486f53c49180",
+  "mirror_url": "https://huggingface.co/datasets/allenai/objaverse/resolve/main/glbs/000-068/c29feda751284a32b575486f53c49180.glb",
+  "authors": [
+    "Matt Rafferty"
+  ],
+  "author_url": "https://sketchfab.com/Matt-AeroLab",
+  "license": "CC-BY-4.0",
+  "license_url": "http://creativecommons.org/licenses/by/4.0/",
+  "attribution_required": true,
+  "kind": "model",
+  "purpose": "first-person arms",
+  "modifications": "Scaled cm -> m, re-centred on the authored camera, animation and helper objects removed; skin split into upper / arm / hand pieces; sleeves (short, long, jacket) and gloves (full, fingerless) built from the arm surface and skinned to the same bones; skin texture tinted to a medium brown (tools/blender/make_fp_arms.py).",
+  "retrieved": "2026-10-28",
+  "files": {
+    "fp_arms.glb": ""
+  },
+  "processed_from": "tools/cache/sketchfab/arms_aerolab/arms_aerolab.glb"
+}

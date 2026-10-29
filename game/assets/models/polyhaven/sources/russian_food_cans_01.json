@@ -1,0 +1,19 @@
+{
+  "source": "Poly Haven",
+  "title": "Russian Food Cans 01",
+  "url": "https://polyhaven.com/a/russian_food_cans_01",
+  "authors": [
+    "Kosan Aziz"
+  ],
+  "license": "CC0-1.0",
+  "license_url": "https://polyhaven.com/license",
+  "attribution_required": false,
+  "kind": "model",
+  "modifications": "Decimated to its 1,000-triangle budget; textures 512 px; 1,348 -> 999 triangles, 1 material (tools/blender/process_props.py).",
+  "retrieved": "2026-10-28",
+  "files": {
+    "russian_food_cans_01.gltf": "7128e2785ef3e53d798c14ff307c2f9d12b7ea6b0a2e8d3501025edb51c47cdc",
+    "russian_food_cans_01.bin": "adce86527a33bf7775e3fc094126b4e50909f2561220e3455464c0197892fcad"
+  },
+  "processed_from": "game/assets/thirdparty/polyhaven/models/russian_food_cans_01/russian_food_cans_01_1k.gltf"
+}

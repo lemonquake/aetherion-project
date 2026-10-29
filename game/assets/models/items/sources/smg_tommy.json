@@ -1,21 +1,21 @@
 {
   "source": "Sketchfab (downloaded from the Objaverse mirror, allenai/objaverse on Hugging Face)",
-  "title": "Thompson Submachine Gun",
-  "url": "https://sketchfab.com/3d-models/fad89d93472b4146ade0701ff4173d0e",
-  "mirror_url": "https://huggingface.co/datasets/allenai/objaverse/resolve/main/glbs/000-016/fad89d93472b4146ade0701ff4173d0e.glb",
+  "title": "Thompson submachine gun",
+  "url": "https://sketchfab.com/3d-models/5fe11dfebf734b4aa49c43545397abd1",
+  "mirror_url": "https://huggingface.co/datasets/allenai/objaverse/resolve/main/glbs/000-024/5fe11dfebf734b4aa49c43545397abd1.glb",
   "authors": [
-    "Tactical_Beard"
+    "Artem Goyko"
   ],
-  "author_url": "https://sketchfab.com/Tactical_Beard",
+  "author_url": "https://sketchfab.com/Artem.Goyko",
   "license": "CC-BY-4.0",
   "license_url": "http://creativecommons.org/licenses/by/4.0/",
   "attribution_required": true,
   "kind": "model",
-  "purpose": "Tommy gun .45 submachine gun",
-  "modifications": "Joined into one mesh, re-oriented (front along -Z in Godot), scaled to 0.810 m overall, centred, decimated 7748 -> 7748 triangles, textures reduced to 1024 px JPEG (tools/blender/process_items.py).",
-  "retrieved": "2026-10-27",
+  "purpose": "Thompson submachine gun",
+  "modifications": "Re-oriented (front along -Z in Godot), scaled to 0.810 m overall, centred, decimated 20802 -> 11999 triangles, textures reduced to 1024 px JPEG; moving parts kept as separate meshes: mag (tools/blender/process_items.py).",
+  "retrieved": "2026-10-28",
   "files": {
     "smg_tommy.glb": ""
   },
-  "processed_from": "tools/cache/sketchfab/smg_tommy/smg_tommy.glb"
+  "processed_from": "tools/cache/sketchfab/smg_thompson/smg_thompson.glb"
 }

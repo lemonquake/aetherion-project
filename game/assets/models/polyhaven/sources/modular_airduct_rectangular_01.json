@@ -1,0 +1,19 @@
+{
+  "source": "Poly Haven",
+  "title": "Modular Airduct Rectangular 01",
+  "url": "https://polyhaven.com/a/modular_airduct_rectangular_01",
+  "authors": [
+    "James Ray Cock"
+  ],
+  "license": "CC0-1.0",
+  "license_url": "https://polyhaven.com/license",
+  "attribution_required": false,
+  "kind": "model",
+  "modifications": "Kept one variant (modular_airduct_rectangular_01_tripple_01) of the set, removed 17 other objects, re-centred on it; 2 materials packed into one 1024x1280 atlas; 3,176 -> 3,176 triangles, 1 material (tools/blender/process_props.py).",
+  "retrieved": "2026-10-28",
+  "files": {
+    "modular_airduct_rectangular_01.gltf": "88a2d6a49c508c30d5ad7392543fa8c8ca79636109a2b20bbc7fcdcd3c9c0570",
+    "modular_airduct_rectangular_01.bin": "f6ac4e11662aecacd2f7241bf85f64ad1ebb0d90e5bb833bdb6044807d6180e2"
+  },
+  "processed_from": "game/assets/thirdparty/polyhaven/models/modular_airduct_rectangular_01/modular_airduct_rectangular_01_1k.gltf"
+}

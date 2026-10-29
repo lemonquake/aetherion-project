@@ -1,0 +1,26 @@
+{
+  "source": "Sketchfab (downloaded from the Objaverse mirror, allenai/objaverse on Hugging Face)",
+  "title": "Generic passenger car pack",
+  "url": "https://sketchfab.com/3d-models/20f9af9b8a404d5cb022ac6fe87f21f5",
+  "mirror_url": "https://huggingface.co/datasets/allenai/objaverse/resolve/main/glbs/000-102/20f9af9b8a404d5cb022ac6fe87f21f5.glb",
+  "authors": [
+    "Comrade1280"
+  ],
+  "author_url": "https://sketchfab.com/comrade1280",
+  "license": "CC-BY-4.0",
+  "license_url": "http://creativecommons.org/licenses/by/4.0/",
+  "attribution_required": true,
+  "kind": "model",
+  "purpose": "parked cars (generic passenger car pack)",
+  "modifications": "One car of the pack (minivan body, 4 wheels) turned back to its own frame; scaled x1.041 to real size; front turned to +Z (Godot), origin at the floor centre; glass made dark and opaque (Glass_2); 4 materials packed into one 1024x1280 atlas; 7,450 -> 7,450 triangles, 1 material, 1.95 x 1.84 x 4.80 m (w x h x l) (tools/blender/process_r7.py).",
+  "retrieved": "2026-10-28",
+  "files": {
+    "car_minivan.gltf": "abcf5d4e4a70d8c0cfc1ab29d4653ac0fff17b403901ad6a30082076460698af",
+    "car_minivan.bin": "35e8ae866b50e5c5b307be4f1ed16752c58fd497dbf67862920e705c00d0a08a",
+    "textures/car_minivan_atlas_diff.jpg": "523cb84bd91925d2ee59f199bb5f4611f8e84f543fe755c32a07207870f74526",
+    "textures/car_minivan_atlas_arm.jpg": "89dca7f23935afcab25da1295567a2b24ec513f9d87c2f3dc0e5cd13cc51916c",
+    "textures/car_minivan_atlas_nor_gl.jpg": "fc580ab9414b42206afed05333477f6532ea3fa604984b1397dc2560600a9328"
+  },
+  "processed_from": "tools/cache/sketchfab/car_generic_pack/car_generic_pack.glb",
+  "prop": "car_minivan"
+}

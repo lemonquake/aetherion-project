@@ -1,0 +1,26 @@
+{
+  "source": "Sketchfab (downloaded from the Objaverse mirror, allenai/objaverse on Hugging Face)",
+  "title": "Generic passenger car pack",
+  "url": "https://sketchfab.com/3d-models/20f9af9b8a404d5cb022ac6fe87f21f5",
+  "mirror_url": "https://huggingface.co/datasets/allenai/objaverse/resolve/main/glbs/000-102/20f9af9b8a404d5cb022ac6fe87f21f5.glb",
+  "authors": [
+    "Comrade1280"
+  ],
+  "author_url": "https://sketchfab.com/comrade1280",
+  "license": "CC-BY-4.0",
+  "license_url": "http://creativecommons.org/licenses/by/4.0/",
+  "attribution_required": true,
+  "kind": "model",
+  "purpose": "parked cars (generic passenger car pack)",
+  "modifications": "One car of the pack (Coupe Body, 4 wheels) turned back to its own frame; straightened by -17.7 deg (the source sits askew in its frame); scaled x1.038 to real size; front turned to +Z (Godot), origin at the floor centre; glass made dark and opaque (Glass_0); 4 materials packed into one 1024x1280 atlas (4 tiling UV corners clamped); 6,022 -> 6,022 triangles, 1 material, 1.96 x 1.33 x 4.40 m (w x h x l) (tools/blender/process_r7.py).",
+  "retrieved": "2026-10-28",
+  "files": {
+    "car_coupe.gltf": "9e484909d3c57357138de81c9827a95743067cdcc05433c2c684d92f57bc1f73",
+    "car_coupe.bin": "9454b16dda303d3622863fbab3569a231900d0787582062a8c18b1e89ff9b2d7",
+    "textures/car_coupe_atlas_diff.jpg": "26818994f564538d8030b95c0d9448b1cb0bd4ddd774b6711ee5ae8d58468db8",
+    "textures/car_coupe_atlas_arm.jpg": "ecc6402bb19dbca86a3540f053b2b31ad64064d6bccdfbada3debb1847cbf553",
+    "textures/car_coupe_atlas_nor_gl.jpg": "fc580ab9414b42206afed05333477f6532ea3fa604984b1397dc2560600a9328"
+  },
+  "processed_from": "tools/cache/sketchfab/car_generic_pack/car_generic_pack.glb",
+  "prop": "car_coupe"
+}

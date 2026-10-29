@@ -1,0 +1,26 @@
+{
+  "source": "Sketchfab (downloaded from the Objaverse mirror, allenai/objaverse on Hugging Face)",
+  "title": "Shvan '92 - Low poly model",
+  "url": "https://sketchfab.com/3d-models/09d718c9cf72401b8534d265a06a803f",
+  "mirror_url": "https://huggingface.co/datasets/allenai/objaverse/resolve/main/glbs/000-087/09d718c9cf72401b8534d265a06a803f.glb",
+  "authors": [
+    "Daniel Zhabotinsky"
+  ],
+  "author_url": "https://sketchfab.com/DanielZhabotinsky",
+  "license": "CC-BY-4.0",
+  "license_url": "http://creativecommons.org/licenses/by/4.0/",
+  "attribution_required": true,
+  "kind": "model",
+  "purpose": "delivery van",
+  "modifications": "Removed 17 source objects (Dashboard, Doorcard_FL, Doorcard_FR, Doorcard_RL, Doorcard_RR, Engine_bay_UCB, Gearknob, Interior, ...); front turned to +Z (Godot), origin at the floor centre; reduced to its 8,000-triangle budget (17,683 -> 12,773 by merging and dissolving flat faces within UV islands, 8,000 after collapsing); glass made dark and opaque (UCB_GLASS_CLEAN); 7 materials packed into one 2048x1280 atlas; 17,683 -> 8,000 triangles, 1 material, 2.35 x 2.06 x 4.90 m (w x h x l) (tools/blender/process_r7.py).",
+  "retrieved": "2026-10-28",
+  "files": {
+    "van_delivery.gltf": "42b50ec74ea89886b1f0c329bb5544a76464fc5626b34ba2ef5bfe656456b2a0",
+    "van_delivery.bin": "b804f0c62ff0df07fdbc2742ab399a315b22f7e3d13b611175335f4962584107",
+    "textures/van_delivery_atlas_diff.jpg": "12d14e5c3be52b6f38c3846f7d3b655373a32514dedaf2d8dceeffb79864ab28",
+    "textures/van_delivery_atlas_arm.jpg": "082f0a11a17ca975a811a661078910163d1801d077b937a9f4a6e591d0c121bb",
+    "textures/van_delivery_atlas_nor_gl.jpg": "492dd3f7c37bcfe6d140cddabaa2f1cede24bd6996427616d17f446f38eda479"
+  },
+  "processed_from": "tools/cache/sketchfab/car_shvan_van/car_shvan_van.glb",
+  "prop": "van_delivery"
+}

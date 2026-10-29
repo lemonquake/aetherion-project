@@ -1,0 +1,19 @@
+{
+  "source": "Poly Haven",
+  "title": "Industrial Wall Lamp",
+  "url": "https://polyhaven.com/a/industrial_wall_lamp",
+  "authors": [
+    "Kuutti Siitonen"
+  ],
+  "license": "CC0-1.0",
+  "license_url": "https://polyhaven.com/license",
+  "attribution_required": false,
+  "kind": "model",
+  "modifications": "Decimated to its 1,800-triangle budget; 2 materials packed into one 1024x512 atlas; blend / transmission dropped, opaque (industrial_wall_lamp_glass); 4,446 -> 1,799 triangles, 1 material (tools/blender/process_props.py).",
+  "retrieved": "2026-10-28",
+  "files": {
+    "industrial_wall_lamp.gltf": "b894437c00ce451ddd7ee72aa79ce5db9ccb8454292229fdc26e87623b40040a",
+    "industrial_wall_lamp.bin": "9125ef3149292015b6e2e8132c3ce0690f5d8be172eb601eea4b7b614a4e0b9c"
+  },
+  "processed_from": "game/assets/thirdparty/polyhaven/models/industrial_wall_lamp/industrial_wall_lamp_1k.gltf"
+}

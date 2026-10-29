@@ -1,0 +1,26 @@
+{
+  "source": "Sketchfab (downloaded from the Objaverse mirror, allenai/objaverse on Hugging Face)",
+  "title": "Gas Pump",
+  "url": "https://sketchfab.com/3d-models/4354327e7c52491f9dda58bb2fc0b375",
+  "mirror_url": "https://huggingface.co/datasets/allenai/objaverse/resolve/main/glbs/000-111/4354327e7c52491f9dda58bb2fc0b375.glb",
+  "authors": [
+    "xrooshka"
+  ],
+  "author_url": "https://sketchfab.com/xrooshka",
+  "license": "CC-BY-4.0",
+  "license_url": "http://creativecommons.org/licenses/by/4.0/",
+  "attribution_required": true,
+  "kind": "model",
+  "purpose": "gas station pump (alternative)",
+  "modifications": "Scaled x1.051 to real size; front turned to +Z (Godot), origin at the floor centre; 1024 px textures; 1,092 -> 1,092 triangles, 1 material, 0.73 x 1.60 x 0.44 m (w x h x l) (tools/blender/process_r7.py).",
+  "retrieved": "2026-10-28",
+  "files": {
+    "gas_pump_round.gltf": "eac7b6fe8c4377ac94acebf1441e8312da4c2eb00cbb667155e1b5b53c56933c",
+    "gas_pump_round.bin": "15f5e9b0cff8df2fb3bf4dd9ee1e30a7b34fdcfea9185a2925989e33278687d4",
+    "textures/gas_pump_round_diff.jpg": "88aff530c14d2c0e0c92d110ac9db67428904fb1791644a6283471ff3524417d",
+    "textures/gas_pump_round_arm.jpg": "3e85f8532f8ed3f04627536e294aa3618d0588cf4677e6a988629318f86559bd",
+    "textures/gas_pump_round_nor_gl.jpg": "1cdb7d6c3c81966fbee3b6a61e0c4ec8ad4d0b40d358559369a7023537ffac9f"
+  },
+  "processed_from": "tools/cache/sketchfab/gas_pump_b/gas_pump_b.glb",
+  "prop": "gas_pump_round"
+}

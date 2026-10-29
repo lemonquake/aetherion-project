@@ -1,0 +1,21 @@
+{
+  "source": "Sketchfab (downloaded from the Objaverse mirror, allenai/objaverse on Hugging Face)",
+  "title": "FN FAL",
+  "url": "https://sketchfab.com/3d-models/7f548d1f79f7418fad852f3d7293ec2c",
+  "mirror_url": "https://huggingface.co/datasets/allenai/objaverse/resolve/main/glbs/000-116/7f548d1f79f7418fad852f3d7293ec2c.glb",
+  "authors": [
+    "The Unknown..."
+  ],
+  "author_url": "https://sketchfab.com/1514112",
+  "license": "CC-BY-4.0",
+  "license_url": "http://creativecommons.org/licenses/by/4.0/",
+  "attribution_required": true,
+  "kind": "model",
+  "purpose": "7.62 battle rifle (SLR)",
+  "modifications": "Re-oriented (front along -Z in Godot), scaled to 1.090 m overall, centred, decimated 14194 -> 12037 triangles, textures reduced to 1024 px JPEG; moving parts kept as separate meshes: mag (tools/blender/process_items.py).",
+  "retrieved": "2026-10-28",
+  "files": {
+    "marksman_308.glb": ""
+  },
+  "processed_from": "tools/cache/sketchfab/rifle_fal/rifle_fal.glb"
+}

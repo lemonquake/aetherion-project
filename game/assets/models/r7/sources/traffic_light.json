@@ -1,0 +1,26 @@
+{
+  "source": "Sketchfab (downloaded from the Objaverse mirror, allenai/objaverse on Hugging Face)",
+  "title": "Traffic Lights [Street Assets Vol. 02]",
+  "url": "https://sketchfab.com/3d-models/ab3efdd259a54d4aba5f878eacbe3f20",
+  "mirror_url": "https://huggingface.co/datasets/allenai/objaverse/resolve/main/glbs/000-067/ab3efdd259a54d4aba5f878eacbe3f20.glb",
+  "authors": [
+    "Alt"
+  ],
+  "author_url": "https://sketchfab.com/whisper.alt",
+  "license": "CC-BY-4.0",
+  "license_url": "http://creativecommons.org/licenses/by/4.0/",
+  "attribution_required": true,
+  "kind": "model",
+  "purpose": "traffic lights at the intersection",
+  "modifications": "Removed 9 source objects (Pedestrian_Ligh.017_Pedestrian_Traffic, Pedestrian_Ligh_G1_low.001_Pedestrian_Traffic, Pedestrian_Ligh_G1_low.002_Pedestrian_Traffic, Pedestrian_Ligh_G1_low.004_Pedestrian_Traffic, Pedestrian_Ligh_G1_low_Pedestrian_Traffic, Pedestrian_Ligh_G2_low.001_Pedestrian_Traffic, Pedestrian_Ligh_G2_low_Pedestrian_Traffic, Pedestrian_Ligh_G3_low_Pedestrian_Traffic, ...); scaled x1.542 to real size; front turned to +Z (Godot), origin at the floor centre; 1024 px textures; 2,652 -> 2,652 triangles, 1 material, 1.46 x 5.40 x 5.53 m (w x h x l) (tools/blender/process_r7.py).",
+  "retrieved": "2026-10-28",
+  "files": {
+    "traffic_light.gltf": "c5f2a9618320ddcf4c934aa3c4e6afe6c6ce200cc64cbb0b964aa05ef7e187a3",
+    "traffic_light.bin": "ff1c08662f44097d5d1de0537dd0ab19c9acf7b3214f3c157a52d4ff723f18b3",
+    "textures/traffic_light_diff.jpg": "0acce374b58239248bce273b1abe009b488a9737b6f714782405df2d904c44fd",
+    "textures/traffic_light_arm.jpg": "28fcdb8fed0069ac130e46a82b7f5d07fd4861d406acdcb2037083d09ab294dc",
+    "textures/traffic_light_nor_gl.jpg": "6a4138bffa7c807d9992834564881d3d350d90a16793b9abf3b9e4504b948345"
+  },
+  "processed_from": "tools/cache/sketchfab/traffic_light/traffic_light.glb",
+  "prop": "traffic_light"
+}

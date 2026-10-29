@@ -1,0 +1,26 @@
+{
+  "source": "Sketchfab (downloaded from the Objaverse mirror, allenai/objaverse on Hugging Face)",
+  "title": "Abandoned Playground",
+  "url": "https://sketchfab.com/3d-models/fee40d7bf3e24de5b694d7aa3486066a",
+  "mirror_url": "https://huggingface.co/datasets/allenai/objaverse/resolve/main/glbs/000-033/fee40d7bf3e24de5b694d7aa3486066a.glb",
+  "authors": [
+    "sergeilihandristov"
+  ],
+  "author_url": "https://sketchfab.com/sergeilihandristov",
+  "license": "CC-BY-4.0",
+  "license_url": "http://creativecommons.org/licenses/by/4.0/",
+  "attribution_required": true,
+  "kind": "model",
+  "purpose": "playground set",
+  "modifications": "Scaled x1.026 to real size; front turned to +Z (Godot), origin at the floor centre; 1024 px textures; 2,340 -> 2,340 triangles, 1 material, 5.05 x 2.00 x 4.67 m (w x h x l) (tools/blender/process_r7.py).",
+  "retrieved": "2026-10-28",
+  "files": {
+    "playground_set.gltf": "eaf2ac8ca77901fdcd063c8fb7ac23e496aab67c70b856fcbc91fe8fb702f9a4",
+    "playground_set.bin": "33834669d0e10ff98d5747b0684b6d070907c90b71a250c353d2556097f1021b",
+    "textures/playground_set_diff.jpg": "7dc5030cb05ddb685cf0bd5dc90c493900642680cb1527e23e74338977376504",
+    "textures/playground_set_arm.jpg": "8efed38a9a1fcadaf2ef2e9ed6ccc7699ec96c7cdf7f629faf8d02630eb1f7dd",
+    "textures/playground_set_nor_gl.jpg": "9e54abc76eb4b8559b99b002e232c41d3fc0278b89bd3ff3d2a4d13a884500eb"
+  },
+  "processed_from": "tools/cache/sketchfab/playground_abandoned/playground_abandoned.glb",
+  "prop": "playground_set"
+}

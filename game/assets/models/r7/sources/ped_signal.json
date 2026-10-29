@@ -1,0 +1,26 @@
+{
+  "source": "Sketchfab (downloaded from the Objaverse mirror, allenai/objaverse on Hugging Face)",
+  "title": "Traffic Lights [Street Assets Vol. 02]",
+  "url": "https://sketchfab.com/3d-models/ab3efdd259a54d4aba5f878eacbe3f20",
+  "mirror_url": "https://huggingface.co/datasets/allenai/objaverse/resolve/main/glbs/000-067/ab3efdd259a54d4aba5f878eacbe3f20.glb",
+  "authors": [
+    "Alt"
+  ],
+  "author_url": "https://sketchfab.com/whisper.alt",
+  "license": "CC-BY-4.0",
+  "license_url": "http://creativecommons.org/licenses/by/4.0/",
+  "attribution_required": true,
+  "kind": "model",
+  "purpose": "traffic lights at the intersection",
+  "modifications": "Removed 14 source objects (Light_Buttons_low_Traffic, Light_Color_Traffic, Light_Pillow_G1_low.001_Traffic, Light_Pillow_G1_low.002_Traffic, Light_Pillow_G1_low_Traffic, Light_Pillow_G2_low.001_Traffic, Light_Pillow_G2_low.002_Traffic, Light_Pillow_G2_low_Traffic, ...); scaled x0.9904 to real size; front turned to +Z (Godot), origin at the floor centre; 1024 px textures; 1,294 -> 1,294 triangles, 1 material, 0.50 x 2.75 x 0.54 m (w x h x l) (tools/blender/process_r7.py).",
+  "retrieved": "2026-10-28",
+  "files": {
+    "ped_signal.gltf": "55d00dcf34a76e8bc8a9add64943c7a2de4a98595df164a7e581b8888ab5029c",
+    "ped_signal.bin": "5a529624fffc5878aa60d6910026d1b4120cece0c045759bda424ce014085f55",
+    "textures/ped_signal_diff.jpg": "e77f2c2cc45ce44270c33a7545cd03e3c6d8abd597f638ee661526cd551d4487",
+    "textures/ped_signal_arm.jpg": "d81270b1d2928850c734a5bf90ee43339f9ad601c6c62bf46c244e2f2a6f306f",
+    "textures/ped_signal_nor_gl.jpg": "d3b3882a31f455c5f283ec0929cbff98acb9aea3dd81f5589f856ec4d5437121"
+  },
+  "processed_from": "tools/cache/sketchfab/traffic_light/traffic_light.glb",
+  "prop": "ped_signal"
+}

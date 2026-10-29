@@ -1,0 +1,26 @@
+{
+  "source": "Sketchfab (downloaded from the Objaverse mirror, allenai/objaverse on Hugging Face)",
+  "title": "Basketball Hoop",
+  "url": "https://sketchfab.com/3d-models/d3fc2490cbe54e37b6d5b159704c787f",
+  "mirror_url": "https://huggingface.co/datasets/allenai/objaverse/resolve/main/glbs/000-035/d3fc2490cbe54e37b6d5b159704c787f.glb",
+  "authors": [
+    "paethon"
+  ],
+  "author_url": "https://sketchfab.com/paethon",
+  "license": "CC-BY-4.0",
+  "license_url": "http://creativecommons.org/licenses/by/4.0/",
+  "attribution_required": true,
+  "kind": "model",
+  "purpose": "basketball hoop (clubhouse court)",
+  "modifications": "Scaled x1.102 to real size; front turned to +Z (Godot), origin at the floor centre; 1024 px textures; 2,596 -> 2,596 triangles, 1 material, 1.81 x 3.95 x 2.73 m (w x h x l) (tools/blender/process_r7.py).",
+  "retrieved": "2026-10-28",
+  "files": {
+    "basketball_hoop.gltf": "94ef25e5cac560058353eafd4f2ffd74944b9d6a577bf66a649b400a437bcd38",
+    "basketball_hoop.bin": "2008250c606c47d17cd0c4cd28aaeb3c5c5221d887ae0d7365b7b48b726df82c",
+    "textures/basketball_hoop_diff.jpg": "da9615318de9391fd94b87cb6693d1edbf79208cce34863eee7f0bc547d15ac0",
+    "textures/basketball_hoop_arm.jpg": "7f3366e70beca83fa18919573d364555dece99ddbd82b4c55dc359b7cd96b317",
+    "textures/basketball_hoop_nor_gl.jpg": "e590abc5e735202b07507906479a252d5378eedd56b0f5210b256a34a5df5980"
+  },
+  "processed_from": "tools/cache/sketchfab/basketball_hoop/basketball_hoop.glb",
+  "prop": "basketball_hoop"
+}

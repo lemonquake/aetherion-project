@@ -1,0 +1,19 @@
+{
+  "source": "Poly Haven",
+  "title": "Vintage Cabinet 01",
+  "url": "https://polyhaven.com/a/vintage_cabinet_01",
+  "authors": [
+    "Rico Cilliers"
+  ],
+  "license": "CC0-1.0",
+  "license_url": "https://polyhaven.com/license",
+  "attribution_required": false,
+  "kind": "model",
+  "modifications": "Decimated to its 4,000-triangle budget; 3 materials packed into one 2048x1280 atlas; blend / transmission dropped, opaque (vintage_cabinet_01_glass); 61,096 -> 4,000 triangles, 1 material (tools/blender/process_props.py).",
+  "retrieved": "2026-10-28",
+  "files": {
+    "vintage_cabinet_01.gltf": "0f43b92fed5c36a18068d29a9aafa41242e6d989250034e4c1ceda63efd61c41",
+    "vintage_cabinet_01.bin": "4f3c63749475ba05decf416f31af44885a5b8e291a2f65bea336be277444cb72"
+  },
+  "processed_from": "game/assets/thirdparty/polyhaven/models/vintage_cabinet_01/vintage_cabinet_01_1k.gltf"
+}

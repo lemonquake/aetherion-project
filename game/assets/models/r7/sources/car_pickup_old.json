@@ -1,0 +1,26 @@
+{
+  "source": "Sketchfab (downloaded from the Objaverse mirror, allenai/objaverse on Hugging Face)",
+  "title": "Doutrive '78 - Low poly model",
+  "url": "https://sketchfab.com/3d-models/30700a84311c4bea9ef722f0773ce92a",
+  "mirror_url": "https://huggingface.co/datasets/allenai/objaverse/resolve/main/glbs/000-150/30700a84311c4bea9ef722f0773ce92a.glb",
+  "authors": [
+    "Daniel Zhabotinsky"
+  ],
+  "author_url": "https://sketchfab.com/DanielZhabotinsky",
+  "license": "CC-BY-4.0",
+  "license_url": "http://creativecommons.org/licenses/by/4.0/",
+  "attribution_required": true,
+  "kind": "model",
+  "purpose": "pickup truck",
+  "modifications": "Removed 12 source objects (Dashboard_lasley67, Doorcard_FL_lasley67, Doorcard_FR_lasley67, EXHAUST_UCB, Engine_UCB, INTERIOR_DETALES_lasley67, INTERIOR_UCB, SUSPENSION_FRONT_UCB, ...); scaled x0.01041 to real size; front turned to +Z (Godot), origin at the floor centre; reduced to its 8,000-triangle budget (21,134 -> 15,447 by merging and dissolving flat faces within UV islands, 7,999 after collapsing); glass made dark and opaque (GENERIC_LIGHT_GLASS, UCB_GLASS_CLEAN); 8 materials packed into one 2048x1280 atlas (4 tiling UV corners clamped); 21,134 -> 7,999 triangles, 1 material, 1.96 x 1.44 x 4.89 m (w x h x l) (tools/blender/process_r7.py).",
+  "retrieved": "2026-10-28",
+  "files": {
+    "car_pickup_old.gltf": "1603fd754b7b3a5f31a7e21a7c9d2ae546af137aaa16b3a503541c35c66659ca",
+    "car_pickup_old.bin": "672c891e7fe59018422cfa7c871b24122ed5f28794192979b75a41fb79f67cb8",
+    "textures/car_pickup_old_atlas_diff.jpg": "8158cefdcc719a98c9bc429be561c7d06c25a21af92afa31b4a28e1730b11dc0",
+    "textures/car_pickup_old_atlas_arm.jpg": "cf9cb4f3f02b1ca0574ad10223cdc1089a94286c035f92a67511ab7a77d4fe72",
+    "textures/car_pickup_old_atlas_nor_gl.jpg": "b5d3a3fba9d04d208dbbd8925dbcaa0e0f4dc95e841baabc99f44ef438e7264f"
+  },
+  "processed_from": "tools/cache/sketchfab/car_doutrive_pickup/car_doutrive_pickup.glb",
+  "prop": "car_pickup_old"
+}

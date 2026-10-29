@@ -1,0 +1,19 @@
+{
+  "source": "Poly Haven",
+  "title": "Industrial Storage Cart",
+  "url": "https://polyhaven.com/a/industrial_storage_cart",
+  "authors": [
+    "Jule Bielitz"
+  ],
+  "license": "CC0-1.0",
+  "license_url": "https://polyhaven.com/license",
+  "attribution_required": false,
+  "kind": "model",
+  "modifications": "Decimated to its 4,000-triangle budget; 18,902 -> 4,000 triangles, 1 material (tools/blender/process_props.py).",
+  "retrieved": "2026-10-28",
+  "files": {
+    "industrial_storage_cart.gltf": "59bfd97352d3462a43a8207d8bdfca5786449d89e6a24897935d97396b6fd1ce",
+    "industrial_storage_cart.bin": "1471a1becc5f86131316aa09f9fc88d5374c2817a561e7bdae9cbd9e0b08e26f"
+  },
+  "processed_from": "game/assets/thirdparty/polyhaven/models/industrial_storage_cart/industrial_storage_cart_1k.gltf"
+}

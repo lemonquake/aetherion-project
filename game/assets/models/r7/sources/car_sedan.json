@@ -1,0 +1,26 @@
+{
+  "source": "Sketchfab (downloaded from the Objaverse mirror, allenai/objaverse on Hugging Face)",
+  "title": "Generic passenger car pack",
+  "url": "https://sketchfab.com/3d-models/20f9af9b8a404d5cb022ac6fe87f21f5",
+  "mirror_url": "https://huggingface.co/datasets/allenai/objaverse/resolve/main/glbs/000-102/20f9af9b8a404d5cb022ac6fe87f21f5.glb",
+  "authors": [
+    "Comrade1280"
+  ],
+  "author_url": "https://sketchfab.com/comrade1280",
+  "license": "CC-BY-4.0",
+  "license_url": "http://creativecommons.org/licenses/by/4.0/",
+  "attribution_required": true,
+  "kind": "model",
+  "purpose": "parked cars (generic passenger car pack)",
+  "modifications": "One car of the pack (Sedan Body, 4 wheels) turned back to its own frame; scaled x1.055 to real size; front turned to +Z (Godot), origin at the floor centre; glass made dark and opaque (Glass_5); 4 materials packed into one 1024x1280 atlas; 7,122 -> 7,122 triangles, 1 material, 2.05 x 1.42 x 4.60 m (w x h x l) (tools/blender/process_r7.py).",
+  "retrieved": "2026-10-28",
+  "files": {
+    "car_sedan.gltf": "3cc3193db25fe1fcaf2a00371102819c83109b773e4cab57df5809a5eb87a3b1",
+    "car_sedan.bin": "09742fc5b918f532a7ab9631b95e4be7b49c39c5b9164e8348fd2b85df91396a",
+    "textures/car_sedan_atlas_diff.jpg": "7d3b5b961631443ea1ce34847d2aef6808a86e13cfd215142b92fb373c9fe827",
+    "textures/car_sedan_atlas_arm.jpg": "af189468ceb730979ad234789105c4a9601687d38eb622e5969a5456f896c503",
+    "textures/car_sedan_atlas_nor_gl.jpg": "fc580ab9414b42206afed05333477f6532ea3fa604984b1397dc2560600a9328"
+  },
+  "processed_from": "tools/cache/sketchfab/car_generic_pack/car_generic_pack.glb",
+  "prop": "car_sedan"
+}

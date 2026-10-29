@@ -1,0 +1,19 @@
+{
+  "source": "Poly Haven",
+  "title": "Dining Chair 02",
+  "url": "https://polyhaven.com/a/dining_chair_02",
+  "authors": [
+    "James Ray Cock"
+  ],
+  "license": "CC0-1.0",
+  "license_url": "https://polyhaven.com/license",
+  "attribution_required": false,
+  "kind": "model",
+  "modifications": "Decimated to its 3,000-triangle budget; 22,013 -> 2,998 triangles, 1 material (tools/blender/process_props.py).",
+  "retrieved": "2026-10-28",
+  "files": {
+    "dining_chair_02.gltf": "88d826b6ded386a5171cd089475be207a5745f35dfba9576e7349bc9b583a51e",
+    "dining_chair_02.bin": "466d504a1c7aec400224ef58de6448739705032bb92222dad585cb8db331b421"
+  },
+  "processed_from": "game/assets/thirdparty/polyhaven/models/dining_chair_02/dining_chair_02_1k.gltf"
+}

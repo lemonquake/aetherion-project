@@ -1,0 +1,26 @@
+{
+  "source": "Sketchfab (downloaded from the Objaverse mirror, allenai/objaverse on Hugging Face)",
+  "title": "Etagère",
+  "url": "https://sketchfab.com/3d-models/ef66dd1df6884157ad19f58c73de389a",
+  "mirror_url": "https://huggingface.co/datasets/allenai/objaverse/resolve/main/glbs/000-102/ef66dd1df6884157ad19f58c73de389a.glb",
+  "authors": [
+    "__Maros__(oooFFFFEDDMODELS)"
+  ],
+  "author_url": "https://sketchfab.com/pierre.marcos.19",
+  "license": "CC-BY-4.0",
+  "license_url": "http://creativecommons.org/licenses/by/4.0/",
+  "attribution_required": true,
+  "kind": "model",
+  "purpose": "store shelving",
+  "modifications": "Scaled x0.9655 to real size; front turned to +Z (Godot), origin at the floor centre; 1024 px textures; 1,840 -> 1,840 triangles, 1 material, 2.10 x 1.90 x 0.53 m (w x h x l) (tools/blender/process_r7.py).",
+  "retrieved": "2026-10-28",
+  "files": {
+    "store_shelf_wall.gltf": "7987f9ff7c0e8029da5ecbfaed34e3e032a0e83c8680d312d338a9da048cabe7",
+    "store_shelf_wall.bin": "e9b69385cb3a7bb3683d538fc3a6c26053c2753abdd4a1de9af9e6f6db46ced5",
+    "textures/store_shelf_wall_diff.jpg": "5ae72febeea1687261397c273534e0a4999ff84119521f583d5f87921fa0bd4b",
+    "textures/store_shelf_wall_arm.jpg": "8f30e731eeeb561a1dd6d538999836f6af64e1ec07a78996102cb59978a2b963",
+    "textures/store_shelf_wall_nor_gl.jpg": "96240bf5687301de56c57f9083ad1a970e8ff0a2d75685dee3b6cb6cca6a1a73"
+  },
+  "processed_from": "tools/cache/sketchfab/shelf_etagere/shelf_etagere.glb",
+  "prop": "store_shelf_wall"
+}

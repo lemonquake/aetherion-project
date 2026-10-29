@@ -1,0 +1,26 @@
+{
+  "source": "Sketchfab (downloaded from the Objaverse mirror, allenai/objaverse on Hugging Face)",
+  "title": "Control Panel",
+  "url": "https://sketchfab.com/3d-models/00f665c4abc04d48bdcb430131bc5b73",
+  "mirror_url": "https://huggingface.co/datasets/allenai/objaverse/resolve/main/glbs/000-000/00f665c4abc04d48bdcb430131bc5b73.glb",
+  "authors": [
+    "Cianon"
+  ],
+  "author_url": "https://sketchfab.com/Cianon",
+  "license": "CC-BY-4.0",
+  "license_url": "http://creativecommons.org/licenses/by/4.0/",
+  "attribution_required": true,
+  "kind": "model",
+  "purpose": "factory control panel",
+  "modifications": "Scaled x0.02936 to real size; front turned to +Z (Godot), origin at the floor centre; 1024 px textures; 1,674 -> 1,674 triangles, 1 material, 0.31 x 1.60 x 0.41 m (w x h x l) (tools/blender/process_r7.py).",
+  "retrieved": "2026-10-28",
+  "files": {
+    "control_pedestal.gltf": "b438db30dedfbecdf8b9ff18bdec09d5201f7abe56827370b5660fb12c88acc8",
+    "control_pedestal.bin": "691ab368500cebbe4e7f67620356dd579f31f8c8bb9b63cf42272907aaec5949",
+    "textures/control_pedestal_diff.jpg": "1b2e1984e5694e2cc1ef09013e8c6fc5fa1661af511024b6efa936906edfce5e",
+    "textures/control_pedestal_arm.jpg": "be138bef9ba41f6e690a65a4f29a758fcd3f9faa0b043867fceb0e1d691f35d4",
+    "textures/control_pedestal_nor_gl.jpg": "fd01a479f25a10661864ec2a8cc4af1ab9e8fa4775bda24386acdbece938a61c"
+  },
+  "processed_from": "tools/cache/sketchfab/control_panel/control_panel.glb",
+  "prop": "control_pedestal"
+}

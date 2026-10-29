@@ -12,7 +12,7 @@
   "attribution_required": true,
   "kind": "model",
   "purpose": "Saiga 12 gauge semi-automatic shotgun",
-  "modifications": "Joined into one mesh, re-oriented (front along -Z in Godot), scaled to 0.970 m overall, centred, decimated 5446 -> 5446 triangles, textures reduced to 1024 px JPEG (tools/blender/process_items.py).",
+  "modifications": "Re-oriented (front along -Z in Godot), scaled to 0.970 m overall, centred, decimated 5446 -> 5446 triangles, textures reduced to 1024 px JPEG; moving parts kept as separate meshes: mag (tools/blender/process_items.py).",
   "retrieved": "2026-10-27",
   "files": {
     "shotgun_saiga.glb": ""

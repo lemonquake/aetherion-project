@@ -1,0 +1,19 @@
+{
+  "source": "Poly Haven",
+  "title": "Old Military Compressor",
+  "url": "https://polyhaven.com/a/old_military_compressor",
+  "authors": [
+    "Brian Speight"
+  ],
+  "license": "CC0-1.0",
+  "license_url": "https://polyhaven.com/license",
+  "attribution_required": false,
+  "kind": "model",
+  "modifications": "Kept one variant (old_military_compressor) of the set, removed 0 other objects, re-centred on it; decimated to its 4,000-triangle budget; blend / transmission dropped, opaque (old_military_compressor_glass); 79,042 -> 4,000 triangles, 1 material (tools/blender/process_props.py).",
+  "retrieved": "2026-10-28",
+  "files": {
+    "old_military_compressor.gltf": "679332d032cc556426ac5f55189ba0f317053bda59c2b01ada27c15c3560e6a5",
+    "old_military_compressor.bin": "45194a710f9f94dc1be46a3eb62c005e1bd1bfa7be31c0f568e9bf2241dbf62a"
+  },
+  "processed_from": "game/assets/thirdparty/polyhaven/models/old_military_compressor/old_military_compressor_1k.gltf"
+}

@@ -1,0 +1,19 @@
+{
+  "source": "Poly Haven",
+  "title": "Modern Arm Chair 01",
+  "url": "https://polyhaven.com/a/modern_arm_chair_01",
+  "authors": [
+    "Vibrant Nordic"
+  ],
+  "license": "CC0-1.0",
+  "license_url": "https://polyhaven.com/license",
+  "attribution_required": false,
+  "kind": "model",
+  "modifications": "Decimated to its 3,000-triangle budget; 2 materials packed into one 2048x1024 atlas; 8,916 -> 3,000 triangles, 1 material (tools/blender/process_props.py).",
+  "retrieved": "2026-10-28",
+  "files": {
+    "modern_arm_chair_01.gltf": "acb98800a2e908c6f4b9f61017eb4f03f741461351de904c2ec43d4bd49a2b32",
+    "modern_arm_chair_01.bin": "615e900adedb778f26d523e0537946a746ad42a5a4a9b58426669ae9317df12f"
+  },
+  "processed_from": "game/assets/thirdparty/polyhaven/models/modern_arm_chair_01/modern_arm_chair_01_1k.gltf"
+}

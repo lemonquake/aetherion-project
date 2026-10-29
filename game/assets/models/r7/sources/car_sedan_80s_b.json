@@ -1,0 +1,26 @@
+{
+  "source": "Sketchfab (downloaded from the Objaverse mirror, allenai/objaverse on Hugging Face)",
+  "title": "Fairheaven LT '80 - Low poly model",
+  "url": "https://sketchfab.com/3d-models/e2678da920cc4be68dbc193727919ffb",
+  "mirror_url": "https://huggingface.co/datasets/allenai/objaverse/resolve/main/glbs/000-031/e2678da920cc4be68dbc193727919ffb.glb",
+  "authors": [
+    "Daniel Zhabotinsky"
+  ],
+  "author_url": "https://sketchfab.com/DanielZhabotinsky",
+  "license": "CC-BY-4.0",
+  "license_url": "http://creativecommons.org/licenses/by/4.0/",
+  "attribution_required": true,
+  "kind": "model",
+  "purpose": "1980s saloon car",
+  "modifications": "Removed 15 source objects (Dashboard_GEN4DR, Doorcard_FL_GEN4DR, Doorcard_FR_GEN4DR, Doorcard_RL_GEN4DR, Doorcard_RR_GEN4DR, Engine_bay_UCB, Rearview_mirror_GEN4DR, SUSPENSION_REAR_UCB, ...); scaled x0.9832 to real size; front turned to +Z (Godot), origin at the floor centre; reduced to its 8,000-triangle budget (15,847 -> 11,705 by merging and dissolving flat faces within UV islands, 7,999 after collapsing); glass made dark and opaque (UCB_GLASS_CLEAN); 7 materials packed into one 2048x1280 atlas; 15,847 -> 7,999 triangles, 1 material, 1.80 x 1.32 x 4.90 m (w x h x l) (tools/blender/process_r7.py).",
+  "retrieved": "2026-10-28",
+  "files": {
+    "car_sedan_80s_b.gltf": "4456070e8ecaea39201c378ebf975da121105f00ba62ce1fddf275bb5b2d3acd",
+    "car_sedan_80s_b.bin": "946b6c54b2ac4f1e0fd2d0e7c7d60b068b376973fce32b91f75769675f829fda",
+    "textures/car_sedan_80s_b_atlas_diff.jpg": "a1ab1cb10db1a402ff208d47804469199b59b85574dc0189df6436cdef70da9a",
+    "textures/car_sedan_80s_b_atlas_arm.jpg": "658a00c03ba21671b5713cd9e175ac2151cc9ebbe242f0c4edd66589f8975cb9",
+    "textures/car_sedan_80s_b_atlas_nor_gl.jpg": "8c90a11bb1010befca2fe908608a80124357444ba388fb5967c4926259bb5afe"
+  },
+  "processed_from": "tools/cache/sketchfab/car_fairheaven/car_fairheaven.glb",
+  "prop": "car_sedan_80s_b"
+}

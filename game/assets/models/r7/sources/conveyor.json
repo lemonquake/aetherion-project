@@ -1,0 +1,26 @@
+{
+  "source": "Sketchfab (downloaded from the Objaverse mirror, allenai/objaverse on Hugging Face)",
+  "title": "Conveyor Belt",
+  "url": "https://sketchfab.com/3d-models/55f0d0f9b3384ea4b49cfc8aef97dcf9",
+  "mirror_url": "https://huggingface.co/datasets/allenai/objaverse/resolve/main/glbs/000-006/55f0d0f9b3384ea4b49cfc8aef97dcf9.glb",
+  "authors": [
+    "Cianon"
+  ],
+  "author_url": "https://sketchfab.com/Cianon",
+  "license": "CC-BY-4.0",
+  "license_url": "http://creativecommons.org/licenses/by/4.0/",
+  "attribution_required": true,
+  "kind": "model",
+  "purpose": "factory conveyor belt",
+  "modifications": "Scaled x0.02672 to real size; front turned to +Z (Godot), origin at the floor centre; 1024 px textures; 2,876 -> 2,876 triangles, 1 material, 0.74 x 0.90 x 8.81 m (w x h x l) (tools/blender/process_r7.py).",
+  "retrieved": "2026-10-28",
+  "files": {
+    "conveyor.gltf": "4d7ce5ed45f4254b11f8f74304a6a745167827203fb80bc7a4b87b196c438da7",
+    "conveyor.bin": "cab88275346b555a880a09cfde59b989dd550e462040d5d29a28a88b23e026a0",
+    "textures/conveyor_diff.jpg": "591042007e44e3fc5a2dddb530657716cfc7c50d5ddde6197b3f4a0f84d6fcc8",
+    "textures/conveyor_arm.jpg": "be138bef9ba41f6e690a65a4f29a758fcd3f9faa0b043867fceb0e1d691f35d4",
+    "textures/conveyor_nor_gl.jpg": "fd01a479f25a10661864ec2a8cc4af1ab9e8fa4775bda24386acdbece938a61c"
+  },
+  "processed_from": "tools/cache/sketchfab/conveyor/conveyor.glb",
+  "prop": "conveyor"
+}

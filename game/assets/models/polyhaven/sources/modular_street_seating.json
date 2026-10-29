@@ -1,0 +1,19 @@
+{
+  "source": "Poly Haven",
+  "title": "Modular Street Seating",
+  "url": "https://polyhaven.com/a/modular_street_seating",
+  "authors": [
+    "Stuart Attenborrow"
+  ],
+  "license": "CC0-1.0",
+  "license_url": "https://polyhaven.com/license",
+  "attribution_required": false,
+  "kind": "model",
+  "modifications": "Kept one variant (arm_rest_01, arm_rest_02, back_support_l, back_support_r, crossbar, legs_double, legs_single, seat, seat_back, suspended_support_01) of the set, removed 6 other objects, re-centred on it; decimated to its 4,000-triangle budget; 4 materials packed into one 2048x1280 atlas; 12,500 -> 4,000 triangles, 1 material (tools/blender/process_props.py).",
+  "retrieved": "2026-10-28",
+  "files": {
+    "modular_street_seating.gltf": "a0cf0d7e7dcf1784590dacfb4d094d093fcd4eba7325b0fb70f00503083d4c4e",
+    "modular_street_seating.bin": "41509943ea44288cc028303029052fc92c9e41b9be52f9be62a90300ff9519b7"
+  },
+  "processed_from": "game/assets/thirdparty/polyhaven/models/modular_street_seating/modular_street_seating_1k.gltf"
+}

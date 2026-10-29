@@ -1,0 +1,19 @@
+{
+  "source": "Poly Haven",
+  "title": "Multi Cleaner Bottle",
+  "url": "https://polyhaven.com/a/multi_cleaner_bottle",
+  "authors": [
+    "James Ray Cock"
+  ],
+  "license": "CC0-1.0",
+  "license_url": "https://polyhaven.com/license",
+  "attribution_required": false,
+  "kind": "model",
+  "modifications": "Decimated to its 1,000-triangle budget; textures 512 px; 6,792 -> 999 triangles, 1 material (tools/blender/process_props.py).",
+  "retrieved": "2026-10-28",
+  "files": {
+    "multi_cleaner_bottle.gltf": "6cc95c187b3e68b53d715cae5c4770359534fb057b546b470403af3609f86fc9",
+    "multi_cleaner_bottle.bin": "8f4462619bff9c78cc8abe47ea1d099921b8f7d3b0768661e9e734341001c4c4"
+  },
+  "processed_from": "game/assets/thirdparty/polyhaven/models/multi_cleaner_bottle/multi_cleaner_bottle_1k.gltf"
+}

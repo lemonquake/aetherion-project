@@ -1,21 +1,21 @@
 {
   "source": "Sketchfab (downloaded from the Objaverse mirror, allenai/objaverse on Hugging Face)",
-  "title": "UZI",
-  "url": "https://sketchfab.com/3d-models/fde60adc8aff4c61b6a8bea1f9e0743f",
-  "mirror_url": "https://huggingface.co/datasets/allenai/objaverse/resolve/main/glbs/000-157/fde60adc8aff4c61b6a8bea1f9e0743f.glb",
+  "title": "Micro Uzi",
+  "url": "https://sketchfab.com/3d-models/b63e34393404494b9463db6111932961",
+  "mirror_url": "https://huggingface.co/datasets/allenai/objaverse/resolve/main/glbs/000-011/b63e34393404494b9463db6111932961.glb",
   "authors": [
-    "creationwasteland"
+    "FFeller"
   ],
-  "author_url": "https://sketchfab.com/creationwasteland",
+  "author_url": "https://sketchfab.com/FFeller",
   "license": "CC-BY-4.0",
   "license_url": "http://creativecommons.org/licenses/by/4.0/",
   "attribution_required": true,
   "kind": "model",
-  "purpose": "9mm submachine gun",
-  "modifications": "Joined into one mesh, re-oriented (front along -Z in Godot), scaled to 0.470 m overall, centred, decimated 3525 -> 3525 triangles, textures reduced to 1024 px JPEG (tools/blender/process_items.py).",
-  "retrieved": "2026-10-25",
+  "purpose": "machine pistol (Micro UZI)",
+  "modifications": "Re-oriented (front along -Z in Godot), scaled to 0.270 m overall, centred, decimated 11000 -> 8070 triangles, textures reduced to 1024 px JPEG; moving parts kept as separate meshes: mag, slide (tools/blender/process_items.py).",
+  "retrieved": "2026-10-28",
   "files": {
     "machine_pistol.glb": ""
   },
-  "processed_from": "tools/cache/sketchfab/smg_uzi/smg_uzi.glb"
+  "processed_from": "tools/cache/sketchfab/smg_microuzi/smg_microuzi.glb"
 }

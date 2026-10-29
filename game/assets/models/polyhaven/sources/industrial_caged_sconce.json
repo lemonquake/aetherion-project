@@ -1,0 +1,19 @@
+{
+  "source": "Poly Haven",
+  "title": "Industrial Caged Sconce",
+  "url": "https://polyhaven.com/a/industrial_caged_sconce",
+  "authors": [
+    "Ulan Cabanilla"
+  ],
+  "license": "CC0-1.0",
+  "license_url": "https://polyhaven.com/license",
+  "attribution_required": false,
+  "kind": "model",
+  "modifications": "Kept one variant (industrial_caged_sconce_a) of the set, removed 10 other objects, re-centred on it; decimated to its 1,800-triangle budget; textures 512 px; 4,936 -> 1,800 triangles, 1 material (tools/blender/process_props.py).",
+  "retrieved": "2026-10-28",
+  "files": {
+    "industrial_caged_sconce.gltf": "77f35a23fed1e58a538c614790fb1dc44c1c3b45157c34f2616f753c83af33cb",
+    "industrial_caged_sconce.bin": "76321db68d619b166a36b65804445a54eceb96a975486cb6fec764a46dc34bc6"
+  },
+  "processed_from": "game/assets/thirdparty/polyhaven/models/industrial_caged_sconce/industrial_caged_sconce_1k.gltf"
+}

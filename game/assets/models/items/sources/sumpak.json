@@ -1,0 +1,21 @@
+{
+  "source": "Sketchfab (downloaded from the Objaverse mirror, allenai/objaverse on Hugging Face)",
+  "title": "Low-Poly Richardson Philippine Guerrilla Gun",
+  "url": "https://sketchfab.com/3d-models/452a7f15fbd642c5be6f85a23a327338",
+  "mirror_url": "https://huggingface.co/datasets/allenai/objaverse/resolve/main/glbs/000-046/452a7f15fbd642c5be6f85a23a327338.glb",
+  "authors": [
+    "Wolfosito"
+  ],
+  "author_url": "https://sketchfab.com/wtksmb",
+  "license": "CC-BY-4.0",
+  "license_url": "http://creativecommons.org/licenses/by/4.0/",
+  "attribution_required": true,
+  "kind": "model",
+  "purpose": "Philippine guerrilla gun (sumpak, alternative)",
+  "modifications": "Re-oriented (front along -Z in Godot), scaled to 0.950 m overall, centred, decimated 710 -> 710 triangles, textures reduced to 1024 px JPEG; moving parts kept as separate meshes: barrel (tools/blender/process_items.py).",
+  "retrieved": "2026-10-28",
+  "files": {
+    "sumpak.glb": ""
+  },
+  "processed_from": "tools/cache/sketchfab/shotgun_pipe_ph/shotgun_pipe_ph.glb"
+}

@@ -1,0 +1,26 @@
+{
+  "source": "Sketchfab (downloaded from the Objaverse mirror, allenai/objaverse on Hugging Face)",
+  "title": "Generic passenger car pack",
+  "url": "https://sketchfab.com/3d-models/20f9af9b8a404d5cb022ac6fe87f21f5",
+  "mirror_url": "https://huggingface.co/datasets/allenai/objaverse/resolve/main/glbs/000-102/20f9af9b8a404d5cb022ac6fe87f21f5.glb",
+  "authors": [
+    "Comrade1280"
+  ],
+  "author_url": "https://sketchfab.com/comrade1280",
+  "license": "CC-BY-4.0",
+  "license_url": "http://creativecommons.org/licenses/by/4.0/",
+  "attribution_required": true,
+  "kind": "model",
+  "purpose": "parked cars (generic passenger car pack)",
+  "modifications": "One car of the pack (SUV Body, 8 wheels) turned back to its own frame; scaled x1.019 to real size; front turned to +Z (Godot), origin at the floor centre; glass made dark and opaque (Glass_7); 4 materials packed into one 1024x1280 atlas; 7,950 -> 7,950 triangles, 1 material, 2.11 x 1.77 x 4.70 m (w x h x l) (tools/blender/process_r7.py).",
+  "retrieved": "2026-10-28",
+  "files": {
+    "car_suv.gltf": "5a0226d399fb65aa4ba6eb6295ad0a18bf27688d70789ba6be3d9b7b8fbc70ff",
+    "car_suv.bin": "0670813c1b8470fe0922de5984020ad42078cbc3dede8ae9eb7b1aa0d80a9219",
+    "textures/car_suv_atlas_diff.jpg": "d5a8750e59f0cbc403dafb882d3781d12c1690be2e103117c847a15f29da47a2",
+    "textures/car_suv_atlas_arm.jpg": "0189ece17ab02b2de994c9d168abdff8e472dc0397043b5df423bee8f9f5ebed",
+    "textures/car_suv_atlas_nor_gl.jpg": "fc580ab9414b42206afed05333477f6532ea3fa604984b1397dc2560600a9328"
+  },
+  "processed_from": "tools/cache/sketchfab/car_generic_pack/car_generic_pack.glb",
+  "prop": "car_suv"
+}

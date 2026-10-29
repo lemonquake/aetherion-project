@@ -1,0 +1,26 @@
+{
+  "source": "Sketchfab (downloaded from the Objaverse mirror, allenai/objaverse on Hugging Face)",
+  "title": "Generic passenger car pack",
+  "url": "https://sketchfab.com/3d-models/20f9af9b8a404d5cb022ac6fe87f21f5",
+  "mirror_url": "https://huggingface.co/datasets/allenai/objaverse/resolve/main/glbs/000-102/20f9af9b8a404d5cb022ac6fe87f21f5.glb",
+  "authors": [
+    "Comrade1280"
+  ],
+  "author_url": "https://sketchfab.com/comrade1280",
+  "license": "CC-BY-4.0",
+  "license_url": "http://creativecommons.org/licenses/by/4.0/",
+  "attribution_required": true,
+  "kind": "model",
+  "purpose": "parked cars (generic passenger car pack)",
+  "modifications": "One car of the pack (Pickup Body, 4 wheels) turned back to its own frame; scaled x1.023 to real size; front turned to +Z (Godot), origin at the floor centre; glass made dark and opaque (Glass_4); 4 materials packed into one 1024x1280 atlas; 6,917 -> 6,917 triangles, 1 material, 2.12 x 1.74 x 5.30 m (w x h x l) (tools/blender/process_r7.py).",
+  "retrieved": "2026-10-28",
+  "files": {
+    "car_pickup.gltf": "670deff9b0d1b8164f9de51be1a7d48ffc62bfcb33eabc837c22979c216a5238",
+    "car_pickup.bin": "6d74cfb50bb53b013782564de560b5e5bc29f166bbe80ccde8187497f4dbc802",
+    "textures/car_pickup_atlas_diff.jpg": "9c5f500d0238a656ae55f62a1022bfe13e1ad36b12cf80e8248816637fa41b60",
+    "textures/car_pickup_atlas_arm.jpg": "40ad842c17242ddc53f2c6c00b0095318a060db973762cfac9d1f3d171c79a6b",
+    "textures/car_pickup_atlas_nor_gl.jpg": "fc580ab9414b42206afed05333477f6532ea3fa604984b1397dc2560600a9328"
+  },
+  "processed_from": "tools/cache/sketchfab/car_generic_pack/car_generic_pack.glb",
+  "prop": "car_pickup"
+}

@@ -1,0 +1,19 @@
+{
+  "source": "Poly Haven",
+  "title": "Concrete Road Barrier 02",
+  "url": "https://polyhaven.com/a/concrete_road_barrier_02",
+  "authors": [
+    "Amal Kumar"
+  ],
+  "license": "CC0-1.0",
+  "license_url": "https://polyhaven.com/license",
+  "attribution_required": false,
+  "kind": "model",
+  "modifications": "Decimated to its 4,000-triangle budget; 23,822 -> 3,999 triangles, 1 material (tools/blender/process_props.py).",
+  "retrieved": "2026-10-28",
+  "files": {
+    "concrete_road_barrier_02.gltf": "f59ef0f886ed49ebc96b956ebaf3a2e1a11cf1a733c2e30488674a3685bd7bda",
+    "concrete_road_barrier_02.bin": "8b6d270cb95a2a895fadb527ba0e039c7e1a29bde6bc8697eb85734dc70d27aa"
+  },
+  "processed_from": "game/assets/thirdparty/polyhaven/models/concrete_road_barrier_02/concrete_road_barrier_02_1k.gltf"
+}

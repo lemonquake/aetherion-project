@@ -1,0 +1,26 @@
+{
+  "source": "Sketchfab (downloaded from the Objaverse mirror, allenai/objaverse on Hugging Face)",
+  "title": "Negotiator '80 - Low poly model",
+  "url": "https://sketchfab.com/3d-models/892b2684fb37442299bfad9222cf331c",
+  "mirror_url": "https://huggingface.co/datasets/allenai/objaverse/resolve/main/glbs/000-078/892b2684fb37442299bfad9222cf331c.glb",
+  "authors": [
+    "Daniel Zhabotinsky"
+  ],
+  "author_url": "https://sketchfab.com/DanielZhabotinsky",
+  "license": "CC-BY-4.0",
+  "license_url": "http://creativecommons.org/licenses/by/4.0/",
+  "attribution_required": true,
+  "kind": "model",
+  "purpose": "1980s saloon car",
+  "modifications": "Removed 15 source objects (Dashboard_GEN4DR, Doorcard_FL_GEN4DR, Doorcard_FR_GEN4DR, Doorcard_RL_GEN4DR, Doorcard_RR_GEN4DR, Engine_bay_UCB, Interior_GEN4DR, Rarview_mirror_GEN4DR, ...); scaled x0.02519 to real size; front turned to +Z (Godot), origin at the floor centre; reduced to its 8,000-triangle budget (15,293 -> 11,816 by merging and dissolving flat faces within UV islands, 7,999 after collapsing); glass made dark and opaque (Riverside88_lights_glass, UCB_GLASS_CLEAN); 7 materials packed into one 2048x1280 atlas; 15,293 -> 7,999 triangles, 1 material, 1.92 x 1.36 x 4.90 m (w x h x l) (tools/blender/process_r7.py).",
+  "retrieved": "2026-10-28",
+  "files": {
+    "car_sedan_80s.gltf": "6f27ae8267344f6fa93b12f8df966124b4bab2063dc6a6b55aa39b9a870e8223",
+    "car_sedan_80s.bin": "c0d08b31fb921ea469ae9aef272265733aebff0b1fb18d6647db6da241555ce3",
+    "textures/car_sedan_80s_atlas_diff.jpg": "2574155d830be785196369214e3aa9a8935b9ed1f0c01ef2c3cf58b62234593e",
+    "textures/car_sedan_80s_atlas_arm.jpg": "b5fdf71663262e6c53c8c2dd918da69896b1aa6b6abd4f8b3149538cb32b3b44",
+    "textures/car_sedan_80s_atlas_nor_gl.jpg": "058d7f343581a70e5ccda143d22f1a9b33873c894ea156c021e168fa8d5fc191"
+  },
+  "processed_from": "tools/cache/sketchfab/car_negotiator/car_negotiator.glb",
+  "prop": "car_sedan_80s"
+}

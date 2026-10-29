@@ -1,0 +1,21 @@
+{
+  "source": "Sketchfab (downloaded from the Objaverse mirror, allenai/objaverse on Hugging Face)",
+  "title": "Beretta 92 Fs",
+  "url": "https://sketchfab.com/3d-models/e529e0dc704f4f7fb47d632ac9aa7f1e",
+  "mirror_url": "https://huggingface.co/datasets/allenai/objaverse/resolve/main/glbs/000-145/e529e0dc704f4f7fb47d632ac9aa7f1e.glb",
+  "authors": [
+    "Ecler"
+  ],
+  "author_url": "https://sketchfab.com/ecler",
+  "license": "CC-BY-4.0",
+  "license_url": "http://creativecommons.org/licenses/by/4.0/",
+  "attribution_required": true,
+  "kind": "model",
+  "purpose": "9 mm service pistol (P92, alternative)",
+  "modifications": "Re-oriented (front along -Z in Godot), scaled to 0.217 m overall, centred, decimated 5953 -> 5953 triangles, textures reduced to 1024 px JPEG; moving parts kept as separate meshes: slide (tools/blender/process_items.py).",
+  "retrieved": "2026-10-28",
+  "files": {
+    "pistol_9.glb": ""
+  },
+  "processed_from": "tools/cache/sketchfab/pistol_92fs/pistol_92fs.glb"
+}

@@ -12,7 +12,7 @@
   "attribution_required": true,
   "kind": "model",
   "purpose": "Mini 14 5.56 marksman rifle",
-  "modifications": "Joined into one mesh, re-oriented (front along -Z in Godot), scaled to 0.950 m overall, centred, decimated 7874 -> 7874 triangles, textures reduced to 1024 px JPEG (tools/blender/process_items.py).",
+  "modifications": "Re-oriented (front along -Z in Godot), scaled to 0.950 m overall, centred, decimated 7874 -> 7874 triangles, textures reduced to 1024 px JPEG; moving parts kept as separate meshes: mag (tools/blender/process_items.py).",
   "retrieved": "2026-10-27",
   "files": {
     "dmr_mini14.glb": ""

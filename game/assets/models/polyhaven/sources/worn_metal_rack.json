@@ -1,0 +1,19 @@
+{
+  "source": "Poly Haven",
+  "title": "Worn Metal Rack",
+  "url": "https://polyhaven.com/a/worn_metal_rack",
+  "authors": [
+    "Luca B"
+  ],
+  "license": "CC0-1.0",
+  "license_url": "https://polyhaven.com/license",
+  "attribution_required": false,
+  "kind": "model",
+  "modifications": "Decimated to its 4,000-triangle budget; 6,372 -> 4,000 triangles, 1 material (tools/blender/process_props.py).",
+  "retrieved": "2026-10-28",
+  "files": {
+    "worn_metal_rack.gltf": "5fb3495df1e91dbef120824256b0f8f8a36b9ad9c00b3551614ee0f09cb37e1f",
+    "worn_metal_rack.bin": "fbadaab3ae809a792a4e4effe65ba43da1e3e2e32924019bfaa8d0070b04475b"
+  },
+  "processed_from": "game/assets/thirdparty/polyhaven/models/worn_metal_rack/worn_metal_rack_1k.gltf"
+}

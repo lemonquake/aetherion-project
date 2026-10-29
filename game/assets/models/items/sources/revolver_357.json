@@ -1,21 +1,21 @@
 {
   "source": "Sketchfab (downloaded from the Objaverse mirror, allenai/objaverse on Hugging Face)",
-  "title": "Revolver .357 Magnum",
-  "url": "https://sketchfab.com/3d-models/360c6276282e48109fcca66f31004d81",
-  "mirror_url": "https://huggingface.co/datasets/allenai/objaverse/resolve/main/glbs/000-118/360c6276282e48109fcca66f31004d81.glb",
+  "title": "Nagant M1895 Revolver",
+  "url": "https://sketchfab.com/3d-models/d8ce5431c53c4f32af9c82fbd2ffeac6",
+  "mirror_url": "https://huggingface.co/datasets/allenai/objaverse/resolve/main/glbs/000-141/d8ce5431c53c4f32af9c82fbd2ffeac6.glb",
   "authors": [
-    "Artem Goyko"
+    "SpatialNeglect"
   ],
-  "author_url": "https://sketchfab.com/Artem.Goyko",
+  "author_url": "https://sketchfab.com/jeandiz",
   "license": "CC-BY-4.0",
   "license_url": "http://creativecommons.org/licenses/by/4.0/",
   "attribution_required": true,
   "kind": "model",
-  "purpose": ".357 revolver",
-  "modifications": "Joined into one mesh, re-oriented (front along -Z in Godot), scaled to 0.290 m overall, centred, decimated 4825 -> 4825 triangles, textures reduced to 1024 px JPEG (tools/blender/process_items.py).",
-  "retrieved": "2026-10-25",
+  "purpose": "R1895 revolver",
+  "modifications": "Re-oriented (front along -Z in Godot), scaled to 0.235 m overall, centred, decimated 17902 -> 8999 triangles, textures reduced to 1024 px JPEG; moving parts kept as separate meshes: cylinder (tools/blender/process_items.py).",
+  "retrieved": "2026-10-28",
   "files": {
     "revolver_357.glb": ""
   },
-  "processed_from": "tools/cache/sketchfab/revolver_357/revolver_357.glb"
+  "processed_from": "tools/cache/sketchfab/revolver_nagant/revolver_nagant.glb"
 }

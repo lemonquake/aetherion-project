@@ -1,0 +1,26 @@
+{
+  "source": "Sketchfab (downloaded from the Objaverse mirror, allenai/objaverse on Hugging Face)",
+  "title": "Generic passenger car pack",
+  "url": "https://sketchfab.com/3d-models/20f9af9b8a404d5cb022ac6fe87f21f5",
+  "mirror_url": "https://huggingface.co/datasets/allenai/objaverse/resolve/main/glbs/000-102/20f9af9b8a404d5cb022ac6fe87f21f5.glb",
+  "authors": [
+    "Comrade1280"
+  ],
+  "author_url": "https://sketchfab.com/comrade1280",
+  "license": "CC-BY-4.0",
+  "license_url": "http://creativecommons.org/licenses/by/4.0/",
+  "attribution_required": true,
+  "kind": "model",
+  "purpose": "parked cars (generic passenger car pack)",
+  "modifications": "One car of the pack (Wagon Body, 4 wheels) turned back to its own frame; scaled x1.072 to real size; front turned to +Z (Godot), origin at the floor centre; glass made dark and opaque (Glass_8); 4 materials packed into one 1024x1280 atlas (2 tiling UV corners clamped); 6,982 -> 6,982 triangles, 1 material, 2.09 x 1.48 x 4.70 m (w x h x l) (tools/blender/process_r7.py).",
+  "retrieved": "2026-10-28",
+  "files": {
+    "car_wagon.gltf": "ac2d582df0dc9dc4b396bd9bd580e64c873cc01e502b6d7b25f6c706eb7490b2",
+    "car_wagon.bin": "481626fd17a9fe6bc747ed96c1955210ca14c5476d80a725e93d736cb1c7ba71",
+    "textures/car_wagon_atlas_diff.jpg": "619fce3f79f081c0b83801ab65950a22e66d95e46cbf773b2f2006abe566b0d5",
+    "textures/car_wagon_atlas_arm.jpg": "2da76b061f99d3ec6510ba78bd5686739d289e8bbde000e9b41747bbebaaec86",
+    "textures/car_wagon_atlas_nor_gl.jpg": "fc580ab9414b42206afed05333477f6532ea3fa604984b1397dc2560600a9328"
+  },
+  "processed_from": "tools/cache/sketchfab/car_generic_pack/car_generic_pack.glb",
+  "prop": "car_wagon"
+}

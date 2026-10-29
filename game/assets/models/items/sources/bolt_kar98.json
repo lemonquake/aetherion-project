@@ -12,7 +12,7 @@
   "attribution_required": true,
   "kind": "model",
   "purpose": "Kar98k bolt-action rifle",
-  "modifications": "Joined into one mesh, re-oriented (front along -Z in Godot), scaled to 1.110 m overall, centred, decimated 10699 -> 9999 triangles, textures reduced to 1024 px JPEG (tools/blender/process_items.py).",
+  "modifications": "Re-oriented (front along -Z in Godot), scaled to 1.110 m overall, centred, decimated 10699 -> 9998 triangles, textures reduced to 1024 px JPEG; moving parts kept as separate meshes: bolt (tools/blender/process_items.py).",
   "retrieved": "2026-10-27",
   "files": {
     "bolt_kar98.glb": ""

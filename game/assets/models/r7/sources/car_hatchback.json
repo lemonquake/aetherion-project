@@ -1,0 +1,26 @@
+{
+  "source": "Sketchfab (downloaded from the Objaverse mirror, allenai/objaverse on Hugging Face)",
+  "title": "Generic passenger car pack",
+  "url": "https://sketchfab.com/3d-models/20f9af9b8a404d5cb022ac6fe87f21f5",
+  "mirror_url": "https://huggingface.co/datasets/allenai/objaverse/resolve/main/glbs/000-102/20f9af9b8a404d5cb022ac6fe87f21f5.glb",
+  "authors": [
+    "Comrade1280"
+  ],
+  "author_url": "https://sketchfab.com/comrade1280",
+  "license": "CC-BY-4.0",
+  "license_url": "http://creativecommons.org/licenses/by/4.0/",
+  "attribution_required": true,
+  "kind": "model",
+  "purpose": "parked cars (generic passenger car pack)",
+  "modifications": "One car of the pack (Hatchback Body, 4 wheels) turned back to its own frame; scaled x1.036 to real size; front turned to +Z (Godot), origin at the floor centre; glass made dark and opaque (Glass_1); 4 materials packed into one 1024x1280 atlas; 6,808 -> 6,808 triangles, 1 material, 1.80 x 1.40 x 4.10 m (w x h x l) (tools/blender/process_r7.py).",
+  "retrieved": "2026-10-28",
+  "files": {
+    "car_hatchback.gltf": "e77f423c5dde81937126b8160d0bb1af877d640fa5fe670ab382f3ed013c1ab3",
+    "car_hatchback.bin": "0400ea9cb9a2e13aac071ff0211e8c5b7dfc2e85a869717c05d745bb72edd864",
+    "textures/car_hatchback_atlas_diff.jpg": "3a94946cbe2dbde7dfba5f3c5e89333d83a1771cdcf64e4e826c79cb831075ba",
+    "textures/car_hatchback_atlas_arm.jpg": "d95a25b98e8f79e99c84f53e82d80b345dcea13b70cdce96e98dc15c2a164c18",
+    "textures/car_hatchback_atlas_nor_gl.jpg": "fc580ab9414b42206afed05333477f6532ea3fa604984b1397dc2560600a9328"
+  },
+  "processed_from": "tools/cache/sketchfab/car_generic_pack/car_generic_pack.glb",
+  "prop": "car_hatchback"
+}

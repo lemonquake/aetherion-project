@@ -1,0 +1,19 @@
+{
+  "source": "Poly Haven",
+  "title": "Modern Wooden Cabinet",
+  "url": "https://polyhaven.com/a/modern_wooden_cabinet",
+  "authors": [
+    "Patrik Pangerl"
+  ],
+  "license": "CC0-1.0",
+  "license_url": "https://polyhaven.com/license",
+  "attribution_required": false,
+  "kind": "model",
+  "modifications": "Decimated to its 4,000-triangle budget; 24,976 -> 4,000 triangles, 1 material (tools/blender/process_props.py).",
+  "retrieved": "2026-10-28",
+  "files": {
+    "modern_wooden_cabinet.gltf": "e36f5448756c2f7f46ba7db51de6107384f7439e2e52be5d94eb95ff1576287d",
+    "modern_wooden_cabinet.bin": "82a9d50661bf57cc53b6fde1cbdfa7160a9b887f8ebd5293e0a63b7a016cbc78"
+  },
+  "processed_from": "game/assets/thirdparty/polyhaven/models/modern_wooden_cabinet/modern_wooden_cabinet_1k.gltf"
+}

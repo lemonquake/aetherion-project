@@ -1,0 +1,26 @@
+{
+  "source": "Sketchfab (downloaded from the Objaverse mirror, allenai/objaverse on Hugging Face)",
+  "title": "Refrigerator Display .Blend FREE Low Poly",
+  "url": "https://sketchfab.com/3d-models/752942069dcf4969a43af1e4fa9c4b4d",
+  "mirror_url": "https://huggingface.co/datasets/allenai/objaverse/resolve/main/glbs/000-052/752942069dcf4969a43af1e4fa9c4b4d.glb",
+  "authors": [
+    "Lady Lion Studios"
+  ],
+  "author_url": "https://sketchfab.com/LadyLionStudios",
+  "license": "CC-BY-4.0",
+  "license_url": "http://creativecommons.org/licenses/by/4.0/",
+  "attribution_required": true,
+  "kind": "model",
+  "purpose": "store chiller with glass doors",
+  "modifications": "Removed 1 source objects (Object_8); scaled x0.007744 to real size; front turned to +Z (Godot), origin at the floor centre; reduced to its 4,000-triangle budget (16,744 -> 13,676 by merging and dissolving flat faces within UV islands, 4,000 after collapsing); glass made dark and opaque (RefrigeratorDisplayWindowsTEX); 2 materials packed into one 1024x1280 atlas; 16,744 -> 4,000 triangles, 1 material, 0.64 x 1.30 x 0.65 m (w x h x l) (tools/blender/process_r7.py).",
+  "retrieved": "2026-10-28",
+  "files": {
+    "store_display_case.gltf": "4e537f50b53ec088b594489b0c5d5e07040aa1640c295e331a5de53cc7aeee7b",
+    "store_display_case.bin": "750f9fc518fa33aa7bc635e7eb76870d2768c38a484d07f2c58ab768dcf3c042",
+    "textures/store_display_case_atlas_diff.jpg": "a08edaa78ea3eedc92c5206423ae392c710828856ebcc43f1289e778036da00f",
+    "textures/store_display_case_atlas_arm.jpg": "224443ebb2ca0e4168efe3a47910bd5d02cf13730bdf92638232aff58710f011",
+    "textures/store_display_case_atlas_nor_gl.jpg": "fc580ab9414b42206afed05333477f6532ea3fa604984b1397dc2560600a9328"
+  },
+  "processed_from": "tools/cache/sketchfab/fridge_display/fridge_display.glb",
+  "prop": "store_display_case"
+}

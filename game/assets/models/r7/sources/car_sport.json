@@ -1,0 +1,26 @@
+{
+  "source": "Sketchfab (downloaded from the Objaverse mirror, allenai/objaverse on Hugging Face)",
+  "title": "Generic passenger car pack",
+  "url": "https://sketchfab.com/3d-models/20f9af9b8a404d5cb022ac6fe87f21f5",
+  "mirror_url": "https://huggingface.co/datasets/allenai/objaverse/resolve/main/glbs/000-102/20f9af9b8a404d5cb022ac6fe87f21f5.glb",
+  "authors": [
+    "Comrade1280"
+  ],
+  "author_url": "https://sketchfab.com/comrade1280",
+  "license": "CC-BY-4.0",
+  "license_url": "http://creativecommons.org/licenses/by/4.0/",
+  "attribution_required": true,
+  "kind": "model",
+  "purpose": "parked cars (generic passenger car pack)",
+  "modifications": "One car of the pack (Sport body, 4 wheels) turned back to its own frame; scaled x1.125 to real size; front turned to +Z (Godot), origin at the floor centre; glass made dark and opaque (Glass_6); 4 materials packed into one 2048x1280 atlas (4 tiling UV corners clamped); 6,268 -> 6,268 triangles, 1 material, 1.99 x 1.17 x 4.40 m (w x h x l) (tools/blender/process_r7.py).",
+  "retrieved": "2026-10-28",
+  "files": {
+    "car_sport.gltf": "3b6c5cb2327bf440aeaf4272c49668deef8c06e1af44160d682f3d33a311d7de",
+    "car_sport.bin": "04a81f3d123d61e8976d37eacafd0507d8cf673bd3d07baa60860bff4b5e25fa",
+    "textures/car_sport_atlas_diff.jpg": "68d0dbe4e973a873f9c5145e2c11002dd0a7851512db8f3d2077862e1924dc99",
+    "textures/car_sport_atlas_arm.jpg": "7d961b5a0b7afeed57751df19c94f5fe657b163f7ce1c1f06d0529fabde14e36",
+    "textures/car_sport_atlas_nor_gl.jpg": "71a81bb2c0b4fb4203f22a8076fddbf9625e81a54a07e108094a3cf3fd180d84"
+  },
+  "processed_from": "tools/cache/sketchfab/car_generic_pack/car_generic_pack.glb",
+  "prop": "car_sport"
+}

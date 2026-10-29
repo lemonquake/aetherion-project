@@ -1,0 +1,19 @@
+{
+  "source": "Poly Haven",
+  "title": "Coffee Table 01",
+  "url": "https://polyhaven.com/a/CoffeeTable_01",
+  "authors": [
+    "Fernando Quinn"
+  ],
+  "license": "CC0-1.0",
+  "license_url": "https://polyhaven.com/license",
+  "attribution_required": false,
+  "kind": "model",
+  "modifications": "Decimated to its 4,000-triangle budget; 10,404 -> 4,000 triangles, 1 material (tools/blender/process_props.py).",
+  "retrieved": "2026-10-28",
+  "files": {
+    "CoffeeTable_01.gltf": "a4d13576d0d1092025416e38dd5152d2affddaf53da4a10b3c96eb8bf0dfd450",
+    "CoffeeTable_01.bin": "4565c266c4160436e707c504ee7f4daf52c8b7fd20fe68e986c25b869ca99c00"
+  },
+  "processed_from": "game/assets/thirdparty/polyhaven/models/CoffeeTable_01/CoffeeTable_01_1k.gltf"
+}

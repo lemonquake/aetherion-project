@@ -1,0 +1,21 @@
+{
+  "source": "Sketchfab (downloaded from the Objaverse mirror, allenai/objaverse on Hugging Face)",
+  "title": "12 Gauge Double Barrel Shotgun [Custom]",
+  "url": "https://sketchfab.com/3d-models/1e03c51ebc454aeba36ba1c575cff067",
+  "mirror_url": "https://huggingface.co/datasets/allenai/objaverse/resolve/main/glbs/000-130/1e03c51ebc454aeba36ba1c575cff067.glb",
+  "authors": [
+    "SchrisArt"
+  ],
+  "author_url": "https://sketchfab.com/SchrisArt",
+  "license": "CC-BY-4.0",
+  "license_url": "http://creativecommons.org/licenses/by/4.0/",
+  "attribution_required": true,
+  "kind": "model",
+  "purpose": "double-barrel shotgun (S686 alternative)",
+  "modifications": "Re-oriented (front along -Z in Godot), scaled to 1.050 m overall, centred, decimated 6088 -> 6088 triangles, textures reduced to 1024 px JPEG; moving parts kept as separate meshes: barrel (tools/blender/process_items.py).",
+  "retrieved": "2026-10-28",
+  "files": {
+    "shotgun_double.glb": ""
+  },
+  "processed_from": "tools/cache/sketchfab/shotgun_db_schris/shotgun_db_schris.glb"
+}

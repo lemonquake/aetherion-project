@@ -1,0 +1,26 @@
+{
+  "source": "Sketchfab (downloaded from the Objaverse mirror, allenai/objaverse on Hugging Face)",
+  "title": "Low poly Forklift Truck",
+  "url": "https://sketchfab.com/3d-models/81b895de490646de8c6fb1ba03099e08",
+  "mirror_url": "https://huggingface.co/datasets/allenai/objaverse/resolve/main/glbs/000-051/81b895de490646de8c6fb1ba03099e08.glb",
+  "authors": [
+    "Kolos Studios"
+  ],
+  "author_url": "https://sketchfab.com/KolosStudios",
+  "license": "CC-BY-4.0",
+  "license_url": "http://creativecommons.org/licenses/by/4.0/",
+  "attribution_required": true,
+  "kind": "model",
+  "purpose": "factory forklift",
+  "modifications": "Scaled x0.01427 to real size; front turned to +Z (Godot), origin at the floor centre; UVs added (flat colours); 4 materials packed into one 512x320 atlas; 1,590 -> 1,590 triangles, 1 material, 1.21 x 2.03 x 3.30 m (w x h x l) (tools/blender/process_r7.py).",
+  "retrieved": "2026-10-28",
+  "files": {
+    "forklift_a.gltf": "51e642b1d8f479bdf54d1519a80ae61875d791965b2d3ff23e4a37d29c6f35e6",
+    "forklift_a.bin": "838c212935d0fd61e4618682190ec4d9b7427f37d56d9d5fa334d23acb2d7ef8",
+    "textures/forklift_a_atlas_diff.jpg": "48ca210000f3f2cbf784ee99d8fc8c1c8e3066e473fec9797a739a45aa0f7fb9",
+    "textures/forklift_a_atlas_arm.jpg": "3b4063f99c2dff127ced7743e3d8c862f763fc2daf190dcd391bff8dcb50bc31",
+    "textures/forklift_a_atlas_nor_gl.jpg": "d2b2c81e472503eb7969af94712b86e948cd7041968de86ceee00ff50f70ad2b"
+  },
+  "processed_from": "tools/cache/sketchfab/forklift/forklift.glb",
+  "prop": "forklift_a"
+}

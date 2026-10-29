@@ -1,0 +1,19 @@
+{
+  "source": "Poly Haven",
+  "title": "Potted Plant 01",
+  "url": "https://polyhaven.com/a/potted_plant_01",
+  "authors": [
+    "Rico Cilliers"
+  ],
+  "license": "CC0-1.0",
+  "license_url": "https://polyhaven.com/license",
+  "attribution_required": false,
+  "kind": "model",
+  "modifications": "Leaves: 232 modelled leaves (106900 triangles) -> 232 two-triangle leaves enlarged 1.3x; trunk: 69326 -> 1399 triangles; 2 materials packed into one 2048x1024 atlas; blend / transmission dropped, opaque (potted_plant_01_leaves); 176,226 -> 1,863 triangles, 1 material (tools/blender/process_props.py).",
+  "retrieved": "2026-10-28",
+  "files": {
+    "potted_plant_01.gltf": "111a2f3fd7365aed501c907decfee61b64810aefc8632955be0103ec8f04b1f1",
+    "potted_plant_01.bin": "1f234d09501eacb27f7374b64efbbe510f3d4c57086335cd88ace457d84903a3"
+  },
+  "processed_from": "game/assets/thirdparty/polyhaven/models/potted_plant_01/potted_plant_01_1k.gltf"
+}

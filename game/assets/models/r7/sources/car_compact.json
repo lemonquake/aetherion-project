@@ -1,0 +1,26 @@
+{
+  "source": "Sketchfab (downloaded from the Objaverse mirror, allenai/objaverse on Hugging Face)",
+  "title": "Generic passenger car pack",
+  "url": "https://sketchfab.com/3d-models/20f9af9b8a404d5cb022ac6fe87f21f5",
+  "mirror_url": "https://huggingface.co/datasets/allenai/objaverse/resolve/main/glbs/000-102/20f9af9b8a404d5cb022ac6fe87f21f5.glb",
+  "authors": [
+    "Comrade1280"
+  ],
+  "author_url": "https://sketchfab.com/comrade1280",
+  "license": "CC-BY-4.0",
+  "license_url": "http://creativecommons.org/licenses/by/4.0/",
+  "attribution_required": true,
+  "kind": "model",
+  "purpose": "parked cars (generic passenger car pack)",
+  "modifications": "One car of the pack (Compact Body, 4 wheels) turned back to its own frame; scaled x1.197 to real size; front turned to +Z (Godot), origin at the floor centre; glass made dark and opaque (Glass); 4 materials packed into one 1024x1280 atlas; 7,257 -> 7,257 triangles, 1 material, 1.92 x 1.57 x 3.90 m (w x h x l) (tools/blender/process_r7.py).",
+  "retrieved": "2026-10-28",
+  "files": {
+    "car_compact.gltf": "ec2e913b5313913e9bf9ae6976f28a2d2aeac94f2806b9d3ae68f7a033623ad4",
+    "car_compact.bin": "ae5b11306591c496b96d03e0d2212b859c804fddb371696e45ec9329c8ef72a8",
+    "textures/car_compact_atlas_diff.jpg": "c757ea965f2e5fcdeae8d9f904c483bb1057846f85b309180a563b0e972d7771",
+    "textures/car_compact_atlas_arm.jpg": "bbc8b7cfce1f373f7496401cb97a3887702b2e84a2ea060420ff2fe9abb480f0",
+    "textures/car_compact_atlas_nor_gl.jpg": "fc580ab9414b42206afed05333477f6532ea3fa604984b1397dc2560600a9328"
+  },
+  "processed_from": "tools/cache/sketchfab/car_generic_pack/car_generic_pack.glb",
+  "prop": "car_compact"
+}

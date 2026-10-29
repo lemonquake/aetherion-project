@@ -1,0 +1,26 @@
+{
+  "source": "Sketchfab (downloaded from the Objaverse mirror, allenai/objaverse on Hugging Face)",
+  "title": "Chemical tank",
+  "url": "https://sketchfab.com/3d-models/63c001e74ff5402fbcf1338479c9c0c5",
+  "mirror_url": "https://huggingface.co/datasets/allenai/objaverse/resolve/main/glbs/000-056/63c001e74ff5402fbcf1338479c9c0c5.glb",
+  "authors": [
+    "Mkc"
+  ],
+  "author_url": "https://sketchfab.com/ixMkc1",
+  "license": "CC-BY-4.0",
+  "license_url": "http://creativecommons.org/licenses/by/4.0/",
+  "attribution_required": true,
+  "kind": "model",
+  "purpose": "factory storage tank",
+  "modifications": "Scaled x0.9846 to real size; front turned to +Z (Godot), origin at the floor centre; 1024 px textures; 8,693 -> 8,693 triangles, 1 material, 2.70 x 5.60 x 6.12 m (w x h x l) (tools/blender/process_r7.py).",
+  "retrieved": "2026-10-28",
+  "files": {
+    "chem_tanks.gltf": "3bedf8ff58e436cb8ea8a870cfafebcf285c0629f6e2c4715bc3100f29f9692a",
+    "chem_tanks.bin": "e45fb71d56a36d60099a76c1af4bdb0d2d235dbd185621c2e764f46db8201148",
+    "textures/chem_tanks_diff.jpg": "fabe7ed7e0000ec428c1f341181aa5280fa1594e3f6bec60ad0df2d1acdd73ca",
+    "textures/chem_tanks_arm.jpg": "f47e0ef0536fb48540595a29c1898a671aa996b6f538ea172c72daa8e84699af",
+    "textures/chem_tanks_nor_gl.jpg": "ccf37c515119c9099d6a12b4104581d81869c34adbcffcde696ad53acc74aee4"
+  },
+  "processed_from": "tools/cache/sketchfab/chemical_tank/chemical_tank.glb",
+  "prop": "chem_tanks"
+}

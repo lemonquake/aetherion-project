@@ -1,0 +1,26 @@
+{
+  "source": "Sketchfab (downloaded from the Objaverse mirror, allenai/objaverse on Hugging Face)",
+  "title": "Generic passenger car pack",
+  "url": "https://sketchfab.com/3d-models/20f9af9b8a404d5cb022ac6fe87f21f5",
+  "mirror_url": "https://huggingface.co/datasets/allenai/objaverse/resolve/main/glbs/000-102/20f9af9b8a404d5cb022ac6fe87f21f5.glb",
+  "authors": [
+    "Comrade1280"
+  ],
+  "author_url": "https://sketchfab.com/comrade1280",
+  "license": "CC-BY-4.0",
+  "license_url": "http://creativecommons.org/licenses/by/4.0/",
+  "attribution_required": true,
+  "kind": "model",
+  "purpose": "parked cars (generic passenger car pack)",
+  "modifications": "One car of the pack (Offroad Body, 4 wheels) turned back to its own frame; scaled x1.117 to real size; front turned to +Z (Godot), origin at the floor centre; glass made dark and opaque (Glass_3); 4 materials packed into one 2048x1280 atlas; 6,502 -> 6,502 triangles, 1 material, 2.19 x 1.75 x 4.40 m (w x h x l) (tools/blender/process_r7.py).",
+  "retrieved": "2026-10-28",
+  "files": {
+    "car_offroad.gltf": "d2479cc85d0373be8fbce3277011e1e4e54337eb567a266f80fb33c8cd8f9e14",
+    "car_offroad.bin": "44d1c572681f1516f648c321e4fb6df42260027d61aba14525fd9cdcd2b00d63",
+    "textures/car_offroad_atlas_diff.jpg": "2bac1b9c50d5f8a054e78fa6121e03789da7acb5b776a358c58270a9f6eace40",
+    "textures/car_offroad_atlas_arm.jpg": "c8ea0e57348108e225e427b9def93a007ad9c60ef5ec74329a32c30bd151bbe0",
+    "textures/car_offroad_atlas_nor_gl.jpg": "71a81bb2c0b4fb4203f22a8076fddbf9625e81a54a07e108094a3cf3fd180d84"
+  },
+  "processed_from": "tools/cache/sketchfab/car_generic_pack/car_generic_pack.glb",
+  "prop": "car_offroad"
+}

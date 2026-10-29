@@ -1,0 +1,19 @@
+{
+  "source": "Poly Haven",
+  "title": "Side Table 01",
+  "url": "https://polyhaven.com/a/side_table_01",
+  "authors": [
+    "James Ray Cock"
+  ],
+  "license": "CC0-1.0",
+  "license_url": "https://polyhaven.com/license",
+  "attribution_required": false,
+  "kind": "model",
+  "modifications": "Decimated to its 1,800-triangle budget; 2,756 -> 1,800 triangles, 1 material (tools/blender/process_props.py).",
+  "retrieved": "2026-10-28",
+  "files": {
+    "side_table_01.gltf": "725c00159ec88fdcf8a8b687b1d8329e4fddc460a878216efcc2ab0e2993c88f",
+    "side_table_01.bin": "84520be66782c39821e0b8ec6004544fc11472bf86c7c1dc0b4176eca236f862"
+  },
+  "processed_from": "game/assets/thirdparty/polyhaven/models/side_table_01/side_table_01_1k.gltf"
+}

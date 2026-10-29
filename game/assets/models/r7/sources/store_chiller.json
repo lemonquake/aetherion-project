@@ -1,0 +1,26 @@
+{
+  "source": "Sketchfab (downloaded from the Objaverse mirror, allenai/objaverse on Hugging Face)",
+  "title": "Display Case for Groceries",
+  "url": "https://sketchfab.com/3d-models/2b777f898a3d4ee9bf124390f0440b31",
+  "mirror_url": "https://huggingface.co/datasets/allenai/objaverse/resolve/main/glbs/000-053/2b777f898a3d4ee9bf124390f0440b31.glb",
+  "authors": [
+    "Kirill Chechin"
+  ],
+  "author_url": "https://sketchfab.com/k.che4in",
+  "license": "CC-BY-4.0",
+  "license_url": "http://creativecommons.org/licenses/by/4.0/",
+  "attribution_required": true,
+  "kind": "model",
+  "purpose": "grocery display case",
+  "modifications": "Scaled x0.979 to real size; front turned to +Z (Godot), origin at the floor centre; reduced to its 2,000-triangle budget (4,486 -> 3,235 by merging and dissolving flat faces within UV islands, 2,000 after collapsing); 1024 px textures; 4,486 -> 2,000 triangles, 1 material, 1.30 x 2.00 x 0.69 m (w x h x l) (tools/blender/process_r7.py).",
+  "retrieved": "2026-10-28",
+  "files": {
+    "store_chiller.gltf": "dcbeefdf8f1fcd1487bdd7ba1a3e681c4f273b8ab033963f8028054083425533",
+    "store_chiller.bin": "308c0c594b37463270331a00bf23e32ab29edaa80290e4280dec56dbb6b7ffd2",
+    "textures/store_chiller_diff.jpg": "539c753f395169c63f0b3213f8bd9081bd6931878d68f7774b2c5c3e16ace849",
+    "textures/store_chiller_arm.jpg": "e6207771613a5a43da47b70e380e5450d6492a5b6420db21b46eacc2676a8935",
+    "textures/store_chiller_nor_gl.jpg": "fd01a479f25a10661864ec2a8cc4af1ab9e8fa4775bda24386acdbece938a61c"
+  },
+  "processed_from": "tools/cache/sketchfab/grocery_case/grocery_case.glb",
+  "prop": "store_chiller"
+}

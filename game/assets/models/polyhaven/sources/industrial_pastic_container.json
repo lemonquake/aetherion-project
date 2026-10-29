@@ -1,0 +1,19 @@
+{
+  "source": "Poly Haven",
+  "title": "Industrial Plastic Container",
+  "url": "https://polyhaven.com/a/industrial_pastic_container",
+  "authors": [
+    "Galo Benivegna"
+  ],
+  "license": "CC0-1.0",
+  "license_url": "https://polyhaven.com/license",
+  "attribution_required": false,
+  "kind": "model",
+  "modifications": "Decimated to its 3,000-triangle budget; 7,118 -> 3,000 triangles, 1 material (tools/blender/process_props.py).",
+  "retrieved": "2026-10-28",
+  "files": {
+    "industrial_pastic_container.gltf": "37dd14808848c949680fc12cdb2b0e60e064df0a3632d52ec45b5aedb656d7a7",
+    "industrial_pastic_container.bin": "650fd8955a03e58fe5aaa7a3f97bbb1fc12ea8fb2ab935b8987e94d7f7c5f70c"
+  },
+  "processed_from": "game/assets/thirdparty/polyhaven/models/industrial_pastic_container/industrial_pastic_container_1k.gltf"
+}

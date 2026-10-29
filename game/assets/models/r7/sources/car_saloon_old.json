@@ -1,0 +1,26 @@
+{
+  "source": "Sketchfab (downloaded from the Objaverse mirror, allenai/objaverse on Hugging Face)",
+  "title": "Toyota Corola",
+  "url": "https://sketchfab.com/3d-models/aab1b90a73f7416890c31a8927cc5038",
+  "mirror_url": "https://huggingface.co/datasets/allenai/objaverse/resolve/main/glbs/000-021/aab1b90a73f7416890c31a8927cc5038.glb",
+  "authors": [
+    "danieljorge435"
+  ],
+  "author_url": "https://sketchfab.com/danieljorge435",
+  "license": "CC-BY-4.0",
+  "license_url": "http://creativecommons.org/licenses/by/4.0/",
+  "attribution_required": true,
+  "kind": "model",
+  "purpose": "old saloon car",
+  "modifications": "Scaled x0.104 to real size; front turned to +Z (Godot), origin at the floor centre; 4 materials packed into one 2048x1280 atlas; 4,106 -> 4,106 triangles, 1 material, 2.06 x 1.45 x 4.30 m (w x h x l) (tools/blender/process_r7.py).",
+  "retrieved": "2026-10-28",
+  "files": {
+    "car_saloon_old.gltf": "562ca0a1ee4ffd28259b0df7975529f72d39b6f2f4dba2e679b812649e1ed78a",
+    "car_saloon_old.bin": "bd337922b1b1d11b4ec0873985f52eb53d5f692cfb05da974374b7dcac3237fe",
+    "textures/car_saloon_old_atlas_diff.jpg": "6258d5a868cea35039daa608cc07449950108f055ed622329c289539fe622841",
+    "textures/car_saloon_old_atlas_arm.jpg": "7b07dd4a40e0482778c6174e8790450e7e1ad01194871ab1ad5fcd131a2d3319",
+    "textures/car_saloon_old_atlas_nor_gl.jpg": "71a81bb2c0b4fb4203f22a8076fddbf9625e81a54a07e108094a3cf3fd180d84"
+  },
+  "processed_from": "tools/cache/sketchfab/car_corolla/car_corolla.glb",
+  "prop": "car_saloon_old"
+}

@@ -1,0 +1,19 @@
+{
+  "source": "Poly Haven",
+  "title": "Korean Public Payphone 01",
+  "url": "https://polyhaven.com/a/korean_public_payphone_01",
+  "authors": [
+    "UM JOORIN"
+  ],
+  "license": "CC0-1.0",
+  "license_url": "https://polyhaven.com/license",
+  "attribution_required": false,
+  "kind": "model",
+  "modifications": "Decimated to its 3,000-triangle budget; 48,132 -> 3,000 triangles, 1 material (tools/blender/process_props.py).",
+  "retrieved": "2026-10-28",
+  "files": {
+    "korean_public_payphone_01.gltf": "55f1c2971b634826756db22b997e7934860ee5b5f70c57449f74d383756f59d9",
+    "korean_public_payphone_01.bin": "3de56202018c05b6aced1723e4cf64572031cfa4e66bb1ed501b8ed301323f57"
+  },
+  "processed_from": "game/assets/thirdparty/polyhaven/models/korean_public_payphone_01/korean_public_payphone_01_1k.gltf"
+}

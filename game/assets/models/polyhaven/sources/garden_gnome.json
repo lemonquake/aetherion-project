@@ -1,0 +1,19 @@
+{
+  "source": "Poly Haven",
+  "title": "Garden Gnome",
+  "url": "https://polyhaven.com/a/garden_gnome",
+  "authors": [
+    "Bhargav Kubal"
+  ],
+  "license": "CC0-1.0",
+  "license_url": "https://polyhaven.com/license",
+  "attribution_required": false,
+  "kind": "model",
+  "modifications": "Decimated to its 1,800-triangle budget; 28,858 -> 1,800 triangles, 1 material (tools/blender/process_props.py).",
+  "retrieved": "2026-10-28",
+  "files": {
+    "garden_gnome.gltf": "f61498a0fbcea672014c75bdd63cc1a802ed510dd6b671b301f2da487728e256",
+    "garden_gnome.bin": "7e8764b3cff6d21b1642d79461c2bd4c38682b5faee115803fec994f16532725"
+  },
+  "processed_from": "game/assets/thirdparty/polyhaven/models/garden_gnome/garden_gnome_1k.gltf"
+}

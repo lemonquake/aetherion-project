@@ -1,0 +1,26 @@
+{
+  "source": "Sketchfab (downloaded from the Objaverse mirror, allenai/objaverse on Hugging Face)",
+  "title": "Free Burned Police Cars",
+  "url": "https://sketchfab.com/3d-models/ad16f7085cb047b494997cf9efed5059",
+  "mirror_url": "https://huggingface.co/datasets/allenai/objaverse/resolve/main/glbs/000-048/ad16f7085cb047b494997cf9efed5059.glb",
+  "authors": [
+    "Renafox"
+  ],
+  "author_url": "https://sketchfab.com/kryik1023",
+  "license": "CC-BY-4.0",
+  "license_url": "http://creativecommons.org/licenses/by/4.0/",
+  "attribution_required": true,
+  "kind": "model",
+  "purpose": "burnt police cars",
+  "modifications": "Removed 1 source objects (Object005); straightened by -14.6 deg (the source sits askew in its frame); scaled x0.008295 to real size; front turned to +Z (Godot), origin at the floor centre; reduced to its 8,000-triangle budget (11,229 -> 10,779 by merging and dissolving flat faces within UV islands, 7,999 after collapsing); 1024 px textures; 11,229 -> 7,999 triangles, 1 material, 1.94 x 1.27 x 4.80 m (w x h x l) (tools/blender/process_r7.py).",
+  "retrieved": "2026-10-28",
+  "files": {
+    "car_police_burnt.gltf": "8a66aa7b1bfd54f9422a190684b10b400e4cb73b69959bf94fc0d3764f9f4069",
+    "car_police_burnt.bin": "a15d100a8f7df681e3d9db18e9d0a59fae8b3392916e966362bbd000625f4c68",
+    "textures/car_police_burnt_diff.jpg": "5a5f1e02c4ba76a56a654ac25ec977bb8d7486af41e9043d330ed934336f911a",
+    "textures/car_police_burnt_arm.jpg": "f5cc2b8a0cc0ed9efd70760d37676f461af55afc77d813f20ad4e3d2ddf17467",
+    "textures/car_police_burnt_nor_gl.jpg": "1b16a79918c77da62ab769338046beecc0f559f95fc4b72e38bcf18fa401deb0"
+  },
+  "processed_from": "tools/cache/sketchfab/car_police_burned/car_police_burned.glb",
+  "prop": "car_police_burnt"
+}

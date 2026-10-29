@@ -1,0 +1,26 @@
+{
+  "source": "Sketchfab (downloaded from the Objaverse mirror, allenai/objaverse on Hugging Face)",
+  "title": "Forklift low poly",
+  "url": "https://sketchfab.com/3d-models/8ab650b3982243f8b661142de50f79c9",
+  "mirror_url": "https://huggingface.co/datasets/allenai/objaverse/resolve/main/glbs/000-149/8ab650b3982243f8b661142de50f79c9.glb",
+  "authors": [
+    "Ricardo Sanchez"
+  ],
+  "author_url": "https://sketchfab.com/380660711785",
+  "license": "CC-BY-4.0",
+  "license_url": "http://creativecommons.org/licenses/by/4.0/",
+  "attribution_required": true,
+  "kind": "model",
+  "purpose": "factory forklift (alternative)",
+  "modifications": "Scaled x0.008893 to real size; front turned to +Z (Godot), origin at the floor centre; reduced to its 4,000-triangle budget (4,426 -> 4,272 by merging and dissolving flat faces within UV islands, 4,000 after collapsing); 1024 px textures; 4,426 -> 4,000 triangles, 1 material, 1.05 x 1.89 x 3.30 m (w x h x l) (tools/blender/process_r7.py).",
+  "retrieved": "2026-10-28",
+  "files": {
+    "forklift_b.gltf": "1ab135d6d2f15d841ccfa91622cb96631c3d96fd6799a4898906594d3c63f7ca",
+    "forklift_b.bin": "c0abd448559b87846831c0ec0568bef780d6f54f194dbc1e58630bfac2ca3664",
+    "textures/forklift_b_diff.jpg": "1c8f1accb46a72cd081e5cc7d679eaf6c450eb90044e73725be5205e449cf712",
+    "textures/forklift_b_arm.jpg": "c2e13a29e5bba4579d955339a5ea2f013a0998b209ec2a0d90febb8160503ce7",
+    "textures/forklift_b_nor_gl.jpg": "615c3523d5e4e622b2b1b2ffa5813ed2ca0ad88d455cc6854b495f837e5e137f"
+  },
+  "processed_from": "tools/cache/sketchfab/forklift_b/forklift_b.glb",
+  "prop": "forklift_b"
+}

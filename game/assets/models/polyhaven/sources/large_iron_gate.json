@@ -1,0 +1,19 @@
+{
+  "source": "Poly Haven",
+  "title": "Large Iron Gate",
+  "url": "https://polyhaven.com/a/large_iron_gate",
+  "authors": [
+    "Josh Dean"
+  ],
+  "license": "CC0-1.0",
+  "license_url": "https://polyhaven.com/license",
+  "attribution_required": false,
+  "kind": "model",
+  "modifications": "Decimated to its 7,000-triangle budget; 38,140 -> 6,999 triangles, 1 material (tools/blender/process_props.py).",
+  "retrieved": "2026-10-28",
+  "files": {
+    "large_iron_gate.gltf": "ec68379088a8ed5e77e4fccd4493f4572c6a6d3b8915b60f61ae29df64ca1f80",
+    "large_iron_gate.bin": "f53f4f4a196b8e27d28b50f49874ed83920c8f8bb7f9c0669b507ed2bdb5cb2e"
+  },
+  "processed_from": "game/assets/thirdparty/polyhaven/models/large_iron_gate/large_iron_gate_1k.gltf"
+}

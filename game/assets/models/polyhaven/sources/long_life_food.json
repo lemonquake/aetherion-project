@@ -1,0 +1,19 @@
+{
+  "source": "Poly Haven",
+  "title": "Long Life Food",
+  "url": "https://polyhaven.com/a/long_life_food",
+  "authors": [
+    "Mia Pecina Zorko"
+  ],
+  "license": "CC0-1.0",
+  "license_url": "https://polyhaven.com/license",
+  "attribution_required": false,
+  "kind": "model",
+  "modifications": "Decimated to its 1,800-triangle budget; 4,712 -> 1,800 triangles, 1 material (tools/blender/process_props.py).",
+  "retrieved": "2026-10-28",
+  "files": {
+    "long_life_food.gltf": "17463c7cf31332bb1e79251db387824d9ed7dbfb518bfe062915d6242f9ebd92",
+    "long_life_food.bin": "1b09baaec98b12acc85eac51e1de8630ba6c3e855d3f0e677077505d3bb5f36d"
+  },
+  "processed_from": "game/assets/thirdparty/polyhaven/models/long_life_food/long_life_food_1k.gltf"
+}

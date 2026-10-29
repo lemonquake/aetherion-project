@@ -1,0 +1,19 @@
+{
+  "source": "Poly Haven",
+  "title": "Bleach Bottle",
+  "url": "https://polyhaven.com/a/bleach_bottle",
+  "authors": [
+    "James Ray Cock"
+  ],
+  "license": "CC0-1.0",
+  "license_url": "https://polyhaven.com/license",
+  "attribution_required": false,
+  "kind": "model",
+  "modifications": "Decimated to its 1,000-triangle budget; textures 512 px; 4,052 -> 1,000 triangles, 1 material (tools/blender/process_props.py).",
+  "retrieved": "2026-10-28",
+  "files": {
+    "bleach_bottle.gltf": "4816a1b2fa7a28966c8054af1eb928a298e6a21590a4d32d69bc169f65c15493",
+    "bleach_bottle.bin": "38afb5ed2b992d16992a883fa054e620c2a6caaff759691a38a8e7cfc5d11fb5"
+  },
+  "processed_from": "game/assets/thirdparty/polyhaven/models/bleach_bottle/bleach_bottle_1k.gltf"
+}

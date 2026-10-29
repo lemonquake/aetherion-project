@@ -1,0 +1,20 @@
+{
+  "source": "Poly Haven",
+  "title": "Security Camera 01",
+  "url": "https://polyhaven.com/a/security_camera_01",
+  "authors": [
+    "Alexander Otterbeck",
+    "Yann Kervran"
+  ],
+  "license": "CC0-1.0",
+  "license_url": "https://polyhaven.com/license",
+  "attribution_required": false,
+  "kind": "model",
+  "modifications": "Decimated to its 1,800-triangle budget; blend / transmission dropped, opaque (security_camera_01_glass); 13,571 -> 1,800 triangles, 1 material (tools/blender/process_props.py).",
+  "retrieved": "2026-10-28",
+  "files": {
+    "security_camera_01.gltf": "ab5d0bd1c0f1cf84df34b534c81dad6864192a33baa1505ab016fcb9fdfd6df5",
+    "security_camera_01.bin": "a809740ec8920a344860532fd33882415b0a4827cf5a0c4491db3ef49572ad9b"
+  },
+  "processed_from": "game/assets/thirdparty/polyhaven/models/security_camera_01/security_camera_01_1k.gltf"
+}
