@@ -1,0 +1,101 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+Vulkan 1.4.329 - Forward+ - Using Device #0: NVIDIA - NVIDIA GeForce RTX 4060
+
+SCRIPT ERROR: Invalid access to property or key 'stall_spots' on a base object of type 'RefCounted (map_builder.gd)'.
+   at: _stall_rows (res://src/world/maps/lawless_sub/sub_streets.gd:398)
+   GDScript backtrace (most recent call first):
+       [0] _stall_rows (res://src/world/maps/lawless_sub/sub_streets.gd:398)
+       [1] _parking (res://src/world/maps/lawless_sub/sub_streets.gd:368)
+       [2] build (res://src/world/maps/lawless_sub/sub_streets.gd:32)
+       [3] _build_sub (res://src/world/map_builder.gd:129)
+       [4] build (res://src/world/map_builder.gd:71)
+       [5] _ready (res://tools/map_preview.gd:63)
+SCRIPT ERROR: Invalid access to property or key 'stall_spots' on a base object of type 'RefCounted (map_builder.gd)'.
+   at: _stall_rows (res://src/world/maps/lawless_sub/sub_streets.gd:398)
+   GDScript backtrace (most recent call first):
+       [0] _stall_rows (res://src/world/maps/lawless_sub/sub_streets.gd:398)
+       [1] _parking (res://src/world/maps/lawless_sub/sub_streets.gd:368)
+       [2] build (res://src/world/maps/lawless_sub/sub_streets.gd:32)
+       [3] _build_sub (res://src/world/map_builder.gd:129)
+       [4] build (res://src/world/map_builder.gd:71)
+       [5] _ready (res://tools/map_preview.gd:63)
+SCRIPT ERROR: Invalid access to property or key 'stall_spots' on a base object of type 'RefCounted (map_builder.gd)'.
+   at: _stall_rows (res://src/world/maps/lawless_sub/sub_streets.gd:398)
+   GDScript backtrace (most recent call first):
+       [0] _stall_rows (res://src/world/maps/lawless_sub/sub_streets.gd:398)
+       [1] _parking (res://src/world/maps/lawless_sub/sub_streets.gd:368)
+       [2] build (res://src/world/maps/lawless_sub/sub_streets.gd:32)
+       [3] _build_sub (res://src/world/map_builder.gd:129)
+       [4] build (res://src/world/map_builder.gd:71)
+       [5] _ready (res://tools/map_preview.gd:63)
+SCRIPT ERROR: Invalid access to property or key 'stall_spots' on a base object of type 'RefCounted (map_builder.gd)'.
+   at: _stall_rows (res://src/world/maps/lawless_sub/sub_streets.gd:398)
+   GDScript backtrace (most recent call first):
+       [0] _stall_rows (res://src/world/maps/lawless_sub/sub_streets.gd:398)
+       [1] _parking (res://src/world/maps/lawless_sub/sub_streets.gd:370)
+       [2] build (res://src/world/maps/lawless_sub/sub_streets.gd:32)
+       [3] _build_sub (res://src/world/map_builder.gd:129)
+       [4] build (res://src/world/map_builder.gd:71)
+       [5] _ready (res://tools/map_preview.gd:63)
+SCRIPT ERROR: Invalid access to property or key 'canal_edges' on a base object of type 'RefCounted (map_builder.gd)'.
+   at: _canal_walls (res://src/world/maps/lawless_sub/sub_works.gd:102)
+   GDScript backtrace (most recent call first):
+       [0] _canal_walls (res://src/world/maps/lawless_sub/sub_works.gd:102)
+       [1] build (res://src/world/maps/lawless_sub/sub_works.gd:23)
+       [2] _build_sub (res://src/world/map_builder.gd:131)
+       [3] build (res://src/world/map_builder.gd:71)
+       [4] _ready (res://tools/map_preview.gd:63)
+SCRIPT ERROR: Invalid access to property or key 'stall_spots' on a base object of type 'RefCounted (map_builder.gd)'.
+   at: _parked_cars (res://src/world/maps/lawless_sub/sub_dress.gd:205)
+   GDScript backtrace (most recent call first):
+       [0] _parked_cars (res://src/world/maps/lawless_sub/sub_dress.gd:205)
+       [1] build (res://src/world/maps/lawless_sub/sub_dress.gd:29)
+       [2] _build_sub (res://src/world/map_builder.gd:136)
+       [3] build (res://src/world/map_builder.gd:71)
+       [4] _ready (res://tools/map_preview.gd:63)
+SCRIPT ERROR: Invalid access to property or key 'canal_edges' on a base object of type 'RefCounted (map_builder.gd)'.
+   at: _canal_trees (res://src/world/maps/lawless_sub/sub_dress.gd:246)
+   GDScript backtrace (most recent call first):
+       [0] _canal_trees (res://src/world/maps/lawless_sub/sub_dress.gd:246)
+       [1] build (res://src/world/maps/lawless_sub/sub_dress.gd:30)
+       [2] _build_sub (res://src/world/map_builder.gd:136)
+       [3] build (res://src/world/map_builder.gd:71)
+       [4] _ready (res://tools/map_preview.gd:63)
+[preview] map built in 4553 ms: {"buildings":256,"containers":0,"doors":0,"dress":{"cars":6,"lamps":63,"lights":36,"shrubs":0,"trees":12},"finish_ms":1119,"ladders":6,"layout_ms":232,"lights":{"dead":0,"house_dark":0,"house_lit":0,"pole":0,"porch":0,"rooms":0},"props":0,"sink":{"boxes":6261,"colliders":307,"far_tris":4080,"meshes":505,"tris":82326},"streets":{"lots":4,"paint":1305,"road_quads":631,"stalls":80,"walk_boxes":1098,"zebra":56},"terrain_ms":2173,"towns_ms":754,"windows":0,"works":{"apron_boxes":2,"backdrop":65,"bridges":4,"ladders":6,"panels":901,"wall_boxes":1},"zones":1}
+[preview] saved ../work/lemondev/r7/map/p1/sub_top_t450.png fps 18.0 luma 114.362727766963
+[preview] saved ../work/lemondev/r7/map/p1/sub_air_t450.png fps 47.0 luma 122.57126986972
+[preview] saved ../work/lemondev/r7/map/p1/sub_intersection_t450.png fps 43.0 luma 136.274107133804
+[preview] saved ../work/lemondev/r7/map/p1/sub_houses_t450.png fps 37.0 luma 110.559794721554
+[preview] saved ../work/lemondev/r7/map/p1/sub_canal_t450.png fps 58.0 luma 110.355191216976
+ERROR: 1 RID allocations of type 'N10RendererRD5SkyRD3SkyE' were leaked at exit.
+ERROR: 1 RID allocations of type 'N26RendererEnvironmentStorage11EnvironmentE' were leaked at exit.
+ERROR: 10 RID allocations of type 'N10RendererRD11MeshStorage4MeshE' were leaked at exit.
+ERROR: 88 RID allocations of type 'N10RendererRD15MaterialStorage8MaterialE' were leaked at exit.
+ERROR: 9 RID allocations of type 'N10RendererRD15MaterialStorage6ShaderE' were leaked at exit.
+ERROR: 179 RID allocations of type 'N10RendererRD14TextureStorage7TextureE' were leaked at exit.
+ERROR: 8 shaders of type SceneForwardClusteredShaderRD were never freed
+   at: ~ShaderRD (servers/rendering/renderer_rd/shader_rd.cpp:1236)
+ERROR: 1 shaders of type SkyShaderRD were never freed
+   at: ~ShaderRD (servers/rendering/renderer_rd/shader_rd.cpp:1236)
+WARNING: 88 RIDs of type "UniformBuffer" were leaked.
+   at: _free_rids (servers/rendering/rendering_device.cpp:8686)
+WARNING: 113 RIDs of type "IndexArray" were leaked.
+   at: _free_rids (servers/rendering/rendering_device.cpp:8686)
+WARNING: 113 RIDs of type "IndexBuffer" were leaked.
+   at: _free_rids (servers/rendering/rendering_device.cpp:8686)
+WARNING: 63 RIDs of type "VertexArray" were leaked.
+   at: _free_rids (servers/rendering/rendering_device.cpp:8686)
+WARNING: 56 RIDs of type "VertexBuffer" were leaked.
+   at: _free_rids (servers/rendering/rendering_device.cpp:8686)
+WARNING: 48 RIDs of type "Framebuffer" were leaked.
+   at: _free_rids (servers/rendering/rendering_device.cpp:8686)
+WARNING: 368 RIDs of type "Texture" were leaked.
+   at: finalize (servers/rendering/rendering_device.cpp:8900)
+WARNING: 402 ObjectDB instances were leaked at exit (run with `--verbose` for details).
+   at: cleanup (core/object/object.cpp:2536)
+ERROR: 214 resources still in use at exit (run with --verbose for details).
+   at: clear (core/io/resource.cpp:822)
+ERROR: Pages in use exist at exit in PagedAllocator: N12VariantPools12BucketMediumE
+   at: ~PagedAllocator (./core/templates/paged_allocator.h:170)
+ERROR: Pages in use exist at exit in PagedAllocator: N12VariantPools11BucketSmallE
+   at: ~PagedAllocator (./core/templates/paged_allocator.h:170)

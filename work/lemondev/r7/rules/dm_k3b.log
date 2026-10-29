@@ -1,0 +1,147 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+[server] dedicated server listening on 27613
+[lagusan] { "segments": 123, "metres": 1910.45543050766, "lights": 258, "dead": 23, "gaps": 109, "shrines": 18, "walks": 23 }
+[looban] { "loobans": 20, "crate_stacks": 60, "low_walls": 243, "sandbags": 10, "kiosks": 20, "barricades": 10, "yard_walls": 100, &"vacant": 80 }
+[dress] { "poles": 989, "wires": 5598, "laundry": 452, "clutter": 1024, "props": 2116, "tags": 0, "puddles": 170, "plants": 1147, "vehicles": 71, "floating": 14, "loot": 462, "boxes": 27 }
+[vandal] { "wall": 1415, "covered": 441, "stains": 3509, "ground": 870, "spots": 10 }
+[world] map built in 21203 ms
+[map] 2216 buildings, 4146 doors, 10390 containers, 11250 props, #49929ca0 on PC
+[match    0.0] deathmatch start on kalinaw: 20 players, 2 teams; spawns (144.0, 1.0, 53.0) and (-164.0, 1.0, 9.0) (312 m apart, computed); day offset 150 s; zone centre (-29.0, -34.0) r=515
+[bot Mang Isko] advance step 0/0 walk at (-162.6, 1.0, 8.8) -> (inf, inf, inf) (inf m) path 0/0 stuck 0.0 btn 0 guns rifle_762(29+90),pistol_9(14+30) scan { "near": 0, "skip": 0, "height": 0, "zone": 0, "value": 0 }
+[match    0.0] status: { "ground": 20 }; armed 20; shots 0; zone 0 wait r=515; corpses 0
+[match    0.0] dm teams: West Team 10 at (144.0, 53.0) spread 4 m; East Team 10 at (-164.0, 9.0) spread 4 m; gap 312 m; zone centre (-29.0, -34.0)
+[match    0.0] bots: { "advance": 20 }; containers searched by bots 0 (all players 0); plan steps done 0; guns carried 40
+[match    0.0] [lootstats] bots on the ground 20 (in water 0); armed 20; armed with ammo for a gun 20; long guns 20; attachments fitted 0; rounds of unusable ammo carried 0; items on the ground 17240; bot pickups { "detours": 0, "detour_taken": 0, "fetches": 0, "fetch_done": 0, "items_taken": 0 }
+[bot Mang Isko] advance step 0/0 walk at (-162.6, 0.9, 8.8) -> (inf, inf, inf) (inf m) path 0/0 stuck 0.0 btn 0 guns rifle_762(29+90),pistol_9(14+30) scan { "near": 0, "skip": 0, "height": 0, "zone": 0, "value": 0 }
+[bot Mang Isko] advance step 0/0 walk at (-162.6, 0.9, 8.8) -> (inf, inf, inf) (inf m) path 0/0 stuck 0.0 btn 0 guns rifle_762(29+90),pistol_9(14+30) scan { "near": 0, "skip": 0, "height": 0, "zone": 0, "value": 0 }
+[bot Mang Isko] advance step 0/0 walk at (-162.6, 0.9, 8.8) -> (inf, inf, inf) (inf m) path 0/0 stuck 0.0 btn 0 guns rifle_762(29+90),pistol_9(14+30) scan { "near": 0, "skip": 0, "height": 0, "zone": 0, "value": 0 }
+[bot Mang Isko] advance step 0/0 walk at (-162.6, 0.9, 8.8) -> (inf, inf, inf) (inf m) path 0/0 stuck 0.0 btn 0 guns rifle_762(29+90),pistol_9(14+30) scan { "near": 0, "skip": 0, "height": 0, "zone": 0, "value": 0 }
+[bot Mang Isko] advance step 0/0 walk at (-162.1, 0.9, 8.3) -> (97.1, 0.9, 38.3) (261.0 m) path 0/9 stuck 0.0 btn 4 guns rifle_762(29+90),pistol_9(14+30) scan { "near": 0, "skip": 0, "height": 0, "zone": 0, "value": 0 }
+[bot Mang Isko] advance step 0/0 walk at (-156.8, 1.0, 10.2) -> (97.1, 0.9, 38.3) (255.5 m) path 0/9 stuck 0.0 btn 4 guns rifle_762(29+90),pistol_9(14+30) scan { "near": 0, "skip": 0, "height": 0, "zone": 0, "value": 0 }
+[bot Mang Isko] advance step 0/0 walk at (-151.5, 0.9, 14.0) -> (97.1, 0.9, 38.3) (249.9 m) path 0/9 stuck 0.0 btn 4 guns rifle_762(29+90),pistol_9(14+30) scan { "near": 0, "skip": 0, "height": 0, "zone": 0, "value": 0 }
+[bot Mang Isko] advance step 0/0 walk at (-146.6, 0.9, 17.5) -> (97.1, 0.9, 38.3) (244.6 m) path 0/9 stuck 0.0 btn 0 guns rifle_762(29+90),pistol_9(14+30) scan { "near": 0, "skip": 0, "height": 0, "zone": 0, "value": 0 }
+[bot Mang Isko] advance step 0/0 walk at (-143.4, 0.9, 20.3) -> (97.1, 0.9, 38.3) (241.2 m) path 0/9 stuck 0.0 btn 0 guns rifle_762(29+90),pistol_9(14+30) scan { "near": 2, "skip": 0, "height": 0, "zone": 2, "value": 0 }
+[bot Mang Isko] advance step 0/0 walk at (-139.7, 0.9, 22.9) -> (97.1, 0.9, 38.3) (237.3 m) path 0/9 stuck 0.0 btn 0 guns rifle_762(29+90),pistol_9(14+30) scan { "near": 2, "skip": 0, "height": 0, "zone": 2, "value": 0 }
+[bot Mang Isko] advance step 0/0 walk at (-135.5, 1.0, 25.5) -> (97.1, 0.9, 38.3) (233.0 m) path 0/9 stuck 0.0 btn 0 guns rifle_762(29+90),pistol_9(14+30) scan { "near": 9, "skip": 0, "height": 4, "zone": 5, "value": 0 }
+[match   12.1] Lolo Kalesa (team 1) landed at (-139.0, 1.0, 24.0), 3.4 m/s, health 100; teammates -
+[bot Mang Isko] advance step 0/0 walk at (-131.6, 1.0, 28.2) -> (97.1, 0.9, 38.3) (229.0 m) path 0/9 stuck 0.0 btn 0 guns rifle_762(29+90),pistol_9(14+30) scan { "near": 2, "skip": 0, "height": 0, "zone": 1, "value": 1 }
+[bot Mang Isko] advance step 0/0 walk at (-127.9, 0.9, 30.9) -> (97.1, 0.9, 38.3) (225.1 m) path 0/9 stuck 0.0 btn 0 guns rifle_762(29+90),pistol_9(14+30) scan { "near": 17, "skip": 0, "height": 10, "zone": 7, "value": 0 }
+[bot Mang Isko] advance step 0/0 walk at (-126.8, 0.9, 32.5) -> (97.1, 0.9, 38.3) (224.0 m) path 0/9 stuck 0.4 btn 0 guns rifle_762(29+90),pistol_9(14+30) scan { "near": 20, "skip": 0, "height": 10, "zone": 10, "value": 0 }
+[match   15.0] status: { "ground": 20 }; armed 20; shots 0; zone 0 wait r=515; corpses 0; server tick avg 1.98 ms, p99 5.69 ms, max 14.12 ms over 900 ticks
+[match   15.0] dm teams: West Team 10 at (95.0, 36.0) spread 7 m; East Team 10 at (-129.0, 30.0) spread 4 m; gap 225 m; zone centre (-29.0, -34.0)
+[match   15.0] bots: { "advance": 20 }; containers searched by bots 0 (all players 1); plan steps done 0; guns carried 41
+[match   15.0] [lootstats] bots on the ground 20 (in water 0); armed 20; armed with ammo for a gun 20; long guns 21; attachments fitted 0; rounds of unusable ammo carried 0; items on the ground 17239; bot pickups { "detours": 3, "detour_taken": 1, "fetches": 0, "fetch_done": 0, "items_taken": 1 }
+[bot Mang Isko] advance step 0/0 walk at (-126.8, 2.0, 32.6) -> (97.1, 0.9, 38.3) (224.0 m) path 0/9 stuck 0.7 btn 0 guns rifle_762(29+90),pistol_9(14+30) scan { "near": 20, "skip": 0, "height": 10, "zone": 10, "value": 0 }
+[match   16.5] Mang Isko (team 1) landed at (-127.0, 1.0, 33.0), 4.9 m/s, health 100; teammates 1 m
+[match   17.0] Totoy Kulot (team 1) landed at (-127.0, 1.0, 32.0), 4.9 m/s, health 100; teammates 1 m, 1 m
+[bot Mang Isko] advance step 0/0 walk at (-126.8, 0.9, 32.6) -> (97.1, 0.9, 38.3) (224.0 m) path 0/0 stuck 0.8 btn 4 guns rifle_762(29+90),pistol_9(14+30) scan { "near": 20, "skip": 0, "height": 10, "zone": 10, "value": 0 }
+[match   17.2] Aling Nena (team 1) landed at (-128.0, 1.0, 35.0), 2.5 m/s, health 100; teammates 3 m, 4 m, 3 m
+[match   17.3] Dodong Lechon (team 1) landed at (-127.0, 1.0, 32.0), 4.9 m/s, health 100; teammates 1 m, 1 m, 1 m, 3 m
+[match   17.3] Bayaw Erning (team 1) landed at (-127.0, 1.0, 31.0), 4.9 m/s, health 100; teammates 1 m, 1 m, 1 m, 1 m, 4 m
+[bot Mang Isko] advance step 0/0 walk at (-126.8, 1.5, 32.6) -> (97.1, 0.9, 38.3) (224.0 m) path 0/8 stuck 0.4 btn 0 guns rifle_762(29+90),pistol_9(14+30) scan { "near": 20, "skip": 0, "height": 10, "zone": 10, "value": 0 }
+[match   18.1] Pinsan Gardo (team 1) landed at (-127.0, 1.0, 30.0), 4.9 m/s, health 100; teammates 3 m, 2 m, 2 m, 2 m, 1 m, 4 m
+[match   18.3] Mang Kanor (team 1) landed at (-127.0, 1.0, 31.0), 4.9 m/s, health 100; teammates 2 m, 1 m, 2 m, 2 m, 1 m, 1 m, 3 m
+[match   18.3] Kumareng Marites (team 1) landed at (-127.0, 1.0, 29.0), 4.9 m/s, health 100; teammates 3 m, 2 m, 1 m, 3 m, 3 m, 2 m, 1 m, 5 m
+[match   18.7] Tita Baby (team 1) landed at (-127.0, 1.0, 29.0), 4.9 m/s, health 100; teammates 4 m, 3 m, 1 m, 2 m, 4 m, 3 m, 3 m, 1 m, 5 m
+[bot Mang Isko] advance step 0/0 walk at (-126.8, 0.9, 32.7) -> (97.1, 0.9, 38.3) (224.0 m) path 0/8 stuck 0.9 btn 1 guns rifle_762(29+90),pistol_9(14+30) scan { "near": 20, "skip": 0, "height": 10, "zone": 10, "value": 0 }
+[bot Mang Isko] advance step 0/0 walk at (-126.8, 0.9, 32.7) -> (97.1, 0.9, 38.3) (224.0 m) path 0/8 stuck 0.3 btn 0 guns rifle_762(29+90),pistol_9(14+30) scan { "near": 20, "skip": 0, "height": 10, "zone": 10, "value": 0 }
+[match   21.0] Mang Tomas Ketchup (team 0) landed at (77.0, 1.0, 31.0), 4.9 m/s, health 100; teammates -
+[bot Mang Isko] advance step 0/0 walk at (-126.8, 1.6, 32.8) -> (97.1, 0.9, 38.3) (224.0 m) path 0/8 stuck 0.8 btn 0 guns rifle_762(29+90),pistol_9(14+30) scan { "near": 20, "skip": 0, "height": 10, "zone": 10, "value": 0 }
+[bot Mang Isko] advance step 0/0 walk at (-125.5, 0.9, 33.4) -> (97.1, 0.9, 38.3) (222.7 m) path 0/8 stuck 0.0 btn 0 guns rifle_762(29+90),pistol_9(14+30) scan { "near": 20, "skip": 0, "height": 0, "zone": 20, "value": 0 }
+[bot Mang Isko] advance step 0/0 walk at (-122.6, 0.9, 33.2) -> (97.1, 0.9, 38.3) (219.7 m) path 0/0 stuck 0.0 btn 4 guns rifle_762(29+90),pistol_9(14+30) scan { "near": 20, "skip": 0, "height": 10, "zone": 10, "value": 0 }
+[bot Mang Isko] advance step 0/0 walk at (-118.6, 0.9, 32.9) -> (97.1, 0.9, 38.3) (215.8 m) path 0/8 stuck 0.0 btn 0 guns rifle_762(29+90),pistol_9(14+30) scan { "near": 27, "skip": 0, "height": 14, "zone": 13, "value": 0 }
+[bot Mang Isko] advance step 0/0 walk at (-113.9, 0.8, 32.9) -> (97.1, 0.9, 38.3) (211.1 m) path 1/8 stuck 0.0 btn 4 guns rifle_762(29+90),pistol_9(14+30) scan { "near": 13, "skip": 0, "height": 6, "zone": 7, "value": 0 }
+[bot Mang Isko] advance step 0/0 walk at (-107.9, 0.8, 34.3) -> (97.1, 0.9, 38.3) (205.1 m) path 1/8 stuck 0.0 btn 0 guns rifle_762(29+90),pistol_9(14+30) scan { "near": 21, "skip": 0, "height": 9, "zone": 12, "value": 0 }
+[match   26.9] Kuya Bert (team 0) landed at (26.0, 1.0, 24.0), 2.5 m/s, health 100; teammates 17 m
+[bot Mang Isko] advance step 0/0 walk at (-103.4, 0.8, 35.6) -> (97.1, 0.9, 38.3) (200.6 m) path 1/8 stuck 0.0 btn 0 guns rifle_762(29+90),pistol_9(14+30) scan { "near": 30, "skip": 0, "height": 11, "zone": 19, "value": 0 }
+[match   28.3] Ka Pedring (team 0) landed at (26.0, 1.0, 24.0), 2.5 m/s, health 100; teammates 6 m, 9 m
+[bot Mang Isko] advance step 0/0 walk at (-101.1, 0.8, 36.6) -> (97.1, 0.9, 38.3) (198.2 m) path 0/7 stuck 0.0 btn 0 guns rifle_762(29+90),pistol_9(14+30) scan { "near": 23, "skip": 0, "height": 11, "zone": 11, "value": 1 }
+[bot Mang Isko] advance step 0/0 walk at (-97.5, 0.8, 36.8) -> (97.1, 0.9, 38.3) (194.6 m) path 0/7 stuck 0.0 btn 0 guns rifle_762(29+90),pistol_9(14+30) scan { "near": 14, "skip": 0, "height": 7, "zone": 6, "value": 1 }
+[match   30.0] status: { "ground": 20 }; armed 20; shots 0; zone 0 wait r=515; corpses 0; server tick avg 2.52 ms, p99 10.15 ms, max 102.75 ms over 900 ticks
+[match   30.0] dm teams: West Team 10 at (20.0, 20.0) spread 7 m; East Team 10 at (-116.0, 34.0) spread 11 m; gap 137 m; zone centre (-29.0, -34.0)
+[match   30.0] bots: { "advance": 20 }; containers searched by bots 0 (all players 3); plan steps done 0; guns carried 42
+[match   30.0] [lootstats] bots on the ground 20 (in water 0); armed 20; armed with ammo for a gun 20; long guns 22; attachments fitted 0; rounds of unusable ammo carried 0; items on the ground 17239; bot pickups { "detours": 3, "detour_taken": 1, "fetches": 0, "fetch_done": 0, "items_taken": 1 }
+[bot Mang Isko] advance step 0/0 walk at (-97.8, 0.9, 38.7) -> (97.1, 0.9, 38.3) (194.9 m) path 0/7 stuck 0.0 btn 0 guns rifle_762(29+90),rifle_scar(25+0),pistol_9(14+30) scan { "near": 15, "skip": 0, "height": 7, "zone": 4, "value": 3 }
+[match   31.0] Toto Pancit (team 0) landed at (27.0, 1.0, 22.0), 2.5 m/s, health 100; teammates 18 m, 12 m, 2 m
+[bot Mang Isko] advance step 0/0 walk at (-98.0, 0.9, 39.1) -> (97.1, 0.9, 38.3) (195.2 m) path 0/7 stuck 0.0 btn 0 guns rifle_762(29+90),rifle_scar(25+43),pistol_9(14+30) scan { "near": 15, "skip": 0, "height": 7, "zone": 5, "value": 2 }
+[bot Mang Isko] advance step 0/0 walk at (-97.3, 0.8, 36.3) -> (97.1, 0.9, 38.3) (194.5 m) path 0/7 stuck 0.0 btn 0 guns rifle_762(29+90),rifle_scar(25+43),pistol_9(14+30) scan { "near": 14, "skip": 0, "height": 7, "zone": 6, "value": 1 }
+[match   33.4] Nanay Kakanin (team 0) landed at (5.0, 0.0, 12.0), 3.8 m/s, health 100; teammates 6 m, 14 m, 5 m, 25 m
+[bot Mang Isko] advance step 0/0 walk at (-92.9, 0.8, 37.3) -> (97.1, 0.9, 38.3) (190.0 m) path 1/7 stuck 0.0 btn 0 guns rifle_762(29+90),rifle_scar(25+43),pistol_9(14+30) scan { "near": 12, "skip": 0, "height": 6, "zone": 6, "value": 0 }
+[bot Mang Isko] advance step 0/0 walk at (-88.5, 0.8, 38.9) -> (97.1, 0.9, 38.3) (185.6 m) path 0/6 stuck 0.0 btn 0 guns rifle_762(29+90),rifle_scar(25+43),pistol_9(14+30) scan { "near": 11, "skip": 0, "height": 3, "zone": 8, "value": 0 }
+[match   35.9] Kapitbahay Lito (team 0) landed at (5.0, 0.0, 12.0), 4.9 m/s, health 100; teammates 1 m, 7 m, 5 m, 7 m, 24 m
+[match   36.0] Totoy Bibo (team 0) landed at (26.0, 1.0, 23.0), 2.5 m/s, health 100; teammates 24 m, 28 m, 21 m, 27 m, 1 m, 24 m
+[bot Mang Isko] advance step 0/0 walk at (-84.2, 0.8, 40.8) -> (97.1, 0.9, 38.3) (181.3 m) path 0/6 stuck 0.0 btn 0 guns rifle_762(29+90),rifle_scar(25+43),pistol_9(14+30) scan { "near": 9, "skip": 0, "height": 1, "zone": 8, "value": 0 }
+[match   37.2] Mang Tomas (team 0) landed at (5.0, 1.0, 12.0), 4.9 m/s, health 100; teammates 1 m, 6 m, 6 m, 8 m, 25 m, 1 m, 19 m
+[bot Mang Isko] advance step 0/0 walk at (-82.0, 0.8, 42.6) -> (97.1, 0.9, 38.3) (179.2 m) path 0/6 stuck 0.0 btn 0 guns rifle_762(29+90),rifle_scar(25+43),pistol_9(14+30) scan { "near": 10, "skip": 0, "height": 0, "zone": 10, "value": 0 }
+[bot Mang Isko] advance step 0/0 walk at (-78.7, 0.9, 44.1) -> (97.1, 0.9, 38.3) (175.9 m) path 0/6 stuck 0.0 btn 0 guns rifle_762(29+90),rifle_scar(25+43),pistol_9(14+30) scan { "near": 16, "skip": 0, "height": 1, "zone": 13, "value": 2 }
+[bot Mang Isko] advance step 0/0 walk at (-76.2, 0.9, 44.3) -> (97.1, 0.9, 38.3) (173.5 m) path 0/6 stuck 0.0 btn 0 guns rifle_762(29+90),rifle_scar(25+43),pistol_9(14+30) scan { "near": 24, "skip": 0, "height": 6, "zone": 16, "value": 2 }
+[bot Mang Isko] advance step 0/0 walk at (-71.7, 0.9, 45.1) -> (97.1, 0.9, 38.3) (169.0 m) path 0/5 stuck 0.0 btn 0 guns rifle_762(29+90),rifle_scar(25+43),pistol_9(14+30) scan { "near": 22, "skip": 0, "height": 6, "zone": 14, "value": 2 }
+[bot Mang Isko] advance step 0/0 walk at (-67.9, 0.9, 43.1) -> (-109.8, 0.9, 28.5) (44.3 m) path 0/4 stuck 0.0 btn 0 guns rifle_762(29+90),rifle_scar(25+43),pistol_9(14+30) scan { "near": 11, "skip": 0, "height": 4, "zone": 6, "value": 1 }
+[bot Mang Isko] advance step 0/0 walk at (-70.7, 0.9, 42.8) -> (-109.8, 0.9, 28.5) (41.6 m) path 0/4 stuck 0.0 btn 0 guns rifle_762(29+90),rifle_scar(25+43),pistol_9(14+30) scan { "near": 19, "skip": 0, "height": 6, "zone": 12, "value": 1 }
+[bot Mang Isko] advance step 0/0 walk at (-71.7, 0.9, 44.3) -> (-109.8, 0.9, 28.5) (41.2 m) path 0/4 stuck 0.0 btn 0 guns rifle_762(29+90),rifle_scar(25+43),pistol_9(14+30) scan { "near": 17, "skip": 0, "height": 6, "zone": 10, "value": 1 }
+[bot Mang Isko] advance step 0/0 walk at (-75.8, 0.8, 43.6) -> (-109.8, 0.9, 28.5) (37.2 m) path 0/4 stuck 0.0 btn 0 guns rifle_762(29+90),rifle_scar(25+43),pistol_9(14+30) scan { "near": 21, "skip": 0, "height": 6, "zone": 13, "value": 2 }
+[match   45.0] status: { "ground": 20 }; armed 20; shots 0; zone 0 wait r=515; corpses 0; server tick avg 2.20 ms, p99 4.86 ms, max 22.07 ms over 900 ticks
+[match   45.0] dm teams: West Team 10 at (4.0, 16.0) spread 4 m; East Team 10 at (-100.0, 38.0) spread 18 m; gap 106 m; zone centre (-29.0, -34.0)
+[match   45.0] bots: { "advance": 20 }; containers searched by bots 0 (all players 5); plan steps done 0; guns carried 43
+[match   45.0] [lootstats] bots on the ground 20 (in water 2); armed 20; armed with ammo for a gun 20; long guns 23; attachments fitted 0; rounds of unusable ammo carried 0; items on the ground 17237; bot pickups { "detours": 6, "detour_taken": 3, "fetches": 0, "fetch_done": 0, "items_taken": 3 }
+[bot Mang Isko] advance step 0/0 walk at (-80.6, 0.9, 43.3) -> (-109.8, 0.9, 28.5) (32.8 m) path 1/4 stuck 0.0 btn 0 guns rifle_762(29+90),rifle_scar(25+43),pistol_9(14+30) scan { "near": 24, "skip": 0, "height": 6, "zone": 16, "value": 2 }
+[bot Mang Isko] advance step 0/0 walk at (-82.8, 0.8, 42.6) -> (-109.8, 0.9, 28.5) (30.5 m) path 1/4 stuck 0.0 btn 0 guns rifle_762(29+90),rifle_scar(25+43),pistol_9(14+30) scan { "near": 10, "skip": 0, "height": 0, "zone": 10, "value": 0 }
+[bot Mang Isko] advance step 0/0 walk at (-82.4, 0.8, 40.5) -> (97.1, 0.9, 38.3) (179.5 m) path 0/6 stuck 0.0 btn 0 guns rifle_762(29+90),rifle_scar(25+43),pistol_9(14+30) scan { "near": 12, "skip": 0, "height": 0, "zone": 12, "value": 0 }
+[bot Mang Isko] advance step 0/0 walk at (-82.0, 0.8, 42.3) -> (97.1, 0.9, 38.3) (179.2 m) path 0/6 stuck 0.0 btn 0 guns rifle_762(29+90),rifle_scar(25+43),pistol_9(14+30) scan { "near": 11, "skip": 0, "height": 0, "zone": 11, "value": 0 }
+[bot Mang Isko] advance step 0/0 walk at (-79.5, 0.8, 43.8) -> (97.1, 0.9, 38.3) (176.7 m) path 0/6 stuck 0.0 btn 0 guns rifle_762(29+90),rifle_scar(25+43),pistol_9(14+30) scan { "near": 10, "skip": 0, "height": 0, "zone": 10, "value": 0 }
+[bot Mang Isko] advance step 0/0 walk at (-77.6, 0.9, 43.9) -> (97.1, 0.9, 38.3) (174.8 m) path 0/6 stuck 0.0 btn 0 guns rifle_762(29+90),rifle_scar(25+43),pistol_9(14+30) scan { "near": 20, "skip": 0, "height": 3, "zone": 15, "value": 2 }
+[bot Mang Isko] advance step 0/0 walk at (-73.9, 0.9, 44.7) -> (97.1, 0.9, 38.3) (171.1 m) path 1/6 stuck 0.0 btn 0 guns rifle_762(29+90),rifle_scar(25+43),pistol_9(14+30) scan { "near": 24, "skip": 0, "height": 6, "zone": 16, "value": 2 }
+[bot Mang Isko] advance step 0/0 walk at (-72.4, 0.9, 43.7) -> (97.1, 0.9, 38.3) (169.7 m) path 0/5 stuck 0.1 btn 0 guns rifle_762(29+90),rifle_scar(25+43),pistol_9(14+30) scan { "near": 18, "skip": 0, "height": 6, "zone": 10, "value": 2 }
+[bot Mang Isko] advance step 0/0 walk at (-72.5, 0.9, 43.7) -> (97.1, 0.9, 38.3) (169.7 m) path 0/5 stuck 0.0 btn 0 guns rifle_762(29+90),rifle_scar(25+43),pistol_9(14+30) scan { "near": 18, "skip": 0, "height": 6, "zone": 10, "value": 2 }
+[match   55.3] Manong Guard (team 0) landed at (11.0, 1.0, 25.0), 4.9 m/s, health 100; teammates 14 m, 18 m, 19 m, 27 m, 12 m, 14 m, 14 m, 16 m
+[bot Mang Isko] advance step 0/0 walk at (-72.4, 0.9, 43.7) -> (97.1, 0.9, 38.3) (169.6 m) path 0/5 stuck 0.0 btn 0 guns rifle_762(29+90),rifle_scar(25+43),pistol_9(14+30) scan { "near": 18, "skip": 0, "height": 6, "zone": 10, "value": 2 }
+[bot Mang Isko] advance step 0/0 walk at (-72.7, 0.9, 43.7) -> (97.1, 0.9, 38.3) (169.9 m) path 0/5 stuck 0.0 btn 0 guns rifle_762(29+90),rifle_scar(25+43),pistol_9(14+30) scan { "near": 18, "skip": 0, "height": 6, "zone": 10, "value": 2 }
+[bot Mang Isko] advance step 0/0 walk at (-72.4, 0.9, 43.7) -> (97.1, 0.9, 38.3) (169.6 m) path 0/5 stuck 0.3 btn 0 guns rifle_762(29+90),rifle_scar(25+43),pistol_9(14+30) scan { "near": 18, "skip": 0, "height": 6, "zone": 10, "value": 2 }
+[bot Mang Isko] advance step 0/0 walk at (-72.4, 0.9, 43.7) -> (97.1, 0.9, 38.3) (169.6 m) path 0/5 stuck 0.2 btn 0 guns rifle_762(29+90),rifle_scar(25+43),pistol_9(14+30) scan { "near": 18, "skip": 0, "height": 6, "zone": 10, "value": 2 }
+[match   59.4] Kuya Fishball (team 0) landed at (12.0, 1.0, 24.0), 4.9 m/s, health 100; teammates 14 m, 15 m, 14 m, 32 m, 17 m, 14 m, 14 m, 1 m, 13 m
+[bot Mang Isko] advance step 0/0 walk at (-72.8, 0.9, 43.7) -> (97.1, 0.9, 38.3) (170.0 m) path 0/5 stuck 0.2 btn 0 guns rifle_762(29+90),rifle_scar(25+43),pistol_9(14+30) scan { "near": 18, "skip": 0, "height": 6, "zone": 10, "value": 2 }
+[match   60.0] zone 0 shrinking to r=286 at (15.0, 31.0)
+[match   60.0] status: { "ground": 20 }; armed 20; shots 0; zone 0 shrink r=515; corpses 0; server tick avg 2.16 ms, p99 4.23 ms, max 9.84 ms over 900 ticks
+[match   60.0] dm teams: West Team 10 at (2.0, 16.0) spread 7 m; East Team 10 at (-92.0, 40.0) spread 21 m; gap 97 m; zone centre (-29.0, -34.0)
+[match   60.0] bots: { "advance": 20 }; containers searched by bots 0 (all players 6); plan steps done 0; guns carried 44
+[match   60.0] [lootstats] bots on the ground 20 (in water 5); armed 20; armed with ammo for a gun 20; long guns 24; attachments fitted 0; rounds of unusable ammo carried 0; items on the ground 17238; bot pickups { "detours": 6, "detour_taken": 3, "fetches": 0, "fetch_done": 0, "items_taken": 3 }
+[bot Mang Isko] advance step 0/0 walk at (-72.7, 0.9, 43.7) -> (97.1, 0.9, 38.3) (169.9 m) path 0/5 stuck 0.1 btn 0 guns rifle_762(29+90),rifle_scar(25+43),pistol_9(14+30) scan { "near": 19, "skip": 0, "height": 6, "zone": 10, "value": 3 }
+[bot Mang Isko] advance step 0/0 walk at (-72.4, 0.9, 43.7) -> (97.1, 0.9, 38.3) (169.6 m) path 0/5 stuck 0.1 btn 0 guns rifle_762(29+90),rifle_scar(25+43),pistol_9(14+30) scan { "near": 19, "skip": 0, "height": 6, "zone": 10, "value": 3 }
+[bot Mang Isko] advance step 0/0 walk at (-72.5, 0.9, 43.7) -> (97.1, 0.9, 38.3) (169.7 m) path 0/5 stuck 0.0 btn 0 guns rifle_762(29+90),rifle_scar(25+43),pistol_9(14+30) scan { "near": 19, "skip": 0, "height": 6, "zone": 10, "value": 3 }
+[bot Mang Isko] advance step 0/0 walk at (-72.5, 0.9, 43.7) -> (97.1, 0.9, 38.3) (169.7 m) path 0/5 stuck 0.1 btn 0 guns rifle_762(29+90),rifle_scar(25+43),pistol_9(14+30) scan { "near": 19, "skip": 0, "height": 6, "zone": 10, "value": 3 }
+[bot Mang Isko] advance step 0/0 walk at (-72.5, 0.9, 43.7) -> (97.1, 0.9, 38.3) (169.7 m) path 0/5 stuck 0.0 btn 0 guns rifle_762(29+90),rifle_scar(25+43),pistol_9(14+30) scan { "near": 19, "skip": 0, "height": 6, "zone": 10, "value": 3 }
+[bot Mang Isko] advance step 0/0 walk at (-72.4, 0.9, 43.7) -> (97.1, 0.9, 38.3) (169.6 m) path 0/5 stuck 0.0 btn 0 guns rifle_762(29+90),rifle_scar(25+43),pistol_9(14+30) scan { "near": 19, "skip": 0, "height": 6, "zone": 10, "value": 3 }
+[bot Mang Isko] advance step 0/0 walk at (-72.4, 0.9, 43.7) -> (97.1, 0.9, 38.3) (169.7 m) path 0/0 stuck 0.0 btn 0 guns rifle_762(29+90),rifle_scar(25+43),pistol_9(14+30) scan { "near": 19, "skip": 0, "height": 6, "zone": 10, "value": 3 }
+[bot Mang Isko] advance step 0/0 walk at (-72.8, 0.9, 43.7) -> (97.1, 0.9, 38.3) (170.0 m) path 0/5 stuck 0.0 btn 0 guns rifle_762(29+90),rifle_scar(25+43),pistol_9(14+30) scan { "near": 19, "skip": 0, "height": 6, "zone": 10, "value": 3 }
+[bot Mang Isko] advance step 0/0 walk at (-72.4, 0.9, 43.7) -> (97.1, 0.9, 38.3) (169.6 m) path 0/5 stuck 0.1 btn 0 guns rifle_762(29+90),rifle_scar(25+43),pistol_9(14+30) scan { "near": 19, "skip": 0, "height": 6, "zone": 10, "value": 3 }
+[bot Mang Isko] advance step 0/0 walk at (-72.8, 0.9, 43.7) -> (97.1, 0.9, 38.3) (170.1 m) path 0/5 stuck 0.0 btn 0 guns rifle_762(29+90),rifle_scar(25+43),pistol_9(14+30) scan { "near": 19, "skip": 0, "height": 6, "zone": 10, "value": 3 }
+[bot Mang Isko] advance step 0/0 walk at (-72.4, 0.9, 43.7) -> (97.1, 0.9, 38.3) (169.6 m) path 0/5 stuck 0.2 btn 0 guns rifle_762(29+90),rifle_scar(25+43),pistol_9(14+30) scan { "near": 19, "skip": 0, "height": 6, "zone": 10, "value": 3 }
+[bot Mang Isko] advance step 0/0 walk at (-72.4, 0.9, 43.7) -> (97.1, 0.9, 38.3) (169.6 m) path 0/5 stuck 0.0 btn 0 guns rifle_762(29+90),rifle_scar(25+43),pistol_9(14+30) scan { "near": 19, "skip": 0, "height": 6, "zone": 10, "value": 3 }
+[bot Mang Isko] advance step 0/0 walk at (-72.6, 0.9, 43.7) -> (97.1, 0.9, 38.3) (169.8 m) path 0/5 stuck 0.3 btn 0 guns rifle_762(29+90),rifle_scar(25+43),pistol_9(14+30) scan { "near": 19, "skip": 0, "height": 6, "zone": 10, "value": 3 }
+[bot Mang Isko] advance step 0/0 walk at (-72.6, 0.9, 43.7) -> (97.1, 0.9, 38.3) (169.8 m) path 0/5 stuck 0.0 btn 0 guns rifle_762(29+90),rifle_scar(25+43),pistol_9(14+30) scan { "near": 19, "skip": 0, "height": 6, "zone": 10, "value": 3 }
+[match   75.0] status: { "ground": 20 }; armed 20; shots 0; zone 0 shrink r=458; corpses 0; server tick avg 2.14 ms, p99 4.15 ms, max 13.49 ms over 900 ticks
+[match   75.0] dm teams: West Team 10 at (-1.0, 16.0) spread 10 m; East Team 10 at (-81.0, 44.0) spread 16 m; gap 85 m; zone centre (-18.0, -17.0)
+[match   75.0] bots: { "advance": 20 }; containers searched by bots 0 (all players 6); plan steps done 0; guns carried 44
+[match   75.0] [lootstats] bots on the ground 20 (in water 2); armed 20; armed with ammo for a gun 20; long guns 24; attachments fitted 0; rounds of unusable ammo carried 0; items on the ground 17238; bot pickups { "detours": 6, "detour_taken": 3, "fetches": 0, "fetch_done": 0, "items_taken": 3 }
+[bot Mang Isko] advance step 0/0 walk at (-72.7, 0.9, 43.7) -> (97.1, 0.9, 38.3) (169.9 m) path 0/5 stuck 0.0 btn 0 guns rifle_762(29+90),rifle_scar(25+43),pistol_9(14+30) scan { "near": 19, "skip": 0, "height": 6, "zone": 10, "value": 3 }
+[bot Mang Isko] advance step 0/0 walk at (-72.4, 0.9, 43.7) -> (97.1, 0.9, 38.3) (169.6 m) path 0/5 stuck 0.1 btn 0 guns rifle_762(29+90),rifle_scar(25+43),pistol_9(14+30) scan { "near": 19, "skip": 0, "height": 6, "zone": 10, "value": 3 }
+[bot Mang Isko] advance step 0/0 walk at (-72.8, 0.9, 43.7) -> (97.1, 0.9, 38.3) (170.0 m) path 0/5 stuck 0.0 btn 0 guns rifle_762(29+90),rifle_scar(25+43),pistol_9(14+30) scan { "near": 19, "skip": 0, "height": 6, "zone": 10, "value": 3 }
+[bot Mang Isko] advance step 0/0 walk at (-72.4, 0.9, 43.7) -> (97.1, 0.9, 38.3) (169.6 m) path 0/5 stuck 0.2 btn 0 guns rifle_762(29+90),rifle_scar(25+43),pistol_9(14+30) scan { "near": 19, "skip": 0, "height": 6, "zone": 10, "value": 3 }
+[bot Mang Isko] advance step 0/0 walk at (-72.4, 0.9, 43.7) -> (97.1, 0.9, 38.3) (169.6 m) path 0/5 stuck 0.0 btn 0 guns rifle_762(29+90),rifle_scar(25+43),pistol_9(14+30) scan { "near": 19, "skip": 0, "height": 6, "zone": 10, "value": 3 }
+[bot Mang Isko] advance step 0/0 walk at (-72.7, 0.9, 43.7) -> (97.1, 0.9, 38.3) (169.9 m) path 0/5 stuck 0.0 btn 0 guns rifle_762(29+90),rifle_scar(25+43),pistol_9(14+30) scan { "near": 19, "skip": 0, "height": 6, "zone": 10, "value": 3 }
+[bot Mang Isko] advance step 0/0 walk at (-72.4, 0.9, 43.7) -> (97.1, 0.9, 38.3) (169.6 m) path 0/5 stuck 0.1 btn 0 guns rifle_762(29+90),rifle_scar(25+43),pistol_9(14+30) scan { "near": 19, "skip": 0, "height": 6, "zone": 10, "value": 3 }
+[bot Mang Isko] advance step 0/0 walk at (-72.5, 0.9, 43.7) -> (97.1, 0.9, 38.3) (169.7 m) path 0/5 stuck 0.1 btn 0 guns rifle_762(29+90),rifle_scar(25+43),pistol_9(14+30) scan { "near": 19, "skip": 0, "height": 6, "zone": 10, "value": 3 }
+[bot Mang Isko] advance step 0/0 walk at (-72.5, 0.9, 43.7) -> (97.1, 0.9, 38.3) (169.7 m) path 0/5 stuck 0.0 btn 0 guns rifle_762(29+90),rifle_scar(25+43),pistol_9(14+30) scan { "near": 19, "skip": 0, "height": 6, "zone": 10, "value": 3 }
+[bot Mang Isko] advance step 0/0 walk at (-72.5, 0.9, 43.7) -> (97.1, 0.9, 38.3) (169.7 m) path 0/5 stuck 0.1 btn 0 guns rifle_762(29+90),rifle_scar(25+43),pistol_9(14+30) scan { "near": 19, "skip": 0, "height": 6, "zone": 10, "value": 3 }
+[bot Mang Isko] advance step 0/0 walk at (-72.6, 0.9, 43.7) -> (97.1, 0.9, 38.3) (169.8 m) path 0/5 stuck 0.0 btn 0 guns rifle_762(29+90),rifle_scar(25+43),pistol_9(14+30) scan { "near": 19, "skip": 0, "height": 6, "zone": 10, "value": 3 }
+[bot Mang Isko] advance step 0/0 walk at (-72.7, 0.9, 43.7) -> (97.1, 0.9, 38.3) (169.9 m) path 0/5 stuck 0.0 btn 0 guns rifle_762(29+90),rifle_scar(25+43),pistol_9(14+30) scan { "near": 19, "skip": 0, "height": 6, "zone": 10, "value": 3 }
+[bot Mang Isko] advance step 0/0 walk at (-73.0, 0.9, 43.7) -> (97.1, 0.9, 38.3) (170.2 m) path 0/5 stuck 0.0 btn 0 guns rifle_762(29+90),rifle_scar(25+43),pistol_9(14+30) scan { "near": 21, "skip": 0, "height": 6, "zone": 12, "value": 3 }
+[bot Mang Isko] advance step 0/0 walk at (-72.4, 0.9, 43.7) -> (97.1, 0.9, 38.3) (169.6 m) path 0/5 stuck 0.2 btn 0 guns rifle_762(29+90),rifle_scar(25+43),pistol_9(14+30) scan { "near": 19, "skip": 0, "height": 6, "zone": 10, "value": 3 }
+[match   90.0] status: { "ground": 20 }; armed 20; shots 0; zone 0 shrink r=401; corpses 0; server tick avg 2.17 ms, p99 4.11 ms, max 11.94 ms over 900 ticks
+[match   90.0] dm teams: West Team 10 at (-2.0, 16.0) spread 12 m; East Team 10 at (-72.0, 45.0) spread 14 m; gap 76 m; zone centre (-7.0, -1.0)
+[match   90.0] bots: { "advance": 20 }; containers searched by bots 0 (all players 7); plan steps done 0; guns carried 44
+[match   90.0] [lootstats] bots on the ground 20 (in water 3); armed 20; armed with ammo for a gun 20; long guns 24; attachments fitted 0; rounds of unusable ammo carried 0; items on the ground 17238; bot pickups { "detours": 6, "detour_taken": 3, "fetches": 0, "fetch_done": 0, "items_taken": 3 }
+[bot Mang Isko] advance step 0/0 walk at (-72.6, 0.9, 43.7) -> (97.1, 0.9, 38.3) (169.8 m) path 0/5 stuck 0.3 btn 0 guns rifle_762(29+90),rifle_scar(25+43),pistol_9(14+30) scan { "near": 19, "skip": 0, "height": 6, "zone": 10, "value": 3 }
+[bot Mang Isko] advance step 0/0 walk at (-72.6, 0.9, 43.7) -> (97.1, 0.9, 38.3) (169.8 m) path 0/5 stuck 0.0 btn 0 guns rifle_762(29+90),rifle_scar(25+43),pistol_9(14+30) scan { "near": 19, "skip": 0, "height": 6, "zone": 10, "value": 3 }
+[bot Mang Isko] advance step 0/0 walk at (-72.6, 0.9, 43.7) -> (97.1, 0.9, 38.3) (169.9 m) path 0/5 stuck 0.0 btn 0 guns rifle_762(29+90),rifle_scar(25+43),pistol_9(14+30) scan { "near": 19, "skip": 0, "height": 6, "zone": 10, "value": 3 }

@@ -1,0 +1,147 @@
+=== ArmChair_01_1k.gltf tris=5626 objs=1 mats=1 size(blender xyz)=(0.85,0.77,1.07) lo=(-0.42,-0.35,-0.00)
+  ArmChair_01 t=5626 c=(0.00,0.03,0.53) s=(0.85,0.77,1.07) mats=['Armchair_01']
+=== Sofa_01_1k.gltf tris=4101 objs=1 mats=1 size(blender xyz)=(1.57,0.66,0.80) lo=(-0.78,-0.30,-0.00)
+  Sofa_01 t=4101 c=(0.01,0.03,0.40) s=(1.57,0.66,0.80) mats=['Sofa_01']
+=== sofa_02_1k.gltf tris=2728 objs=2 mats=1 size(blender xyz)=(1.81,0.82,0.71) lo=(-0.90,-0.34,0.00)
+  sofa_02_Base t=2344 c=(0.00,0.07,0.35) s=(1.81,0.81,0.71) mats=['sofa_02']
+  sofa_02_Seat t=384 c=(0.00,-0.08,0.33) s=(1.42,0.53,0.16) mats=['sofa_02']
+=== CoffeeTable_01_1k.gltf tris=10404 objs=1 mats=1 size(blender xyz)=(1.54,0.97,0.52) lo=(-0.77,-0.49,0.00)
+  CoffeeTable_01 t=10404 c=(0.00,0.00,0.26) s=(1.54,0.97,0.52) mats=['CoffeeTable_01']
+=== dining_chair_02_1k.gltf tris=22013 objs=1 mats=1 size(blender xyz)=(0.43,0.58,0.97) lo=(-0.22,-0.25,0.00)
+  dining_chair_02 t=22013 c=(0.00,0.04,0.49) s=(0.43,0.58,0.97) mats=['dining_chair_02']
+=== dining_table_1k.gltf tris=1048 objs=2 mats=1 size(blender xyz)=(2.26,1.39,0.88) lo=(-1.13,-0.71,-0.00)
+  dining_table t=160 c=(0.00,0.01,0.39) s=(2.05,1.15,0.79) mats=['dining_table']
+  dining_table_cloth t=888 c=(-0.00,-0.02,0.63) s=(2.26,1.39,0.48) mats=['dining_table']
+=== side_table_01_1k.gltf tris=2756 objs=1 mats=1 size(blender xyz)=(0.55,0.45,0.55) lo=(-0.28,-0.23,-0.00)
+  side_table_01 t=2756 c=(0.00,0.00,0.27) s=(0.55,0.45,0.55) mats=['side_table_01']
+=== modern_wooden_cabinet_1k.gltf tris=24976 objs=3 mats=1 size(blender xyz)=(2.44,0.52,0.68) lo=(-1.22,-0.25,0.00)
+  modern_wooden_cabinet_body t=18400 c=(0.00,0.01,0.34) s=(2.44,0.52,0.68) mats=['modern_wooden_cabinet']
+  modern_wooden_cabinet_door_l t=3288 c=(-0.61,-0.06,0.40) s=(1.19,0.35,0.48) mats=['modern_wooden_cabinet']
+  modern_wooden_cabinet_door_r t=3288 c=(0.61,-0.06,0.40) s=(1.19,0.35,0.48) mats=['modern_wooden_cabinet']
+=== ClassicNightstand_01_1k.gltf tris=2002 objs=1 mats=1 size(blender xyz)=(0.57,0.42,0.70) lo=(-0.28,-0.21,-0.00)
+  ClassicNightstand_01 t=2002 c=(-0.00,0.00,0.35) s=(0.57,0.42,0.70) mats=['ClassicNightstand_01']
+=== potted_plant_01_1k.gltf tris=176226 objs=4 mats=2 size(blender xyz)=(0.59,0.63,1.35) lo=(-0.34,-0.27,-0.01)
+  potted_plant_01_stem t=7008 c=(-0.05,0.02,0.84) s=(0.37,0.39,0.86) mats=['potted_plant_01_pot']
+  potted_plant_01_pebbles t=56878 c=(-0.00,0.00,0.26) s=(0.43,0.43,0.54) mats=['potted_plant_01_pot']
+  potted_plant_01_pot t=5440 c=(0.00,0.00,0.27) s=(0.47,0.47,0.53) mats=['potted_plant_01_pot']
+  potted_plant_01_leaves t=106900 c=(-0.04,0.05,0.96) s=(0.59,0.63,0.75) mats=['potted_plant_01_leaves']
+=== potted_plant_02_1k.gltf tris=69806 objs=3 mats=2 size(blender xyz)=(0.70,0.66,0.84) lo=(-0.40,-0.24,0.00)
+  potted_plant_02_pot t=5184 c=(0.00,-0.00,0.17) s=(0.47,0.47,0.34) mats=['potted_plant_02_pot']
+  potted_plant_02_leaves t=10692 c=(-0.05,0.10,0.52) s=(0.70,0.64,0.63) mats=['potted_plant_02_leaves']
+  potted_plant_02_dirt t=53930 c=(-0.00,0.00,0.32) s=(0.41,0.41,0.04) mats=['potted_plant_02_pot']
+=== modern_arm_chair_01_1k.gltf tris=8916 objs=1 mats=2 size(blender xyz)=(0.82,0.99,1.02) lo=(-0.41,-0.41,0.00)
+  modern_arm_chair_01 t=8916 c=(0.00,0.08,0.51) s=(0.82,0.99,1.02) mats=['modern_arm_chair_01_legs', 'modern_arm_chair_01_pillow']
+=== vintage_cabinet_01_1k.gltf tris=61096 objs=8 mats=3 size(blender xyz)=(2.02,0.67,2.24) lo=(-1.01,-0.39,-0.00)
+  vintage_cabinet_01_body t=29700 c=(0.00,-0.05,1.12) s=(2.02,0.65,2.24) mats=['vintage_cabinet_01_a', 'vintage_cabinet_01_b']
+  vintage_cabinet_01_door_02 t=3744 c=(0.69,-0.36,0.49) s=(0.39,0.07,0.69) mats=['vintage_cabinet_01_a']
+  vintage_cabinet_01_door_01 t=5290 c=(-0.61,-0.13,1.66) s=(0.58,0.07,0.65) mats=['vintage_cabinet_01_a', 'vintage_cabinet_01_glass']
+  vintage_cabinet_01_door_03 t=5840 c=(0.00,-0.13,1.71) s=(0.59,0.07,0.75) mats=['vintage_cabinet_01_a', 'vintage_cabinet_01_glass']
+  vintage_cabinet_01_door_04 t=5290 c=(0.61,-0.13,1.66) s=(0.58,0.07,0.65) mats=['vintage_cabinet_01_a', 'vintage_cabinet_01_glass']
+  vintage_cabinet_01_door_05 t=3744 c=(-0.69,-0.36,0.49) s=(0.39,0.07,0.69) mats=['vintage_cabinet_01_a']
+  vintage_cabinet_01_door_06 t=3744 c=(-0.24,-0.36,0.49) s=(0.42,0.07,0.69) mats=['vintage_cabinet_01_a']
+  vintage_cabinet_01_door_07 t=3744 c=(0.24,-0.36,0.49) s=(0.42,0.07,0.69) mats=['vintage_cabinet_01_a']
+=== WoodenTable_02_1k.gltf tris=1514 objs=1 mats=1 size(blender xyz)=(0.30,0.30,0.42) lo=(-0.15,-0.15,-0.00)
+  WoodenTable_02 t=1514 c=(0.00,0.00,0.21) s=(0.30,0.30,0.42) mats=['WoodenTable_02']
+=== wooden_display_shelves_01_1k.gltf tris=3174 objs=4 mats=1 size(blender xyz)=(0.37,1.08,1.56) lo=(-0.19,-0.54,0.00)
+  wooden_display_shelves_01 t=1164 c=(0.00,0.00,0.78) s=(0.37,1.08,1.56) mats=['wooden_display_shelves_01']
+  wooden_display_shelves_01_drawer_03 t=670 c=(0.00,-0.35,0.21) s=(0.33,0.33,0.35) mats=['wooden_display_shelves_01']
+  wooden_display_shelves_01_drawer_02 t=670 c=(0.00,0.00,0.21) s=(0.33,0.33,0.35) mats=['wooden_display_shelves_01']
+  wooden_display_shelves_01_drawer_01 t=670 c=(0.00,0.35,0.21) s=(0.33,0.33,0.35) mats=['wooden_display_shelves_01']
+=== steel_frame_shelves_03_1k.gltf tris=8396 objs=4 mats=2 size(blender xyz)=(2.35,0.72,2.31) lo=(-1.04,-0.36,-0.00)
+  steel_frame_shelves_03 t=5456 c=(0.13,-0.00,1.16) s=(2.35,0.72,2.31) mats=['steel_frame_shelves_03', 'steel_frame_shelves_03_drawers']
+  steel_frame_shelves_03_drawer_01 t=980 c=(-0.51,-0.04,0.58) s=(0.96,0.65,0.10) mats=['steel_frame_shelves_03_drawers']
+  steel_frame_shelves_03_drawer_02 t=980 c=(-0.51,-0.04,0.47) s=(0.96,0.65,0.10) mats=['steel_frame_shelves_03_drawers']
+  steel_frame_shelves_03_drawer_03 t=980 c=(-0.51,-0.04,0.35) s=(0.96,0.65,0.10) mats=['steel_frame_shelves_03_drawers']
+=== worn_metal_rack_1k.gltf tris=6372 objs=1 mats=1 size(blender xyz)=(0.92,0.60,1.90) lo=(-0.46,-0.30,-0.00)
+  worn_metal_rack t=6372 c=(-0.00,0.00,0.95) s=(0.92,0.60,1.90) mats=['worn_metal_rack']
+=== WetFloorSign_01_1k.gltf tris=228 objs=1 mats=1 size(blender xyz)=(0.30,0.36,0.63) lo=(-0.15,-0.17,0.00)
+  WetFloorSign_01 t=228 c=(-0.00,0.01,0.32) s=(0.30,0.36,0.63) mats=['WetFloorSign_01']
+=== korean_public_payphone_01_1k.gltf tris=48132 objs=1 mats=1 size(blender xyz)=(0.40,0.30,0.74) lo=(-0.26,-0.19,-0.00)
+  korean_public_payphone_01 t=48132 c=(-0.06,-0.04,0.37) s=(0.40,0.30,0.74) mats=['korean_public_payphone_01']
+=== security_camera_01_1k.gltf tris=13571 objs=1 mats=2 size(blender xyz)=(0.17,0.55,0.29) lo=(-0.08,-0.25,-0.02)
+  security_camera_01 t=13571 c=(0.00,0.03,0.12) s=(0.17,0.55,0.29) mats=['security_camera_01', 'security_camera_01_glass']
+=== long_life_food_1k.gltf tris=4712 objs=4 mats=1 size(blender xyz)=(0.52,0.11,0.24) lo=(-0.29,-0.06,-0.00)
+  long_life_food_milk t=116 c=(0.19,0.00,0.12) s=(0.10,0.07,0.24) mats=['long_life_food']
+  long_life_food_tomatoes t=1512 c=(-0.07,0.00,0.06) s=(0.11,0.11,0.12) mats=['long_life_food']
+  long_life_food_beans t=1512 c=(0.06,0.00,0.07) s=(0.09,0.09,0.15) mats=['long_life_food']
+  long_life_food_sardines t=1572 c=(-0.22,-0.00,0.01) s=(0.13,0.08,0.03) mats=['long_life_food']
+=== russian_food_cans_01_1k.gltf tris=1348 objs=3 mats=1 size(blender xyz)=(0.14,0.05,0.08) lo=(-0.07,-0.02,0.00)
+  russian_food_cans_01_salt_box t=44 c=(0.00,0.00,0.04) s=(0.03,0.03,0.08) mats=['russian_food_cans_01']
+  russian_food_cans_01_can_cond t=652 c=(0.05,0.00,0.02) s=(0.04,0.04,0.04) mats=['russian_food_cans_01']
+  russian_food_cans_01_can_fish t=652 c=(-0.05,0.00,0.01) s=(0.05,0.05,0.02) mats=['russian_food_cans_01']
+=== bleach_bottle_1k.gltf tris=4052 objs=1 mats=1 size(blender xyz)=(0.09,0.06,0.29) lo=(-0.04,-0.03,0.00)
+  bleach_bottle t=4052 c=(-0.00,0.00,0.15) s=(0.09,0.06,0.29) mats=['bleach_bottle']
+=== multi_cleaner_bottle_1k.gltf tris=6792 objs=2 mats=1 size(blender xyz)=(0.09,0.09,0.23) lo=(-0.04,-0.04,-0.00)
+  multi_cleaner_bottle t=5412 c=(0.00,0.00,0.11) s=(0.09,0.09,0.23) mats=['multi_cleaner_bottle']
+  multi_cleaner_bottle_sticker t=1380 c=(-0.00,-0.00,0.09) s=(0.08,0.09,0.15) mats=['multi_cleaner_bottle']
+=== industrial_storage_cart_1k.gltf tris=18902 objs=1 mats=1 size(blender xyz)=(1.60,1.10,1.38) lo=(-0.80,-0.55,0.00)
+  industrial_storage_cart t=18902 c=(0.00,-0.00,0.69) s=(1.60,1.10,1.38) mats=['industrial_storage_cart']
+=== modular_airduct_rectangular_01_1k.gltf tris=45090 objs=18 mats=2 size(blender xyz)=(7.66,2.59,1.26) lo=(-3.33,-1.54,-0.71)
+  modular_airduct_rectangular_01_single_01 t=3128 c=(-3.00,-0.25,-0.00) s=(0.66,0.60,0.51) mats=['modular_airduct_rectangular_01_parts02', 'modular_airduct_rectangular_01_parts01']
+  modular_airduct_rectangular_01_double_01 t=3152 c=(-2.00,0.45,-0.00) s=(0.66,1.20,0.51) mats=['modular_airduct_rectangular_01_parts02', 'modular_airduct_rectangular_01_parts01']
+  modular_airduct_rectangular_01_tripple_01 t=3176 c=(-1.00,0.15,-0.00) s=(0.66,1.80,0.51) mats=['modular_airduct_rectangular_01_parts02', 'modular_airduct_rectangular_01_parts01']
+  modular_airduct_rectangular_01_corner_01 t=3200 c=(-0.00,-0.77,0.06) s=(0.66,0.63,0.63) mats=['modular_airduct_rectangular_01_parts01']
+  modular_airduct_rectangular_01_corner_02 t=3200 c=(0.92,0.63,-0.00) s=(0.83,0.83,0.51) mats=['modular_airduct_rectangular_01_parts02', 'modular_airduct_rectangular_01_parts01']
+  modular_airduct_rectangular_01_bend_02 t=3392 c=(3.92,0.63,-0.00) s=(0.83,0.83,0.51) mats=['modular_airduct_rectangular_01_parts01']
+  modular_airduct_rectangular_01_bend_01 t=3392 c=(1.00,-0.77,0.06) s=(0.66,0.63,0.63) mats=['modular_airduct_rectangular_01_parts01']
+  modular_airduct_rectangular_01_transition_double_01 t=3272 c=(2.00,0.45,-0.22) s=(0.66,1.20,0.96) mats=['modular_airduct_rectangular_01_parts02', 'modular_airduct_rectangular_01_parts01']
+  modular_airduct_rectangular_01_transition_double_02 t=3512 c=(3.00,0.45,-0.23) s=(0.66,1.20,0.96) mats=['modular_airduct_rectangular_01_parts02', 'modular_airduct_rectangular_01_parts01']
+  modular_airduct_rectangular_01_splitter_01 t=6308 c=(-0.00,0.65,-0.00) s=(0.80,0.80,0.51) mats=['modular_airduct_rectangular_01_parts02', 'modular_airduct_rectangular_01_parts01']
+  modular_airduct_rectangular_01_half_01 t=3128 c=(-3.00,0.85,-0.00) s=(0.66,0.40,0.51) mats=['modular_airduct_rectangular_01_parts01']
+  modular_airduct_rectangular_01_connector_01 t=1808 c=(-3.00,-1.00,-0.00) s=(0.66,0.10,0.51) mats=['modular_airduct_rectangular_01_parts01']
+  modular_airduct_rectangular_01_vent_01 t=390 c=(-2.00,-1.51,0.00) s=(0.55,0.06,0.42) mats=['modular_airduct_rectangular_01_parts01']
+  modular_airduct_rectangular_01_vent_02 t=538 c=(-2.00,-0.98,0.00) s=(0.55,0.06,0.42) mats=['modular_airduct_rectangular_01_parts01']
+  modular_airduct_rectangular_01_vent_closed_01 t=234 c=(-2.00,-0.51,0.00) s=(0.55,0.07,0.42) mats=['modular_airduct_rectangular_01_parts01']
+  modular_airduct_rectangular_01_brace_01 t=92 c=(-1.00,-0.95,0.01) s=(0.69,0.04,0.05) mats=['modular_airduct_rectangular_01_parts01']
+  modular_airduct_rectangular_01_brace_wire_01 t=96 c=(-1.00,-0.95,0.00) s=(0.66,0.01,1.10) mats=['modular_airduct_rectangular_01_parts01']
+  modular_airduct_rectangular_01_fastener_01.025 t=3072 c=(-3.00,-1.45,-0.00) s=(0.66,0.05,0.51) mats=['modular_airduct_rectangular_01_parts01']
+=== Barrel_02_1k.gltf tris=2688 objs=1 mats=1 size(blender xyz)=(0.49,0.48,0.88) lo=(-0.24,-0.24,0.00)
+  Barrel_02 t=2688 c=(0.00,0.00,0.44) s=(0.49,0.48,0.88) mats=['Barrel_02']
+=== industrial_pastic_container_1k.gltf tris=7118 objs=3 mats=1 size(blender xyz)=(0.46,0.63,0.42) lo=(-0.23,-0.32,0.00)
+  industrial_pastic_container t=2392 c=(0.00,0.00,0.21) s=(0.35,0.63,0.41) mats=['industrial_pastic_container']
+  industrial_pastic_container_lid_a t=2334 c=(0.20,0.00,0.32) s=(0.07,0.63,0.21) mats=['industrial_pastic_container']
+  industrial_pastic_container_lid_b t=2392 c=(-0.19,0.00,0.30) s=(0.06,0.63,0.24) mats=['industrial_pastic_container']
+=== old_military_compressor_1k.gltf tris=79042 objs=1 mats=2 size(blender xyz)=(0.60,1.68,1.18) lo=(-0.72,3.38,-0.00)
+  old_military_compressor t=79042 c=(-0.42,4.22,0.59) s=(0.60,1.68,1.18) mats=['old_military_compressor', 'old_military_compressor_glass']
+=== industrial_caged_sconce_1k.gltf tris=26576 objs=11 mats=1 size(blender xyz)=(1.21,0.39,0.91) lo=(-0.61,-0.33,-0.11)
+  industrial_caged_sconce_b t=4616 c=(-0.50,-0.10,0.09) s=(0.21,0.21,0.38) mats=['industrial_caged_sconce']
+  industrial_caged_sconce_a t=4936 c=(0.50,-0.10,0.09) s=(0.21,0.21,0.38) mats=['industrial_caged_sconce']
+  industrial_caged_sconce_c t=10258 c=(0.00,-0.16,0.09) s=(0.56,0.33,0.38) mats=['industrial_caged_sconce']
+  industrial_caged_sconce_mount t=1206 c=(0.00,-0.06,0.60) s=(0.21,0.11,0.21) mats=['industrial_caged_sconce']
+  industrial_caged_sconce_elbow t=484 c=(0.40,-0.03,0.71) s=(0.04,0.06,0.05) mats=['industrial_caged_sconce']
+  industrial_caged_sconce_light t=2544 c=(-0.30,-0.00,0.70) s=(0.13,0.13,0.21) mats=['industrial_caged_sconce']
+  industrial_caged_sconce_pipe_long t=80 c=(0.25,-0.00,0.50) s=(0.03,0.03,0.19) mats=['industrial_caged_sconce']
+  industrial_caged_sconce_pipe_short t=64 c=(0.25,-0.00,0.75) s=(0.03,0.03,0.10) mats=['industrial_caged_sconce']
+  industrial_caged_sconce_base_b t=1186 c=(0.40,-0.03,0.43) s=(0.12,0.12,0.09) mats=['industrial_caged_sconce']
+  industrial_caged_sconce_base_a t=866 c=(-0.30,-0.05,0.42) s=(0.10,0.11,0.09) mats=['industrial_caged_sconce']
+  industrial_caged_sconce_pipe_t t=336 c=(0.40,-0.03,0.60) s=(0.07,0.05,0.04) mats=['industrial_caged_sconce']
+=== industrial_wall_lamp_1k.gltf tris=4446 objs=1 mats=2 size(blender xyz)=(0.27,0.14,0.43) lo=(-0.14,-0.14,-0.21)
+  industrial_wall_lamp t=4446 c=(0.00,-0.07,0.00) s=(0.27,0.14,0.43) mats=['industrial_wall_lamp', 'industrial_wall_lamp_glass']
+=== concrete_road_barrier_02_1k.gltf tris=23822 objs=1 mats=1 size(blender xyz)=(1.57,0.44,1.11) lo=(-0.78,-0.19,-0.00)
+  concrete_road_barrier_02 t=23822 c=(0.01,0.03,0.55) s=(1.57,0.44,1.11) mats=['concrete_road_barrier_02']
+=== modular_street_seating_1k.gltf tris=25156 objs=16 mats=5 size(blender xyz)=(4.34,0.77,0.95) lo=(-2.36,-0.40,-0.00)
+  crossbar t=48 c=(-1.16,0.00,0.16) s=(1.86,0.04,0.04) mats=['modular_street_seating_armrests']
+  legs_double t=3488 c=(0.00,0.00,0.23) s=(0.18,0.60,0.45) mats=['modular_street_seating_supports']
+  legs_single t=2634 c=(-2.29,0.00,0.23) s=(0.13,0.60,0.45) mats=['modular_street_seating_supports']
+  suspended_support_01 t=2756 c=(-1.16,0.00,0.22) s=(0.11,0.57,0.20) mats=['modular_street_seating_supports']
+  suspended_support_02 t=2996 c=(1.04,0.00,0.24) s=(0.18,0.60,0.23) mats=['modular_street_seating_supports']
+  back_support_r t=1128 c=(-2.11,0.28,0.65) s=(0.13,0.17,0.44) mats=['modular_street_seating_armrests.001']
+  back_support_l t=1128 c=(-0.20,0.28,0.65) s=(0.13,0.17,0.44) mats=['modular_street_seating_armrests']
+  arm_rest_01 t=376 c=(-2.32,-0.00,0.66) s=(0.08,0.60,0.23) mats=['modular_street_seating_armrests']
+  arm_rest_02 t=358 c=(0.00,0.08,0.63) s=(0.08,0.45,0.17) mats=['modular_street_seating_armrests']
+  seat t=408 c=(-1.16,0.00,0.44) s=(1.84,0.60,0.02) mats=['modular_street_seating_timber']
+  seat_back t=176 c=(-1.16,0.32,0.68) s=(1.68,0.09,0.36) mats=['modular_street_seating_timber']
+  connector_60 t=2436 c=(1.24,-0.08,0.74) s=(0.61,0.65,0.02) mats=['modular_street_seating_connectors']
+  connector_45 t=1992 c=(0.39,-0.09,0.94) s=(0.49,0.63,0.02) mats=['modular_street_seating_connectors']
+  connector_90 t=3324 c=(0.49,-0.05,0.74) s=(0.70,0.70,0.02) mats=['modular_street_seating_connectors']
+  connector_30 t=1500 c=(0.91,-0.09,0.94) s=(0.35,0.61,0.02) mats=['modular_street_seating_connectors']
+  seat_bench t=408 c=(1.06,0.00,0.44) s=(1.84,0.60,0.02) mats=['modular_street_seating_timber']
+=== large_iron_gate_1k.gltf tris=38140 objs=4 mats=1 size(blender xyz)=(2.95,0.10,2.93) lo=(-1.48,-0.06,-0.01)
+  large_iron_gate_right_door t=18992 c=(0.70,-0.02,1.46) s=(1.47,0.09,2.93) mats=['large_iron_gate']
+  large_iron_gate_bolt t=408 c=(0.05,-0.03,0.98) s=(0.24,0.01,0.11) mats=['large_iron_gate']
+  large_iron_gate_left_door t=18164 c=(-0.72,-0.01,1.46) s=(1.43,0.06,2.93) mats=['large_iron_gate']
+  large_iron_gate t=576 c=(0.00,0.00,2.20) s=(2.95,0.07,0.03) mats=['large_iron_gate']
+=== planter_box_01_1k.gltf tris=8094 objs=1 mats=1 size(blender xyz)=(0.91,0.41,0.42) lo=(-0.46,-0.21,0.00)
+  planter_box_01 t=8094 c=(-0.00,0.00,0.21) s=(0.91,0.41,0.42) mats=['planter_box_01']
+=== garden_gnome_1k.gltf tris=28858 objs=1 mats=1 size(blender xyz)=(0.26,0.21,0.60) lo=(-0.14,-0.11,-0.00)
+  garden_gnome t=28858 c=(-0.01,-0.01,0.30) s=(0.26,0.21,0.60) mats=['garden_gnome_01']

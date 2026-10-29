@@ -1,0 +1,864 @@
+{
+ "_doc": "Player outfits. Each slot lists items; an item's pieces are meshes in assets/models/gear/gear.glb (tools/blender/make_gear.py). colors: colourways (sRGB hex) that replace the tintable parts' colour; the first is the default. covers: bare-skin regions this item hides completely (partly covered skin stays drawn; the torso always is) (torso, upperarm, forearm, thigh, shin, feet). closed: a jacket that hides the shirt under it. over: pieces to use instead when a jacket is worn (pads over the sleeve).",
+ "skin_tones": [
+  {
+   "id": "medium",
+   "name": "Kayumanggi",
+   "mult": "#ffffff"
+  },
+  {
+   "id": "light",
+   "name": "Light",
+   "mult": "#ffe2cf"
+  },
+  {
+   "id": "tan",
+   "name": "Tan",
+   "mult": "#dcb49a"
+  },
+  {
+   "id": "deep",
+   "name": "Deep",
+   "mult": "#b08a74"
+  }
+ ],
+ "slots": [
+  {
+   "id": "hair",
+   "name": "Hair",
+   "items": [
+    {
+     "id": "short",
+     "name": "Short",
+     "pieces": [
+      "hair_short"
+     ],
+     "colors": [
+      "#1a1410",
+      "#3b2a1c",
+      "#6b4a2a",
+      "#8c8c88",
+      "#b8862c"
+     ]
+    },
+    {
+     "id": "buzz",
+     "name": "Buzz Cut",
+     "pieces": [
+      "hair_buzz"
+     ],
+     "colors": [
+      "#1a1410",
+      "#3b2a1c",
+      "#8c8c88"
+     ]
+    },
+    {
+     "id": "mohawk",
+     "name": "Mohawk",
+     "pieces": [
+      "hair_mohawk"
+     ],
+     "colors": [
+      "#1a1410",
+      "#b8292c",
+      "#2c6bd1",
+      "#e0c040"
+     ]
+    },
+    {
+     "id": "bun",
+     "name": "Bun",
+     "pieces": [
+      "hair_bun"
+     ],
+     "colors": [
+      "#1a1410",
+      "#3b2a1c",
+      "#6b4a2a"
+     ]
+    },
+    {
+     "id": "none",
+     "name": "Bald"
+    }
+   ]
+  },
+  {
+   "id": "helmet",
+   "name": "Headwear",
+   "items": [
+    {
+     "id": "none",
+     "name": "None"
+    },
+    {
+     "id": "beanie",
+     "name": "Knit Beanie",
+     "pieces": [
+      "helmet_beanie"
+     ],
+     "colors": [
+      "#263450",
+      "#7a2020",
+      "#2a2a2a",
+      "#c9a227",
+      "#3b5b3b"
+     ]
+    },
+    {
+     "id": "cap",
+     "name": "Ball Cap",
+     "pieces": [
+      "helmet_cap"
+     ],
+     "colors": [
+      "#e8e6df",
+      "#1d2a4a",
+      "#a0201c",
+      "#2f3a2a",
+      "#111111"
+     ]
+    },
+    {
+     "id": "combat",
+     "name": "Combat Helmet",
+     "pieces": [
+      "helmet_combat"
+     ],
+     "colors": [
+      "#ffffff",
+      "#c8c2a8",
+      "#8e9a86",
+      "#6a6a6a"
+     ]
+    },
+    {
+     "id": "hardhat",
+     "name": "Hard Hat",
+     "pieces": [
+      "helmet_hardhat"
+     ],
+     "colors": [
+      "#f2c419",
+      "#f4f4f2",
+      "#e8661c",
+      "#2f62c6"
+     ]
+    },
+    {
+     "id": "moto",
+     "name": "Moto Helmet",
+     "pieces": [
+      "helmet_moto"
+     ],
+     "colors": [
+      "#9e1414",
+      "#141414",
+      "#e9e9e6",
+      "#1e4fa6",
+      "#d8b415"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "face",
+   "name": "Face",
+   "items": [
+    {
+     "id": "none",
+     "name": "None"
+    },
+    {
+     "id": "bandana",
+     "name": "Bandana",
+     "pieces": [
+      "face_bandana"
+     ],
+     "colors": [
+      "#ffffff",
+      "#c43a2c",
+      "#1f2f6b",
+      "#202020"
+     ]
+    },
+    {
+     "id": "goggles",
+     "name": "Goggles",
+     "pieces": [
+      "face_goggles"
+     ],
+     "colors": [
+      "#1e1e1e",
+      "#3d4a2b",
+      "#5a4632"
+     ]
+    },
+    {
+     "id": "respirator",
+     "name": "Respirator",
+     "pieces": [
+      "face_respirator"
+     ],
+     "colors": [
+      "#1a1a1a",
+      "#3a3f36",
+      "#4a4a52"
+     ]
+    },
+    {
+     "id": "sunglasses",
+     "name": "Sunglasses",
+     "pieces": [
+      "face_sunglasses"
+     ],
+     "colors": [
+      "#0d0d0d",
+      "#6b4b24",
+      "#b9b9b9"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "jacket",
+   "name": "Jacket",
+   "items": [
+    {
+     "id": "none",
+     "name": "None"
+    },
+    {
+     "id": "hoodie",
+     "name": "Hoodie",
+     "pieces": [
+      "jacket_hoodie"
+     ],
+     "hood": "jacket_hoodie_hood",
+     "colors": [
+      "#202022",
+      "#5d6168",
+      "#36442e",
+      "#6b1f22",
+      "#283a5c"
+     ],
+     "covers": [
+      "upperarm",
+      "forearm"
+     ],
+     "closed": true
+    },
+    {
+     "id": "bomber",
+     "name": "Bomber",
+     "pieces": [
+      "jacket_bomber",
+      "jacket_bomber_collar",
+      "jacket_bomber_cuff_L",
+      "jacket_bomber_cuff_R"
+     ],
+     "colors": [
+      "#525c3d",
+      "#1b1f2a",
+      "#7a1d1d",
+      "#8c6f45"
+     ],
+     "covers": [
+      "upperarm",
+      "forearm"
+     ],
+     "closed": true
+    },
+    {
+     "id": "denim",
+     "name": "Denim Jacket",
+     "pieces": [
+      "jacket_denim",
+      "jacket_denim_pockets"
+     ],
+     "colors": [
+      "#53709e",
+      "#2c3a55",
+      "#9fb0c8",
+      "#2a2a2a"
+     ],
+     "covers": [
+      "upperarm",
+      "forearm"
+     ]
+    },
+    {
+     "id": "flannel",
+     "name": "Flannel",
+     "pieces": [
+      "jacket_flannel"
+     ],
+     "colors": [
+      "#ffffff",
+      "#9ec0ff",
+      "#b6e39a",
+      "#f2d27d"
+     ],
+     "covers": [
+      "upperarm",
+      "forearm"
+     ]
+    },
+    {
+     "id": "puffer",
+     "name": "Puffer",
+     "pieces": [
+      "jacket_puffer"
+     ],
+     "colors": [
+      "#b83a2e",
+      "#20232c",
+      "#e3e0d6",
+      "#2f6b3b",
+      "#d4a017"
+     ],
+     "covers": [
+      "upperarm",
+      "forearm"
+     ],
+     "closed": true
+    },
+    {
+     "id": "field",
+     "name": "Field Jacket",
+     "pieces": [
+      "jacket_field",
+      "jacket_field_pockets"
+     ],
+     "colors": [
+      "#ffffff",
+      "#d8d2bd",
+      "#9fb1a4",
+      "#bcbcbc"
+     ],
+     "covers": [
+      "upperarm",
+      "forearm"
+     ],
+     "closed": true
+    }
+   ]
+  },
+  {
+   "id": "shirt",
+   "name": "Inner Shirt",
+   "items": [
+    {
+     "id": "tee",
+     "name": "T-Shirt",
+     "pieces": [
+      "shirt_tee"
+     ],
+     "colors": [
+      "#ebebe6",
+      "#1c1c1c",
+      "#9c2a2a",
+      "#2b4a8a",
+      "#5d6a3a"
+     ]
+    },
+    {
+     "id": "tank",
+     "name": "Sando",
+     "pieces": [
+      "shirt_tank"
+     ],
+     "colors": [
+      "#ebebe6",
+      "#1c1c1c",
+      "#c7b98f",
+      "#3a5f8c"
+     ]
+    },
+    {
+     "id": "longsleeve",
+     "name": "Long Sleeve",
+     "pieces": [
+      "shirt_longsleeve"
+     ],
+     "colors": [
+      "#7f848c",
+      "#20262e",
+      "#5b3d2b",
+      "#3c4d3a"
+     ],
+     "covers": [
+      "upperarm",
+      "forearm"
+     ]
+    },
+    {
+     "id": "jersey",
+     "name": "Basketball Jersey",
+     "pieces": [
+      "shirt_jersey"
+     ],
+     "colors": [
+      "#f2f2f2",
+      "#f2c12e",
+      "#1f4fb4",
+      "#c8202a",
+      "#5a2a82"
+     ]
+    },
+    {
+     "id": "polo",
+     "name": "Plaid Shirt",
+     "pieces": [
+      "shirt_polo"
+     ],
+     "colors": [
+      "#ffffff",
+      "#a4c6ff",
+      "#b9e6a0"
+     ]
+    },
+    {
+     "id": "none",
+     "name": "None"
+    }
+   ]
+  },
+  {
+   "id": "gloves",
+   "name": "Hands",
+   "items": [
+    {
+     "id": "none",
+     "name": "Bare"
+    },
+    {
+     "id": "tactical",
+     "name": "Tactical Gloves",
+     "pieces": [
+      "gloves_tactical",
+      "gloves_tactical_knuckle_L",
+      "gloves_tactical_knuckle_R"
+     ],
+     "colors": [
+      "#1a1a1a",
+      "#4b4f3a",
+      "#6b5a42"
+     ]
+    },
+    {
+     "id": "fingerless",
+     "name": "Fingerless",
+     "pieces": [
+      "gloves_fingerless"
+     ],
+     "colors": [
+      "#2e1e14",
+      "#151515",
+      "#5a5a5a"
+     ]
+    },
+    {
+     "id": "work",
+     "name": "Work Gloves",
+     "pieces": [
+      "gloves_work",
+      "gloves_work_cuff_L",
+      "gloves_work_cuff_R"
+     ],
+     "colors": [
+      "#bf9e66",
+      "#8a8f99",
+      "#c94a2a"
+     ]
+    },
+    {
+     "id": "wraps",
+     "name": "Hand Wraps",
+     "pieces": [
+      "gloves_wraps"
+     ],
+     "colors": [
+      "#eeeeea",
+      "#c41f1f",
+      "#1f1f1f",
+      "#2a56b8"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "elbow",
+   "name": "Elbow Pads",
+   "items": [
+    {
+     "id": "none",
+     "name": "None"
+    },
+    {
+     "id": "hard",
+     "name": "Hard Shell",
+     "pieces": [
+      "elbow_hard_L",
+      "elbow_hard_R"
+     ],
+     "over": [
+      "elbow_hard_L_over",
+      "elbow_hard_R_over"
+     ],
+     "colors": [
+      "#26272a",
+      "#4b5238",
+      "#8c8c8c"
+     ]
+    },
+    {
+     "id": "foam",
+     "name": "Foam",
+     "pieces": [
+      "elbow_foam_L",
+      "elbow_foam_R"
+     ],
+     "over": [
+      "elbow_foam_L_over",
+      "elbow_foam_R_over"
+     ],
+     "colors": [
+      "#33383a",
+      "#1e2b44",
+      "#3d2a2a"
+     ]
+    },
+    {
+     "id": "skate",
+     "name": "Skate Pads",
+     "pieces": [
+      "elbow_skate_L",
+      "elbow_skate_R"
+     ],
+     "over": [
+      "elbow_skate_L_over",
+      "elbow_skate_R_over"
+     ],
+     "colors": [
+      "#c42a20",
+      "#1c1c1c",
+      "#f2f2f2",
+      "#2a8a3a"
+     ]
+    },
+    {
+     "id": "knit",
+     "name": "Knit Sleeve",
+     "pieces": [
+      "elbow_knit_L",
+      "elbow_knit_R"
+     ],
+     "over": [
+      "elbow_knit_L_over",
+      "elbow_knit_R_over"
+     ],
+     "colors": [
+      "#595a5c",
+      "#1a1a1a",
+      "#c8b48a"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "knee",
+   "name": "Knee Pads",
+   "items": [
+    {
+     "id": "none",
+     "name": "None"
+    },
+    {
+     "id": "hard",
+     "name": "Hard Shell",
+     "pieces": [
+      "knee_hard_L",
+      "knee_hard_R"
+     ],
+     "colors": [
+      "#26272a",
+      "#4b5238",
+      "#8c8c8c"
+     ]
+    },
+    {
+     "id": "foam",
+     "name": "Foam",
+     "pieces": [
+      "knee_foam_L",
+      "knee_foam_R"
+     ],
+     "colors": [
+      "#33383a",
+      "#1e2b44",
+      "#3d2a2a"
+     ]
+    },
+    {
+     "id": "skate",
+     "name": "Skate Pads",
+     "pieces": [
+      "knee_skate_L",
+      "knee_skate_R"
+     ],
+     "colors": [
+      "#c42a20",
+      "#1c1c1c",
+      "#f2f2f2",
+      "#2a8a3a"
+     ]
+    },
+    {
+     "id": "knit",
+     "name": "Knit Sleeve",
+     "pieces": [
+      "knee_knit_L",
+      "knee_knit_R"
+     ],
+     "colors": [
+      "#595a5c",
+      "#1a1a1a",
+      "#c8b48a"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "pants",
+   "name": "Pants",
+   "items": [
+    {
+     "id": "jeans",
+     "name": "Jeans",
+     "pieces": [
+      "pants_jeans"
+     ],
+     "colors": [
+      "#38476b",
+      "#1d2230",
+      "#6d7d99",
+      "#2c2c2c"
+     ],
+     "covers": [
+      "thigh",
+      "shin"
+     ]
+    },
+    {
+     "id": "cargo",
+     "name": "Cargo Pants",
+     "pieces": [
+      "pants_cargo",
+      "pants_cargo_pocket_L",
+      "pants_cargo_pocket_R"
+     ],
+     "colors": [
+      "#8c7f5c",
+      "#3c4232",
+      "#2a2a2a",
+      "#6b6b66"
+     ],
+     "covers": [
+      "thigh",
+      "shin"
+     ]
+    },
+    {
+     "id": "track",
+     "name": "Track Pants",
+     "pieces": [
+      "pants_track"
+     ],
+     "colors": [
+      "#1f2433",
+      "#2d2d2d",
+      "#6b1c1c",
+      "#2f5d3f"
+     ],
+     "covers": [
+      "thigh",
+      "shin"
+     ]
+    },
+    {
+     "id": "camo",
+     "name": "Camo Pants",
+     "pieces": [
+      "pants_camo"
+     ],
+     "colors": [
+      "#ffffff",
+      "#d8d2bd",
+      "#a6b3c2"
+     ],
+     "covers": [
+      "thigh",
+      "shin"
+     ]
+    },
+    {
+     "id": "shorts",
+     "name": "Basketball Shorts",
+     "pieces": [
+      "pants_shorts"
+     ],
+     "colors": [
+      "#dcdce0",
+      "#1e4fb4",
+      "#c8202a",
+      "#1c1c1c",
+      "#f2c12e"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "boots",
+   "name": "Footwear",
+   "items": [
+    {
+     "id": "sneakers",
+     "name": "Sneakers",
+     "pieces": [
+      "boots_sneakers"
+     ],
+     "colors": [
+      "#e8e8e8",
+      "#1a1a1a",
+      "#b52a2a",
+      "#2d4c8c"
+     ],
+     "covers": [
+      "feet"
+     ]
+    },
+    {
+     "id": "combat",
+     "name": "Combat Boots",
+     "pieces": [
+      "boots_combat",
+      "boots_combat_shaft"
+     ],
+     "colors": [
+      "#1e1b18",
+      "#5a4630",
+      "#3c4230"
+     ],
+     "covers": [
+      "feet"
+     ]
+    },
+    {
+     "id": "rubber",
+     "name": "Rubber Boots",
+     "pieces": [
+      "boots_rubber",
+      "boots_rubber_shaft"
+     ],
+     "colors": [
+      "#33592d",
+      "#d8b415",
+      "#1a1a1a",
+      "#2c4f8c"
+     ],
+     "covers": [
+      "feet"
+     ]
+    },
+    {
+     "id": "tsinelas",
+     "name": "Tsinelas",
+     "pieces": [
+      "boots_tsinelas_L",
+      "boots_tsinelas_R"
+     ],
+     "colors": [
+      "#3266bf",
+      "#d43a2a",
+      "#2a2a2a",
+      "#2f8a4a"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "pack",
+   "name": "Backpack",
+   "items": [
+    {
+     "id": "none",
+     "name": "None"
+    },
+    {
+     "id": "school",
+     "name": "School Bag",
+     "pieces": [
+      "pack_school"
+     ],
+     "colors": [
+      "#2e4d8c",
+      "#8c1f1f",
+      "#1a1a1a",
+      "#d18a1a"
+     ]
+    },
+    {
+     "id": "tactical",
+     "name": "Tactical Pack",
+     "pieces": [
+      "pack_tactical"
+     ],
+     "colors": [
+      "#ffffff",
+      "#d8d2bd",
+      "#9fb1a4"
+     ]
+    },
+    {
+     "id": "sako",
+     "name": "Rice Sack",
+     "pieces": [
+      "pack_sako"
+     ],
+     "colors": [
+      "#ffffff",
+      "#e6d8b8"
+     ]
+    },
+    {
+     "id": "sling",
+     "name": "Sling Bag",
+     "pieces": [
+      "pack_sling"
+     ],
+     "colors": [
+      "#3d352c",
+      "#1a1a1a",
+      "#4b5a3a"
+     ]
+    }
+   ]
+  }
+ ],
+ "default_look": {
+  "hair": "short",
+  "helmet": "none",
+  "face": "none",
+  "jacket": "hoodie",
+  "shirt": "tee",
+  "gloves": "none",
+  "elbow": "none",
+  "knee": "none",
+  "pants": "jeans",
+  "boots": "sneakers",
+  "pack": "none",
+  "skin": 0
+ }
+}

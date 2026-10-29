@@ -1,0 +1,89 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+SCRIPT ERROR: Parse Error: Cannot infer the type of "o" variable because the value doesn't have a set type.
+   at: GDScript::reload (res://src/world/maps/lawless_sub/sub_streets.gd:270)
+   GDScript backtrace (most recent call first):
+       [0] _ready (res://tools/check_scripts.gd:12)
+SCRIPT ERROR: Parse Error: Cannot infer the type of "d" variable because the value doesn't have a set type.
+   at: GDScript::reload (res://src/world/maps/lawless_sub/sub_streets.gd:439)
+   GDScript backtrace (most recent call first):
+       [0] _ready (res://tools/check_scripts.gd:12)
+ERROR: Failed to load script "res://src/world/maps/lawless_sub/sub_streets.gd" with error "Parse error".
+   at: load (modules/gdscript/gdscript_resource_format.cpp:46)
+   GDScript backtrace (most recent call first):
+       [0] _ready (res://tools/check_scripts.gd:12)
+FAIL res://src/world/maps/lawless_sub/sub_streets.gd
+SCRIPT ERROR: Parse Error: Cannot infer the type of "ext_a" variable because the value doesn't have a set type.
+   at: GDScript::reload (res://src/world/maps/lawless_sub/sub_works.gd:74)
+   GDScript backtrace (most recent call first):
+       [0] _ready (res://tools/check_scripts.gd:12)
+SCRIPT ERROR: Parse Error: Cannot infer the type of "ext_b" variable because the value doesn't have a set type.
+   at: GDScript::reload (res://src/world/maps/lawless_sub/sub_works.gd:75)
+   GDScript backtrace (most recent call first):
+       [0] _ready (res://tools/check_scripts.gd:12)
+SCRIPT ERROR: Parse Error: Cannot infer the type of "wl" variable because the value doesn't have a set type.
+   at: GDScript::reload (res://src/world/maps/lawless_sub/sub_works.gd:79)
+   GDScript backtrace (most recent call first):
+       [0] _ready (res://tools/check_scripts.gd:12)
+SCRIPT ERROR: Parse Error: Cannot infer the type of "wc" variable because the value doesn't have a set type.
+   at: GDScript::reload (res://src/world/maps/lawless_sub/sub_works.gd:80)
+   GDScript backtrace (most recent call first):
+       [0] _ready (res://tools/check_scripts.gd:12)
+SCRIPT ERROR: Parse Error: Cannot infer the type of "ext2" variable because the value doesn't have a set type.
+   at: GDScript::reload (res://src/world/maps/lawless_sub/sub_works.gd:89)
+   GDScript backtrace (most recent call first):
+       [0] _ready (res://tools/check_scripts.gd:12)
+SCRIPT ERROR: Parse Error: Cannot infer the type of "pl" variable because the value doesn't have a set type.
+   at: GDScript::reload (res://src/world/maps/lawless_sub/sub_works.gd:94)
+   GDScript backtrace (most recent call first):
+       [0] _ready (res://tools/check_scripts.gd:12)
+SCRIPT ERROR: Parse Error: Cannot infer the type of "pc" variable because the value doesn't have a set type.
+   at: GDScript::reload (res://src/world/maps/lawless_sub/sub_works.gd:95)
+   GDScript backtrace (most recent call first):
+       [0] _ready (res://tools/check_scripts.gd:12)
+SCRIPT ERROR: Parse Error: Cannot infer the type of "kc" variable because the value doesn't have a set type.
+   at: GDScript::reload (res://src/world/maps/lawless_sub/sub_works.gd:100)
+   GDScript backtrace (most recent call first):
+       [0] _ready (res://tools/check_scripts.gd:12)
+SCRIPT ERROR: Parse Error: Cannot infer the type of "oc" variable because the value doesn't have a set type.
+   at: GDScript::reload (res://src/world/maps/lawless_sub/sub_works.gd:186)
+   GDScript backtrace (most recent call first):
+       [0] _ready (res://tools/check_scripts.gd:12)
+SCRIPT ERROR: Parse Error: Cannot infer the type of "po" variable because the value doesn't have a set type.
+   at: GDScript::reload (res://src/world/maps/lawless_sub/sub_works.gd:190)
+   GDScript backtrace (most recent call first):
+       [0] _ready (res://tools/check_scripts.gd:12)
+SCRIPT ERROR: Parse Error: Cannot infer the type of "ptop" variable because the value doesn't have a set type.
+   at: GDScript::reload (res://src/world/maps/lawless_sub/sub_works.gd:191)
+   GDScript backtrace (most recent call first):
+       [0] _ready (res://tools/check_scripts.gd:12)
+SCRIPT ERROR: Parse Error: Cannot infer the type of "rc" variable because the value doesn't have a set type.
+   at: GDScript::reload (res://src/world/maps/lawless_sub/sub_works.gd:210)
+   GDScript backtrace (most recent call first):
+       [0] _ready (res://tools/check_scripts.gd:12)
+SCRIPT ERROR: Parse Error: Cannot infer the type of "pp" variable because the value doesn't have a set type.
+   at: GDScript::reload (res://src/world/maps/lawless_sub/sub_works.gd:215)
+   GDScript backtrace (most recent call first):
+       [0] _ready (res://tools/check_scripts.gd:12)
+SCRIPT ERROR: Parse Error: Cannot infer the type of "off" variable because the value doesn't have a set type.
+   at: GDScript::reload (res://src/world/maps/lawless_sub/sub_works.gd:228)
+   GDScript backtrace (most recent call first):
+       [0] _ready (res://tools/check_scripts.gd:12)
+SCRIPT ERROR: Parse Error: Cannot infer the type of "pz" variable because the value doesn't have a set type.
+   at: GDScript::reload (res://src/world/maps/lawless_sub/sub_works.gd:300)
+   GDScript backtrace (most recent call first):
+       [0] _ready (res://tools/check_scripts.gd:12)
+SCRIPT ERROR: Parse Error: Cannot infer the type of "road" variable because the value doesn't have a set type.
+   at: GDScript::reload (res://src/world/maps/lawless_sub/sub_works.gd:334)
+   GDScript backtrace (most recent call first):
+       [0] _ready (res://tools/check_scripts.gd:12)
+SCRIPT ERROR: Parse Error: Cannot infer the type of "t" variable because the value doesn't have a set type.
+   at: GDScript::reload (res://src/world/maps/lawless_sub/sub_works.gd:358)
+   GDScript backtrace (most recent call first):
+       [0] _ready (res://tools/check_scripts.gd:12)
+ERROR: Failed to load script "res://src/world/maps/lawless_sub/sub_works.gd" with error "Parse error".
+   at: load (modules/gdscript/gdscript_resource_format.cpp:46)
+   GDScript backtrace (most recent call first):
+       [0] _ready (res://tools/check_scripts.gd:12)
+FAIL res://src/world/maps/lawless_sub/sub_works.gd
+checked 110 scripts, 2 failed

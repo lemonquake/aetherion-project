@@ -1,0 +1,177 @@
+func _page_home() -> Control:
+	var dm := Profile.game_mode == "deathmatch"
+	var row := UITheme.hbox(30)
+	var left := UITheme.vbox(12 if not _compact else 10)
+	left.custom_minimum_size = Vector2(580 if not _compact else 480, 0)
+	left.size_flags_vertical = Control.SIZE_SHRINK_CENTER
+	row.add_child(left)
+	left.add_child(UITheme.label("%s · %s" % [UITheme.MAP_NAMES.get(_map_for(Profile.game_mode), ""), UITheme.MODE_NAMES.get(Profile.game_mode, "")], 20, UITheme.ACCENT, UITheme.font_semibold))
+	if not _compact:
+		left.add_child(UITheme.label("Choose a mode", 52, UITheme.TEXT, UITheme.font_condensed))
+		for m in ["classic", "deathmatch"]:
+			left.add_child(_mode_card(m))
+		left.add_child(UITheme.spacer(4))
+	else:
+		var seg := UITheme.segmented([["classic", "Classic"], ["deathmatch", "Deathmatch"]], Profile.game_mode, _set_mode)
+		for b in seg.get_children():
+			b.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+			b.add_theme_font_size_override("font_size", 22)
+		left.add_child(seg)
+		var d := UITheme.label(MODE_TEXT[Profile.game_mode], 17, UITheme.TEXT_DIM)
+		d.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
+		left.add_child(d)
+	var quick := UITheme.primary("PLAY NOW", _quick_match, 0, 96 if not _compact else 76)
+	quick.add_theme_font_size_override("font_size", 40)
+	left.add_child(quick)
+	var practice := UITheme.label(("Practice: you and 19 bots, %s against %s, 10 a side. Starts at once." % [UITheme.dm_team_name(0), UITheme.dm_team_name(1)]) if dm
+		else "Practice: you and 19 bots in 5 squads of 4. Starts at once.", 17, UITheme.TEXT_DIM)
+	practice.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
+	left.add_child(practice)
+	var r2 := UITheme.hbox(10)
+	var find := UITheme.icon_button("globe", "Find a game", func(): _show("play"))
+	find.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+	r2.add_child(find)
+	var host := UITheme.icon_button("plus", "Host a game", func(): _show("play"))
+	host.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+	r2.add_child(host)
+	if dm and _compact:
+		var gs := UITheme.icon_button("gun", "Game Setup", open_game_setup)
+		gs.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+		r2.add_child(gs)
+	left.add_child(r2)
+	if dm and not _compact:
+		left.add_child(_loadout_button())
+	elif not _compact:
+		var locker := UITheme.icon_button("locker", "Customize your character", func(): _show("locker"))
+		left.add_child(locker)
+	var fill := Control.new()
+	fill.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+	row.add_child(fill)
+	# Right: who is online, your last match.
+	var right := UITheme.vbox(14)
+	right.custom_minimum_size = Vector2(420 if not _compact else 360, 0)
+	row.add_child(right)
+	var op := UITheme.panel(null, "panel")
+	op.size_flags_vertical = Control.SIZE_EXPAND_FILL
+	var ov := UITheme.vbox(8)
+	op.add_child(ov)
+	var oh := UITheme.hbox(8)
+	oh.add_child(Icons_rect("users", 24, UITheme.ACCENT2))
+	oh.add_child(UITheme.label("Online now", 26, UITheme.TEXT, UITheme.font_condensed))
+	ov.add_child(oh)
+	var sc := ScrollContainer.new()
+	sc.size_flags_vertical = Control.SIZE_EXPAND_FILL
+	sc.horizontal_scroll_mode = ScrollContainer.SCROLL_MODE_DISABLED
+	_online_list = UITheme.vbox(6)
+	_online_list.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+	sc.add_child(_online_list)
+	ov.add_child(sc)
+	right.add_child(op)
+	right.add_child(_last_match_card())
+	return row
+
+
+# ------------------------------------------------------------------ r7: game modes
+
+const MODE_TEXT := {
+	"classic": "Battle royale on Sitio Kalinaw. Parachute in, loot weapons and gear, and survive the shrinking haze. Day and night change every 5 minutes. The last team standing wins.",
+	"deathmatch": "Two teams of up to 10 on Lawless Sub. Pick a primary and a secondary gun; everyone starts with armour and a heavy-plate helmet. No respawns: the last team standing wins. Loot and swap guns as you go; the haze and day and night still apply.",
+}
+
+
+func _map_for(mode: String) -> String:
+	## The map a mode plays on (rules.json game_modes.<mode>.map); --map=<id> overrides it for tests.
+	if Game.arg("map"):
+		return str(Game.arg("map"))
+	return str(Defs.rule("game_modes.%s.map" % mode, "lawless_sub" if mode == "deathmatch" else "kalinaw"))
+
+
+func _mode_card(m: String) -> Control:
+	## A selectable card: icon, name, map and the plain description. The whole card is one button.
+	var on := Profile.game_mode == m
+	var pc := PanelContainer.new()
+	pc.add_theme_stylebox_override("panel", StyleBoxEmpty.new())
+	var b := Button.new()
+	b.theme_type_variation = "CardButton"
+	b.toggle_mode = true
+	b.button_pressed = on
+	b.tooltip_text = str(UITheme.MODE_NAMES[m])
+	b.pressed.connect(func(): SoundSys.play_ui("ui_select"); _set_mode(m))
+	pc.add_child(b)
+	var mc := MarginContainer.new()
+	mc.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	for side in ["left", "right", "top", "bottom"]:
+		mc.add_theme_constant_override("margin_" + side, 14)
+	pc.add_child(mc)
+	var h := UITheme.hbox(14)
+	h.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	mc.add_child(h)
+	var ic := TextureRect.new()
+	ic.texture = Icons.texture("parachute" if m == "classic" else "swords", 44, UITheme.ACCENT if on else UITheme.TEXT_DIM)
+	ic.stretch_mode = TextureRect.STRETCH_KEEP_CENTERED
+	ic.size_flags_vertical = Control.SIZE_SHRINK_BEGIN
+	ic.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	h.add_child(ic)
+	var v := UITheme.vbox(4)
+	v.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	v.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+	h.add_child(v)
+	var th := UITheme.hbox(10)
+	th.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	var t := UITheme.label(str(UITheme.MODE_NAMES[m]), 32, UITheme.TEXT, UITheme.font_condensed)
+	t.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	th.add_child(t)
+	var mp := UITheme.pill(str(UITheme.MAP_NAMES.get(_map_for(m), _map_for(m))), UITheme.ACCENT2, 15)
+	mp.size_flags_vertical = Control.SIZE_SHRINK_CENTER
+	mp.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	th.add_child(mp)
+	v.add_child(th)
+	var d := UITheme.label(MODE_TEXT[m], 17, UITheme.TEXT if on else UITheme.TEXT_DIM)
+	d.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
+	d.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	v.add_child(d)
+	return pc
+
+
+func _loadout_button() -> Control:
+	## Deathmatch: your two guns at a glance; opens Game Setup.
+	var lo := Profile.get_loadout()
+	var b := UITheme.icon_button("gun", "Game Setup:  %s + %s" % [Defs.item_name(str(lo.primary)), Defs.item_name(str(lo.secondary))], open_game_setup)
+	b.alignment = HORIZONTAL_ALIGNMENT_LEFT
+	b.clip_text = true
+	return b
+
+
+func _set_mode(m: String) -> void:
+	## The mode for Play Now and Host Game, saved in the profile. Home and Play are rebuilt to match.
+	if m == Profile.game_mode and m == str(_create.game_mode):
+		return
+	Profile.set_game_mode(m)
+	_create.game_mode = Profile.game_mode
+	_rebuild_pages.call_deferred()
+
+
+func _rebuild_pages() -> void:
+	for k in ["home", "play"]:
+		if _pages.has(k):
+			_pages[k].queue_free()
+			_pages.erase(k)
+	_show(_page)
+
+
+func open_game_setup() -> Control:
+	var gs: Control = GameSetup.new()
+	gs.closed.connect(func(): if _page in ["home", "play"]: _rebuild_pages())
+	add_child(gs)
+	return gs
+
+
+func _apply_mode_config(mode: String, team_size: int) -> void:
+	## Every host path sets the mode and map explicitly: Net.shutdown() keeps the config of the last session.
+	Net.set_config("game_mode", mode)
+	Net.set_config("map", _map_for(mode))
+	if mode == "deathmatch":
+		Net.set_config("teams", 2)
+		Net.set_config("team_size", clampi(team_size, 1, 10))
+
+

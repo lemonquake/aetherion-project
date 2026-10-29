@@ -1,0 +1,65 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+Vulkan 1.4.329 - Forward+ - Using Device #0: NVIDIA - NVIDIA GeForce RTX 4060
+
+[preview] map built in 10538 ms: {"buildings":256,"containers":2468,"doors":1970,"dress":{"cars":102,"lamps":63,"lights":36,"shrubs":60,"trees":79},"finish_ms":1025,"ladders":31,"layout_ms":197,"lights":{"dead":10,"house_dark":130,"house_lit":117,"pole":0,"porch":65,"rooms":137},"props":2528,"sink":{"boxes":86143,"colliders":603,"far_tris":4080,"meshes":1560,"tris":733388},"streets":{"lots":4,"paint":1591,"road_quads":631,"stalls":342,"walk_boxes":1098,"zebra":56},"terrain_ms":2267,"towns_ms":5506,"windows":3037,"works":{"apron_boxes":30,"backdrop":65,"bridges":4,"ladders":6,"panels":901,"wall_boxes":15},"zones":2443}
+[preview] saved ../work/lemondev/r7/map/p3/sub_top_t450.png fps 31.0 luma 112.948362008258
+[preview] saved ../work/lemondev/r7/map/p3/sub_tower_t450.png fps 54.0 luma 101.892681243825
+[preview] saved ../work/lemondev/r7/map/p3/sub_mart_t450.png fps 60.0 luma 119.171006602305
+[preview] saved ../work/lemondev/r7/map/p3/sub_strip_t450.png fps 33.0 luma 118.499281134611
+[preview] saved ../work/lemondev/r7/map/p3/sub_plastics_t450.png fps 48.0 luma 137.155890668768
+[preview] saved ../work/lemondev/r7/map/p3/sub_club_t450.png fps 60.0 luma 126.398991177347
+[preview] saved ../work/lemondev/r7/map/p3/sub_chapel_t450.png fps 29.0 luma 132.882919866634
+[preview] saved ../work/lemondev/r7/map/p3/sub_flats_t450.png fps 40.0 luma 116.882881377291
+[preview] saved ../work/lemondev/r7/map/p3/sub_shops_t450.png fps 59.0 luma 138.312444614798
+[preview] room sala #7 at (-112.0, 7.0, -101.0) size (6.1, 9.7)
+[preview] saved ../work/lemondev/r7/map/p3/in_sala_t450.png fps 32.0 luma 17.6123862131181
+[preview] room kitchen #4 at (-124.0, 1.0, -111.0) size (5.033333, 9.7)
+[preview] saved ../work/lemondev/r7/map/p3/in_kitchen_t450.png fps 43.0 luma 14.3709864021594
+[preview] room bedroom #9 at (-124.0, 4.0, -101.0) size (5.033334, 9.7)
+[preview] saved ../work/lemondev/r7/map/p3/in_bedroom_t450.png fps 60.0 luma 16.5816011286541
+[preview] room stair #5 at (-112.0, 4.0, -182.0) size (3.0, 9.7)
+[preview] saved ../work/lemondev/r7/map/p3/in_stair_t450.png fps 46.0 luma 9.73885687875204
+[preview] room store_aisles #0 at (-98.0, 1.0, 114.0) size (25.6, 10.7)
+[preview] saved ../work/lemondev/r7/map/p3/in_aisles_t450.png fps 60.0 luma 10.8900858596052
+[preview] room factory_floor #0 at (92.0, 1.0, 143.0) size (15.7, 39.6)
+[preview] saved ../work/lemondev/r7/map/p3/in_factory_t450.png fps 47.0 luma 4.45493155841308
+[preview] room office #2 at (-173.0, 1.0, -200.0) size (7.7, 8.7)
+[preview] saved ../work/lemondev/r7/map/p3/in_office_t450.png fps 55.0 luma 10.1419098995193
+[preview] room shop #2 at (-37.0, 1.0, -203.0) size (5.4, 6.84909)
+[preview] saved ../work/lemondev/r7/map/p3/in_shop_t450.png fps 56.0 luma 15.1868291918704
+[preview] room chapel #0 at (135.0, 1.0, 84.0) size (13.6, 17.7)
+[preview] saved ../work/lemondev/r7/map/p3/in_chapel_t450.png fps 49.0 luma 8.79191973961628
+[preview] room hall #0 at (120.0, 1.0, -44.0) size (9.2, 23.6)
+[preview] saved ../work/lemondev/r7/map/p3/in_hall_t450.png fps 62.0 luma 12.0569781536154
+ERROR: 1 RID allocations of type 'N10RendererRD5SkyRD3SkyE' were leaked at exit.
+ERROR: 1 RID allocations of type 'N26RendererEnvironmentStorage11EnvironmentE' were leaked at exit.
+ERROR: 171 RID allocations of type 'N10RendererRD11MeshStorage4MeshE' were leaked at exit.
+ERROR: 695 RID allocations of type 'N10RendererRD15MaterialStorage8MaterialE' were leaked at exit.
+ERROR: 28 RID allocations of type 'N10RendererRD15MaterialStorage6ShaderE' were leaked at exit.
+ERROR: 794 RID allocations of type 'N10RendererRD14TextureStorage7TextureE' were leaked at exit.
+ERROR: 27 shaders of type SceneForwardClusteredShaderRD were never freed
+   at: ~ShaderRD (servers/rendering/renderer_rd/shader_rd.cpp:1236)
+ERROR: 1 shaders of type SkyShaderRD were never freed
+   at: ~ShaderRD (servers/rendering/renderer_rd/shader_rd.cpp:1236)
+WARNING: 695 RIDs of type "UniformBuffer" were leaked.
+   at: _free_rids (servers/rendering/rendering_device.cpp:8686)
+WARNING: 1147 RIDs of type "IndexArray" were leaked.
+   at: _free_rids (servers/rendering/rendering_device.cpp:8686)
+WARNING: 1147 RIDs of type "IndexBuffer" were leaked.
+   at: _free_rids (servers/rendering/rendering_device.cpp:8686)
+WARNING: 392 RIDs of type "VertexArray" were leaked.
+   at: _free_rids (servers/rendering/rendering_device.cpp:8686)
+WARNING: 646 RIDs of type "VertexBuffer" were leaked.
+   at: _free_rids (servers/rendering/rendering_device.cpp:8686)
+WARNING: 48 RIDs of type "Framebuffer" were leaked.
+   at: _free_rids (servers/rendering/rendering_device.cpp:8686)
+WARNING: 1503 RIDs of type "Texture" were leaked.
+   at: finalize (servers/rendering/rendering_device.cpp:8900)
+WARNING: 7838 ObjectDB instances were leaked at exit (run with `--verbose` for details).
+   at: cleanup (core/object/object.cpp:2536)
+ERROR: 1130 resources still in use at exit (run with --verbose for details).
+   at: clear (core/io/resource.cpp:822)
+ERROR: Pages in use exist at exit in PagedAllocator: N12VariantPools12BucketMediumE
+   at: ~PagedAllocator (./core/templates/paged_allocator.h:170)
+ERROR: Pages in use exist at exit in PagedAllocator: N12VariantPools11BucketSmallE
+   at: ~PagedAllocator (./core/templates/paged_allocator.h:170)

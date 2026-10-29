@@ -1,0 +1,90 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+Vulkan 1.4.329 - Forward+ - Using Device #0: NVIDIA - NVIDIA GeForce RTX 4060
+
+[ui] loadout_received pid=1 Hehe {"primary":"rifle_m416","secondary":"pistol_9"}
+[ui] lobby shows my loadout (pid 1): {"primary":"rifle_m416","secondary":"pistol_9"}
+[ui] request_loadout {"primary":"rifle_m416","secondary":"pistol_9"}
+[world] map built in 12100 ms
+[map] 256 buildings, 1970 doors, 2518 containers, 2480 props, #f9b648fc on PC
+[game] autotest perf
+[perf] NVIDIA GeForce RTX 4060, window (1600, 900), shadows 2, ssao true, volumetric fog true, render scale 1.00
+[perf]   view tier -1 -> 0 at 2 m above ground (dm_spawn)
+[perf] dm_spawn         826 fr  avg   7.26 ms (  138 fps)  p50   7.18  p95  10.16  p99  11.76  max  13.21  >16.7ms    0 | render cpu  1.86 gpu  2.39 | process 207.43 physics  5.65 | draws    663 objs    815 prims   762306 | agl 0
+[perf]   0.44 physics steps/frame; engine physics step avg 0.62 ms max 1.73 ms; active bodies 0, pairs 0, islands 0
+[perf]   ms/frame: 
+[perf]   worst single call (ms): 
+[perf]   bot path searches (worker thread): 16, avg 0.31 ms, max 0.56 ms
+[perf] dm_intersection   959 fr  avg   6.26 ms (  160 fps)  p50   6.18  p95   8.06  p99   8.98  max  10.78  >16.7ms    0 | render cpu  1.85 gpu  2.26 | process  7.31 physics  3.36 | draws    684 objs    795 prims   768371 | agl 0
+[perf]   0.38 physics steps/frame; engine physics step avg 0.55 ms max 0.95 ms; active bodies 0, pairs 0, islands 0
+[perf]   ms/frame: 
+[perf]   worst single call (ms): 
+[perf]   bot path searches (worker thread): 17, avg 0.92 ms, max 1.72 ms
+[perf] dm_houses        911 fr  avg   6.58 ms (  152 fps)  p50   6.53  p95   8.28  p99   8.99  max  10.43  >16.7ms    0 | render cpu  2.02 gpu  2.29 | process  7.65 physics  3.39 | draws    772 objs    872 prims   810856 | agl 0
+[perf]   0.40 physics steps/frame; engine physics step avg 0.57 ms max 0.91 ms; active bodies 0, pairs 0, islands 0
+[perf]   ms/frame: 
+[perf]   worst single call (ms): 
+[perf]   bot path searches (worker thread): 25, avg 1.04 ms, max 1.43 ms
+[perf] dm_mart_lot      927 fr  avg   6.47 ms (  155 fps)  p50   6.37  p95   8.37  p99   9.34  max  11.72  >16.7ms    0 | render cpu  1.89 gpu  2.26 | process  7.61 physics  3.37 | draws    690 objs    799 prims   812343 | agl 0
+[perf]   0.39 physics steps/frame; engine physics step avg 0.58 ms max 1.14 ms; active bodies 0, pairs 0, islands 0
+[perf]   ms/frame: 
+[perf]   worst single call (ms): 
+[perf]   bot path searches (worker thread): 22, avg 1.06 ms, max 1.35 ms
+[perf] dm_factory_yard   961 fr  avg   6.24 ms (  160 fps)  p50   6.06  p95   9.05  p99  10.36  max  13.15  >16.7ms    0 | render cpu  1.57 gpu  2.09 | process  7.93 physics  3.95 | draws    502 objs    645 prims   479983 | agl 0
+[perf]   0.37 physics steps/frame; engine physics step avg 0.56 ms max 1.01 ms; active bodies 0, pairs 0, islands 0
+[perf]   ms/frame: 
+[perf]   worst single call (ms): 
+[perf]   bot path searches (worker thread): 28, avg 0.82 ms, max 1.47 ms
+[perf] dm_canal_row     849 fr  avg   7.07 ms (  141 fps)  p50   6.90  p95   9.10  p99  10.02  max  11.58  >16.7ms    0 | render cpu  2.09 gpu  2.47 | process  8.13 physics  4.17 | draws    761 objs    869 prims   817687 | agl 0
+[perf]   0.42 physics steps/frame; engine physics step avg 0.60 ms max 0.97 ms; active bodies 0, pairs 0, islands 0
+[perf]   ms/frame: 
+[perf]   worst single call (ms): 
+[perf]   bot path searches (worker thread): 29, avg 0.79 ms, max 1.24 ms
+[perf] dm_indoor_light   849 fr  avg   7.06 ms (  142 fps)  p50   6.67  p95   9.21  p99  10.98  max  18.95  >16.7ms    1 | render cpu  2.09 gpu  2.49 | process  8.34 physics  4.20 | draws    740 objs    856 prims   881768 | agl 1
+[perf]   0.42 physics steps/frame; engine physics step avg 0.60 ms max 1.14 ms; active bodies 0, pairs 0, islands 0
+[perf]   ms/frame: 
+[perf]   worst single call (ms): 
+[perf]   bot path searches (worker thread): 28, avg 0.91 ms, max 1.46 ms
+[perf] dm_intersection_day   804 fr  avg   7.46 ms (  134 fps)  p50   7.07  p95   9.80  p99  10.70  max  11.99  >16.7ms    0 | render cpu  2.09 gpu  2.44 | process  8.19 physics  4.85 | draws    750 objs    882 prims   876000 | agl 0
+[perf]   0.45 physics steps/frame; engine physics step avg 0.61 ms max 1.01 ms; active bodies 0, pairs 0, islands 0
+[perf]   ms/frame: 
+[perf]   worst single call (ms): 
+[perf]   bot path searches (worker thread): 27, avg 0.80 ms, max 1.44 ms
+[perf] dm_houses_day    769 fr  avg   7.80 ms (  128 fps)  p50   7.47  p95  10.05  p99  13.48  max  16.06  >16.7ms    0 | render cpu  2.40 gpu  2.54 | process  8.70 physics  4.10 | draws    894 objs   1019 prims   982768 | agl 0
+[perf]   0.47 physics steps/frame; engine physics step avg 0.61 ms max 1.11 ms; active bodies 0, pairs 0, islands 0
+[perf]   ms/frame: 
+[perf]   worst single call (ms): 
+[perf]   bot path searches (worker thread): 24, avg 0.74 ms, max 1.19 ms
+[autotest] PASS perf_recorded: 9 phases, worst average 7.80 ms
+[autotest] done: 1 checks, 0 failed
+ERROR: 1 RID allocations of type 'N10RendererRD5SkyRD3SkyE' were leaked at exit.
+ERROR: 1 RID allocations of type 'N26RendererEnvironmentStorage11EnvironmentE' were leaked at exit.
+ERROR: 189 RID allocations of type 'N10RendererRD11MeshStorage4MeshE' were leaked at exit.
+ERROR: 701 RID allocations of type 'N10RendererRD15MaterialStorage8MaterialE' were leaked at exit.
+ERROR: 28 RID allocations of type 'N10RendererRD15MaterialStorage6ShaderE' were leaked at exit.
+ERROR: 848 RID allocations of type 'N10RendererRD14TextureStorage7TextureE' were leaked at exit.
+ERROR: 27 shaders of type SceneForwardClusteredShaderRD were never freed
+   at: ~ShaderRD (servers/rendering/renderer_rd/shader_rd.cpp:1236)
+ERROR: 1 shaders of type SkyShaderRD were never freed
+   at: ~ShaderRD (servers/rendering/renderer_rd/shader_rd.cpp:1236)
+WARNING: 701 RIDs of type "UniformBuffer" were leaked.
+   at: _free_rids (servers/rendering/rendering_device.cpp:8686)
+WARNING: 1211 RIDs of type "IndexArray" were leaked.
+   at: _free_rids (servers/rendering/rendering_device.cpp:8686)
+WARNING: 1211 RIDs of type "IndexBuffer" were leaked.
+   at: _free_rids (servers/rendering/rendering_device.cpp:8686)
+WARNING: 399 RIDs of type "VertexArray" were leaked.
+   at: _free_rids (servers/rendering/rendering_device.cpp:8686)
+WARNING: 692 RIDs of type "VertexBuffer" were leaked.
+   at: _free_rids (servers/rendering/rendering_device.cpp:8686)
+WARNING: 48 RIDs of type "Framebuffer" were leaked.
+   at: _free_rids (servers/rendering/rendering_device.cpp:8686)
+WARNING: 1593 RIDs of type "Texture" were leaked.
+   at: finalize (servers/rendering/rendering_device.cpp:8900)
+WARNING: 7868 ObjectDB instances were leaked at exit (run with `--verbose` for details).
+   at: cleanup (core/object/object.cpp:2536)
+ERROR: 1201 resources still in use at exit (run with --verbose for details).
+   at: clear (core/io/resource.cpp:822)
+ERROR: Pages in use exist at exit in PagedAllocator: N12VariantPools12BucketMediumE
+   at: ~PagedAllocator (./core/templates/paged_allocator.h:170)
+ERROR: Pages in use exist at exit in PagedAllocator: N12VariantPools11BucketSmallE
+   at: ~PagedAllocator (./core/templates/paged_allocator.h:170)

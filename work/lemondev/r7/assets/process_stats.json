@@ -1,0 +1,446 @@
+{
+ "car_coupe": {
+  "name": "car_coupe",
+  "src": "car_generic_pack",
+  "tris": 6022,
+  "tris_src": 6022,
+  "mats": 1,
+  "size": [
+   1.956,
+   1.326,
+   4.4
+  ]
+ },
+ "car_saloon_old": {
+  "name": "car_saloon_old",
+  "src": "car_corolla",
+  "tris": 4106,
+  "tris_src": 4106,
+  "mats": 1,
+  "size": [
+   2.056,
+   1.448,
+   4.3
+  ]
+ },
+ "store_fridge": {
+  "name": "store_fridge",
+  "src": "fridge_display",
+  "tris": 2207,
+  "tris_src": 16744,
+  "mats": 1,
+  "size": [
+   0.973,
+   2.0,
+   0.991
+  ]
+ },
+ "car_compact": {
+  "name": "car_compact",
+  "src": "car_generic_pack",
+  "tris": 7257,
+  "tris_src": 7257,
+  "mats": 1,
+  "size": [
+   1.925,
+   1.575,
+   3.9
+  ]
+ },
+ "car_hatchback": {
+  "name": "car_hatchback",
+  "src": "car_generic_pack",
+  "tris": 6808,
+  "tris_src": 6808,
+  "mats": 1,
+  "size": [
+   1.805,
+   1.401,
+   4.1
+  ]
+ },
+ "car_minivan": {
+  "name": "car_minivan",
+  "src": "car_generic_pack",
+  "tris": 7450,
+  "tris_src": 7450,
+  "mats": 1,
+  "size": [
+   1.946,
+   1.836,
+   4.8
+  ]
+ },
+ "car_offroad": {
+  "name": "car_offroad",
+  "src": "car_generic_pack",
+  "tris": 6502,
+  "tris_src": 6502,
+  "mats": 1,
+  "size": [
+   2.189,
+   1.753,
+   4.4
+  ]
+ },
+ "car_pickup": {
+  "name": "car_pickup",
+  "src": "car_generic_pack",
+  "tris": 6917,
+  "tris_src": 6917,
+  "mats": 1,
+  "size": [
+   2.115,
+   1.737,
+   5.3
+  ]
+ },
+ "car_sedan": {
+  "name": "car_sedan",
+  "src": "car_generic_pack",
+  "tris": 7122,
+  "tris_src": 7122,
+  "mats": 1,
+  "size": [
+   2.049,
+   1.416,
+   4.6
+  ]
+ },
+ "car_sport": {
+  "name": "car_sport",
+  "src": "car_generic_pack",
+  "tris": 6268,
+  "tris_src": 6268,
+  "mats": 1,
+  "size": [
+   1.989,
+   1.169,
+   4.4
+  ]
+ },
+ "car_suv": {
+  "name": "car_suv",
+  "src": "car_generic_pack",
+  "tris": 7950,
+  "tris_src": 7950,
+  "mats": 1,
+  "size": [
+   2.107,
+   1.767,
+   4.7
+  ]
+ },
+ "car_wagon": {
+  "name": "car_wagon",
+  "src": "car_generic_pack",
+  "tris": 6982,
+  "tris_src": 6982,
+  "mats": 1,
+  "size": [
+   2.091,
+   1.48,
+   4.7
+  ]
+ },
+ "car_burnt_a": {
+  "name": "car_burnt_a",
+  "src": "car_burned_out",
+  "tris": 1957,
+  "tris_src": 1957,
+  "mats": 1,
+  "size": [
+   1.847,
+   1.276,
+   4.4
+  ]
+ },
+ "car_burnt_b": {
+  "name": "car_burnt_b",
+  "src": "car_burned_out",
+  "tris": 1494,
+  "tris_src": 1494,
+  "mats": 1,
+  "size": [
+   1.872,
+   1.23,
+   4.4
+  ]
+ },
+ "car_sedan_80s": {
+  "name": "car_sedan_80s",
+  "src": "car_negotiator",
+  "tris": 7999,
+  "tris_src": 15293,
+  "mats": 1,
+  "size": [
+   1.918,
+   1.362,
+   4.9
+  ]
+ },
+ "car_sedan_80s_b": {
+  "name": "car_sedan_80s_b",
+  "src": "car_fairheaven",
+  "tris": 7999,
+  "tris_src": 15847,
+  "mats": 1,
+  "size": [
+   1.801,
+   1.323,
+   4.9
+  ]
+ },
+ "van_delivery": {
+  "name": "van_delivery",
+  "src": "car_shvan_van",
+  "tris": 8000,
+  "tris_src": 17683,
+  "mats": 1,
+  "size": [
+   2.349,
+   2.056,
+   4.9
+  ]
+ },
+ "car_pickup_old": {
+  "name": "car_pickup_old",
+  "src": "car_doutrive_pickup",
+  "tris": 7999,
+  "tris_src": 21134,
+  "mats": 1,
+  "size": [
+   1.959,
+   1.443,
+   4.894
+  ]
+ },
+ "car_police_burnt": {
+  "name": "car_police_burnt",
+  "src": "car_police_burned",
+  "tris": 7999,
+  "tris_src": 11229,
+  "mats": 1,
+  "size": [
+   1.94,
+   1.265,
+   4.8
+  ]
+ },
+ "car_police_flipped": {
+  "name": "car_police_flipped",
+  "src": "car_police_burned",
+  "tris": 7999,
+  "tris_src": 10349,
+  "mats": 1,
+  "size": [
+   2.661,
+   1.685,
+   4.8
+  ]
+ },
+ "jeepney_painted": {
+  "name": "jeepney_painted",
+  "src": "jeepney",
+  "tris": 15000,
+  "tris_src": 74170,
+  "mats": 1,
+  "size": [
+   2.356,
+   2.379,
+   6.599
+  ]
+ },
+ "store_chiller": {
+  "name": "store_chiller",
+  "src": "grocery_case",
+  "tris": 2000,
+  "tris_src": 4486,
+  "mats": 1,
+  "size": [
+   1.302,
+   2.0,
+   0.691
+  ]
+ },
+ "store_shelf_wall": {
+  "name": "store_shelf_wall",
+  "src": "shelf_etagere",
+  "tris": 1840,
+  "tris_src": 1840,
+  "mats": 1,
+  "size": [
+   2.103,
+   1.9,
+   0.526
+  ]
+ },
+ "forklift_b": {
+  "name": "forklift_b",
+  "src": "forklift_b",
+  "tris": 4000,
+  "tris_src": 4426,
+  "mats": 1,
+  "size": [
+   1.045,
+   1.887,
+   3.3
+  ]
+ },
+ "chem_tanks": {
+  "name": "chem_tanks",
+  "src": "chemical_tank",
+  "tris": 8693,
+  "tris_src": 8693,
+  "mats": 1,
+  "size": [
+   2.701,
+   5.6,
+   6.12
+  ]
+ },
+ "conveyor": {
+  "name": "conveyor",
+  "src": "conveyor",
+  "tris": 2876,
+  "tris_src": 2876,
+  "mats": 1,
+  "size": [
+   0.736,
+   0.9,
+   8.81
+  ]
+ },
+ "control_pedestal": {
+  "name": "control_pedestal",
+  "src": "control_panel",
+  "tris": 1674,
+  "tris_src": 1674,
+  "mats": 1,
+  "size": [
+   0.305,
+   1.6,
+   0.413
+  ]
+ },
+ "basketball_hoop": {
+  "name": "basketball_hoop",
+  "src": "basketball_hoop",
+  "tris": 2596,
+  "tris_src": 2596,
+  "mats": 1,
+  "size": [
+   1.81,
+   3.95,
+   2.732
+  ]
+ },
+ "playground_slide": {
+  "name": "playground_slide",
+  "src": "slide_abandoned",
+  "tris": 1390,
+  "tris_src": 1390,
+  "mats": 1,
+  "size": [
+   0.632,
+   2.1,
+   3.223
+  ]
+ },
+ "playground_set": {
+  "name": "playground_set",
+  "src": "playground_abandoned",
+  "tris": 2340,
+  "tris_src": 2340,
+  "mats": 1,
+  "size": [
+   5.052,
+   2.0,
+   4.67
+  ]
+ },
+ "traffic_light": {
+  "name": "traffic_light",
+  "src": "traffic_light",
+  "tris": 2652,
+  "tris_src": 2652,
+  "mats": 1,
+  "size": [
+   1.457,
+   5.4,
+   5.532
+  ]
+ },
+ "ped_signal": {
+  "name": "ped_signal",
+  "src": "traffic_light",
+  "tris": 1294,
+  "tris_src": 1294,
+  "mats": 1,
+  "size": [
+   0.498,
+   2.75,
+   0.545
+  ]
+ },
+ "gas_pump_old": {
+  "name": "gas_pump_old",
+  "src": "gas_pump",
+  "tris": 1360,
+  "tris_src": 1360,
+  "mats": 1,
+  "size": [
+   1.121,
+   1.98,
+   1.207
+  ]
+ },
+ "gas_pump_round": {
+  "name": "gas_pump_round",
+  "src": "gas_pump_b",
+  "tris": 1092,
+  "tris_src": 1092,
+  "mats": 1,
+  "size": [
+   0.734,
+   1.6,
+   0.444
+  ]
+ },
+ "aircon_condenser": {
+  "name": "aircon_condenser",
+  "src": "aircon_condenser",
+  "tris": 548,
+  "tris_src": 548,
+  "mats": 1,
+  "size": [
+   0.641,
+   0.85,
+   0.374
+  ]
+ },
+ "forklift_a": {
+  "name": "forklift_a",
+  "src": "forklift",
+  "tris": 1590,
+  "tris_src": 1590,
+  "mats": 1,
+  "size": [
+   1.207,
+   2.029,
+   3.3
+  ]
+ },
+ "store_display_case": {
+  "name": "store_display_case",
+  "src": "fridge_display",
+  "tris": 4000,
+  "tris_src": 16744,
+  "mats": 1,
+  "size": [
+   0.636,
+   1.3,
+   0.646
+  ]
+ }
+}

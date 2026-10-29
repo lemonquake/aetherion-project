@@ -1,0 +1,41 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+Vulkan 1.4.329 - Forward+ - Using Device #0: NVIDIA - NVIDIA GeForce RTX 4060
+
+[ui] loadout_received pid=1 Hehe {"primary":"rifle_m416","secondary":"pistol_9"}
+[ui] lobby shows my loadout (pid 1): {"primary":"rifle_m416","secondary":"pistol_9"}
+[ui] request_loadout {"primary":"rifle_m416","secondary":"pistol_9"}
+[ui] loadout_received pid=1 Hehe {"primary":"rifle_scar","secondary":"pistol_deagle"}
+[ui] lobby shows my loadout (pid 1): {"primary":"rifle_scar","secondary":"pistol_deagle"}
+[lagusan] { "segments": 123, "metres": 1910.45543050766, "lights": 258, "dead": 23, "gaps": 109, "shrines": 18, "walks": 23 }
+[looban] { "loobans": 20, "crate_stacks": 60, "low_walls": 243, "sandbags": 10, "kiosks": 20, "barricades": 10, "yard_walls": 100, &"vacant": 80 }
+[dress] { "poles": 989, "wires": 5598, "laundry": 452, "clutter": 1024, "props": 2116, "tags": 0, "puddles": 170, "plants": 1147, "vehicles": 71, "floating": 14, "loot": 462, "boxes": 27 }
+[vandal] { "wall": 1415, "covered": 441, "stains": 3509, "ground": 870, "spots": 10 }
+[world] map built in 30506 ms
+[map] 2216 buildings, 4146 doors, 10390 containers, 11250 props, #49929ca0 on PC
+[rcap] spawn: 20 characters; teammates 9, within 20 m 9; nearest enemy 378 m; both guns 20; primary drawn 20; vest+helmet 20; my guns rifle_scar / pistol_deagle; ammo 90+14; bandages 3
+[rcap] match_info: phase playing, game_mode deathmatch, alive { 0: 10, 1: 10 }, t0 54, day_offset 300.0, match_time 301.1, zone i=0 r1=286
+[rcap] shot A:/Python/aetherion-project/work/lemondev/r7/rules/cap2/01_spawn_first_person.png
+[rcap] shot A:/Python/aetherion-project/work/lemondev/r7/rules/cap2/02_team_front.png
+[rcap] shot A:/Python/aetherion-project/work/lemondev/r7/rules/cap2/03_team_close.png
+[rcap] shot A:/Python/aetherion-project/work/lemondev/r7/rules/cap2/04_teammate_gear.png
+[rcap] shot A:/Python/aetherion-project/work/lemondev/r7/rules/cap2/05_team_above.png
+[rcap] shot A:/Python/aetherion-project/work/lemondev/r7/rules/cap2/06_hud_after_20s.png
+[rcap] lethal hit: downed false killed true
+[rcap] spectating eid 2 (Tita Baby, team 0; mine 0); candidates 9
+[rcap] shot A:/Python/aetherion-project/work/lemondev/r7/rules/cap2/07_spectate_teammate.png
+[rcap] after fire: spectating eid 4 (Pareng Jun, team 0); server target 4
+[rcap] shot A:/Python/aetherion-project/work/lemondev/r7/rules/cap2/08_spectate_next.png
+[rcap] shot A:/Python/aetherion-project/work/lemondev/r7/rules/cap2/09_hud_enemy_out.png
+[rcap] shot A:/Python/aetherion-project/work/lemondev/r7/rules/cap2/10_results.png
+[ui] loadout_received pid=1 Hehe {"primary":"rifle_m416","secondary":"pistol_9"}
+[ui] loadout_received pid=1 Hehe {"primary":"rifle_m416","secondary":"pistol_9"}
+[ui] lobby shows my loadout (pid 1): {"primary":"rifle_m416","secondary":"pistol_9"}
+[ui] request_loadout {"primary":"rifle_m416","secondary":"pistol_9"}
+[rcap] shot A:/Python/aetherion-project/work/lemondev/r7/rules/cap2/11_lobby_after.png
+[rcap] done
+ERROR: 1 RID allocations of type 'N10RendererRD5SkyRD3SkyE' were leaked at exit.
+ERROR: 1 RID allocations of type 'N26RendererEnvironmentStorage11EnvironmentE' were leaked at exit.
+ERROR: 209 RID allocations of type 'N10RendererRD11MeshStorage4MeshE' were leaked at exit.
+ERROR: 1804 RID allocations of type 'N10RendererRD15MaterialStorage8MaterialE' were leaked at exit.
+ERROR: 35 RID allocations of type 'N10RendererRD15MaterialStorage6ShaderE' were leaked at exit.
+ERROR: 853 RID allocations of type 'N10RendererRD14TextureStorage7TextureE' were leaked at exit.

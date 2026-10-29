@@ -1,0 +1,1740 @@
+{
+ "_doc": "Firearm definitions. Times in seconds, angles in degrees, velocity m/s. recoil.kick_up/kick_side are per-shot weapon impulses; camera_share is the fraction of the kick that moves the view (the rest is weapon-only offset that recovers). climb is the extra upward bias added per consecutive shot, recovery is deg/s back toward the aim point, pattern lists horizontal bias multipliers cycled per shot so guns do not share one spray pattern. Attachments: kind is the slot (sight, muzzle, grip, mag, stock, light; one of each per weapon). *_mult fields multiply the weapon's value (recoil_up, recoil_side, recovery, spread_hip, move_spread, sway, ads_time, reload, loudness, flash, pellet_spread). ext switches to the weapon's mag_ext capacity. Sights: zoom; axis = optical axis height above the rail in metres (axis_f: fraction of the model height); reticle style; scope = magnified, drawn as a scope view while aiming. rank orders same-slot attachments when picking up. Weapons: value ranks weapons for bots; hold = [grip, fore-end] as fractions of the length from the muzzle, optionally followed by their heights as fractions of the model height; mounts overrides the automatic mount points.",
+ "weapons": {
+  "pistol_9": {
+   "name": "P92",
+   "class": "handgun",
+   "slot": "handgun",
+   "ammo": "9x19",
+   "feed": "mag",
+   "mag_size": 15,
+   "chamber": true,
+   "fire_modes": [
+    "semi"
+   ],
+   "rpm": 420,
+   "muzzle_velocity": 360,
+   "mass": 0.9,
+   "draw_time": 0.45,
+   "ads_time": 0.18,
+   "reload_time": 1.9,
+   "reload_empty_time": 2.4,
+   "spread_hip": 1.6,
+   "spread_ads": 0.18,
+   "move_spread": 2.0,
+   "sight_zoom": 1.1,
+   "loudness": 520,
+   "recoil": {
+    "kick_up": 2.4,
+    "kick_side": 0.7,
+    "camera_share": 0.45,
+    "climb": 0.15,
+    "recovery": 18,
+    "max_climb": 6,
+    "pattern": [
+     0.4,
+     -0.6,
+     0.2,
+     -0.3,
+     0.7
+    ]
+   },
+   "attachments": [
+    "sight_reddot",
+    "suppressor_light",
+    "mag_ext_light",
+    "mag_quick_light",
+    "mag_extquick_light",
+    "weapon_light"
+   ],
+   "model": "pistol_9",
+   "sound": "p92",
+   "handed": "pistol",
+   "mag_ext": 21,
+   "value": 2.0,
+   "hold": [
+    0.8,
+    0.3,
+    0.35
+   ]
+  },
+  "pistol_45": {
+   "name": "P1911",
+   "class": "handgun",
+   "slot": "handgun",
+   "ammo": "45acp",
+   "feed": "mag",
+   "mag_size": 7,
+   "chamber": true,
+   "fire_modes": [
+    "semi"
+   ],
+   "rpm": 360,
+   "muzzle_velocity": 255,
+   "mass": 1.1,
+   "draw_time": 0.5,
+   "ads_time": 0.2,
+   "reload_time": 2.0,
+   "reload_empty_time": 2.5,
+   "spread_hip": 1.8,
+   "spread_ads": 0.2,
+   "move_spread": 2.0,
+   "sight_zoom": 1.1,
+   "loudness": 500,
+   "recoil": {
+    "kick_up": 3.4,
+    "kick_side": 0.9,
+    "camera_share": 0.5,
+    "climb": 0.2,
+    "recovery": 15,
+    "max_climb": 7,
+    "pattern": [
+     -0.5,
+     0.8,
+     -0.2,
+     0.5
+    ]
+   },
+   "attachments": [
+    "sight_reddot",
+    "suppressor_light",
+    "mag_ext_light",
+    "mag_quick_light",
+    "mag_extquick_light",
+    "weapon_light"
+   ],
+   "model": "pistol_45",
+   "sound": "p1911",
+   "handed": "pistol",
+   "mag_ext": 12,
+   "value": 2.2,
+   "hold": [
+    0.82,
+    0.3,
+    0.35
+   ]
+  },
+  "revolver_357": {
+   "name": "R1895 Revolver",
+   "class": "handgun",
+   "slot": "handgun",
+   "ammo": "357",
+   "feed": "cylinder",
+   "mag_size": 6,
+   "chamber": false,
+   "fire_modes": [
+    "semi"
+   ],
+   "rpm": 180,
+   "muzzle_velocity": 440,
+   "mass": 1.2,
+   "draw_time": 0.55,
+   "ads_time": 0.22,
+   "reload_time": 0.55,
+   "reload_empty_time": 0.55,
+   "reload_start": 0.6,
+   "reload_end": 0.5,
+   "spread_hip": 1.7,
+   "spread_ads": 0.14,
+   "move_spread": 2.1,
+   "sight_zoom": 1.1,
+   "loudness": 700,
+   "recoil": {
+    "kick_up": 5.0,
+    "kick_side": 1.1,
+    "camera_share": 0.55,
+    "climb": 0.0,
+    "recovery": 12,
+    "max_climb": 8,
+    "pattern": [
+     0.6,
+     -0.4,
+     0.9,
+     -0.8
+    ]
+   },
+   "attachments": [
+    "sight_reddot"
+   ],
+   "model": "revolver_357",
+   "sound": "revolver_357",
+   "handed": "pistol",
+   "value": 2.5,
+   "hold": [
+    0.85,
+    0.3,
+    0.3
+   ]
+  },
+  "shotgun_pump": {
+   "name": "S1897 Pump",
+   "class": "shotgun",
+   "slot": "long",
+   "ammo": "12buck",
+   "alt_ammo": "12slug",
+   "feed": "tube",
+   "mag_size": 6,
+   "chamber": true,
+   "fire_modes": [
+    "pump"
+   ],
+   "rpm": 70,
+   "cycle_time": 0.55,
+   "muzzle_velocity": 400,
+   "mass": 3.4,
+   "draw_time": 0.8,
+   "ads_time": 0.3,
+   "reload_time": 0.5,
+   "reload_empty_time": 0.5,
+   "reload_start": 0.45,
+   "reload_end": 0.55,
+   "spread_hip": 2.6,
+   "spread_ads": 0.6,
+   "move_spread": 1.6,
+   "sight_zoom": 1.15,
+   "loudness": 900,
+   "recoil": {
+    "kick_up": 7.5,
+    "kick_side": 1.6,
+    "camera_share": 0.6,
+    "climb": 0.0,
+    "recovery": 10,
+    "max_climb": 10,
+    "pattern": [
+     0.5,
+     -0.7,
+     0.3
+    ]
+   },
+   "attachments": [
+    "weapon_light",
+    "sight_reddot",
+    "sight_holo",
+    "choke",
+    "bullet_loops"
+   ],
+   "model": "shotgun_pump",
+   "sound": "shotgun",
+   "handed": "rifle",
+   "value": 4.0,
+   "hold": [
+    0.67,
+    0.27,
+    0.45,
+    0.6
+   ]
+  },
+  "smg_9": {
+   "name": "MP5K",
+   "class": "smg",
+   "slot": "long",
+   "ammo": "9x19",
+   "feed": "mag",
+   "mag_size": 30,
+   "chamber": true,
+   "fire_modes": [
+    "auto",
+    "semi"
+   ],
+   "rpm": 800,
+   "muzzle_velocity": 400,
+   "mass": 2.6,
+   "draw_time": 0.6,
+   "ads_time": 0.24,
+   "reload_time": 2.3,
+   "reload_empty_time": 2.9,
+   "spread_hip": 2.2,
+   "spread_ads": 0.22,
+   "move_spread": 1.5,
+   "sight_zoom": 1.2,
+   "loudness": 560,
+   "recoil": {
+    "kick_up": 1.05,
+    "kick_side": 0.55,
+    "camera_share": 0.55,
+    "climb": 0.1,
+    "recovery": 14,
+    "max_climb": 7,
+    "pattern": [
+     0.2,
+     0.5,
+     -0.3,
+     0.6,
+     0.1,
+     -0.5,
+     0.4,
+     0.8,
+     -0.2,
+     -0.6
+    ]
+   },
+   "attachments": [
+    "weapon_light",
+    "sight_reddot",
+    "sight_holo",
+    "scope_2x",
+    "scope_3x",
+    "suppressor_light",
+    "compensator",
+    "flash_hider",
+    "grip_vertical",
+    "grip_angled",
+    "grip_half",
+    "laser_sight",
+    "mag_ext_light",
+    "mag_quick_light",
+    "mag_extquick_light"
+   ],
+   "model": "smg_9",
+   "sound": "smg_9",
+   "handed": "rifle",
+   "mag_ext": 40,
+   "value": 5.0,
+   "hold": [
+    0.7,
+    0.25,
+    0.3,
+    0.65
+   ]
+  },
+  "machine_pistol": {
+   "name": "Micro UZI",
+   "class": "smg",
+   "slot": "long",
+   "ammo": "9x19",
+   "feed": "mag",
+   "mag_size": 32,
+   "chamber": true,
+   "fire_modes": [
+    "auto",
+    "semi"
+   ],
+   "rpm": 620,
+   "muzzle_velocity": 390,
+   "mass": 3.5,
+   "draw_time": 0.55,
+   "ads_time": 0.24,
+   "reload_time": 2.4,
+   "reload_empty_time": 2.9,
+   "spread_hip": 2.6,
+   "spread_ads": 0.35,
+   "move_spread": 1.4,
+   "sight_zoom": 1.15,
+   "loudness": 560,
+   "recoil": {
+    "kick_up": 1.3,
+    "kick_side": 0.8,
+    "camera_share": 0.5,
+    "climb": 0.12,
+    "recovery": 12,
+    "max_climb": 8,
+    "pattern": [
+     -0.6,
+     -0.2,
+     0.4,
+     -0.8,
+     0.3,
+     -0.4
+    ]
+   },
+   "attachments": [
+    "weapon_light",
+    "sight_reddot",
+    "sight_holo",
+    "suppressor_light",
+    "compensator",
+    "laser_sight",
+    "mag_ext_light",
+    "mag_quick_light",
+    "mag_extquick_light",
+    "stock_tactical"
+   ],
+   "model": "machine_pistol",
+   "sound": "smg_9",
+   "handed": "rifle",
+   "mag_ext": 45,
+   "value": 3.5,
+   "hold": [
+    0.6,
+    0.2,
+    0.4,
+    0.72
+   ]
+  },
+  "rifle_556": {
+   "name": "AR-15",
+   "class": "rifle",
+   "slot": "long",
+   "ammo": "556",
+   "feed": "mag",
+   "mag_size": 30,
+   "chamber": true,
+   "fire_modes": [
+    "semi",
+    "auto"
+   ],
+   "rpm": 750,
+   "muzzle_velocity": 940,
+   "mass": 3.6,
+   "draw_time": 0.75,
+   "ads_time": 0.3,
+   "reload_time": 2.5,
+   "reload_empty_time": 3.1,
+   "spread_hip": 2.4,
+   "spread_ads": 0.07,
+   "move_spread": 1.8,
+   "sight_zoom": 1.25,
+   "loudness": 1000,
+   "recoil": {
+    "kick_up": 1.55,
+    "kick_side": 0.6,
+    "camera_share": 0.6,
+    "climb": 0.18,
+    "recovery": 11,
+    "max_climb": 9,
+    "pattern": [
+     0.3,
+     -0.2,
+     0.5,
+     0.7,
+     -0.4,
+     0.2,
+     0.9,
+     -0.3
+    ]
+   },
+   "attachments": [
+    "weapon_light",
+    "sight_reddot",
+    "sight_holo",
+    "scope_2x",
+    "scope_3x",
+    "scope_4x",
+    "scope_6x",
+    "suppressor_rifle",
+    "compensator",
+    "flash_hider",
+    "laser_sight",
+    "mag_ext_rifle",
+    "mag_quick_rifle",
+    "mag_extquick_rifle",
+    "grip_vertical",
+    "grip_angled",
+    "grip_half"
+   ],
+   "model": "rifle_556",
+   "sound": "rifle_556",
+   "handed": "rifle",
+   "mag_ext": 40,
+   "value": 7.0,
+   "hold": [
+    0.64,
+    0.33,
+    0.2,
+    0.62
+   ]
+  },
+  "rifle_762": {
+   "name": "AKM",
+   "class": "rifle",
+   "slot": "long",
+   "ammo": "762x39",
+   "feed": "mag",
+   "mag_size": 30,
+   "chamber": true,
+   "fire_modes": [
+    "semi",
+    "auto"
+   ],
+   "rpm": 600,
+   "muzzle_velocity": 715,
+   "mass": 3.9,
+   "draw_time": 0.8,
+   "ads_time": 0.32,
+   "reload_time": 2.7,
+   "reload_empty_time": 3.3,
+   "spread_hip": 2.6,
+   "spread_ads": 0.11,
+   "move_spread": 1.9,
+   "sight_zoom": 1.2,
+   "loudness": 1000,
+   "recoil": {
+    "kick_up": 2.1,
+    "kick_side": 0.95,
+    "camera_share": 0.6,
+    "climb": 0.22,
+    "recovery": 10,
+    "max_climb": 11,
+    "pattern": [
+     -0.4,
+     0.6,
+     -0.9,
+     0.5,
+     -0.7,
+     1.0,
+     -0.2
+    ]
+   },
+   "attachments": [
+    "weapon_light",
+    "sight_reddot",
+    "sight_holo",
+    "scope_2x",
+    "scope_3x",
+    "scope_4x",
+    "scope_6x",
+    "suppressor_rifle",
+    "compensator",
+    "flash_hider",
+    "laser_sight",
+    "mag_ext_rifle",
+    "mag_quick_rifle",
+    "mag_extquick_rifle"
+   ],
+   "model": "rifle_762",
+   "sound": "rifle_762",
+   "handed": "rifle",
+   "mag_ext": 40,
+   "value": 7.0,
+   "hold": [
+    0.73,
+    0.4,
+    0.3,
+    0.65
+   ]
+  },
+  "bolt_308": {
+   "name": "M24",
+   "class": "precision",
+   "slot": "long",
+   "ammo": "308",
+   "feed": "mag",
+   "mag_size": 5,
+   "chamber": true,
+   "fire_modes": [
+    "bolt"
+   ],
+   "rpm": 50,
+   "cycle_time": 1.05,
+   "muzzle_velocity": 830,
+   "mass": 4.4,
+   "draw_time": 0.9,
+   "ads_time": 0.38,
+   "reload_time": 2.9,
+   "reload_empty_time": 3.4,
+   "spread_hip": 3.2,
+   "spread_ads": 0.02,
+   "move_spread": 2.4,
+   "sight_zoom": 1.25,
+   "loudness": 1200,
+   "recoil": {
+    "kick_up": 5.5,
+    "kick_side": 0.9,
+    "camera_share": 0.55,
+    "climb": 0.0,
+    "recovery": 9,
+    "max_climb": 9,
+    "pattern": [
+     0.3,
+     -0.5
+    ]
+   },
+   "attachments": [
+    "sight_reddot",
+    "sight_holo",
+    "scope_2x",
+    "scope_3x",
+    "scope_4x",
+    "scope_6x",
+    "scope_8x",
+    "suppressor_rifle",
+    "cheek_pad",
+    "bullet_loops",
+    "mag_ext_sniper"
+   ],
+   "model": "bolt_308",
+   "sound": "m24",
+   "handed": "rifle",
+   "mag_ext": 8,
+   "value": 6.0,
+   "hold": [
+    0.76,
+    0.45,
+    0.45,
+    0.6
+   ]
+  },
+  "shotgun_double": {
+   "name": "S686",
+   "class": "shotgun",
+   "slot": "long",
+   "ammo": "12buck",
+   "alt_ammo": "12slug",
+   "feed": "break",
+   "mag_size": 2,
+   "chamber": true,
+   "fire_modes": [
+    "semi"
+   ],
+   "rpm": 400,
+   "muzzle_velocity": 395,
+   "mass": 3.2,
+   "draw_time": 0.75,
+   "ads_time": 0.28,
+   "reload_time": 2.6,
+   "reload_empty_time": 2.6,
+   "spread_hip": 2.6,
+   "spread_ads": 0.7,
+   "move_spread": 1.6,
+   "sight_zoom": 1.12,
+   "loudness": 900,
+   "recoil": {
+    "kick_up": 8.0,
+    "kick_side": 1.8,
+    "camera_share": 0.6,
+    "climb": 0.0,
+    "recovery": 10,
+    "max_climb": 11,
+    "pattern": [
+     0.6,
+     -0.5
+    ]
+   },
+   "attachments": [
+    "choke",
+    "bullet_loops"
+   ],
+   "model": "shotgun_double",
+   "sound": "s686",
+   "handed": "rifle",
+   "hold": [
+    0.72,
+    0.47,
+    0.45,
+    0.73
+   ],
+   "value": 3.0
+  },
+  "sumpak": {
+   "name": "Sumpak",
+   "class": "shotgun",
+   "slot": "long",
+   "ammo": "12buck",
+   "alt_ammo": "12slug",
+   "feed": "break",
+   "mag_size": 1,
+   "chamber": true,
+   "fire_modes": [
+    "semi"
+   ],
+   "rpm": 60,
+   "muzzle_velocity": 330,
+   "mass": 1.7,
+   "draw_time": 0.6,
+   "ads_time": 0.3,
+   "reload_time": 3.2,
+   "reload_empty_time": 3.2,
+   "spread_hip": 3.4,
+   "spread_ads": 1.5,
+   "move_spread": 2.0,
+   "sight_zoom": 1.05,
+   "loudness": 950,
+   "recoil": {
+    "kick_up": 9.0,
+    "kick_side": 2.4,
+    "camera_share": 0.65,
+    "climb": 0.0,
+    "recovery": 8,
+    "max_climb": 12,
+    "pattern": [
+     0.9
+    ]
+   },
+   "attachments": [],
+   "model": "sumpak",
+   "sound": "shotgun",
+   "handed": "rifle",
+   "hold": [
+    0.6,
+    0.3,
+    0.75,
+    0.92
+   ],
+   "value": 1.5
+  },
+  "marksman_308": {
+   "name": "SLR",
+   "class": "marksman",
+   "slot": "long",
+   "ammo": "308",
+   "feed": "mag",
+   "mag_size": 20,
+   "chamber": true,
+   "fire_modes": [
+    "semi"
+   ],
+   "rpm": 320,
+   "muzzle_velocity": 850,
+   "mass": 4.6,
+   "draw_time": 0.85,
+   "ads_time": 0.34,
+   "reload_time": 2.8,
+   "reload_empty_time": 3.4,
+   "spread_hip": 2.8,
+   "spread_ads": 0.035,
+   "move_spread": 2.2,
+   "sight_zoom": 1.2,
+   "loudness": 1150,
+   "recoil": {
+    "kick_up": 3.8,
+    "kick_side": 0.8,
+    "camera_share": 0.55,
+    "climb": 0.08,
+    "recovery": 10,
+    "max_climb": 9,
+    "pattern": [
+     0.4,
+     -0.6,
+     0.2,
+     -0.3
+    ]
+   },
+   "attachments": [
+    "sight_reddot",
+    "sight_holo",
+    "scope_2x",
+    "scope_3x",
+    "scope_4x",
+    "scope_6x",
+    "scope_8x",
+    "suppressor_rifle",
+    "compensator",
+    "flash_hider",
+    "cheek_pad",
+    "mag_ext_sniper"
+   ],
+   "mag_ext": 30,
+   "model": "marksman_308",
+   "sound": "slr",
+   "handed": "rifle",
+   "hold": [
+    0.71,
+    0.37,
+    0.3,
+    0.68
+   ],
+   "value": 6.5
+  },
+  "rifle_scar": {
+   "name": "SCAR-L",
+   "class": "rifle",
+   "slot": "long",
+   "ammo": "556",
+   "feed": "mag",
+   "mag_size": 30,
+   "chamber": true,
+   "fire_modes": [
+    "semi",
+    "auto"
+   ],
+   "rpm": 625,
+   "muzzle_velocity": 870,
+   "mass": 3.6,
+   "draw_time": 0.75,
+   "ads_time": 0.3,
+   "reload_time": 2.6,
+   "reload_empty_time": 3.2,
+   "spread_hip": 2.4,
+   "spread_ads": 0.07,
+   "move_spread": 1.8,
+   "sight_zoom": 1.25,
+   "loudness": 1000,
+   "recoil": {
+    "kick_up": 1.45,
+    "kick_side": 0.5,
+    "camera_share": 0.6,
+    "climb": 0.16,
+    "recovery": 12,
+    "max_climb": 9,
+    "pattern": [
+     0.2,
+     -0.4,
+     0.5,
+     0.1,
+     -0.6,
+     0.4,
+     0.7,
+     -0.2
+    ]
+   },
+   "attachments": [
+    "weapon_light",
+    "sight_reddot",
+    "sight_holo",
+    "scope_2x",
+    "scope_3x",
+    "scope_4x",
+    "scope_6x",
+    "suppressor_rifle",
+    "compensator",
+    "flash_hider",
+    "laser_sight",
+    "mag_ext_rifle",
+    "mag_quick_rifle",
+    "mag_extquick_rifle",
+    "grip_vertical",
+    "grip_angled",
+    "grip_half"
+   ],
+   "model": "rifle_scar",
+   "sound": "scar",
+   "handed": "rifle",
+   "mag_ext": 40,
+   "value": 7.2,
+   "hold": [
+    0.7,
+    0.4,
+    0.3,
+    0.62
+   ]
+  },
+  "rifle_m416": {
+   "name": "M416",
+   "class": "rifle",
+   "slot": "long",
+   "ammo": "556",
+   "feed": "mag",
+   "mag_size": 30,
+   "chamber": true,
+   "fire_modes": [
+    "semi",
+    "auto"
+   ],
+   "rpm": 700,
+   "muzzle_velocity": 880,
+   "mass": 3.5,
+   "draw_time": 0.75,
+   "ads_time": 0.3,
+   "reload_time": 2.4,
+   "reload_empty_time": 3.0,
+   "spread_hip": 2.4,
+   "spread_ads": 0.07,
+   "move_spread": 1.8,
+   "sight_zoom": 1.25,
+   "loudness": 1000,
+   "recoil": {
+    "kick_up": 1.35,
+    "kick_side": 0.45,
+    "camera_share": 0.6,
+    "climb": 0.14,
+    "recovery": 13,
+    "max_climb": 9,
+    "pattern": [
+     0.3,
+     -0.3,
+     0.4,
+     -0.1,
+     0.6,
+     -0.5,
+     0.2,
+     0.5
+    ]
+   },
+   "attachments": [
+    "weapon_light",
+    "sight_reddot",
+    "sight_holo",
+    "scope_2x",
+    "scope_3x",
+    "scope_4x",
+    "scope_6x",
+    "suppressor_rifle",
+    "compensator",
+    "flash_hider",
+    "laser_sight",
+    "mag_ext_rifle",
+    "mag_quick_rifle",
+    "mag_extquick_rifle",
+    "grip_vertical",
+    "grip_angled",
+    "grip_half",
+    "stock_tactical"
+   ],
+   "model": "rifle_m416",
+   "sound": "m416",
+   "handed": "rifle",
+   "mag_ext": 40,
+   "value": 7.6,
+   "hold": [
+    0.69,
+    0.38,
+    0.3,
+    0.65
+   ]
+  },
+  "lmg_m249": {
+   "name": "M249",
+   "class": "lmg",
+   "slot": "long",
+   "ammo": "556",
+   "feed": "mag",
+   "mag_size": 100,
+   "chamber": true,
+   "fire_modes": [
+    "auto"
+   ],
+   "rpm": 800,
+   "muzzle_velocity": 915,
+   "mass": 7.5,
+   "draw_time": 1.2,
+   "ads_time": 0.45,
+   "reload_time": 7.0,
+   "reload_empty_time": 8.0,
+   "spread_hip": 3.2,
+   "spread_ads": 0.12,
+   "move_spread": 2.6,
+   "sight_zoom": 1.25,
+   "loudness": 1000,
+   "recoil": {
+    "kick_up": 1.25,
+    "kick_side": 0.7,
+    "camera_share": 0.6,
+    "climb": 0.1,
+    "recovery": 9,
+    "max_climb": 10,
+    "pattern": [
+     0.5,
+     -0.4,
+     0.6,
+     -0.7,
+     0.3,
+     0.8,
+     -0.5,
+     0.2
+    ]
+   },
+   "attachments": [
+    "sight_reddot",
+    "sight_holo",
+    "scope_2x",
+    "scope_3x",
+    "scope_4x",
+    "scope_6x",
+    "weapon_light",
+    "laser_sight"
+   ],
+   "model": "lmg_m249",
+   "sound": "m249",
+   "handed": "rifle",
+   "value": 7.5,
+   "hold": [
+    0.67,
+    0.38,
+    0.33,
+    0.55
+   ]
+  },
+  "dmr_mini14": {
+   "name": "Mini 14",
+   "class": "marksman",
+   "slot": "long",
+   "ammo": "556",
+   "feed": "mag",
+   "mag_size": 20,
+   "chamber": true,
+   "fire_modes": [
+    "semi"
+   ],
+   "rpm": 400,
+   "muzzle_velocity": 990,
+   "mass": 3.0,
+   "draw_time": 0.85,
+   "ads_time": 0.34,
+   "reload_time": 2.8,
+   "reload_empty_time": 3.4,
+   "spread_hip": 2.8,
+   "spread_ads": 0.03,
+   "move_spread": 2.2,
+   "sight_zoom": 1.2,
+   "loudness": 1150,
+   "recoil": {
+    "kick_up": 2.4,
+    "kick_side": 0.5,
+    "camera_share": 0.55,
+    "climb": 0.05,
+    "recovery": 12,
+    "max_climb": 8,
+    "pattern": [
+     0.3,
+     -0.4,
+     0.2
+    ]
+   },
+   "attachments": [
+    "sight_reddot",
+    "sight_holo",
+    "scope_2x",
+    "scope_3x",
+    "scope_4x",
+    "scope_6x",
+    "scope_8x",
+    "suppressor_rifle",
+    "compensator",
+    "flash_hider",
+    "cheek_pad",
+    "mag_ext_sniper"
+   ],
+   "mag_ext": 30,
+   "model": "dmr_mini14",
+   "sound": "mini14",
+   "handed": "rifle",
+   "value": 6.4,
+   "hold": [
+    0.7,
+    0.35,
+    0.5,
+    0.65
+   ]
+  },
+  "rifle_m762": {
+   "name": "Beryl M762",
+   "class": "rifle",
+   "slot": "long",
+   "ammo": "762x39",
+   "feed": "mag",
+   "mag_size": 30,
+   "chamber": true,
+   "fire_modes": [
+    "semi",
+    "auto"
+   ],
+   "rpm": 700,
+   "muzzle_velocity": 715,
+   "mass": 3.9,
+   "draw_time": 0.8,
+   "ads_time": 0.32,
+   "reload_time": 2.7,
+   "reload_empty_time": 3.3,
+   "spread_hip": 2.6,
+   "spread_ads": 0.11,
+   "move_spread": 1.9,
+   "sight_zoom": 1.2,
+   "loudness": 1000,
+   "recoil": {
+    "kick_up": 2.3,
+    "kick_side": 1.05,
+    "camera_share": 0.6,
+    "climb": 0.24,
+    "recovery": 9,
+    "max_climb": 12,
+    "pattern": [
+     -0.6,
+     0.7,
+     -0.9,
+     0.9,
+     -0.4,
+     1.1,
+     -0.8
+    ]
+   },
+   "attachments": [
+    "weapon_light",
+    "sight_reddot",
+    "sight_holo",
+    "scope_2x",
+    "scope_3x",
+    "scope_4x",
+    "scope_6x",
+    "suppressor_rifle",
+    "compensator",
+    "flash_hider",
+    "laser_sight",
+    "mag_ext_rifle",
+    "mag_quick_rifle",
+    "mag_extquick_rifle",
+    "grip_vertical",
+    "grip_angled",
+    "grip_half"
+   ],
+   "model": "rifle_m762",
+   "sound": "m762",
+   "handed": "rifle",
+   "mag_ext": 40,
+   "value": 7.4,
+   "hold": [
+    0.73,
+    0.42,
+    0.3,
+    0.7
+   ]
+  },
+  "dmr_sks": {
+   "name": "SKS",
+   "class": "marksman",
+   "slot": "long",
+   "ammo": "762x39",
+   "feed": "mag",
+   "mag_size": 10,
+   "chamber": true,
+   "fire_modes": [
+    "semi"
+   ],
+   "rpm": 350,
+   "muzzle_velocity": 735,
+   "mass": 3.9,
+   "draw_time": 0.85,
+   "ads_time": 0.34,
+   "reload_time": 2.8,
+   "reload_empty_time": 3.4,
+   "spread_hip": 2.8,
+   "spread_ads": 0.035,
+   "move_spread": 2.2,
+   "sight_zoom": 1.2,
+   "loudness": 1150,
+   "recoil": {
+    "kick_up": 3.2,
+    "kick_side": 0.8,
+    "camera_share": 0.55,
+    "climb": 0.08,
+    "recovery": 10,
+    "max_climb": 9,
+    "pattern": [
+     -0.5,
+     0.6,
+     -0.2
+    ]
+   },
+   "attachments": [
+    "sight_reddot",
+    "sight_holo",
+    "scope_2x",
+    "scope_3x",
+    "scope_4x",
+    "scope_6x",
+    "scope_8x",
+    "suppressor_rifle",
+    "compensator",
+    "flash_hider",
+    "cheek_pad",
+    "mag_ext_sniper"
+   ],
+   "mag_ext": 20,
+   "model": "dmr_sks",
+   "sound": "sks",
+   "handed": "rifle",
+   "value": 6.4,
+   "hold": [
+    0.73,
+    0.4,
+    0.5,
+    0.7
+   ]
+  },
+  "bolt_kar98": {
+   "name": "Kar98k",
+   "class": "precision",
+   "slot": "long",
+   "ammo": "308",
+   "feed": "mag",
+   "mag_size": 5,
+   "chamber": true,
+   "fire_modes": [
+    "bolt"
+   ],
+   "rpm": 50,
+   "cycle_time": 1.1,
+   "muzzle_velocity": 760,
+   "mass": 4.1,
+   "draw_time": 0.9,
+   "ads_time": 0.38,
+   "reload_time": 2.9,
+   "reload_empty_time": 3.4,
+   "spread_hip": 3.2,
+   "spread_ads": 0.02,
+   "move_spread": 2.4,
+   "sight_zoom": 1.25,
+   "loudness": 1200,
+   "recoil": {
+    "kick_up": 6.0,
+    "kick_side": 1.0,
+    "camera_share": 0.55,
+    "climb": 0.0,
+    "recovery": 9,
+    "max_climb": 10,
+    "pattern": [
+     0.3,
+     -0.5
+    ]
+   },
+   "attachments": [
+    "sight_reddot",
+    "sight_holo",
+    "scope_2x",
+    "scope_3x",
+    "scope_4x",
+    "scope_6x",
+    "scope_8x",
+    "suppressor_rifle",
+    "cheek_pad",
+    "bullet_loops"
+   ],
+   "model": "bolt_kar98",
+   "sound": "kar98",
+   "handed": "rifle",
+   "value": 6.2,
+   "hold": [
+    0.73,
+    0.45,
+    0.42,
+    0.5
+   ]
+  },
+  "smg_ump45": {
+   "name": "UMP45",
+   "class": "smg",
+   "slot": "long",
+   "ammo": "45acp",
+   "feed": "mag",
+   "mag_size": 25,
+   "chamber": true,
+   "fire_modes": [
+    "auto",
+    "semi"
+   ],
+   "rpm": 650,
+   "muzzle_velocity": 280,
+   "mass": 2.5,
+   "draw_time": 0.6,
+   "ads_time": 0.24,
+   "reload_time": 2.3,
+   "reload_empty_time": 2.9,
+   "spread_hip": 2.2,
+   "spread_ads": 0.22,
+   "move_spread": 1.5,
+   "sight_zoom": 1.2,
+   "loudness": 560,
+   "recoil": {
+    "kick_up": 1.05,
+    "kick_side": 0.5,
+    "camera_share": 0.55,
+    "climb": 0.1,
+    "recovery": 14,
+    "max_climb": 7,
+    "pattern": [
+     0.3,
+     -0.2,
+     0.5,
+     -0.4,
+     0.2,
+     0.6,
+     -0.3
+    ]
+   },
+   "attachments": [
+    "weapon_light",
+    "sight_reddot",
+    "sight_holo",
+    "scope_2x",
+    "scope_3x",
+    "suppressor_light",
+    "compensator",
+    "flash_hider",
+    "grip_vertical",
+    "grip_angled",
+    "grip_half",
+    "laser_sight",
+    "mag_ext_light",
+    "mag_quick_light",
+    "mag_extquick_light"
+   ],
+   "model": "smg_ump45",
+   "sound": "ump45",
+   "handed": "rifle",
+   "mag_ext": 35,
+   "value": 5.2,
+   "hold": [
+    0.58,
+    0.17,
+    0.35,
+    0.45
+   ]
+  },
+  "smg_vector": {
+   "name": "Vector",
+   "class": "smg",
+   "slot": "long",
+   "ammo": "9x19",
+   "feed": "mag",
+   "mag_size": 19,
+   "chamber": true,
+   "fire_modes": [
+    "auto",
+    "semi"
+   ],
+   "rpm": 1100,
+   "muzzle_velocity": 380,
+   "mass": 2.7,
+   "draw_time": 0.6,
+   "ads_time": 0.24,
+   "reload_time": 2.3,
+   "reload_empty_time": 2.9,
+   "spread_hip": 2.2,
+   "spread_ads": 0.22,
+   "move_spread": 1.5,
+   "sight_zoom": 1.2,
+   "loudness": 560,
+   "recoil": {
+    "kick_up": 0.85,
+    "kick_side": 0.6,
+    "camera_share": 0.55,
+    "climb": 0.12,
+    "recovery": 15,
+    "max_climb": 7,
+    "pattern": [
+     -0.4,
+     0.5,
+     -0.2,
+     0.6,
+     -0.6,
+     0.3
+    ]
+   },
+   "attachments": [
+    "weapon_light",
+    "sight_reddot",
+    "sight_holo",
+    "scope_2x",
+    "scope_3x",
+    "suppressor_light",
+    "compensator",
+    "flash_hider",
+    "grip_vertical",
+    "grip_angled",
+    "grip_half",
+    "laser_sight",
+    "mag_ext_light",
+    "mag_quick_light",
+    "mag_extquick_light",
+    "stock_tactical"
+   ],
+   "model": "smg_vector",
+   "sound": "vector",
+   "handed": "rifle",
+   "mag_ext": 33,
+   "value": 5.3,
+   "hold": [
+    0.62,
+    0.23,
+    0.5,
+    0.45
+   ]
+  },
+  "smg_tommy": {
+   "name": "Tommy Gun",
+   "class": "smg",
+   "slot": "long",
+   "ammo": "45acp",
+   "feed": "mag",
+   "mag_size": 30,
+   "chamber": true,
+   "fire_modes": [
+    "auto",
+    "semi"
+   ],
+   "rpm": 700,
+   "muzzle_velocity": 285,
+   "mass": 4.9,
+   "draw_time": 0.6,
+   "ads_time": 0.24,
+   "reload_time": 2.3,
+   "reload_empty_time": 2.9,
+   "spread_hip": 2.2,
+   "spread_ads": 0.22,
+   "move_spread": 1.5,
+   "sight_zoom": 1.2,
+   "loudness": 560,
+   "recoil": {
+    "kick_up": 1.2,
+    "kick_side": 0.7,
+    "camera_share": 0.55,
+    "climb": 0.12,
+    "recovery": 12,
+    "max_climb": 8,
+    "pattern": [
+     0.6,
+     -0.3,
+     0.7,
+     -0.5,
+     0.4,
+     0.8
+    ]
+   },
+   "attachments": [
+    "suppressor_light",
+    "mag_ext_light",
+    "mag_quick_light",
+    "mag_extquick_light",
+    "grip_vertical"
+   ],
+   "model": "smg_tommy",
+   "sound": "tommy",
+   "handed": "rifle",
+   "mag_ext": 50,
+   "value": 4.6,
+   "hold": [
+    0.62,
+    0.28,
+    0.3,
+    0.35
+   ]
+  },
+  "shotgun_saiga": {
+   "name": "S12K",
+   "class": "shotgun",
+   "slot": "long",
+   "ammo": "12buck",
+   "alt_ammo": "12slug",
+   "feed": "mag",
+   "mag_size": 5,
+   "chamber": true,
+   "fire_modes": [
+    "semi"
+   ],
+   "rpm": 300,
+   "muzzle_velocity": 400,
+   "mass": 3.4,
+   "draw_time": 0.8,
+   "ads_time": 0.3,
+   "reload_time": 2.8,
+   "reload_empty_time": 3.3,
+   "spread_hip": 2.6,
+   "spread_ads": 0.6,
+   "move_spread": 1.6,
+   "sight_zoom": 1.15,
+   "loudness": 900,
+   "recoil": {
+    "kick_up": 7.0,
+    "kick_side": 1.6,
+    "camera_share": 0.6,
+    "climb": 0.0,
+    "recovery": 10,
+    "max_climb": 11,
+    "pattern": [
+     0.5,
+     -0.6,
+     0.3
+    ]
+   },
+   "attachments": [
+    "weapon_light",
+    "sight_reddot",
+    "sight_holo",
+    "choke",
+    "mag_ext_rifle",
+    "mag_quick_rifle",
+    "mag_extquick_rifle",
+    "compensator"
+   ],
+   "model": "shotgun_saiga",
+   "sound": "saiga",
+   "handed": "rifle",
+   "value": 5.0,
+   "mag_ext": 8,
+   "hold": [
+    0.67,
+    0.3,
+    0.25,
+    0.7
+   ]
+  },
+  "pistol_deagle": {
+   "name": "Deagle",
+   "class": "handgun",
+   "slot": "handgun",
+   "ammo": "50ae",
+   "feed": "mag",
+   "mag_size": 7,
+   "chamber": true,
+   "fire_modes": [
+    "semi"
+   ],
+   "rpm": 200,
+   "muzzle_velocity": 470,
+   "mass": 2.0,
+   "draw_time": 0.5,
+   "ads_time": 0.2,
+   "reload_time": 2.0,
+   "reload_empty_time": 2.5,
+   "spread_hip": 1.8,
+   "spread_ads": 0.2,
+   "move_spread": 2.0,
+   "sight_zoom": 1.1,
+   "loudness": 750,
+   "recoil": {
+    "kick_up": 6.5,
+    "kick_side": 1.4,
+    "camera_share": 0.5,
+    "climb": 0.0,
+    "recovery": 10,
+    "max_climb": 9,
+    "pattern": [
+     0.7,
+     -0.5,
+     0.4
+    ]
+   },
+   "attachments": [
+    "sight_reddot",
+    "suppressor_light",
+    "mag_ext_light",
+    "mag_quick_light",
+    "mag_extquick_light",
+    "weapon_light"
+   ],
+   "model": "pistol_deagle",
+   "sound": "deagle",
+   "handed": "pistol",
+   "mag_ext": 10,
+   "value": 3.0,
+   "hold": [
+    0.85,
+    0.3,
+    0.35
+   ]
+  }
+ },
+ "attachments": {
+  "sight_reddot": {
+   "name": "Red Dot Sight",
+   "kind": "sight",
+   "zoom": 1.3,
+   "ads_time_mult": 1.0,
+   "axis": 0.03,
+   "reticle": "dot",
+   "mass": 0.12
+  },
+  "sight_holo": {
+   "name": "Holographic Sight",
+   "kind": "sight",
+   "zoom": 1.3,
+   "ads_time_mult": 1.0,
+   "axis": 0.034,
+   "reticle": "holo",
+   "mass": 0.32
+  },
+  "scope_2x": {
+   "name": "2x Scope",
+   "kind": "sight",
+   "zoom": 2.0,
+   "ads_time_mult": 1.1,
+   "axis": 0.034,
+   "reticle": "circle_dot",
+   "scope": true,
+   "mass": 0.3
+  },
+  "scope_3x": {
+   "name": "3x Prism Scope",
+   "kind": "sight",
+   "zoom": 3.0,
+   "ads_time_mult": 1.15,
+   "axis": 0.038,
+   "reticle": "chevron",
+   "scope": true,
+   "mass": 0.36
+  },
+  "scope_4x": {
+   "name": "4x Prism Scope",
+   "kind": "sight",
+   "zoom": 4.0,
+   "ads_time_mult": 1.25,
+   "axis_f": 0.62,
+   "reticle": "acog",
+   "scope": true,
+   "mass": 0.45
+  },
+  "scope_6x": {
+   "name": "6x Rifle Scope",
+   "kind": "sight",
+   "zoom": 6.0,
+   "ads_time_mult": 1.32,
+   "axis": 0.05,
+   "reticle": "mildot",
+   "scope": true,
+   "mass": 0.6
+  },
+  "scope_8x": {
+   "name": "8x Rifle Scope",
+   "kind": "sight",
+   "zoom": 8.0,
+   "ads_time_mult": 1.4,
+   "axis": 0.056,
+   "reticle": "duplex",
+   "scope": true,
+   "mass": 0.75
+  },
+  "suppressor_light": {
+   "name": "Pistol/SMG Suppressor",
+   "kind": "muzzle",
+   "loudness_mult": 0.3,
+   "flash_mult": 0.1,
+   "suppressed": true,
+   "recoil_up_mult": 0.95,
+   "sway_mult": 1.05,
+   "rank": 3.0,
+   "mass": 0.2
+  },
+  "suppressor_rifle": {
+   "name": "Rifle Suppressor",
+   "kind": "muzzle",
+   "loudness_mult": 0.35,
+   "flash_mult": 0.1,
+   "suppressed": true,
+   "recoil_up_mult": 0.92,
+   "sway_mult": 1.08,
+   "rank": 3.0,
+   "mass": 0.5
+  },
+  "compensator": {
+   "name": "Compensator",
+   "kind": "muzzle",
+   "recoil_up_mult": 0.8,
+   "recoil_side_mult": 0.8,
+   "loudness_mult": 1.1,
+   "flash_mult": 1.15,
+   "rank": 2.2,
+   "mass": 0.1
+  },
+  "flash_hider": {
+   "name": "Flash Hider",
+   "kind": "muzzle",
+   "flash_mult": 0.25,
+   "recoil_up_mult": 0.92,
+   "recoil_side_mult": 0.9,
+   "rank": 1.8,
+   "mass": 0.08
+  },
+  "choke": {
+   "name": "Shotgun Choke",
+   "kind": "muzzle",
+   "pellet_spread_mult": 0.65,
+   "rank": 2.0,
+   "mass": 0.06
+  },
+  "grip_vertical": {
+   "name": "Vertical Foregrip",
+   "kind": "grip",
+   "recoil_up_mult": 0.85,
+   "sway_mult": 0.9,
+   "rank": 2.2,
+   "mass": 0.1
+  },
+  "grip_angled": {
+   "name": "Angled Foregrip",
+   "kind": "grip",
+   "ads_time_mult": 0.85,
+   "recoil_side_mult": 0.82,
+   "rank": 2.0,
+   "mass": 0.08
+  },
+  "grip_half": {
+   "name": "Half Grip",
+   "kind": "grip",
+   "recoil_up_mult": 0.92,
+   "recoil_side_mult": 0.92,
+   "recovery_mult": 1.15,
+   "rank": 2.0,
+   "mass": 0.07
+  },
+  "laser_sight": {
+   "name": "Laser Sight",
+   "kind": "grip",
+   "spread_hip_mult": 0.65,
+   "move_spread_mult": 0.85,
+   "laser": true,
+   "rank": 1.6,
+   "mass": 0.1
+  },
+  "weapon_light": {
+   "name": "Weapon Light",
+   "kind": "light",
+   "rank": 2.5,
+   "mass": 0.12
+  },
+  "mag_ext_light": {
+   "name": "Extended Pistol/SMG Magazine",
+   "kind": "mag",
+   "ext": true,
+   "rank": 2.0,
+   "mass": 0.15
+  },
+  "mag_quick_light": {
+   "name": "Quickdraw Pistol/SMG Magazine",
+   "kind": "mag",
+   "reload_mult": 0.7,
+   "rank": 1.5,
+   "mass": 0.12
+  },
+  "mag_extquick_light": {
+   "name": "Extended Quickdraw Pistol/SMG Magazine",
+   "kind": "mag",
+   "ext": true,
+   "reload_mult": 0.78,
+   "rank": 3.0,
+   "mass": 0.17
+  },
+  "mag_ext_rifle": {
+   "name": "Extended Rifle Magazine",
+   "kind": "mag",
+   "ext": true,
+   "rank": 2.0,
+   "mass": 0.25
+  },
+  "mag_quick_rifle": {
+   "name": "Quickdraw Rifle Magazine",
+   "kind": "mag",
+   "reload_mult": 0.7,
+   "rank": 1.5,
+   "mass": 0.3
+  },
+  "mag_extquick_rifle": {
+   "name": "Extended Quickdraw Rifle Magazine",
+   "kind": "mag",
+   "ext": true,
+   "reload_mult": 0.78,
+   "rank": 3.0,
+   "mass": 0.3
+  },
+  "mag_ext_sniper": {
+   "name": "Extended Marksman Magazine",
+   "kind": "mag",
+   "ext": true,
+   "rank": 2.0,
+   "mass": 0.2
+  },
+  "stock_tactical": {
+   "name": "Tactical Stock",
+   "kind": "stock",
+   "sway_mult": 0.75,
+   "recoil_up_mult": 0.9,
+   "recovery_mult": 1.2,
+   "rank": 2.0,
+   "mass": 0.35
+  },
+  "cheek_pad": {
+   "name": "Cheek Pad",
+   "kind": "stock",
+   "sway_mult": 0.8,
+   "recoil_up_mult": 0.9,
+   "recovery_mult": 1.15,
+   "rank": 2.0,
+   "mass": 0.08
+  },
+  "bullet_loops": {
+   "name": "Bullet Loops",
+   "kind": "stock",
+   "reload_mult": 0.75,
+   "rank": 1.6,
+   "mass": 0.1
+  }
+ }
+}

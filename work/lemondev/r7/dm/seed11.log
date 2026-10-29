@@ -1,0 +1,135 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+[server] dedicated server listening on 27641
+[world] map built in 8276 ms
+[map] 256 buildings, 1970 doors, 2518 containers, 2480 props, #f9b648fc on PC
+[match    0.0] deathmatch start on lawless_sub: 20 players, 2 teams; spawns (-170.0, 1.0, -150.0) and (130.0, 1.0, 150.0) (424 m apart, layout); day offset 300 s; zone centre (-27.0, -55.0) r=380
+[match    0.0] status: { "ground": 20 }; armed 20; shots 0; zone 0 wait r=380; corpses 0
+[match    0.0] dm teams: West Team 10 at (-171.0, -150.0) spread 4 m; East Team 10 at (129.0, 150.0) spread 4 m; gap 424 m; zone centre (-27.0, -55.0)
+[match    0.0] bots: { "advance": 20 }; containers searched by bots 0 (all players 0); plan steps done 0; guns carried 40
+[match    0.0] [lootstats] bots on the ground 20 (in water 0); armed 20; armed with ammo for a gun 20; long guns 20; attachments fitted 0; rounds of unusable ammo carried 0; items on the ground 5953; bot pickups { "detours": 0, "detour_taken": 0, "fetches": 0, "fetch_done": 0, "items_taken": 0 }
+[match   14.5] Pinsan Gardo (team 1) landed at (101.0, 1.0, 128.0), 2.5 m/s, health 100; teammates -
+[match   15.0] status: { "ground": 20 }; armed 20; shots 0; zone 0 wait r=380; corpses 0; server tick avg 1.33 ms, p99 2.55 ms, max 7.97 ms over 900 ticks
+[match   15.0] dm teams: West Team 10 at (-151.0, -87.0) spread 9 m; East Team 10 at (100.0, 125.0) spread 4 m; gap 328 m; zone centre (-27.0, -55.0)
+[match   15.0] bots: { "advance": 10, "zone": 10 }; containers searched by bots 0 (all players 0); plan steps done 0; guns carried 40
+[match   15.0] [lootstats] bots on the ground 20 (in water 0); armed 20; armed with ammo for a gun 20; long guns 20; attachments fitted 0; rounds of unusable ammo carried 0; items on the ground 5953; bot pickups { "detours": 0, "detour_taken": 0, "fetches": 0, "fetch_done": 0, "items_taken": 0 }
+[match   17.4] Utoy Kalabaw (team 1) landed at (101.0, -1.0, 121.0), 5.5 m/s, health 100; teammates 5 m
+[match   17.5] Bossing Barbecue (team 1) landed at (101.0, -1.0, 122.0), 5.5 m/s, health 100; teammates 4 m, 1 m
+[match   18.2] Tito Karaoke King (team 1) landed at (101.0, 0.0, 124.0), 4.9 m/s, health 100; teammates 3 m, 2 m, 4 m
+[match   18.2] Ate Siomai (team 1) landed at (101.0, 0.0, 125.0), 4.9 m/s, health 100; teammates 3 m, 1 m, 3 m, 5 m
+[match   18.3] Kapitbahay Lito (team 1) landed at (101.0, 1.0, 126.0), 2.5 m/s, health 100; teammates 2 m, 5 m, 2 m, 3 m, 6 m
+[match   18.5] Mang Tomas (team 1) landed at (101.0, 1.0, 126.0), 2.5 m/s, health 100; teammates 1 m, 4 m, 2 m, 1 m, 3 m, 6 m
+[match   19.7] Manong Guard (team 1) landed at (101.0, -1.0, 123.0), 4.2 m/s, health 100; teammates 1 m, 6 m, 1 m, 4 m, 3 m, 3 m, 5 m
+[match   30.0] status: { "ground": 20 }; armed 20; shots 0; zone 0 wait r=380; corpses 0; server tick avg 1.40 ms, p99 2.56 ms, max 5.41 ms over 900 ticks
+[match   30.0] dm teams: West Team 10 at (-135.0, -47.0) spread 26 m; East Team 10 at (87.0, 112.0) spread 14 m; gap 273 m; zone centre (-27.0, -55.0)
+[match   30.0] bots: { "advance": 10, "zone": 10 }; containers searched by bots 0 (all players 0); plan steps done 0; guns carried 40
+[match   30.0] [lootstats] bots on the ground 20 (in water 7); armed 20; armed with ammo for a gun 20; long guns 20; attachments fitted 0; rounds of unusable ammo carried 0; items on the ground 5953; bot pickups { "detours": 0, "detour_taken": 0, "fetches": 0, "fetch_done": 0, "items_taken": 0 } wet at [(95.0, 121.0), (79.0, 117.0), (83.0, 118.0), (92.0, 120.0), (74.0, 116.0), (71.0, 119.0), (80.0, 117.0)]
+[match   33.0] Tsong Ramil (team 0) landed at (-85.0, 1.0, -10.0), 2.5 m/s, health 100; teammates -
+[match   33.0] Aling Nena (team 0) landed at (-153.0, 1.0, -55.0), 4.9 m/s, health 100; teammates 83 m
+[match   33.6] Lola Basyang Jr (team 0) landed at (-154.0, 1.0, -52.0), 4.2 m/s, health 100; teammates 83 m, 5 m
+[match   34.7] Ate Load Dito (team 0) landed at (-154.0, 1.0, -58.0), 4.2 m/s, health 100; teammates 87 m, 10 m, 9 m
+[match   35.7] Nanay Kakanin (team 0) landed at (-154.0, 1.0, -54.0), 4.2 m/s, health 100; teammates 85 m, 15 m, 7 m, 12 m
+[match   38.9] Totoy Bibo (team 0) landed at (-79.0, -1.0, -12.0), 8.3 m/s, health 100; teammates 69 m, 5 m, 55 m, 65 m, 57 m
+[match   40.3] Inday Tsismis (team 1) landed at (60.0, 1.0, 110.0), 4.2 m/s, health 100; teammates 19 m, 3 m, 6 m, 16 m, 46 m, 51 m, 44 m, 1 m
+[match   44.2] Mang Tani (team 1) landed at (39.0, 1.0, 111.0), 4.9 m/s, health 100; teammates 33 m, 3 m, 20 m, 30 m, 58 m, 57 m, 14 m, 37 m, 16 m
+[match   45.0] status: { "ground": 20 }; armed 20; shots 0; zone 0 wait r=380; corpses 0; server tick avg 1.38 ms, p99 2.49 ms, max 5.57 ms over 900 ticks
+[match   45.0] dm teams: West Team 10 at (-87.0, -23.0) spread 15 m; East Team 10 at (62.0, 105.0) spread 19 m; gap 196 m; zone centre (-27.0, -55.0)
+[match   45.0] bots: { "advance": 15, "zone": 5 }; containers searched by bots 0 (all players 0); plan steps done 0; guns carried 40
+[match   45.0] [lootstats] bots on the ground 20 (in water 3); armed 20; armed with ammo for a gun 20; long guns 20; attachments fitted 0; rounds of unusable ammo carried 0; items on the ground 5953; bot pickups { "detours": 0, "detour_taken": 0, "fetches": 0, "fetch_done": 0, "items_taken": 0 } wet at [(70.0, 115.0), (67.0, 114.0), (-79.0, -20.0)]
+[match   47.5] Ising Batingaw (team 0) landed at (-84.0, 1.0, -10.0), 2.5 m/s, health 100; teammates 24 m, 26 m, 8 m, 18 m, 15 m, 11 m
+[match   48.8] Dodong Lechon (team 0) landed at (-81.0, 0.0, -11.0), 4.4 m/s, health 100; teammates 17 m, 3 m, 28 m, 3 m, 11 m, 16 m, 5 m
+[match   50.0] Mang Isko (team 0) landed at (-82.0, 1.0, -10.0), 2.5 m/s, health 100; teammates 10 m, 1 m, 34 m, 2 m, 3 m, 2 m, 19 m, 2 m
+[match   51.7] Aling Puring (team 0) landed at (-83.0, 1.0, -10.0), 2.5 m/s, health 100; teammates 3 m, 1 m, 34 m, 2 m, 2 m, 2 m, 22 m, 2 m, 8 m
+[match   60.0] zone 0 shrinking to r=194 at (84.0, 48.0)
+[match   60.0] status: { "ground": 20 }; armed 20; shots 0; zone 0 shrink r=380; corpses 0; server tick avg 1.44 ms, p99 2.66 ms, max 5.40 ms over 900 ticks
+[match   60.0] dm teams: West Team 10 at (-64.0, 0.0) spread 20 m; East Team 10 at (45.0, 96.0) spread 21 m; gap 145 m; zone centre (-27.0, -55.0)
+[match   60.0] bots: { "advance": 20 }; containers searched by bots 0 (all players 0); plan steps done 0; guns carried 40
+[match   60.0] [lootstats] bots on the ground 20 (in water 2); armed 20; armed with ammo for a gun 20; long guns 20; attachments fitted 0; rounds of unusable ammo carried 0; items on the ground 5953; bot pickups { "detours": 0, "detour_taken": 0, "fetches": 0, "fetch_done": 0, "items_taken": 0 } wet at [(-77.0, -18.0), (-74.0, -45.0)]
+[match   75.0] status: { "ground": 20 }; armed 20; shots 0; zone 0 shrink r=333; corpses 0; server tick avg 1.98 ms, p99 3.41 ms, max 7.13 ms over 900 ticks
+[match   75.0] dm teams: West Team 10 at (-42.0, 18.0) spread 28 m; East Team 10 at (43.0, 96.0) spread 20 m; gap 115 m; zone centre (1.0, -29.0)
+[match   75.0] bots: { "advance": 19, "zone": 1 }; containers searched by bots 0 (all players 0); plan steps done 0; guns carried 40
+[match   75.0] [lootstats] bots on the ground 20 (in water 1); armed 20; armed with ammo for a gun 20; long guns 20; attachments fitted 0; rounds of unusable ammo carried 0; items on the ground 5953; bot pickups { "detours": 0, "detour_taken": 0, "fetches": 0, "fetch_done": 0, "items_taken": 0 } wet at [(-74.0, -43.0)]
+[match   90.0] status: { "ground": 20 }; armed 20; shots 0; zone 0 shrink r=287; corpses 0; server tick avg 2.01 ms, p99 3.40 ms, max 7.94 ms over 900 ticks
+[match   90.0] dm teams: West Team 10 at (-37.0, 35.0) spread 29 m; East Team 10 at (35.0, 94.0) spread 20 m; gap 93 m; zone centre (29.0, -3.0)
+[match   90.0] bots: { "advance": 19, "zone": 1 }; containers searched by bots 0 (all players 0); plan steps done 0; guns carried 40
+[match   90.0] [lootstats] bots on the ground 20 (in water 1); armed 20; armed with ammo for a gun 20; long guns 20; attachments fitted 0; rounds of unusable ammo carried 0; items on the ground 5953; bot pickups { "detours": 0, "detour_taken": 0, "fetches": 0, "fetch_done": 0, "items_taken": 0 } wet at [(-72.0, -16.0)]
+[match  105.0] status: { "ground": 20 }; armed 20; shots 26; zone 0 shrink r=240; corpses 0; server tick avg 2.16 ms, p99 4.23 ms, max 11.11 ms over 900 ticks
+[match  105.0] dm teams: West Team 10 at (-33.0, 49.0) spread 32 m; East Team 10 at (30.0, 97.0) spread 19 m; gap 79 m; zone centre (56.0, 22.0)
+[match  105.0] bots: { "advance": 20 }; containers searched by bots 0 (all players 0); plan steps done 0; guns carried 40
+[match  105.0] [lootstats] bots on the ground 20 (in water 1); armed 20; armed with ammo for a gun 20; long guns 20; attachments fitted 0; rounds of unusable ammo carried 0; items on the ground 5953; bot pickups { "detours": 0, "detour_taken": 0, "fetches": 0, "fetch_done": 0, "items_taken": 0 } wet at [(-72.0, -16.0)]
+[match  120.0] status: { "ground": 20 }; armed 20; shots 42; zone 1 wait r=194; corpses 0; server tick avg 2.13 ms, p99 3.87 ms, max 8.81 ms over 900 ticks
+[match  120.0] dm teams: West Team 10 at (-20.0, 43.0) spread 39 m; East Team 10 at (18.0, 107.0) spread 20 m; gap 74 m; zone centre (84.0, 48.0)
+[match  120.0] bots: { "advance": 16, "fight": 4 }; containers searched by bots 0 (all players 0); plan steps done 0; guns carried 40
+[match  120.0] [lootstats] bots on the ground 20 (in water 6); armed 20; armed with ammo for a gun 20; long guns 20; attachments fitted 0; rounds of unusable ammo carried 0; items on the ground 5953; bot pickups { "detours": 0, "detour_taken": 0, "fetches": 0, "fetch_done": 0, "items_taken": 0 } wet at [(36.0, 116.0), (36.0, 117.0), (36.0, 117.0), (1.0, 115.0), (-72.0, -42.0), (-72.0, -36.0)]
+[match  120.0] Tsong Ramil killed by Ising Batingaw (gunshot); 2 teams left
+[match  120.0] alive: West Team 9, East Team 10
+[match  135.0] status: { "ground": 19 }; armed 19; shots 50; zone 1 wait r=194; corpses 1; server tick avg 1.82 ms, p99 3.11 ms, max 27.91 ms over 900 ticks
+[match  135.0] dm teams: West Team 9 at (-21.0, 28.0) spread 42 m; East Team 10 at (18.0, 109.0) spread 18 m; gap 90 m; zone centre (84.0, 48.0)
+[match  135.0] bots: { "advance": 17, "zone": 2 }; containers searched by bots 0 (all players 0); plan steps done 0; guns carried 39
+[match  135.0] [lootstats] bots on the ground 19 (in water 4); armed 19; armed with ammo for a gun 19; long guns 20; attachments fitted 0; rounds of unusable ammo carried 0; items on the ground 5953; bot pickups { "detours": 1, "detour_taken": 1, "fetches": 0, "fetch_done": 0, "items_taken": 1 } wet at [(36.0, 116.0), (36.0, 117.0), (36.0, 117.0), (1.0, 115.0)]
+[match  137.0] Nanay Kakanin killed by Aling Puring (gunshot); 2 teams left
+[match  137.0] alive: West Team 8, East Team 10
+[match  137.6] Aling Nena killed by Aling Puring (gunshot); 2 teams left
+[match  137.6] alive: West Team 7, East Team 10
+[match  138.4] Lola Basyang Jr killed by Ate Load Dito (gunshot); 2 teams left
+[match  138.4] alive: West Team 6, East Team 10
+[match  138.6] Aling Puring killed by Mang Isko (gunshot); 2 teams left
+[match  138.6] alive: West Team 5, East Team 10
+[match  141.4] Ate Load Dito killed by Ising Batingaw (gunshot); 2 teams left
+[match  141.4] alive: West Team 4, East Team 10
+[match  144.7] Ate Siomai killed by Mang Isko (gunshot); 2 teams left
+[match  144.7] alive: West Team 4, East Team 9
+[match  150.0] status: { "ground": 13 }; armed 13; shots 167; zone 1 wait r=194; corpses 7; server tick avg 3.56 ms, p99 8.43 ms, max 34.22 ms over 900 ticks
+[match  150.0] dm teams: West Team 4 at (-40.0, 15.0) spread 44 m; East Team 9 at (18.0, 100.0) spread 24 m; gap 103 m; zone centre (84.0, 48.0)
+[match  150.0] bots: { "advance": 10, "fight": 1, "zone": 2 }; containers searched by bots 0 (all players 0); plan steps done 0; guns carried 27
+[match  150.0] [lootstats] bots on the ground 13 (in water 0); armed 13; armed with ammo for a gun 13; long guns 14; attachments fitted 0; rounds of unusable ammo carried 0; items on the ground 5953; bot pickups { "detours": 1, "detour_taken": 1, "fetches": 0, "fetch_done": 0, "items_taken": 1 }
+[match  156.5] Ising Batingaw killed by Kapitbahay Lito (gunshot); 2 teams left
+[match  156.5] alive: West Team 3, East Team 9
+[match  162.3] Kapitbahay Lito killed by Mang Isko (gunshot); 2 teams left
+[match  162.3] alive: West Team 3, East Team 8
+[match  165.0] zone 1 shrinking to r=113 at (79.0, 63.0)
+[match  165.0] status: { "ground": 11 }; armed 11; shots 242; zone 1 shrink r=194; corpses 9; server tick avg 3.31 ms, p99 5.70 ms, max 13.56 ms over 900 ticks
+[match  165.0] dm teams: West Team 3 at (-7.0, 19.0) spread 27 m; East Team 8 at (20.0, 96.0) spread 24 m; gap 82 m; zone centre (84.0, 48.0)
+[match  165.0] bots: { "advance": 7, "zone": 1, "investigate": 1, "fight": 2 }; containers searched by bots 0 (all players 0); plan steps done 0; guns carried 22
+[match  165.0] [lootstats] bots on the ground 11 (in water 0); armed 11; armed with ammo for a gun 11; long guns 11; attachments fitted 0; rounds of unusable ammo carried 0; items on the ground 5953; bot pickups { "detours": 1, "detour_taken": 1, "fetches": 0, "fetch_done": 0, "items_taken": 1 }
+[match  167.9] Utoy Kalabaw killed by Mang Isko (gunshot); 2 teams left
+[match  167.9] alive: West Team 3, East Team 7
+[match  178.3] Mang Tani killed by Mang Isko (gunshot); 2 teams left
+[match  178.3] alive: West Team 3, East Team 6
+[match  180.0] status: { "ground": 9 }; armed 9; shots 300; zone 1 shrink r=167; corpses 11; server tick avg 2.29 ms, p99 5.13 ms, max 17.11 ms over 900 ticks
+[match  180.0] dm teams: West Team 3 at (-2.0, 23.0) spread 21 m; East Team 6 at (19.0, 88.0) spread 29 m; gap 68 m; zone centre (83.0, 53.0)
+[match  180.0] bots: { "advance": 6, "investigate": 2, "heal": 1 }; containers searched by bots 0 (all players 0); plan steps done 0; guns carried 18
+[match  180.0] [lootstats] bots on the ground 9 (in water 0); armed 9; armed with ammo for a gun 9; long guns 9; attachments fitted 0; rounds of unusable ammo carried 0; items on the ground 5953; bot pickups { "detours": 1, "detour_taken": 1, "fetches": 0, "fetch_done": 0, "items_taken": 1 }
+[match  193.0] Mang Isko killed by Pinsan Gardo (gunshot); 2 teams left
+[match  193.0] alive: West Team 2, East Team 6
+[match  195.0] status: { "ground": 8 }; armed 8; shots 316; zone 1 shrink r=140; corpses 12; server tick avg 1.32 ms, p99 3.20 ms, max 11.66 ms over 900 ticks
+[match  195.0] dm teams: West Team 2 at (1.0, 7.0) spread 0 m; East Team 6 at (25.0, 86.0) spread 27 m; gap 82 m; zone centre (81.0, 58.0)
+[match  195.0] bots: { "advance": 6, "investigate": 2 }; containers searched by bots 0 (all players 0); plan steps done 0; guns carried 16
+[match  195.0] [lootstats] bots on the ground 8 (in water 0); armed 8; armed with ammo for a gun 8; long guns 8; attachments fitted 0; rounds of unusable ammo carried 0; items on the ground 5953; bot pickups { "detours": 1, "detour_taken": 1, "fetches": 0, "fetch_done": 0, "items_taken": 1 }
+[match  210.0] status: { "ground": 8 }; armed 8; shots 316; zone 2 wait r=113; corpses 12; server tick avg 0.98 ms, p99 2.40 ms, max 7.82 ms over 900 ticks
+[match  210.0] dm teams: West Team 2 at (1.0, 7.0) spread 0 m; East Team 6 at (23.0, 86.0) spread 28 m; gap 82 m; zone centre (79.0, 63.0)
+[match  210.0] bots: { "advance": 6, "investigate": 2 }; containers searched by bots 0 (all players 0); plan steps done 0; guns carried 16
+[match  210.0] [lootstats] bots on the ground 8 (in water 0); armed 8; armed with ammo for a gun 8; long guns 8; attachments fitted 0; rounds of unusable ammo carried 0; items on the ground 5953; bot pickups { "detours": 1, "detour_taken": 1, "fetches": 0, "fetch_done": 0, "items_taken": 1 }
+[match  223.6] Totoy Bibo killed by Pinsan Gardo (gunshot); 2 teams left
+[match  223.6] alive: West Team 1, East Team 6
+[match  225.0] status: { "ground": 7 }; armed 7; shots 443; zone 2 wait r=113; corpses 13; server tick avg 2.32 ms, p99 5.00 ms, max 9.53 ms over 900 ticks
+[match  225.0] dm teams: West Team 1 at (24.0, 12.0) spread 0 m; East Team 6 at (33.0, 76.0) spread 35 m; gap 65 m; zone centre (79.0, 63.0)
+[match  225.0] bots: { "zone": 3, "fight": 4 }; containers searched by bots 0 (all players 0); plan steps done 0; guns carried 14
+[match  225.0] [lootstats] bots on the ground 7 (in water 0); armed 7; armed with ammo for a gun 7; long guns 7; attachments fitted 0; rounds of unusable ammo carried 0; items on the ground 5953; bot pickups { "detours": 1, "detour_taken": 1, "fetches": 0, "fetch_done": 0, "items_taken": 1 }
+[match  239.5] Dodong Lechon killed by Mang Tomas (gunshot); 1 teams left
+[match  239.5] alive: West Team 0, East Team 6
+[match  239.5] match over: winner team 1 (East Team) after 240 s, 532 shots fired
+[game] results: {}
+ERROR: 1 RID allocations of type 'N26RendererEnvironmentStorage11EnvironmentE' were leaked at exit.
+ERROR: 396 RID allocations of type 'N13RendererDummy15MaterialStorage13DummyMaterialE' were leaked at exit.
+ERROR: 18 RID allocations of type 'N13RendererDummy15MaterialStorage11DummyShaderE' were leaked at exit.
+ERROR: 184 RID allocations of type 'N13RendererDummy9DummyMeshE' were leaked at exit.
+ERROR: 848 RID allocations of type 'PN13RendererDummy14TextureStorage12DummyTextureE' were leaked at exit.
+WARNING: 8322 ObjectDB instances were leaked at exit (run with `--verbose` for details).
+   at: cleanup (core/object/object.cpp:2536)
+ERROR: 1201 resources still in use at exit (run with --verbose for details).
+   at: clear (core/io/resource.cpp:822)
+ERROR: Pages in use exist at exit in PagedAllocator: N12VariantPools12BucketMediumE
+   at: ~PagedAllocator (./core/templates/paged_allocator.h:170)
+ERROR: Pages in use exist at exit in PagedAllocator: N12VariantPools11BucketSmallE
+   at: ~PagedAllocator (./core/templates/paged_allocator.h:170)

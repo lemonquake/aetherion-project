@@ -1,0 +1,126 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+[server] dedicated server listening on 27633
+[world] map built in 8572 ms
+[map] 256 buildings, 1970 doors, 2518 containers, 2480 props, #f9b648fc on PC
+[match    0.0] deathmatch start on lawless_sub: 20 players, 2 teams; spawns (-170.0, 1.0, -150.0) and (130.0, 1.0, 150.0) (424 m apart, layout); day offset 300 s; zone centre (-27.0, -55.0) r=380
+[match    0.0] status: { "ground": 20 }; armed 20; shots 0; zone 0 wait r=380; corpses 0
+[match    0.0] dm teams: West Team 10 at (-171.0, -150.0) spread 4 m; East Team 10 at (129.0, 150.0) spread 4 m; gap 424 m; zone centre (-27.0, -55.0)
+[match    0.0] bots: { "advance": 20 }; containers searched by bots 0 (all players 0); plan steps done 0; guns carried 40
+[match    0.0] [lootstats] bots on the ground 20 (in water 0); armed 20; armed with ammo for a gun 20; long guns 20; attachments fitted 0; rounds of unusable ammo carried 0; items on the ground 5953; bot pickups { "detours": 0, "detour_taken": 0, "fetches": 0, "fetch_done": 0, "items_taken": 0 }
+[match   14.4] Kumpare Ambo (team 1) landed at (101.0, 1.0, 127.0), 2.5 m/s, health 100; teammates -
+[match   14.5] Junjun Tisoy (team 1) landed at (101.0, 1.0, 125.0), 2.5 m/s, health 100; teammates 1 m
+[match   14.7] Mang Tomas Ketchup (team 1) landed at (101.0, 1.0, 127.0), 4.9 m/s, health 100; teammates 2 m, 3 m
+[match   14.9] Mang Jolo (team 1) landed at (101.0, 1.0, 128.0), 2.5 m/s, health 100; teammates 2 m, 3 m, 1 m
+[match   15.0] status: { "ground": 20 }; armed 20; shots 0; zone 0 wait r=380; corpses 0; server tick avg 1.53 ms, p99 2.71 ms, max 9.82 ms over 900 ticks
+[match   15.0] dm teams: West Team 10 at (-150.0, -91.0) spread 10 m; East Team 10 at (99.0, 127.0) spread 4 m; gap 331 m; zone centre (-27.0, -55.0)
+[match   15.0] bots: { "advance": 10, "zone": 10 }; containers searched by bots 0 (all players 0); plan steps done 0; guns carried 40
+[match   15.0] [lootstats] bots on the ground 20 (in water 0); armed 20; armed with ammo for a gun 20; long guns 20; attachments fitted 0; rounds of unusable ammo carried 0; items on the ground 5953; bot pickups { "detours": 0, "detour_taken": 0, "fetches": 0, "fetch_done": 0, "items_taken": 0 }
+[match   15.1] Bebot Karaoke (team 1) landed at (101.0, 0.0, 125.0), 4.2 m/s, health 100; teammates 3 m, 2 m, 4 m, 3 m
+[match   15.2] Aling Puring (team 1) landed at (101.0, 1.0, 129.0), 2.5 m/s, health 100; teammates 3 m, 4 m, 4 m, 1 m, 2 m
+[match   15.2] Mang Tani (team 1) landed at (102.0, 1.0, 127.0), 4.9 m/s, health 100; teammates 3 m, 3 m, 3 m, 3 m, 2 m, 1 m
+[match   15.8] Bossing Dodong (team 1) landed at (101.0, 1.0, 127.0), 2.5 m/s, health 100; teammates 1 m, 2 m, 2 m, 2 m, 1 m, 2 m, 1 m
+[match   16.2] Kumareng Marites (team 1) landed at (101.0, 1.0, 128.0), 2.5 m/s, health 100; teammates 2 m, 4 m, 2 m, 4 m, 2 m, 2 m, 1 m, 1 m
+[match   30.0] status: { "ground": 20 }; armed 20; shots 0; zone 0 wait r=380; corpses 0; server tick avg 1.61 ms, p99 2.64 ms, max 7.45 ms over 900 ticks
+[match   30.0] dm teams: West Team 10 at (-139.0, -48.0) spread 26 m; East Team 10 at (48.0, 123.0) spread 13 m; gap 253 m; zone centre (-27.0, -55.0)
+[match   30.0] bots: { "advance": 10, "zone": 10 }; containers searched by bots 0 (all players 0); plan steps done 0; guns carried 40
+[match   30.0] [lootstats] bots on the ground 20 (in water 2); armed 20; armed with ammo for a gun 20; long guns 20; attachments fitted 0; rounds of unusable ammo carried 0; items on the ground 5953; bot pickups { "detours": 0, "detour_taken": 0, "fetches": 0, "fetch_done": 0, "items_taken": 0 } wet at [(36.0, 118.0), (36.0, 120.0)]
+[match   32.7] Kuya Bert (team 0) landed at (-85.0, 1.0, -10.0), 2.5 m/s, health 100; teammates -
+[match   32.9] Manong Guard (team 0) landed at (-85.0, 1.0, -10.0), 2.5 m/s, health 100; teammates 0 m
+[match   32.9] Kuya Tricycle (team 0) landed at (-154.0, 1.0, -58.0), 4.2 m/s, health 100; teammates 84 m, 85 m
+[match   33.4] Kuya Wifi (team 0) landed at (-154.0, 1.0, -59.0), 4.2 m/s, health 100; teammates 87 m, 3 m, 88 m
+[match   45.0] status: { "ground": 20 }; armed 20; shots 0; zone 0 wait r=380; corpses 0; server tick avg 1.67 ms, p99 2.77 ms, max 7.22 ms over 900 ticks
+[match   45.0] dm teams: West Team 10 at (-84.0, -17.0) spread 12 m; East Team 10 at (36.0, 112.0) spread 2 m; gap 177 m; zone centre (-27.0, -55.0)
+[match   45.0] bots: { "advance": 14, "zone": 6 }; containers searched by bots 0 (all players 0); plan steps done 0; guns carried 40
+[match   45.0] [lootstats] bots on the ground 20 (in water 1); armed 20; armed with ammo for a gun 20; long guns 20; attachments fitted 0; rounds of unusable ammo carried 0; items on the ground 5953; bot pickups { "detours": 0, "detour_taken": 0, "fetches": 0, "fetch_done": 0, "items_taken": 0 } wet at [(36.0, 115.0)]
+[match   45.1] Ka Pedring (team 0) landed at (-83.0, 1.0, -10.0), 2.5 m/s, health 100; teammates 24 m, 17 m, 22 m, 21 m
+[match   46.1] Kuya Fishball (team 1) landed at (36.0, -1.0, 115.0), 4.9 m/s, health 100; teammates 4 m, 5 m, 6 m, 3 m, 1 m, 4 m, 2 m, 4 m, 2 m
+[match   47.6] Ate Load (team 0) landed at (-85.0, 1.0, -10.0), 2.5 m/s, health 100; teammates 8 m, 28 m, 6 m, 2 m, 35 m
+[match   48.0] Tita Baby (team 0) landed at (-85.0, 1.0, -10.0), 2.5 m/s, health 100; teammates 6 m, 30 m, 4 m, 1 m, 2 m, 37 m
+[match   50.1] Pareng Pandesal (team 0) landed at (-85.0, 1.0, -10.0), 2.5 m/s, health 100; teammates 1 m, 42 m, 2 m, 0 m, 3 m, 2 m, 47 m
+[match   52.5] Boy Pickup (team 0) landed at (-79.0, -1.0, -12.0), 8.3 m/s, health 100; teammates 7 m, 40 m, 7 m, 7 m, 6 m, 7 m, 15 m, 50 m
+[match   53.2] Dodong Lechon (team 0) landed at (-85.0, 1.0, -10.0), 2.5 m/s, health 100; teammates 8 m, 1 m, 39 m, 2 m, 1 m, 4 m, 2 m, 21 m, 48 m
+[match   60.0] zone 0 shrinking to r=194 at (84.0, 48.0)
+[match   60.0] status: { "ground": 20 }; armed 20; shots 0; zone 0 shrink r=380; corpses 0; server tick avg 1.69 ms, p99 2.98 ms, max 7.59 ms over 900 ticks
+[match   60.0] dm teams: West Team 10 at (-63.0, 8.0) spread 14 m; East Team 10 at (36.0, 108.0) spread 6 m; gap 141 m; zone centre (-27.0, -55.0)
+[match   60.0] bots: { "advance": 20 }; containers searched by bots 0 (all players 0); plan steps done 0; guns carried 40
+[match   60.0] [lootstats] bots on the ground 20 (in water 1); armed 20; armed with ammo for a gun 20; long guns 20; attachments fitted 0; rounds of unusable ammo carried 0; items on the ground 5953; bot pickups { "detours": 0, "detour_taken": 0, "fetches": 0, "fetch_done": 0, "items_taken": 0 } wet at [(-76.0, -12.0)]
+[match   75.0] status: { "ground": 20 }; armed 20; shots 0; zone 0 shrink r=333; corpses 0; server tick avg 1.77 ms, p99 3.02 ms, max 8.05 ms over 900 ticks
+[match   75.0] dm teams: West Team 10 at (-36.0, 46.0) spread 15 m; East Team 10 at (36.0, 108.0) spread 6 m; gap 95 m; zone centre (1.0, -29.0)
+[match   75.0] bots: { "advance": 20 }; containers searched by bots 0 (all players 0); plan steps done 0; guns carried 40
+[match   75.0] [lootstats] bots on the ground 20 (in water 1); armed 20; armed with ammo for a gun 20; long guns 20; attachments fitted 0; rounds of unusable ammo carried 0; items on the ground 5953; bot pickups { "detours": 0, "detour_taken": 0, "fetches": 0, "fetch_done": 0, "items_taken": 0 } wet at [(-76.0, -12.0)]
+[match   90.0] status: { "ground": 20 }; armed 20; shots 1; zone 0 shrink r=287; corpses 0; server tick avg 2.07 ms, p99 3.92 ms, max 7.30 ms over 900 ticks
+[match   90.0] dm teams: West Team 10 at (-24.0, 65.0) spread 26 m; East Team 10 at (36.0, 105.0) spread 11 m; gap 72 m; zone centre (29.0, -3.0)
+[match   90.0] bots: { "advance": 18, "fight": 2 }; containers searched by bots 0 (all players 0); plan steps done 0; guns carried 40
+[match   90.0] [lootstats] bots on the ground 20 (in water 1); armed 20; armed with ammo for a gun 20; long guns 20; attachments fitted 0; rounds of unusable ammo carried 0; items on the ground 5953; bot pickups { "detours": 0, "detour_taken": 0, "fetches": 0, "fetch_done": 0, "items_taken": 0 } wet at [(-76.0, -12.0)]
+[match   93.8] Mang Tomas Ketchup killed by Mang Jolo (gunshot); 2 teams left
+[match   93.8] alive: West Team 10, East Team 9
+[match  102.9] Tita Baby killed by Ate Load (gunshot); 2 teams left
+[match  102.9] alive: West Team 9, East Team 9
+[match  105.0] status: { "ground": 18 }; armed 18; shots 318; zone 0 shrink r=240; corpses 2; server tick avg 4.97 ms, p99 8.95 ms, max 28.98 ms over 900 ticks
+[match  105.0] dm teams: West Team 9 at (-21.0, 61.0) spread 26 m; East Team 9 at (29.0, 111.0) spread 14 m; gap 71 m; zone centre (56.0, 22.0)
+[match  105.0] bots: { "advance": 14, "fight": 4 }; containers searched by bots 0 (all players 0); plan steps done 0; guns carried 36
+[match  105.0] [lootstats] bots on the ground 18 (in water 4); armed 18; armed with ammo for a gun 18; long guns 18; attachments fitted 0; rounds of unusable ammo carried 0; items on the ground 5953; bot pickups { "detours": 0, "detour_taken": 0, "fetches": 0, "fetch_done": 0, "items_taken": 0 } wet at [(-76.0, -12.0), (36.0, 116.0), (36.0, 118.0), (36.0, 116.0)]
+[match  112.0] Ka Pedring killed by Ate Load (gunshot); 2 teams left
+[match  112.0] alive: West Team 8, East Team 9
+[match  115.1] Mang Jolo killed by Ate Load (gunshot); 2 teams left
+[match  115.1] alive: West Team 8, East Team 8
+[match  120.0] status: { "ground": 16 }; armed 16; shots 446; zone 1 wait r=194; corpses 4; server tick avg 2.96 ms, p99 6.02 ms, max 12.88 ms over 900 ticks
+[match  120.0] dm teams: West Team 8 at (-21.0, 56.0) spread 26 m; East Team 8 at (30.0, 115.0) spread 10 m; gap 78 m; zone centre (84.0, 48.0)
+[match  120.0] bots: { "advance": 16 }; containers searched by bots 0 (all players 0); plan steps done 0; guns carried 32
+[match  120.0] [lootstats] bots on the ground 16 (in water 7); armed 16; armed with ammo for a gun 16; long guns 16; attachments fitted 0; rounds of unusable ammo carried 0; items on the ground 5953; bot pickups { "detours": 0, "detour_taken": 0, "fetches": 0, "fetch_done": 0, "items_taken": 0 } wet at [(20.0, 116.0), (36.0, 115.0), (-76.0, -12.0), (36.0, 116.0), (36.0, 114.0), (36.0, 117.0), (36.0, 116.0)]
+[match  135.0] status: { "ground": 16 }; armed 16; shots 446; zone 1 wait r=194; corpses 4; server tick avg 1.42 ms, p99 2.39 ms, max 6.49 ms over 900 ticks
+[match  135.0] dm teams: West Team 8 at (-15.0, 70.0) spread 29 m; East Team 8 at (31.0, 115.0) spread 9 m; gap 64 m; zone centre (84.0, 48.0)
+[match  135.0] bots: { "advance": 14, "zone": 1, "fight": 1 }; containers searched by bots 0 (all players 0); plan steps done 0; guns carried 32
+[match  135.0] [lootstats] bots on the ground 16 (in water 5); armed 16; armed with ammo for a gun 16; long guns 16; attachments fitted 0; rounds of unusable ammo carried 0; items on the ground 5953; bot pickups { "detours": 0, "detour_taken": 0, "fetches": 0, "fetch_done": 0, "items_taken": 0 } wet at [(5.0, 115.0), (-76.0, -12.0), (36.0, 116.0), (36.0, 117.0), (36.0, 116.0)]
+[match  150.0] status: { "ground": 16 }; armed 16; shots 446; zone 1 wait r=194; corpses 4; server tick avg 1.50 ms, p99 2.76 ms, max 5.69 ms over 900 ticks
+[match  150.0] dm teams: West Team 8 at (-15.0, 78.0) spread 34 m; East Team 8 at (27.0, 115.0) spread 13 m; gap 56 m; zone centre (84.0, 48.0)
+[match  150.0] bots: { "advance": 13, "zone": 1, "fight": 2 }; containers searched by bots 0 (all players 0); plan steps done 0; guns carried 32
+[match  150.0] [lootstats] bots on the ground 16 (in water 5); armed 16; armed with ammo for a gun 16; long guns 16; attachments fitted 0; rounds of unusable ammo carried 0; items on the ground 5953; bot pickups { "detours": 0, "detour_taken": 0, "fetches": 0, "fetch_done": 0, "items_taken": 0 } wet at [(1.0, 114.0), (-76.0, -12.0), (36.0, 116.0), (36.0, 117.0), (36.0, 116.0)]
+[match  165.0] zone 1 shrinking to r=113 at (79.0, 63.0)
+[match  165.0] status: { "ground": 16 }; armed 16; shots 494; zone 1 shrink r=194; corpses 4; server tick avg 2.24 ms, p99 5.24 ms, max 7.24 ms over 900 ticks
+[match  165.0] dm teams: West Team 8 at (-16.0, 72.0) spread 32 m; East Team 8 at (31.0, 116.0) spread 9 m; gap 64 m; zone centre (84.0, 48.0)
+[match  165.0] bots: { "advance": 14, "zone": 1, "investigate": 1 }; containers searched by bots 0 (all players 0); plan steps done 0; guns carried 32
+[match  165.0] [lootstats] bots on the ground 16 (in water 7); armed 16; armed with ammo for a gun 16; long guns 16; attachments fitted 0; rounds of unusable ammo carried 0; items on the ground 5953; bot pickups { "detours": 0, "detour_taken": 0, "fetches": 0, "fetch_done": 0, "items_taken": 0 } wet at [(36.0, 116.0), (-76.0, -12.0), (36.0, 115.0), (36.0, 118.0), (36.0, 116.0), (36.0, 118.0), (36.0, 117.0)]
+[match  173.8] Junjun Tisoy killed by Kuya Bert (gunshot); 2 teams left
+[match  173.8] alive: West Team 8, East Team 7
+[match  180.0] status: { "ground": 15 }; armed 15; shots 515; zone 1 shrink r=167; corpses 5; server tick avg 1.69 ms, p99 3.64 ms, max 9.78 ms over 900 ticks
+[match  180.0] dm teams: West Team 8 at (-16.0, 74.0) spread 30 m; East Team 7 at (34.0, 115.0) spread 5 m; gap 65 m; zone centre (83.0, 53.0)
+[match  180.0] bots: { "advance": 14, "zone": 1 }; containers searched by bots 0 (all players 0); plan steps done 0; guns carried 30
+[match  180.0] [lootstats] bots on the ground 15 (in water 5); armed 15; armed with ammo for a gun 15; long guns 15; attachments fitted 0; rounds of unusable ammo carried 0; items on the ground 5953; bot pickups { "detours": 0, "detour_taken": 0, "fetches": 0, "fetch_done": 0, "items_taken": 0 } wet at [(36.0, 116.0), (-76.0, -12.0), (36.0, 115.0), (36.0, 116.0), (36.0, 117.0)]
+[match  195.0] status: { "ground": 15 }; armed 15; shots 515; zone 1 shrink r=140; corpses 5; server tick avg 1.48 ms, p99 2.88 ms, max 5.66 ms over 900 ticks
+[match  195.0] dm teams: West Team 8 at (-17.0, 73.0) spread 30 m; East Team 7 at (31.0, 115.0) spread 8 m; gap 64 m; zone centre (81.0, 58.0)
+[match  195.0] bots: { "advance": 14, "zone": 1 }; containers searched by bots 0 (all players 0); plan steps done 0; guns carried 30
+[match  195.0] [lootstats] bots on the ground 15 (in water 6); armed 15; armed with ammo for a gun 15; long guns 15; attachments fitted 0; rounds of unusable ammo carried 0; items on the ground 5953; bot pickups { "detours": 0, "detour_taken": 0, "fetches": 0, "fetch_done": 0, "items_taken": 0 } wet at [(2.0, 115.0), (36.0, 116.0), (-76.0, -12.0), (36.0, 114.0), (36.0, 115.0), (36.0, 117.0)]
+[match  200.0] match ended early (test): winner team 0 after 200 s
+ERROR: BUG: Unreferenced static string to 0: _exit_world
+   at: unref (core/string/string_name.cpp:118)
+ERROR: BUG: Unreferenced static string to 0: .
+   at: unref (core/string/string_name.cpp:118)
+ERROR: BUG: Unreferenced static string to 0: markers
+   at: unref (core/string/string_name.cpp:118)
+ERROR: BUG: Unreferenced static string to 0: _compression
+   at: unref (core/string/string_name.cpp:118)
+ERROR: BUG: Unreferenced static string to 0: _request_gizmo_for_id
+   at: unref (core/string/string_name.cpp:118)
+ERROR: BUG: Unreferenced static string to 0: _enter_world
+   at: unref (core/string/string_name.cpp:118)
+ERROR: BUG: Unreferenced static string to 0: servers
+   at: unref (core/string/string_name.cpp:118)
+ERROR: BUG: Unreferenced static string to 0: Variant
+   at: unref (core/string/string_name.cpp:118)
+ERROR: BUG: Unreferenced static string to 0: @warning_ignore_restore
+   at: unref (core/string/string_name.cpp:118)
+ERROR: BUG: Unreferenced static string to 0: @warning_ignore_start
+   at: unref (core/string/string_name.cpp:118)
+ERROR: BUG: Unreferenced static string to 0: @warning_ignore
+   at: unref (core/string/string_name.cpp:118)
+ERROR: BUG: Unreferenced static string to 0: @icon
+   at: unref (core/string/string_name.cpp:118)
+WARNING: A Thread object is being destroyed without its completion having been realized.
+Please call wait_to_finish() on it to ensure correct cleanup.
+   at: ~Thread (core/os/thread.cpp:116)
+ERROR: 7 RID allocations of type '23NavMeshGeometryParser2D' were leaked at exit.
+ERROR: 6 RID allocations of type '23NavMeshGeometryParser3D' were leaked at exit.
+ERROR: Pages in use exist at exit in PagedAllocator: N12VariantPools11BucketLargeE
+   at: ~PagedAllocator (./core/templates/paged_allocator.h:170)

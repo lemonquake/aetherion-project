@@ -1,0 +1,59 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+Vulkan 1.4.329 - Forward+ - Using Device #0: NVIDIA - NVIDIA GeForce RTX 4060
+
+[preview] map built in 10777 ms: {"buildings":256,"containers":2468,"doors":1970,"dress":{"cars":115,"lamps":63,"lights":36,"shrubs":60,"trees":80},"finish_ms":886,"ladders":31,"layout_ms":287,"lights":{"dead":10,"house_dark":130,"house_lit":117,"pole":0,"porch":65,"rooms":137},"props":2528,"sink":{"boxes":86143,"colliders":617,"far_tris":4080,"meshes":1560,"tris":733388},"streets":{"lots":4,"paint":1591,"road_quads":631,"stalls":342,"walk_boxes":1098,"zebra":56},"terrain_ms":2665,"towns_ms":5281,"windows":3037,"works":{"apron_boxes":30,"backdrop":65,"bridges":4,"ladders":6,"panels":901,"wall_boxes":15},"zones":2443}
+[zfight] sub_houses 18 flipping pixels (of 360000 sampled)
+[preview] saved ../work/lemondev/r7/map/z1/sub_houses_t450.png fps 56.0 luma 111.795857198529
+[zfight] sub_street 764 flipping pixels (of 360000 sampled)
+[preview] saved ../work/lemondev/r7/map/z1/sub_street_t450.png fps 54.0 luma 123.27376025958
+[zfight] sub_intersection 256 flipping pixels (of 360000 sampled)
+[preview] saved ../work/lemondev/r7/map/z1/sub_intersection_t450.png fps 60.0 luma 136.583857107201
+[zfight] sub_mart 411 flipping pixels (of 360000 sampled)
+[preview] saved ../work/lemondev/r7/map/z1/sub_mart_t450.png fps 54.0 luma 114.563551114957
+[zfight] sub_flats 47 flipping pixels (of 360000 sampled)
+[preview] saved ../work/lemondev/r7/map/z1/sub_flats_t450.png fps 37.0 luma 116.935157421146
+[zfight] sub_tower 247 flipping pixels (of 360000 sampled)
+[preview] saved ../work/lemondev/r7/map/z1/sub_tower_t450.png fps 50.0 luma 97.1138694627918
+[zfight] sub_shops 25 flipping pixels (of 360000 sampled)
+[preview] saved ../work/lemondev/r7/map/z1/sub_shops_t450.png fps 57.0 luma 136.227392527137
+[preview] room sala #7 at (-112.0, 7.0, -101.0) size (6.1, 9.7)
+[zfight] in_sala 1041 flipping pixels (of 360000 sampled)
+[preview] saved ../work/lemondev/r7/map/z1/in_sala_t450.png fps 60.0 luma 17.1062812440919
+[preview] room kitchen #4 at (-124.0, 1.0, -111.0) size (5.033333, 9.7)
+[zfight] in_kitchen 239 flipping pixels (of 360000 sampled)
+[preview] saved ../work/lemondev/r7/map/z1/in_kitchen_t450.png fps 47.0 luma 14.2436370645082
+[preview] room bedroom #9 at (-124.0, 4.0, -101.0) size (5.033334, 9.7)
+[zfight] in_bedroom 1136 flipping pixels (of 360000 sampled)
+[preview] saved ../work/lemondev/r7/map/z1/in_bedroom_t450.png fps 61.0 luma 16.0375155833524
+ERROR: 1 RID allocations of type 'N10RendererRD5SkyRD3SkyE' were leaked at exit.
+ERROR: 1 RID allocations of type 'N26RendererEnvironmentStorage11EnvironmentE' were leaked at exit.
+ERROR: 190 RID allocations of type 'N10RendererRD11MeshStorage4MeshE' were leaked at exit.
+ERROR: 714 RID allocations of type 'N10RendererRD15MaterialStorage8MaterialE' were leaked at exit.
+ERROR: 28 RID allocations of type 'N10RendererRD15MaterialStorage6ShaderE' were leaked at exit.
+ERROR: 849 RID allocations of type 'N10RendererRD14TextureStorage7TextureE' were leaked at exit.
+ERROR: 27 shaders of type SceneForwardClusteredShaderRD were never freed
+   at: ~ShaderRD (servers/rendering/renderer_rd/shader_rd.cpp:1236)
+ERROR: 1 shaders of type SkyShaderRD were never freed
+   at: ~ShaderRD (servers/rendering/renderer_rd/shader_rd.cpp:1236)
+WARNING: 714 RIDs of type "UniformBuffer" were leaked.
+   at: _free_rids (servers/rendering/rendering_device.cpp:8686)
+WARNING: 1210 RIDs of type "IndexArray" were leaked.
+   at: _free_rids (servers/rendering/rendering_device.cpp:8686)
+WARNING: 1210 RIDs of type "IndexBuffer" were leaked.
+   at: _free_rids (servers/rendering/rendering_device.cpp:8686)
+WARNING: 385 RIDs of type "VertexArray" were leaked.
+   at: _free_rids (servers/rendering/rendering_device.cpp:8686)
+WARNING: 684 RIDs of type "VertexBuffer" were leaked.
+   at: _free_rids (servers/rendering/rendering_device.cpp:8686)
+WARNING: 48 RIDs of type "Framebuffer" were leaked.
+   at: _free_rids (servers/rendering/rendering_device.cpp:8686)
+WARNING: 1595 RIDs of type "Texture" were leaked.
+   at: finalize (servers/rendering/rendering_device.cpp:8900)
+WARNING: 7931 ObjectDB instances were leaked at exit (run with `--verbose` for details).
+   at: cleanup (core/object/object.cpp:2536)
+ERROR: 1204 resources still in use at exit (run with --verbose for details).
+   at: clear (core/io/resource.cpp:822)
+ERROR: Pages in use exist at exit in PagedAllocator: N12VariantPools12BucketMediumE
+   at: ~PagedAllocator (./core/templates/paged_allocator.h:170)
+ERROR: Pages in use exist at exit in PagedAllocator: N12VariantPools11BucketSmallE
+   at: ~PagedAllocator (./core/templates/paged_allocator.h:170)

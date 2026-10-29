@@ -1,0 +1,50 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+Vulkan 1.4.329 - Forward+ - Using Device #0: NVIDIA - NVIDIA GeForce RTX 4060
+
+[ui] loadout_received pid=1 Hehe {"primary":"rifle_m416","secondary":"pistol_9"}
+[ui] lobby shows my loadout (pid 1): {"primary":"rifle_m416","secondary":"pistol_9"}
+[ui] request_loadout {"primary":"rifle_m416","secondary":"pistol_9"}
+[world] map built in 12716 ms
+[map] 256 buildings, 1970 doors, 2518 containers, 2480 props, #f9b648fc on PC
+[game] autotest dm
+[autotest] PASS dm_map: map lawless_sub, mode deathmatch, 256 buildings, 1970 doors, 2518 containers, 2480 props, #f9b648fc
+[autotest] PASS dm_teams: alive West 10, East 10
+[autotest] FAIL dm_kit: guns ["rifle_m416"], vest vest_heavy, helmet helmet_heavy
+[autotest] PASS dm_spawn_place: 0.0 m from the nearest spawn point of team 0
+[autotest] shot A:/Python/aetherion-project/work/lemondev/r7/dm/t1/01_dm_look_down.png
+[autotest] PASS dm_no_own_body: 10 sampled pixels change when your own body is hidden (looking straight down)
+[autotest] PASS dm_arms_clear: 178 frames of an empty reload; closest joint on screen R wrist at (0.16, -0.24, -0.22) (needs z < -0.15 m)
+[autotest] PASS dm_haze: 5 Deathmatch phases; zone { "i": 0, "state": "wait", "t0": 54, "t1": 3654, "c0": (-64.56201, -14.25832), "r0": 385.117721557617, "c1": (97.06323, 
+[autotest] done: 7 checks, 1 failed
+ERROR: 1 RID allocations of type 'N10RendererRD5SkyRD3SkyE' were leaked at exit.
+ERROR: 1 RID allocations of type 'N26RendererEnvironmentStorage11EnvironmentE' were leaked at exit.
+ERROR: 189 RID allocations of type 'N10RendererRD11MeshStorage4MeshE' were leaked at exit.
+ERROR: 712 RID allocations of type 'N10RendererRD15MaterialStorage8MaterialE' were leaked at exit.
+ERROR: 28 RID allocations of type 'N10RendererRD15MaterialStorage6ShaderE' were leaked at exit.
+ERROR: 848 RID allocations of type 'N10RendererRD14TextureStorage7TextureE' were leaked at exit.
+ERROR: 27 shaders of type SceneForwardClusteredShaderRD were never freed
+   at: ~ShaderRD (servers/rendering/renderer_rd/shader_rd.cpp:1236)
+ERROR: 1 shaders of type SkyShaderRD were never freed
+   at: ~ShaderRD (servers/rendering/renderer_rd/shader_rd.cpp:1236)
+WARNING: 712 RIDs of type "UniformBuffer" were leaked.
+   at: _free_rids (servers/rendering/rendering_device.cpp:8686)
+WARNING: 1211 RIDs of type "IndexArray" were leaked.
+   at: _free_rids (servers/rendering/rendering_device.cpp:8686)
+WARNING: 1211 RIDs of type "IndexBuffer" were leaked.
+   at: _free_rids (servers/rendering/rendering_device.cpp:8686)
+WARNING: 201 RIDs of type "VertexArray" were leaked.
+   at: _free_rids (servers/rendering/rendering_device.cpp:8686)
+WARNING: 692 RIDs of type "VertexBuffer" were leaked.
+   at: _free_rids (servers/rendering/rendering_device.cpp:8686)
+WARNING: 48 RIDs of type "Framebuffer" were leaked.
+   at: _free_rids (servers/rendering/rendering_device.cpp:8686)
+WARNING: 1593 RIDs of type "Texture" were leaked.
+   at: finalize (servers/rendering/rendering_device.cpp:8900)
+WARNING: 7879 ObjectDB instances were leaked at exit (run with `--verbose` for details).
+   at: cleanup (core/object/object.cpp:2536)
+ERROR: 1201 resources still in use at exit (run with --verbose for details).
+   at: clear (core/io/resource.cpp:822)
+ERROR: Pages in use exist at exit in PagedAllocator: N12VariantPools12BucketMediumE
+   at: ~PagedAllocator (./core/templates/paged_allocator.h:170)
+ERROR: Pages in use exist at exit in PagedAllocator: N12VariantPools11BucketSmallE
+   at: ~PagedAllocator (./core/templates/paged_allocator.h:170)

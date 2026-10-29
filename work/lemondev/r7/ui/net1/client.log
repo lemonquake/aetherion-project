@@ -1,0 +1,20 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+Vulkan 1.4.329 - Forward+ - Using Device #0: NVIDIA - NVIDIA GeForce RTX 4060
+
+[ui] shot A:/Python/aetherion-project/work/lemondev/r7/ui/net1/client_play_list.png (1600x900)
+[ui] PASS client_play_list: all controls on screen
+[ui] PASS server list shows the host's mode: {"game_mode":"deathmatch","map":"lawless_sub","team_size":10.0,"teams":2.0}
+[ui] request_loadout {"primary":"rifle_scar","secondary":"revolver_357"}
+[ui] lobby shows my loadout (pid 1405608628): {"primary":"rifle_scar","secondary":"revolver_357"}
+[ui] PASS client loadout on joining reached the server: want {"primary":"rifle_scar","secondary":"revolver_357"}, lobby shows {"primary":"rifle_scar","secondary":"revolver_357"}
+[ui] PASS team switch: 1 -> 0
+[ui] shot A:/Python/aetherion-project/work/lemondev/r7/ui/net1/client_lobby.png (1600x900)
+[ui] PASS client_lobby: all controls on screen
+[ui] request_loadout {"primary":"lmg_m249","secondary":"revolver_357"}
+[ui] lobby shows my loadout (pid 1405608628): {"primary":"lmg_m249","secondary":"revolver_357"}
+[ui] shot A:/Python/aetherion-project/work/lemondev/r7/ui/net1/client_game_setup.png (1600x900)
+[ui] PASS client_game_setup: all controls on screen
+[ui] PASS loadout change reached the server: {"primary":"lmg_m249","secondary":"revolver_357"}
+[ui] shot A:/Python/aetherion-project/work/lemondev/r7/ui/net1/client_lobby_after.png (1600x900)
+[ui] PASS client_lobby_after: all controls on screen
+[ui] r7 client done, 0 problems

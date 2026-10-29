@@ -1,0 +1,737 @@
+===== v2:c6087c1471f456c9a45fd900280af7a866fdc56f174d8cb540dedb7d04c4a840 ['type', 'key', 'agentId', 'result']
+# Aetherion items, weapons, inventory and loadout: report for the DEATHMATCH mode and the Lawless Sub map
+
+Paths are relative to `A:/Python/aetherion-project/game/` unless they start with `tools/` or `work/`. I read the code only and changed no files.
+
+## (a) Guns, classes, calibres and slots
+
+**Weapon slots** are defined in `src/weapons/weapon_state.gd:9`: `enum { HOLSTER, PRIMARY, SECONDARY, HANDGUN }`, which is 0, 1, 2, 3. `slots := [null, null, null, null]` (line 12) is indexed by that enum.
+
+- **Slots 1 and 2** both hold long guns. The engine's SECONDARY is a second long gun, not a pistol.
+- **Slot 3** is the handgun slot.
+- Keys `weapon_1/2/3` select a slot and `holster` selects slot 0 (`src/player/player_controller.gd:111-118`). The labels are "Primary weapon", "Secondary weapon" and "Handgun" (`src/ui/settings_ui.gd:245-246`), and "Primary/Secondary/Handgun" in the SmarTab (`src/ui/smartab_ui.gd:159`, `:267`).
+- On phones there is a single "Weapon" button that cycles through slots with `next_weapon` (`src/ui/touch_controls.gd:41`).
+
+**Where a gun goes** is decided by `slot_for(id)` (`weapon_state.gd:114-122`), using the weapon's `"slot"` field (`"handgun"` or `"long"`):
+- A handgun always goes to slot 3.
+- A long gun goes to the first empty slot of 1 and 2.
+- If both are full, it replaces slot 2 when the player is holding slot 2, otherwise slot 1.
+
+**Naming clash for DM:** the DM spec's "secondary" should map to the handgun in slot 3, or to a second long gun in slot 2. Two handguns cannot both be carried.
+
+**Weapon classes** in `data/weapons.json` are `handgun`, `smg`, `rifle`, `marksman` (DMR), `precision` (bolt-action sniper), `shotgun` and `lmg`. Every gun has `items/<id>.glb`.
+
+Columns: id, display name, class, calibre id (the inventory ammo item is `"ammo_"+calibre`), feed type, magazine size / extended size with an extended-mag attachment, fire modes.
+
+**Handguns (slot "handgun", slot 3):**
+
+| id | Name | Calibre | Feed | Mag / ext | Modes |
+|---|---|---|---|---|---|
+| `pistol_9` | P92 | 9x19 | mag | 15 / 21 | semi |
+| `pistol_45` | P1911 | 45acp | mag | 7 / 12 | semi |
+| `revolver_357` | R1895 Revolver | 357 | cylinder | 6 / none | semi |
+| `pistol_deagle` | Deagle | 50ae | mag | 7 / 10 | semi |
+
+**Long guns (slot "long", slots 1 and 2):**
+
+| id | Name | Class | Calibre | Feed | Mag / ext | Modes |
+|---|---|---|---|---|---|---|
+| `smg_9` | MP5K | smg | 9x19 | mag | 30 / 40 | auto, semi |
+| `machine_pistol` | Micro UZI | smg | 9x19 | mag | 32 / 45 | auto, semi |
+| `smg_ump45` | UMP45 | smg | 45acp | mag | 25 / 35 | auto, semi |
+| `smg_vector` | Vector | smg | 9x19 | mag | 19 / 33 | auto, semi |
+| `smg_tommy` | Tommy Gun | smg | 45acp | mag | 30 / 50 | auto, semi |
+| `rifle_556` | AR-15 | rifle | 556 | mag | 30 / 40 | semi, auto |
+| `rifle_762` | AKM | rifle | 762x39 | mag | 30 / 40 | semi, auto |
+| `rifle_scar` | SCAR-L | rifle | 556 | mag | 30 / 40 | semi, auto |
+| `rifle_m416` | M416 | rifle | 556 | mag | 30 / 40 | semi, auto |
+| `rifle_m762` | Beryl M762 | rifle | 762x39 | mag | 30 / 40 | semi, auto |
+| `marksman_308` | SLR | marksman | 308 | mag | 20 / 30 | semi |
+| `dmr_mini14` | Mini 14 | marksman | 556 | mag | 20 / 30 | semi |
+| `dmr_sks` | SKS | marksman | 762x39 | mag | 10 / 20 | semi |
+| `bolt_308` | M24 | precision | 308 | mag | 5 / 8 | bolt |
+| `bolt_kar98` | Kar98k | precision | 308 | mag | 5 / none | bolt |
+| `lmg_m249` | M249 | lmg | 556 | mag | 100 / none | auto |
+| `shotgun_pump` | S1897 Pump | shotgun | 12buck | tube | 6 | pump |
+| `shotgun_double` | S686 | shotgun | 12buck | break | 2 | semi |
+| `sumpak` | Sumpak | shotgun | 12buck | break | 1 | semi |
+| `shotgun_saiga` | S12K | shotgun | 12buck | mag | 5 / 8 | semi |
+
+- The Micro UZI is class smg in a long slot, not a handgun.
+- The bolt guns and the pump use `cycle_time` (`bolt_308` 1.05, `bolt_kar98` 1.1, `shotgun_pump` 0.55).
+
+**Ammo items** (`data/items.json:54-157, 229-241`): `ammo_9x19` (stack 120), `ammo_45acp` (60), `ammo_357` (48), `ammo_12buck` (40), `ammo_12slug` (30), `ammo_556` (120), `ammo_762x39` (90), `ammo_308` (40), `ammo_50ae` (35). Each has an RGB `color`.
+
+**Helpers in `src/core/defs.gd`:**
+- `weapon(id)` (88)
+- `item(id)` (92-99): a weapon becomes `{name, kind:"weapon", mass, model}`; an attachment becomes `{kind:"attachment", slot}`.
+- `ammo_item(weapon_id)` (106) returns `"ammo_"+calibre`.
+- `ammo_color(id)` (111) and `calibre_name(id)` (118) give the UI calibre chip, as used in `smartab_ui.gd:279-281`.
+- `is_weapon` (125) and `is_attachment` (102).
+
+**Other weapon fields:** `value` (bot ranking), `handed` (pistol or rifle), `attachments` (allowed list), `sight_zoom`, `hold`, `sound`, `model`, plus spread, recoil and timing fields.
+
+**Attachments** (`src/weapons/attachments.gd`): one per mount kind (`KINDS` = sight, muzzle, grip, mag, stock, light).
+- `compatible(weapon_id, att_id)` (14)
+- `mag_cap(w)` (45-50): the gun's `mag_ext` if a fitted attachment has `ext: true`, otherwise `mag_size`.
+- `score` / `best_slot_upgrade` (98-124)
+- `bitmask` (53) replicates fitted attachments to other players.
+
+**Data gotchas:**
+- `alt_ammo: "12slug"` on the four shotguns is never read by any code. A weapon instance never gets an `"ammo"` key (`weapon_state.gd:239`, `:354` read `w.get("ammo", d.ammo)`), so `ammo_12slug` cannot be loaded into anything. It is dead loot.
+- `loot.json weapon_ammo.counts` has a `"762x54"` calibre that no gun or item uses.
+
+## (b) Giving a character a gun, ammo, vest and helmet
+
+**Weapon instance format:** `{id, mag:int, chamber:bool, mode:int, att:[att_ids], wl?:float}`. `wl` is the weapon-light battery charge; `fit()` sets 0.6 and `FlashlightState` sets 0.8 if it is missing.
+
+**`WeaponState.new_instance(id, rng=null, loaded_frac=-1.0)`** (`weapon_state.gd:125-137`, a static function):
+- With no rng and no fraction, the gun has a full load: `n = mag_size`. One round is moved to the chamber (also for a cylinder), so `mag = cap-1` and `chamber = true`. The total loaded equals `mag_size`.
+- For "mag + 1" (31 in an AR), set `w.mag = Attach.mag_cap(w)` afterwards.
+- A mag-fed gun counts as full when `mag >= cap` (`start_reload`, :357), so a fresh `new_instance` can still take one round.
+- Break-action guns count as full when `mag + chamber >= cap`.
+- Loot uses `new_instance(id, rng)`, which loads 30–100%.
+
+**Inventory** (`src/items/inventory.gd`):
+- `bag: Array` of entries `{id, n, ...}`.
+- `gear := {"helmet","vest","backpack","flashlight"}` (line 12).
+- `add(e: Dictionary, force := false) -> int` (113-144) returns the number of units accepted.
+  - It stacks up to the item's `stack` size and copies non-stackable items one per entry.
+  - Without `force` it is limited by `capacity()`: 7.0 kg base (`items.json carry.base_capacity`) plus the backpack's `capacity` (small 6, large 12).
+  - Only bag mass counts toward capacity and the overweight slowdown (`speed_mult` :57). Worn gear and guns do not.
+- `equip_gear(e) -> Dictionary` (147-158) picks the slot from `item.slot` (or `"flashlight"` for kind flashlight) and returns the replaced entry, or `{}`.
+- `take(id, n)` (90), `count(id)` (64), `unequip(slot)` (161), `all_entries()` (170; everything goes to the corpse), `clear()` (185).
+- `mark_dirty()` (20) sets `dirty`. That flag drives replication to the owner through `world._send_owner_state()` (`src/match/world.gd:818-833`), which sends health plus `inv.to_dict()`. `to_dict` includes `"w"`, the weapon slots.
+
+**Armour and helmet items** (`data/items.json:158-212`). The armour only has levels in the sense of light versus heavy; there is no numeric level field.
+
+| id | Name | Slot | Mass | Protection | Durability | Coverage | Blunt | Notes |
+|---|---|---|---|---|---|---|---|---|
+| `vest_light` | Soft Armor Vest | vest | 2.4 | 900 | 100 | 1.0 (default) | 0.25 | covers torso |
+| `vest_heavy` | Plate Carrier | vest | 7.5 | 4200 | 140 | 1.0 (default) | 0.18 | covers torso |
+| `helmet_light` | Light Helmet | helmet | 1.3 | 600 | 50 | 0.7 | 0.35 | covers head |
+| `helmet_heavy` | Heavy-Plate Helmet | helmet | 3.6 | 2200 | 90 | 0.85 | 0.3 | `break_absorbs_lethal: true` |
+
+- **`helmet_heavy` is the highest helmet** and the only "full plate" option. Its ground model is an Altyn helmet (`docs/ASSET_MANIFEST.md:412`). There is no separate full-face item.
+- **Worn armour is not drawn on the character.** Visible headwear is cosmetic only: `data/cosmetics.json` slot `helmet` has none, beanie, cap, combat, hardhat and moto, and `src/player/outfit.gd:175` uses it. A visible "full helmet" in DM would mean forcing `look.helmet = "combat"` or `"moto"`.
+
+**Armour durability** (`src/player/health.gd:153-185`, inside `apply_hit(part, energy, ammo, e0, dir, seed, attacker)`):
+- Only the `torso` (vest) and `head` (helmet) are protected. Limbs never are.
+- **The entry needs a `"d"` field greater than 0** (`:160`). Without `"d"`, the armour protects nothing.
+- A coverage roll `randf() <= coverage` must pass; helmets have 0.7 or 0.85.
+- Current protection is `protection * (0.4 + 0.6*d/durability)`. Penetrating energy is `energy * ammo.armor_pen`, where energy is ½mv² (`src/weapons/ballistics.gd:21`).
+  - If `p_energy < prot`: blunt only. Damage is multiplied by `blunt`, there is no bleeding or overpenetration, and `d -= energy/35`.
+  - Heavy helmet with `d >= 50%` and `p_energy < 2*prot`: the helmet cracks. `d` drops to 0 and damage is ×0.55, clamped so it cannot kill (health ≥ 1, head ≥ 1).
+  - Otherwise the round penetrates. Damage is ×`clamp(1 - prot/p_energy*0.5, 0.5, 1)` and `d -= energy/22`.
+- `d <= 0` breaks the armour and the result has `armor_broken`. There is no repair.
+- Loot armour gets `d = durability * U(0.55, 1.0)` (`src/world/dynamics.gd:837-838`).
+
+**DM balance warning** (muzzle penetrating energy against full-durability armour, from my calculation):
+- **Nothing gets through the heavy vest except** `bolt_308`, `bolt_kar98`, `marksman_308` (.308), `dmr_mini14` and `dmr_sks`.
+- **Every pistol except .357 and Deagle, every SMG, and all buckshot** are blunt-only against even the light vest (900). Buckshot is about 170 J per pellet, so shotguns are blunt-only against every armour.
+- **Rifles and the Deagle crack `helmet_heavy`**, so the first headshot never kills. .308 rounds penetrate it.
+- **Result:** if everyone spawns with armour, SMGs, pistols and shotguns become weak against torso and head hits. Choosing `vest_light` over `vest_heavy` matters a lot.
+
+**Recommended DM loadout code** (`ch.wpn`, `ch.inv` and `world.interaction` all exist):
+```gdscript
+var w := WeaponState.new_instance(primary_id)          # full load
+ch.wpn.slots[1] = w                                       # long gun; handgun -> slots[3]; second long -> slots[2]
+ch.inv.add({"id": Defs.ammo_item(primary_id), "n": 120}, true)   # force bypasses capacity; auto-stacks
+ch.inv.equip_gear({"id": "vest_light", "n": 1, "d": float(Defs.item("vest_light").durability)})
+ch.inv.equip_gear({"id": "helmet_heavy", "n": 1, "d": 90.0})
+ch.inv.mark_dirty()                                       # writing wpn.slots directly does NOT dirty; required to replicate
+```
+- **Alternative:** `world.interaction.give(ch, {"id": id, "n": 1, "w": WeaponState.new_instance(id)})` (`src/match/interaction.gd:160`). It picks the slot with `slot_for`, fits attachments from the bag and marks dirty. But it drops any gun already in that slot, and it adds ammo without `force`.
+- **Drawing the gun at spawn:** the server sets `cur` from the client command's `"slot"` (`weapon_state.gd:153-164`).
+  - **Humans:** the `PlayerController.slot` variable (`player_controller.gd:22`) starts at 0, so the player spawns holstered. Setting `wpn.cur` on the server alone is overridden.
+  - **Bots:** they send `ch.wpn.want` and pick a weapon in `_equip_best` (`src/ai/bot_brain.gd:835-860`).
+
+**Current spawn path:** `match_server.gd:76` calls `_loadout(ch)` (88-96) right after `world.server_spawn_character(pid, team, name, pos, Motor.PLANE)` (`world.gd:177`).
+
+## (c) Picking up, swapping and dropping weapons
+
+**Use (E) on a ground item:** `server_use` → `target()` (`interaction.gd:29`, reach 2.3) → `_take_item` (145) → `give()` (160-196).
+- **A gun always replaces whatever is in its `slot_for` slot.** The old gun (with its magazine and attachments) is dropped 0.6 m in front of the player by `_drop_entry` (247), which raycasts to the floor and calls `world.map_item_spawn_server` (`world.gd:1204`).
+- Then `fit_from_bag(ch, slot)` (232) fits better attachments from the bag. The new gun is not auto-drawn.
+- If the gun in hand is replaced, `cur` is unchanged and no draw time is applied.
+- **Taking a gun from a container or corpse** (SmarTab op `"take"`, :346-361) also goes through `give()`. The old gun goes on the floor, not back into the container.
+
+**Armour and backpacks:** `give()` (183-189) always equips the new item, even if it is worse. The old item goes to the bag with no `force`, and is dropped if it does not fit. A `vest_heavy` (7.5 kg) never fits a 7 kg bag without a backpack. Bots alone check "better" through `LootSense.value` (`src/ai/loot_sense.gd:66-72`).
+
+**SmarTab requests** (`server_inventory_request(ch, req)`, :342-415): `drop_weapon {slot:1..3}` (401-410; holsters if the gun was in hand), `unload {slot}`, `attach {slot, att}`, `detach {slot, att}`, `drop {index, count}`, `put`, `take {index}`, `unequip {gear}`, `use {item}` and `close`.
+
+**Bots:** `bot_take_entry` (623-649) puts a handgun in slot 3, or a long gun in `LootSense.long_slot` (the weaker of slots 1 and 2). `bot_take_item` (652-670) leaves the swapped gun where the new one lay.
+
+**Death:** `dynamics.server_spawn_corpse` (1266) sets `corpse.entries = inv.all_entries()`, which includes the guns. Bodies are searchable with Use or the SmarTab. That already gives DM players a way to swap weapons. `Motor.SPECTATE` already exists and is excluded from alive checks (`world.gd:167` and others).
+
+## (d) `starting_loadout` format
+
+`data/loot.json` has `"starting_loadout": [["flashlight", 1, [0.55, 0.75]]]`, read in `match_server._loadout` (88-96). The format is a list of `[item_id, count, [charge_min, charge_max]]`.
+- `e[2]` is read unconditionally, so a two-element entry fails on an out-of-range index.
+- Every entry gets a `"c"` (charge) field.
+- Only kind `flashlight` is equipped. Everything else goes through `inv.add(entry, true)` into the bag.
+
+**This format cannot express a DM loadout.** A gun id would sit in the bag as an entry with no `"w"`, not in a weapon slot. Armour would go to the bag unworn and without `"d"`. DM needs a new code path (as in (b)) or an extended format.
+
+## (e) Loot tables and how a new map's rooms get loot
+
+**Table format** (`loot.json.tables.<name>`):
+```
+{"rolls": [min, max], "guaranteed"?: [entries], "entries": [[id, weight, [cmin, cmax]?, [charge_min, charge_max]?], ...]}
+```
+- The id `"nothing"` is a valid empty entry.
+- `guaranteed` is one extra weighted roll that is never empty.
+
+**Rolling** (`src/world/dynamics.gd`):
+- `roll_table(table, rng=null) -> Array` (774). An unknown table silently returns `[]`.
+- `_pick_entry` (792): a weapon roll also adds its own ammo stack with probability `weapon_ammo.chance` (1.0), using `weapon_ammo.counts[calibre]`.
+- `make_entries` (814-841):
+  - Guns get `new_instance(id, rng)` (a partial magazine) and, with chance `weapon_attachment_chance` (0.2), one random compatible attachment.
+  - Armour gets `"d"`. Batteries and flashlights get `"c"`.
+
+**Tables:** `drawer`, `kitchen`, `bathroom`, `wardrobe`, `under_bed`, `store_shelf`, `store_counter`, `clinic`, `toolbox`, `weapon_locker`, `military_crate`, `crate`, `trash`, `floor_household`, `floor_contested`, `floor_street`, `floor_weapon` (all 24 guns, rolls [1,1]), plus visible-box tables `box_balikbayan`, `box_bin`, `box_ammocan`, `box_footlocker`, `box_toolbox`, `box_medcase`, `box_riflecase` (its guaranteed roll is one long gun, its entries are scopes and attachments) and `box_cooler`.
+
+**Where armour appears:**
+- `vest_light`: `wardrobe`, `weapon_locker`, `floor_household`, `floor_contested`, `box_balikbayan`, `box_footlocker`
+- `helmet_light`: `weapon_locker`, `floor_household`, `floor_contested`, `box_balikbayan`, `box_footlocker`
+- `vest_heavy` and `helmet_heavy`: only `military_crate` and `floor_contested`
+
+**Three placement APIs** (`dynamics.gd`; `bid` is the building id from `map_builder.new_building_id()` (277), or -1 outdoors):
+1. **`add_loot_spot(pos: Vector3, table: String, bid: int)`** (298): floor loot in plain sight.
+   - `randomize_for_match` (723-771) rolls it on every machine from `floor_rng` (the match seed), with item ids in order and no RPCs.
+   - Each spot is settled by a ray against `PHYS_WORLD|PHYS_PROP`, from +0.35 to -0.45 m. A spot with nothing under it, or one embedded more than 6 cm into something, is dropped.
+   - **Map generation must therefore be identical on server and clients**, including spot order.
+2. **`add_container(pos: Vector3, table: String, bid: int, size := Vector3(0.5,0.5,0.5)) -> int`** (269): hidden searchable volumes such as drawers and cabinets. They are rolled on the server only (:770), and the search sound is chosen from the table name.
+3. **`add_loot_box(name: String, xf: Transform3D, table: String, bid: int) -> int`** (302): a visible box. It needs both `name` and `name+"_open"` in `ModelLib` (`lootbox_balikbayan`, `_bin`, `_ammocan`, `_footlocker`, `_toolbox`, `_medcase`, `_riflecase`, `_cooler`; `src/world/model_lib.gd:132-147`). It adds collision and a container, and returns -1 if the model is missing.
+
+**Room dressing** (`src/world/dresser.gd`): `dress_room(r: Dictionary, house: Dictionary)` (37) sets `dyn.interior_scope = true`, which picks the interior render layer.
+- **Room dict:** `{type, xf: Transform3D (room centre at floor), size: Vector2(w, d), h, bid, zone, door_x?, avoid/avoid2/avoid3: Rect2?, local_z?}`. See `src/world/shanty.gd:213-289`.
+- **Room types:** `sala`, `kitchen`, `bed`, `cr`, `store`, `workshop`.
+- **`house.kind` values that override room type:** `classroom`, `clinic`, `chapel`/`church` (pews, no boxes), `hall`/`pump` (office plus office boxes), `police`/`outpost` (office plus "armed" boxes).
+- **Hidden containers per room** (`_container_on`, :183):
+  - `drawer` in sala, bed and others
+  - `kitchen`
+  - `under_bed` and `wardrobe` in bedrooms
+  - `bathroom` in the CR
+  - `store_counter` and `store_shelf` in stores
+  - `toolbox` in workshops
+  - `clinic`
+- **Floor loot:** `_floor_loot(ctx, table, chance, most)` (189-205) uses `floor_household` and others.
+- **Visible boxes:** `BOXES[type or kind]` (13-27) via `_loot_boxes` (208).
+- **Guns on the floor:** `_weapon_spots` (44-57) uses `floor_weapon` in every room, including clinics and classrooms: 72% for the first gun and 36% for a second. Police and outpost buildings get 100/50/25%. The CR gets 20%, at most one.
+- **Usual entry point:** `map_builder.shanty(spec)` (281-301) builds the house and calls `dresser.dress_room` for each room (298-299).
+
+**Placing loot on Lawless Sub:**
+- **Houses:** produce room dicts and call `dresser.dress_room`, or go through `shanty()`.
+- **Convenience store:** a `store` room.
+- **Factory:** `workshop` rooms (`box_toolbox`/`box_ammocan` boxes, `toolbox` table).
+- **Hand-placed hotspots:** follow `src/world/sites.gd`. Weapon lockers are at :270 and :487-488, and the military camp uses `military_crate` plus `floor_contested` plus boxes at :405-409. Add DM-specific tables to `loot.json` freely.
+- **Bot looting:** bots group containers by `bid` and skip `bid < 0` (`bot_brain.gd:101-112`). Interior containers and outer doors need a real `bid`.
+- **Performance:** each ground item is one RenderingServer instance with a glow material override and a visibility range of 14 m (gun) or 9 m indoors, and 24 m or 15 m outdoors (`dynamics.gd:881`).
+
+## (f) Gun icons and visuals for a loadout picker
+
+- **No gun icons ship in the game.**
+  - `src/ui/icons.gd` only draws vector UI icons; unknown names draw a circle.
+  - `assets/ui/` has panels, buttons, backgrounds and `ui/gear/*.png` (49 outfit thumbnails used by `src/ui/locker.gd:264`, which falls back to an `Icons` texture).
+- **Existing renders, all untracked in git and outside `game/`:**
+  - `work/lemondev/r5/items/<id>.png` exists for all 24 guns: 1000x500, RGBA but with an opaque flat grey background of about (170,171,174), muzzle on the left, whole gun in frame. It was made by `tools/blender/process_items.py`. Each also has `<id>_parts.png` and `<id>.view.json`.
+  - `work/lemondev/r5/guns/<id>.png` plus `sheet.png` (900x420, made by `tools/blender/render_guns.py`). The handguns are over-zoomed and cropped, so these are not usable as-is.
+  - `tools/gun_grid_sheet.py` only draws u/v grids on the items renders for authoring part boxes. It is not an icon tool.
+- **Precedent pipeline:** `tools/make_ui_textures.py:108-124` crops `work/gear/*_front.png` into `game/assets/ui/gear/<stem>.png`. A gun-thumbnail step could do the same from `r5/items/<id>.png`, keying out the grey. Or re-render with `film_transparent = True` using Blender at `C:/Program Files/Blender Foundation/Blender 5.2/blender.exe`, then run `bash tools/import.sh`.
+- **Live 3D preview:** `GunModel.parts(id)` (`src/weapons/gun_model.gd:9`, static) loads `res://assets/models/items/<id>.glb` and returns `{role: {mesh, aabb}}` with no map needed.
+  - `locker.gd:37-48` shows the SubViewport pattern (`own_world_3d`, `transparent_bg`, lower MSAA on mobile).
+  - `map.item_visual(id)` (`dresser.gd:367`) needs a built map, so it cannot be used in a menu.
+- **Per-player choice in the lobby:** copy `Net.request_look` / `_req_look` (`src/net/net.gd:304-319`). The player dict comes from `_new_player` (:113); the server validates the value and broadcasts the lobby.
+===== v2:57a452e82f8e3f981b0a98467dda6fbf5cbea0d6d3005337bde3591318507050 ['type', 'key', 'agentId', 'result']
+# Rendering performance in Aetherion: findings for the Deathmatch mode and the "Lawless Sub" map
+
+All file references are relative to `A:/Python/aetherion-project`. I read code, docs and saved logs only. I edited nothing and ran no benchmark. Every figure below comes from `docs/PERFORMANCE.md` or from the logs in `work/lemondev/r3` and `work/lemondev/r4`.
+
+## (a) Measured numbers and where the frame time goes
+
+**Test machine.** RTX 4060, 1600×900 window, vsync forced off. The PC preset is High: 2-cascade moon shadow out to 90 m, 8 lamp shadows, SSAO, volumetric fog, TAA. Every run after 2026-10-26 was taken while other work held 40–100 % of the CPU, so treat absolute fps as pessimistic. Nothing has ever been measured on a real phone.
+
+**PC, 19 bots, closest to a 20-player match** (r4, editor build, loaded machine; `work/lemondev/r4/final/perf.log`):
+
+| Phase | Avg ms (fps) | Render CPU / GPU ms | Draw calls | Triangles |
+|---|---|---|---|---|
+| Aircraft (plane) | 2.27 (440) | 0.65 / 1.35 | 102 | 0.10 M |
+| Free fall | 6.08 (165) | 2.02 / 2.14 | 619 | 0.75 M |
+| Canopy high / low | 8.64 / 10.92 (116 / 92) | 3.3–4.3 / 2.5–3.2 | 1,249 / 1,653 | 1.4–1.8 M |
+| Just landed | 13.09 (76) | 5.10 / 4.10 | 2,201 | 2.27 M |
+| Market | 13.73 (73) | 5.25 / 4.21 | 2,091 | 2.15 M |
+| Dense looban | 15.55 (64) | 5.98 / 3.93 | 2,580 | 3.09 M |
+| Densest spot (looban_east) | 20.16 (50) | 8.33 / 5.63 | 4,043 | 5.54 M |
+| Rail | 13.35 (75) | 5.60 / 4.05 | 2,359 | 2.57 M |
+| Indoors with flashlight | 14.77 (68) | 5.93 / 4.32 | 2,513 | 2.74 M |
+| Roofed lane | 19.39 (52) | 8.10 / 5.44 | 3,440 | 3.60 M |
+| Densest spot / market by day | 19.13 / 14.60 | about 8.2 / 6.2 | 3,926 / 2,178 | about 5.6 M / 2.2 M |
+
+- **49 bots, release EXE** (`work/lemondev/r3/perf_new49b.log`): ground phases 13.7–25.5 ms (39–73 fps).
+- **First pass, idle machine** (11 bots, unfurnished full-size map): ground 117–253 fps, aircraft 528 fps (`docs/PERFORMANCE.md:28-42`).
+
+**Phone profile run on the PC** (Mobile renderer, mobile preset, 20 bots, release EXE; `work/lemondev/r3/perf_mob_new20b.log`; settings were shadows 0, no AO, no fog, render scale 0.70):
+
+| Phase | Avg ms (fps) | Render CPU / GPU ms | Draw calls | Triangles |
+|---|---|---|---|---|
+| Plane | 1.99 (504) | — | 123 | — |
+| Free fall | 4.45 (225) | — | 640 | — |
+| Canopy high / low | 5.03 / 5.78 | — | — | — |
+| Landed | 6.82 (147) | — | — | — |
+| Market | 6.15 (163) | 1.98 / 1.87 | 641 | 0.56 M |
+| Dense looban | 7.55 (132) | — | 680 | — |
+| Densest spot | 7.41 (135) | 2.66 / 2.38 | 926 | 1.05 M |
+| Rail | 5.86 | — | 526 | — |
+| Indoors | 6.57 | — | — | — |
+| Roofed lane | 7.62 | — | — | — |
+| Densest spot / market by day | 8.61 / 7.18 | — | — | — |
+
+- One isolated 159.7 ms hitch happened at the densest spot.
+- `docs/PERFORMANCE.md:190` estimates 30–60 fps on a mid-range phone until someone measures one.
+- **OpenGL (Compatibility) renderer:** 6–83 fps with long stalls from multi-pass lights and shader compiles (`docs/PERFORMANCE.md:193-194`).
+
+**Where the time goes:**
+- **Draw submission on the CPU.** Rendering is CPU-bound: about 2–3 µs per draw call on this CPU (5.25 ms / 2,091 draws; 8.33 ms / 4,043; 2.66 ms / 926 on the Mobile renderer). The densest spots issue 2,000–4,100 draws because each chunk mesh × material × render pass is one call. The suggested fix, folding the ~70 wall and floor materials into texture arrays, is not done (`docs/PERFORMANCE.md:208-209`).
+- **The GPU** takes 4–8.7 ms on High, mostly the moon shadow cascades, the depth pre-pass and opaque pass, SSAO and volumetric fog. The only per-feature breakdown on record is `--attrib` for loot: 0.9 ms and 110–200 draws (`docs/PERFORMANCE.md:167-171`). No other attrib logs were kept.
+- **Host simulation** of bots runs on the main thread:
+  - 31 bots: server scripts 9.0 ms at the densest spot, 5.0 ms at the market.
+  - 49 bots: world tick 7–12 ms, up to 40 ms in daytime firefights, bullets alone up to 11 ms (`docs/PERFORMANCE.md:132, 240-242`).
+  - Per character: about 0.15 ms per tick for movement.
+- **Jolt physics step:** 0.50–0.83 ms average per step, 0.14–1.7 steps per frame (r3 logs).
+
+## (b) Speed measures already in the code
+
+**Occlusion culling**
+- Turned on in `game/project.godot:129` (`occlusion_culling/use_occlusion_culling=true`).
+- Occluders are built only from boxes flagged `occlude`. They become one `ArrayOccluder3D` per 48 m chunk, shrunk to 97 % (`game/src/world/geo_sink.gd:190-191, 367-381, 473-479`).
+- Flagged boxes: house walls at least 0.1 m thick and more than 1.5 m tall (`game/src/world/shanty.gd:440`), plus five spots in `game/src/world/sites.gd` (lines 342, 426, 502, 507, 555). Thin plywood and corrugated-iron walls never occlude.
+
+**Chunking and merged meshes** (`game/src/world/geo_sink.gd`)
+- One mesh per (chunk, material, layer). The `ext` and `inner` layers use 96 m chunks (`WIDE`, line 15); `int`, `mid` and the rest use 48 m chunks (`CHUNK`, line 11; key built in `_acc`, 108-119).
+- One trimesh collider per (48 m chunk, physics material), lines 456-472.
+- No LODs are generated for sink meshes.
+
+**Visibility ranges** (all use FADE_SELF)
+
+| What | Range | Where |
+|---|---|---|
+| `ext` exteriors | end 220 m, margin 30 | `geo_sink.gd:426-430` |
+| `inner` (inside faces of shells, Interior layer) | 220 m | `geo_sink.gd:413-420` |
+| `int` (partitions, interior detail, Interior layer) | 60 m, margin 8 | `geo_sink.gd:421-425`; `draw_int` at line 85 |
+| `mid` (wires, decals; decals and puddles cast no shadow) | 140 m, margin 15 | `geo_sink.gd:407-412` |
+| Terrain chunks (64 m, no shadow) | 900 m | `map_builder.gd:388-390` |
+| Lamp emitters | 110 m | `lighting.gd:298-300` |
+| Ground items | 24/15 m outdoors (gun/other), 14/9 m indoors, × draw distance, no shadow | `dynamics.gd:875-882` |
+
+**Far stand-ins (HLOD)**
+- `far_block()` builds flat-coloured boxes with no bottom face, one shared vertex-colour material, one mesh per 96 m chunk, shown from 220 m to 1,900 m, no shadow (`geo_sink.gd:292-313, 433-455`).
+- Only `MapBuilder.shanty()` emits them (`game/src/world/map_builder.gd:297`).
+
+**Altitude tiers** (`game/src/world/view_lod.gd`)
+- Re-evaluated every 0.1 s from `MapBuilder.physics_tick` (`map_builder.gd:646-650`), with hysteresis: low air from 24 m (leave at 18 m), high air above moon-shadow distance + 12 m (lines 11-14, 38-62).
+- Above the ground tier: the Interior and InteriorProps layers leave the camera mask, mesh LOD becomes 1.6× / 3× coarser, the exterior/far switch moves to 300 m (on the ground it is 220 m × draw distance clamped 0.6–1.3), and SSAO and local shadows go off; high air also drops the moon shadow (lines 65-81; `lighting.gd:167, 174, 551`).
+
+**Moon / sun shadow** (`game/src/world/lighting.gd`)
+- Distance by shadow setting: [60, 60, 90, 150] m (line 196). Ultra uses 4 splits with split_1 0.1; everything else 2 splits with split_1 0.25 (lines 178-180).
+- Off when shadows = 0 or in high air (174). Furniture is excluded from its shadow passes (`shadow_caster_mask`, 173).
+- Without shadows the moon also skips the Interior layers and loses a quarter of its energy (177, 439-442).
+- Shadow maps: 4096 on PC, 2048 on mobile; soft filter quality 2; positional atlas 4096 / 2048 with quadrant subdivisions 1/2/3/3, i.e. 1/4/16/16 slots (`project.godot:109-124`).
+
+**Lamp budget** (`lighting.gd`)
+- The light manager files fixtures in 32 m grid cells, and 64 m cells for street lamps, floods and beacons (43-56, 306-324).
+- Four times a second it shows only fixtures within fade distance + 16 m (542-590).
+- Fade begins at 140 m for big lights, 38 + 3 × range for small ones, × `light_distance` (0.5–1.0, read at build); fade lengths 30 / 15 m; shadow fade 32 m (280-287).
+- Shadows go to the nearest 0 / 4 / 8 / 12 lamps (by shadow setting) within 40 m, or 80 m for big lights, ground tier only, never for `no_shadow` fixtures (551, 583, 591-602).
+- Lamp shadows exclude furniture (276). Faults animate only near the camera and send only changed levels (481-499, 585-586).
+- Street lamps go off by day (570-571). Far light glints are one MultiMesh, shown at night only (398-422, 476-477).
+- Muzzle flashes come from a pool of 6 unshadowed lights (`game/src/fx/effects.gd:71-77`).
+
+**Sky and environment** (`lighting.gd`)
+- Sky radiance 128, incremental processing (81-82).
+- Volumetric fog only at night (166); froxel volume 96×96 (`project.godot:126-127`).
+- SSAO only on the ground tier and only if enabled (167).
+- The sky-fill light always stays in the scene, at zero energy by night, so the Mobile renderer never recompiles shaders at sunrise (140-145).
+
+**Props** (`game/src/world/dynamics.gd`)
+- Instanced as MultiMesh cells (393-430); the placement rules are in `_policy` (523-573):
+  - cheap models (triangles × surfaces ≤ 300) go in 64 m cells, others in 32 m cells;
+  - default range 80 m;
+  - trees: 96 m cells, 200 m, cast shadows;
+  - plants: 45 m, no shadow;
+  - vehicles, or anything over 3 m: 140 m, cast shadows;
+  - interior furniture: 15 m (under 0.7 m) or 25 m;
+  - small outdoor clutter: 45 m, no shadow;
+  - models with 6 or more surfaces: at most 35 m, no shadow;
+  - loot boxes never cast shadows;
+  - all ranges × draw distance; the effective range is want + 0.7 × cell.
+- Doors, shutters, glass and curtains share MultiMesh "leaves" per 96 m cell, range +67 m (484-494). Only swinging doors are ticked (`door_started` at 1216, `tick` at 1255).
+- Imported models: surfaces merged by material, LODs generated with `generate_lods(25, 60)` (`game/src/world/model_lib.gd:286-363`).
+
+**Characters**
+- Animation LOD: skeleton posed every 2nd frame beyond 30 m, every 4th beyond 70 m, every 8th beyond 140 m; IK only within 30 m (`game/src/player/character_visual.gd:37-38, 255-302`).
+- Outfits are 2 surfaces with no mesh LOD (`game/src/player/outfit.gd:275-295`).
+
+**Bot LOD** (`game/src/match/world.gd:518-551`)
+- A bot runs every tick if it is fighting, has a target, is in the plane, or is on a team whose human is dead or spectating. Otherwise: every tick within 60 m of a living human, every 2nd tick within 150 m, every 4th beyond; `move_body` scales the missed time.
+- `--bot_lod_off` disables it (line 534). Lag-compensation history is a ring of plain Arrays (498-515).
+
+**Anti-aliasing, render scale and renderer** (`game/src/core/settings.gd:323-341`)
+- Render scale is clamped 0.5–1.0. On Forward+ it uses FSR2 when that upscaler is picked, FSR1 whenever scale < 1, bilinear otherwise.
+- TAA only on Forward+ (and not with FSR2); FXAA or 2× MSAA by option.
+- Project defaults: TAA on, TAA off on mobile (`project.godot:113-116`); mesh LOD threshold 2.0 px, 4.0 on mobile (111, 130); anisotropic filtering 8× on PC, 2× on mobile (108, 112); clustered elements raised to 1,024 (131).
+- Renderer: Forward+ on PC, Mobile on phones, OpenGL fallback (104-106).
+- Physics: 60 Hz, at most 6 catch-up steps per frame, 4 on mobile (85-87).
+
+**Textures**
+- PC: BC1/BC3/BC5 compression with mipmaps (`tools/fix_texture_imports.py`, run by `tools/import.sh`).
+- Android: 512 px cap (skies 1024) on `assets/thirdparty/` and `assets/models/`, ETC2/ASTC only (`tools/build_android.py:34-36, 92-126`).
+
+**Quality presets** (`settings.gd:38-48`)
+
+| Preset | Shadows | SSAO | Fog volumes | Draw distance | Other |
+|---|---|---|---|---|---|
+| mobile | 0 | off | off | 0.6 | render scale 0.7, MSAA, no flashlight shadows, lamp distance 0.6, **max_fps 60** |
+| low | 0 | off | off | 0.8 | no flashlight shadows, lamp distance 0.8 |
+| medium | 1 | off | on | 0.9 | |
+| high | 2 | on | on | 1.0 | |
+| ultra | 3 | on | on | 1.2 | |
+
+- Defaults: vsync on, max_fps 0, TAA, flashlight shadows on (16-21). Phones get the mobile preset plus vsync (71-74, 117-125).
+- The frame-rate menu offers 0/30/60/90/120/144 only (`game/src/ui/settings_ui.gd:153`).
+
+**Shader warm-up** (`map_builder.gd:208-253`)
+- Draws every material in `mats._cache`, every model in `models._cache` and every lamp emitter material once behind the loading screen. Particles and holes warm themselves (`effects.gd:60-66`).
+
+**Not present anywhere:** room or portal culling on the ground (interiors are culled only by range and occluders), LODs on sink meshes, a texture array or atlas for walls (decals do use one atlas), reflection probes, GI or SSR. The `ssil` setting exists in DEFAULTS but nothing reads it.
+
+## (c) What a new map must do, and the risks of Lawless Sub
+
+**Budgets.** None is written down in the project; these are derived from the numbers above.
+- **PC at 200 fps (5 ms a frame):** about 2.5 ms of render CPU, which is roughly 1,000–1,300 draws per frame across all passes at the busiest ground spot. Today: 2,100–4,100.
+- **Phones at 100 fps:** an estimated ≤ 300–500 draws and ≤ 300–500 k triangles per frame, assuming a phone CPU is 2–3× slower per draw than this PC. Today the phone profile is 526–933 draws and 0.53–1.05 M triangles.
+- **Per chunk:** each distinct material in a 96 m exterior chunk costs one draw per pass. Forward+ passes are depth pre-pass + opaque + each moon cascade + 2 per shadowed omni light (`OmniLight3D.SHADOW_DUAL_PARABOLOID` at `lighting.gd:269`). The Mobile preset has about 1 pass.
+- **Materials:** aim for ≤ ~10 materials per chunk per layer. Vary colour with the free per-vertex `tint`/`paint` options of `sink.box()` (`geo_sink.gd:152-153`) instead of adding materials. Each surface material loads 4 textures plus noise (`materials.gd:146-175`).
+- **Furniture:** draws = cells × distinct models × surfaces. Keep the number of distinct furniture models per 32 m cell small. Furniture added +195 draws at the densest spot (`docs/PERFORMANCE.md:115`).
+
+**Lights**
+- The Mobile renderer lights each mesh with at most 8 omni and 8 spot lights (comment at `lighting.gd:281-283`). Exterior and inner meshes span 96 m and interior meshes 48 m, so a suburban block with more than 8 lit rooms or porches in reach of one chunk mesh will drop lights or pop on phones.
+- Forward+ caps clustered lights plus decals at 1,024 (`project.godot:131`); there are 220 pooled decals (`effects.gd:13`).
+- Street lamps are generated every 38–55 m on every road at least 6 m wide, 55 % alive (`lighting.gd:206-231`). A suburb's road grid will produce many of them.
+
+**Rules a new builder must follow**
+- Route geometry through `GeoSink` with the right layers: shell outside on `ext`, shell inside faces via `inner_faces`, partitions and fixtures on `int`, small detail on `mid`.
+- Flag thick walls `occlude: true`.
+- Emit a `far_block` per building. Only `shanty()` does this today, so big hand-built structures like the factory and store vanish past about 250 m.
+- Create materials only through `Materials.get_material` and models only through `ModelLib`, or the warm-up misses them and phones stall 100–380 ms.
+- Leave the sky-fill directional light in the scene and add no other directional lights.
+
+**Concrete risks**
+1. **Every frame is a ground frame.** Deathmatch has no aircraft, free-fall or canopy phases, so play sits in the expensive ground tier: 50–76 fps on High with 19 bots on the loaded PC. The cheap airborne tiers never apply.
+2. **Remote flashlights have no budget.** Each other player gets a SpotLight3D that casts shadows when `flashlight_shadows` is on (the PC default), with no distance fade and no nearest-N cap (`character_visual.gd:79-89, 320-355`). Up to 19 shadowed spot lights in a close-quarters night match is a large cost.
+3. **Low suburban houses occlude less than the slum.** Open parks, parking lots, canals and roads give long sight lines, so more 96 m chunks are visible. Occlusion culls whole bounding boxes, and 96 m exterior meshes are rarely fully hidden; it mostly culls characters, items and some 48 m interior chunks.
+4. **Real interiors in every house.** The `int` layer draws to 60 m with no per-building culling. Richer suburban furniture means more models per 32 m cell. Glass is alpha-transparent (`materials.gd:98-113`), drawn as one draw per 96 m leaf cell, so reuse the shared leaves.
+5. **Bot LOD helps less in Deathmatch.** On a compact map most bots are within 60–150 m of a human. As soon as one human on a team dies, `watching` makes all of that team's bots run every tick (`world.gd:529-530, 541`).
+6. **Host-side map limits** (`game/src/world/map_builder.gd`, `game/src/world/layout.gd`):
+   - The water tile grid is hard-coded to ±576 m (`range(-6, 6)` × 96 m, `map_builder.gd:469-470`).
+   - The terrain is a 2 m heightfield over `Layout.HALF` = 560 × `MAP_SCALE` 0.65 = 364 m (`layout.gd:11-13`); a bigger map grows the terrain chunks and the splat map.
+   - The perf tool `_perf_toggles` does `get_node("TerrainMesh")` and `get_node("Water")` (`game/src/debug/autotest.gd:1291`), so a new map needs both nodes or `--attrib` breaks.
+7. **Day/night needs the plane clock.** `Lighting.match_time()` counts from `match_info.plane.t0` and returns 0 without a plane (`lighting.gd:425-436`). Deathmatch must supply a t0, or it stays night forever. Fog volumes, street lamps and glints all switch on daylight.
+8. **Mid layer ignores draw distance on phones.** `mid` (140 m), `int` (60 m) and emitters (110 m) are fixed, while phone exteriors end at 132 m (220 × 0.6). Prop, light and ground-item ranges read draw and lamp distance once, at build.
+9. **Character triangle count adds up.** Outfits are 9–19 k triangles with no mesh LOD. Armour and a full helmet must merge into the outfit's 2 surfaces, or each costs one draw per character per pass.
+
+## (d) How to measure
+
+- **PC benchmark:** `godot --path game -- --host --bots=19 --autostart=1 --autotest=perf --shots=<dir> [--size=1600x900] [--attrib] [--autotest_timeout=420]`.
+  - It forces vsync off and `Engine.max_fps = 0` and measures render time (`autotest.gd:1166-1173`).
+  - Godot console exe: `A:\Installer\Godot_v4.7.2-stable_win64\Godot_v4.7.2-stable_win64_console.exe`.
+- **Release EXE:** `powershell -ExecutionPolicy Bypass -File tools/perf_exe.ps1 -Exe builds\windows\Aetherion.exe -Tag <t> -Bots 19 [-Pre "<engine args>"] [-Extra "<game args>"] [-OutDir work\...] [-Seconds 700]`.
+  - Log at `<OutDir>\perf_<Tag>.log`, results at `<OutDir>\perf_<Tag>\perf.json`; the default OutDir is `work\lemondev\r3`.
+- **Phone profile:** `godot --path game --rendering-method mobile -- --mobile --host --bots=19 --autostart=1 --autotest=perf --shots=<dir>`, or via the EXE script with `-Pre "--rendering-method mobile" -Extra "--mobile"`.
+  - `--mobile` neither loads nor saves the PC's settings (`settings.gd:131, 162`).
+- **OpenGL check:**
+  - Desktop run: `--rendering-method gl_compatibility -- --mobile ...` with the same game arguments.
+  - Android build: `python -I tools/build_android.py --gl --out builds/android/Aetherion-opengl.apk`.
+  - `--args "..."` bakes launch options into an APK, since Android apps take no command line. A perf run baked this way would write `perf.json` to `user://` on the device; that is untested.
+- **Other tools:**
+  - `godot --path game res://tools/map_preview.tscn -- --mmstats` lists instanced models by triangles, cells and LODs.
+  - `godot --path game --gpu-profile res://tools/map_preview.tscn -- --perf=<view>` gives a feature-toggle A/B. Its views are hard-coded for the current map.
+  - `python -I tools/prof_instrument.py apply|revert` adds or strips `##PROF` section timers. It needs `bash tools/import.sh` once; always revert before committing.
+  - `--print-fps` is an engine flag; `--bot_lod_off` disables bot LOD for comparison.
+
+**What gets reported** (`autotest.gd:1046-1157`): `[perf] <phase>` lines with frames, average ms, fps, p50/p95/p99/max, frames over 16.7 ms, render CPU and GPU, process and physics time, draw calls, objects, triangles and height above ground. Each phase then adds lines for physics steps per frame, Jolt step average/max, Prof sections, worst single calls and bot path searches. Hitches over 25 ms and tier changes are printed as they happen. `perf.json` keys are `phase, frames, avg_ms, fps, p50, p95, p99, max, over_16ms, cpu, gpu, proc, phys, draws, objs, prims, phys_steps, jolt_step, sec.*`. The `perf_recorded` check requires at least 5 phases.
+
+**Measurement gotchas**
+- **Process/physics columns overstate.** "process" and "physics" are `Performance.TIME_*` monitors, which are per-second maxima, not averages.
+- **Body counts read 0.** The active-bodies, pairs and islands counts always show 0 under Jolt.
+- **The benchmark only works on the current Battle Royale map.**
+  - It waits on `match_server.plane` (lines 1176-1178).
+  - Its ground spots are coordinates on the current map (1206, 1237).
+  - It needs `map.tunnels` and `map.rooms` (1213-1235).
+  - `--attrib` sorts chunk meshes into layers by their exact range values: interior ≤ 60.5, mid == 140, exterior > 200, far begin > 0 (1286-1289).
+  - A Deathmatch / Lawless Sub version needs its own spots and no airborne phases.
+- **`--attrib` has a fixed spot list.** It runs at the densest spot plus two hard-coded camera views from the air (1245-1247, 1345-1362).
+
+## (e) Recommendations for 20-player team matches
+
+**Phones, 100+ fps**
+- **Raise the frame cap.** `PRESETS.mobile.max_fps` is 60 and vsync is on (`settings.gd:42, 72`). Use 0 or 120 on 90/120 Hz screens. Saved phone settings keep 60, so bump `Settings.VERSION` and add a `_migrate` step (`settings.gd:9, 146-158`).
+- **Lower the render scale to 0.6–0.65** and keep 2× MSAA (cheap on mobile GPUs). Godot's docs say FSR1 also runs on the Mobile renderer, but `_apply_viewport` forces bilinear outside Forward+ (`settings.gd:330-336`). Test FSR1 there before relying on it.
+- **Keep phones within the per-mesh light limit.** Either build interior and inner geometry in smaller chunks (for example 24–32 m) or cap lit rooms and porches so that no chunk mesh has more than about 6–8 lights in reach. Scale `mid` and `int` ranges with draw distance.
+- **Target ≤ 400 draws per frame** and ~0.5 M triangles at the busiest spot.
+- **Don't host bots on a phone.** Use a dedicated server, or limit a phone host to a few bots.
+
+**High-end PC, 200+ fps**
+- **Get ground spots to ≤ 1,200 draws.** Wall and floor texture arrays are the documented lever; use a small material palette and tints.
+- **Budget remote flashlight shadows.** Keep the nearest 2–4 remote beams shadowed, put a distance fade on all of them, and re-run the shadow choice inside the existing 4 Hz `_shadow_budget`.
+- **Trim shadows for Deathmatch.** High: 2 cascades over 60–70 m instead of 90 (`moon_shadow_distance`, `lighting.gd:196`), and 4 lamp shadows instead of 8.
+- **Shorten the ground exterior range** to about 160–180 m, with far blocks behind it, including the big buildings.
+- **Add explicit full-height occluder boxes** for the factory, the store and house shells.
+- **Try multi-threaded rendering.** `rendering/driver/threads/thread_model` is not set in `project.godot`, so the engine default applies. Moving render CPU off the main thread might overlap it with the 5–12 ms of scripts. This is unmeasured here.
+- **Run bots on a dedicated server.**
+- **Give PC players higher caps.** Add 165/240 frame-rate options to the menu (it stops at 144) and leave vsync off for testing.
+- **Re-measure on an idle machine** with `tools/perf_exe.ps1` before quoting any number.
+===== v2:107096aa16bbdd26f656add9716b71d379a66c76398a7b97e37348c554de14bf ['type', 'key', 'agentId', 'result']
+# Match flow, networking config and lobby/menu in Aetherion (read-only mapping)
+
+All paths are under `A:/Python/aetherion-project/game/` unless stated otherwise. I edited no files.
+
+## (a) How a match starts, end to end
+
+**1. Menu** (`src/ui/main_menu.gd`)
+- **PLAY NOW** → `_quick_match()` :588-599.
+  - Calls `Net.host()` on the default port 27415. This is a real ENet server, not an offline mode.
+  - Sets config `name`, `teams=5`, `team_size=4`, `bots=true`.
+  - Calls `Game.show_lobby()`, then a 0.3 s timer calls `Game.start_match()`.
+- **HOST GAME** → `_host_custom()` :602-612. Calls `Net.host()`, copies the `_create` dict into `Net.set_config` (name, teams, team_size, bots, zone_speed), then `Game.show_lobby()`.
+- **Join** → `_join(addr, port)` :615.
+  - `Net.join` (net.gd:89), then `_on_connected` (net.gd:190) sends `_hello.rpc_id(1, name, VERSION, platform, look, profile_id, level)`.
+  - Server side, `_hello` (net.gd:212-253) checks the version, handles reconnect by matching name, checks capacity, dedupes the name and calls `_first_free_team`. It then sends `_welcome` (:256), which emits `connected_to_server`, which runs `Game.show_lobby()` (game.gd:48).
+  - If the server is already loading or in a match, `Game.on_peer_joined` (game.gd:389) sends `_load_match` to the late joiner.
+- **Command line**: `Game.boot()` (game.gd:62-107) handles `--server` (dedicated), `--host` and `--join`. `_apply_arg_config()` :110-131 handles `--mode`, `--teams`, `--team_size`, `--bots`, `--seed`, `--zone_speed` and `--autostart`; `_autostart` is at :134.
+
+**2. Lobby** (`src/ui/lobby_ui.gd`). The host's START MATCH button (:79) calls `Game.start_match()`. There is no ready or min-players gate: `rules.json` `lobby.min_players_to_start` and `countdown_s` are never read.
+
+**3. `Game.start_match()`** (game.gd:191-217, server only)
+- `Net.remove_bots()`.
+- If `config.bots`: shuffle `BOT_NAMES`, `room = Net.slot_count() - Net.humans()` (capped by `--bots`), then `Net.add_bot(name, Outfit.random_look(...))` per seat.
+- `Net.assign_teams()` (net.gd:373), then `players[*].in_match = true`.
+- `match_seed = randi()` (or `--match_seed`). `_load_timer = rules.loading_timeout_s` (90).
+- `_load_match.rpc(Net.config, match_seed)`, plus a local call.
+
+**4. `_load_match(cfg, seed)`** (game.gd:220-235, reliable RPC on `/root/Game`)
+- Sets `Net.config = cfg` on clients, state `"loading"`, `teardown_world()`, then `WorldScript.new()` named `"World"`.
+- `world.build(cfg, seed)` (world.gd:60-107):
+  - `MapBuilder.new()` and `map.build(self, cfg.map_seed, match_seed)` are hard-coded at :73-74.
+  - Then acoustics and SoundSys; then interaction and grenades; Effects/Ambience/Hud/Announcer if not headless; on the server, ProjectileServer and `MatchServer.setup(self)` (:102-107).
+- The client then sends `_client_loaded.rpc_id(1, map.fingerprint)`. The server compares fingerprints and toasts on a mismatch (:238-251).
+
+**5. Waiting for peers.** `_on_peer_loaded` → `_check_all_loaded` (:254-269) → `_begin_match()` (:272). If loading takes too long, the timeout in `_process` (:372-377) starts the match anyway.
+
+**6. `_begin_match()`**
+- State `"match"`, `_match_started.rpc()` (clients run `world.client_match_started`).
+- `world.server_start_match()` (world.gd:120) → `match_server.start()` (match_server.gd:41-85):
+  - Builds the plane path from `Game.match_seed`.
+  - Spawns every `Net.players` entry with `server_spawn_character(pid, team, name, plane.a, Motor.PLANE)`.
+  - `_loadout(ch)` gives only the flashlight from `loot.json` `starting_loadout`.
+  - Fills `stats[eid] = {pid, name, team, kills, damage, downs, alive_t, placed, bot}` and `initial_teams`.
+  - Sets `phase = "plane"` and the zone to `{i:-1, state:"wait", r0: PLAY_HALF*1.25}`, then `_broadcast()`.
+- `--end_after` and `--autotest` hooks run at :277-283.
+
+**7. Each tick.** `world._physics_process` (:352-417) calls `match_server.tick` (:101).
+- Phase `"plane"`: `_plane_tick` (:126-151) handles jumps (`team_jump` :154). Once nobody is aboard, phase becomes `"playing"` and `_next_zone()` runs.
+- Phase `"playing"`: `_zone_tick` (:215) and `_check_end` (:397).
+
+**8. End.** `_check_end` → `Game.end_match_to_results(_summary(winner))` → results → lobby (see (e)).
+
+## (b) `Net.config`, how it reaches clients, and where `mode`/`map` should go
+
+**Defaults** (net.gd:39):
+```
+{"name":"", "mode":"squad", "teams":5, "team_size":4, "bots":true, "bot_count":20, "map_seed":1729, "zone_speed":1.0}
+```
+- `MAX_TEAMS := 7`, `MAX_TEAM_SIZE := 4` (:41-42).
+- `slot_count()` = `clamp(teams, 1, 7) * team_size()` (:136).
+- `team_size()` = `clamp(config.team_size or rules.modes.<mode>.team_size, 1, MAX_TEAM_SIZE)` (:369).
+- The ENet server allows `MAX_TEAMS*MAX_TEAM_SIZE+4` peers (:68), and `_hello` kicks when `humans() >= slot_count()` (:235).
+
+What each key does:
+- **`mode`** is already taken: it means solo/duo/squad. `set_config("team_size", v)` overwrites `config.mode` (:353-354), and `set_config("mode", v)` overwrites `team_size` from `rules.json` `modes.<v>.team_size` (:355-356). `--mode=solo|duo|squad` is documented in README.md:232. A new key such as `game_mode` (`"classic"`/`"deathmatch"`) avoids this.
+- **`bot_count`** is set only by `--bots` (game.gd:120). `start_match` uses `arg("bots")` and `slot_count - humans`, never `config.bot_count`.
+- **`map_seed`** is fixed at 1729 unless `--seed` is passed. It is read in world.gd:74 and drives the layout. `match_seed` is per match and drives loot, doors, props and lights; it reaches clients only as the `_load_match` argument.
+- **`zone_speed`** divides each zone phase's wait and shrink times in `_next_zone` (match_server.gd:208-209), read from global `Net.config`.
+
+**How config travels**
+- Only the server mutates it, via `Net.set_config(key, value)` (:349-366; it returns early if not server).
+- On teams/team_size changes it bumps players that no longer fit back to team -1, then `_broadcast_lobby()` (:270).
+- `_broadcast_lobby` sends `_lobby_state.rpc(players, config)` (reliable), and clients replace both dicts wholesale (:278-282).
+- Config is sent again in `_load_match(cfg, seed)` (game.gd:216, 222) and in late-join and reconnect `_load_match.rpc_id` (:392, :398).
+- There is no client→server config RPC.
+
+**Where new keys belong**
+- Add `"game_mode": "classic"` and `"map": "kalinaw"` to the defaults at net.gd:39.
+- Validate in `Net.set_config`, the single choke point used by the lobby, the menu and `_apply_arg_config`: whitelist values and, for deathmatch, force `teams=2` and `team_size<=10`.
+- `MAX_TEAM_SIZE` must rise to 10. It is also used by the ENet peer cap (:68) and by `_apply_arg_config` clamps (game.gd:114-116).
+- Add CLI switches in `_apply_arg_config`.
+- Per-mode and per-map data can go in `rules.json` (`Defs.rule("a.b.c", default)` does dotted lookup, defs.gd:133).
+- Consume `cfg.map` in `world.build` (world.gd:73) to pick the builder, and `Net.config.game_mode` in `MatchServer.start`.
+- Add both to `Online.game_info()` (online.gd:89-100). The master server stores the POST body unfiltered (master_server.gd:152), so the new fields reach the stats-server game list. Show them in the menu's game list (main_menu.gd:426).
+
+**Net version**: `Net.VERSION = "aetherion-" + application/config/version` (net.gd:18), currently `"aetherion-0.7.0"` from project.godot:7.
+- `_hello` (:217) refuses a mismatch, and the menu disables Join for another version (main_menu.gd:420, :431).
+- Bump it whenever RPCs, map or rules change. RPC signatures must match on every peer, and every machine builds the map itself.
+
+## (c) Character spawn API and direct ground spawns
+
+**Signature**:
+```
+world.server_spawn_character(pid: int, team: int, pname: String, pos: Vector3, mode: int) -> Character
+```
+(world.gd:177)
+- Allocates an eid, then `_make_character` (:195-234). That creates WeaponState, FlashlightState, Health and Inventory, plus a visual if not headless. If `pid == Net.local_pid` it creates the PlayerController (the camera lives there) and calls `hud.set_character`.
+- Sends `_spawn_char.rpc(eid, pid, team, pname, pos, mode)` to every peer.
+- Creates a BotBrain if `Net.is_bot(pid)` (pid ≤ -1000).
+
+**Motor modes**: `enum { PLANE, FREEFALL, CHUTE, GROUND, DOWNED, DEAD, SPECTATE }` (src/player/motor.gd:5).
+- `server_set_mode(ch, mode)` (world.gd:241) sends `_char_mode(eid, mode, pos, vel)`. For the owner it snaps position and velocity and calls `controller.on_mode_forced` (:246-258).
+- `SPECTATE` is never assigned anywhere; it appears only in filters.
+- `DEAD` is set just before the character is removed (world.gd:758-761).
+
+**Spawning directly on the ground** already works:
+- Call `server_spawn_character(pid, team, name, Vector3(x, y + 0.3, z), Motor.GROUND)`.
+- Autotests do the equivalent with `server_set_mode(ch, GROUND)` plus a teleport using `world.map.ground_height(x, z)` (autotest_r6.gd:28-31, autotest_r5.gd:46-52).
+- `map.ground_height` is terrain height only, so indoor or upper-floor spawns need spawn points from the map.
+
+**Loadout on spawn**
+- `world.interaction.give(ch, entry)` (interaction.gd:160-196):
+  - A weapon goes to `wpn.slot_for(id)`. Handguns go to slot 3; long guns to the first free of 1/2. A full slot drops the old gun.
+  - Armour goes through `inv.equip_gear`.
+  - Everything else goes to the bag.
+- Entry formats:
+  - Weapon: `{"id": wid, "n": 1, "w": WeaponState.new_instance(wid, null, 1.0)}` (weapon_state.gd:125).
+  - Armour: `{"id": "helmet_heavy", "n": 1, "d": <durability>}` (dynamics.gd:837-838). **`d` is required**: health.gd:160 ignores armour with `d <= 0`.
+  - Ammo: `ch.inv.add({"id": Defs.ammo_item(wid), "n": N}, true)`, where `force` ignores capacity.
+- Weapon slots: `[HOLSTER, PRIMARY, SECONDARY, HANDGUN]` = 0..3 (weapon_state.gd:9). SECONDARY is a second long gun; handguns live in slot 3. To place guns deterministically, write `ch.wpn.slots[i]` directly.
+- Call `ch.inv.mark_dirty()` afterwards. The owner then gets everything through `_owner_state` every 0.1 s (world.gd:818-833); weapons travel inside the `inv.to_dict()` field `"w"`.
+- Armour items: `vest_light`, `vest_heavy`, `helmet_light`, `helmet_heavy` ("Heavy-Plate Helmet", the likely "full helmet") in items.json.
+
+**Spawn gotchas**
+- `_spawn_char` carries no yaw. The owner's controller copies `ch.yaw` (0 on clients) at setup (player_controller.gd:84), and its first command overwrites the server's yaw. A facing direction needs an extra RPC argument.
+- `BotBrain._init` → `_pick_landing()` (bot_brain.gd:122-161) reads `world.match_server.plane`. With no plane it aims at buildings near (0,0); bots in GROUND mode then run normal AI (:203+).
+
+## (d) Death, downed, dead, spectate
+
+**Downed** (health.gd:247-261)
+- At HP ≤ 0, a character goes down if `world.server_can_be_downed(ch)` (world.gd:688-694): `Net.team_size() > 1` and a teammate in GROUND/FREEFALL/CHUTE who is not downed.
+- Downed state: health 1, bleedout `downed_bleedout_s` = 90 (items.json `health`). Otherwise the character dies.
+- `_after_damage` (world.gd:737-746) sets mode DOWNED, holsters, turns the light off, drops held objects and calls `match_server.on_downed`.
+- Bleedout pauses while `revive_progress > 0` (health.gd:292-293).
+
+**Revive**
+- A teammate aims at a same-team DOWNED character (interaction.gd:55-56) and holds Use.
+- `server_use_held` (:116-129): after `revive_time_s` = 6 within reach + 0.6 m, `health.revive()` (health 22) and `server_set_mode(GROUND)`.
+- `_check_end` (match_server.gd:398-402) kills downed players whose team has nobody standing ("bled out").
+
+**Death** (world.gd:747-761)
+- Death sound, drop held object, `map.server_spawn_corpse` (the inventory goes into the corpse), `server_set_mode(DEAD)`, `match_server.on_killed`, `server_remove_character`.
+- The character is destroyed on every peer.
+- On the owner, `_remove_char` → `controller.on_local_died()` (player_controller.gd:400-407): `ch = null`, the HUD shows "You died.", then `_pick_spectate()`.
+
+**Spectating today**
+- `_pick_spectate` (:410-420) picks the first living teammate, otherwise any living character, including enemies.
+- `_spectate_camera` (:512-531) is a third-person orbit 3.2 m behind the target with mouse look and a collision ray. The HUD shows "Watching X" (hud.gd:203).
+- There is no input to change targets and no free cam. A new target is picked only when the current one disappears. The minimap hides (minimap.gd:39) and touch controls hide (touch_controls.gd:62).
+- Server snapshot relevance for a dead viewer uses `spectate_target(pid)` (world.gd:775, :789-794): the first character of the viewer's team, else `characters.keys()[0]`. It is not the client's chosen target. `world.spectate_eid` (:40) is unused.
+- Dead players stay on the team radio: `voice_targets` (:911-913) has no alive check.
+- Late joiners have no character, so no PlayerController or camera is created (world.gd:226-233). I found no fallback camera.
+
+**"Dead players wait and spectate until the round ends"** is already the de-facto behaviour: no respawn, and results appear when `_alive_team_count() <= 1` (match_server.gd:382-412). With two teams, the whole team dying ends the match. What the new mode still needs:
+1. Restrict spectating to the own team in deathmatch (remove the enemy fallback at player_controller.gd:417-420).
+2. Add next/previous target input, plus a client→server RPC so `spectate_target` follows the watched character (otherwise enemies more than 180 m from the server's choice are culled, `relevance.enemy_radius`).
+3. Optionally mute dead players' radio to stop ghosting.
+4. Add a "waiting, N teammates alive" label (`spect_label`, hud.gd:99).
+5. Give late joiners or dead reconnectors a spectator controller.
+6. Decide whether downed/revive applies in deathmatch. With team_size 10 it applies automatically; a mode flag can be checked in `server_can_be_downed`.
+
+## (e) Results, rematch, world reset
+
+**Results**
+- `Game.end_match_to_results(summary)` (game.gd:305-321) adds `xp` (`Profile.match_xp`), `profile` and `platform` to each row. It reports to the master (if this process runs one) or `Online.post_result`, then `_show_results.rpc` plus a local call.
+- It arms a `rules.results_s` (25 s) timer for `_return_to_lobby`.
+- `_show_results` (:324-339): state `"results"`, `Profile.add_match(row)` for the local player, `world.show_results` (world.gd:129) → `hud.show_results` (hud.gd:208-247) and `controller.set_results_mode(true)`.
+- The HUD results table has columns Player, Team, Kills, Downs, Survived, shows the first 12 rows, and the headline "Last team standing: …".
+
+**Summary format** from `_summary(winner)` (match_server.gd:432-444):
+```
+{winner_team, winners:[names], rows:[{pid,name,team,kills,downs,time,winner,bot,damage,place}], duration, teams}
+```
+`place` is 1 for the winning team, else `max(placed, 2)`.
+
+**Return to lobby** (`_return_to_lobby`, game.gd:342-355)
+- Clears `in_match`, sets `ready = bot`, erases disconnected players, `Net.remove_bots()`, `_back_to_lobby.rpc()`, `show_lobby()`.
+- `show_lobby()` → `teardown_world()` (:363-369): `world.teardown()` (world.gd:110) then `free()`, `SoundSys.clear()`.
+- Teams and looks persist. Bots are re-created with new names at the next start.
+
+**Rematch**: there is no button; the host presses START again, or `--autostart --rematch` restarts after 3 s (:354-355). Every match rebuilds the whole World and map from scratch. The comment at net.gd:170 says that takes 30-45 s with the main thread blocked, which is why ENet timeouts are raised to 180 s (:172-174). There is no in-place reset of an existing World.
+
+## (f) Main menu and lobby UI structure
+
+**Main menu**
+- Pages are listed in `PAGES` (main_menu.gd:10); each is built lazily by `_page_<id>()` and cached in `_pages` (:157-176). Content changes need manual show/hide or a rebuild.
+- **Home** `_page_home` (:189-244): the PLAY NOW button (:205) and its "Practice: you and 19 bots…" line (:208). A CLASSIC/DEATHMATCH `UITheme.segmented` and a map picker fit just above it.
+- **Play**: the host panel `_page_play` (:309-338) holds Game name, Teams stepper, Squad size segmented (1-4), bots toggle, Safe zone segmented, `_summary` and HOST GAME. Mode and Map fields go after the name; Teams and Squad size should hide for deathmatch. The `_create` dict is at :24; `_update_summary` at :391.
+
+**Lobby**
+- Header: Outfit (Locker), Settings, Leave (lobby_ui.gd:43-45).
+- Team cards in an HFlowContainer: `_team_card` (:167-222), 300 px wide by `74 + size*52` tall. With 10 seats a card is 594 px tall.
+- Host "Game Setup" panel: `_setup_panel` (:86-116). It is rebuilt only when `JSON.stringify(Net.config)+host` changes; non-hosts see read-only rows (:102-110). Mode and Map belong here.
+- Bottom: tip, READY (clients), START MATCH (host) (:73-81).
+- `_refresh` runs on every `Net.lobby_changed` (:82, :126-164).
+
+**Loadout picker** (per player, so not in the host-only panel)
+- Add a "Loadout" button beside Outfit that opens an overlay built like `_open_locker` (:253-274: full-rect layer, MenuBg, title and DONE).
+- Sync it like the outfit: `request_look` / `_req_look` (net.gd:304-319) is the pattern. Add `Net.request_loadout(primary, secondary)` → `_req_loadout`, validated against `Defs.weapons` and `weapon.slot`, stored in `players[pid].loadout`, then `_broadcast_lobby`.
+- Remember the choice locally in a new Settings section: add it to `DEFAULTS` (settings.gd:13-34); `get_value` falls back to DEFAULTS (:101).
+- One-tap practice shows the lobby for only 0.3 s, so the saved loadout must be used there.
+
+**Lobby state sync**
+- `players[pid]` = `{name, team, ready, bot, connected, in_match, look, profile, level, platform}` (net.gd:113-114, :245-250). The whole dict and config are re-sent on every change.
+- Ready: `request_set_ready` → `_req_ready` → `_apply_ready` (:285-301). It is cosmetic.
+- Team: `request_team` → `_apply_team` (:322-346).
+- Bots: `add_bot` / `remove_bots` each broadcast, so starting with 19 bots sends about 40 lobby broadcasts.
+
+**Practice vs hosted vs joined**: practice is just hosting with bots and an immediate start. It still opens port 27415 and sends the LAN beacon, since `Online._process` hosting is `Net.is_server and Net.online and not dedicated` (online.gd:77). `Net.shutdown()` (net.gd:101-110) does not reset `config`, so the quick match must set `game_mode` and `map` explicitly or the previous host session's values leak in.
+
+**LAN beacon** (`game_info`, online.gd:89-100): `{t:"game", game, name, host, port, players, max, teams, team_size, bots, state, version, platform}`. It is sent once a second over UDP 27416 and posted to `/game` every 3 s.
+
+**Theme and widgets**
+- `UITheme` (src/ui/ui_theme.gd): colours :6-18, including 7 `TEAM_COLORS`.
+- Helpers: `label`, `button`, `primary`, `icon_button`, `hbox`, `vbox`, `spacer`, `panel(style: "panel"|"panel_light"|"panel_accent")`, `pill`, `section`, `stepper`, `segmented([[value, label]], current, cb)`, `toggle`, `bar`, `box` (:151-315).
+- Button variations: `PrimaryButton`, `FlatButton`, `CardButton`.
+- `Icons.texture(name, size, color)` (src/ui/icons.gd:7) draws icons procedurally: home, play, locker, profile, trophy, settings, globe, users, plus, refresh, link, phone, monitor, bot, star, check, dice, none, back, exit. There is no weapon icon.
+- Phones draw the UI at 1.5x (game.gd:64-66). Layouts switch to compact below 1500 px wide (main_menu.gd:37, lobby_ui.gd:25).
+
+## (g) HUD elements for teams and alive counts
+
+There are no team or alive counters on the in-play HUD.
+- `hud.on_match_state(info)` is an empty stub (hud.gd:175). `match_state` carries only `{phase, plane, zone}` (match_server.gd:449).
+- The SmarTab Team page (smartab_ui.gd:437-469) lists your own team's status and "Players remaining: N" (all characters not DEAD/SPECTATE).
+- The minimap (src/ui/minimap.gd) shows only you, the safe-zone circle and pings.
+- Other HUD positions: toast CENTER_TOP y=90 (hud.gd:84-89), loudspeaker banner CENTER_TOP y=128 (:290-305), minimap and compass top-left (:121-130), frags bottom-right (:131-136), prompt, hint and spectate label at bottom centre -170/-110/-70.
+- Mode hints are per Motor mode (:364-381). The loading overlay text "Sitio Kalinaw" is hard-coded (:151), as is the menu's "SITIO KALINAW · NIGHT" (main_menu.gd:195).
+- Clients can count living players per team from `world.characters`, because every spawn, mode change and removal is broadcast reliably to all peers. Alternatively the server can add an `alive` map to `_state()` and rebroadcast on each death.
+
+## Gotchas
+
+- **Day/night clock**: `lighting.match_time()` (src/world/lighting.gd:425-436) is measured from `match_info.plane.t0`. With no plane it stays at 0, so it is night forever. The announcer (announcer.gd:25-27) and bots (bot_brain.gd:304) depend on it too. A plane dict kept only for its `t0` would make the aircraft render (effects.gd:587-595) and the SmarTab draw the flight line (smartab_ui.gd:419-421). A separate `t0` in `match_state` is safer.
+  - The rules give 300 s night + 300 s day (`rules.json` `day_cycle`).
+- **Match phase**: `_check_end` runs only in phase `"playing"`, and the zone advances only from `_next_zone()`, which is called when the plane empties. A deathmatch `start()` must set `"playing"` itself, call `_next_zone()` and then `_broadcast()`.
+- **Zone damage** applies only when `zone.i > 0` or the zone is shrinking (match_server.gd:245). Zone radii are fractions of `PLAY_HALF*1.6`, so the new map's `PLAY_HALF` sets the scale.
+- **Map facade**: a new map must supply what World, MatchServer and the UI read:
+  - `layout.HALF`, `PLAY_HALF`, `MAP_SCALE`, `in_play_area`, `is_water`, `ground_height`, `landmarks`.
+  - `dyn.*`, `acoustics`, `lighting`, `models`, `buildings`, `map_image`, `fingerprint`.
+  - `water_height`, `ground_height`, `physics_tick`, `server_tick`, `client_interpolate`, `awake_props_near`, `warm_up`, `server_sync_peer`, `server_spawn_corpse`, `server_break_glass`, `server_prop_hit`, `server_corpse_hit`, `server_push_prop`, `client_prop_snapshot`.
+  - `_rescue` and `_outside_world` (world.gd:554-588) use `layout.HALF` and `PLAY_HALF`.
+- **XP in a two-team match**: `Profile.add_match` counts `place <= 5` as top 5 and `match_xp` gives place-2 teams 200 XP (profile.gd:54-85). Every two-team match would count as top 5 and pay losers 200 XP.
+- **Existing tests assume the plane**: autotests `_deploy` from the plane, and `tools/net_test.sh` uses `--bots`/`--autostart`. Keep CLASSIC as the default.
+- **Pre-existing bug**: the HUD text chat calls `world.send_text` (hud.gd:263), which does not exist anywhere, so pressing Y and sending a message errors at runtime.

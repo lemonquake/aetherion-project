@@ -1,0 +1,47 @@
+WARNING: [Physics interpolation] MultiMesh interpolation is being triggered from outside physics process, this might lead to issues (possibly benign).
+   at: multimesh_instance_set_transform (servers/rendering/storage/mesh_storage.cpp:107)
+   GDScript backtrace (most recent call first):
+       [0] set_leaf_transform (res://src/world/dynamics.gd:504)
+       [1] _apply (res://src/world/door.gd:142)
+       [2] reset_state (res://src/world/door.gd:125)
+       [3] randomize_for_match (res://src/world/dynamics.gd:736)
+       [4] finalize (res://src/world/map_builder.gd:237)
+       [5] build (res://src/world/map_builder.gd:114)
+       [6] build (res://src/match/world.gd:74)
+       [7] _load_match (res://src/core/game.gd:246)
+       [8] start_match (res://src/core/game.gd:233)
+       [9] _autostart (res://src/core/game.gd:156)
+WARNING: [Physics interpolation] MultiMesh interpolation is being triggered from outside physics process, this might lead to issues (possibly benign).
+   at: multimesh_instance_set_transform (servers/rendering/storage/mesh_storage.cpp:107)
+   GDScript backtrace (most recent call first):
+       [0] set_leaf_transform (res://src/world/dynamics.gd:504)
+       [1] _apply (res://src/world/door.gd:142)
+       [2] reset_state (res://src/world/door.gd:125)
+       [3] _doors (res://src/debug/autotest_fixes.gd:448)
+       [4] _wait (res://src/debug/autotest.gd:1552)
+ERROR: 34 shaders of type SceneForwardClusteredShaderRD were never freed
+   at: ~ShaderRD (servers/rendering/renderer_rd/shader_rd.cpp:1236)
+ERROR: 1 shaders of type SkyShaderRD were never freed
+   at: ~ShaderRD (servers/rendering/renderer_rd/shader_rd.cpp:1236)
+WARNING: 1803 RIDs of type "UniformBuffer" were leaked.
+   at: _free_rids (servers/rendering/rendering_device.cpp:8686)
+WARNING: 1843 RIDs of type "IndexArray" were leaked.
+   at: _free_rids (servers/rendering/rendering_device.cpp:8686)
+WARNING: 1843 RIDs of type "IndexBuffer" were leaked.
+   at: _free_rids (servers/rendering/rendering_device.cpp:8686)
+WARNING: 959 RIDs of type "VertexArray" were leaked.
+   at: _free_rids (servers/rendering/rendering_device.cpp:8686)
+WARNING: 1076 RIDs of type "VertexBuffer" were leaked.
+   at: _free_rids (servers/rendering/rendering_device.cpp:8686)
+WARNING: 48 RIDs of type "Framebuffer" were leaked.
+   at: _free_rids (servers/rendering/rendering_device.cpp:8686)
+WARNING: 1645 RIDs of type "Texture" were leaked.
+   at: finalize (servers/rendering/rendering_device.cpp:8900)
+WARNING: 22881 ObjectDB instances were leaked at exit (run with `--verbose` for details).
+   at: cleanup (core/object/object.cpp:2536)
+ERROR: 1279 resources still in use at exit (run with --verbose for details).
+   at: clear (core/io/resource.cpp:822)
+ERROR: Pages in use exist at exit in PagedAllocator: N12VariantPools12BucketMediumE
+   at: ~PagedAllocator (./core/templates/paged_allocator.h:170)
+ERROR: Pages in use exist at exit in PagedAllocator: N12VariantPools11BucketSmallE
+   at: ~PagedAllocator (./core/templates/paged_allocator.h:170)

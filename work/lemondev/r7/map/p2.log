@@ -1,0 +1,40 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+Vulkan 1.4.329 - Forward+ - Using Device #0: NVIDIA - NVIDIA GeForce RTX 4060
+
+[preview] map built in 10086 ms: {"buildings":256,"containers":2295,"doors":1871,"dress":{"cars":102,"lamps":63,"lights":36,"shrubs":60,"trees":79},"finish_ms":1175,"ladders":26,"layout_ms":215,"lights":{"dead":7,"house_dark":132,"house_lit":104,"pole":0,"porch":61,"rooms":127},"props":2254,"sink":{"boxes":79586,"colliders":562,"far_tris":4080,"meshes":1456,"tris":677906},"streets":{"lots":4,"paint":1591,"road_quads":631,"stalls":342,"walk_boxes":1098,"zebra":56},"terrain_ms":2185,"towns_ms":4707,"windows":2692,"works":{"apron_boxes":30,"backdrop":65,"bridges":4,"ladders":6,"panels":901,"wall_boxes":15},"zones":2327}
+[preview] saved ../work/lemondev/r7/map/p2/sub_top_t450.png fps 36.0 luma 113.013704786926
+[preview] saved ../work/lemondev/r7/map/p2/sub_houses_t450.png fps 54.0 luma 116.029719303314
+[preview] saved ../work/lemondev/r7/map/p2/sub_street_t450.png fps 36.0 luma 124.436065663107
+[preview] saved ../work/lemondev/r7/map/p2/sub_avenue_t450.png fps 34.0 luma 142.205725748773
+ERROR: 1 RID allocations of type 'N10RendererRD5SkyRD3SkyE' were leaked at exit.
+ERROR: 1 RID allocations of type 'N26RendererEnvironmentStorage11EnvironmentE' were leaked at exit.
+ERROR: 157 RID allocations of type 'N10RendererRD11MeshStorage4MeshE' were leaked at exit.
+ERROR: 667 RID allocations of type 'N10RendererRD15MaterialStorage8MaterialE' were leaked at exit.
+ERROR: 28 RID allocations of type 'N10RendererRD15MaterialStorage6ShaderE' were leaked at exit.
+ERROR: 743 RID allocations of type 'N10RendererRD14TextureStorage7TextureE' were leaked at exit.
+ERROR: 27 shaders of type SceneForwardClusteredShaderRD were never freed
+   at: ~ShaderRD (servers/rendering/renderer_rd/shader_rd.cpp:1236)
+ERROR: 1 shaders of type SkyShaderRD were never freed
+   at: ~ShaderRD (servers/rendering/renderer_rd/shader_rd.cpp:1236)
+WARNING: 667 RIDs of type "UniformBuffer" were leaked.
+   at: _free_rids (servers/rendering/rendering_device.cpp:8686)
+WARNING: 1084 RIDs of type "IndexArray" were leaked.
+   at: _free_rids (servers/rendering/rendering_device.cpp:8686)
+WARNING: 1084 RIDs of type "IndexBuffer" were leaked.
+   at: _free_rids (servers/rendering/rendering_device.cpp:8686)
+WARNING: 235 RIDs of type "VertexArray" were leaked.
+   at: _free_rids (servers/rendering/rendering_device.cpp:8686)
+WARNING: 612 RIDs of type "VertexBuffer" were leaked.
+   at: _free_rids (servers/rendering/rendering_device.cpp:8686)
+WARNING: 48 RIDs of type "Framebuffer" were leaked.
+   at: _free_rids (servers/rendering/rendering_device.cpp:8686)
+WARNING: 1415 RIDs of type "Texture" were leaked.
+   at: finalize (servers/rendering/rendering_device.cpp:8900)
+WARNING: 7155 ObjectDB instances were leaked at exit (run with `--verbose` for details).
+   at: cleanup (core/object/object.cpp:2536)
+ERROR: 1062 resources still in use at exit (run with --verbose for details).
+   at: clear (core/io/resource.cpp:822)
+ERROR: Pages in use exist at exit in PagedAllocator: N12VariantPools12BucketMediumE
+   at: ~PagedAllocator (./core/templates/paged_allocator.h:170)
+ERROR: Pages in use exist at exit in PagedAllocator: N12VariantPools11BucketSmallE
+   at: ~PagedAllocator (./core/templates/paged_allocator.h:170)

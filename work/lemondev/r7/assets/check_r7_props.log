@@ -1,0 +1,90 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+SCRIPT ERROR: Parse Error: Function "_plan_room()" not found in base self.
+   at: GDScript::reload (res://src/world/dresser.gd:76)
+SCRIPT ERROR: Compile Error: Failed to compile depended scripts.
+   at: GDScript::reload (res://src/world/map_builder.gd:0)
+SCRIPT ERROR: Compile Error: Failed to compile depended scripts.
+   at: GDScript::reload (res://src/match/world.gd:0)
+SCRIPT ERROR: Compile Error: Failed to compile depended scripts.
+   at: GDScript::reload (res://src/core/game.gd:0)
+SCRIPT ERROR: Compile Error: Failed to compile depended scripts.
+   at: GDScript::reload (res://src/online/profile.gd:0)
+SCRIPT ERROR: Compile Error: Failed to compile depended scripts.
+   at: GDScript::reload (res://src/net/net.gd:0)
+ERROR: Failed to load script "res://src/net/net.gd" with error "Compilation failed".
+   at: load (modules/gdscript/gdscript_resource_format.cpp:46)
+name                      tris surf  tex  size x,y,z (m)       catalogue x,h,z      result
+armchair                  3000    1    1  0.85,1.07,0.77       0.85,1.07,0.77       PASS
+armchair_modern           3000    1    1  0.82,1.02,0.99       0.82,1.02,0.99       PASS
+sofa_classic              4000    1    1  1.57,0.80,0.66       1.57,0.80,0.66       PASS
+sofa_leather              2728    1    1  1.81,0.71,0.82       1.81,0.71,0.82       PASS
+coffee_table              4000    1    1  1.54,0.52,0.97       1.54,0.52,0.97       PASS
+dining_chair              2998    1    1  0.43,0.97,0.58       0.43,0.97,0.58       PASS
+dining_table              1048    1    1  2.26,0.88,1.39       2.26,0.88,1.39       PASS
+side_table                1800    1    1  0.55,0.55,0.45       0.55,0.55,0.45       PASS
+plant_stand               1514    1    1  0.30,0.42,0.30       0.30,0.42,0.30       PASS
+tv_cabinet                4000    1    1  2.44,0.68,0.52       2.44,0.68,0.52       PASS
+nightstand_classic        2002    1    1  0.57,0.70,0.42       0.57,0.70,0.42       PASS
+china_cabinet             4000    1    1  2.02,2.24,0.67       2.02,2.24,0.67       PASS
+potted_plant              1863    1    1  0.60,1.35,0.65       0.60,1.35,0.65       PASS
+potted_plant2             1264    1    1  0.70,0.88,0.68       0.70,0.88,0.68       PASS
+garden_gnome              1800    1    1  0.26,0.60,0.21       0.26,0.60,0.21       PASS
+planter_box               3000    1    1  0.91,0.43,0.41       0.91,0.43,0.41       PASS
+iron_gate                 6999    1    1  2.95,2.93,0.10       2.95,2.93,0.10       PASS
+display_shelves           3174    1    1  0.37,1.56,1.08       0.37,1.56,1.08       PASS
+steel_shelves3            3999    1    1  2.35,2.31,0.72       2.35,2.31,0.72       PASS
+metal_rack                4000    1    1  0.92,1.90,0.60       0.92,1.90,0.60       PASS
+wet_floor_sign             228    1    1  0.30,0.63,0.36       0.30,0.63,0.36       PASS
+payphone                  3000    1    1  0.40,0.74,0.30       0.40,0.74,0.30       PASS
+security_camera           1800    1    1  0.17,0.29,0.55       0.17,0.29,0.55       PASS
+food_tins                 1800    1    1  0.52,0.24,0.11       0.52,0.24,0.11       PASS
+food_cans                  999    1    1  0.14,0.08,0.05       0.14,0.08,0.05       PASS
+bleach                    1000    1    1  0.09,0.29,0.06       0.09,0.29,0.06       PASS
+cleaner_bottle             999    1    1  0.09,0.23,0.09       0.09,0.23,0.09       PASS
+storage_cart              4000    1    1  1.61,1.38,1.11       1.61,1.38,1.11       PASS
+airduct                   3176    1    1  0.66,0.51,1.80       0.66,0.51,1.80       PASS
+drum_plastic2             2688    1    1  0.49,0.88,0.48       0.49,0.88,0.48       PASS
+tote_box                  3000    1    1  0.46,0.42,0.63       0.46,0.42,0.63       PASS
+compressor                4000    1    1  0.60,1.18,1.67       0.60,1.18,1.67       PASS
+sconce_caged              1800    1    1  0.21,0.38,0.21       0.21,0.38,0.21       PASS
+wall_lamp_industrial      1799    1    1  0.27,0.43,0.14       0.27,0.43,0.14       PASS
+barrier2                  3999    1    1  1.56,1.11,0.44       1.56,1.11,0.44       PASS
+street_bench              4000    1    1  2.45,0.87,0.67       2.45,0.87,0.67       PASS
+car_compact               7257    1    1  1.92,1.57,3.90       1.92,1.57,3.90       PASS
+car_coupe                 6022    1    1  1.96,1.33,4.40       1.96,1.33,4.40       PASS
+car_hatchback             6808    1    1  1.80,1.40,4.10       1.80,1.40,4.10       PASS
+car_minivan               7450    1    1  1.95,1.84,4.80       1.95,1.84,4.80       PASS
+car_offroad               6502    1    1  2.19,1.75,4.40       2.19,1.75,4.40       PASS
+car_pickup                6917    1    1  2.12,1.74,5.30       2.12,1.74,5.30       PASS
+car_sedan                 7122    1    1  2.05,1.42,4.60       2.05,1.42,4.60       PASS
+car_sport                 6268    1    1  1.99,1.17,4.40       1.99,1.17,4.40       PASS
+car_suv                   7950    1    1  2.11,1.77,4.70       2.11,1.77,4.70       PASS
+car_wagon                 6982    1    1  2.09,1.48,4.70       2.09,1.48,4.70       PASS
+car_saloon_old            4106    1    1  2.06,1.45,4.30       2.06,1.45,4.30       PASS
+car_sedan_80s             7999    1    1  1.92,1.36,4.90       1.92,1.36,4.90       PASS
+car_sedan_80s_b           7999    1    1  1.80,1.32,4.90       1.80,1.32,4.90       PASS
+car_pickup_old            7999    1    1  1.96,1.44,4.89       1.96,1.44,4.89       PASS
+van_delivery              8000    1    1  2.35,2.06,4.90       2.35,2.06,4.90       PASS
+car_burnt_a               1957    1    1  1.85,1.28,4.40       1.85,1.28,4.40       PASS
+car_burnt_b               1494    1    1  1.87,1.23,4.40       1.87,1.23,4.40       PASS
+car_police_burnt          7999    1    1  1.94,1.27,4.80       1.94,1.27,4.80       PASS
+car_police_flipped        7999    1    1  2.66,1.68,4.80       2.66,1.68,4.80       PASS
+jeepney_painted          15000    1    1  2.36,2.38,6.60       2.36,2.38,6.60       PASS
+forklift_a                1590    1    1  1.21,2.03,3.30       1.21,2.03,3.30       PASS
+forklift_b                4000    1    1  1.05,1.89,3.30       1.05,1.89,3.30       PASS
+store_display_case        4000    1    1  0.64,1.30,0.65       0.64,1.30,0.65       PASS
+store_chiller             2000    1    1  1.30,2.00,0.69       1.30,2.00,0.69       PASS
+store_shelf_wall          1840    1    1  2.10,1.90,0.53       2.10,1.90,0.53       PASS
+chem_tanks                8693    1    1  2.70,5.60,6.12       2.70,5.60,6.12       PASS
+conveyor                  2876    1    1  0.74,0.90,8.81       0.74,0.90,8.81       PASS
+control_pedestal          1674    1    1  0.31,1.60,0.41       0.31,1.60,0.41       PASS
+basketball_hoop           2596    1    1  1.81,3.95,2.73       1.81,3.95,2.73       PASS
+playground_slide          1390    1    1  0.63,2.10,3.22       0.63,2.10,3.22       PASS
+playground_set            2340    1    1  5.05,2.00,4.67       5.05,2.00,4.67       PASS
+traffic_light             2652    1    1  1.46,5.40,5.53       1.46,5.40,5.53       PASS
+ped_signal                1294    1    1  0.50,2.75,0.54       0.50,2.75,0.54       PASS
+gas_pump_old              1360    1    1  1.12,1.98,1.21       1.12,1.98,1.21       PASS
+gas_pump_round            1092    1    1  0.73,1.60,0.44       0.73,1.60,0.44       PASS
+aircon_condenser           548    1    1  0.64,0.85,0.37       0.64,0.85,0.37       PASS
+r7 props: 72 checked, 72 PASS, 0 FAIL

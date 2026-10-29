@@ -1,0 +1,71 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+Vulkan 1.4.329 - Forward+ - Using Device #0: NVIDIA - NVIDIA GeForce RTX 4060
+
+[ui] loadout_received pid=1 Hehe {"primary":"rifle_m416","secondary":"pistol_9"}
+[ui] lobby shows my loadout (pid 1): {"primary":"rifle_m416","secondary":"pistol_9"}
+[ui] request_loadout {"primary":"rifle_m416","secondary":"pistol_9"}
+[world] map built in 12310 ms
+[map] 256 buildings, 1970 doors, 2518 containers, 2480 props, #f9b648fc on PC
+[rcap] spawn: 20 characters; teammates 9, within 20 m 9; nearest enemy 415 m; both guns 20; primary drawn 20; vest+helmet 20; my guns rifle_m416 / pistol_9; ammo 90+30; bandages 3
+[rcap] match_info: phase playing, game_mode deathmatch, alive { 0: 10, 1: 10 }, t0 54, day_offset 150.0, match_time 151.1, zone i=0 r1=194
+[rcap] shot A:/Python/aetherion-project/work/lemondev/r7/dm/cap1/01_spawn_first_person.png
+[rcap] shot A:/Python/aetherion-project/work/lemondev/r7/dm/cap1/02_team_front.png
+[rcap] shot A:/Python/aetherion-project/work/lemondev/r7/dm/cap1/03_team_close.png
+[rcap] shot A:/Python/aetherion-project/work/lemondev/r7/dm/cap1/04_teammate_gear.png
+[rcap] shot A:/Python/aetherion-project/work/lemondev/r7/dm/cap1/05_team_above.png
+[rcap] shot A:/Python/aetherion-project/work/lemondev/r7/dm/cap1/06_hud_after_20s.png
+[rcap] lethal hit: downed false killed true
+[rcap] spectating eid 3 (Ate Siomai, team 0; mine 0); candidates 9
+[rcap] shot A:/Python/aetherion-project/work/lemondev/r7/dm/cap1/07_spectate_teammate.png
+[rcap] after fire: spectating eid 5 (Mang Tomas, team 0); server target 5
+[rcap] shot A:/Python/aetherion-project/work/lemondev/r7/dm/cap1/08_spectate_next.png
+[rcap] shot A:/Python/aetherion-project/work/lemondev/r7/dm/cap1/09_hud_enemy_out.png
+[rcap] shot A:/Python/aetherion-project/work/lemondev/r7/dm/cap1/10_results.png
+ERROR: Lambda capture at index 0 was freed. Passed "null" instead.
+   at: call (modules/gdscript/gdscript_lambda_callable.cpp:110)
+ERROR: Lambda capture at index 0 was freed. Passed "null" instead.
+   at: call (modules/gdscript/gdscript_lambda_callable.cpp:110)
+ERROR: Lambda capture at index 0 was freed. Passed "null" instead.
+   at: call (modules/gdscript/gdscript_lambda_callable.cpp:110)
+ERROR: Lambda capture at index 0 was freed. Passed "null" instead.
+   at: call (modules/gdscript/gdscript_lambda_callable.cpp:110)
+ERROR: Lambda capture at index 0 was freed. Passed "null" instead.
+   at: call (modules/gdscript/gdscript_lambda_callable.cpp:110)
+[ui] loadout_received pid=1 Hehe {"primary":"rifle_m416","secondary":"pistol_9"}
+[ui] loadout_received pid=1 Hehe {"primary":"rifle_m416","secondary":"pistol_9"}
+[ui] lobby shows my loadout (pid 1): {"primary":"rifle_m416","secondary":"pistol_9"}
+[ui] request_loadout {"primary":"rifle_m416","secondary":"pistol_9"}
+[rcap] shot A:/Python/aetherion-project/work/lemondev/r7/dm/cap1/11_lobby_after.png
+[rcap] done
+ERROR: 1 RID allocations of type 'N10RendererRD5SkyRD3SkyE' were leaked at exit.
+ERROR: 1 RID allocations of type 'N26RendererEnvironmentStorage11EnvironmentE' were leaked at exit.
+ERROR: 189 RID allocations of type 'N10RendererRD11MeshStorage4MeshE' were leaked at exit.
+ERROR: 724 RID allocations of type 'N10RendererRD15MaterialStorage8MaterialE' were leaked at exit.
+ERROR: 28 RID allocations of type 'N10RendererRD15MaterialStorage6ShaderE' were leaked at exit.
+ERROR: 848 RID allocations of type 'N10RendererRD14TextureStorage7TextureE' were leaked at exit.
+ERROR: 27 shaders of type SceneForwardClusteredShaderRD were never freed
+   at: ~ShaderRD (servers/rendering/renderer_rd/shader_rd.cpp:1236)
+ERROR: 1 shaders of type SkyShaderRD were never freed
+   at: ~ShaderRD (servers/rendering/renderer_rd/shader_rd.cpp:1236)
+WARNING: 724 RIDs of type "UniformBuffer" were leaked.
+   at: _free_rids (servers/rendering/rendering_device.cpp:8686)
+WARNING: 1211 RIDs of type "IndexArray" were leaked.
+   at: _free_rids (servers/rendering/rendering_device.cpp:8686)
+WARNING: 1211 RIDs of type "IndexBuffer" were leaked.
+   at: _free_rids (servers/rendering/rendering_device.cpp:8686)
+WARNING: 270 RIDs of type "VertexArray" were leaked.
+   at: _free_rids (servers/rendering/rendering_device.cpp:8686)
+WARNING: 692 RIDs of type "VertexBuffer" were leaked.
+   at: _free_rids (servers/rendering/rendering_device.cpp:8686)
+WARNING: 48 RIDs of type "Framebuffer" were leaked.
+   at: _free_rids (servers/rendering/rendering_device.cpp:8686)
+WARNING: 1593 RIDs of type "Texture" were leaked.
+   at: finalize (servers/rendering/rendering_device.cpp:8900)
+WARNING: 7891 ObjectDB instances were leaked at exit (run with `--verbose` for details).
+   at: cleanup (core/object/object.cpp:2536)
+ERROR: 1201 resources still in use at exit (run with --verbose for details).
+   at: clear (core/io/resource.cpp:822)
+ERROR: Pages in use exist at exit in PagedAllocator: N12VariantPools12BucketMediumE
+   at: ~PagedAllocator (./core/templates/paged_allocator.h:170)
+ERROR: Pages in use exist at exit in PagedAllocator: N12VariantPools11BucketSmallE
+   at: ~PagedAllocator (./core/templates/paged_allocator.h:170)
