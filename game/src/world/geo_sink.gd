@@ -37,6 +37,8 @@ class Acc:
 	var uv2 := PackedVector2Array()
 	var c := PackedColorArray()
 	var i := PackedInt32Array()
+	var surface := PackedFloat32Array()
+	var current_surface := PackedFloat32Array()
 
 	func quad(p0: Vector3, p1: Vector3, p2: Vector3, p3: Vector3, nrm: Vector3, tan: Vector3, sgn: float,
 			u0: Vector2, u1: Vector2, u2: Vector2, u3: Vector2, d2: Vector2, col: Color) -> void:
@@ -50,6 +52,9 @@ class Acc:
 		uv.append(u0); uv.append(u1); uv.append(u2); uv.append(u3)
 		uv2.append(d2); uv2.append(d2); uv2.append(d2); uv2.append(d2)
 		c.append(col); c.append(col); c.append(col); c.append(col)
+		if not current_surface.is_empty():
+			for vertex in 4:
+				surface.append_array(current_surface)
 		i.append(b); i.append(b + 2); i.append(b + 1); i.append(b); i.append(b + 3); i.append(b + 2)
 
 
@@ -88,6 +93,17 @@ var far_begin := 220.0
 var ext_meshes: Array = []
 var far_meshes: Array = []
 var far_end := 1900.0
+## Test runs only (--autotest=mapscan): every collision box is also kept as [xf, size, what], so a physics contact
+## can be named (wall, partition, static prop, loot box, crate...). Off in play; it changes nothing that is built.
+var record := false
+## Face dump for the z-fighting check (tools/zfight_faces.py): every drawn box face and quad as
+## [centre xyz, normal xyz, half-edge u xyz, half-edge v xyz] plus its material and "what". Off unless set.
+var dump_faces := false
+var _drawn := {}
+var faces_dump := PackedFloat32Array()
+var faces_names: PackedStringArray = []
+var rec: Array = []
+var _rec_grid := {}       # Vector2i (4 m cell) -> [index into rec]
 
 
 func _init(materials, parent: Node3D, seed_value: int = 1) -> void:
@@ -101,16 +117,18 @@ static func chunk_key(p: Vector3) -> Vector2i:
 
 
 func _acc(p: Vector3, mat: String, layer: String) -> Acc:
+	var batch: String = mats.batch_name(mat)
 	var key: String
 	if layer == "ext" or layer == "inner":
-		key = "w%d,%d|%s|%s" % [floori(p.x / WIDE), floori(p.z / WIDE), mat, layer]
+		key = "w%d,%d|%s|%s" % [floori(p.x / WIDE), floori(p.z / WIDE), batch, layer]
 	else:
 		var ck := chunk_key(p)
-		key = "%d,%d|%s|%s" % [ck.x, ck.y, mat, layer]
+		key = "%d,%d|%s|%s" % [ck.x, ck.y, batch, layer]
 	var a: Acc = _meshes.get(key)
 	if a == null:
 		a = Acc.new()
 		_meshes[key] = a
+	a.current_surface = mats.surface_data(mat)
 	return a
 
 
@@ -150,6 +168,21 @@ func box(xf: Transform3D, size: Vector3, mat: String, opt: Dictionary = {}) -> v
 	var base_y: float = opt.get("base_y", xf.origin.y - h.y)
 	var tile: float = opt.get("tile", mats.tile(mat))
 	var uvo: Vector2 = opt.get("uv_off", Vector2(rng.randf() * 4.0, rng.randf() * 4.0))
+	# A box identical to one already drawn (two generators building the same fence or sheet) is not drawn again:
+	# the copies z-fought face for face. The random draws above still happen, so nothing after it shifts.
+	# The box as its three edge vectors without their signs (a copy turned 180 degrees is the same box).
+	var edges := []
+	for ai in 3:
+		var ev: Vector3 = xf.basis[ai] * size[ai]
+		if ev.x < -1e-4 or (absf(ev.x) <= 1e-4 and (ev.y < -1e-4 or (absf(ev.y) <= 1e-4 and ev.z < 0.0))):
+			ev = -ev
+		edges.append((ev * 1000.0).round())
+	edges.sort()
+	var dkey := hash([(xf.origin * 1000.0).round(), edges, mat])
+	if _drawn.has(dkey):
+		faces = 0
+	else:
+		_drawn[dkey] = true
 	var outer := _acc(xf.origin, mat, layer)
 	var inner_faces: int = opt.get("inner_faces", 0)
 	var inner: Acc = _acc(xf.origin, mat, "inner") if inner_faces != 0 else null
@@ -180,8 +213,10 @@ func box(xf: Transform3D, size: Vector3, mat: String, opt: Dictionary = {}) -> v
 			a.quad(xf * (c - u * hu - v * hv), xf * (c + u * hu - v * hv), xf * (c + u * hu + v * hv), xf * (c - u * hu + v * hv),
 				wn, wu, sgn, uvo, uvo + Vector2(su, 0.0), uvo + Vector2(su, -sv), uvo + Vector2(0.0, -sv), d2, tint)
 		stats.tris += 2
+		if dump_faces:
+			_dump_face(xf * c, wn, bs * u * hu, bs * v * hv, mat, str(opt.get("what", "")) + ("|in" if a == inner else ""))
 	if opt.get("collide", true):
-		_col_box(xf, size, opt.get("phys", mats.phys(mat)))
+		_col_box(xf, size, opt.get("phys", mats.phys(mat)), str(opt.get("what", mat)))
 	if opt.get("occlude", false):
 		_occ_box(xf, size)
 
@@ -212,10 +247,20 @@ func quad(p0: Vector3, p1: Vector3, p2: Vector3, p3: Vector3, mat: String, opt: 
 	var sgn := 1.0 if n.cross(u).dot(v) >= 0.0 else -1.0
 	a.quad(p0, p3, p2, p1, n, u, sgn, uvs[0], uvs[3], uvs[2], uvs[1], d2, tint)
 	stats.tris += 2
+	if dump_faces:
+		_dump_face((p0 + p2) * 0.5, n, (p1 - p0) * 0.5, (p3 - p0) * 0.5, mat, str(opt.get("what", "quad")))
 	if opt.get("double", false):
 		a.quad(p0, p1, p2, p3, -n, u, -sgn, uvs[0], uvs[1], uvs[2], uvs[3], d2, tint)
 		stats.tris += 2
 	if opt.get("collide", false):
+		if record:
+			var qu := p1 - p0
+			var qv := p3 - p0
+			var qn := qu.cross(qv)
+			if qu.length() > 0.001 and qv.length() > 0.001 and qn.length() > 0.0001:
+				var bu := qu.normalized()
+				var bn := qn.normalized()
+				_record(Transform3D(Basis(bu, bn, bu.cross(bn)).orthonormalized(), (p0 + p2) * 0.5), Vector3(qu.length(), 0.04, qv.length()), str(opt.get("what", mat)))
 		var ta := _tri(p0, opt.get("phys", mats.phys(mat)))
 		ta.tris.append(p0); ta.tris.append(p1); ta.tris.append(p2)
 		ta.tris.append(p0); ta.tris.append(p2); ta.tris.append(p3)
@@ -273,7 +318,7 @@ func cylinder(base_pos: Vector3, axis: Vector3, length: float, radius: float, ma
 		stats.tris += 2
 	if opt.get("collide", false):
 		var mid := base_pos + ax * length * 0.5
-		_col_box(Transform3D(Basis(side, ax, side.cross(ax)).orthonormalized(), mid), Vector3(radius * 1.7, length, radius * 1.7), opt.get("phys", mats.phys(mat)))
+		_col_box(Transform3D(Basis(side, ax, side.cross(ax)).orthonormalized(), mid), Vector3(radius * 1.7, length, radius * 1.7), opt.get("phys", mats.phys(mat)), str(opt.get("what", mat)))
 
 
 func far_block(xf: Transform3D, size: Vector3, col: Color, top_col: Color) -> void:
@@ -300,7 +345,9 @@ func far_block(xf: Transform3D, size: Vector3, col: Color, top_col: Color) -> vo
 		stats.far_tris += 2
 
 
-func _col_box(xf: Transform3D, size: Vector3, phys: String) -> void:
+func _col_box(xf: Transform3D, size: Vector3, phys: String, what: String = "") -> void:
+	if record:
+		_record(xf, size, what if what != "" else phys)
 	var ta := _tri(xf.origin, phys)
 	var h := size * 0.5
 	var c := []
@@ -311,9 +358,58 @@ func _col_box(xf: Transform3D, size: Vector3, phys: String) -> void:
 		ta.tris.append(c[q[0]]); ta.tris.append(c[q[2]]); ta.tris.append(c[q[3]])
 
 
-func col_box(xf: Transform3D, size: Vector3, phys: String) -> void:
+func col_box(xf: Transform3D, size: Vector3, phys: String, what: String = "") -> void:
 	## Invisible collision (ramps under steps, clipping blockers).
-	_col_box(xf, size, phys)
+	_col_box(xf, size, phys, what)
+
+
+func _dump_face(c: Vector3, n: Vector3, eu: Vector3, ev: Vector3, mat: String, what: String) -> void:
+	faces_dump.append_array(PackedFloat32Array([c.x, c.y, c.z, n.x, n.y, n.z, eu.x, eu.y, eu.z, ev.x, ev.y, ev.z]))
+	faces_names.append(mat + "|" + what)
+
+
+func save_faces(path: String) -> void:
+	var f := FileAccess.open(path, FileAccess.WRITE)
+	f.store_32(faces_names.size())
+	f.store_buffer(faces_dump.to_byte_array())
+	f.close()
+	var g := FileAccess.open(path + ".names", FileAccess.WRITE)
+	g.store_string("
+".join(faces_names))
+	g.close()
+
+
+func _record(xf: Transform3D, size: Vector3, what: String) -> void:
+	var i := rec.size()
+	rec.append([xf, size, what])
+	var r := (size * 0.5).length()
+	for cx in range(floori((xf.origin.x - r) / 4.0), floori((xf.origin.x + r) / 4.0) + 1):
+		for cz in range(floori((xf.origin.z - r) / 4.0), floori((xf.origin.z + r) / 4.0) + 1):
+			var k := Vector2i(cx, cz)
+			if not _rec_grid.has(k):
+				_rec_grid[k] = []
+			_rec_grid[k].append(i)
+
+
+func recorded_at(p: Vector3, margin: float = 0.04) -> Array:
+	## Recorded collision boxes containing p (grown by margin), smallest first: [[xf, size, what], ...].
+	var out := []
+	for i in _rec_grid.get(Vector2i(floori(p.x / 4.0), floori(p.z / 4.0)), []):
+		var e: Array = rec[i]
+		var lp: Vector3 = (e[0] as Transform3D).affine_inverse() * p
+		var h: Vector3 = (e[1] as Vector3) * 0.5 + Vector3.ONE * margin
+		if absf(lp.x) <= h.x and absf(lp.y) <= h.y and absf(lp.z) <= h.z:
+			out.append(e)
+	out.sort_custom(func(a, b): return (a[1] as Vector3).x * (a[1] as Vector3).y * (a[1] as Vector3).z < (b[1] as Vector3).x * (b[1] as Vector3).y * (b[1] as Vector3).z)
+	return out
+
+
+func recorded_near(p: Vector3) -> Array:
+	## Recorded boxes listed in p's 4 m cell: [[xf, size, what], ...].
+	var out := []
+	for i in _rec_grid.get(Vector2i(floori(p.x / 4.0), floori(p.z / 4.0)), []):
+		out.append(rec[i])
+	return out
 
 
 func _occ_box(xf: Transform3D, size: Vector3) -> void:
@@ -351,7 +447,11 @@ func finish() -> void:
 		arrays[Mesh.ARRAY_COLOR] = a.c
 		arrays[Mesh.ARRAY_INDEX] = a.i
 		var mesh := ArrayMesh.new()
-		mesh.add_surface_from_arrays(Mesh.PRIMITIVE_TRIANGLES, arrays)
+		var format_flags := 0
+		if not a.surface.is_empty():
+			arrays[Mesh.ARRAY_CUSTOM0] = a.surface
+			format_flags = Mesh.ARRAY_CUSTOM_RGBA_FLOAT << Mesh.ARRAY_FORMAT_CUSTOM0_SHIFT
+		mesh.add_surface_from_arrays(Mesh.PRIMITIVE_TRIANGLES, arrays, [], {}, format_flags)
 		mesh.surface_set_material(0, mats.get_material(parts[1]))
 		var mi := MeshInstance3D.new()
 		mi.mesh = mesh

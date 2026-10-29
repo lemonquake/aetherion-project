@@ -211,5 +211,6 @@ func from_dict(d: Dictionary) -> void:
 			if incoming != null and cur != null and incoming.id == cur.id and i == ch.wpn.cur:
 				incoming.mag = cur.mag
 				incoming.chamber = cur.chamber
+				incoming.mode = cur.get("mode", 0)  # snapshots reconcile the selector with the predicted magazine
 			ch.wpn.slots[i] = incoming
 	changed.emit()

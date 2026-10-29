@@ -6,12 +6,14 @@ signal changed(section: String, key: String)
 
 const PATH := "user://settings.cfg"
 ## Bumped when defaults change in a way saved settings should pick up (see _migrate).
-const VERSION := 2
+const VERSION := 3
 ## The master slider shows 0-100, but 100 plays at this fraction of full output unless debug.volume_unlock is on.
 const MASTER_CAP := 0.75
 
 const DEFAULTS := {
-	"player": {"name": ""},
+	"player": {"name": "", "laser_color": "red"},
+	"gameplay": {"ally_names": true, "bot_learning": true},
+	"online": {"server": ""},
 	"graphics": {
 		"window_mode": "windowed", "resolution": "1600x900", "vsync": true, "max_fps": 0,
 		"preset": "high", "render_scale": 1.0, "upscaler": "off", "shadows": 2, "ssao": true, "ssil": false,
@@ -57,7 +59,7 @@ const BINDINGS := {
 	"interact": ["E", "joy:10"], "grab": ["T", "joy:8"], "flashlight": ["F", "joy:9"], "smartab": ["Tab", "joy:4"],
 	"heal": ["H", "joy:12"], "weapon_1": ["1", ""], "weapon_2": ["2", ""], "weapon_3": ["3", ""],
 	"next_weapon": ["mouse:5", "joy:3"], "prev_weapon": ["mouse:4", ""], "holster": ["X", "joy:13"],
-	"fire_mode": ["B", "joy:14"], "push_to_talk": ["CapsLock", "joy:11"], "ping": ["V", "joy:5"], "text_chat": ["Y", ""],
+	"fire_mode": ["B", "joy:14"], "push_to_talk": ["CapsLock", "joy:11"], "ping": ["mouse:3", "joy:5"], "laser": ["V", ""], "text_chat": ["Y", ""],
 	"drop_held": ["", ""], "throw_grenade": ["G", "joy:15"], "menu": ["Escape", "joy:6"], "map": ["M", ""],
 	"smartab_prev": ["Q", "joy:11"], "smartab_next": ["E", "joy:10"],
 }
@@ -155,6 +157,11 @@ func _migrate(from: int) -> void:
 			bindings.drop_held = BINDINGS.drop_held.duplicate()
 		if is_equal_approx(float(data.get("audio", {}).get("ambience", 0.6)), 0.8):
 			data.audio.ambience = 0.6
+	if from < 3:
+		# V became the laser pointer; pinging a spot moved to the middle mouse button.
+		if str((bindings.get("ping", [""]) as Array)[0]) == "V":
+			bindings.ping = BINDINGS.ping.duplicate()
+		bindings.laser = BINDINGS.laser.duplicate()
 
 
 func save_settings() -> void:
@@ -338,6 +345,17 @@ func _apply_viewport() -> void:
 	vp.use_taa = fwd and aa == "taa" and up != "fsr2"
 	vp.screen_space_aa = Viewport.SCREEN_SPACE_AA_FXAA if aa == "fxaa" else Viewport.SCREEN_SPACE_AA_DISABLED
 	vp.msaa_3d = Viewport.MSAA_2X if aa == "msaa" else Viewport.MSAA_DISABLED
+
+
+## The laser pointer colours a player can pick (Settings, Profile): id -> [name, beam colour].
+const LASER_COLORS := {
+	"red": ["Red", Color(1.0, 0.12, 0.1)], "purple": ["Purple", Color(0.62, 0.22, 1.0)], "green": ["Green", Color(0.2, 1.0, 0.25)],
+	"blue": ["Blue", Color(0.2, 0.45, 1.0)], "pink": ["Pink", Color(1.0, 0.3, 0.72)], "yellow": ["Yellow", Color(1.0, 0.88, 0.15)],
+}
+
+
+static func laser_color(id: String) -> Color:
+	return (LASER_COLORS.get(id, LASER_COLORS.red) as Array)[1]
 
 
 func player_name() -> String:

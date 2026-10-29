@@ -6,7 +6,7 @@ extends RefCounted
 ## Walk into a ladder facing the wall and you take hold of it. Forward climbs (or descends while looking down, or
 ## while facing away from the wall), back descends, Jump lets go and kicks you off the wall. At the top you step forward on to the roof; at the foot,
 ## backing off the bottom rung puts you on the ground. Walking off a roof edge into a ladder catches you on it.
-## Bots do not use ladders.
+## Bots do not use ladders, except to climb out of a canal (the bot brain sets the "ladder_ok" meta while it does).
 
 const REACH_SIDE := 0.36   # metres either side of the ladder's centre line
 const REACH_OUT := 0.5     # how far from the climbing line (out from the wall) you can be and still grab it
@@ -14,7 +14,9 @@ const REACH_OUT := 0.5     # how far from the climbing line (out from the wall) 
 
 static func find(ch) -> Dictionary:
 	var w = ch.world
-	if w == null or w.map == null or not w.map.has_method("ladders_near") or Net.is_bot(ch.pid):
+	if w == null or w.map == null or not w.map.has_method("ladders_near"):
+		return {}
+	if Net.is_bot(ch.pid) and not bool(ch.get_meta("ladder_ok", false)):
 		return {}
 	var p: Vector3 = ch.global_position
 	for ld in w.map.ladders_near(p):

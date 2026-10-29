@@ -15,7 +15,7 @@ GAME = Path(__file__).resolve().parent.parent / "game"
 INCLUDE = ["assets/thirdparty/polyhaven/textures", "assets/thirdparty/polyhaven/models", "assets/models", "assets/fx"]
 NORMAL = re.compile(r"(normal|_nor_gl|_nor_dx|_nrm)", re.I)
 # Kept lossless (block compression would show in smooth noise); it only needs mipmaps, set when it was added.
-SKIP = {"noise_rgba.png.import"}
+SKIP = {"noise_rgba.png.import", "holes_normal.png.import", "blood_normal.png.import"}  # holes_normal and blood_normal keep roughness in alpha
 
 
 def set_param(text: str, key: str, value: str) -> str:

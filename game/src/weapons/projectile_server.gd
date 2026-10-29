@@ -139,6 +139,9 @@ func _advance(p: Dictionary, dt: float, tick: int) -> bool:
 			continue
 		if col and col.has_meta("prop_id"):
 			world.server_prop_hit(int(col.get_meta("prop_id")), hit_pos, dir, e, p.mass * speed)
+		if col and (col.has_meta("door_id") or col.has_meta("shutter_id")):
+			world.server_door_hit(col, hit_pos, dir, e)
+		var att := _attach_code(col)
 		if col and col.has_meta("corpse_id"):
 			world.server_corpse_hit(int(col.get_meta("corpse_id")), hit_pos, dir, normal)
 		# Ricochet: shallow angles off hard surfaces, at most one per projectile.
@@ -150,7 +153,7 @@ func _advance(p: Dictionary, dt: float, tick: int) -> bool:
 			var out_dir := dir.bounce(normal).normalized()
 			out_dir = (out_dir + Vector3(rng.randf_range(-1, 1), rng.randf_range(0, 1), rng.randf_range(-1, 1)) * 0.06).normalized()
 			var keep := rng.randf_range(0.3, 0.55)
-			world.server_impact(hit_pos, normal, str(mat.get("impact", "concrete")), "ricochet", p.shooter, p.id)
+			world.server_impact(hit_pos, normal, str(mat.get("impact", "concrete")), "ricochet", p.shooter, p.id, mat_id, att)
 			p.ignore_eid = -1
 			from = hit_pos + normal * 0.02
 			new_vel = out_dir * speed * sqrt(keep)
@@ -169,14 +172,14 @@ func _advance(p: Dictionary, dt: float, tick: int) -> bool:
 			thickness = hit_pos.distance_to(exit_pos)
 		var pen_factor := pow(clampf(float(p.pen), 0.4, 3.5), 0.6)
 		var loss := float(mat.get("resist", 600.0)) * thickness * 100.0 / pen_factor
-		world.server_impact(hit_pos, normal, str(mat.get("impact", "concrete")), "hole", p.shooter, p.id)
+		world.server_impact(hit_pos, normal, str(mat.get("impact", "concrete")), "hole", p.shooter, p.id, mat_id, att)
 		if e > loss and thickness < max_th * 0.999:
 			stats.penetrations += 1
 			e -= loss
 			var nspeed := Ballistics.speed_for_energy(p.mass, e)
 			var dev := Vector3(rng.randf_range(-1, 1), rng.randf_range(-1, 1), rng.randf_range(-1, 1)) * (0.02 + thickness * 0.2)
 			var ndir := (dir + dev).normalized()
-			world.server_impact(exit_pos, dir, str(mat.get("impact", "concrete")), "exit", p.shooter, p.id)
+			world.server_impact(exit_pos, dir, str(mat.get("impact", "concrete")), "exit", p.shooter, p.id, mat_id, att)
 			from = exit_pos + ndir * 0.01
 			new_vel = ndir * nspeed
 			p.vel = new_vel
@@ -188,6 +191,19 @@ func _advance(p: Dictionary, dt: float, tick: int) -> bool:
 	p.pos = to
 	p.vel = new_vel
 	return true
+
+
+static func _attach_code(col) -> int:
+	## What a bullet mark should hang on so it moves with it: a door, a shutter or a loose prop (see World).
+	if col == null:
+		return 0
+	if col.has_meta("door_id"):
+		return (1 << 24) | int(col.get_meta("door_id"))
+	if col.has_meta("shutter_id"):
+		return (2 << 24) | int(col.get_meta("shutter_id"))
+	if col.has_meta("prop_id"):
+		return (3 << 24) | int(col.get_meta("prop_id"))
+	return 0
 
 
 func _test_characters(p: Dictionary, from: Vector3, to: Vector3, tick: int) -> Dictionary:

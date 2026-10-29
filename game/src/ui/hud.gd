@@ -33,9 +33,22 @@ var _was_tab := false
 var _prompt_t := 0.0
 var minimap: Control
 var compass: Control
-var _sun_note := 0   # last day/night notice shown: seconds before the change it was for
+var marks: Control       # ui/world_marks.gd: teammates' names, pinged spots
+var _supp := 0.0         # near-miss suppression (Effects.flyby)
+var pa_banner: Control   # loudspeaker countdown (audio/announcer.gd drives it)
+var _pa_t := 0.0
 var frags_label: Label
+var fire_mode_label: Label
 var _frags_t := 0.0
+## r7 Deathmatch: both teams' names and how many of each are still standing (top centre), a kill feed (top
+## right), and spectator controls.
+var team_bar: Control = null
+var _team_labels: Array = []   # [name Label, count Label] per team
+var kill_feed: VBoxContainer = null
+var spect_hint: Label
+var spect_buttons: Control = null
+var _dm_intro_done := false
+const MAP_TITLES := {"kalinaw": "Sitio Kalinaw", "lawless_sub": "Lawless Sub"}
 
 
 func setup(w) -> void:
@@ -53,15 +66,21 @@ func setup(w) -> void:
 	vs.code = """shader_type canvas_item;
 uniform float amount = 0.0;
 uniform float low = 0.0;
+uniform float supp = 0.0;
 void fragment() {
 	float d = distance(UV, vec2(0.5));
 	float v = smoothstep(0.35, 0.85, d);
-	COLOR = vec4(mix(vec3(0.0), vec3(0.35, 0.0, 0.0), amount), v * (amount * 0.75 + low * 0.35));
+	float s = smoothstep(0.18, 0.75, d) * supp;
+	vec3 col = mix(vec3(0.0), vec3(0.35, 0.0, 0.0), amount / max(amount + s * 0.6, 0.001));
+	COLOR = vec4(col, clamp(v * (amount * 0.75 + low * 0.35) + s * 0.55, 0.0, 0.9));
 }"""
 	var vm := ShaderMaterial.new()
 	vm.shader = vs
 	vignette.material = vm
 	root.add_child(vignette)
+	marks = preload("res://src/ui/world_marks.gd").new()
+	root.add_child(marks)
+	marks.setup(world)
 	scope = preload("res://src/ui/scope_overlay.gd").new()
 	scope.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
 	scope.visible = false
@@ -97,6 +116,19 @@ void fragment() {
 	spect_label.size = Vector2(600, 30)
 	spect_label.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
 	root.add_child(spect_label)
+	spect_hint = UITheme.label("", 17, Color(0.72, 0.76, 0.74, 0.9))
+	spect_hint.set_anchors_preset(Control.PRESET_CENTER_BOTTOM)
+	spect_hint.position = Vector2(-400, -42)
+	spect_hint.size = Vector2(800, 26)
+	spect_hint.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+	root.add_child(spect_hint)
+	kill_feed = UITheme.vbox(4)
+	kill_feed.set_anchors_preset(Control.PRESET_TOP_RIGHT)
+	kill_feed.position = Vector2(-520, 20)
+	kill_feed.size = Vector2(500, 10)
+	kill_feed.alignment = BoxContainer.ALIGNMENT_BEGIN
+	kill_feed.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	root.add_child(kill_feed)
 	chat_box = UITheme.vbox(2)
 	chat_box.position = Vector2(24, 0)
 	chat_box.set_anchors_preset(Control.PRESET_BOTTOM_LEFT)
@@ -129,6 +161,14 @@ void fragment() {
 	frags_label.size = Vector2(400, 28)
 	frags_label.horizontal_alignment = HORIZONTAL_ALIGNMENT_RIGHT
 	root.add_child(frags_label)
+	fire_mode_label = UITheme.label("", 23, UITheme.TEXT, UITheme.font_semibold)
+	fire_mode_label.set_anchors_preset(Control.PRESET_BOTTOM_RIGHT)
+	fire_mode_label.position = Vector2(-420, -100)
+	fire_mode_label.size = Vector2(400, 32)
+	fire_mode_label.horizontal_alignment = HORIZONTAL_ALIGNMENT_RIGHT
+	fire_mode_label.add_theme_color_override("font_outline_color", Color(0, 0, 0, 0.85))
+	fire_mode_label.add_theme_constant_override("outline_size", 5)
+	root.add_child(fire_mode_label)
 	_build_loading()
 	Net.lobby_changed.connect(func(): pass)
 
@@ -143,7 +183,10 @@ func _build_loading() -> void:
 	loading = ColorRect.new()
 	(loading as ColorRect).color = Color(0.01, 0.012, 0.016)
 	loading.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
-	var l := UITheme.label("Sitio Kalinaw", 54, Color(0.86, 0.88, 0.86), UITheme.font_condensed)
+	var title := str(MAP_TITLES.get(str(Net.config.get("map", "kalinaw")), "Sitio Kalinaw"))
+	if Net.is_dm():
+		title += "  ·  Deathmatch"
+	var l := UITheme.label(title, 54, Color(0.86, 0.88, 0.86), UITheme.font_condensed)
 	l.set_anchors_preset(Control.PRESET_CENTER)
 	l.position = Vector2(-220, -60)
 	loading.add_child(l)
@@ -152,8 +195,9 @@ func _build_loading() -> void:
 	s.position = Vector2(-220, 10)
 	loading.add_child(s)
 	root.add_child(loading)
-	loading.visible = Game.state == "loading"
-	Game.state_changed.connect(func(st): loading.visible = st == "loading")
+	# The full loading screen (ui/loading_screen.gd) covers this; it shows only if that one is missing.
+	loading.visible = Game.state == "loading" and Game.loading_screen == null
+	Game.state_changed.connect(func(st): loading.visible = st == "loading" and Game.loading_screen == null)
 
 
 # ------------------------------------------------------------------ events from the world
@@ -168,11 +212,130 @@ func on_owner_state() -> void:
 
 
 func on_match_state(info: Dictionary) -> void:
-	pass
+	if str(info.get("game_mode", "classic")) != "deathmatch":
+		return
+	_ensure_team_bar(info)
+	_update_team_bar(info)
+	if not _dm_intro_done and str(info.get("phase", "")) == "playing":
+		_dm_intro_done = true
+		var mine := _my_team()
+		var names: Array = info.get("team_names", [])
+		if mine >= 0 and names.size() >= 2:
+			toast("You are on the %s. Eliminate the %s and stay inside the haze line." % [str(names[mine]), str(names[1 - mine])])
+
+
+func _my_team() -> int:
+	return int(Net.players.get(Net.local_pid, {}).get("team", -1))
+
+
+func _ensure_team_bar(info: Dictionary) -> void:
+	if team_bar:
+		return
+	var names: Array = info.get("team_names", ["West Team", "East Team"])
+	var panel := PanelContainer.new()
+	var sb := StyleBoxFlat.new()
+	sb.bg_color = Color(0.02, 0.025, 0.03, 0.62)
+	sb.set_corner_radius_all(6)
+	sb.content_margin_left = 18
+	sb.content_margin_right = 18
+	sb.content_margin_top = 4
+	sb.content_margin_bottom = 4
+	panel.add_theme_stylebox_override("panel", sb)
+	panel.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	var row := UITheme.hbox(14)
+	row.alignment = BoxContainer.ALIGNMENT_CENTER
+	panel.add_child(row)
+	_team_labels = []
+	for t in 2:
+		var col: Color = UITheme.TEAM_COLORS[t % UITheme.TEAM_COLORS.size()]
+		# The final text from the start (" (you)" added later overflowed the bar, which was already sized: "est Team").
+		var base := str(names[t]) if t < names.size() else "Team %d" % (t + 1)
+		var nm := UITheme.label(base + (" (you)" if t == _my_team() else ""), 24, col, UITheme.font_condensed)
+		nm.set_meta("base", base)
+		nm.clip_text = false
+		var cnt := UITheme.label("0", 38, Color(0.95, 0.96, 0.94), UITheme.font_condensed)
+		cnt.add_theme_color_override("font_outline_color", Color(0, 0, 0, 0.8))
+		cnt.add_theme_constant_override("outline_size", 6)
+		cnt.custom_minimum_size = Vector2(44, 0)
+		cnt.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+		if t == 0:
+			row.add_child(nm)
+			row.add_child(cnt)
+			var vs := UITheme.label("vs", 20, UITheme.TEXT_DIM)
+			row.add_child(vs)
+		else:
+			row.add_child(cnt)
+			row.add_child(nm)
+		_team_labels.append([nm, cnt])
+	team_bar = Control.new()
+	team_bar.set_anchors_preset(Control.PRESET_CENTER_TOP)
+	team_bar.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	team_bar.position = Vector2(0, 14)
+	team_bar.add_child(panel)
+	root.add_child(team_bar)
+	panel.resized.connect(func(): panel.position = Vector2(-panel.size.x * 0.5, 0))
+
+
+func _update_team_bar(info: Dictionary) -> void:
+	if _team_labels.is_empty():
+		return
+	var alive: Dictionary = info.get("alive", {})
+	var mine := _my_team()
+	for t in 2:
+		var n := int(alive.get(t, alive.get(str(t), 0)))
+		var nm: Label = _team_labels[t][0]
+		var cnt: Label = _team_labels[t][1]
+		cnt.text = str(n)
+		cnt.modulate = Color(1, 1, 1, 1.0 if n > 0 else 0.45)
+		var base: String = nm.get_meta("base", nm.text)
+		nm.set_meta("base", base)
+		nm.text = base + (" (you)" if t == mine else "")
+
+
+func add_kill(killer: String, killer_team: int, victim: String, victim_team: int, how: String) -> void:
+	## One line of the kill feed: killer in their team colour, the weapon (or the cause), the victim.
+	if kill_feed == null:
+		return
+	var row := UITheme.hbox(8)
+	row.alignment = BoxContainer.ALIGNMENT_END
+	row.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	var dim := Color(0.8, 0.82, 0.8)
+	if killer != "":
+		row.add_child(_feed_label(killer, UITheme.TEAM_COLORS[killer_team % UITheme.TEAM_COLORS.size()] if killer_team >= 0 else dim))
+	row.add_child(_feed_label("[%s]" % how if how != "" else "killed", Color(0.7, 0.72, 0.7)))
+	row.add_child(_feed_label(victim, UITheme.TEAM_COLORS[victim_team % UITheme.TEAM_COLORS.size()] if victim_team >= 0 else dim))
+	kill_feed.add_child(row)
+	while kill_feed.get_child_count() > 6:
+		var old := kill_feed.get_child(0)
+		kill_feed.remove_child(old)
+		old.queue_free()
+	get_tree().create_timer(9.0).timeout.connect(func(): if is_instance_valid(row): row.queue_free())
+
+
+func _feed_label(text: String, col: Color) -> Label:
+	var l := UITheme.label(text, 19, col, UITheme.font_semibold)
+	l.add_theme_color_override("font_outline_color", Color(0, 0, 0, 0.85))
+	l.add_theme_constant_override("outline_size", 5)
+	return l
 
 
 func add_ping(eid: int, pos: Vector3) -> void:
 	minimap.add_ping(eid, pos, ch != null and is_instance_valid(ch) and ch.eid == eid)
+	marks.add_ping(eid, pos)
+	SoundSys.play_local("radio_click", -3.0)
+
+
+func radio_line(who: String, text: String) -> void:
+	## What a teammate bot just said on the radio, bottom left for a few seconds.
+	var l := UITheme.label("[Radio] %s: %s" % [who, text], 19, Color(0.62, 0.95, 0.72))
+	l.add_theme_color_override("font_outline_color", Color(0, 0, 0, 0.85))
+	l.add_theme_constant_override("outline_size", 5)
+	chat_box.add_child(l)
+	while chat_box.get_child_count() > 6:
+		var old := chat_box.get_child(0)
+		chat_box.remove_child(old)
+		old.queue_free()
+	get_tree().create_timer(7.0).timeout.connect(func(): if is_instance_valid(l): l.queue_free())
 
 
 func toast(text: String) -> void:
@@ -197,7 +360,34 @@ func on_local_died() -> void:
 
 func set_spectating(t) -> void:
 	if t:
-		spect_label.text = "Watching %s" % t.pname
+		var mine := _my_team()
+		var mates := 0
+		for c in world.characters.values():
+			if c.team == mine and c.mode not in [Motor.DEAD, Motor.SPECTATE]:
+				mates += 1
+		spect_label.text = ("Watching %s" % t.pname) + ("  ·  %d teammate%s still standing" % [mates, "" if mates == 1 else "s"] if mates > 0 else "  ·  your team is out")
+		if Settings.touch_active():
+			spect_hint.text = ""
+			_ensure_spect_buttons()
+		else:
+			spect_hint.text = "Click or Space: next teammate    Right click: previous"
+	else:
+		spect_label.text = ""
+		spect_hint.text = ""
+
+
+func _ensure_spect_buttons() -> void:
+	if spect_buttons:
+		return
+	var row := UITheme.hbox(16)
+	row.set_anchors_preset(Control.PRESET_CENTER_BOTTOM)
+	row.position = Vector2(-170, -150)
+	row.size = Vector2(340, 64)
+	row.alignment = BoxContainer.ALIGNMENT_CENTER
+	row.add_child(UITheme.button("Previous", func(): if world.controller: world.controller.spectate_cycle(-1), 150))
+	row.add_child(UITheme.button("Next", func(): if world.controller: world.controller.spectate_cycle(1), 150))
+	root.add_child(row)
+	spect_buttons = row
 
 
 func show_results(summary: Dictionary) -> void:
@@ -211,20 +401,49 @@ func show_results(summary: Dictionary) -> void:
 	results.add_child(v)
 	v.add_child(UITheme.label("Match Results", 40, UITheme.TEXT, UITheme.font_condensed))
 	var winners: Array = summary.get("winners", [])
+	var dm_names: Array = summary.get("team_names", [])
+	var is_dm_res := str(summary.get("game_mode", "classic")) == "deathmatch"
 	var win_text := "Last team standing: %s" % ", ".join(winners) if not winners.is_empty() else "Nobody survived the night."
-	v.add_child(UITheme.label(win_text, 24, UITheme.ACCENT))
+	if is_dm_res:
+		var wt := int(summary.get("winner_team", -1))
+		win_text = ("%s wins the round" % str(summary.get("winner_name", ""))) if wt >= 0 else "Nobody won the round."
+		var wl := UITheme.label(win_text, 30, UITheme.TEAM_COLORS[wt % UITheme.TEAM_COLORS.size()] if wt >= 0 else UITheme.ACCENT, UITheme.font_condensed)
+		v.add_child(wl)
+		if not winners.is_empty():
+			v.add_child(UITheme.label("%d players on the winning team" % winners.size(), 18, UITheme.TEXT_DIM))
+	else:
+		v.add_child(UITheme.label(win_text, 24, UITheme.ACCENT))
 	v.add_child(UITheme.label("Match length %d:%02d" % [int(summary.duration) / 60, int(summary.duration) % 60], 18, UITheme.TEXT_DIM))
+	if summary.has("me_xp") and not (summary.me_xp as Dictionary).is_empty():
+		# Your XP for this match, and a level reached.
+		var mx: Dictionary = summary.me_xp
+		var me: Dictionary = summary.get("me", {})
+		var xr := UITheme.hbox(14)
+		xr.add_child(UITheme.label("+%d XP" % int(mx.xp), 34, UITheme.ACCENT, UITheme.font_condensed))
+		xr.add_child(UITheme.label("place #%d · %d kills · %d damage" % [int(me.get("place", 0)), int(me.get("kills", 0)), int(me.get("damage", 0))], 18, UITheme.TEXT_DIM))
+		if int(mx.level_after) > int(mx.level_before):
+			xr.add_child(UITheme.pill("Level %d reached" % int(mx.level_after), UITheme.ACCENT, 18))
+		v.add_child(xr)
 	var head := UITheme.hbox(10)
-	for col in [["Player", 300], ["Team", 80], ["Kills", 80], ["Downs", 80], ["Survived", 120]]:
+	var cols := [["Player", 300], ["Team", 80], ["Kills", 80], ["Downs", 80], ["Survived", 120]]
+	if is_dm_res:
+		cols = [["Player", 300], ["Team", 160], ["Kills", 80], ["Damage", 90], ["Survived", 120]]
+	for col in cols:
 		var l := UITheme.label(col[0], 18, UITheme.TEXT_DIM)
 		l.custom_minimum_size = Vector2(col[1], 0)
 		head.add_child(l)
 	v.add_child(head)
-	for r in summary.get("rows", []).slice(0, 12):
+	if is_dm_res:
+		results.custom_minimum_size = Vector2(860, 780)
+		results.position = Vector2(-430, -400)
+	for r in summary.get("rows", []).slice(0, 20 if is_dm_res else 12):
 		var h := UITheme.hbox(10)
 		var vals := [[str(r.name) + (" (bot)" if r.bot else ""), 300], [str(int(r.team) + 1), 80], [str(r.kills), 80], [str(r.downs), 80], ["%d:%02d" % [int(r.time) / 60, int(r.time) % 60], 120]]
+		if is_dm_res:
+			var tn := str(dm_names[int(r.team)]) if int(r.team) >= 0 and int(r.team) < dm_names.size() else str(int(r.team) + 1)
+			vals = [[str(r.name) + (" (bot)" if r.bot else ""), 300], [tn, 160], [str(r.kills), 80], [str(int(r.get("damage", 0))), 90], ["%d:%02d" % [int(r.time) / 60, int(r.time) % 60], 120]]
 		for val in vals:
-			var l2 := UITheme.label(val[0], 19, UITheme.ACCENT if r.winner else UITheme.TEXT)
+			var l2 := UITheme.label(val[0], 16 if is_dm_res else 19, UITheme.ACCENT if r.winner else UITheme.TEXT)
 			l2.custom_minimum_size = Vector2(val[1], 0)
 			h.add_child(l2)
 		v.add_child(h)
@@ -265,42 +484,70 @@ func add_chat(from: String, text: String) -> void:
 
 # ------------------------------------------------------------------ per frame
 
-func _sun_notices() -> void:
-	## A word before the artificial sun ignites or goes dark (30 s and 5 s ahead), the same moment for everyone.
-	if world.map == null or world.map.lighting == null or world.match_info.is_empty():
-		return
-	var t: float = world.map.lighting.match_time()
-	var left = DayCycle.until_change(t)
-	var day = DayCycle.is_day(t)
-	for mark in [30, 5]:
-		if left <= float(mark) and left > float(mark) - 1.0 and _sun_note != mark * (2 if day else 1):
-			_sun_note = mark * (2 if day else 1)
-			if day:
-				toast("The artificial sun goes dark in %d s." % mark)
-			else:
-				toast("The artificial sun ignites in %d s." % mark)
-			if mark == 5:
-				SoundSys.play_local("sun_warn", -6.0)
+func suppress(amount: float) -> void:
+	_supp = minf(_supp + amount * 0.6, 1.0)
+
+
+func pa_countdown(n: int, kind: String) -> void:
+	## The loudspeaker countdown, shown large under the compass: 10 ... 1, then the change itself.
+	if pa_banner == null:
+		pa_banner = UITheme.vbox(0)
+		pa_banner.set_anchors_preset(Control.PRESET_CENTER_TOP)
+		pa_banner.position = Vector2(-220, 128)
+		pa_banner.size = Vector2(440, 120)
+		pa_banner.mouse_filter = Control.MOUSE_FILTER_IGNORE
+		var cap := UITheme.label("", 22, Color(0.95, 0.85, 0.55), UITheme.font_semibold)
+		cap.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+		cap.name = "Cap"
+		pa_banner.add_child(cap)
+		var num := UITheme.label("", 64, Color(1.0, 0.93, 0.75), UITheme.font_condensed)
+		num.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+		num.add_theme_color_override("font_outline_color", Color(0, 0, 0, 0.8))
+		num.add_theme_constant_override("outline_size", 8)
+		num.name = "Num"
+		pa_banner.add_child(num)
+		root.add_child(pa_banner)
+	var cap: Label = pa_banner.get_node("Cap")
+	var num: Label = pa_banner.get_node("Num")
+	if n > 0:
+		cap.text = "Sunrise in" if kind == "ignite" else "Lights out in"
+		num.text = str(n)
+	else:
+		cap.text = ""
+		num.text = "The sun ignites" if kind == "ignite" else "Lights out"
+		num.add_theme_font_size_override("font_size", 48)
+	if n > 0:
+		num.add_theme_font_size_override("font_size", 64)
+	pa_banner.modulate.a = 1.0
+	_pa_t = 1.15 if n > 1 else 3.0
 
 
 func _process(dt: float) -> void:
 	_toast_t -= dt
 	toast_label.modulate.a = clampf(_toast_t, 0.0, 1.0)
-	_sun_notices()
+	if pa_banner:
+		_pa_t -= dt
+		pa_banner.modulate.a = clampf(_pa_t / 0.25, 0.0, 1.0)
 	_hurt = move_toward(_hurt, 0.0, dt * 0.6)
 	var low := 0.0
 	if ch and is_instance_valid(ch):
 		low = clampf((40.0 - ch.health.health) / 40.0, 0.0, 1.0)
 	(vignette.material as ShaderMaterial).set_shader_parameter("amount", _hurt)
 	(vignette.material as ShaderMaterial).set_shader_parameter("low", low)
+	_supp = move_toward(_supp, 0.0, dt * 0.7)
+	(vignette.material as ShaderMaterial).set_shader_parameter("supp", _supp)
 	# The SmarTab screen renders only while the device is up, plus its lowering animation.
 	_tab_vis_t = 0.8 if (tab_held or map_held) else maxf(_tab_vis_t - dt, 0.0)
 	smartab_vp.render_target_update_mode = SubViewport.UPDATE_ALWAYS if _tab_vis_t > 0.0 else SubViewport.UPDATE_DISABLED
 	if ch == null or not is_instance_valid(ch):
 		reticle.visible = false
 		hint.text = ""
+		fire_mode_label.text = ""
 		return
 	_tab_input()
+	var show_mode: bool = not Settings.touch_active() and ch.mode == Motor.GROUND and not tab_held \
+		and ch.wpn.has_selector(ch.wpn.current_id())
+	fire_mode_label.text = "Fire mode: %s   [%s]" % [ch.wpn.fire_mode_label(), Settings.binding_label("fire_mode")] if show_mode else ""
 	# Reticle: only with a weapon raised, not while the SmarTab is up or sprinting.
 	reticle.visible = ch.wpn.current_id() != "" and not tab_held and ch.mode == Motor.GROUND and not ch.sprinting
 	reticle.set("ch", ch)

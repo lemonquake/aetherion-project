@@ -40,15 +40,32 @@ func _gy(p: Vector2) -> float:
 	return L.ground_height(p.x, p.y)
 
 
+func _clear(p: Vector2, half: Vector2, ang: float) -> bool:
+	## Nothing goes in a doorway, a door's swing or the way through it (houses face the courtyards and lanes).
+	return dyn.spot_clear(p, half, ang, _gy(p))
+
+
+var _solids: Array = []   # [centre, half, ang] of everything solid built here
+
+
+func _in_solid(p: Vector2, r: float) -> bool:
+	for s in _solids:
+		var lp: Vector2 = (p - (s[0] as Vector2)).rotated(-float(s[2]))
+		if absf(lp.x) < (s[1] as Vector2).x + r and absf(lp.y) < (s[1] as Vector2).y + r:
+			return true
+	return false
+
+
 func _solid(p: Vector2, half: Vector2, ang: float) -> void:
 	## Takes the footprint out of the bots' grid (2 m cells).
+	_solids.append([p, half, ang])
 	L.reserve_rect(p, half, ang, 2)
 
 
 func _crate(p: Vector2, yaw: float, size: Vector3, base_y: float, mat: String = "") -> void:
 	mb.vault_spots.append({"pos": Vector3(p.x, base_y + size.y, p.y), "size": size, "yaw": yaw})
 	var m = mat if mat != "" else _pick(["planks", "planks_dark", "osb", "plywood", "planks_peel"])
-	sink.box(Transform3D(Basis(Vector3.UP, yaw), Vector3(p.x, base_y + size.y * 0.5, p.y)), size, m, {"dirt": 0.9, "phys": "wood"})
+	sink.box(Transform3D(Basis(Vector3.UP, yaw), Vector3(p.x, base_y + size.y * 0.5, p.y)), size, m, {"dirt": 0.9, "phys": "wood", "what": "crate"})
 	# Slats on a wooden crate's sides, so it reads as a crate and not a block.
 	if m != "osb" and size.x > 0.6:
 		for k in [-1.0, 1.0]:
@@ -96,11 +113,12 @@ func _looban(lb: Dictionary) -> void:
 		sidev = -sidev   # the steps go on the courtyard side of the kiosk
 	var s1: Vector2 = kp + sidev * (kw * 0.5 + 0.5)
 	var tall := clampf(roof_top - _gy(s1) - 1.2, 0.95, 1.45)
-	_crate(s1, atan2(-sidev.y, sidev.x), Vector3(1.2, tall, 1.0), _gy(s1))
 	var s2: Vector2 = s1 + sidev * 1.15 + Vector2(-sidev.y, sidev.x) * 0.15
-	_crate(s2, atan2(-sidev.y, sidev.x) + 0.1, Vector3(1.15, minf(tall * 0.55, 0.8), 1.0), _gy(s2))
-	_solid((s1 + s2) * 0.5, Vector2(1.0, 0.6), atan2(sidev.y, sidev.x))
-	stats.crate_stacks += 1
+	if _clear((s1 + s2) * 0.5, Vector2(1.25, 0.65), atan2(sidev.y, sidev.x)):
+		_crate(s1, atan2(-sidev.y, sidev.x), Vector3(1.2, tall, 1.0), _gy(s1))
+		_crate(s2, atan2(-sidev.y, sidev.x) + 0.1, Vector3(1.15, minf(tall * 0.55, 0.8), 1.0), _gy(s2))
+		_solid((s1 + s2) * 0.5, Vector2(1.0, 0.6), atan2(sidev.y, sidev.x))
+		stats.crate_stacks += 1
 	# 2. Two or three more crate stacks: steps of 0.5, 0.9 and 1.4 m to move over and fight from.
 	for i in rng.randi_range(2, 3):
 		var p: Vector2 = at.call(rng.randf_range(-0.55, 0.55) * half.x, rng.randf_range(-0.55, 0.55) * half.y)
@@ -111,6 +129,8 @@ func _looban(lb: Dictionary) -> void:
 		var heights := [0.5, 0.92, 1.38]
 		if rng.randf() < 0.3:
 			heights = [0.92, 1.38, 0.5]
+		if not _clear(p, Vector2(1.9, 0.6), atan2(q.y, q.x)):
+			continue
 		for k in 3:
 			var pk: Vector2 = p + q * (k - 1) * 1.2
 			_crate(pk, yaw + rng.randf_range(-0.08, 0.08), Vector3(1.18, float(heights[k]), 0.9), _gy(pk))
@@ -137,17 +157,23 @@ func _looban(lb: Dictionary) -> void:
 	# 5. Drums, a tricycle, a hand pump, a basketball ring, washing, a bulb on a wire, rubbish, loot.
 	for i in rng.randi_range(2, 5):
 		var dp: Vector2 = at.call(rng.randf_range(-0.8, 0.8) * half.x, rng.randf_range(-0.8, 0.8) * half.y)
-		dyn.add_prop_spec(_pick(["drum_blue", "oil_drum", "drum", "crate_plastic", "bucket", "jerrycan"]), Transform3D(Basis(Vector3.UP, rng.randf() * TAU), Vector3(dp.x, _gy(dp), dp.y)))
+		var dname: String = _pick(["drum_blue", "oil_drum", "drum", "crate_plastic", "bucket", "jerrycan"])
+		var dyaw := rng.randf() * TAU
+		if _clear(dp, Vector2(0.35, 0.35), 0.0):
+			dyn.add_prop_spec(dname, dyn.seat(dname, Transform3D(Basis(Vector3.UP, dyaw), Vector3(dp.x, _gy(dp), dp.y))))
 	if rng.randf() < 0.5:
 		var tp: Vector2 = at.call(rng.randf_range(-0.6, 0.6) * half.x, rng.randf_range(-0.6, 0.6) * half.y)
-		if tp.distance_to(kp) > 3.0:
-			dyn.add_static_prop(_pick(["tricycle_a", "tricycle_b"]), Transform3D(Basis(Vector3.UP, rng.randf() * TAU), Vector3(tp.x, _gy(tp) + 0.05, tp.y)))
+		if tp.distance_to(kp) > 3.0 and _clear(tp, Vector2(1.2, 1.2), 0.0):
+			var tn: String = _pick(["tricycle_a", "tricycle_b"])
+			dyn.add_static_prop(tn, dyn.seat(tn, Transform3D(Basis(Vector3.UP, rng.randf() * TAU), Vector3(tp.x, _gy(tp), tp.y))))
 			_solid(tp, Vector2(1.2, 0.7), 0.0)
 	var pp: Vector2 = at.call(-ku * 0.6, -kv * 0.7)
-	_hand_pump(pp)
+	if _clear(pp, Vector2(0.6, 0.7), 0.0):
+		_hand_pump(pp)
 	if rng.randf() < 0.65:
 		var rp: Vector2 = at.call(-ku * 0.9, rng.randf_range(-0.3, 0.3) * half.y)
-		_ring(rp, (c - rp).normalized())
+		if _clear(rp, Vector2(0.3, 0.3), 0.0):
+			_ring(rp, (c - rp).normalized())
 	for i in rng.randi_range(1, 3):
 		var a0: Vector2 = at.call(-half.x + 0.3, rng.randf_range(-0.7, 0.7) * half.y)
 		var a1: Vector2 = at.call(half.x - 0.3, rng.randf_range(-0.7, 0.7) * half.y)
@@ -158,13 +184,18 @@ func _looban(lb: Dictionary) -> void:
 		"fault": "" if r < 0.5 else ("flicker" if r < 0.8 else "sag"), "dead": rng.randf() < 0.2, "outdoor": true})
 	for i in rng.randi_range(1, 3):
 		var hp: Vector2 = at.call(_pick([-1.0, 1.0]) * (half.x - 0.5), rng.randf_range(-0.8, 0.8) * half.y)
-		dyn.add_static_prop(_pick(["heap_small_a", "heap_small_b", "heap_medium_a", "litter_a", "litter_b"]), Transform3D(Basis(Vector3.UP, rng.randf() * TAU), Vector3(hp.x, _gy(hp), hp.y)))
+		var hname: String = _pick(["heap_small_a", "heap_small_b", "heap_medium_a", "litter_a", "litter_b"])
+		var hyaw := rng.randf() * TAU
+		if _clear(hp, Vector2(0.5, 0.5), 0.0):
+			dyn.add_static_prop(hname, dyn.seat(hname, Transform3D(Basis(Vector3.UP, hyaw), Vector3(hp.x, _gy(hp), hp.y))))
 	for i in rng.randi_range(2, 3):
 		var lt: Vector2 = at.call(rng.randf_range(-0.7, 0.7) * half.x, rng.randf_range(-0.7, 0.7) * half.y)
-		dyn.add_loot_spot(Vector3(lt.x, _gy(lt) + 0.03, lt.y), "floor_street", -1)
+		# Not inside a crate stack, a low wall or the sandbags.
+		if not _in_solid(lt, 0.25):
+			dyn.add_loot_spot(Vector3(lt.x, _gy(lt) + 0.03, lt.y), "floor_street", -1)
 	if rng.randf() < 0.7:
 		var bp: Vector2 = at.call(rng.randf_range(-0.6, 0.6) * half.x, rng.randf_range(-0.6, 0.6) * half.y)
-		if bp.distance_to(kp) > 2.5:
+		if bp.distance_to(kp) > 2.5 and _clear(bp, Vector2(0.45, 0.45), 0.0):
 			dyn.add_loot_box(_pick(["lootbox_balikbayan", "lootbox_bin", "lootbox_cooler"]), Transform3D(Basis(Vector3.UP, rng.randf() * TAU), Vector3(bp.x, _gy(bp), bp.y)),
 				_pick(["box_balikbayan", "box_bin", "box_cooler"]), -1)
 	mb.alleys.append({"a": at.call(-half.x, 0.0), "b": at.call(half.x, 0.0), "w": half.y * 2.0, "kind": "looban"})
@@ -178,9 +209,11 @@ static func _basis_facing(front2d: Vector2) -> Basis:
 
 
 func _low_wall(p: Vector2, yaw: float, length: float, h: float) -> void:
+	if not _clear(p, Vector2(length * 0.5, 0.12), -yaw):
+		return
 	var y := _gy(p)
 	var mat: String = _pick(["chb", "chb2", "plaster_damaged", "concrete_dirty"])
-	sink.box(Transform3D(Basis(Vector3.UP, yaw), Vector3(p.x, y + h * 0.5 - 0.05, p.y)), Vector3(length, h + 0.1, 0.16), mat, {"dirt": 1.0, "phys": "hollow_block"})
+	sink.box(Transform3D(Basis(Vector3.UP, yaw), Vector3(p.x, y + h * 0.5 - 0.05, p.y)), Vector3(length, h + 0.1, 0.16), mat, {"dirt": 1.0, "phys": "hollow_block", "what": "low_wall"})
 	# A cap of cement and a broken-bottle or rebar top on some.
 	sink.box(Transform3D(Basis(Vector3.UP, yaw), Vector3(p.x, y + h + 0.02, p.y)), Vector3(length + 0.04, 0.05, 0.2), "cement", {"dirt": 1.0, "collide": false})
 	_solid(p, Vector2(length * 0.5, 0.2), -yaw)
@@ -188,6 +221,8 @@ func _low_wall(p: Vector2, yaw: float, length: float, h: float) -> void:
 
 
 func _sandbags(p: Vector2, yaw: float, length: float) -> void:
+	if not _clear(p, Vector2(length * 0.5 + 0.15, 0.22), -yaw):
+		return
 	var y := _gy(p)
 	var dirv := Vector3(cos(yaw), 0, -sin(yaw))
 	for row in 3:
@@ -208,7 +243,7 @@ func _hand_pump(p: Vector2) -> void:
 	sink.cylinder(Vector3(p.x, y + 0.16, p.y), Vector3.UP, 0.9, 0.07, "metal_paint", {"sides": 8, "tint": Color(0.2, 0.35, 0.25), "paint": 0.7, "collide": true, "phys": "steel"})
 	sink.cylinder(Vector3(p.x, y + 0.95, p.y), Vector3(1, 0.35, 0).normalized(), 0.7, 0.02, "metal_rust", {"sides": 6})
 	sink.cylinder(Vector3(p.x, y + 0.75, p.y), Vector3(0, -0.2, 1).normalized(), 0.25, 0.03, "metal_rust", {"sides": 6})
-	dyn.add_prop_spec("bucket", Transform3D(Basis(), Vector3(p.x, y + 0.16, p.y + 0.3)))
+	dyn.add_prop_spec("bucket", dyn.seat("bucket", Transform3D(Basis(), Vector3(p.x, y + 0.16, p.y + 0.3))))
 
 
 func _ring(p: Vector2, face: Vector2) -> void:
@@ -289,15 +324,19 @@ func _vacant_lots() -> void:
 				_solid(c, Vector2(len * 0.5, 0.2), -wy)
 			else:
 				_low_wall(c, float(wl[1]), float(wl[2]) * rng.randf_range(0.5, 1.0), h)
-		dyn.add_static_prop(_pick(["heap_medium_a", "heap_medium_b", "heap_small_a", "rubble_a", "rubble_b"]), Transform3D(Basis(Vector3.UP, rng.randf() * TAU), Vector3(p.x, y, p.y) + Vector3(dirv.x, 0, dirv.y) * rng.randf_range(-1.0, 1.0)))
+		var rn: String = _pick(["heap_medium_a", "heap_medium_b", "heap_small_a", "rubble_a", "rubble_b"])
+		# On the old floor slab (its top is 3 cm above the ground point).
+		dyn.add_static_prop(rn, dyn.seat(rn, Transform3D(Basis(Vector3.UP, rng.randf() * TAU), Vector3(p.x, y + 0.03, p.y) + Vector3(dirv.x, 0, dirv.y) * rng.randf_range(-1.0, 1.0))))
 		if rng.randf() < 0.25:
 			var tp := p + nrm * (d * 0.5 + 2.0)
 			if L.rect_free(tp, Vector2(1.2, 1.2), 0.0, false, 0.0):
-				dyn.add_static_prop(_pick(["tricycle_a", "tricycle_b"]), Transform3D(Basis(Vector3.UP, rng.randf() * TAU) * Basis(Vector3.FORWARD, rng.randf_range(-0.3, 0.3)), Vector3(tp.x, _gy(tp), tp.y)))
+				var tn2: String = _pick(["tricycle_a", "tricycle_b"])
+				dyn.add_static_prop(tn2, dyn.seat(tn2, Transform3D(Basis(Vector3.UP, rng.randf() * TAU) * Basis(Vector3.FORWARD, rng.randf_range(-0.3, 0.3)), Vector3(tp.x, _gy(tp), tp.y))))
 				_solid(tp, Vector2(1.0, 0.6), 0.0)
 		for k in rng.randi_range(2, 5):
 			var gp := p + Vector2(rng.randf_range(-w, w), rng.randf_range(-d, d)) * 0.6
-			dyn.add_static_prop(_pick(["weeds", "grass_clump", "fern", "shrub"]), Transform3D(Basis(Vector3.UP, rng.randf() * TAU), Vector3(gp.x, _gy(gp), gp.y)))
+			var gn: String = _pick(["weeds", "grass_clump", "fern", "shrub"])
+			dyn.add_static_prop(gn, dyn.seat(gn, Transform3D(Basis(Vector3.UP, rng.randf() * TAU), Vector3(gp.x, _gy(gp), gp.y))))
 		if rng.randf() < 0.5:
 			dyn.add_loot_spot(Vector3(p.x, y + 0.05, p.y), "floor_street", -1)
 		L.reserve_rect(p, Vector2(w * 0.5, d * 0.5), -yaw, 4)
@@ -313,7 +352,7 @@ func _barricade(b: Dictionary) -> void:
 	var along: Vector2 = b.along
 	var w := float(b.w)
 	var across := Vector2(-along.y, along.x)
-	if not dyn.door_swing_clear(c, Vector2(0.6, w * 0.5), atan2(along.y, along.x)):
+	if not dyn.spot_clear(c, Vector2(0.6, w * 0.5 + 0.15), atan2(along.y, along.x), _gy(c)):
 		return
 	var y := _gy(c)
 	var yaw := atan2(-across.y, across.x)
@@ -328,8 +367,9 @@ func _barricade(b: Dictionary) -> void:
 		_pick(["planks_blue", "planks_paint", "plywood"]), {"dirt": 1.0, "collide": false})
 	sink.corrugated(Transform3D(Basis(Vector3.UP, yaw) * Basis(Vector3.RIGHT, PI * 0.5 - 0.25), Vector3(c.x, y + h * 0.45, c.y) + Vector3(along.x, 0, along.y) * 0.33), h * 0.9, w * 0.9,
 		"yero_rust", {"dirt": 1.0, "collide": false})
-	dyn.add_static_prop("old_tyre", Transform3D(Basis(Vector3.UP, rng.randf() * TAU), Vector3(c.x, y + h * 0.75, c.y) + Vector3(across.x, 0, across.y) * w * 0.25))
-	sink.col_box(Transform3D(Basis(Vector3.UP, yaw), Vector3(c.x, y + h * 0.5, c.y)), Vector3(w + 0.3, h, 0.6), "wood")
+	# A tyre on top of the pile (it hung in the air or sat inside the crates).
+	dyn.add_static_prop("old_tyre", dyn.seat("old_tyre", Transform3D(Basis(Vector3.UP, rng.randf() * TAU), Vector3(c.x, y + h, c.y) + Vector3(across.x, 0, across.y) * w * 0.25)))
+	sink.col_box(Transform3D(Basis(Vector3.UP, yaw), Vector3(c.x, y + h * 0.5, c.y)), Vector3(w + 0.3, h, 0.6), "wood", "barricade")
 	_solid(c, Vector2(w * 0.5 + 0.2, 0.4), atan2(across.y, across.x))
 	mb.vandal_spots.append({"pos": Vector3(c.x, y + 0.6, c.y), "n": Vector3(along.x, 0, along.y), "kind": "barricade"})
 	stats.barricades += 1
@@ -351,7 +391,7 @@ func _yard_wall(yw: Dictionary) -> void:
 		if l < 0.4:
 			continue
 		var mid := c + along * (float(part[0]) + float(part[1])) * 0.5
-		if not dyn.door_swing_clear(mid, Vector2(l * 0.5, 0.2), atan2(along.y, along.x)):
+		if not dyn.spot_clear(mid, Vector2(l * 0.5, 0.2), atan2(along.y, along.x), _gy(mid)):
 			continue
 		_low_wall(mid, yaw, l, h)
 	stats.yard_walls += 1

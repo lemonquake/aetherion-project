@@ -12,6 +12,8 @@ var out_dir := "user://preview"
 var views := []
 var bright := false
 var cam: Camera3D
+var zfight := false
+var extra_views := {}
 
 const VIEWS := {
 	"overview": [Vector3(140, 160, 260), Vector3(-20, 0, -120)],
@@ -30,6 +32,27 @@ const VIEWS := {
 	"canopy_high": [Vector3(-60, 95, -100), Vector3(-60, 0, -230)],
 	"freefall": [Vector3(0, 230, 40), Vector3(-40, 0, -150)],
 	"plane": [Vector3(250, 320, 200), Vector3(0, 0, -100)],
+	# Lawless Sub (--map=lawless_sub).
+	"sub_top": ["ortho", Vector2(0, 0), 470.0],
+	"sub_air": [Vector3(60, 140, 230), Vector3(-10, 0, 0)],
+	"sub_intersection": [Vector3(-2, 7, 18), Vector3(-30, 0, -8)],
+	"sub_avenue": [Vector3(-14, 2.2, -60), Vector3(-22, 1.5, 40)],
+	"sub_overpass": [Vector3(-8, 3.0, -25), Vector3(-23, 5.0, -49)],
+	"sub_overpass_walk": [Vector3(-25, 8.9, -48), Vector3(-20, 3.0, 10)],
+	"sub_bridge_detail": [Vector3(-99, 3.2, -9), Vector3(-68, 1.6, 5)],
+	"sub_pool": ["lot", "pool", 0],
+	"sub_court": ["lot", "court", 0],
+	"sub_playground": ["lot", "playground", 0],
+	"sub_houses": [Vector3(66, 9, -60), Vector3(100, 2, -100)],
+	"sub_street": [Vector3(30, 2.6, -40), Vector3(30, 1.5, -120)],
+	"sub_canal": [Vector3(-70, 3.5, -120), Vector3(-80, 0, -40)],
+	"sub_south": [Vector3(-100, 40, 160), Vector3(-150, 0, 80)],
+	"sub_factory": [Vector3(60, 25, 110), Vector3(130, 0, 170)],
+	"sub_tower": ["lot", "office_tower", 0], "sub_mart": ["lot", "store", 0], "sub_strip": ["lot", "strip_shops", 0], "sub_plastics": ["lot", "factory", 0],
+	"sub_club": ["lot", "clubhouse", 0], "sub_chapel": ["lot", "chapel", 0], "sub_flats": ["lot", "apartment", 0], "sub_shops": ["lot", "shophouse", 3],
+	"in_sala": ["room", "sala", 7], "in_kitchen": ["room", "kitchen", 4], "in_bedroom": ["room", "bedroom", 9], "in_stair": ["room", "stair", 5],
+	"in_aisles": ["room", "store_aisles", 0], "in_factory": ["room", "factory_floor", 0], "in_office": ["room", "office", 2], "in_shop": ["room", "shop", 2],
+	"in_chapel": ["room", "chapel", 0], "in_hall": ["room", "hall", 0],
 	"tunnel0": ["tunnel", 0], "tunnel1": ["tunnel", 7], "tunnel2": ["tunnel", 19], "tunnel3": ["tunnel", 31],
 	"looban0": ["looban", 0], "looban1": ["looban", 3], "looban2": ["looban", 8], "walk0": ["walkway", 0], "walk1": ["walkway", 5], "tunnel4": ["tunnel", 44], "tunnel5": ["tunnel", 60], "ladder0": ["ladder", 0], "ladder1": ["ladder", 11], "deck0": ["deck", 4],
 }
@@ -44,13 +67,24 @@ func _ready() -> void:
 	get_tree().create_timer(float(args.get("timeout", 400))).timeout.connect(func(): print("[preview] watchdog timeout"); get_tree().quit(2))
 	out_dir = str(args.get("out", out_dir))
 	bright = args.has("bright")
+	zfight = args.has("zfight")
 	views = str(args.get("views", ",".join(VIEWS.keys()))).split(",")
+	if args.has("cam"):
+		# --cam=x,y,z,tx,ty,tz[,name]: one extra viewpoint (eye, then the point looked at).
+		var c := str(args.cam).split(",")
+		extra_views[c[6] if c.size() > 6 else "cam"] = [Vector3(float(c[0]), float(c[1]), float(c[2])), Vector3(float(c[3]), float(c[4]), float(c[5]))]
+		views = [c[6] if c.size() > 6 else "cam"]
 	var size := str(args.get("size", "1600x900")).split("x")
 	get_window().size = Vector2i(int(size[0]), int(size[1]))
 	DirAccess.make_dir_recursive_absolute(out_dir)
 	var t0 := Time.get_ticks_msec()
 	map = MapBuilder.new()
-	map.build(self, int(args.get("seed", 1729)), 1)
+	map.build(self, int(args.get("seed", 1729)), 1, {"map": str(args.get("map", "kalinaw")), "dump_faces": args.has("dumpfaces")})
+	if args.has("dumpfaces"):
+		map.sink.save_faces(str(args.dumpfaces))
+		print("[preview] dumped %d faces to %s" % [map.sink.faces_names.size(), args.dumpfaces])
+		get_tree().quit()
+		return
 	var build_ms := Time.get_ticks_msec() - t0
 	print("[preview] map built in %d ms: %s" % [build_ms, JSON.stringify(map.stats)])
 	if args.has("mmstats"):
@@ -82,19 +116,90 @@ func _ready() -> void:
 	if times.is_empty():
 		times = [""]
 	for v in views:
-		if not VIEWS.has(v):
+		if not VIEWS.has(v) and not extra_views.has(v):
 			continue
-		_place(VIEWS[v])
+		cam.projection = Camera3D.PROJECTION_PERSPECTIVE
+		_place(extra_views[v] if extra_views.has(v) else VIEWS[v])
 		for tm in times:
 			if str(tm) != "":
 				map.lighting.forced_time = float(tm)
 			for i in 75:
 				await get_tree().process_frame
+			if cam.projection == Camera3D.PROJECTION_ORTHOGONAL:
+				# A plan view from high up: draw every detail at full range and drop the far blocks.
+				_full_detail(map.root)
+				for i in 3:
+					await get_tree().process_frame
 			var img := get_viewport().get_texture().get_image()
+			if zfight:
+				await _zfight(img, v)
 			var path := "%s/%s%s%s.png" % [out_dir, v, "_bright" if bright else "", ("_t" + str(tm)) if str(tm) != "" else ""]
 			img.save_png(path)
 			print("[preview] saved ", path, " fps ", Engine.get_frames_per_second(), " luma ", _luma(img))
 	get_tree().quit()
+
+
+func _zfight(a: Image, v: String) -> void:
+	## Z-fighting finder: the same view with the camera moved 2 mm sideways. Ordinary surfaces barely change; two
+	## coplanar surfaces swap which one wins, so their pixels flip between two different colours. Saves a mask (red
+	## where it flips) and prints the count. Shadows and swaying things are steadied by pausing the scene clock.
+	var tscale := Engine.time_scale
+	Engine.time_scale = 0.0
+	await get_tree().process_frame
+	await get_tree().process_frame
+	a = get_viewport().get_texture().get_image()
+	var p0 := cam.global_position
+	var flips := Image.create(a.get_width(), a.get_height(), false, Image.FORMAT_RGB8)
+	var n := 0
+	var hits := {}
+	for k in 3:
+		cam.global_position = p0 + cam.global_basis.x * 0.002 * (k + 1) + cam.global_basis.y * 0.0013 * k
+		await get_tree().process_frame
+		await get_tree().process_frame
+		var b := get_viewport().get_texture().get_image()
+		for y in range(0, a.get_height(), 2):
+			for x in range(0, a.get_width(), 2):
+				var ca := a.get_pixel(x, y)
+				var cb := b.get_pixel(x, y)
+				if absf(ca.r - cb.r) + absf(ca.g - cb.g) + absf(ca.b - cb.b) > 0.35:
+					# A real edge moves by a pixel at most: count it only if neither neighbour in b matches a.
+					var edge := false
+					for dy in [-2, -1, 0, 1, 2]:
+						for dx in [-2, -1, 0, 1, 2]:
+							var cn := b.get_pixel(clampi(x + dx, 0, a.get_width() - 1), clampi(y + dy, 0, a.get_height() - 1))
+							if absf(ca.r - cn.r) + absf(ca.g - cn.g) + absf(ca.b - cn.b) < 0.15:
+								edge = true
+					if not edge:
+						var key := Vector2i(x, y)
+						if not hits.has(key):
+							hits[key] = true
+							n += 1
+							flips.set_pixel(x, y, Color(1, 0, 0))
+							flips.set_pixel(x + 1 if x + 1 < a.get_width() else x, y, Color(1, 0, 0))
+	cam.global_position = p0
+	Engine.time_scale = tscale
+	# Mask over a dimmed copy of the frame.
+	var out := a.duplicate()
+	for y in range(0, out.get_height()):
+		for x in range(0, out.get_width()):
+			if flips.get_pixel(x, y).r > 0.5:
+				out.set_pixel(x, y, Color(1, 0, 0))
+			else:
+				out.set_pixel(x, y, out.get_pixel(x, y) * 0.6)
+	out.save_png("%s/%s_zfight.png" % [out_dir, v])
+	print("[zfight] %s %d flipping pixels (of %d sampled)" % [v, n, a.get_width() * a.get_height() / 4])
+
+
+func _full_detail(n: Node) -> void:
+	if n is GeometryInstance3D:
+		var g := n as GeometryInstance3D
+		if g.visibility_range_begin > 0.0:
+			g.visible = false
+		else:
+			g.visibility_range_end = 0.0
+			g.visible = true
+	for c in n.get_children():
+		_full_detail(c)
 
 
 static func _luma(img: Image) -> float:
@@ -175,6 +280,38 @@ func _place(spec: Array) -> void:
 		cam.look_at((spec[1] as Vector3) * Vector3(k, 1.0, k), Vector3.UP)
 		return
 	match str(spec[0]):
+		"ortho":
+			cam.projection = Camera3D.PROJECTION_ORTHOGONAL
+			cam.size = float(spec[2])
+			var oc: Vector2 = spec[1]
+			cam.global_position = Vector3(oc.x, 300.0, oc.y)
+			cam.rotation = Vector3(-PI * 0.5, 0, 0)
+			return
+		"room":
+			var rs: Array = map.rooms.filter(func(r): return str(r.type) == str(spec[1]))
+			if rs.is_empty():
+				return
+			var r: Dictionary = rs[int(spec[2]) % rs.size()]
+			var rx: Transform3D = r.xf
+			var sz: Vector2 = r.size
+			cam.global_position = rx * Vector3(-sz.x * 0.5 + 0.35, 1.6, -sz.y * 0.5 + 0.35)
+			cam.look_at(rx * Vector3(sz.x * 0.5, 0.9, sz.y * 0.5), Vector3.UP)
+			print("[preview] room %s #%d at %s size %s" % [spec[1], int(spec[2]) % rs.size(), str(rx.origin.round()), str(sz)])
+			return
+		"lot":
+			var ls: Array = L.lots.filter(func(l): return str(l.kind) == str(spec[1]))
+			if ls.is_empty():
+				return
+			var lt: Dictionary = ls[int(spec[2]) % ls.size()]
+			var lc: Vector2 = lt.center
+			var fv: Vector2 = lt.front
+			var hl: Vector2 = lt.half
+			var dist := maxf(hl.x, hl.y) * 1.6 + 8.0
+			var side := Vector2(-fv.y, fv.x)
+			var pos := lc + fv * (hl.y + dist * 0.8) + side * dist * 0.5
+			cam.global_position = Vector3(pos.x, float(lt.plinth_y) + 1.7 + dist * 0.18, pos.y)
+			cam.look_at(Vector3(lc.x, float(lt.plinth_y) + 3.0, lc.y), Vector3.UP)
+			return
 		"street":
 			var p := _open_spot((spec[1] as Vector2) * k)
 			var y: float = _floor_y(p)

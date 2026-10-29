@@ -127,7 +127,8 @@ func _segment(t: Dictionary) -> void:
 					"tint": mb.mats.PAINTS[rng.randi_range(0, mb.mats.PAINTS.size() - 1)], "paint": 0.6 if m == "yero_paint" else 0.0})
 			# Weights against the wind: a tyre, a block, a stone.
 			if rng.randf() < 0.08:
-				dyn.add_static_prop(_pick(["old_tyre", "hollow_block", "stone"]), Transform3D(Basis(Vector3.UP, rng.randf() * TAU), Vector3(p.x, roof_y + 0.02, p.y) + s3 * rng.randf_range(-span * 0.3, span * 0.3)))
+				var wn: String = _pick(["old_tyre", "hollow_block", "stone"])
+				dyn.add_static_prop(wn, dyn.seat(wn, Transform3D(Basis(Vector3.UP, rng.randf() * TAU), Vector3(p.x, roof_y + 0.02, p.y) + s3 * rng.randf_range(-span * 0.3, span * 0.3))))
 		x += sw - 0.06
 	# Walkable from above (roof runners): one thin collider over the lane, with a hole where a sheet is missing is
 	# not worth it - the gaps are smaller than a person.

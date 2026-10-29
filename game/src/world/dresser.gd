@@ -65,10 +65,16 @@ func _dress_room(r: Dictionary, house: Dictionary) -> void:
 	# Keep the area inside the front door free.
 	if r.has("door_x"):
 		ctx.occ.append(Rect2(Vector2(float(r.door_x) - 0.6, -ctx.d * 0.5 - 0.2), Vector2(1.2, 1.4)))
-	for k in ["avoid", "avoid2"]:
+	for k in ["avoid", "avoid2", "avoid3"]:
 		var av: Rect2 = r.get(k, Rect2())
 		if av.size != Vector2.ZERO:
 			ctx.occ.append(Rect2(av.position - Vector2(0, float(r.get("local_z", 0.0))), av.size).grow(0.1))
+	# Rooms from house_plan.gd (r7): their keep-outs come in room-local rects, and they have room types of their own.
+	if r.get("plan", false):
+		for av2 in r.get("avoid_list", []):
+			ctx.occ.append((av2 as Rect2).grow(0.05))
+		_plan_room(ctx, t, kind)
+		return
 	match kind:
 		"classroom":
 			_classroom(ctx)
@@ -101,6 +107,122 @@ func _dress_room(r: Dictionary, house: Dictionary) -> void:
 	_loot_boxes(ctx, t)
 
 
+func _plan_room(ctx: Dictionary, t: String, kind: String) -> void:
+	## Rooms of house_plan.gd buildings (r7): suburban houses get the modern furniture downloaded in r7 mixed with the
+	## old pieces; the big buildings' room types (aisles, stock room, factory floor, offices) get their own sets.
+	match t:
+		"sala", "living":
+			_wall_slot(ctx, _pick(["sofa_classic", "sofa_leather", "sofa_paint"]), _pick(["left", "right", "back"]))
+			var tvc := _wall_slot(ctx, _pick(["tv_cabinet", "cabinet_paint", "china_cabinet"]), _pick(["back", "left", "right"]))
+			if not tvc.is_empty() and float(tvc.top) < 1.3 and rng.randf() < 0.7:
+				_put(ctx, _pick(["tv", "tv2"]), tvc.pos, float(tvc.yaw), float(tvc.top), 0.0, true)
+			else:
+				_container_on(ctx, tvc, "drawer", 0.5)
+			_put(ctx, "coffee_table", Vector2(rng.randf_range(-0.3, 0.3), rng.randf_range(-0.2, 0.3)), _pick([0.0, PI * 0.5]))
+			for k in rng.randi_range(0, 2):
+				_wall_slot(ctx, _pick(["armchair", "armchair_modern", "side_table", "plant_stand", "potted_plant"]), _pick(["left", "right", "front", "back"]))
+			_clutter(ctx, rng.randi_range(0, 2), ["potted_plant2", "box", "basket", "boots"])
+			_floor_loot(ctx, "floor_household", 0.75, 2)
+			_loot_boxes(ctx, "sala")
+		"dining":
+			var c := Vector2(rng.randf_range(-0.2, 0.2), rng.randf_range(-0.2, 0.2))
+			if _put(ctx, "dining_table", c, _pick([0.0, PI * 0.5])):
+				for k in rng.randi_range(2, 4):
+					var a := TAU * k / 4.0 + rng.randf_range(-0.2, 0.2)
+					_put(ctx, "dining_chair", c + Vector2(cos(a), sin(a)) * 0.95, a + PI * 0.5 + PI, 0.0, 0.0)
+			var cab := _wall_slot(ctx, _pick(["china_cabinet", "cabinet_paint2", "display_shelves"]), _pick(["back", "left", "right"]))
+			_container_on(ctx, cab, "kitchen", 0.6)
+			_floor_loot(ctx, "floor_household", 0.5)
+		"kitchen":
+			_kitchen(ctx)
+			_clutter(ctx, rng.randi_range(0, 2), ["food_tins", "food_cans", "cleaner_bottle"])
+			_loot_boxes(ctx, "kitchen")
+		"bedroom", "bed":
+			_bedroom(ctx)
+			_wall_slot(ctx, _pick(["nightstand_classic", "side_table"]), _pick(["left", "right"]))
+			_loot_boxes(ctx, "bed")
+		"toilet", "bath", "cr":
+			_cr(ctx)
+			_clutter(ctx, rng.randi_range(0, 1), ["bleach", "bucket"])
+		"utility", "storage", "garage":
+			for k in rng.randi_range(1, 2):
+				var s := _wall_slot(ctx, _pick(["metal_rack", "steel_shelves3", "steel_shelves"]), _pick(["back", "left", "right"]))
+				_container_on(ctx, s, "toolbox", 0.9, Vector3(0.9, 1.2, 0.4))
+			_clutter(ctx, rng.randi_range(1, 4), ["box", "tote_box", "old_tyre", "jerrycan", "bucket", "drum_plastic2", "crate_plastic"])
+			_floor_loot(ctx, "floor_household", 0.4)
+		"office":
+			_office(ctx)
+			_clutter(ctx, rng.randi_range(0, 2), ["potted_plant", "potted_plant2", "wet_floor_sign"])
+			_loot_boxes(ctx, "office")
+		"shop", "store_aisles":
+			_aisles(ctx)
+		"stock_room":
+			for wall in ["back", "left", "right"]:
+				var s := _wall_slot(ctx, _pick(["metal_rack", "steel_shelves3", "steel_shelves2"]), wall)
+				_container_on(ctx, s, "store_shelf", 1.0, Vector3(0.9, 1.2, 0.4))
+			_clutter(ctx, rng.randi_range(3, 6), ["tote_box", "box", "crate_plastic", "crate_plastic2", "food_cans", "gallon"])
+			_floor_loot(ctx, "floor_weapon", 0.6, 2)
+		"factory_floor", "warehouse":
+			_factory_floor(ctx)
+		"chapel":
+			_pews(ctx)
+		"classroom":
+			_classroom(ctx)
+			_loot_boxes(ctx, "classroom")
+		"hall", "lobby", "foyer":
+			for k in rng.randi_range(1, 3):
+				_wall_slot(ctx, _pick(["sofa_leather", "armchair_modern", "potted_plant", "street_bench", "dining_table"]), _pick(["left", "right", "back", "front"]))
+			_floor_loot(ctx, "floor_household", 0.5)
+		_:
+			# Stairs, corridors, carports, mezzanines: nothing but what lies on the floor.
+			_floor_loot(ctx, "floor_household", 0.25)
+
+
+func _aisles(ctx: Dictionary) -> void:
+	## A convenience store: shelves and chillers on the walls, rows of shelving down the middle, a counter by the
+	## front with the till.
+	if _put(ctx, "store_display_case", Vector2(-ctx.w * 0.5 + 1.2, -ctx.d * 0.5 + 1.4), PI * 0.5):
+		mb.dyn.add_container(_world(ctx, Vector2(-ctx.w * 0.5 + 1.2, -ctx.d * 0.5 + 1.4), 0.6), "store_counter", int(ctx.bid), Vector3(0.6, 0.6, 0.6))
+	for wall in ["back", "left", "right"]:
+		for k in 3:
+			var s := _wall_slot(ctx, _pick(["store_chiller", "store_shelf_wall", "display_shelves"]) if wall == "back" else _pick(["store_shelf_wall", "display_shelves", "steel_shelves3"]), wall)
+			if s.is_empty():
+				break
+			_container_on(ctx, s, "store_shelf", 1.0, Vector3(0.9, 1.2, 0.4))
+	var rows := int((ctx.w - 3.0) / 2.6)
+	for i in rows:
+		var x = -ctx.w * 0.5 + 2.4 + i * 2.6
+		var z = -ctx.d * 0.5 + 3.2
+		while z < ctx.d * 0.5 - 2.2:
+			if _put(ctx, _pick(["display_shelves", "store_shelf_wall"]), Vector2(x, z), PI * 0.5 if rng.randf() < 0.5 else -PI * 0.5, 0.0, 0.02):
+				if rng.randf() < 0.4:
+					mb.dyn.add_container(_world(ctx, Vector2(x, z), 0.8), "store_shelf", int(ctx.bid), Vector3(0.5, 1.2, 1.0))
+			z += 2.2
+	_clutter(ctx, rng.randi_range(2, 5), ["food_tins", "food_cans", "bleach", "cleaner_bottle", "wet_floor_sign", "box"])
+	_floor_loot(ctx, "floor_household", 0.8, 2)
+	_floor_loot(ctx, "floor_weapon", 0.5, 1)
+
+
+func _factory_floor(ctx: Dictionary) -> void:
+	## Machine lines (conveyors with control pedestals), racks on the walls, carts, drums and a forklift.
+	var lines := int((ctx.w - 4.0) / 6.0)
+	for i in lines:
+		var x = -ctx.w * 0.5 + 4.0 + i * 6.0
+		var z = -ctx.d * 0.5 + 6.0
+		while z < ctx.d * 0.5 - 6.0:
+			if _put(ctx, "conveyor", Vector2(x, z), 0.0, 0.0, 0.3):
+				_put(ctx, "control_pedestal", Vector2(x + 1.0, z - 2.0), -PI * 0.5, 0.0, 0.05)
+			z += 11.0
+	for wall in ["back", "left", "right"]:
+		for k in 2:
+			var s := _wall_slot(ctx, _pick(["metal_rack", "steel_shelves3", "tool_chest"]), wall)
+			_container_on(ctx, s, "toolbox", 0.8, Vector3(0.9, 1.2, 0.4))
+	_put(ctx, _pick(["forklift_a", "forklift_b"]), Vector2(rng.randf_range(-ctx.w * 0.3, ctx.w * 0.3), ctx.d * 0.5 - 4.0), rng.randf() * TAU, 0.0, 0.3)
+	_clutter(ctx, rng.randi_range(5, 10), ["storage_cart", "drum_plastic2", "compressor", "tote_box", "drum", "crate_wood", "hand_truck", "old_tyre"])
+	_floor_loot(ctx, "floor_weapon", 0.8, 3)
+	_floor_loot(ctx, "toolbox", 0.6, 2)
+
+
 func _put(ctx: Dictionary, name: String, lp: Vector2, yaw: float, y: float = 0.0, pad: float = 0.05, on_top: bool = false, box_table: String = "") -> bool:
 	## Places a prop at room-local (x, z) facing yaw; rejects overlaps and anything outside the room. on_top: it
 	## stands on furniture already placed and shares its footprint, so only the room bounds are checked. box_table: the
@@ -117,11 +239,12 @@ func _put(ctx: Dictionary, name: String, lp: Vector2, yaw: float, y: float = 0.0
 	var room := Rect2(Vector2(-ctx.w * 0.5, -ctx.d * 0.5), Vector2(ctx.w, ctx.d))
 	if not room.encloses(rect.grow(-pad - 0.01)):
 		return false
-	if not on_top and (s.get("static", false) or float(s.get("mass", 99.0)) >= 6.0):
-		# Light things are shoved aside by a swinging door; cabinets and heavy furniture must not stand in a swing.
-		var wc := _world(ctx, lp, 0.0)
+	if not on_top:
+		# Nothing stands in a door's swing, in the way through a door or doorway, at the foot of a stair or on its
+		# landing (a bucket in a doorway still stops you walking through it).
+		var wc := _world(ctx, lp, y)
 		var ax: Vector3 = (ctx.xf as Transform3D).basis.x
-		if not mb.dyn.door_swing_clear(Vector2(wc.x, wc.z), ext * 0.5, atan2(ax.z, ax.x)):
+		if not mb.dyn.spot_clear(Vector2(wc.x, wc.z), ext * 0.5 + Vector2(pad, pad), atan2(ax.z, ax.x), wc.y, maxf(a.size.y, 0.2)):
 			return false
 	if not on_top:
 		for o in ctx.occ:
@@ -359,7 +482,7 @@ func _office(ctx: Dictionary) -> void:
 ## Items drawn with a Poly Haven prop; everything else uses assets/models/loot/<id>.glb (made by
 ## tools/blender/make_loot_models.py), then assets/models/items/<id>.glb (processed downloads).
 const ITEM_MODELS := {
-	"flashlight": "small_plastic_torch", "first_aid": "medical_box", "pistol_9": "service_pistol", "bolt_308": "bolt_action_rifle_7_62",
+	"flashlight": "small_plastic_torch", "first_aid": "medical_box",
 }
 
 
@@ -379,7 +502,8 @@ func item_visual(id: String) -> Dictionary:
 			var ra: AABB = Transform3D(rot, Vector3.ZERO) * a
 			var c := ra.get_center()
 			res = {"mesh": md.mesh, "size": ra.size, "xf": Transform3D(rot, Vector3(-c.x, -ra.position.y, -c.z))}
-	for processed in ["res://assets/models/loot/%s.glb" % id, "res://assets/models/items/%s.glb" % id]:
+	# Downloaded models (items/) win over the code-built ones (loot/) where a gun has both.
+	for processed in ["res://assets/models/items/%s.glb" % id, "res://assets/models/loot/%s.glb" % id]:
 		if not res.is_empty() or not ResourceLoader.exists(processed):
 			continue
 		var md2: Dictionary = mb.models._load_scene_mesh(processed)

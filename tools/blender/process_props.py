@@ -60,6 +60,16 @@ MODELS = {
     # Thousands of these hold down roof sheets.
     'old_tyre': dict(tris=900),
     'ship_pinnace': dict(tris=25000),
+    # r7 (Lawless Sub) ids, also run by tools/blender/process_r7.py --ph
+    'potted_plant_01': dict(tree=dict(leaves=2600, twigs=400, trunk=1400)),
+    'potted_plant_02': dict(tree=dict(leaves=2200, twigs=400, trunk=1200)),
+    'modular_airduct_rectangular_01': dict(keep=[r'_tripple_01$']),
+    'old_military_compressor': dict(keep=['.']),
+    'industrial_caged_sconce': dict(keep=[r'_sconce_a$']),
+    # One whole bench out of the modular kit (the left assembly: legs, seat, back, arm rests).
+    'modular_street_seating': dict(keep=[r'^crossbar$', r'^legs_double$', r'^legs_single$', r'^suspended_support_01$',
+                                         r'^back_support_[rl]$', r'^arm_rest_0[12]$', r'^seat$', r'^seat_back$']),
+    'large_iron_gate': dict(tris=7000),
 }
 
 

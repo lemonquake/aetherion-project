@@ -21,6 +21,8 @@ const B_PTT := 8192
 const B_GRAB := 16384
 const B_PING := 32768
 const B_THROW := 65536
+const B_ACTION_BLOCKED := 131072  # menus/results suppress weapon actions on every peer
+const B_LASER := 262144           # laser pointer held
 const LadderMove := preload("res://src/player/ladder.gd")
 
 
@@ -135,6 +137,7 @@ static func _ground(ch, cmd: Dictionary, dt: float, downed: bool) -> void:
 	var fall_speed := -v.y
 	var was_air := not on_floor
 	ch.velocity = v
+	ch.wish_h = Vector3(wish.x, 0.0, wish.z)
 	ch.move_body(dt)
 	if was_air and ch.is_on_floor() and fall_speed > 2.0:
 		ch.emit_motion_event("land", fall_speed)

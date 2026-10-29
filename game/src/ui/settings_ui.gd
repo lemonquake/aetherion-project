@@ -35,7 +35,9 @@ func _ready() -> void:
 	_tabs.add_child(_graphics())
 	_tabs.add_child(_audio())
 	_tabs.add_child(_controls())
+	_tabs.add_child(_gameplay())
 	_tabs.add_child(_access())
+	_tabs.add_child(_online())
 	_tabs.add_child(_debug())
 
 
@@ -194,6 +196,60 @@ func _audio() -> Control:
 	return p
 
 
+func _gameplay() -> Control:
+	var p := _page("Gameplay")
+	_row(p, "Laser pointer colour", laser_picker(), "Hold %s to point your laser. Everyone sees the beam and its dot, enemies included, and bots may follow it back to you." % Settings.binding_label("laser"))
+	_row(p, "Teammate names", _check("gameplay", "ally_names"), "Names over your teammates' heads; teammates also show on the minimap.")
+	_row(p, "Bots learn", _check("gameplay", "bot_learning"),
+		"Bots remember spots that worked (good, safe or sniping spots where they scored or survived) and spots where they died, share them with their team during a match, and keep them for the next match on this map. Off: every match starts from scratch.")
+	return p
+
+
+static func laser_picker() -> Control:
+	## A row of colour swatches; the picked one is outlined. Saved at once and sent to the host when in a game.
+	var h := UITheme.hbox(8)
+	var group := ButtonGroup.new()
+	var cur := str(Settings.get_value("player", "laser_color"))
+	for id in Settings.LASER_COLORS:
+		var col: Color = Settings.laser_color(id)
+		var b := Button.new()
+		b.toggle_mode = true
+		b.button_group = group
+		b.custom_minimum_size = Vector2(54, 44)
+		b.tooltip_text = str(Settings.LASER_COLORS[id][0])
+		for st in ["normal", "hover", "pressed", "hover_pressed", "focus"]:
+			var sb := StyleBoxFlat.new()
+			sb.bg_color = col.darkened(0.15 if st == "normal" else 0.0)
+			sb.set_corner_radius_all(8)
+			var on = st in ["pressed", "hover_pressed"]
+			sb.set_border_width_all(4 if on else (2 if st == "hover" else 0))
+			sb.border_color = Color(1, 1, 1, 0.95) if on else Color(1, 1, 1, 0.5)
+			b.add_theme_stylebox_override(st, sb)
+		b.button_pressed = id == cur
+		var cid := str(id)
+		b.pressed.connect(func():
+			Settings.set_value("player", "laser_color", cid)
+			Settings.save_settings()
+			Net.send_prefs())
+		h.add_child(b)
+	return h
+
+
+func _online() -> Control:
+	var p := _page("Online")
+	var e := LineEdit.new()
+	e.text = str(Settings.get_value("online", "server"))
+	e.placeholder_text = "Found on your network, or this PC"
+	e.custom_minimum_size = Vector2(320, 44)
+	e.text_changed.connect(func(t): Settings.set_value("online", "server", t.strip_edges()); Online._hello_t = 0.0)
+	_row(p, "Stats server", e, "The address of the stats server (host or host:port) for the leaderboard, your level everywhere, "
+		+ "who is online and open games beyond your Wi-Fi. Leave it empty to use one on your network.")
+	var st := UITheme.label(Online.status, 18, UITheme.TEXT_DIM)
+	Online.changed.connect(func(): if is_instance_valid(st): st.text = Online.status)
+	_row(p, "Status", st)
+	return p
+
+
 func _debug() -> Control:
 	var p := _page("Debug")
 	_row(p, "Unlock master volume", _check("debug", "volume_unlock"),
@@ -228,7 +284,7 @@ func _controls() -> Control:
 		"aim": "Aim", "reload": "Reload", "interact": "Use / pick up items", "grab": "Grab, drag or carry objects", "flashlight": "Light (hold: change battery)",
 		"smartab": "SmarTab (hold)", "map": "SmarTab map (hold)", "heal": "Treat injuries", "weapon_1": "Primary weapon",
 		"weapon_2": "Secondary weapon", "weapon_3": "Handgun", "holster": "Holster", "fire_mode": "Fire mode",
-		"push_to_talk": "Push to talk", "ping": "Ping your position to the team", "text_chat": "Team text", "drop_held": "Drop held object", "throw_grenade": "Throw a frag grenade", "next_weapon": "Next weapon",
+		"push_to_talk": "Push to talk", "ping": "Ping the spot you look at", "laser": "Laser pointer (hold)", "text_chat": "Team text", "drop_held": "Drop held object", "throw_grenade": "Throw a frag grenade", "next_weapon": "Next weapon",
 		"prev_weapon": "Previous weapon", "smartab_prev": "SmarTab: previous page", "smartab_next": "SmarTab: next page",
 	}
 	var head := UITheme.hbox(16)
@@ -263,6 +319,7 @@ func _touch_guide(p: Control) -> void:
 		["Steer parachute", "Use the move stick: up speeds up, down brakes, left/right turns."],
 		["Crouch", "Tap Crouch to crouch; tap again to stand."],
 		["Reload / weapon", "Tap Reload to reload. Tap Weapon to switch weapons."],
+		["Fire mode", "Rifles and SMGs start in Auto. Tap the Mode button to cycle Auto, Single and three-round Burst."],
 		["Use / revive", "Tap Use to open doors, search containers or take items. Hold Use to revive a teammate."],
 		["Grab / throw", "Tap Grab to carry or drag an object. Tap again to put it down, or tap Fire to throw it."],
 		["Frag grenade", "Tap Frag to throw a frag grenade."],
@@ -270,7 +327,7 @@ func _touch_guide(p: Control) -> void:
 		["Phone / map", "Tap Phone to open the SmarTab; tap again to close. Tap Map for the map and flight path."],
 		["SmarTab pages", "Tap a page title or the < and > buttons. Tap items and buttons to select or use them."],
 		["Heal", "Close Phone, then tap Heal to treat an injury. You can also select medicine on the Items page and tap Use."],
-		["Team / menu", "Tap Ping to share your position. Hold Radio to talk to your team. Tap Menu for Resume, Settings or Leave match."],
+		["Team / menu", "Tap Ping to mark the spot in the middle of your screen for your team. Tap Laser to switch your laser pointer on or off. Hold Radio to talk to your team. Tap Menu for Resume, Settings or Leave match."],
 	]
 	p.get_child(0).add_child(UITheme.label("Touch controls", 24, UITheme.TEXT, UITheme.font_semibold))
 	for entry in guide:
@@ -285,7 +342,7 @@ func _access() -> Control:
 	var p := _page("Accessibility")
 	_row(p, "Camera motion", _option("accessibility", "camera_motion", [["normal", "Normal"], ["reduced", "Reduced"], ["off", "Off"]]),
 		"Reduces head bob, the limp sway of injured legs and landing jolts. Injuries still slow you and still disturb your aim.")
-	_row(p, "SmarTab text size", _slider("accessibility", "smartab_text_scale", 0.8, 1.5, 0.05, "%.2f"))
+	_row(p, "SmarTab text size", _slider("accessibility", "smartab_text_scale", 0.8, 2.0, 0.05, "%.2f"))
 	_row(p, "SmarTab screen brightness", _slider("accessibility", "smartab_brightness", 0.15, 1.0, 0.05, "%.2f"),
 		"A brighter screen is easier to read and easier for others to spot in the dark.")
 	_row(p, "Reduce flashes", _check("accessibility", "reduce_flashes"), "Dims muzzle flashes and flickering bulbs.")

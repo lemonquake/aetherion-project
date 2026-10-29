@@ -136,9 +136,7 @@ func explode_server(id: int) -> void:
 		if ch.health.downed and ch.mode == Motor.GROUND:
 			res.downed = true
 		world.server_after_damage(ch, res, -1)
-	for body in world.map.awake_props_near(pos, radius):
-		if body is RigidBody3D:
-			body.apply_central_impulse((body.global_position - pos).normalized() * 6.0)
+	world.map.server_blast(pos, radius * 0.75, dmg)
 	for eid in world.bots:
 		var b = world.bots[eid]
 		b.hear(pos, 120.0)

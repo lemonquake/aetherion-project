@@ -1,7 +1,9 @@
 extends RefCounted
 ## The artificial sun over Sitio Kalinaw. Every match starts at night; after night_s the sun ignites and holds full
 ## daylight for day_s, then goes dark again, and the cycle repeats. Pure functions of match time (seconds since the
-## aircraft set off, from the server's tick), so every machine sees the same sky at the same moment.
+## aircraft set off, from the server's tick), so every machine sees the same sky at the same moment. A Deathmatch
+## round has no aircraft: its clock starts with the round, shifted by a seeded offset (rules deathmatch.day_offsets)
+## that the match state carries to every peer (Lighting.match_time), so a round can begin by day or at dusk.
 
 const NIGHT_S := 300.0
 const DAY_S := 300.0
@@ -49,3 +51,19 @@ static func until_change(t: float) -> float:
 
 static func is_day(t: float) -> bool:
 	return daylight(t) > 0.5
+
+
+static func next_change(t: float) -> Array:
+	## [match time of the next change, "ignite" | "dusk"]: the moment the sun strikes, or the moment it starts to die
+	## (the start of the dusk fade). The loudspeakers count down to these.
+	var n := night_s()
+	var d := day_s()
+	var cyc := n + d
+	var t0 := maxf(t, 0.0)
+	var k := floorf(t0 / cyc)
+	var c := t0 - k * cyc
+	if c < n:
+		return [k * cyc + n, "ignite"]
+	if c < n + d - DUSK_S:
+		return [k * cyc + n + d - DUSK_S, "dusk"]
+	return [(k + 1.0) * cyc + n, "ignite"]

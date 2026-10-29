@@ -165,6 +165,9 @@ func give(ch, e: Dictionary) -> Dictionary:
 		var slot: int = ch.wpn.slot_for(id)
 		var w: Dictionary = e.get("w", WeaponState.new_instance(id))
 		w.id = id
+		if WeaponState.has_selector(id):
+			w.mode = 0  # every newly acquired rifle/SMG starts in Auto, including dropped guns
+		ch.wpn.cancel_burst()
 		var old = ch.wpn.slots[slot]
 		ch.wpn.slots[slot] = w
 		if old != null:
@@ -632,6 +635,9 @@ func bot_take_entry(ch, e: Dictionary) -> Dictionary:
 			return e
 		var w: Dictionary = e.get("w", WeaponState.new_instance(id))
 		w.id = id
+		if WeaponState.has_selector(id):
+			w.mode = 0
+		ch.wpn.cancel_burst()
 		var old = ch.wpn.slots[slot]
 		ch.wpn.slots[slot] = w
 		fit_from_bag(ch, slot)

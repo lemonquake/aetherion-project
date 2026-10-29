@@ -4,6 +4,7 @@ extends RefCounted
 ## the server tick and a per-shot seed.
 
 const Attach := preload("res://src/weapons/attachments.gd")
+const SELECT_FIRE_MODES := ["auto", "semi", "burst"]
 
 enum { IDLE, DRAW, RELOAD, CYCLE, BUSY }
 enum { HOLSTER, PRIMARY, SECONDARY, HANDGUN }
@@ -30,6 +31,7 @@ var blocked := false      # SmarTab raised, swimming, downed, holding an object.
 var _prev_fire := false
 var _prev_reload := false
 var _prev_mode := false
+var burst_left := 0       # rounds still due from this trigger press (not the recoil counter above)
 
 
 func _init(owner = null) -> void:
@@ -68,13 +70,39 @@ func fired_recently() -> bool:
 
 
 func can_fire() -> bool:
-	return not weapon().is_empty() and state == IDLE and cooldown <= 0.0 and not blocked
+	# Snapshots store cooldowns as half floats; ignore their sub-millisecond quantization at the boundary.
+	return not weapon().is_empty() and state == IDLE and cooldown <= 0.0001 and not blocked
 
 
 func fire_mode() -> String:
-	var d := def()
-	var modes: Array = d.get("fire_modes", ["semi"])
-	return str(modes[int(weapon().get("mode", 0)) % modes.size()])
+	var modes := available_modes()
+	return str(modes[posmod(int(weapon().get("mode", 0)), modes.size())])
+
+
+static func has_selector(id: String) -> bool:
+	return str(Defs.weapon(id).get("class", "")) in ["rifle", "smg"]
+
+
+func available_modes() -> Array:
+	# One consistent selector for every rifle and SMG, regardless of the historical data order.
+	if has_selector(current_id()):
+		return SELECT_FIRE_MODES
+	var modes: Array = def().get("fire_modes", ["semi"])
+	return modes if not modes.is_empty() else ["semi"]
+
+
+func fire_mode_label() -> String:
+	match fire_mode():
+		"auto": return "Auto"
+		"semi": return "Single"
+		"burst": return "Burst"
+		"pump": return "Pump"
+		"bolt": return "Bolt"
+	return fire_mode().capitalize()
+
+
+func cancel_burst() -> void:
+	burst_left = 0
 
 
 func zoom() -> float:
@@ -146,6 +174,10 @@ func step(cmd: Dictionary, dt: float, tick: int) -> Array:
 	var reload := (btn & Motor.B_RELOAD) != 0
 	var mode_t := (btn & Motor.B_FIREMODE) != 0
 	var out := []
+	if not is_finite(dt) or dt <= 0.0:
+		return out
+	if blocked or (ch != null and ch.mode != Motor.GROUND):
+		cancel_burst()
 	since_shot += dt
 	cooldown = maxf(cooldown - dt, 0.0)
 	_recover(dt)
@@ -162,6 +194,8 @@ func step(cmd: Dictionary, dt: float, tick: int) -> Array:
 			state = IDLE
 		ads = 0.0
 		burst = 0
+		cancel_burst()
+		_reload_queued = false
 	var d := def()
 	var w := weapon()
 	# ADS
@@ -183,11 +217,17 @@ func step(cmd: Dictionary, dt: float, tick: int) -> Array:
 		BUSY:
 			pass
 	if w.is_empty():
+		cancel_burst()
 		_prev_fire = fire
+		_prev_reload = reload
+		_prev_mode = mode_t
 		return out
-	if mode_t and not _prev_mode and state == IDLE:
-		var modes: Array = d.get("fire_modes", ["semi"])
+	var selector_changed := false
+	if mode_t and not _prev_mode and state == IDLE and not blocked:
+		var modes := available_modes()
 		w.mode = (int(w.get("mode", 0)) + 1) % modes.size()
+		cancel_burst()
+		selector_changed = true
 	_prev_mode = mode_t
 	# A reload pressed while a shot is still cycling (pump, bolt, break action) or the gun is coming up is kept and
 	# starts as soon as the gun is ready, instead of being lost.
@@ -198,16 +238,26 @@ func step(cmd: Dictionary, dt: float, tick: int) -> Array:
 		start_reload()
 	_prev_reload = reload
 	var fm := fire_mode()
-	var trigger := fire and (fm == "auto" or not _prev_fire)
+	# A burst completes after the finger is lifted, but holding the trigger never starts another burst.
+	if state != IDLE or blocked:
+		cancel_burst()
+	if fm == "burst" and burst_left == 0 and fire and not _prev_fire and not selector_changed and can_fire():
+		burst_left = 3
+	var trigger := not selector_changed and (burst_left > 0 if fm == "burst" else fire and (fm == "auto" or not _prev_fire))
 	if trigger and can_fire() and not w.chamber and str(d.get("feed", "")) == "cylinder":
 		_chamber_from_mag(w)  # double action: pulling the trigger brings the next round under the hammer
 	if trigger and can_fire():
 		if w.chamber:
 			out.append(_fire(tick))
+			if fm == "burst":
+				burst_left = maxi(burst_left - 1, 0)
+				if not w.chamber:
+					cancel_burst()
 		else:
 			# Dry fire: empty chamber. An automatic reload starts on the next press if ammo is available.
 			cooldown = 0.25
 			out.append({"dry": true})
+			cancel_burst()
 	if not fire:
 		if since_shot > 0.25:
 			burst = 0
@@ -347,6 +397,7 @@ func reserve(ammo_id: String) -> int:
 
 
 func start_reload() -> void:
+	cancel_burst()
 	var w := weapon()
 	var d := def()
 	if w.is_empty():
@@ -429,6 +480,7 @@ func _take_ammo(ammo_id: String, n: int) -> int:
 
 
 func cancel_reload() -> void:
+	cancel_burst()
 	if state == RELOAD:
 		state = IDLE
 
@@ -440,7 +492,7 @@ func get_state() -> Dictionary:
 	return {"cur": cur, "want": want, "state": state, "timer": timer, "rp": reload_phase, "cd": cooldown, "ads": ads,
 		"shots": shots, "burst": burst, "since": since_shot, "kick": kick, "mag": int(w.get("mag", 0)),
 		"chamber": bool(w.get("chamber", false)), "mode": int(w.get("mode", 0)), "pf": _prev_fire, "pr": _prev_reload,
-		"pm": _prev_mode}
+		"pm": _prev_mode, "bl": burst_left, "rq": _reload_queued}
 
 
 func set_state(s: Dictionary) -> void:
@@ -458,6 +510,8 @@ func set_state(s: Dictionary) -> void:
 	_prev_fire = bool(s.get("pf", false))
 	_prev_reload = bool(s.get("pr", false))
 	_prev_mode = bool(s.get("pm", false))
+	burst_left = clampi(int(s.get("bl", 0)), 0, 3)
+	_reload_queued = bool(s.get("rq", false))
 	var w = slots[cur]
 	if w != null:
 		w.mag = int(s.mag)

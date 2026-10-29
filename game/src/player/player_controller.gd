@@ -24,6 +24,8 @@ var crouch_toggled := false
 var sprint_toggled := false
 var tab_held := false
 var map_held := false
+var laser_held := false      # the laser pointer is up (drawn at once by fx/lasers.gd; the server hears B_LASER)
+var laser_toggled := false   # touch: the Laser button toggles it
 var paused := false
 var results := false
 var spectating := -1
@@ -31,9 +33,14 @@ var _pause_ui: Control = null
 var _climb_left := 0.0
 var _yaw_left := 0.0
 var _correction := Vector3.ZERO
+const GAIT_BOB := 0.5  # head bob, sway and limp roll while walking/running, relative to the old amount
 var _bob_t := 0.0
 var _land_jolt := 0.0
 var _hit_shake := 0.0
+## A hit punches the view (pitch, yaw, roll in radians): it snaps away in 50 ms and settles by about 0.4 s, the same at
+## any frame rate. The view only: where the gun points is unchanged.
+var _kicks: Array = []       # [seconds, Vector3 peak]
+const KICK_RISE := 0.05
 var _cam_roll := 0.0
 var _eye_smooth := 1.66
 var _last_light_toggle := -10.0
@@ -42,6 +49,7 @@ var stats := {"corrections": 0, "replayed": 0, "acks": 0, "max_error": 0.0}
 ## Taps seen as input events since the last command (bit per action); added to the next command so a press and
 ## release inside one render frame still reaches the server.
 var _latched := 0
+var _fire_release_required := false
 const LATCH := {"interact": Motor.B_USE, "reload": Motor.B_RELOAD, "heal": Motor.B_HEAL, "fire_mode": Motor.B_FIREMODE,
 	"drop_held": Motor.B_DROP, "jump": Motor.B_JUMP, "fire": Motor.B_FIRE, "flashlight": Motor.B_LIGHT,
 	"grab": Motor.B_GRAB, "ping": Motor.B_PING, "throw_grenade": Motor.B_THROW}
@@ -87,6 +95,31 @@ func setup(w, c: Character) -> void:
 	Settings.changed.connect(func(s, k): if s == "graphics" and k == "fov": cam.fov = float(Settings.get_value("graphics", "fov")))
 
 
+func setup_spectator(w) -> void:
+	## r7: no character of our own in this match (joined late, or came back after dying): only the spectator
+	## camera, following the living (teammates first), cycled like a dead player's.
+	world = w
+	ch = null
+	cam = Camera3D.new()
+	cam.name = "Camera"
+	cam.near = 0.03
+	cam.far = 1600.0
+	cam.cull_mask = Defs.RENDER_WORLD | Defs.RENDER_CHARACTERS | Defs.RENDER_INTERIOR | Defs.RENDER_INTERIOR_PROPS
+	cam.fov = float(Settings.get_value("graphics", "fov"))
+	cam.physics_interpolation_mode = Node.PHYSICS_INTERPOLATION_MODE_OFF
+	world.add_child(cam)
+	cam.current = true
+	SoundSys.listener_node = cam
+	voice = Voice.new()
+	voice.name = "Voice"
+	add_child(voice)
+	voice.setup(world)
+	Input.mouse_mode = Settings.play_mouse_mode()
+	if world.hud:
+		world.hud.on_local_died()
+	_pick_spectate()
+
+
 func _exit_tree() -> void:
 	if cam and is_instance_valid(cam):
 		cam.queue_free()
@@ -101,6 +134,12 @@ func _unhandled_input(event: InputEvent) -> void:
 		return
 	if paused or results:
 		return
+	if ch == null:
+		# Spectating: fire / jump / next weapon watch the next teammate, aim / previous weapon the one before.
+		if event.is_action_pressed("fire") or event.is_action_pressed("jump") or event.is_action_pressed("next_weapon"):
+			spectate_cycle(1)
+		elif event.is_action_pressed("aim") or event.is_action_pressed("prev_weapon"):
+			spectate_cycle(-1)
 	for a in LATCH:
 		if event.is_action_pressed(a):
 			_latched |= int(LATCH[a])
@@ -227,6 +266,8 @@ func _build_cmd() -> Dictionary:
 				btn |= Motor.B_FIREMODE
 			if Input.is_action_pressed("drop_held"):
 				btn |= Motor.B_DROP
+			if Input.is_action_pressed("laser") or laser_toggled:
+				btn |= Motor.B_LASER
 		if Input.is_action_pressed("flashlight"):
 			btn |= Motor.B_LIGHT
 		if tab_held:
@@ -237,7 +278,15 @@ func _build_cmd() -> Dictionary:
 			btn |= _latched
 	else:
 		tab_held = false
+		btn |= Motor.B_ACTION_BLOCKED
+		if Input.is_action_pressed("fire"):
+			_fire_release_required = true
+	if _fire_release_required:
+		btn &= ~Motor.B_FIRE
+		if not Input.is_action_pressed("fire"):
+			_fire_release_required = false
 	_latched = 0
+	laser_held = (btn & Motor.B_LASER) != 0 and ch != null and ch.mode == Motor.GROUND
 	return {"seq": seq, "mx": mv.x, "my": mv.y, "yaw": yaw, "pitch": pitch, "btn": btn, "slot": slot,
 		"view_tick": int(Net.interp_tick()), "tick": Net.tick}
 
@@ -261,13 +310,7 @@ func _physics_process(dt: float) -> void:
 		return
 	# Predict
 	ch.events.clear()
-	ch.wpn.blocked = (cmd.btn & Motor.B_TAB) != 0 or ch.mode != Motor.GROUND or ch.water_depth() > 1.15 \
-		or ch.held_prop_id >= 0 or ch.light.swapping() or (ch.flags & Character.F_BUSY) != 0 or ch.vault_t >= 0.0
-	if cmd.btn & Motor.B_TAB:
-		ch.flags |= Character.F_TAB
-		ch.wpn.cancel_reload()
-	else:
-		ch.flags &= ~Character.F_TAB
+	_weapon_intent(cmd)
 	Motor.step(ch, cmd, dt)
 	var shots := []
 	if ch.mode == Motor.GROUND:
@@ -287,6 +330,17 @@ func _physics_process(dt: float) -> void:
 		send.append(pending[i].cmd)
 	world.send_cmds(send)
 	_after_step_effects(cmd, shots)
+
+
+func _weapon_intent(cmd: Dictionary) -> void:
+	# Reapply the same weapon blockers during prediction and authoritative replay.
+	ch.wpn.blocked = (cmd.btn & (Motor.B_TAB | Motor.B_ACTION_BLOCKED)) != 0 or ch.mode != Motor.GROUND or ch.water_depth() > 1.15 \
+		or ch.held_prop_id >= 0 or ch.light.swapping() or (ch.flags & Character.F_BUSY) != 0 or ch.vault_t >= 0.0
+	if cmd.btn & Motor.B_TAB:
+		ch.flags |= Character.F_TAB
+		ch.wpn.cancel_reload()
+	else:
+		ch.flags &= ~Character.F_TAB
 
 
 func _after_step_effects(cmd: Dictionary, shots: Array) -> void:
@@ -353,7 +407,10 @@ func _reconcile_now(ack: int, own: Dictionary) -> void:
 	var mode_diff := int(predicted.mode) != int(own.mode)
 	var w_pred: Dictionary = pending[idx].w
 	var w_diff := int(w_pred.mag) != int(own.wpn.mag) or int(w_pred.cur) != int(own.wpn.cur) or int(w_pred.state) != int(own.wpn.state) \
-		or bool(w_pred.chamber) != bool(own.wpn.chamber)
+		or bool(w_pred.chamber) != bool(own.wpn.chamber) or int(w_pred.mode) != int(own.wpn.mode) \
+		or int(w_pred.get("bl", 0)) != int(own.wpn.get("bl", 0)) or bool(w_pred.pf) != bool(own.wpn.pf) \
+		or bool(w_pred.pm) != bool(own.wpn.pm) or bool(w_pred.pr) != bool(own.wpn.pr) \
+		or bool(w_pred.get("rq", false)) != bool(own.wpn.get("rq", false)) or int(w_pred.shots) != int(own.wpn.shots)
 	pending = pending.slice(idx + 1)
 	if err < 0.04 and not mode_diff and not w_diff:
 		return
@@ -368,6 +425,7 @@ func _reconcile_now(ack: int, own: Dictionary) -> void:
 	for p in pending:
 		var c: Dictionary = p.cmd
 		ch.events.clear()
+		_weapon_intent(c)
 		Motor.step(ch, c, Defs.TICK_DT)
 		if ch.mode == Motor.GROUND:
 			ch.wpn.step(c, Defs.TICK_DT, int(c.tick))
@@ -392,11 +450,15 @@ func _hard_set(own: Dictionary) -> void:
 func on_mode_forced(mode: int) -> void:
 	pending.clear()
 	_correction = Vector3.ZERO
+	if ch and mode != Motor.GROUND:
+		ch.wpn.cancel_burst()
 	if mode == Motor.DOWNED:
 		slot = 0
 
 
 func on_local_died() -> void:
+	if ch:
+		ch.wpn.cancel_burst()
 	ch = null
 	pending.clear()
 	if vm:
@@ -408,15 +470,45 @@ func on_local_died() -> void:
 
 func _pick_spectate() -> void:
 	spectating = -1
+	var list := spectate_candidates()
+	if not list.is_empty():
+		_set_spectate(int(list[0]))
+
+
+func spectate_candidates() -> Array:
+	## Who a dead player can watch: living teammates (bots included); when none is left, any living player.
 	var my_team := int(Net.players.get(Net.local_pid, {}).get("team", -1))
+	var mates := []
+	var others := []
 	for c in world.characters.values():
-		if c.team == my_team and c.mode not in [Motor.DEAD, Motor.SPECTATE]:
-			spectating = c.eid
-			return
-	for c in world.characters.values():
-		if c.mode not in [Motor.DEAD, Motor.SPECTATE]:
-			spectating = c.eid
-			return
+		if c.mode in [Motor.DEAD, Motor.SPECTATE]:
+			continue
+		if c.team == my_team:
+			mates.append(c.eid)
+		else:
+			others.append(c.eid)
+	mates.sort()
+	others.sort()
+	return mates if not mates.is_empty() else others
+
+
+func spectate_cycle(d: int) -> void:
+	var list := spectate_candidates()
+	if list.is_empty():
+		spectating = -1
+		return
+	var i := list.find(spectating)
+	i = 0 if i < 0 else (i + d + list.size()) % list.size()
+	_set_spectate(int(list[i]))
+
+
+func _set_spectate(eid: int) -> void:
+	if eid != spectating:
+		var t = world.characters.get(eid)
+		if t:
+			yaw = t.yaw  # start behind the new target, looking where it looks
+	spectating = eid
+	world.request_spectate(eid)
 
 
 func set_results_mode(on: bool) -> void:
@@ -424,8 +516,30 @@ func set_results_mode(on: bool) -> void:
 	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE if on else Settings.play_mouse_mode()
 
 
+func on_suppressed(dist: float) -> void:
+	## A near miss: a small flinch of the view (much less than being hit).
+	_hit_shake = minf(_hit_shake + 0.18 * clampf(1.0 - dist / 2.2, 0.2, 1.0), 0.6)
+
+
 func on_hit(part: String, dir: Vector3, damage: float, absorbed: String) -> void:
 	_hit_shake = minf(_hit_shake + 0.3 + damage * 0.02, 1.2)
+	# The punch: the head snaps away from the shot. A hit from the front tips the view up, from behind down, from a
+	# side turns and rolls it away; stronger for heavier hits and for the head, softened by armour that stopped it.
+	var amt := deg_to_rad(clampf(1.2 + damage * 0.06, 1.2, 4.5))
+	if part == "head":
+		amt *= 1.4
+	if absorbed != "":
+		amt *= 0.6
+	var d := dir
+	d.y = 0.0
+	var fwd := -Basis(Vector3.UP, yaw).z
+	var right := Basis(Vector3.UP, yaw).x
+	var front := 1.0 if d.length() < 0.01 else -fwd.dot(d.normalized())   # 1: shot came from in front
+	var side := 0.0 if d.length() < 0.01 else right.dot(d.normalized())   # >0: pushed to the right
+	var jitter := randf_range(-0.25, 0.25)
+	_kicks.append([Time.get_ticks_msec() / 1000.0, Vector3(amt * (0.65 * front + 0.35 + jitter * 0.3), -amt * side * 0.9 + amt * jitter * 0.4, -amt * side * 0.7)])
+	if _kicks.size() > 6:
+		_kicks.pop_front()
 	if vm:
 		vm.on_hit(damage)
 
@@ -465,18 +579,29 @@ func _process(dt: float) -> void:
 	if on_floor and hv > 0.3:
 		var stride := 0.9 + hv * 0.12
 		_bob_t += dt * hv / stride * PI
-		bob.y = sin(_bob_t * 2.0) * 0.025 * clampf(hv / 4.0, 0.3, 1.3)
-		bob.x = sin(_bob_t) * 0.018
+		# Halved 2026-10-28 (walking and running bob read as dizzying); GAIT_BOB scales the limp too.
+		bob.y = sin(_bob_t * 2.0) * 0.025 * GAIT_BOB * clampf(hv / 4.0, 0.3, 1.3)
+		bob.x = sin(_bob_t) * 0.018 * GAIT_BOB
 		var limp: float = ch.health.limp_side() if ch.health and ch.health.has_method("limp_side") else 0.0
 		if limp != 0.0:
 			# Uneven gait: the injured leg's step dips harder and rolls the head toward it.
 			var phase := sin(_bob_t + (0.0 if limp > 0.0 else PI))
-			bob.y -= maxf(phase, 0.0) * 0.045 * (2.0 - ch.injury_speed)
-			roll += maxf(phase, 0.0) * 0.022 * limp
+			bob.y -= maxf(phase, 0.0) * 0.045 * GAIT_BOB * (2.0 - ch.injury_speed)
+			roll += maxf(phase, 0.0) * 0.022 * GAIT_BOB * limp
 	_land_jolt = move_toward(_land_jolt, 0.0, dt * 3.0)
 	bob.y -= sin(_land_jolt * PI) * 0.08
 	_hit_shake = move_toward(_hit_shake, 0.0, dt * 2.5)
 	var shake := Vector3(sin(Time.get_ticks_msec() * 0.031), sin(Time.get_ticks_msec() * 0.027), 0) * _hit_shake * 0.01
+	# Hit punch: each hit follows (t/r) e^(1 - t/r), peak 1 at t = r, nearly gone by 0.4 s.
+	var now_s := Time.get_ticks_msec() / 1000.0
+	var _kick := Vector3.ZERO
+	for i in range(_kicks.size() - 1, -1, -1):
+		var age := now_s - float(_kicks[i][0])
+		if age > 0.6:
+			_kicks.remove_at(i)
+			continue
+		_kick += (_kicks[i][1] as Vector3) * (age / KICK_RISE) * exp(1.0 - age / KICK_RISE)
+	_kick = _kick.clamp(Vector3(-0.14, -0.14, -0.12), Vector3(0.14, 0.14, 0.12))
 	pos += Basis(Vector3.UP, yaw) * (bob * motion_k)
 	_cam_roll = lerpf(_cam_roll, roll * motion_k, clampf(dt * 8.0, 0.0, 1.0))
 	var p_view := pitch
@@ -486,7 +611,8 @@ func _process(dt: float) -> void:
 		return
 	if vm and not vm.visible:
 		vm.visible = true
-	cam.global_transform = Transform3D(Basis.from_euler(Vector3(p_view + shake.y * motion_k, y_view + shake.x * motion_k, _cam_roll)), pos)
+	var kick := _kick * maxf(motion_k, 0.25)   # even "off" keeps a small punch: it says you were hit
+	cam.global_transform = Transform3D(Basis.from_euler(Vector3(p_view + shake.y * motion_k + kick.x, y_view + shake.x * motion_k + kick.y, _cam_roll + kick.z)), pos)
 	var zoom: float = lerpf(1.0, ch.wpn.zoom(), ch.wpn.ads) if ch.wpn else 1.0
 	cam.fov = float(Settings.get_value("graphics", "fov")) / zoom
 	if vm:
@@ -505,8 +631,14 @@ func _plane_camera(dt: float) -> void:
 func _spectate_camera(dt: float) -> void:
 	if cam == null:
 		return
-	if not world.characters.has(spectating):
+	var cur = world.characters.get(spectating)
+	if cur == null or cur.mode in [Motor.DEAD, Motor.SPECTATE]:
 		_pick_spectate()
+	elif cur.team != int(Net.players.get(Net.local_pid, {}).get("team", -1)) and Engine.get_process_frames() % 30 == 0:
+		# Watching an enemy because no teammate was left: back to a teammate as soon as one is (late spawn, rebind).
+		var list := spectate_candidates()
+		if not list.is_empty() and world.characters[list[0]].team != cur.team:
+			_pick_spectate()
 	var t = world.characters.get(spectating)
 	if t == null:
 		return

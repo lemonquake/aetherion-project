@@ -12,6 +12,8 @@ signal snapshot_received(bytes: PackedByteArray)
 ## kind 0: your own team's radio (2D); 1: overheard from a teammate radio of the speaker (src_eid); 2: the speaker's
 ## own voice nearby (src_eid).
 signal voice_received(from_pid: int, bytes: PackedByteArray, src_eid: int, kind: int)
+## r7: a player's Deathmatch loadout ({"primary": id, "secondary": id}) reached the server.
+signal loadout_received(pid: int)
 
 ## Players must run the same build: the map is generated on every machine. Raise application/config/version in
 ## project.godot whenever the map, rules or netcode change.
@@ -34,7 +36,15 @@ var players: Dictionary = {}
 ## Match configuration chosen in the lobby by the host.
 # bot_count 20 by default (the owner's choice, 2026-10-27), on phones and PCs alike; the lobby takes up to 50 players
 # (rules.json max_players), which is what matches are built and measured for (40-50 players).
-var config: Dictionary = {"mode": "squad", "bots": true, "bot_count": 20, "map_seed": 1729, "zone_speed": 1.0}
+## teams x team_size slots (5 x 4 by default, up to 7 teams of up to 4); humans pick any team and bots fill the slots
+## left when "bots" is on (20 bots in a practice match: 5 squads of 4, one of them yours).
+var config: Dictionary = {"name": "", "game_mode": "classic", "map": "kalinaw", "mode": "squad", "teams": 5, "team_size": 4, "bots": true, "bot_count": 20, "map_seed": 1729, "zone_speed": 1.0}
+var port := DEFAULT_PORT
+const MAX_TEAMS := 7
+const MAX_TEAM_SIZE := 4      # Classic squads
+const DM_MAX_TEAM_SIZE := 10  # Deathmatch: two teams of up to 10
+const GAME_MODES := ["classic", "deathmatch"]
+const MAPS := ["kalinaw", "lawless_sub"]
 
 ## Server tick (authoritative on the server, estimated on clients).
 var tick: int = 0
@@ -58,8 +68,9 @@ func _ready() -> void:
 
 func host(port: int = DEFAULT_PORT, as_dedicated: bool = false) -> Error:
 	shutdown()
+	self.port = port
 	peer = ENetMultiplayerPeer.new()
-	var err := peer.create_server(port, int(Defs.rule("max_players", 40)) + 2, 4)
+	var err := peer.create_server(port, maxi(MAX_TEAMS * MAX_TEAM_SIZE, 2 * DM_MAX_TEAM_SIZE) + 4, 4)
 	if err != OK:
 		return err
 	multiplayer.multiplayer_peer = peer
@@ -72,6 +83,10 @@ func host(port: int = DEFAULT_PORT, as_dedicated: bool = false) -> Error:
 	if not dedicated:
 		players[1] = _new_player(Settings.player_name(), false)
 		players[1].platform = platform()
+		players[1].look = Profile.look
+		players[1].profile = Profile.id
+		players[1].level = Profile.level()
+		players[1].team = _first_free_team(1)
 	_broadcast_lobby()
 	return OK
 
@@ -101,14 +116,47 @@ func shutdown() -> void:
 
 
 func _new_player(pname: String, bot: bool) -> Dictionary:
-	return {"name": pname, "team": -1, "ready": bot, "bot": bot, "connected": true, "in_match": false}
+	return {"name": pname, "team": -1, "ready": bot, "bot": bot, "connected": true, "in_match": false, "look": {}, "profile": "", "level": 1, "laser": "red"}
 
 
-func add_bot(pname: String) -> int:
+func add_bot(pname: String, look: Dictionary = {}) -> int:
 	_next_bot -= 1
 	players[_next_bot] = _new_player(pname, true)
+	players[_next_bot].look = look
 	_broadcast_lobby()
 	return _next_bot
+
+
+func _first_free_team(pid: int) -> int:
+	if is_dm():
+		# Deathmatch: join the smaller of the two teams.
+		var c := [0, 0]
+		for q in players:
+			var tq := int(players[q].team)
+			if q != pid and tq >= 0 and tq < 2:
+				c[tq] += 1
+		var tm := 0 if int(c[0]) <= int(c[1]) else 1
+		return tm if int(c[tm]) < team_size() else -1
+	for t in clampi(int(config.get("teams", 5)), 1, MAX_TEAMS):
+		var n := 0
+		for q in players:
+			if q != pid and players[q].team == t:
+				n += 1
+		if n < team_size():
+			return t
+	return -1
+
+
+func slot_count() -> int:
+	return clampi(int(config.get("teams", 5)), 1, MAX_TEAMS) * team_size()
+
+
+func humans() -> int:
+	var n := 0
+	for pid in players:
+		if not players[pid].bot:
+			n += 1
+	return n
 
 
 func remove_bots() -> void:
@@ -155,7 +203,7 @@ func _on_peer_disconnected(id: int) -> void:
 
 func _on_connected() -> void:
 	local_pid = multiplayer.get_unique_id()
-	_hello.rpc_id(1, Settings.player_name(), VERSION, platform())
+	_hello.rpc_id(1, Settings.player_name(), VERSION, platform(), Profile.look, Profile.id, Profile.level())
 
 
 func _fail(reason: String) -> void:
@@ -176,7 +224,7 @@ static func platform() -> String:
 
 
 @rpc("any_peer", "reliable")
-func _hello(pname: String, version: String, plat: String = "PC") -> void:
+func _hello(pname: String, version: String, plat: String = "PC", look: Dictionary = {}, profile: String = "", level: int = 1) -> void:
 	if not is_server:
 		return
 	var id := multiplayer.get_remote_sender_id()
@@ -198,7 +246,7 @@ func _hello(pname: String, version: String, plat: String = "PC") -> void:
 			_broadcast_lobby()
 			Game.on_peer_reconnected(id, pid)
 			return
-	if players.size() >= int(Defs.rule("max_players", 40)):
+	if humans() >= slot_count():
 		_kick.rpc_id(id, "The game is full.")
 		peer.disconnect_peer(id)
 		return
@@ -210,6 +258,10 @@ func _hello(pname: String, version: String, plat: String = "PC") -> void:
 		n += 1
 	players[id] = _new_player(pname, false)
 	players[id].platform = plat
+	players[id].look = look
+	players[id].profile = profile.substr(0, 32)
+	players[id].level = level
+	players[id].team = _first_free_team(id)
 	_welcome.rpc_id(id, id)
 	_broadcast_lobby()
 	Game.on_peer_joined(id)
@@ -263,6 +315,79 @@ func _apply_ready(pid: int, value: bool) -> void:
 		_broadcast_lobby()
 
 
+func request_look(look: Dictionary) -> void:
+	## The player changed their outfit in the Locker while in a lobby.
+	if is_server:
+		if players.has(local_pid):
+			players[local_pid].look = look
+			_broadcast_lobby()
+	else:
+		_req_look.rpc_id(1, look)
+
+
+@rpc("any_peer", "reliable")
+func _req_look(look: Dictionary) -> void:
+	var pid := multiplayer.get_remote_sender_id()
+	if is_server and players.has(pid) and JSON.stringify(look).length() < 2048:
+		players[pid].look = look
+		_broadcast_lobby()
+
+
+func send_prefs() -> void:
+	## This player's own choices everyone else needs to draw them (the laser pointer colour), to the host.
+	if peer == null:
+		return
+	var prefs := {"laser": str(Settings.get_value("player", "laser_color"))}
+	if is_server:
+		_apply_prefs(local_pid, prefs)
+	else:
+		_req_prefs.rpc_id(1, prefs)
+
+
+@rpc("any_peer", "reliable")
+func _req_prefs(prefs: Dictionary) -> void:
+	if is_server:
+		_apply_prefs(multiplayer.get_remote_sender_id(), prefs)
+
+
+func _apply_prefs(pid: int, prefs: Dictionary) -> void:
+	if not players.has(pid):
+		return
+	var l := str(prefs.get("laser", "red"))
+	players[pid].laser = l if Settings.LASER_COLORS.has(l) else "red"
+	_broadcast_lobby()
+
+
+func request_loadout(loadout: Dictionary) -> void:
+	## The player picked their Deathmatch guns in Game Setup ({"primary": id, "secondary": id}).
+	if is_server:
+		_apply_loadout(local_pid, loadout)
+	else:
+		_req_loadout.rpc_id(1, loadout)
+
+
+@rpc("any_peer", "reliable")
+func _req_loadout(loadout: Dictionary) -> void:
+	if is_server:
+		_apply_loadout(multiplayer.get_remote_sender_id(), loadout)
+
+
+func _apply_loadout(pid: int, loadout: Dictionary) -> void:
+	## Keeps only guns the Deathmatch rules allow; anything else falls back to the default pick.
+	if not players.has(pid):
+		return
+	var dm: Dictionary = Defs.rules.get("deathmatch", {})
+	var prim := str(loadout.get("primary", ""))
+	var sec := str(loadout.get("secondary", ""))
+	if not prim in dm.get("primary", []):
+		prim = str(dm.get("default_primary", "rifle_m416"))
+	if not sec in dm.get("secondary", []):
+		sec = str(dm.get("default_secondary", "pistol_9"))
+	players[pid].loadout = {"primary": prim, "secondary": sec}
+	loadout_received.emit(pid)
+	_broadcast_lobby()
+
+
 func request_team(team: int) -> void:
 	if is_server:
 		_apply_team(local_pid, team)
@@ -284,35 +409,87 @@ func _apply_team(pid: int, team: int) -> void:
 	for q in players:
 		if q != pid and players[q].team == team:
 			count += 1
-	if team >= 0 and count >= size:
+	if team >= 0 and (count >= size or team >= int(config.get("teams", 5))):
 		return
 	players[pid].team = team
 	_broadcast_lobby()
 
 
+func is_dm() -> bool:
+	return str(config.get("game_mode", "classic")) == "deathmatch"
+
+
+func max_team_size() -> int:
+	return DM_MAX_TEAM_SIZE if is_dm() else MAX_TEAM_SIZE
+
+
 func set_config(key: String, value) -> void:
 	if not is_server:
 		return
-	config[key] = value
+	if key == "game_mode":
+		value = str(value) if str(value) in GAME_MODES else "classic"
+		var was := str(config.get("game_mode", "classic"))
+		config.game_mode = value
+		if value != was:
+			# Each mode has its own map and team layout; switching resets them to that mode's defaults.
+			config.map = str(Defs.rule("game_modes.%s.map" % value, "kalinaw"))
+			if value == "deathmatch":
+				config.teams = int(Defs.rule("deathmatch.teams", 2))
+				config.team_size = int(Defs.rule("deathmatch.team_size", DM_MAX_TEAM_SIZE))
+			else:
+				config.teams = 5
+				config.mode = "squad"
+				config.team_size = int(Defs.rule("modes.squad.team_size", 4))
+		key = "teams"  # re-seat players for the new team layout
+	elif key == "map":
+		config.map = str(value) if str(value) in MAPS else "kalinaw"
+	elif is_dm() and key == "teams":
+		config.teams = 2
+	elif is_dm() and key == "team_size":
+		config.team_size = clampi(int(value), 1, DM_MAX_TEAM_SIZE)
+	elif is_dm() and key == "mode":
+		pass  # solo/duo/squad is a Classic setting
+	else:
+		config[key] = value
+	if key == "team_size" and not is_dm():
+		config.mode = {1: "solo", 2: "duo"}.get(int(value), "squad")
+	if key == "mode" and not is_dm():
+		config.team_size = int(Defs.rule("modes.%s.team_size" % str(value), 4))
+	if key in ["teams", "team_size"]:
+		# Fewer or smaller teams: whoever no longer fits goes back to "no team yet".
+		var counts := {}
+		for pid in players:
+			var t: int = players[pid].team
+			if t >= int(config.teams) or (t >= 0 and int(counts.get(t, 0)) >= team_size()):
+				players[pid].team = -1
+			elif t >= 0:
+				counts[t] = int(counts.get(t, 0)) + 1
 	_broadcast_lobby()
 
 
 func team_size() -> int:
-	return int(Defs.rule("modes.%s.team_size" % config.get("mode", "squad"), 4))
+	return clampi(int(config.get("team_size", Defs.rule("modes.%s.team_size" % config.get("mode", "squad"), 4))), 1, max_team_size())
 
 
 func assign_teams() -> void:
-	## Fill empty team slots: keep chosen teams, then pack the rest in join order.
+	## Fill empty team slots: keep chosen teams, then pack the rest in join order (Deathmatch: into the smaller of
+	## the two teams, so bots even them out).
 	var size := team_size()
+	var dm := is_dm()
 	var counts := {}
 	for pid in players:
 		var t: int = players[pid].team
+		if dm and t >= 2:
+			players[pid].team = -1
+			continue
 		if t >= 0:
 			counts[t] = counts.get(t, 0) + 1
 	for pid in players:
 		if players[pid].team >= 0 and counts[players[pid].team] <= size:
 			continue
 		var t := 0
+		if dm:
+			t = 0 if int(counts.get(0, 0)) <= int(counts.get(1, 0)) else 1
 		while counts.get(t, 0) >= size:
 			t += 1
 		players[pid].team = t

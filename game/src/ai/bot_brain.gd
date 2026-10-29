@@ -1,6 +1,19 @@
 extends RefCounted
 ## A server-side bot that plays through the same command interface as a human (it cannot cheat movement or aim
-## through walls; it only presses virtual buttons). States: deploy, loot, roam, investigate, fight, heal, zone.
+## through walls; it only presses virtual buttons). States: deploy, loot, roam, investigate, fight, heal, zone, and
+## (r10) camp, overwatch, hunt, follow.
+##
+## Every bot has a brain of its own and a role that decides what it does when nobody is in sight:
+##   looter   hurries into a house, searches it, closes the door behind it and holds the room, watching the door;
+##   rusher   fearless: hunts in the open toward the latest sighting, noise or ping, sprinting;
+##   sniper   takes a waypoint with cover beside it and a long sightline (or one the team learned was good) and
+##            watches through the scope, moving on after a kill or when shot at;
+##   stalker  tactical: hunts from cover waypoint to cover waypoint, walking quietly and crouching when close, flanking.
+## About half the bots of a team pair up or make threes behind a leader (bot_team.gd); some attach themselves to a human
+## teammate ("I'll go with you"). Bots talk on the team radio (real voice lines, rate-limited), react to the team's
+## pings by role, can follow an enemy laser beam back to whoever holds it, and fear the haze: they work out how long the
+## run to the next circle takes and leave in time. Stuck bots jump or vault, open the door in front of them, back off
+## and sidestep, then mark the spot so the walk grid avoids it (learned across matches with Settings > Bots learn).
 ##
 ## Perception is darkness-aware: a player is seen within ~14 m in the dark, ~30 m in moonlight on open ground,
 ## and up to 70 m when their flashlight is on or they just fired. Gunshots and nearby running are heard.
@@ -25,6 +38,7 @@ var investigate := Vector3.INF
 var reaction := 0.0
 var aim_err := Vector2.ZERO
 var _stuck_t := 0.0
+var _wet_t := 0.0
 var _last_pos := Vector3.ZERO
 var _repath_t := 0.0
 var _think_t := 0.0
@@ -71,17 +85,97 @@ static var conts_by_bid := {}
 static var bgrid := {}   # Vector2i(40 m cell) -> [building]
 ## Team landing spots for the current match: "seed:team" -> Vector3.
 static var team_targets := {}
+## r7 Deathmatch: bots start armed on the ground, so they skip the early looting. Each team advances on the other
+## side in a loose group, shares sightings (a teammate's callout: "seed:team" -> {p: Vector3, t: msec}), keeps
+## inside the haze line, and loots only when it helps (low on rounds, or a clearly better gun close by).
+var dm := false
+var _dm_offset := Vector3.ZERO     # this bot's place in the loose group
+var _dm_goal_t := 0.0
+var _dm_obj := Vector3.INF
+var _dm_hold := 0.0               # the first seconds of a round: everyone gets ready at the spawn
+static var team_intel := {}
+# --- r10: roles, squads, radio, waypoints
+const BotTeam := preload("res://src/ai/bot_team.gd")
+const ROLES := ["looter", "rusher", "sniper", "stalker"]
+static var lines := {}            # data/bot_radio.json: line -> phrasings
+var role := "looter"
+var voice := "m1"
+var squad_id := -1
+var aggr := 0.5                   # how readily it pushes a fight
+var patience := 0.5               # how long it holds a spot; how early it leaves for the next circle
+var _say_t := -100000
+var _obj := Vector3.INF           # the role's current objective
+var _obj_t := 0.0                 # seconds before it is rethought
+var _hold_t := 0.0                # camp / overwatch time left
+var _look_at := Vector3.INF       # where to face while holding or following
+var _hold_base_yaw := 0.0
+var _ping := {}                   # a teammate's ping being acted on: {p, t, how}
+var _laser_cd := 0.0
+var _hit_t := -100.0              # seconds (Time) of the last hit taken
+var _no_prog := 0.0               # seconds without getting closer to the next waypoint
+var _best_wp := INF
+var _wp_key := Vector3.INF
+var _vault_cd := 0.0
+var _unstick_t := 0.0             # backing off / sidestepping while > 0
+var _unstick_dir := 1.0
+var _social_t := 0.0
+var _decided_human := false
+var _follow_off := Vector3.ZERO
+var _follow_far_t := 0.0
+var _follow_goal_t := 0.0
+var _safe_t := 0.0
+var _camp_done := {}              # building id -> true (houses already held)
+var _door_close := -1             # door id to shut behind us (looter on the way in)
+var _seen_t := 0.0                # seconds the current target has been in sight
+var _goal_raw := Vector3.INF      # the goal as asked for (goal itself may be snapped to this side of a wall)
+var _haze_said := -2              # zone phase this bot last called the haze in
+var _chat_t := -100000            # msec of the last "hunting"/"sneaking"/"sniping" remark
+var _trail: Array = []            # recent positions (debug: --radiolog prints them when a bot ends up in a canal)
+var _house_exit: Array = []       # [just inside the door, outside it] of the house this bot went into
 
 
 func _init(w, c) -> void:
 	world = w
 	ch = c
 	rng.seed = hash(c.eid * 7919 + Game.match_seed)
-	if nav == null or nav.layout != world.map.layout:
+	var fresh_nav: bool = nav == null or nav.layout != world.map.layout
+	if fresh_nav:
 		nav = NavGrid.new(world.map.layout)
 	if _index_layout != world.map.layout:
 		_build_index()
+	BotTeam.begin(world)
+	if fresh_nav:
+		BotTeam.apply_blocked(nav)
+	BotTeam.ensure_spots(nav)
+	if lines.is_empty():
+		var f := FileAccess.open("res://data/bot_radio.json", FileAccess.READ)
+		if f:
+			var d = JSON.parse_string(f.get_as_text())
+			if typeof(d) == TYPE_DICTIONARY:
+				lines = d.get("lines", {})
+	# A role of its own, spread so every team gets a mix; a voice of its own.
+	var rr := RandomNumberGenerator.new()
+	rr.seed = hash(c.eid * 104729 + Game.match_seed * 31)
+	role = str(ROLES[(int(c.eid) + rr.randi_range(0, 3)) % ROLES.size()]) if Game.arg("bot_role") == null else str(Game.arg("bot_role"))
+	voice = ["m1", "m2", "f1", "f2"][rr.randi_range(0, 3)]
+	aggr = {"looter": 0.35, "rusher": 0.95, "sniper": 0.25, "stalker": 0.6}[role] + rr.randf_range(-0.1, 0.1)
+	patience = {"looter": 0.8, "rusher": 0.2, "sniper": 0.9, "stalker": 0.6}[role] + rr.randf_range(-0.1, 0.1)
+	var fa := rr.randf() * TAU
+	_follow_off = Vector3(cos(fa) * 3.5, 0, absf(sin(fa)) * 3.0 + 2.0)
+	_social_t = rr.randf_range(0.0, 1.0)
+	dm = Net.is_dm()
+	if dm:
+		state = "roam"
+		var a := rng.randf() * TAU
+		_dm_offset = Vector3(cos(a), 0, sin(a)) * rng.randf_range(4.0, 13.0)
+		_dm_goal_t = rng.randf_range(0.0, 1.5)
+		_dm_hold = float(Defs.rule("deathmatch.start_hold_s", 4.0)) + rng.randf_range(0.0, 1.5)
+		return
 	_pick_landing()
+
+
+func lead_rank() -> int:
+	return {"rusher": 3, "stalker": 2, "sniper": 1, "looter": 0}.get(role, 0)
 
 
 func _build_index() -> void:
@@ -96,6 +190,7 @@ func _build_index() -> void:
 			bgrid[k] = []
 		bgrid[k].append(b)
 	team_targets = {}
+	team_intel = {}
 	counts = {"detours": 0, "detour_taken": 0, "fetches": 0, "fetch_done": 0, "items_taken": 0}
 	for d in world.map.dyn.doors:
 		if d.get("outer", false) and d.has("bid") and d.has("outward"):
@@ -176,6 +271,8 @@ func wants_jump(plane_p: Vector3) -> bool:
 func on_flyby(pos: Vector3) -> void:
 	investigate = pos
 	reaction = 0.0
+	if state == "overwatch":
+		_look_at = pos
 
 
 func hear(pos: Vector3, loudness: float) -> void:
@@ -200,10 +297,29 @@ func think(dt: float, tick: int) -> Dictionary:
 			return cmd
 		Motor.DEAD, Motor.SPECTATE:
 			return cmd
+	# Down in a walled canal (wading the estero is fine): get out first, up a ladder or to the nearest dry ground.
+	if (ch.water_depth() > 0.45 and _in_canal()) or (bool(ch.get_meta("ladder_ok", false)) and not ch.is_on_floor()):
+		if _wet_t == 0.0 and Game.arg("radiolog") != null and world.match_server:
+			world.match_server.log_event("[canal] %s (%s) fell in at %s from %s, state %s goal %s path %d/%d, last move %s" % [ch.pname, role, str(ch.global_position.snapped(Vector3.ONE * 0.1)),
+				str(_trail), state, str(goal.snapped(Vector3.ONE * 0.1)) if goal != Vector3.INF else "-", path_i, path.size(), str(path.slice(maxi(path_i - 1, 0), path_i + 2))])
+		if _escape_water(cmd, dt):
+			yaw = float(cmd.yaw)
+			pitch = float(cmd.pitch)
+			return cmd
+	else:
+		_wet_t = 0.0
+		if ch.has_meta("ladder_ok"):
+			ch.remove_meta("ladder_ok")
 	_think_t -= dt
+	_laser_cd = maxf(_laser_cd - dt, 0.0)
+	_vault_cd = maxf(_vault_cd - dt, 0.0)
 	if _think_t <= 0.0:
 		_think_t = 0.25
+		_trail.append(ch.global_position.snapped(Vector3.ONE * 0.1))
+		if _trail.size() > 6:
+			_trail.pop_front()
 		_perceive()
+		_social(0.25)
 		_choose_state()
 	match state:
 		"fight":
@@ -213,6 +329,12 @@ func think(dt: float, tick: int) -> Dictionary:
 			_move(cmd, dt, true)
 		"fetch":
 			_fetch_step(cmd, dt)
+		"camp", "overwatch":
+			_hold_step(cmd, dt)
+			_upkeep(cmd, dt)
+		"follow":
+			_follow_step(cmd, dt)
+			_upkeep(cmd, dt)
 		_:
 			if _detour >= 0:
 				_detour_step(cmd, dt)
@@ -220,10 +342,51 @@ func think(dt: float, tick: int) -> Dictionary:
 				_move(cmd, dt, false)
 			_loot_actions(cmd, dt)
 	_lights(cmd)
+	_guard_edges(cmd)
 	yaw = float(cmd.yaw)
 	pitch = float(cmd.pitch)
 	_trace(cmd, dt)
 	return cmd
+
+
+func _guard_edges(cmd: Dictionary) -> void:
+	## Whatever the bot is doing (strafing in a fight, backing off a wall, keeping formation), it does not step off a
+	## canal wall or into deep water: the part of the move that leads there is dropped.
+	if ch.mode != Motor.GROUND or ch.water_depth() > 0.3:
+		return
+	var mv := Vector2(float(cmd.mx), float(cmd.my))
+	if mv.length() < 0.05:
+		return
+	var b := Basis(Vector3.UP, float(cmd.yaw))
+	var p: Vector3 = ch.global_position
+	var reach: float = 1.9 if (int(cmd.btn) & Motor.B_SPRINT) != 0 else 1.2
+	for comp in [Vector2(mv.x, 0.0), Vector2(0.0, mv.y)]:
+		if comp.length() < 0.05:
+			continue
+		var d: Vector3 = b * Vector3(comp.x, 0.0, -comp.y).normalized()
+		for k in [0.5, 1.0]:
+			if _deep_at(p + d * reach * float(k)):
+				if comp.x != 0.0:
+					cmd.mx = 0.0
+				else:
+					cmd.my = 0.0
+					cmd.btn &= ~Motor.B_SPRINT
+				break
+
+
+func _deep_at(q: Vector3) -> bool:
+	## Water a bot should not walk into: a walled canal (Lawless Sub), or anywhere the bed is more than a metre down.
+	var L = world.map.layout
+	if L.has_method("water_sd"):
+		# The estero (outside every walled canal) may be waded; the canals may not. Exact distance to the canal's edge,
+		# not the 2 m grid: the drop can start a metre before the first cell the grid calls water. A bridge deck over
+		# the canal is ground, of course.
+		var q2 := Vector2(q.x, q.z)
+		for r in L.bridge_rects:
+			if (r as Rect2).has_point(q2):
+				return false
+		return (L.water_sd(q2) as Vector2).x < 0.15
+	return L.is_water(q.x, q.z) and L.water_height(q.x, q.z) - L.ground_height(q.x, q.z) > 1.4
 
 
 var _trace_t := 0.0
@@ -309,6 +472,8 @@ func _perceive() -> void:
 		var lit: bool = (o.flags & Character.F_LIGHT) != 0 or (o.flags & Character.F_FIRED) != 0
 		var open: bool = world.map.acoustics.zone_at(o.global_position) == 0 and not (world.map.cover and world.map.cover.covered(Vector2(o.global_position.x, o.global_position.z)))
 		var vis_range := 70.0 if lit else (lerpf(30.0, 75.0, day) if open else 12.0)
+		if role == "sniper" and state == "overwatch":
+			vis_range *= 1.5   # watching through the scope
 		if o.mode == Motor.CHUTE:
 			vis_range = 90.0
 		if d > vis_range:
@@ -326,44 +491,112 @@ func _perceive() -> void:
 	if best != target_eid and best >= 0:
 		reaction = rng.randf_range(0.35, 0.8)
 		aim_err = Vector2(rng.randf_range(-6, 6), rng.randf_range(-4, 4))
+		if target_eid < 0:
+			say("contact")
 	target_eid = best
 	if best >= 0:
 		last_seen = world.characters[best].global_position
+		# The callout: the whole team knows where (each decides on its own what to do about it).
+		team_intel["%d:%d" % [Game.match_seed, ch.team]] = {"p": last_seen, "t": Time.get_ticks_msec()}
 
 
 func _choose_state() -> void:
 	var h = ch.health
 	if target_eid >= 0:
+		# Caught in the haze with the enemy not close: keep running for the circle (it kills faster than they do).
+		var tc = world.characters.get(target_eid)
+		var hz0 := _haze()
+		if bool(hz0.urgent) and tc != null and (tc.global_position as Vector3).distance_to(ch.global_position) > 15.0:
+			if state != "zone" or goal == Vector3.INF:
+				_set_goal(hz0.p)
+			state = "zone"
+			return
 		state = "fight"
+		_seen_t += 0.25
 		return
-	if h.bleeding_level() > 0 or (h.health < 60.0 and ch.inv.count("first_aid") > 0):
+	_seen_t = 0.0
+	if h.bleeding_level() > 0 or (h.health < (60.0 if not dm else 50.0) and ch.inv.count("first_aid") > 0):
 		state = "heal"
 		return
-	var circ: Array = world.zone_circle(float(Net.tick))
-	var p2 := Vector2(ch.global_position.x, ch.global_position.z)
-	var zone: Dictionary = world.match_info.get("zone", {})
-	if p2.distance_to(circ[0]) > float(circ[1]) * 0.92 or (not zone.is_empty() and int(zone.get("i", -1)) >= 0 and p2.distance_to(zone.c1) > float(zone.r1)):
-		if state != "zone":
-			var c: Vector2 = zone.get("c1", circ[0])
-			_set_goal(Vector3(c.x, 0, c.y) + Vector3(rng.randf_range(-30, 30), 0, rng.randf_range(-30, 30)))
+	# Inside a house and about to go anywhere else: out of the door first (the walk grid does not reach indoors, so a
+	# path from in here led straight into the walls).
+	if _exiting():
+		return
+	# The haze: leave in time for the next circle (sooner the less patient), and run when caught in it.
+	var hz := _haze()
+	if bool(hz.go) and _leave_house():
+		return
+	if bool(hz.go):
+		if state != "zone" or goal == Vector3.INF or _goal_raw.distance_to(hz.p) > 25.0:
+			_set_goal(hz.p)
+			var phase := int(world.match_info.get("zone", {}).get("i", -1))
+			if _leads() and _haze_said != phase:
+				_haze_said = phase
+				say("haze", bool(hz.urgent))
 		state = "zone"
+		plan = []
+		return
+	if dm and _dm_hold > 0.0:
+		_dm_hold -= 0.25
+		state = "roam"
+		goal = Vector3.INF
+		return
+	# A teammate's ping this bot chose to act on.
+	if not _ping.is_empty() and _ping_step():
+		return
+	# Following a squad leader or a human.
+	var lead = _leader()
+	if lead != null:
+		if state != "follow":
+			_follow_goal_t = 0.0
+		state = "follow"
 		return
 	if investigate != Vector3.INF:
-		if state != "investigate":
-			_set_goal(investigate)
-		state = "investigate"
-		if ch.global_position.distance_to(investigate) < 4.0:
+		if state in ["camp", "overwatch"] and ch.global_position.distance_to(investigate) > 18.0:
+			# Holding a spot: look that way rather than leave it.
+			_look_at = investigate
 			investigate = Vector3.INF
+			return
+		if state != "investigate":
+			_set_goal(_inside_zone(investigate) if dm else investigate)
+		state = "investigate"
+		if ch.global_position.distance_to(investigate) < 4.5 or goal == Vector3.INF:
+			investigate = Vector3.INF
+			if rng.randf() < 0.35:
+				say("clear")
 		return
 	if state == "fetch" and not _fetch.is_empty():
 		return
 	if state == "loot" and plan_i < plan.size():
 		return
-	if _pick_fetch():
+	if state in ["camp", "overwatch"] and _hold_t > 0.0:
 		return
-	if state == "roam" and goal != Vector3.INF and path_i < path.size():
+	if _leave_house():
 		return
-	_pick_loot_goal()
+	# Classic: everyone loots until armed; Deathmatch bots start armed and loot only when low on rounds.
+	var armed: bool = LootSense.armed_ok(ch)
+	if (not armed or not dm) and _pick_fetch():
+		return
+	if not dm and not armed:
+		if state == "roam" and goal != Vector3.INF and path_i < path.size():
+			return
+		_pick_loot_goal()
+		return
+	_role_objective()
+
+
+# ------------------------------------------------------------------ zone
+
+func _inside_zone(p: Vector3) -> Vector3:
+	## Pulls a goal inside the next safe circle (or the current one before the first is announced).
+	var zone: Dictionary = world.match_info.get("zone", {})
+	var circ: Array = world.zone_circle(float(Net.tick))
+	var c: Vector2 = zone.get("c1", circ[0])
+	var r := float(zone.get("r1", circ[1])) * 0.85
+	var q := Vector2(p.x, p.z)
+	if q.distance_to(c) > r:
+		q = c + (q - c).limit_length(r)
+	return Vector3(q.x, p.y, q.y)
 
 
 func _pick_loot_goal() -> void:
@@ -418,6 +651,7 @@ func _plan_house(b: Dictionary) -> bool:
 	var inside := centre - out_dir * 1.0
 	var foot_of_steps := float(door.get("steps_out", 0.0))
 	plan = [{"p": centre + out_dir * (1.2 + foot_of_steps), "nav": true}, {"p": inside, "nav": false, "door": int(door.id)}]
+	_house_exit = [inside, centre + out_dir * (1.4 + foot_of_steps)]
 	var conts := []
 	for c in conts_by_bid.get(b.id, []):
 		if absf((c.pos as Vector3).y - centre.y) < 1.7 and not _searched.has(c.id):
@@ -436,8 +670,16 @@ func _plan_house(b: Dictionary) -> bool:
 		stand.y = centre.y
 		plan.append({"p": stand, "nav": false, "search": int(c.id)})
 		at = stand
-	plan.append({"p": inside, "nav": false})
-	plan.append({"p": centre + out_dir * (1.4 + foot_of_steps), "nav": false})
+	if role == "looter" and not _camp_done.has(int(b.id)) and (dm or LootSense.armed_ok(ch) or rng.randf() < 0.5):
+		# Hold the house: back to just inside the door, facing it, and stay (the door shut behind on the way in).
+		_camp_done[int(b.id)] = true
+		plan.insert(2, {"p": inside, "nav": false, "close": int(door.id)})
+		var camp_at := inside - out_dir * 1.6
+		camp_at.y = centre.y
+		plan.append({"p": camp_at, "nav": false, "camp": true, "face": centre + out_dir * 3.0})
+	else:
+		plan.append({"p": inside, "nav": false})
+		plan.append({"p": centre + out_dir * (1.4 + foot_of_steps), "nav": false})
 	plan_i = 0
 	_step_t = 0.0
 	_best_d = INF
@@ -447,8 +689,68 @@ func _plan_house(b: Dictionary) -> bool:
 	return true
 
 
+func _in_canal() -> bool:
+	var L = world.map.layout
+	if not L.has_method("water_sd"):
+		return true
+	return (L.water_sd(Vector2(ch.global_position.x, ch.global_position.z)) as Vector2).x < 0.0
+
+
+func _escape_water(cmd: Dictionary, dt: float) -> bool:
+	## Wading a moment is fine; after that, head for the nearest ladder whose foot is down here and climb it facing
+	## the wall, or (no ladder near, a sloped bank) walk to the nearest dry ground. False: not yet, carry on as usual.
+	_wet_t += dt
+	if _wet_t < 1.5 and not bool(ch.get_meta("ladder_ok", false)):
+		return false
+	var p: Vector3 = ch.global_position
+	var best := {}
+	var bd := 90.0
+	for ld in world.map.ladders:
+		var b: Vector3 = ld.base
+		if b.y > p.y + 1.0:
+			continue
+		var dd := Vector2(b.x - p.x, b.z - p.z).length()
+		if dd < bd:
+			bd = dd
+			best = ld
+	cmd.pitch = lerpf(pitch, 0.25, 0.2)
+	cmd.my = 1.0
+	if not best.is_empty():
+		ch.set_meta("ladder_ok", true)
+		var n: Vector3 = best.n
+		var foot: Vector3 = (best.base as Vector3) + n * 0.3
+		var to := Vector2(foot.x - p.x, foot.z - p.z)
+		if to.length() > 0.35 and ch.is_on_floor():
+			cmd.yaw = lerp_angle(yaw, atan2(-to.x, -to.y), 0.3)
+		else:
+			cmd.yaw = lerp_angle(yaw, atan2(n.x, n.z), 0.5)
+		return true
+	# No ladder: the closest dry point round about.
+	for r in [2.0, 4.0, 7.0, 11.0, 16.0, 22.0]:
+		for k in 16:
+			var a := TAU * k / 16.0
+			var q = Vector2(p.x, p.z) + Vector2(cos(a), sin(a)) * r
+			if not world.map.layout.is_water(q.x, q.y):
+				var to2 = q - Vector2(p.x, p.z)
+				cmd.yaw = lerp_angle(yaw, atan2(-to2.x, -to2.y), 0.3)
+				if _stuck_t > 1.0:
+					cmd.btn |= Motor.B_JUMP
+				var moved := p.distance_to(_last_pos)
+				_last_pos = p
+				_stuck_t = _stuck_t + dt if moved < 0.4 * dt else 0.0
+				return true
+	return false
+
+
 func _set_goal(g: Vector3) -> void:
+	# A goal on the far side of a wall (another region of the walk grid) becomes the nearest point this side of it:
+	# without this, bots walked into the wall toward it and stayed there.
+	_goal_raw = g
+	if g != Vector3.INF and nav != null:
+		g = nav.reachable_near(ch.global_position, g)
 	goal = g
+	_no_prog = 0.0
+	_best_wp = INF
 	path = []
 	path_i = 0
 	_path_pending = true
@@ -485,6 +787,7 @@ func _move(cmd: Dictionary, dt: float, slow: bool) -> void:
 		target = path[path_i]
 		if Vector2(target.x - ch.global_position.x, target.z - ch.global_position.z).length() < 1.2:
 			path_i += 1
+			_best_wp = INF
 	var to = target - ch.global_position
 	var flat := Vector2(to.x, to.z)
 	if flat.length() < 0.6 and path_i >= path.size():
@@ -494,26 +797,132 @@ func _move(cmd: Dictionary, dt: float, slow: bool) -> void:
 	cmd.yaw = lerp_angle(yaw, want_yaw, 0.2)
 	cmd.pitch = lerpf(pitch, 0.0, 0.1)
 	cmd.my = 1.0
-	if not slow and state in ["zone", "investigate"] and rng.randf() < 0.9:
-		cmd.btn |= Motor.B_SPRINT
-	if slow:
-		cmd.btn |= Motor.B_WALK
-	# Stuck: jump, strafe, then give up on this goal.
-	var moved = ch.global_position.distance_to(_last_pos)
-	_last_pos = ch.global_position
-	if moved < 0.5 * dt:
-		_stuck_t += dt
-	else:
-		_stuck_t = maxf(_stuck_t - dt, 0.0)
-	if _stuck_t > 0.8:
-		cmd.btn |= Motor.B_JUMP if rng.randf() < 0.3 else 0
-		cmd.mx = 1.0 if int(_stuck_t * 2.0) % 2 == 0 else -1.0
-	if _stuck_t > 3.0:
-		_stuck_t = 0.0
-		goal = Vector3.INF
+	# No path yet (searches queue on a worker thread): walk straight only if nothing is in the way; otherwise turn
+	# toward the goal and wait. Walking straight at a goal behind a wall is how bots ended up stuck on walls.
+	if path.is_empty() and _path_req != 0 and not nav.line_clear(ch.global_position, goal):
+		cmd.my = 0.0
+		return
+	_gait(cmd, flat.length(), slow)
+	_unstick(cmd, dt, target, flat.length())
 	_repath_t -= dt
 	if _repath_t <= 0.0 and goal != Vector3.INF:
 		_set_goal(goal)
+
+
+func _gait(cmd: Dictionary, dist: float, slow: bool) -> void:
+	## How a bot moves, by state and role: running from the haze, rushers sprinting, stalkers walking quietly and
+	## crouching close to their quarry, looters hurrying to their house.
+	if slow:
+		cmd.btn |= Motor.B_WALK
+		return
+	var to_obj: float = ch.global_position.distance_to(_obj) if _obj != Vector3.INF else INF
+	match state:
+		"zone":
+			cmd.btn |= Motor.B_SPRINT
+		"investigate", "hunt":
+			if role == "stalker" and to_obj < 45.0:
+				cmd.btn |= Motor.B_WALK
+				if to_obj < 16.0:
+					cmd.btn |= Motor.B_CROUCH
+			elif role == "sniper" and to_obj < 20.0:
+				cmd.btn |= Motor.B_WALK
+			elif dist > 4.0 and rng.randf() < 0.9:
+				cmd.btn |= Motor.B_SPRINT
+		"roam":
+			if role == "rusher" or (role == "looter" and dist > 6.0) or to_obj > 60.0:
+				cmd.btn |= Motor.B_SPRINT
+			elif role == "stalker" and to_obj < 30.0:
+				cmd.btn |= Motor.B_WALK
+		"follow":
+			pass
+
+
+func _unstick(cmd: Dictionary, dt: float, target: Vector3, dist: float) -> void:
+	## Progress, not motion, toward the next waypoint. Stuck: jump (a vault over a low wall or through a window when
+	## there is one), open a door that is in the way, back off and sidestep, then tell the team the cell is blocked
+	## (the walk grid closes it the second time) and search again; give up on the goal after that.
+	if _wp_key != target:
+		_wp_key = target
+		_best_wp = INF
+		_no_prog = 0.0
+	if dist < _best_wp - 0.15:
+		_best_wp = dist
+		_no_prog = maxf(_no_prog - dt * 2.0, 0.0)
+	else:
+		_no_prog += dt
+	_stuck_t = _no_prog
+	if _unstick_t > 0.0:
+		_unstick_t -= dt
+		cmd.my = -0.6
+		cmd.mx = _unstick_dir
+		cmd.btn &= ~Motor.B_SPRINT
+		return
+	if _no_prog > 0.7 and _vault_cd <= 0.0:
+		_vault_cd = 1.6
+		match _ahead():
+			"low", "":
+				# A vault or a hop, only where the walk grid has open ground beyond (not onto a parapet or a wall top).
+				var fwd0 := -Basis(Vector3.UP, yaw).z
+				if nav.walkable_at(ch.global_position + fwd0 * 1.6):
+					cmd.btn |= Motor.B_JUMP
+			"char":
+				_unstick_t = 0.5           # a teammate in the way: step round, do not hop on them
+				_unstick_dir = 1.0 if (ch.eid % 2) == 0 else -1.0
+	if _no_prog > 1.1:
+		var t: Dictionary = world.interaction.target(ch, cmd)
+		if not t.is_empty() and str(t.kind) == "door" and absf(t.obj.target) < 0.05 and not t.obj.locked:
+			cmd.btn |= Motor.B_USE
+	if _no_prog > 1.6 and _no_prog < 1.7:
+		_unstick_t = 0.6
+		_unstick_dir = 1.0 if rng.randf() < 0.5 else -1.0
+	if _no_prog > 3.2:
+		var fwd := -Basis(Vector3.UP, yaw).z
+		if _ahead() in ["wall", "low"]:
+			BotTeam.note_stuck(nav, ch.global_position + fwd * 1.2, ch.eid)
+		_no_prog = 0.0
+		_best_wp = INF
+		_stuck_hits += 1
+		if _stuck_hits >= 3:
+			_stuck_hits = 0
+			goal = Vector3.INF
+			_obj = Vector3.INF
+			_obj_t = 0.0
+		elif goal != Vector3.INF:
+			_set_goal(goal)
+
+
+var _stuck_hits := 0
+
+
+func _ahead() -> String:
+	## What is in front at knee and chest height within a metre: "low" (an obstacle to vault or hop), "wall", "char"
+	## (a person), or "" (nothing: stuck on something else).
+	var space: PhysicsDirectSpaceState3D = world.get_world_3d().direct_space_state
+	var fwd := -Basis(Vector3.UP, yaw).z
+	var base = ch.global_position
+	var hits := []
+	for h in [0.45, 1.25]:
+		var q := PhysicsRayQueryParameters3D.create(base + Vector3.UP * h, base + Vector3.UP * h + fwd * 1.0, Defs.MOVE_MASK | Defs.PHYS_CHAR)
+		q.exclude = [ch.get_rid()]
+		hits.append(space.intersect_ray(q))
+	for r in hits:
+		if not (r as Dictionary).is_empty() and (r.collider is Character):
+			return "char"
+	if not (hits[0] as Dictionary).is_empty() and (hits[1] as Dictionary).is_empty():
+		# Something to vault, unless the far side is a canal or a long drop (bridge parapets, canal walls).
+		var L = world.map.layout
+		for k in [1.4, 2.4]:
+			var q = base + fwd * k
+			if L.is_water(q.x, q.z) and _deep_at(q):
+				return "wall"
+			var dq := PhysicsRayQueryParameters3D.create(q + Vector3.UP * 1.5, q + Vector3.DOWN * 3.0, Defs.MOVE_MASK)
+			var dr := space.intersect_ray(dq)
+			if dr.is_empty() or (dr.position as Vector3).y < base.y - 1.6:
+				return "wall"
+		return "low"
+	if not (hits[1] as Dictionary).is_empty():
+		return "wall"
+	return ""
 
 
 func _plan_step(cmd: Dictionary, dt: float) -> void:
@@ -531,6 +940,26 @@ func _plan_step(cmd: Dictionary, dt: float) -> void:
 	var arrived = flat.length() < reach and (not step.nav or path_i >= path.size())
 	if step.has("search") and flat.length() < 1.3:
 		arrived = true
+	if step.has("close") and (arrived or flat.length() < 1.0):
+		# Shut the door behind: turn to it, one press while it stands open.
+		var dn0 = world.map.dyn.doors[int(step.close)].get("node")
+		if dn0 and _step_t < 3.0 and absf(dn0.target) > 0.05 and ch.eye_position().distance_to(dn0.center()) < 2.4:
+			var tv0: Vector3 = dn0.center() - ch.eye_position()
+			cmd.yaw = atan2(-tv0.x, -tv0.z)
+			cmd.pitch = atan2(tv0.y, Vector2(tv0.x, tv0.z).length())
+			if fmod(_step_t, 1.2) < 0.1:
+				cmd.btn |= Motor.B_USE
+			return
+		arrived = true
+	if step.has("camp") and (arrived or _step_t > 6.0):
+		plan_i = plan.size()
+		state = "camp"
+		_hold_t = rng.randf_range(35.0, 80.0) * (0.5 + patience)
+		_look_at = step.get("face", Vector3.INF)
+		var fv: Vector3 = (_look_at - ch.global_position) if _look_at != Vector3.INF else -Basis(Vector3.UP, yaw).z
+		_hold_base_yaw = atan2(-fv.x, -fv.z)
+		say("inside")
+		return
 	if arrived or _step_t > (40.0 if step.nav else 9.0):
 		if arrived and step.has("search"):
 			if not _search(cmd, int(step.search)):
@@ -596,7 +1025,7 @@ func _plan_step(cmd: Dictionary, dt: float) -> void:
 	_stuck_t = _no_progress
 	if _no_progress > 1.0:
 		cmd.mx = 1.0 if int(_no_progress * 1.5) % 2 == 0 else -1.0
-		if rng.randf() < 0.08:
+		if rng.randf() < 0.08 and _ahead() in ["low", ""]:
 			cmd.btn |= Motor.B_JUMP
 	if _no_progress > 4.0:
 		_step_t = 999.0
@@ -669,10 +1098,12 @@ func _upkeep(cmd: Dictionary, dt: float) -> void:
 	if _scan_t > 0.0 or _detour >= 0:
 		return
 	_scan_t = 0.8
+	# Deathmatch: only a short look around for what is clearly worth it (rounds when low, a much better gun).
+	var min_v := 0.6 if not dm else (2.0 if not LootSense.armed_ok(ch) else 3.5)
 	var eye: Vector3 = ch.eye_position()
 	var zone: int = world.map.acoustics.zone_at(ch.global_position + Vector3.UP * 0.5)
 	var best := -1
-	var bv := 0.6
+	var bv := min_v
 	var near: Array = world.map.dyn.items_near(ch.global_position, 7.0)
 	var why := {"near": near.size(), "skip": 0, "height": 0, "zone": 0, "value": 0}
 	for id in near:
@@ -731,8 +1162,8 @@ func _detour_step(cmd: Dictionary, dt: float) -> void:
 	cmd.btn |= Motor.B_WALK
 	var moved = ch.global_position.distance_to(_last_pos)
 	_last_pos = ch.global_position
-	if moved < 0.3 * dt and _detour_t > 1.5:
-		cmd.btn |= Motor.B_JUMP if rng.randf() < 0.1 else 0
+	if moved < 0.3 * dt and _detour_t > 1.5 and rng.randf() < 0.1 and _ahead() in ["low", ""]:
+		cmd.btn |= Motor.B_JUMP
 
 
 func _pick_fetch() -> bool:
@@ -885,16 +1316,35 @@ func _fight(cmd: Dictionary, dt: float) -> void:
 		cmd.btn |= Motor.B_AIM
 	if ch.wpn.loaded() == 0:
 		cmd.btn |= Motor.B_RELOAD
+		if ch.wpn.state == 0:
+			say("reloading")
 	elif reaction <= 0.0 and absf(wrapf(want_yaw - yaw, -PI, PI)) < 0.12:
 		_fire_hold -= dt
 		if _fire_hold < 0.0:
 			_fire_hold = rng.randf_range(0.2, 0.5)
 		if _fire_hold > 0.1 or ch.wpn.fire_mode() != "auto":
 			cmd.btn |= Motor.B_FIRE if rng.randf() < 0.85 else 0
-	# Strafe a little while shooting.
-	cmd.mx = sin(Time.get_ticks_msec() * 0.002 + ch.eid) * 0.8
-	if d > 30.0:
-		cmd.my = 0.6
+	# Footwork by temperament: rushers close in, snipers and campers keep still (crouched at range), the rest strafe.
+	match role:
+		"rusher":
+			cmd.mx = sin(Time.get_ticks_msec() * 0.003 + ch.eid) * 1.0
+			cmd.my = 1.0 if d > 7.0 else 0.0
+		"sniper":
+			cmd.mx = 0.0
+			cmd.my = 0.0
+			if d > 30.0:
+				cmd.btn |= Motor.B_CROUCH
+		"looter":
+			cmd.mx = sin(Time.get_ticks_msec() * 0.0015 + ch.eid) * 0.5
+			if state == "fight" and _hold_t > 0.0:
+				cmd.btn |= Motor.B_CROUCH if d > 12.0 else 0
+		_:
+			cmd.mx = sin(Time.get_ticks_msec() * 0.002 + ch.eid) * 0.8
+			if d > 30.0:
+				cmd.my = 0.6
+	# Hurt and empty: back away while reloading (not the fearless).
+	if role != "rusher" and (ch.wpn.state != 0 or ch.health.health < 35.0) and d < 25.0:
+		cmd.my = -0.7
 
 
 func _lights(cmd: Dictionary) -> void:
@@ -903,3 +1353,494 @@ func _lights(cmd: Dictionary) -> void:
 	var want = indoor and state in ["loot", "roam"] and ch.light.charge() > 0.1
 	if want != ch.light.on and rng.randf() < 0.05:
 		cmd.btn |= Motor.B_LIGHT  # a tap toggles (pressed this tick, released next)
+
+
+# ------------------------------------------------------------------ r10: roles
+
+func _exiting() -> bool:
+	return state == "loot" and plan_i < plan.size() and bool(plan[-1].get("exit", false))
+
+
+func _leave_house() -> bool:
+	## Indoors with a door to leave by: walk out through it (a short plan) before anything that needs the walk grid.
+	if _house_exit.size() != 2 or _exiting():
+		return false
+	if world.map.acoustics.zone_at(ch.global_position + Vector3.UP * 0.5) == 0:
+		_house_exit = []
+		return false
+	plan = [{"p": _house_exit[0], "nav": false}, {"p": _house_exit[1], "nav": false, "exit": true}]
+	_house_exit = []
+	plan_i = 0
+	_step_t = 0.0
+	_best_d = INF
+	_no_progress = 0.0
+	state = "loot"
+	return true
+
+
+func _leads() -> bool:
+	## Talks for its group: alone, or the leader of its squad.
+	var s: Dictionary = BotTeam.squads.get(squad_id, {})
+	return s.is_empty() or int(s.leader) == ch.eid
+
+
+func _leader():
+	## The character this bot follows (its squad leader, or the human it joined), or null.
+	if squad_id < 0:
+		return null
+	var s: Dictionary = BotTeam.squads.get(squad_id, {})
+	if s.is_empty():
+		squad_id = -1
+		return null
+	var le := int(s.leader)
+	if le == ch.eid or le < 0:
+		return null
+	var c = world.characters.get(le)
+	if c == null or c.mode in [Motor.DEAD, Motor.SPECTATE]:
+		BotTeam.leave_squad(ch.eid)
+		squad_id = -1
+		return null
+	if c.mode in [Motor.PLANE, Motor.FREEFALL, Motor.CHUTE]:
+		return null
+	return c
+
+
+func _social(dt: float) -> void:
+	_social_t -= dt
+	if _social_t > 0.0:
+		return
+	_social_t = 1.0
+	BotTeam.ensure_spots(nav)
+	if ch.mode != Motor.GROUND or (dm and _dm_hold > 0.0):
+		return
+	BotTeam.form_squads(ch.team, rng)
+	# Join a human teammate close by (once per match, at most two bots each).
+	if not _decided_human and squad_id < 0:
+		for o in world.characters.values():
+			if o.team != ch.team or Net.is_bot(o.pid) or o.mode != Motor.GROUND:
+				continue
+			if o.global_position.distance_to(ch.global_position) > 30.0:
+				continue
+			_decided_human = true
+			var want: float = {"looter": 0.25, "rusher": 0.4, "sniper": 0.1, "stalker": 0.45}.get(role, 0.3)
+			if BotTeam.human_followers(o.eid) < 2 and rng.randf() < want:
+				BotTeam.follow_human(ch.eid, o.eid)
+				say("go_with", true)
+			break
+	# Time spent unhurt in a held spot: it is safe.
+	if state in ["camp", "overwatch"]:
+		_safe_t += 1.0
+		if _safe_t >= 20.0 and Time.get_ticks_msec() / 1000.0 - _hit_t > 20.0:
+			_safe_t = 0.0
+			BotTeam.mark(ch.global_position, "safe", 0.5)
+
+
+func _role_objective() -> void:
+	_obj_t -= 0.25
+	match role:
+		"looter":
+			if state == "camp" and _hold_t > 0.0:
+				return
+			if state == "camp":
+				# Done holding: out of the door and on to the next house.
+				state = "roam"
+			if state == "roam" and goal != Vector3.INF and _obj_t > 0.0:
+				return
+			_pick_loot_goal()
+			_obj_t = 8.0
+		"sniper":
+			if state == "overwatch" and _hold_t > 0.0:
+				return
+			if state == "hunt" and goal != Vector3.INF and _obj_t > 0.0:
+				return
+			if state == "roam" and _obj != Vector3.INF and goal == Vector3.INF and ch.global_position.distance_to(_obj) < 4.0:
+				_start_hold("overwatch", rng.randf_range(40.0, 80.0) * (0.5 + patience))
+				return
+			if state == "roam" and goal != Vector3.INF and _obj_t > 0.0:
+				return
+			var sp := _pick_spot("snipe")
+			if sp < 0:
+				sp = _pick_spot("cover")
+			if sp >= 0:
+				var s: Dictionary = BotTeam.spots[sp]
+				_obj = s.p
+				_look_at = (s.p as Vector3) + Vector3((s.dir as Vector2).x, 0, (s.dir as Vector2).y) * 40.0
+				_set_goal(_obj)
+				state = "roam"
+				_obj_t = 25.0
+				if _leads() and Time.get_ticks_msec() - _chat_t > 60000:
+					_chat_t = Time.get_ticks_msec()
+					say("sniping")
+			else:
+				_hunt_target(false)
+		"rusher":
+			if state == "hunt" and goal != Vector3.INF and _obj_t > 0.0:
+				return
+			_hunt_target(true)
+		"stalker":
+			if state == "hunt" and goal != Vector3.INF and _obj_t > 0.0:
+				return
+			_hunt_target(false)
+
+
+func _intel() -> Vector3:
+	var it: Dictionary = team_intel.get("%d:%d" % [Game.match_seed, ch.team], {})
+	if not it.is_empty() and Time.get_ticks_msec() - int(it.t) < 30000:
+		return it.p
+	return Vector3.INF
+
+
+func _hunt_target(open: bool) -> void:
+	## Somewhere enemies are likely: the freshest sighting, else the enemy's side (Deathmatch, early), else toward the
+	## middle of the next circle, by a way of this bot's own (rushers straight across the open, stalkers by the cover
+	## waypoint closest to the line, off to one side).
+	var tgt := _intel()
+	var zone: Dictionary = world.match_info.get("zone", {})
+	var circ: Array = world.zone_circle(float(Net.tick))
+	var c1: Vector2 = zone.get("c1", circ[0])
+	if tgt == Vector3.INF:
+		if dm and world.match_server and not world.match_server.spawn_info.is_empty() and int(zone.get("i", 0)) <= 1:
+			var other: Dictionary = world.match_server.spawn_info.get(1 - ch.team, {})
+			if not other.is_empty():
+				tgt = (other.anchor as Vector3).lerp(Vector3(c1.x, 0, c1.y), rng.randf_range(0.2, 0.6))
+		if tgt == Vector3.INF:
+			# Somewhere in the circle this bot has not been: its own random bearing.
+			var r := float(zone.get("r1", circ[1])) * 0.6
+			var a := rng.randf() * TAU
+			tgt = Vector3(c1.x + cos(a) * r * rng.randf(), 0, c1.y + sin(a) * r * rng.randf())
+	tgt += _dm_offset
+	_obj = _inside_zone(tgt)
+	var via := _obj
+	if not open:
+		# A cover waypoint part way there, to one side of the straight line (a flank).
+		var me = ch.global_position
+		var mid = me.lerp(_obj, 0.55)
+		var side := Vector3(-(_obj - me).z, 0, (_obj - me).x).normalized() * rng.randf_range(-14.0, 14.0)
+		var best := -1
+		var bs := -INF
+		for i in BotTeam.spots_near(mid + side, 30.0):
+			var s: Dictionary = BotTeam.spots[i]
+			if str(s.kind) == "open":
+				continue
+			var l: Array = BotTeam.lesson(s.p)
+			var sc: float = float(s.cover) - (s.p as Vector3).distance_to(mid + side) * 0.08 - float(l[3]) * 0.8 + float(l[2]) * 0.3
+			if sc > bs:
+				bs = sc
+				best = i
+		if best >= 0 and me.distance_to(_obj) > 25.0:
+			via = BotTeam.spots[best].p
+	_set_goal(via)
+	state = "hunt"
+	_obj_t = rng.randf_range(8.0, 14.0)
+	if _leads() and Time.get_ticks_msec() - _chat_t > 60000 and rng.randf() < 0.5:
+		_chat_t = Time.get_ticks_msec()
+		say("hunting" if open else "sneaking")
+
+
+func _pick_spot(kind: String) -> int:
+	## The best waypoint of a kind within reach, inside the circle, scored by what the team has learned (good and
+	## sniping spots up, places where bots died down) and by distance.
+	if BotTeam.spots.is_empty():
+		return -1
+	var me = ch.global_position
+	var best := -1
+	var bs := -INF
+	for i in BotTeam.spots_near(me, 140.0):
+		var s: Dictionary = BotTeam.spots[i]
+		if str(s.kind) != kind:
+			continue
+		var p: Vector3 = s.p
+		if _inside_zone(p).distance_to(p) > 1.0:
+			continue
+		var l: Array = BotTeam.lesson(p)
+		var sc = float(s.sight) * 0.05 + float(s.cover) * 0.6 + float(l[0]) * 1.5 + float(l[1]) * (3.0 if role == "sniper" else 0.5) \
+			+ float(l[2]) * 0.4 - float(l[3]) * 1.2 - me.distance_to(p) * 0.03 + rng.randf_range(0.0, 2.5)
+		if sc > bs:
+			bs = sc
+			best = i
+	return best
+
+
+func _start_hold(kind: String, secs: float) -> void:
+	state = kind
+	_hold_t = secs
+	goal = Vector3.INF
+	var fv: Vector3 = (_look_at - ch.global_position) if _look_at != Vector3.INF else -Basis(Vector3.UP, yaw).z
+	_hold_base_yaw = atan2(-fv.x, -fv.z)
+	_safe_t = 0.0
+
+
+func _hold_step(cmd: Dictionary, dt: float) -> void:
+	## Camping a room or watching from a sniping spot: still, scanning a sector, scope up now and then.
+	_hold_t -= dt
+	cmd.my = 0.0
+	cmd.mx = 0.0
+	if _look_at != Vector3.INF:
+		var fv = _look_at - ch.eye_position()
+		_hold_base_yaw = lerp_angle(_hold_base_yaw, atan2(-fv.x, -fv.z), 0.08)
+	var sweep := (0.35 if state == "overwatch" else 0.6) * sin(Time.get_ticks_msec() * 0.00045 + ch.eid)
+	cmd.yaw = lerp_angle(yaw, _hold_base_yaw + sweep, 0.06)
+	cmd.pitch = lerpf(pitch, -0.03, 0.05)
+	if state == "overwatch":
+		if ch.wpn.zoom() > 1.4 or fmod(Time.get_ticks_msec() / 1000.0 + ch.eid, 9.0) < 4.0:
+			cmd.btn |= Motor.B_AIM
+		cmd.btn |= Motor.B_CROUCH
+	elif fmod(Time.get_ticks_msec() / 1000.0 + ch.eid * 0.37, 14.0) < 6.0:
+		cmd.btn |= Motor.B_CROUCH
+	# Shot at while holding: a sniper moves on, a camper turns to face it.
+	if Time.get_ticks_msec() / 1000.0 - _hit_t < 1.0 and state == "overwatch":
+		_hold_t = 0.0
+		_obj = Vector3.INF
+	if _hold_t <= 0.0:
+		_look_at = Vector3.INF
+		if state == "camp":
+			# Walk back out of the house.
+			state = "roam"
+			goal = Vector3.INF
+		else:
+			state = "roam"
+			_obj = Vector3.INF
+			_obj_t = 0.0
+
+
+func _follow_step(cmd: Dictionary, dt: float) -> void:
+	## Behind and to one side of the leader, matching its pace; when it stops, cover a different angle.
+	var le = _leader()
+	if le == null:
+		state = "roam"
+		return
+	var lp: Vector3 = le.global_position
+	var lb := Basis(Vector3.UP, le.yaw)
+	var spot := lp + lb * _follow_off
+	var d = ch.global_position.distance_to(lp)
+	if d > 80.0:
+		_follow_far_t += dt
+		if _follow_far_t > 20.0:
+			say("lost_you", true)
+			BotTeam.leave_squad(ch.eid)
+			squad_id = -1
+			state = "roam"
+			return
+	else:
+		_follow_far_t = 0.0
+	_follow_goal_t -= dt
+	if ch.global_position.distance_to(spot) > 3.0:
+		if _follow_goal_t <= 0.0 or goal == Vector3.INF or (goal as Vector3).distance_to(spot) > 4.0:
+			_follow_goal_t = 2.0
+			_set_goal(spot)
+		_move(cmd, dt, false)
+		if d > 12.0 or (le.flags & Character.F_SPRINT) != 0:
+			cmd.btn |= Motor.B_SPRINT
+		elif (le.flags & Character.F_WALK) != 0:
+			cmd.btn |= Motor.B_WALK
+		if (le.flags & Character.F_CROUCH) != 0:
+			cmd.btn |= Motor.B_CROUCH
+	else:
+		goal = Vector3.INF
+		var face = le.yaw + (0.9 if _follow_off.x > 0.0 else -0.9)
+		if _look_at != Vector3.INF:
+			var fv = _look_at - ch.eye_position()
+			face = atan2(-fv.x, -fv.z)
+		cmd.yaw = lerp_angle(yaw, face, 0.08)
+		cmd.pitch = lerpf(pitch, 0.0, 0.1)
+		if (le.flags & Character.F_CROUCH) != 0:
+			cmd.btn |= Motor.B_CROUCH
+
+
+func _haze() -> Dictionary:
+	## {go, urgent, p}: whether to leave for the next circle now. Knows when the haze starts closing and how fast its
+	## edge moves; leaves when the run (at a sprint, a third longer for the streets) plus a margin would not beat it.
+	var zone: Dictionary = world.match_info.get("zone", {})
+	var circ: Array = world.zone_circle(float(Net.tick))
+	var p2 := Vector2(ch.global_position.x, ch.global_position.z)
+	var c_now: Vector2 = circ[0]
+	var r_now := float(circ[1])
+	var inside_now := p2.distance_to(c_now) < r_now * 0.97
+	var known := not zone.is_empty() and int(zone.get("i", -1)) >= 0
+	var c1: Vector2 = zone.get("c1", c_now) if known else c_now
+	var r1 := float(zone.get("r1", r_now)) if known else r_now
+	var to_safe := maxf(p2.distance_to(c1) - r1 * 0.8, 0.0)
+	var target := c1 + (p2 - c1).limit_length(r1 * 0.55) + Vector2(_dm_offset.x, _dm_offset.z)
+	var out := {"go": false, "urgent": false, "p": Vector3(target.x, ch.global_position.y, target.y)}
+	if not inside_now:
+		out.go = true
+		out.urgent = true
+		return out
+	if to_safe <= 0.0:
+		return out
+	# When the closing circle (its centre moving while its radius shrinks) first leaves this spot behind.
+	var now := float(Net.tick)
+	var t_left := 9999.0
+	var st := str(zone.get("state", ""))
+	if st == "wait" or st == "shrink":
+		var t_start: float = maxf((float(zone.get("t1", now)) - now) / Defs.TICK_RATE, 0.0) if st == "wait" else 0.0
+		var rem: float = maxf(float(zone.get("shrink_s", 60.0)), 1.0) if st == "wait" else maxf((float(zone.get("t1", now)) - now) / Defs.TICK_RATE, 0.0)
+		for k in range(1, 21):
+			var f := k / 20.0
+			if p2.distance_to(c_now.lerp(c1, f)) > lerpf(r_now, r1, f):
+				t_left = t_start + rem * f
+				break
+	# Streets, bridges and walls make the run longer than the straight line; patience costs a margin, not a life.
+	var need := to_safe / 5.2 * 1.7
+	var margin := lerpf(45.0, 10.0, clampf(patience, 0.0, 1.0)) * 0.5 + 15.0
+	if world.map.acoustics.zone_at(ch.global_position + Vector3.UP * 0.5) != 0:
+		margin += 20.0   # out of the house first, by the door it came in
+	if need + margin > t_left:
+		out.go = true
+	return out
+
+
+func _ping_step() -> bool:
+	## Acting on a teammate's ping (on_team_ping chose how): true while that is what this bot is doing.
+	var age := Time.get_ticks_msec() / 1000.0 - float(_ping.t)
+	var p: Vector3 = _ping.p
+	if age > 30.0:
+		_ping = {}
+		return false
+	match str(_ping.how):
+		"go", "flank":
+			if ch.global_position.distance_to(p) < 6.0:
+				_ping = {}
+				_look_at = Vector3.INF
+				return false
+			if state != "hunt" or _obj.distance_to(p) > 1.0 or goal == Vector3.INF:
+				_obj = p
+				var via := p
+				if str(_ping.how) == "flank" and ch.global_position.distance_to(p) > 25.0:
+					var me = ch.global_position
+					via = me.lerp(p, 0.6) + Vector3(-(p - me).z, 0, (p - me).x).normalized() * rng.randf_range(10.0, 16.0) * (1.0 if ch.eid % 2 == 0 else -1.0)
+				_set_goal(via)
+				state = "hunt"
+				_obj_t = 12.0
+			return true
+		"watch":
+			_look_at = p
+			if state == "overwatch":
+				return true
+			if state == "roam" and goal != Vector3.INF:
+				return true
+			# A spot with cover and a view of the ping; else right here.
+			var best := -1
+			var bs := -INF
+			for i in BotTeam.spots_near(p, 110.0):
+				var s: Dictionary = BotTeam.spots[i]
+				var dd := (s.p as Vector3).distance_to(p)
+				if dd < 25.0 or str(s.kind) == "open":
+					continue
+				var sc: float = float(s.cover) + float(s.sight) * 0.02 - (s.p as Vector3).distance_to(ch.global_position) * 0.04
+				if sc > bs:
+					bs = sc
+					best = i
+			if best >= 0 and (BotTeam.spots[best].p as Vector3).distance_to(ch.global_position) > 5.0:
+				_obj = BotTeam.spots[best].p
+				_set_goal(_obj)
+				state = "roam"
+				_obj_t = 30.0
+			else:
+				_start_hold("overwatch", 30.0)
+			_ping.how = "watching"
+			return true
+		"watching":
+			if state == "roam" and goal == Vector3.INF:
+				_start_hold("overwatch", 30.0)
+			return state in ["roam", "overwatch"]
+		"look":
+			_look_at = p
+			if state in ["camp", "overwatch"]:
+				return false
+			_start_hold("camp", 6.0)
+			_ping = {}
+			return true
+	return false
+
+
+# ------------------------------------------------------------------ r10: events
+
+func on_team_ping(pos: Vector3, from) -> void:
+	## A teammate pinged a spot. Each bot answers by temperament; the human it follows is always answered.
+	if ch.mode != Motor.GROUND:
+		return
+	BotTeam.stats.pings += 1
+	var follows_pinger := squad_id >= 0 and int(BotTeam.squads.get(squad_id, {}).get("leader", -1)) == int(from.eid)
+	var d = ch.global_position.distance_to(pos)
+	var how := ""
+	if follows_pinger:
+		how = "go" if role != "sniper" else "watch"
+	else:
+		match role:
+			"rusher":
+				how = "go" if rng.randf() < 0.85 else ""
+			"stalker":
+				how = "flank" if rng.randf() < 0.75 else ""
+			"sniper":
+				how = "watch" if rng.randf() < 0.75 else ""
+			"looter":
+				how = "look" if (state == "camp" or d > 60.0) else ("go" if rng.randf() < 0.45 else "look")
+	if how == "":
+		return
+	_ping = {"p": pos, "t": Time.get_ticks_msec() / 1000.0, "how": how}
+	if how in ["go", "flank"]:
+		say("copy")
+	elif how == "watch":
+		say("watching")
+
+
+func on_laser(holder, origin: Vector3, dot: Vector3, dist: float) -> void:
+	## Saw a laser beam or its dot. An enemy's: maybe follow it back to whoever holds it. A teammate's: look there,
+	## and go if following that player.
+	if _laser_cd > 0.0 or ch.mode != Motor.GROUND:
+		return
+	_laser_cd = 2.5
+	if holder.team != ch.team:
+		var chance: float = {"stalker": 0.55, "rusher": 0.45, "sniper": 0.35, "looter": 0.2}.get(role, 0.3)
+		if ch.eye_position().distance_to(dot) < 3.0:
+			chance += 0.25   # the dot is on us
+		if rng.randf() < chance:
+			investigate = origin + Vector3(rng.randf_range(-4, 4), 0, rng.randf_range(-4, 4))
+			BotTeam.stats.laser_follow += 1
+			say("laser", true)
+			if state in ["camp", "overwatch"]:
+				_look_at = origin
+		else:
+			_look_at = dot
+		return
+	var follows := squad_id >= 0 and int(BotTeam.squads.get(squad_id, {}).get("leader", -1)) == int(holder.eid)
+	if follows and ch.global_position.distance_to(dot) > 5.0:
+		_ping = {"p": dot, "t": Time.get_ticks_msec() / 1000.0, "how": "go"}
+	else:
+		_look_at = dot
+
+
+func on_damaged(attacker: int) -> void:
+	_hit_t = Time.get_ticks_msec() / 1000.0
+	var a = world.characters.get(attacker)
+	if a == null or a == ch:
+		return
+	if target_eid < 0:
+		# Shot by someone unseen: toward where it came from, roughly.
+		investigate = (a.global_position as Vector3) + Vector3(rng.randf_range(-6, 6), 0, rng.randf_range(-6, 6))
+		_look_at = a.global_position
+		reaction = minf(reaction, 0.3)
+	say("taking_fire", true)
+
+
+func on_scored(victim, dist: float) -> void:
+	if rng.randf() < 0.6:
+		say("kill")
+	if dist > 45.0 and rng.randf() < 0.5:
+		say("good_spot")
+
+
+func say(line: String, priority: bool = false) -> void:
+	## A callout on the team radio (rate-limited per bot and per team so the radio does not turn into a chorus).
+	if not lines.has(line) or ch.mode in [Motor.DEAD, Motor.SPECTATE, Motor.PLANE]:
+		return
+	var now := Time.get_ticks_msec()
+	if now - _say_t < (2500 if priority else 9000):
+		return
+	if not BotTeam.can_talk(ch.team, priority):
+		return
+	_say_t = now
+	var k := rng.randi_range(0, (lines[line] as Array).size() - 1)
+	BotTeam.stats.lines += 1
+	world.server_bot_radio(ch, line, voice, k)

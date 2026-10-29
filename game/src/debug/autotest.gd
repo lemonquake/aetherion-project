@@ -55,6 +55,34 @@ func _run() -> void:
 		await preload("res://src/debug/autotest_r3.gd").new(self).run()
 		_finish()
 		return
+	if str(Game.arg("autotest", "")) == "r4":
+		await preload("res://src/debug/autotest_r4.gd").new(self).run()
+		_finish()
+		return
+	if str(Game.arg("autotest", "")) == "r5":
+		await preload("res://src/debug/autotest_r5.gd").new(self).run()
+		_finish()
+		return
+	if str(Game.arg("autotest", "")) == "r6":
+		await preload("res://src/debug/autotest_r6.gd").new(self).run()
+		_finish()
+		return
+	if str(Game.arg("autotest", "")) == "dm":
+		await preload("res://src/debug/autotest_dm.gd").new(self).run()
+		_finish()
+		return
+	if str(Game.arg("autotest", "")) == "r10":
+		await preload("res://src/debug/autotest_r10.gd").new(self).run()
+		_finish()
+		return
+	if str(Game.arg("autotest", "")) == "r8":
+		await preload("res://src/debug/autotest_r8.gd").new(self).run()
+		_finish()
+		return
+	if str(Game.arg("autotest", "")) == "mapscan":
+		await load("res://src/debug/autotest_map.gd").new(self).run()
+		_finish()
+		return
 	_volume_cap()
 	_quality_preset()
 	await _deploy()
@@ -1089,9 +1117,13 @@ func _perf_end() -> void:
 		row.p99 = sorted[mini(int(n * 0.99), n - 1)]
 		row.max = sorted[n - 1]
 		row.over_16ms = 0
+		row.over_33ms = 0
+		row.elapsed_s = total / 1000.0
 		for v in ft:
 			if v > 16.7:
 				row.over_16ms += 1
+			if v > 33.333:
+				row.over_33ms += 1
 		for k in ["cpu", "gpu", "proc", "phys", "draws", "objs", "prims"]:
 			var arr: Array = _perf_s[k]
 			var s := 0.0
@@ -1136,6 +1168,10 @@ func _perf_end() -> void:
 		if nav and int(nav.stats.searches) > 0:
 			print("[perf]   bot path searches (worker thread): %d, avg %.2f ms, max %.2f ms" % [nav.stats.searches,
 				float(nav.stats.ms_total) / int(nav.stats.searches), nav.stats.ms_max])
+	if str(Game.arg("perf_trace", "")) != "":
+		var trace := FileAccess.open(out_dir + "/frames_" + _perf_phase + ".json", FileAccess.WRITE)
+		if trace:
+			trace.store_string(JSON.stringify(_perf_s))
 	_perf_report.append(row)
 	_perf_phase = ""
 	_perf_spin = 0.0
@@ -1156,6 +1192,9 @@ func _perf_run() -> void:
 		str(get_window().size), int(Settings.get_value("graphics", "shadows")), str(Settings.get_value("graphics", "ssao")),
 		str(Settings.get_value("graphics", "volumetric_fog")), float(Settings.get_value("graphics", "render_scale"))])
 	await _wait(1.0)
+	if world.is_dm():
+		await _perf_run_dm()
+		return
 	ctl.pitch = -0.25
 	_perf_begin("plane", 0.35)
 	await _until(func(): return (Net.tick - int(world.match_server.plane.t0)) > int((float(world.match_server.plane.open_s) + 1.0) * Defs.TICK_RATE), 60.0)
@@ -1229,6 +1268,62 @@ func _perf_run() -> void:
 	if Game.arg("attrib"):
 		await _perf_attrib(_perf_open_spot(Vector2(300, -24) * k), Vector2(300, -24) * k)
 		await _perf_attrib_air()
+	var f := FileAccess.open(out_dir + "/perf.json", FileAccess.WRITE)
+	if f:
+		f.store_string(JSON.stringify(_perf_report, "  "))
+	var worst := 0.0
+	for row in _perf_report:
+		worst = maxf(worst, float(row.get("avg_ms", 0.0)))
+	_check("perf_recorded", _perf_report.size() >= 5, "%d phases, worst average %.2f ms" % [_perf_report.size(), worst])
+
+
+func _perf_run_dm() -> void:
+	## Deathmatch (Lawless Sub): no plane. The spawn with the team around, then the busy places of the map, a room
+	## with the flashlight on, and two spots under the artificial sun.
+	var duration := clampf(float(Game.arg("perf_phase_seconds", "8.0")), 6.0, 60.0)
+	ctl.pitch = 0.0
+	_perf_begin("dm_spawn", TAU / duration)
+	await _wait(duration)
+	_perf_end()
+	var spots := [["dm_intersection", Vector2(-8, 8)], ["dm_houses", Vector2(30, -40)], ["dm_mart_lot", Vector2(-80, 140)],
+		["dm_factory_yard", Vector2(140, 135)], ["dm_canal_row", Vector2(-28, -120)]]
+	for spot in spots:
+		var p := _perf_open_spot(spot[1] as Vector2)
+		_teleport(Vector3(p.x, float(world.map.layout.surface_y(p)) + 0.3, p.y), 0.0)
+		await _wait(1.5)
+		_perf_begin(spot[0], TAU / duration)
+		await _wait(duration)
+		_perf_end()
+	var r := _pick_room()
+	if not r.is_empty():
+		_teleport((r.xf as Transform3D).origin + Vector3.UP * 0.15, 0.0)
+		if not ch.light.on:
+			await _tap("flashlight")
+		await _wait(1.5)
+		_perf_begin("dm_indoor_light", TAU / duration)
+		await _wait(duration)
+		_perf_end()
+	world.map.lighting.forced_time = 450.0
+	for spot in [["dm_intersection_day", Vector2(-8, 8)], ["dm_houses_day", Vector2(30, -40)]]:
+		var p2 := _perf_open_spot(spot[1] as Vector2)
+		_teleport(Vector3(p2.x, float(world.map.layout.surface_y(p2)) + 0.3, p2.y), 0.0)
+		await _wait(1.5)
+		_perf_begin(spot[0], TAU / duration)
+		await _wait(duration)
+		_perf_end()
+	# Include actual automatic fire, impacts, casings and a reload in the
+	# representative window rather than measuring only camera pans.
+	ctl.yaw = -PI * 0.5
+	ctl.pitch = -0.08
+	await _wait(1.0)
+	_perf_begin("dm_auto_fire")
+	_act_press("fire")
+	await _wait(duration * 0.45)
+	_act_release("fire")
+	await _tap("reload")
+	await _wait(duration * 0.55)
+	_perf_end()
+	world.map.lighting.forced_time = -1.0
 	var f := FileAccess.open(out_dir + "/perf.json", FileAccess.WRITE)
 	if f:
 		f.store_string(JSON.stringify(_perf_report, "  "))

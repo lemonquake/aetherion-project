@@ -31,8 +31,10 @@ var controller = null
 var projectiles = null
 var match_server = null
 var effects = null
+var lasers = null                # fx/lasers.gd (every peer with a screen)
 var hud = null
 var ambience = null
+var announcer = null
 var interaction = null
 var grenades = null
 var bots: Dictionary = {}        # eid -> BotBrain
@@ -69,13 +71,15 @@ func build(config: Dictionary, seed_value: int) -> void:
 	dyn_root.name = "Dynamic"
 	add_child(dyn_root)
 	var t0 := Time.get_ticks_msec()
-	map = MapBuilder.new()
-	map.build(self, int(cfg.get("map_seed", 1729)), match_seed)
+	map = _new_map_builder(str(cfg.get("map", "kalinaw")))
+	map.build(self, int(cfg.get("map_seed", 1729)), match_seed, {"map": str(cfg.get("map", "kalinaw"))})
 	print("[world] map built in %d ms" % (Time.get_ticks_msec() - t0))
 	map.acoustics.space = get_world_3d().direct_space_state
 	SoundSys.set_acoustics(map.acoustics)
 	if DisplayServer.get_name() != "headless":
+		Game.load_progress(0.94, "Tuning the radios")
 		SoundSys.warm()
+		Game.load_progress(0.95, "Warming up the shaders")
 		map.warm_up(self)
 	interaction = Interaction.new(self)
 	grenades = preload("res://src/weapons/grenades.gd").new()
@@ -86,6 +90,9 @@ func build(config: Dictionary, seed_value: int) -> void:
 		effects.name = "Effects"
 		add_child(effects)
 		effects.setup(self)
+		lasers = preload("res://src/fx/lasers.gd").new()
+		add_child(lasers)
+		lasers.setup(self)
 		ambience = load("res://src/audio/ambience.gd").new()
 		ambience.name = "Ambience"
 		add_child(ambience)
@@ -94,12 +101,33 @@ func build(config: Dictionary, seed_value: int) -> void:
 		hud.name = "Hud"
 		Game.ui.add_child(hud)
 		hud.setup(self)
+		announcer = preload("res://src/audio/announcer.gd").new()
+		announcer.name = "Announcer"
+		add_child(announcer)
+		announcer.setup(self)
 	if is_server:
 		projectiles = ProjectileServer.new(self)
 		match_server = MatchServer.new()
 		match_server.name = "MatchServer"
 		add_child(match_server)
 		match_server.setup(self)
+
+
+func _new_map_builder(map_id: String):
+	## r7: maps.gd (another component) picks the builder for a map id; without it every map is Sitio Kalinaw.
+	const MAPS := "res://src/world/maps/maps.gd"
+	if ResourceLoader.exists(MAPS):
+		var maps = load(MAPS)
+		if maps != null:
+			var b = maps.create(map_id)
+			if b != null:
+				print("[world] map %s via maps.gd" % map_id)
+				return b
+	return MapBuilder.new()
+
+
+func is_dm() -> bool:
+	return str(cfg.get("game_mode", "classic")) == "deathmatch"
 
 
 func teardown() -> void:
@@ -119,6 +147,7 @@ func server_start_match() -> void:
 
 func client_match_started() -> void:
 	_started = true
+	_ensure_spectator()
 
 
 func show_results(summary: Dictionary) -> void:
@@ -169,11 +198,11 @@ func team_of(eid: int) -> int:
 
 # ------------------------------------------------------------------ characters
 
-func server_spawn_character(pid: int, team: int, pname: String, pos: Vector3, mode: int) -> Character:
+func server_spawn_character(pid: int, team: int, pname: String, pos: Vector3, mode: int, yaw: float = 0.0) -> Character:
 	var eid := _next_eid
 	_next_eid += 1
-	var ch := _make_character(eid, pid, team, pname, pos, mode)
-	_spawn_char.rpc(eid, pid, team, pname, pos, mode)
+	var ch := _make_character(eid, pid, team, pname, pos, mode, yaw)
+	_spawn_char.rpc(eid, pid, team, pname, pos, mode, yaw)
 	if Net.is_bot(pid):
 		var brain = BotBrain.new(self, ch)
 		bots[eid] = brain
@@ -181,13 +210,13 @@ func server_spawn_character(pid: int, team: int, pname: String, pos: Vector3, mo
 
 
 @rpc("authority", "call_remote", "reliable")
-func _spawn_char(eid: int, pid: int, team: int, pname: String, pos: Vector3, mode: int) -> void:
+func _spawn_char(eid: int, pid: int, team: int, pname: String, pos: Vector3, mode: int, yaw: float = 0.0) -> void:
 	if characters.has(eid):
 		return
-	_make_character(eid, pid, team, pname, pos, mode)
+	_make_character(eid, pid, team, pname, pos, mode, yaw)
 
 
-func _make_character(eid: int, pid: int, team: int, pname: String, pos: Vector3, mode: int) -> Character:
+func _make_character(eid: int, pid: int, team: int, pname: String, pos: Vector3, mode: int, yaw: float = 0.0) -> Character:
 	var ch := Character.new()
 	ch.name = "C%d" % eid
 	ch.eid = eid
@@ -196,6 +225,7 @@ func _make_character(eid: int, pid: int, team: int, pname: String, pos: Vector3,
 	ch.pname = pname
 	ch.world = self
 	ch.mode = mode
+	ch.yaw = yaw
 	ch.wpn = WeaponState.new(ch)
 	ch.light = FlashlightState.new(ch)
 	ch.health = Health.new(ch)
@@ -216,17 +246,91 @@ func _make_character(eid: int, pid: int, team: int, pname: String, pos: Vector3,
 		var vis = CharacterVisual.new()
 		vis.name = "Visual"
 		ch.add_child(vis)
-		vis.setup(self, ch)
+		if is_dm():
+			# Deathmatch: everyone wears the plate carrier and the heavy-plate helmet, so it shows on the body.
+			var p: Dictionary = Net.players.get(pid, {})
+			var own_look = p.get("look", {})
+			var look: Dictionary = (own_look as Dictionary).duplicate() if own_look is Dictionary and not (own_look as Dictionary).is_empty() else Outfit.random_look(eid * 7919 + 17)
+			look.helmet = "combat"
+			if Net.players.has(pid):
+				Net.players[pid].look = look
+				vis.setup(self, ch)
+				Net.players[pid].look = own_look
+			else:
+				vis.setup(self, ch)
+			_dm_vest_visual(vis)
+		else:
+			vis.setup(self, ch)
 		ch.visual = vis
 	if ch.is_local:
 		local_char = ch
+		if controller and is_instance_valid(controller):
+			controller.queue_free()  # a spectator camera (late joiner) gives way to the player's own
 		controller = PlayerController.new()
 		controller.name = "PlayerController"
 		add_child(controller)
 		controller.setup(self, ch)
+		if is_dm():
+			controller.slot = 1  # spawn with the primary drawn
 		if hud:
 			hud.set_character(ch)
 	return ch
+
+
+static var _vest_scene: PackedScene = null
+const Outfit := preload("res://src/player/outfit.gd")
+
+
+func _dm_vest_visual(vis) -> void:
+	## The plate carrier's model strapped to the upper spine, scaled to the torso (drawn on the character layer, or
+	## the local-body layer on your own character).
+	var skel: Skeleton3D = vis.get("skel")
+	if skel == null:
+		return
+	const VEST := "res://assets/models/items/vest_heavy.glb"
+	if _vest_scene == null:
+		if not ResourceLoader.exists(VEST):
+			return
+		_vest_scene = load(VEST)
+	if _vest_scene == null:
+		return
+	var bone := -1
+	for nm in ["spine_03", "spine.003", "Spine2", "mixamorig:Spine2", "spine_02", "spine.002", "Spine1", "chest", "Chest"]:
+		bone = skel.find_bone(nm)
+		if bone >= 0:
+			break
+	if bone < 0:
+		for i in skel.get_bone_count():
+			var bn := skel.get_bone_name(i).to_lower()
+			if "spine" in bn or "chest" in bn:
+				bone = i
+	if bone < 0:
+		return
+	var att := BoneAttachment3D.new()
+	att.name = "DmVest"
+	skel.add_child(att)
+	att.bone_idx = bone
+	var vest: Node3D = _vest_scene.instantiate()
+	var holder := Node3D.new()
+	holder.name = "VestHolder"
+	att.add_child(holder)
+	holder.add_child(vest)
+	# On your own body it is on the local-body layer like the rest of you: shadow only, never in your own view
+	# (on the character layer, looking down showed the inside of the vest round the camera).
+	var own: bool = vis.ch != null and vis.ch.is_local
+	for mi in vest.find_children("*", "MeshInstance3D", true, false):
+		(mi as MeshInstance3D).layers = Defs.RENDER_LOCAL_BODY if own else Defs.RENDER_CHARACTERS
+		(mi as MeshInstance3D).cast_shadow = GeometryInstance3D.SHADOW_CASTING_SETTING_SHADOWS_ONLY if own else GeometryInstance3D.SHADOW_CASTING_SETTING_ON
+	# The processed model stands on its side: its height runs along -Z, the plate faces +X and its width runs
+	# along Y. Turn it upright facing the character's front (-Z), shrink it to a torso (0.66 m -> 0.5 m tall),
+	# and centre it on the chest: the rotation is taken against the bone's pose now, so the vest then follows the
+	# spine as it bends.
+	var upright := Basis(Vector3(0, 0, -1), Vector3(1, 0, 0), Vector3(0, -1, 0)).scaled(Vector3.ONE * 0.76)
+	var bone_g: Transform3D = skel.global_transform * skel.get_bone_global_pose(bone)
+	var vb: Basis = (vis as Node3D).global_transform.basis.orthonormalized()
+	var want := Transform3D(vb * upright, bone_g.origin + vb * Vector3(0, 0.04, -0.02))
+	holder.transform = bone_g.affine_inverse() * want
+	vis.set_meta("dm_vest", holder)
 
 
 func is_server_dedicated() -> bool:
@@ -235,6 +339,8 @@ func is_server_dedicated() -> bool:
 
 func server_set_mode(ch: Character, mode: int) -> void:
 	ch.mode = mode
+	if mode != Motor.GROUND:
+		ch.wpn.cancel_burst()
 	_char_mode.rpc(ch.eid, mode, ch.global_position, ch.velocity)
 
 
@@ -377,7 +483,7 @@ func _physics_process(dt: float) -> void:
 			if float(_starved[eid]) > 0.25:
 				# A real outage: keep moving with the last known stick input, no new presses.
 				var c: Dictionary = ch.last_cmd.duplicate() if not ch.last_cmd.is_empty() else {"seq": 0, "btn": 0, "mx": 0.0, "my": 0.0, "yaw": ch.yaw, "pitch": ch.pitch, "slot": ch.wpn.want, "view_tick": tick}
-				c.btn = int(c.get("btn", 0)) & (Motor.B_SPRINT | Motor.B_CROUCH | Motor.B_WALK | Motor.B_AIM | Motor.B_FIRE | Motor.B_TAB | Motor.B_LIGHT | Motor.B_USE)
+				c.btn = int(c.get("btn", 0)) & (Motor.B_SPRINT | Motor.B_CROUCH | Motor.B_WALK | Motor.B_AIM | Motor.B_FIRE | Motor.B_TAB | Motor.B_LIGHT | Motor.B_USE | Motor.B_LASER)
 				_server_apply(ch, c, dt, tick, true)
 			# else: a late packet; wait for it rather than invent a step the client never took.
 		else:
@@ -396,6 +502,12 @@ func _physics_process(dt: float) -> void:
 		if ch.mode != Motor.PLANE and _outside_world(ch):
 			_rescue(ch)
 		_record(ch, tick)
+	_laser_t -= dt
+	if _laser_t <= 0.0:
+		_laser_t = 0.25
+		for ch2 in characters.values():
+			if ch2.laser_on and ch2.mode == Motor.GROUND:
+				_laser_scan(ch2)
 	projectiles.step(dt, tick)
 	match_server.tick(dt)
 	_server_health(dt)
@@ -422,12 +534,13 @@ func _server_apply(ch: Character, cmd: Dictionary, dt: float, tick: int, synthet
 		ch.wpn.cancel_reload()
 	else:
 		ch.flags &= ~Character.F_TAB
-	ch.wpn.blocked = tab or ch.mode != Motor.GROUND or ch.water_depth() > 1.15 or ch.held_prop_id >= 0 \
+	ch.wpn.blocked = tab or (cmd.btn & Motor.B_ACTION_BLOCKED) != 0 or ch.mode != Motor.GROUND or ch.water_depth() > 1.15 or ch.held_prop_id >= 0 \
 		or ch.light.swapping() or not ch.health.treatment.is_empty() or ch.vault_t >= 0.0
 	if ch.light.swapping():
 		ch.flags |= Character.F_BUSY
 	else:
 		ch.flags &= ~Character.F_BUSY
+	ch.laser_on = (btn & Motor.B_LASER) != 0 and ch.mode == Motor.GROUND and not tab and ch.water_depth() < 1.15
 	ch.injury_speed = ch.health.leg_speed()
 	ch.carry_speed = ch.inv.speed_mult() * (Defs.move("carry_heavy_speed") / Defs.move("run_speed") if interaction.holding_heavy(ch) else 1.0)
 	ch.events.clear()
@@ -439,9 +552,10 @@ func _server_apply(ch: Character, cmd: Dictionary, dt: float, tick: int, synthet
 		return
 	if ch.mode == Motor.GROUND:
 		var st0: int = ch.wpn.state
-		var rounds0: int = int(ch.wpn.weapon().get("mag", 0))
+		var ph0: int = ch.wpn.reload_phase
+		var tm0: float = ch.wpn.timer
 		var shots: Array = ch.wpn.step(cmd, dt, tick)
-		_reload_sounds(ch, st0, rounds0)
+		_reload_sounds(ch, st0, ph0, tm0)
 		for s in shots:
 			if s.get("dry", false):
 				server_sound("dry_fire", ch.global_position + Vector3.UP * 1.3, 0.0, ch.eid)
@@ -581,19 +695,42 @@ func _rescue(ch: Character) -> void:
 		server_set_mode(ch, ch.mode)
 
 
-func _reload_sounds(ch: Character, st0: int, rounds0: int) -> void:
-	var feed := str(ch.wpn.def().get("feed", "mag"))
-	var rounds := int(ch.wpn.weapon().get("mag", 0))
-	var at: Vector3 = ch.global_position + Vector3.UP * 1.1
-	if st0 != WeaponState.RELOAD and ch.wpn.state == WeaponState.RELOAD:
-		# Magazine guns: the reload sequence of their class; tubes, cylinders and break actions: open up.
-		var cls := str(ch.wpn.def().get("class", "rifle"))
-		var seq := {"handgun": "reload_pistol", "smg": "reload_smg", "precision": "reload_sniper", "marksman": "reload_sniper"}.get(cls, "reload_rifle")
-		server_sound(seq if feed == "mag" else "switch_click", at, 0.0, -1)
-	elif ch.wpn.state == WeaponState.RELOAD and rounds > rounds0 and feed != "mag":
-		server_sound("mag_in", at, -6.0, -1)
-	elif st0 == WeaponState.RELOAD and ch.wpn.state != WeaponState.RELOAD and feed == "mag" and rounds > rounds0:
-		server_sound("reload_finish", at, 0.0, -1)
+func _reload_sounds(ch: Character, st0: int, ph0: int, tm0: float) -> void:
+	## Each reload step, and the pump or bolt worked between shots, goes to the players near enough to hear it as one
+	## event: their clients play that step's sounds (WeaponAnims.cues) over its length, on the motion of the hands.
+	## The shooter's own client plays them from its viewmodel instead.
+	var w = ch.wpn
+	var phase := -2
+	if w.state == WeaponState.RELOAD:
+		if st0 != WeaponState.RELOAD:
+			ch.set_meta("reload_empty", not bool(w.weapon().get("chamber", true)) or str(w.def().get("feed", "")) == "break")
+			phase = w.reload_phase
+		elif w.reload_phase != ph0 or float(w.timer) > tm0 + 1e-4:
+			phase = w.reload_phase
+	elif w.state == WeaponState.CYCLE and st0 != WeaponState.CYCLE:
+		phase = -1
+	if phase == -2:
+		return
+	var wid := str(w.weapon().get("id", ""))
+	if wid == "":
+		return
+	var empty := bool(ch.get_meta("reload_empty", false)) if phase >= 0 else false
+	var dur := maxf(float(w.timer), 0.05)
+	for pid in Net.human_peers():
+		if pid == ch.pid:
+			continue
+		var o := char_by_pid(pid)
+		if o and o.global_position.distance_to(ch.global_position) > 40.0:
+			continue
+		_ev_clip.rpc_id(pid, ch.eid, wid, phase, empty, dur)
+	if not is_server_dedicated() and not (local_char and local_char.eid == ch.eid):
+		_ev_clip(ch.eid, wid, phase, empty, dur)
+
+
+@rpc("authority", "call_remote", "reliable")
+func _ev_clip(eid: int, wid: String, phase: int, empty: bool, dur: float) -> void:
+	if effects and characters.has(eid):
+		effects.gun_cues(characters[eid], wid, phase, empty, dur)
 
 
 func _server_motion_event(ch: Character, kind: String, value: float) -> void:
@@ -659,6 +796,8 @@ func _server_health(dt: float) -> void:
 func server_can_be_downed(ch: Character) -> bool:
 	if Net.team_size() <= 1:
 		return false
+	if is_dm() and not bool(Defs.rule("deathmatch.downed", false)):
+		return false  # Deathmatch: lethal damage kills
 	for o in characters.values():
 		if o != ch and o.team == ch.team and o.mode in [Motor.GROUND, Motor.FREEFALL, Motor.CHUTE] and not o.health.downed:
 			return true
@@ -675,6 +814,10 @@ func server_projectile_hit_character(ch: Character, part: String, p: Dictionary,
 	_ev_hit.rpc(ch.eid, part, pos, dir, absorbed, bool(res.get("armor_broken", false)), float(res.damage))
 	if not is_server_dedicated():
 		_ev_hit(ch.eid, part, pos, dir, absorbed, bool(res.get("armor_broken", false)), float(res.damage))
+	# For the ragdoll, if this hit kills.
+	res.hit_dir = dir
+	res.hit_part = part
+	res.hit_pos = pos
 	_after_damage(ch, res, int(p.shooter))
 	return res
 
@@ -695,7 +838,16 @@ func server_after_damage(ch: Character, res: Dictionary, attacker: int) -> void:
 	_after_damage(ch, res, attacker)
 
 
+func _count_damage(ch: Character, res: Dictionary, attacker: int) -> void:
+	## Damage dealt to the other teams, for XP and the stats.
+	if match_server and match_server.stats.has(attacker) and attacker != ch.eid and team_of(attacker) != ch.team:
+		match_server.stats[attacker].damage = float(match_server.stats[attacker].damage) + float(res.get("damage", 0.0))
+
+
 func _after_damage(ch: Character, res: Dictionary, attacker: int) -> void:
+	_count_damage(ch, res, attacker)
+	if bots.has(ch.eid) and attacker >= 0 and attacker != ch.eid and float(res.get("damage", 0.0)) > 0.0:
+		bots[ch.eid].on_damaged(attacker)
 	if res.get("downed", false):
 		server_set_mode(ch, Motor.DOWNED)
 		ch.wpn.cur = WeaponState.HOLSTER
@@ -707,8 +859,12 @@ func _after_damage(ch: Character, res: Dictionary, attacker: int) -> void:
 	if res.get("killed", false) and ch.mode != Motor.DEAD:
 		server_sound("death", ch.global_position + Vector3.UP * 1.2, 0.0, -1)
 		interaction.server_drop_held(ch, false)
+		# The body falls along the killing shot (or away from the killer), hit where the round struck.
 		var impulse := Vector3.ZERO
-		if attacker >= 0 and characters.has(attacker):
+		if res.has("hit_dir"):
+			impulse = (res.hit_dir as Vector3).normalized() * 3.0
+			ch.set_meta("killing_hit", [str(res.get("hit_part", "torso")), res.get("hit_pos", Vector3.INF)])
+		elif attacker >= 0 and characters.has(attacker):
 			impulse = (ch.global_position - characters[attacker].global_position).normalized() * 3.0
 		map.server_spawn_corpse(ch, impulse)
 		server_set_mode(ch, Motor.DEAD)
@@ -742,12 +898,45 @@ func _send_snapshots(tick: int) -> void:
 		Net.send_snapshot(pid, bytes)
 
 
+## pid -> eid the dead player chose to watch (request_spectate): snapshots are centred on it.
+var _spect_choice: Dictionary = {}
+
+
 func spectate_target(pid: int) -> int:
+	var chosen := int(_spect_choice.get(pid, -1))
+	if characters.has(chosen) and characters[chosen].mode not in [Motor.DEAD, Motor.SPECTATE]:
+		return chosen
 	var team := int(Net.players.get(pid, {}).get("team", -1))
 	for ch in characters.values():
-		if ch.team == team:
+		if ch.team == team and ch.mode not in [Motor.DEAD, Motor.SPECTATE]:
 			return ch.eid
 	return characters.keys()[0] if not characters.is_empty() else -1
+
+
+func request_spectate(eid: int) -> void:
+	## A dead (or late) player is watching eid; the server sends them what is around it.
+	if is_server:
+		_spect_choice[Net.local_pid] = eid
+	else:
+		_req_spectate.rpc_id(1, eid)
+
+
+@rpc("any_peer", "reliable")
+func _req_spectate(eid: int) -> void:
+	if is_server:
+		_spect_choice[multiplayer.get_remote_sender_id()] = eid
+
+
+func server_kill_feed(killer: String, killer_team: int, victim: String, victim_team: int, how: String) -> void:
+	_kill_feed.rpc(killer, killer_team, victim, victim_team, how)
+	if not is_server_dedicated():
+		_kill_feed(killer, killer_team, victim, victim_team, how)
+
+
+@rpc("authority", "call_remote", "reliable")
+func _kill_feed(killer: String, killer_team: int, victim: String, victim_team: int, how: String) -> void:
+	if hud and hud.has_method("add_kill"):
+		hud.add_kill(killer, killer_team, victim, victim_team, how)
 
 
 func _ready() -> void:
@@ -805,15 +994,29 @@ func _owner_state(hd: Dictionary, idict: Dictionary) -> void:
 var _ping_t: Dictionary = {}     # eid -> time of the last ping (s)
 
 
+func ping_point(ch: Character) -> Vector3:
+	## The spot a character is looking at: the first thing its line of sight hits within 350 m (or the far end).
+	var eye := ch.eye_position()
+	var dir := ch.aim_dir()
+	var q := PhysicsRayQueryParameters3D.create(eye, eye + dir * 350.0, Defs.SIGHT_MASK | Defs.PHYS_WATER)
+	q.exclude = [ch.get_rid()]
+	var r := get_world_3d().direct_space_state.intersect_ray(q)
+	if r.is_empty():
+		return eye + dir * 120.0
+	return (r.position as Vector3) + (r.normal as Vector3) * 0.05
+
+
 func server_ping(ch: Character) -> void:
-	## V: a click on the team radio and this player's position blinking on every teammate's minimap for 5 s. The
-	## click comes out of the radio itself, so anyone close enough hears it, enemies included (bots turn to look).
+	## Middle mouse: mark the spot you look at for your team. A click on the team radio, a marker on every
+	## teammate's screen and minimap for 8 s, and the team's bots act on it (some rush it, some watch it from cover or
+	## through a scope, some sneak up on it). The click comes out of the radio itself, so anyone close enough hears it,
+	## enemies included (bots turn to look).
 	var now := Time.get_ticks_msec() / 1000.0
-	if now - float(_ping_t.get(ch.eid, -10.0)) < 1.0 or ch.mode in [Motor.DEAD, Motor.SPECTATE, Motor.PLANE]:
+	if now - float(_ping_t.get(ch.eid, -10.0)) < 0.6 or ch.mode in [Motor.DEAD, Motor.SPECTATE, Motor.PLANE]:
 		return
 	_ping_t[ch.eid] = now
-	var pos := ch.global_position
-	server_sound("radio_click", pos + Vector3.UP * 1.3, 0.0, -1)
+	var pos := ping_point(ch)
+	server_sound("radio_click", ch.global_position + Vector3.UP * 1.3, 0.0, -1)
 	for pid in Net.human_peers():
 		if int(Net.players[pid].get("team", -1)) == ch.team:
 			_ev_ping.rpc_id(pid, ch.eid, pos)
@@ -822,8 +1025,50 @@ func server_ping(ch: Character) -> void:
 	var heard := float(SoundSys.defs.get("radio_click", {}).get("dist", 18.0))
 	for eid in bots:
 		var b = bots[eid]
-		if b.ch.team != ch.team and b.ch.global_position.distance_to(pos) < heard:
-			b.hear(pos, heard)
+		if b.ch == ch:
+			continue
+		if b.ch.team == ch.team:
+			b.on_team_ping(pos, ch)
+		elif b.ch.global_position.distance_to(ch.global_position) < heard:
+			b.hear(ch.global_position, heard)
+	if match_server:
+		match_server.log_event("%s pinged %s" % [ch.pname, str(pos.round())])
+
+
+var _laser_t := 0.0
+
+
+func _laser_scan(ch: Character) -> void:
+	## Server, 4 times a second for each laser that is on: bots that can see the beam or its dot notice it. Enemies
+	## may follow it back to whoever holds it; teammates look where it points.
+	var eye := ch.eye_position()
+	var dir := ch.aim_dir()
+	var space := get_world_3d().direct_space_state
+	var q := PhysicsRayQueryParameters3D.create(eye, eye + dir * 260.0, Defs.SIGHT_MASK)
+	q.exclude = [ch.get_rid()]
+	var r := space.intersect_ray(q)
+	var dot: Vector3 = r.position if not r.is_empty() else eye + dir * 260.0
+	for eid in bots:
+		var b = bots[eid]
+		var bc: Character = b.ch
+		if bc == ch or bc.mode not in [Motor.GROUND, Motor.DOWNED]:
+			continue
+		var bp := bc.eye_position()
+		var cp := Geometry3D.get_closest_point_to_segment(bp, eye, dot)
+		var d_beam := bp.distance_to(cp)
+		var d_dot := bp.distance_to(dot)
+		if d_beam > 10.0 and d_dot > 14.0:
+			continue
+		var see := false
+		for tp in [dot, cp]:
+			var q2 := PhysicsRayQueryParameters3D.create(bp, tp, Defs.SIGHT_MASK)
+			q2.exclude = [bc.get_rid()]
+			var r2 := space.intersect_ray(q2)
+			if r2.is_empty() or (r2.position as Vector3).distance_to(tp) < 0.6:
+				see = true
+				break
+		if see:
+			b.on_laser(ch, eye, dot, minf(d_beam, d_dot))
 
 
 @rpc("authority", "call_remote", "reliable")
@@ -901,6 +1146,55 @@ func radio_sources(from_pid: int) -> Array:
 	return out
 
 
+func server_bot_radio(ch: Character, line: String, voice: String, k: int) -> void:
+	## A bot's callout. Teammates hear it on their radios (with what was said on screen); anyone near the bot hears
+	## its voice, enemies included, and so does anyone near a teammate's radio (radio.eavesdrop_radius).
+	var sid := "botr_%s_%s_%d" % [line, voice, k]
+	var sources := radio_sources(ch.pid)
+	for pid in Net.human_peers():
+		var p: Dictionary = Net.players[pid]
+		var lc := char_by_pid(pid)
+		if int(p.get("team", -1)) == ch.team:
+			_ev_bot_radio.rpc_id(pid, ch.eid, ch.pname, sid, line, k, 0)
+		elif lc and lc.mode not in [Motor.DEAD, Motor.SPECTATE]:
+			for s in sources:
+				if (s[1] as Vector3).distance_to(lc.global_position + Vector3.UP * 1.5) < float(s[3]):
+					_ev_bot_radio.rpc_id(pid, int(s[0]), ch.pname, sid, line, k, int(s[2]))
+					break
+	if not is_server_dedicated():
+		var mine := int(Net.players.get(Net.local_pid, {}).get("team", -1))
+		if mine == ch.team:
+			_ev_bot_radio(ch.eid, ch.pname, sid, line, k, 0)
+		elif local_char and local_char.mode not in [Motor.DEAD, Motor.SPECTATE]:
+			for s in sources:
+				if (s[1] as Vector3).distance_to(local_char.global_position + Vector3.UP * 1.5) < float(s[3]):
+					_ev_bot_radio(int(s[0]), ch.pname, sid, line, k, int(s[2]))
+					break
+	if match_server and Game.arg("radiolog") != null:
+		match_server.log_event("[radio] %s (%s): %s" % [ch.pname, str(bots[ch.eid].role) if bots.has(ch.eid) else "?", line])
+
+
+@rpc("authority", "call_remote", "reliable")
+func _ev_bot_radio(src_eid: int, who: String, sid: String, line: String, k: int, kind: int) -> void:
+	## kind 0: on your own radio (and the words on screen); 1: from a nearby enemy radio; 2: the bot's own voice nearby.
+	var c = characters.get(src_eid)
+	if kind == 0:
+		SoundSys.play_local("radio_on", -6.0)
+		SoundSys.play_radio(sid)
+		if hud:
+			var phr: Array = BotBrain.lines.get(line, [])
+			if phr.is_empty():
+				var f := FileAccess.open("res://data/bot_radio.json", FileAccess.READ)
+				if f:
+					var d = JSON.parse_string(f.get_as_text())
+					if typeof(d) == TYPE_DICTIONARY:
+						BotBrain.lines = d.get("lines", {})
+						phr = BotBrain.lines.get(line, [])
+			hud.radio_line(who, str(phr[k]) if k < phr.size() else line)
+	elif c:
+		SoundSys.play_at(sid, c.global_position + Vector3.UP * 1.5, -4.0 if kind == 1 else 0.0)
+
+
 func server_radio_event(pid: int, kind: String) -> void:
 	## Key down: the push-to-talk click on the speaker and the squelch opening on every teammate's radio; key up: the
 	## release click and each radio's squelch tail. All of them are heard by whoever is near (enemies included), and
@@ -941,16 +1235,17 @@ func _ev_shot(eid: int, origin: Vector3, dir: Vector3, velocity: float, ammo: St
 		effects.shot(characters.get(eid), origin, dir, velocity, ammo, weapon, seed)
 
 
-func server_impact(pos: Vector3, normal: Vector3, kind: String, what: String, shooter: int, shot_id: int) -> void:
-	_ev_impact.rpc(pos, normal, kind, what, shooter)
+func server_impact(pos: Vector3, normal: Vector3, kind: String, what: String, shooter: int, shot_id: int, mat: String = "", att: int = 0) -> void:
+	## att: what the mark hangs on (1 << 24 | door, 2 << 24 | shutter, 3 << 24 | prop), 0 for the static world.
+	_ev_impact.rpc(pos, normal, kind, what, shooter, mat, att)
 	if not is_server_dedicated():
-		_ev_impact(pos, normal, kind, what, shooter)
+		_ev_impact(pos, normal, kind, what, shooter, mat, att)
 
 
 @rpc("authority", "call_remote", "unreliable")
-func _ev_impact(pos: Vector3, normal: Vector3, kind: String, what: String, shooter: int) -> void:
+func _ev_impact(pos: Vector3, normal: Vector3, kind: String, what: String, shooter: int, mat: String = "", att: int = 0) -> void:
 	if effects:
-		effects.impact(pos, normal, kind, what)
+		effects.impact(pos, normal, kind, what, mat, att)
 
 
 @rpc("authority", "call_remote", "reliable")
@@ -986,9 +1281,10 @@ func server_prop_hit(prop_id: int, pos: Vector3, dir: Vector3, energy: float, mo
 
 func server_corpse_hit(corpse_id: int, pos: Vector3, dir: Vector3, normal: Vector3) -> void:
 	map.server_corpse_hit(corpse_id, pos, dir)
-	_ev_impact.rpc(pos, normal, "flesh", "hole", -1)
+	# Flesh impacts carry the round's reversed direction as the normal: the spray follows the round (Effects.impact).
+	_ev_impact.rpc(pos, -dir, "flesh", "hole", -1, "flesh", 0)
 	if not is_server_dedicated():
-		_ev_impact(pos, normal, "flesh", "hole", -1)
+		_ev_impact(pos, -dir, "flesh", "hole", -1, "flesh", 0)
 
 
 func server_wake_prop(prop_id: int, by: Character, dir: Vector3, vel: Vector3) -> void:
@@ -1073,7 +1369,7 @@ func _test_apply(ch: Character, cmd: Dictionary) -> void:
 
 func server_sync_late_peer(pid: int) -> void:
 	for ch in characters.values():
-		_spawn_char.rpc_id(pid, ch.eid, ch.pid, ch.team, ch.pname, ch.global_position, ch.mode)
+		_spawn_char.rpc_id(pid, ch.eid, ch.pid, ch.team, ch.pname, ch.global_position, ch.mode, ch.yaw)
 	map.server_sync_peer(pid)
 	if match_server:
 		match_server.sync_peer(pid)
@@ -1083,6 +1379,20 @@ func server_sync_late_peer(pid: int) -> void:
 @rpc("authority", "call_remote", "reliable")
 func _match_started() -> void:
 	client_match_started()
+
+
+func _ensure_spectator() -> void:
+	## A player with no character in this match (joined late, or reconnected after dying) still gets a camera that
+	## follows the living.
+	if is_server_dedicated() or DisplayServer.get_name() == "headless":
+		return
+	await get_tree().create_timer(1.5).timeout
+	if not is_inside_tree() or local_char != null or (controller and is_instance_valid(controller)):
+		return
+	controller = PlayerController.new()
+	controller.name = "PlayerController"
+	add_child(controller)
+	controller.setup_spectator(self)
 
 
 # ------------------------------------------------------------------ interpolation (clients)
@@ -1195,13 +1505,91 @@ func map_prop_break(id: int, pos: Vector3, impulse: Vector3) -> void:
 
 
 @rpc("authority", "call_remote", "reliable")
+func map_prop_chunk(id: int, key: int, impulse: Vector3) -> void:
+	if map:
+		map.dyn.client_prop_chunk(id, key, impulse)
+
+
+@rpc("authority", "call_remote", "reliable")
+func map_prop_chunks(id: int, keys: PackedInt32Array) -> void:
+	if map:
+		map.dyn.client_prop_chunks(id, keys)
+
+
+func _door_by(did: int, is_shutter: bool):
+	if map == null:
+		return null
+	if is_shutter:
+		if did >= 0 and did < map.dyn.windows.size():
+			return map.dyn.windows[did].get("door")
+		return null
+	if did >= 0 and did < map.dyn.doors.size():
+		return map.dyn.doors[did].get("node")
+	return null
+
+
+func server_door_hit(door, pos: Vector3, dir: Vector3, energy: float) -> void:
+	var i: int = door.server_damage(pos, energy * 0.08)
+	if i >= 0:
+		server_door_panel(door, i, dir)
+
+
+func server_door_panel(door, i: int, dir: Vector3) -> void:
+	map_door_panel.rpc(int(door.spec.id), door.is_shutter, i, dir)
+	_door_panel_local(door, i, dir)
+
+
+@rpc("authority", "call_remote", "reliable")
+func map_door_panel(did: int, is_shutter: bool, i: int, dir: Vector3) -> void:
+	var d = _door_by(did, is_shutter)
+	if d:
+		_door_panel_local(d, i, dir)
+
+
+@rpc("authority", "call_remote", "reliable")
+func map_door_panels(did: int, is_shutter: bool, panels: PackedInt32Array) -> void:
+	## Late join: panels already shot out, without effects.
+	var d = _door_by(did, is_shutter)
+	if d:
+		for i in panels:
+			d.lose_panel(i)
+
+
+func _door_panel_local(d, i: int, dir: Vector3) -> void:
+	var xf: Transform3D = d.current_transform()
+	var box: AABB = d.panel_box(i)
+	var standing: Array = []
+	var fell: bool = d.lose_panel(i)
+	if fell:
+		for j in d.panels().size():
+			if not d.lost.has(j) or j == i:
+				standing.append(d.panel_box(j))
+	if effects:
+		if d.anchor:
+			effects.holes.clear_box(d.anchor, box.grow(0.03))
+			if fell:
+				effects.holes.forget(d.anchor)
+		effects.door_panel_lost(d, xf, box, dir, standing)
+
+
+@rpc("authority", "call_remote", "reliable")
 func map_corpse_spawn(id: int, who: String, team: int, xforms: Array) -> void:
 	if map:
 		map.dyn.client_spawn_corpse(id, who, team, xforms)
 
 
 func corpse_pose(id: int, xforms: Array, final: bool) -> void:
-	map_corpse_pose.rpc(id, xforms, final)
+	# The stream may drop packets; the pose a body comes to rest in must arrive.
+	if final:
+		map_corpse_rest.rpc(id, xforms)
+	else:
+		map_corpse_pose.rpc(id, xforms, false)
+
+
+@rpc("authority", "call_remote", "reliable")
+func map_corpse_rest(id: int, xforms: Array) -> void:
+	if map and map.dyn.corpses.has(id):
+		map.dyn.corpses[id].client_pose(xforms, true)
 
 
 @rpc("authority", "call_remote", "unreliable_ordered")

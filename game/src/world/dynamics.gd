@@ -33,6 +33,7 @@ var loot_spots: Array = []     # {pos, table, bid}
 var items: Dictionary = {}     # id -> {entry, xf, body (physics RID), ref, inst (render RID)}
 var loot_boxes: Array = []     # {cid, name, xf, open, interior, mm, inst_open (render RID once opened)}
 var corpses: Dictionary = {}   # id -> Corpse node
+var _corpse_steps: Dictionary = {}   # stair flight index -> StaticBody3D of ragdoll-only treads (corpse_steps_near)
 var lights: Array = []         # {pos, kind, color, energy, range, flicker}
 
 var _mm: Dictionary = {}       # "chunk|name" -> {node, xforms: Array}
@@ -71,27 +72,149 @@ func _init(m, w, parent: Node3D, materials, model_lib, seed_value: int, match_se
 func add_door(spec: Dictionary) -> void:
 	spec.id = doors.size()
 	doors.append(spec)
+	# The way through: the leaf's width (plus the frame) and a step's depth either side, kept clear of anything that
+	# would stand in it. clr: depth kept clear on the leaf's -z and +z sides (a comfort room is shallow inside).
+	var xf: Transform3D = spec.xf
+	var w := float(spec.w)
+	var clr: Vector2 = spec.get("clr", Vector2(1.0, 1.0))
+	var u := xf.basis.x.normalized()
+	var n := xf.basis.z.normalized()
+	var mid: Vector3 = xf * Vector3(w * 0.5, 0.0, 0.0)
+	_add_clear(mid, u, n, w * 0.5 + 0.12, clr.x, clr.y, "door")
 
 
-var _hinges := {}         # 4 m cell -> [Vector3(hinge x, hinge z, leaf width)], for door_swing_clear
+## Doorways without a leaf (curtained or open partitions, open shop fronts): {c (floor centre), u (along), n (normal),
+## w, h, kind, bid, clr (depth either side)}. Read by the map scan.
+var doorways: Array = []
+## Clearance zones: rectangles on a floor level (passages through doors and doorways, stair feet and landings, the
+## space below a vault window) that furniture, clutter, loot boxes and street junk keep out of.
+var clearances: Array = []   # {c: Vector2, u: Vector2 (unit, along), hu, n0, n1 (depth on -n / +n), y, kind}
+var _clr_grid := {}           # Vector2i (4 m cell) -> [index]
+
+
+## Props outside houses that must wait until every door exists before they can be placed clear of them.
+var deferred: Array = []
+
+
+func defer_prop(name: String, xf: Transform3D, half: Vector2) -> void:
+	deferred.append([name, xf, half])
+
+
+func place_deferred() -> void:
+	## Once every house of the districts stands. Each prop placed keeps its own small zone, so the walls, crates and
+	## clutter placed after it do not go through it.
+	for e in deferred:
+		var xf: Transform3D = e[1]
+		var ax := xf.basis.x
+		var half: Vector2 = e[2]
+		if spot_clear(Vector2(xf.origin.x, xf.origin.z), half, atan2(ax.z, ax.x), xf.origin.y):
+			add_prop_spec(str(e[0]), seat(str(e[0]), xf))
+			_add_clear(xf.origin, Vector3.RIGHT, Vector3.BACK, half.x, half.y, half.y, "prop")
+	deferred.clear()
+
+
+func model_bottom(name: String) -> float:
+	## Height of a model's lowest point above its origin (negative when the model is centred on its middle).
+	var md: Dictionary = models.get_model(name)
+	return (md.aabb as AABB).position.y if not md.is_empty() else 0.0
+
+
+func seat(name: String, xf: Transform3D) -> Transform3D:
+	## xf with its origin at a point on the ground: shifted (along its own up) so the model's bottom rests there
+	## instead of its middle (a tyre or a wheel rim was half in the ground, half through a roof).
+	return xf * Transform3D(Basis(), Vector3(0.0, -model_bottom(name), 0.0))
+
+
+func add_doorway(spec: Dictionary) -> void:
+	spec.id = doorways.size()
+	doorways.append(spec)
+	var clr: Vector2 = spec.get("clr", Vector2(1.0, 1.0))
+	_add_clear(spec.c, spec.u, spec.n, float(spec.w) * 0.5 + 0.1, clr.x, clr.y, str(spec.get("kind", "doorway")))
+
+
+func add_clearance(c: Vector3, u: Vector3, n: Vector3, half_u: float, depth_neg: float, depth_pos: float, kind: String) -> void:
+	_add_clear(c, u, n, half_u, depth_neg, depth_pos, kind)
+
+
+func _add_clear(c: Vector3, u: Vector3, n: Vector3, hu: float, n0: float, n1: float, kind: String) -> void:
+	var u2 := Vector2(u.x, u.z).normalized()
+	var n2 := Vector2(n.x, n.z).normalized()
+	var z := {"c": Vector2(c.x, c.z), "u": u2, "nv": n2, "hu": hu, "n0": n0, "n1": n1, "y": c.y, "kind": kind}
+	var i := clearances.size()
+	clearances.append(z)
+	var r := Vector2(hu, maxf(n0, n1)).length()
+	for cx in range(floori((c.x - r) / 4.0), floori((c.x + r) / 4.0) + 1):
+		for cz in range(floori((c.z - r) / 4.0), floori((c.z + r) / 4.0) + 1):
+			var k := Vector2i(cx, cz)
+			if not _clr_grid.has(k):
+				_clr_grid[k] = []
+			_clr_grid[k].append(i)
+
+
+func spot_clear(c: Vector2, half: Vector2, ang: float, y: float, height: float = 1.8) -> bool:
+	## False when the rectangle (centre c, half extents, rotated ang in the x-z plane, standing on y and `height` tall)
+	## reaches into a door's swing or into any clearance zone on its floor (a zone counts from 0.5 m below its floor
+	## to 2 m above). Everything placed on a floor asks this: a door that cannot open or a doorway with a cabinet
+	## in it is a dead end.
+	if not door_swing_clear(c, half, ang, y, height):
+		return false
+	var ax := Vector2(cos(ang), sin(ang))
+	var az := Vector2(-ax.y, ax.x)
+	var seen := {}
+	var r := half.length()
+	for cx in range(floori((c.x - r) / 4.0), floori((c.x + r) / 4.0) + 1):
+		for cz in range(floori((c.y - r) / 4.0), floori((c.y + r) / 4.0) + 1):
+			for i in _clr_grid.get(Vector2i(cx, cz), []):
+				if seen.has(i):
+					continue
+				seen[i] = true
+				var z: Dictionary = clearances[i]
+				if y + height < float(z.y) - 0.05 or y > float(z.y) + 2.0:
+					continue
+				if _obb_overlap(c, ax, az, half, z):
+					return false
+	return true
+
+
+static func _obb_overlap(c: Vector2, ax: Vector2, az: Vector2, half: Vector2, z: Dictionary) -> bool:
+	## Separating axes between a rectangle (centre c, axes ax/az, half extents) and a clearance zone.
+	var zu: Vector2 = z.u
+	var zn: Vector2 = z.nv
+	var zc: Vector2 = (z.c as Vector2) + zn * (float(z.n1) - float(z.n0)) * 0.5
+	var zh := Vector2(float(z.hu), (float(z.n0) + float(z.n1)) * 0.5)
+	var d := zc - c
+	for axis in [ax, az, zu, zn]:
+		var a: Vector2 = axis
+		var ra := absf(ax.dot(a)) * half.x + absf(az.dot(a)) * half.y
+		var rb := absf(zu.dot(a)) * zh.x + absf(zn.dot(a)) * zh.y
+		if absf(d.dot(a)) > ra + rb:
+			return false
+	return true
+
+
+var _hinges := {}         # 4 m cell -> [[Vector3(hinge x, hinge z, leaf width), hinge y, leaf height]], for door_swing_clear
 var _hinges_indexed := 0
 
 
-func door_swing_clear(c: Vector2, half: Vector2, ang: float) -> bool:
+func door_swing_clear(c: Vector2, half: Vector2, ang: float, y: float = NAN, height: float = 1.8) -> bool:
 	## False when the rectangle (centre c, half extents, rotated ang in the x-z plane) reaches into a door's swing.
-	## A door swings up to ~95 degrees toward whoever opens it, from inside or out, so anything heavy within a leaf's
-	## width of the hinge jams it (and a static cabinet there would be swung through).
+	## A door swings up to ~95 degrees toward whoever opens it, from inside or out, so anything within a leaf's width
+	## of the hinge jams it (and a static cabinet there would be swung through). With y (the floor the rectangle
+	## stands on), doors on other floors are ignored.
 	while _hinges_indexed < doors.size():
 		var o: Vector3 = (doors[_hinges_indexed].xf as Transform3D).origin
 		var key := Vector2i(floori(o.x / 4.0), floori(o.z / 4.0))
 		if not _hinges.has(key):
 			_hinges[key] = []
-		_hinges[key].append(Vector3(o.x, o.z, float(doors[_hinges_indexed].w)))
+		_hinges[key].append([Vector3(o.x, o.z, float(doors[_hinges_indexed].w)), o.y, float(doors[_hinges_indexed].h)])
 		_hinges_indexed += 1
 	var cell := Vector2i(floori(c.x / 4.0), floori(c.y / 4.0))
 	for dx in range(-1, 2):
 		for dz in range(-1, 2):
-			for e in _hinges.get(cell + Vector2i(dx, dz), []):
+			for he in _hinges.get(cell + Vector2i(dx, dz), []):
+				var e: Vector3 = he[0]
+				if not is_nan(y) and (y + height < float(he[1]) + 0.05 or y > float(he[1]) + float(he[2])):
+					continue
 				var lp := (Vector2(e.x, e.y) - c).rotated(-ang)
 				var nearest := Vector2(clampf(lp.x, -half.x, half.x), clampf(lp.y, -half.y, half.y))
 				if lp.distance_to(nearest) < e.z + 0.05:
@@ -124,11 +247,11 @@ func add_static_prop(name: String, xf: Transform3D) -> void:
 	if s.has("trunk"):
 		var tr := float(s.trunk)
 		var hgt := minf((sh.size as Vector3).y * 0.55, 4.5)
-		map.sink.col_box(xf * Transform3D(Basis(), Vector3(0, hgt * 0.5, 0)), Vector3(tr, hgt, tr), "wood")
+		map.sink.col_box(xf * Transform3D(Basis(), Vector3(0, hgt * 0.5, 0)), Vector3(tr, hgt, tr), "wood", "static:" + name)
 	else:
 		var md: Dictionary = models.get_model(name)
 		var off: Vector3 = md.get("offset", Vector3.ZERO)
-		map.sink.col_box(xf * Transform3D(Basis(), sh.center), sh.size, str(s.get("mat", "default")))
+		map.sink.col_box(xf * Transform3D(Basis(), sh.center), sh.size, str(s.get("mat", "default")), "static:" + name)
 
 
 func add_prop_spec(name: String, xf: Transform3D) -> int:
@@ -183,7 +306,7 @@ func add_loot_box(name: String, xf: Transform3D, table: String, bid: int) -> int
 	if md.is_empty() or models.get_model(name + "_open").is_empty():
 		return -1
 	var sh := _prop_shape(name)
-	map.sink.col_box(xf * Transform3D(Basis(), sh.center), sh.size, str(models.spec(name).get("mat", "wood")))
+	map.sink.col_box(xf * Transform3D(Basis(), sh.center), sh.size, str(models.spec(name).get("mat", "wood")), "lootbox:" + name)
 	# Containers are searched through a world-aligned box: the rotated footprint's bounds.
 	var a: AABB = xf * (md.aabb as AABB)
 	var cid := add_container(a.get_center(), table, bid, a.size)
@@ -456,8 +579,9 @@ func _prop_shape(name: String) -> Dictionary:
 	if md.is_empty():
 		return {"size": Vector3(0.4, 0.4, 0.4), "center": Vector3(0, 0.2, 0)}
 	var a: AABB = md.aabb
-	var off: Vector3 = md.get("offset", Vector3.ZERO)
-	return {"size": a.size.max(Vector3(0.04, 0.04, 0.04)), "center": a.get_center() + off}
+	# The bounds already include a primitive's offset (they are where the model is drawn): adding it again lifted
+	# the collision of blocks, stones and piles half their height off the ground.
+	return {"size": a.size.max(Vector3(0.04, 0.04, 0.04)), "center": a.get_center()}
 
 
 func _make_dormant(p: Dictionary, create_instance: bool = true) -> void:
@@ -984,6 +1108,50 @@ func client_break_prop(id: int, pos: Vector3, impulse: Vector3) -> void:
 		world.effects.prop_broken(str(props[id].name), pos, impulse, models.spec(str(props[id].name)))
 
 
+func server_prop_chunk(id: int, key: int, impulse: Vector3) -> void:
+	world.map_prop_chunk.rpc(id, key, impulse)
+	_chunk_local(id, key, impulse)
+
+
+func client_prop_chunk(id: int, key: int, impulse: Vector3) -> void:
+	if id < 0 or id >= props.size():
+		return
+	var p: Dictionary = props[id]
+	if p.state == "broken":
+		return
+	if p.state != "active" or not (p.get("body") and is_instance_valid(p.body)):
+		client_activate(id, p.xf)
+	_chunk_local(id, key, impulse)
+
+
+func client_prop_chunks(id: int, keys: PackedInt32Array) -> void:
+	## Late join: the chunks this prop has already lost, without effects.
+	if id < 0 or id >= props.size():
+		return
+	var p: Dictionary = props[id]
+	var lost: Array = p.get("lost", [])
+	for k in keys:
+		if not lost.has(k):
+			lost.append(k)
+	p.lost = lost
+	if p.get("body") and is_instance_valid(p.body):
+		for k in keys:
+			p.body.lose_chunk(k)
+
+
+func _chunk_local(id: int, key: int, impulse: Vector3) -> void:
+	var p: Dictionary = props[id]
+	var body = p.get("body")
+	if body == null or not is_instance_valid(body):
+		return
+	var xf: Transform3D = (body as Node3D).global_transform
+	var box: AABB = body.chunk_box(key)
+	if not body.lose_chunk(key):
+		return
+	if world.effects:
+		world.effects.chunk_lost(str(p.name), key, xf, box, impulse, models.spec(str(p.name)), body)
+
+
 func _break_local(id: int) -> void:
 	var p: Dictionary = props[id]
 	p.state = "broken"
@@ -992,6 +1160,8 @@ func _break_local(id: int) -> void:
 		p.rid = RID()
 	_hide_instance(p)
 	if p.get("body") and is_instance_valid(p.body):
+		if world and world.effects:
+			world.effects.holes.forget(p.body)
 		p.body.queue_free()
 	_active.erase(id)
 
@@ -1096,6 +1266,7 @@ func tick(dt: float) -> void:
 func server_spawn_corpse(ch, impulse: Vector3) -> int:
 	var id := _next_corpse
 	_next_corpse += 1
+	corpse_steps_near(ch.global_position)
 	var c := Corpse.new()
 	root.add_child(c)
 	c.setup_server(world, id, ch, impulse)
@@ -1114,6 +1285,46 @@ func client_spawn_corpse(id: int, who: String, team: int, xforms: Array) -> void
 	c.setup_client(world, id, who, team, xforms)
 	corpses[id] = c
 	_next_corpse = maxi(_next_corpse, id + 1)
+
+
+func corpse_steps_near(p: Vector3) -> void:
+	## Solid steps for ragdolls only, on the flights near a death. A flight's own collision is a ramp under the drawn
+	## treads (half a step below them on average, a whole step at each nosing), so a body lying on it sinks into the
+	## steps the player sees. Rebuilt from the flight record exactly as Shanty._stair lays the treads: the run starts
+	## 0.5 m past "foot", "top" is the landing beside the flight's end, steps of at most 0.21 m.
+	if map == null:
+		return
+	for i in map.stairs.size():
+		var f: Dictionary = map.stairs[i]
+		var foot: Vector3 = f.foot
+		if _corpse_steps.has(i) or Vector2(foot.x - p.x, foot.z - p.z).length() > 7.0 or absf(foot.y - p.y) > 6.0:
+			continue
+		var top: Vector3 = f.top
+		var dir: Vector3 = (f.dir as Vector3).normalized()
+		var across := Vector3.UP.cross(dir).normalized()
+		var sw: float = absf((top - foot).dot(across))
+		var run: float = (top - foot).dot(dir) - 0.05
+		var rise: float = top.y - foot.y
+		if run < 0.3 or rise < 0.3 or sw < 0.3:
+			_corpse_steps[i] = null
+			continue
+		var steps := int(ceil(rise / 0.21))
+		var sh := rise / steps
+		var sd := run / steps
+		var body := StaticBody3D.new()
+		body.name = "CorpseSteps%d" % i
+		body.collision_layer = Corpse.PHYS_CORPSE_STEPS
+		body.collision_mask = 0
+		body.set_meta("mat", "wood")
+		for s in steps:
+			var cs := CollisionShape3D.new()
+			var box := BoxShape3D.new()
+			box.size = Vector3(sw, sh * (s + 1), sd + 0.04)
+			cs.shape = box
+			cs.transform = Transform3D(Basis(across, Vector3.UP, dir), foot + dir * (0.5 + sd * (s + 0.5)) + Vector3.UP * (sh * (s + 1) * 0.5))
+			body.add_child(cs)
+		root.add_child(body)
+		_corpse_steps[i] = body
 
 
 # ------------------------------------------------------------------ glass

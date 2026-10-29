@@ -159,6 +159,23 @@ func _on_setting(section: String, key: String) -> void:
 		_apply_settings()
 
 
+func dispose() -> void:
+	if Settings.changed.is_connected(_on_setting):
+		Settings.changed.disconnect(_on_setting)
+	mb = null
+	env = null
+	sky_mat = null
+	moon = null
+	sky_fill = null
+	_glints = null
+	for records in [lamps, _anim, _near_anim, _shadowed, _fix, _glint_xf, _glint_col]:
+		records.clear()
+	_meshes.clear()
+	_mats.clear()
+	_grid.clear()
+	_grid_big.clear()
+
+
 func _apply_settings() -> void:
 	if env == null:
 		return
@@ -423,17 +440,24 @@ func _build_glints(parent: Node3D) -> void:
 
 
 func match_time() -> float:
-	## Seconds since the aircraft set off, on the server's clock (clients follow the interpolated tick).
+	## Seconds since the match clock started (Classic: the aircraft set off; Deathmatch: the round began), plus the
+	## round's time-of-day offset, on the server's clock (clients follow the interpolated tick).
 	if forced_time >= 0.0:
 		return forced_time
 	var w = mb.world
 	if w == null or w.match_info.is_empty():
 		return 0.0
-	var pl: Dictionary = w.match_info.get("plane", {})
-	if pl.is_empty():
-		return 0.0
+	var info: Dictionary = w.match_info
+	var t0 := -1.0
+	if info.has("t0"):
+		t0 = float(info.t0)
+	else:
+		var pl: Dictionary = info.get("plane", {})
+		if pl.is_empty():
+			return 0.0
+		t0 = float(pl.get("t0", 0))
 	var tk: float = float(Net.tick) if w.is_server else Net.interp_tick()
-	return (tk - float(pl.get("t0", 0))) / Defs.TICK_RATE
+	return maxf((tk - t0) / Defs.TICK_RATE, 0.0) + float(info.get("day_offset", 0.0))
 
 
 func _moon_k() -> float:

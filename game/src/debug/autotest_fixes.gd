@@ -179,7 +179,9 @@ func _stairs_climb() -> void:
 			await t._until(func(): return Vector2(t.ch.global_position.x - goal.x, t.ch.global_position.z - goal.z).length() < 0.4, 1.6)
 			t._act_release("move_forward")
 			await t._wait(0.3)
-			if t.ch.is_on_floor() and absf(t.ch.global_position.y - top.y) < 0.2:
+			# On the upper floor, or on something low standing on it (a table a metre in is stepped onto since r10).
+			var dy: float = t.ch.global_position.y - top.y
+			if t.ch.is_on_floor() and dy > -0.2 and dy < 0.45:
 				landed += 1
 			else:
 				fails.append("no landing at %s (got %s; at the top of the flight was %s)" % [str(top.snapped(Vector3.ONE * 0.1)), str(t.ch.global_position.snapped(Vector3.ONE * 0.1)),
@@ -338,7 +340,8 @@ func _grab_vs_use() -> void:
 # ------------------------------------------------------------------ ping and the lite minimap
 
 func _ping_minimap() -> void:
-	## V: a radio click and your position blinking green on the minimap (top-left) for 5 s; enemies never shown.
+	## Middle mouse (r10; was V): a radio click and the spot looked at blinking green on the minimap (top-left) for 8 s
+	## (a little ahead of you, so it is inside the window); enemies never shown.
 	var mm = world.hud.minimap
 	await t._shot("minimap_before_ping")
 	await t._tap("ping")
@@ -355,10 +358,10 @@ func _ping_minimap() -> void:
 			if c.g > 0.55 and c.g > c.r * 1.5 and c.g > c.b * 1.4:
 				green += 1
 	await t._shot("minimap_ping")
-	await t._wait(5.3)
+	await t._wait(8.3)
 	var gone: bool = mm.pings.is_empty()
 	t._check("ping_minimap", ok and green > 12 and gone and mm.visible,
-		"ping shown %s, %d green pixels in the minimap, cleared after 5 s %s, minimap visible %s at %s" % [str(ok), green, str(gone), str(mm.visible), str(mm.position)])
+		"ping shown %s, %d green pixels in the minimap, cleared after 8 s %s, minimap visible %s at %s" % [str(ok), green, str(gone), str(mm.visible), str(mm.position)])
 
 
 # ------------------------------------------------------------------ doors

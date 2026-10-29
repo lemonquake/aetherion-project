@@ -1,0 +1,2059 @@
+{
+ "_doc": "Writes game/data/r7_props.json: every r7 prop in ModelLib.PROPS (the \"r7\" section of game/src/world/model_lib.gd) Front axis: +Z unless \"front\" says otherwise. Units: metres.",
+ "props": {
+  "armchair": {
+   "source": "Poly Haven ArmChair_01",
+   "footprint": [
+    0.85,
+    0.77
+   ],
+   "height": 1.07,
+   "bounds_min": [
+    -0.425,
+    -0.0,
+    -0.417
+   ],
+   "bounds_max": [
+    0.425,
+    1.065,
+    0.348
+   ],
+   "front": "+Z",
+   "use": "house (sala)",
+   "kind": "chair",
+   "static": false,
+   "mat": "fabric",
+   "collision": "box over the model bounds",
+   "tris": 3000,
+   "surfaces": 1,
+   "licence": "CC0-1.0 (Poly Haven)"
+  },
+  "armchair_modern": {
+   "source": "Poly Haven modern_arm_chair_01",
+   "footprint": [
+    0.82,
+    0.99
+   ],
+   "height": 1.02,
+   "bounds_min": [
+    -0.407,
+    0.0,
+    -0.576
+   ],
+   "bounds_max": [
+    0.414,
+    1.023,
+    0.411
+   ],
+   "front": "+Z",
+   "use": "house (sala), clubhouse, office",
+   "kind": "chair",
+   "static": false,
+   "mat": "wood",
+   "collision": "box over the model bounds",
+   "tris": 3000,
+   "surfaces": 1,
+   "licence": "CC0-1.0 (Poly Haven)"
+  },
+  "sofa_classic": {
+   "source": "Poly Haven Sofa_01",
+   "footprint": [
+    1.57,
+    0.66
+   ],
+   "height": 0.8,
+   "bounds_min": [
+    -0.778,
+    -0.001,
+    -0.361
+   ],
+   "bounds_max": [
+    0.793,
+    0.796,
+    0.297
+   ],
+   "front": "+Z",
+   "use": "house (sala)",
+   "kind": "sofa",
+   "static": false,
+   "mat": "fabric",
+   "collision": "box over the model bounds",
+   "tris": 4000,
+   "surfaces": 1,
+   "licence": "CC0-1.0 (Poly Haven)"
+  },
+  "sofa_leather": {
+   "source": "Poly Haven sofa_02",
+   "footprint": [
+    1.81,
+    0.82
+   ],
+   "height": 0.71,
+   "bounds_min": [
+    -0.903,
+    0.0,
+    -0.478
+   ],
+   "bounds_max": [
+    0.904,
+    0.71,
+    0.34
+   ],
+   "front": "+Z",
+   "use": "house (sala), clubhouse, office lobby",
+   "kind": "sofa",
+   "static": false,
+   "mat": "fabric",
+   "collision": "box over the model bounds",
+   "tris": 2728,
+   "surfaces": 1,
+   "licence": "CC0-1.0 (Poly Haven)"
+  },
+  "coffee_table": {
+   "source": "Poly Haven CoffeeTable_01",
+   "footprint": [
+    1.54,
+    0.97
+   ],
+   "height": 0.52,
+   "bounds_min": [
+    -0.771,
+    0.002,
+    -0.487
+   ],
+   "bounds_max": [
+    0.771,
+    0.525,
+    0.487
+   ],
+   "front": "+Z",
+   "use": "house (sala)",
+   "kind": "table",
+   "static": false,
+   "mat": "wood",
+   "collision": "box over the model bounds",
+   "tris": 4000,
+   "surfaces": 1,
+   "licence": "CC0-1.0 (Poly Haven)"
+  },
+  "dining_chair": {
+   "source": "Poly Haven dining_chair_02",
+   "footprint": [
+    0.43,
+    0.58
+   ],
+   "height": 0.97,
+   "bounds_min": [
+    -0.217,
+    0.002,
+    -0.331
+   ],
+   "bounds_max": [
+    0.217,
+    0.975,
+    0.245
+   ],
+   "front": "+Z",
+   "use": "house (dining)",
+   "kind": "chair",
+   "static": false,
+   "mat": "wood",
+   "collision": "box over the model bounds",
+   "tris": 2998,
+   "surfaces": 1,
+   "licence": "CC0-1.0 (Poly Haven)"
+  },
+  "dining_table": {
+   "source": "Poly Haven dining_table",
+   "footprint": [
+    2.26,
+    1.39
+   ],
+   "height": 0.88,
+   "bounds_min": [
+    -1.133,
+    -0.004,
+    -0.678
+   ],
+   "bounds_max": [
+    1.123,
+    0.873,
+    0.712
+   ],
+   "front": "+Z",
+   "use": "house (dining), clubhouse",
+   "kind": "table",
+   "static": false,
+   "mat": "wood",
+   "collision": "box over the model bounds",
+   "tris": 1048,
+   "surfaces": 1,
+   "licence": "CC0-1.0 (Poly Haven)"
+  },
+  "side_table": {
+   "source": "Poly Haven side_table_01",
+   "footprint": [
+    0.55,
+    0.45
+   ],
+   "height": 0.55,
+   "bounds_min": [
+    -0.275,
+    -0.002,
+    -0.225
+   ],
+   "bounds_max": [
+    0.275,
+    0.548,
+    0.225
+   ],
+   "front": "+Z",
+   "use": "house (sala, bedroom)",
+   "kind": "table",
+   "static": false,
+   "mat": "wood",
+   "collision": "box over the model bounds",
+   "tris": 1800,
+   "surfaces": 1,
+   "licence": "CC0-1.0 (Poly Haven)"
+  },
+  "plant_stand": {
+   "source": "Poly Haven WoodenTable_02",
+   "footprint": [
+    0.3,
+    0.3
+   ],
+   "height": 0.42,
+   "bounds_min": [
+    -0.15,
+    -0.0,
+    -0.15
+   ],
+   "bounds_max": [
+    0.15,
+    0.418,
+    0.15
+   ],
+   "front": "+Z",
+   "use": "house (sala, porch)",
+   "kind": "table",
+   "static": false,
+   "mat": "wood",
+   "collision": "box over the model bounds",
+   "tris": 1514,
+   "surfaces": 1,
+   "licence": "CC0-1.0 (Poly Haven)"
+  },
+  "tv_cabinet": {
+   "source": "Poly Haven modern_wooden_cabinet",
+   "footprint": [
+    2.44,
+    0.52
+   ],
+   "height": 0.68,
+   "bounds_min": [
+    -1.22,
+    0.0,
+    -0.27
+   ],
+   "bounds_max": [
+    1.22,
+    0.68,
+    0.25
+   ],
+   "front": "+Z",
+   "use": "house (sala)",
+   "kind": "cabinet",
+   "static": true,
+   "mat": "wood",
+   "collision": "box over the model bounds",
+   "tris": 4000,
+   "surfaces": 1,
+   "licence": "CC0-1.0 (Poly Haven)"
+  },
+  "nightstand_classic": {
+   "source": "Poly Haven ClassicNightstand_01",
+   "footprint": [
+    0.57,
+    0.42
+   ],
+   "height": 0.7,
+   "bounds_min": [
+    -0.284,
+    -0.0,
+    -0.212
+   ],
+   "bounds_max": [
+    0.284,
+    0.7,
+    0.212
+   ],
+   "front": "+Z",
+   "use": "house (bedroom)",
+   "kind": "cabinet",
+   "static": true,
+   "mat": "wood",
+   "collision": "box over the model bounds",
+   "tris": 2002,
+   "surfaces": 1,
+   "licence": "CC0-1.0 (Poly Haven)"
+  },
+  "china_cabinet": {
+   "source": "Poly Haven vintage_cabinet_01",
+   "footprint": [
+    2.02,
+    0.67
+   ],
+   "height": 2.24,
+   "bounds_min": [
+    -1.011,
+    -0.001,
+    -0.278
+   ],
+   "bounds_max": [
+    1.011,
+    2.234,
+    0.392
+   ],
+   "front": "+Z",
+   "use": "house (dining)",
+   "kind": "cabinet",
+   "static": true,
+   "mat": "wood",
+   "collision": "box over the model bounds",
+   "tris": 4000,
+   "surfaces": 1,
+   "licence": "CC0-1.0 (Poly Haven)"
+  },
+  "potted_plant": {
+   "source": "Poly Haven potted_plant_01",
+   "footprint": [
+    0.6,
+    0.65
+   ],
+   "height": 1.35,
+   "bounds_min": [
+    -0.345,
+    -0.014,
+    -0.379
+   ],
+   "bounds_max": [
+    0.257,
+    1.339,
+    0.272
+   ],
+   "front": "+Z",
+   "use": "house, office, clubhouse, porch",
+   "kind": "small",
+   "static": false,
+   "mat": "concrete",
+   "collision": "box over the model bounds",
+   "tris": 1863,
+   "surfaces": 1,
+   "licence": "CC0-1.0 (Poly Haven)"
+  },
+  "potted_plant2": {
+   "source": "Poly Haven potted_plant_02",
+   "footprint": [
+    0.7,
+    0.68
+   ],
+   "height": 0.88,
+   "bounds_min": [
+    -0.411,
+    -0.012,
+    -0.438
+   ],
+   "bounds_max": [
+    0.291,
+    0.865,
+    0.238
+   ],
+   "front": "+Z",
+   "use": "house, office, store counter",
+   "kind": "small",
+   "static": false,
+   "mat": "concrete",
+   "collision": "box over the model bounds",
+   "tris": 1264,
+   "surfaces": 1,
+   "licence": "CC0-1.0 (Poly Haven)"
+  },
+  "garden_gnome": {
+   "source": "Poly Haven garden_gnome",
+   "footprint": [
+    0.26,
+    0.21
+   ],
+   "height": 0.6,
+   "bounds_min": [
+    -0.144,
+    0.0,
+    -0.099
+   ],
+   "bounds_max": [
+    0.115,
+    0.599,
+    0.111
+   ],
+   "front": "+Z",
+   "use": "house (front yard)",
+   "kind": "small",
+   "static": false,
+   "mat": "concrete",
+   "collision": "box over the model bounds",
+   "tris": 1800,
+   "surfaces": 1,
+   "licence": "CC0-1.0 (Poly Haven)"
+  },
+  "planter_box": {
+   "source": "Poly Haven planter_box_01",
+   "footprint": [
+    0.91,
+    0.41
+   ],
+   "height": 0.43,
+   "bounds_min": [
+    -0.457,
+    -0.0,
+    -0.207
+   ],
+   "bounds_max": [
+    0.456,
+    0.425,
+    0.207
+   ],
+   "front": "+Z",
+   "use": "house (front yard), street, clubhouse",
+   "kind": "fixture",
+   "static": true,
+   "mat": "wood",
+   "collision": "box over the model bounds",
+   "tris": 3000,
+   "surfaces": 1,
+   "licence": "CC0-1.0 (Poly Haven)"
+  },
+  "iron_gate": {
+   "source": "Poly Haven large_iron_gate",
+   "footprint": [
+    2.95,
+    0.1
+   ],
+   "height": 2.93,
+   "bounds_min": [
+    -1.475,
+    -0.008,
+    -0.036
+   ],
+   "bounds_max": [
+    1.475,
+    2.922,
+    0.06
+   ],
+   "front": "+Z (a flat double gate 2.95 m wide in the XY plane)",
+   "use": "house (driveway gate), guardhouse",
+   "kind": "fixture",
+   "static": true,
+   "mat": "steel",
+   "collision": "box over the model bounds",
+   "tris": 6999,
+   "surfaces": 1,
+   "licence": "CC0-1.0 (Poly Haven)"
+  },
+  "display_shelves": {
+   "source": "Poly Haven wooden_display_shelves_01",
+   "footprint": [
+    0.37,
+    1.08
+   ],
+   "height": 1.56,
+   "bounds_min": [
+    -0.186,
+    0.0,
+    -0.539
+   ],
+   "bounds_max": [
+    0.186,
+    1.557,
+    0.539
+   ],
+   "front": "+X (open side; the source faces sideways: rotate yaw -90 deg to face +Z)",
+   "use": "store, house",
+   "kind": "cabinet",
+   "static": true,
+   "mat": "wood",
+   "collision": "box over the model bounds",
+   "tris": 3174,
+   "surfaces": 1,
+   "licence": "CC0-1.0 (Poly Haven)"
+  },
+  "steel_shelves3": {
+   "source": "Poly Haven steel_frame_shelves_03",
+   "footprint": [
+    2.35,
+    0.72
+   ],
+   "height": 2.31,
+   "bounds_min": [
+    -1.044,
+    -0.0,
+    -0.358
+   ],
+   "bounds_max": [
+    1.307,
+    2.312,
+    0.363
+   ],
+   "front": "+Z",
+   "use": "store (stock room), factory, garage",
+   "kind": "cabinet",
+   "static": true,
+   "mat": "steel",
+   "collision": "box over the model bounds",
+   "tris": 3999,
+   "surfaces": 1,
+   "licence": "CC0-1.0 (Poly Haven)"
+  },
+  "metal_rack": {
+   "source": "Poly Haven worn_metal_rack",
+   "footprint": [
+    0.92,
+    0.6
+   ],
+   "height": 1.9,
+   "bounds_min": [
+    -0.46,
+    -0.0,
+    -0.3
+   ],
+   "bounds_max": [
+    0.455,
+    1.9,
+    0.3
+   ],
+   "front": "+Z",
+   "use": "store (stock room), garage, factory",
+   "kind": "cabinet",
+   "static": true,
+   "mat": "steel",
+   "collision": "box over the model bounds",
+   "tris": 4000,
+   "surfaces": 1,
+   "licence": "CC0-1.0 (Poly Haven)"
+  },
+  "wet_floor_sign": {
+   "source": "Poly Haven WetFloorSign_01",
+   "footprint": [
+    0.3,
+    0.36
+   ],
+   "height": 0.63,
+   "bounds_min": [
+    -0.15,
+    0.002,
+    -0.193
+   ],
+   "bounds_max": [
+    0.15,
+    0.632,
+    0.165
+   ],
+   "front": "+Z",
+   "use": "store, office, clubhouse",
+   "kind": "small",
+   "static": false,
+   "mat": "plastic",
+   "collision": "box over the model bounds",
+   "tris": 228,
+   "surfaces": 1,
+   "licence": "CC0-1.0 (Poly Haven)"
+  },
+  "payphone": {
+   "source": "Poly Haven korean_public_payphone_01",
+   "footprint": [
+    0.4,
+    0.3
+   ],
+   "height": 0.74,
+   "bounds_min": [
+    -0.256,
+    0.0,
+    -0.108
+   ],
+   "bounds_max": [
+    0.143,
+    0.738,
+    0.192
+   ],
+   "front": "+Z",
+   "use": "store (outside wall), street, gas station",
+   "kind": "fixture",
+   "static": true,
+   "mat": "steel",
+   "collision": "box over the model bounds",
+   "tris": 3000,
+   "surfaces": 1,
+   "licence": "CC0-1.0 (Poly Haven)"
+  },
+  "security_camera": {
+   "source": "Poly Haven security_camera_01",
+   "footprint": [
+    0.17,
+    0.55
+   ],
+   "height": 0.29,
+   "bounds_min": [
+    -0.085,
+    -0.025,
+    -0.303
+   ],
+   "bounds_max": [
+    0.085,
+    0.261,
+    0.25
+   ],
+   "front": "+Z (mount its back, -Z, on a wall)",
+   "use": "store, gas station, guardhouse (wall)",
+   "kind": "fixture",
+   "static": true,
+   "mat": "plastic",
+   "collision": "none (decor)",
+   "tris": 1800,
+   "surfaces": 1,
+   "licence": "CC0-1.0 (Poly Haven)"
+  },
+  "food_tins": {
+   "source": "Poly Haven long_life_food",
+   "footprint": [
+    0.52,
+    0.11
+   ],
+   "height": 0.24,
+   "bounds_min": [
+    -0.285,
+    -0.002,
+    -0.058
+   ],
+   "bounds_max": [
+    0.238,
+    0.236,
+    0.057
+   ],
+   "front": "+Z",
+   "use": "store (shelves), house (kitchen)",
+   "kind": "small",
+   "static": false,
+   "mat": "sheet_metal",
+   "collision": "box over the model bounds",
+   "tris": 1800,
+   "surfaces": 1,
+   "licence": "CC0-1.0 (Poly Haven)"
+  },
+  "food_cans": {
+   "source": "Poly Haven russian_food_cans_01",
+   "footprint": [
+    0.14,
+    0.05
+   ],
+   "height": 0.08,
+   "bounds_min": [
+    -0.073,
+    0.0,
+    -0.023
+   ],
+   "bounds_max": [
+    0.069,
+    0.085,
+    0.023
+   ],
+   "front": "+Z",
+   "use": "store (shelves), house (kitchen)",
+   "kind": "small",
+   "static": false,
+   "mat": "sheet_metal",
+   "collision": "box over the model bounds",
+   "tris": 999,
+   "surfaces": 1,
+   "licence": "CC0-1.0 (Poly Haven)"
+  },
+  "bleach": {
+   "source": "Poly Haven bleach_bottle",
+   "footprint": [
+    0.09,
+    0.06
+   ],
+   "height": 0.29,
+   "bounds_min": [
+    -0.044,
+    0.0,
+    -0.031
+   ],
+   "bounds_max": [
+    0.044,
+    0.294,
+    0.031
+   ],
+   "front": "+Z",
+   "use": "store (shelves), house (toilet)",
+   "kind": "small",
+   "static": false,
+   "mat": "plastic",
+   "collision": "box over the model bounds",
+   "tris": 1000,
+   "surfaces": 1,
+   "licence": "CC0-1.0 (Poly Haven)"
+  },
+  "cleaner_bottle": {
+   "source": "Poly Haven multi_cleaner_bottle",
+   "footprint": [
+    0.09,
+    0.09
+   ],
+   "height": 0.23,
+   "bounds_min": [
+    -0.045,
+    0.0,
+    -0.045
+   ],
+   "bounds_max": [
+    0.045,
+    0.229,
+    0.045
+   ],
+   "front": "+Z",
+   "use": "store (shelves), house (kitchen)",
+   "kind": "small",
+   "static": false,
+   "mat": "plastic",
+   "collision": "box over the model bounds",
+   "tris": 999,
+   "surfaces": 1,
+   "licence": "CC0-1.0 (Poly Haven)"
+  },
+  "storage_cart": {
+   "source": "Poly Haven industrial_storage_cart",
+   "footprint": [
+    1.61,
+    1.11
+   ],
+   "height": 1.38,
+   "bounds_min": [
+    -0.804,
+    0.0,
+    -0.554
+   ],
+   "bounds_max": [
+    0.804,
+    1.381,
+    0.554
+   ],
+   "front": "+Z",
+   "use": "factory",
+   "kind": "heavy",
+   "static": false,
+   "mat": "steel",
+   "collision": "box over the model bounds",
+   "tris": 4000,
+   "surfaces": 1,
+   "licence": "CC0-1.0 (Poly Haven)"
+  },
+  "airduct": {
+   "source": "Poly Haven modular_airduct_rectangular_01",
+   "footprint": [
+    0.66,
+    1.8
+   ],
+   "height": 0.51,
+   "bounds_min": [
+    -0.332,
+    -0.256,
+    -0.9
+   ],
+   "bounds_max": [
+    0.332,
+    0.256,
+    0.9
+   ],
+   "front": "none (a 1.8 m straight duct section running along Z; repeat it every 1.8 m)",
+   "use": "factory, store (ceiling)",
+   "kind": "fixture",
+   "static": true,
+   "mat": "sheet_metal",
+   "collision": "box over the model bounds",
+   "tris": 3176,
+   "surfaces": 1,
+   "licence": "CC0-1.0 (Poly Haven)"
+  },
+  "drum_plastic2": {
+   "source": "Poly Haven Barrel_02",
+   "footprint": [
+    0.49,
+    0.48
+   ],
+   "height": 0.88,
+   "bounds_min": [
+    -0.244,
+    0.005,
+    -0.242
+   ],
+   "bounds_max": [
+    0.244,
+    0.885,
+    0.242
+   ],
+   "front": "+Z",
+   "use": "factory, gas station",
+   "kind": "heavy",
+   "static": false,
+   "mat": "plastic",
+   "collision": "box over the model bounds",
+   "tris": 2688,
+   "surfaces": 1,
+   "licence": "CC0-1.0 (Poly Haven)"
+  },
+  "tote_box": {
+   "source": "Poly Haven industrial_pastic_container",
+   "footprint": [
+    0.46,
+    0.63
+   ],
+   "height": 0.42,
+   "bounds_min": [
+    -0.226,
+    -0.001,
+    -0.316
+   ],
+   "bounds_max": [
+    0.232,
+    0.419,
+    0.315
+   ],
+   "front": "+Z",
+   "use": "factory, store (stock room)",
+   "kind": "small",
+   "static": false,
+   "mat": "plastic",
+   "collision": "box over the model bounds",
+   "tris": 3000,
+   "surfaces": 1,
+   "licence": "CC0-1.0 (Poly Haven)"
+  },
+  "compressor": {
+   "source": "Poly Haven old_military_compressor",
+   "footprint": [
+    0.6,
+    1.67
+   ],
+   "height": 1.18,
+   "bounds_min": [
+    -0.298,
+    -0.003,
+    -0.837
+   ],
+   "bounds_max": [
+    0.298,
+    1.179,
+    0.833
+   ],
+   "front": "+Z",
+   "use": "factory, garage, gas station",
+   "kind": "heavy",
+   "static": false,
+   "mat": "steel",
+   "collision": "box over the model bounds",
+   "tris": 4000,
+   "surfaces": 1,
+   "licence": "CC0-1.0 (Poly Haven)"
+  },
+  "sconce_caged": {
+   "source": "Poly Haven industrial_caged_sconce",
+   "footprint": [
+    0.21,
+    0.21
+   ],
+   "height": 0.38,
+   "bounds_min": [
+    -0.105,
+    -0.107,
+    -0.103
+   ],
+   "bounds_max": [
+    0.105,
+    0.278,
+    0.105
+   ],
+   "front": "+Z (mount its back on a wall)",
+   "use": "factory, store (wall light)",
+   "kind": "fixture",
+   "static": true,
+   "mat": "steel",
+   "collision": "none (decor)",
+   "tris": 1800,
+   "surfaces": 1,
+   "licence": "CC0-1.0 (Poly Haven)"
+  },
+  "wall_lamp_industrial": {
+   "source": "Poly Haven industrial_wall_lamp",
+   "footprint": [
+    0.27,
+    0.14
+   ],
+   "height": 0.43,
+   "bounds_min": [
+    -0.137,
+    -0.215,
+    0.0
+   ],
+   "bounds_max": [
+    0.137,
+    0.215,
+    0.14
+   ],
+   "front": "+Z (mount its back on a wall)",
+   "use": "factory, house (outside wall)",
+   "kind": "fixture",
+   "static": true,
+   "mat": "steel",
+   "collision": "none (decor)",
+   "tris": 1799,
+   "surfaces": 1,
+   "licence": "CC0-1.0 (Poly Haven)"
+  },
+  "barrier2": {
+   "source": "Poly Haven concrete_road_barrier_02",
+   "footprint": [
+    1.56,
+    0.44
+   ],
+   "height": 1.11,
+   "bounds_min": [
+    -0.776,
+    -0.003,
+    -0.254
+   ],
+   "bounds_max": [
+    0.788,
+    1.108,
+    0.185
+   ],
+   "front": "+Z",
+   "use": "street, parking, gas station",
+   "kind": "fixture",
+   "static": true,
+   "mat": "concrete",
+   "collision": "box over the model bounds",
+   "tris": 3999,
+   "surfaces": 1,
+   "licence": "CC0-1.0 (Poly Haven)"
+  },
+  "street_bench": {
+   "source": "Poly Haven modular_street_seating",
+   "footprint": [
+    2.45,
+    0.67
+   ],
+   "height": 0.87,
+   "bounds_min": [
+    -1.227,
+    -0.0,
+    -0.335
+   ],
+   "bounds_max": [
+    1.227,
+    0.867,
+    0.337
+   ],
+   "front": "+Z",
+   "use": "street, park, playground, clubhouse",
+   "kind": "fixture",
+   "static": true,
+   "mat": "wood",
+   "collision": "box over the model bounds",
+   "tris": 4000,
+   "surfaces": 1,
+   "licence": "CC0-1.0 (Poly Haven)"
+  },
+  "car_compact": {
+   "source": "res://assets/models/r7/car_compact.gltf",
+   "footprint": [
+    1.92,
+    3.9
+   ],
+   "height": 1.57,
+   "bounds_min": [
+    -0.962,
+    0.0,
+    -1.95
+   ],
+   "bounds_max": [
+    0.962,
+    1.575,
+    1.95
+   ],
+   "front": "+Z",
+   "use": "street, parking",
+   "kind": "vehicle",
+   "static": true,
+   "mat": "sheet_metal",
+   "collision": "box over the model bounds",
+   "tris": 7257,
+   "surfaces": 1,
+   "licence": "CC-BY-4.0 (credited in data/credits.json)"
+  },
+  "car_coupe": {
+   "source": "res://assets/models/r7/car_coupe.gltf",
+   "footprint": [
+    1.96,
+    4.4
+   ],
+   "height": 1.33,
+   "bounds_min": [
+    -0.978,
+    0.0,
+    -2.2
+   ],
+   "bounds_max": [
+    0.978,
+    1.326,
+    2.2
+   ],
+   "front": "+Z",
+   "use": "street, parking",
+   "kind": "vehicle",
+   "static": true,
+   "mat": "sheet_metal",
+   "collision": "box over the model bounds",
+   "tris": 6022,
+   "surfaces": 1,
+   "licence": "CC-BY-4.0 (credited in data/credits.json)"
+  },
+  "car_hatchback": {
+   "source": "res://assets/models/r7/car_hatchback.gltf",
+   "footprint": [
+    1.8,
+    4.1
+   ],
+   "height": 1.4,
+   "bounds_min": [
+    -0.902,
+    0.0,
+    -2.05
+   ],
+   "bounds_max": [
+    0.902,
+    1.401,
+    2.05
+   ],
+   "front": "+Z",
+   "use": "street, parking, house",
+   "kind": "vehicle",
+   "static": true,
+   "mat": "sheet_metal",
+   "collision": "box over the model bounds",
+   "tris": 6808,
+   "surfaces": 1,
+   "licence": "CC-BY-4.0 (credited in data/credits.json)"
+  },
+  "car_minivan": {
+   "source": "res://assets/models/r7/car_minivan.gltf",
+   "footprint": [
+    1.95,
+    4.8
+   ],
+   "height": 1.84,
+   "bounds_min": [
+    -0.973,
+    0.0,
+    -2.4
+   ],
+   "bounds_max": [
+    0.973,
+    1.836,
+    2.4
+   ],
+   "front": "+Z",
+   "use": "street, parking, house",
+   "kind": "vehicle",
+   "static": true,
+   "mat": "sheet_metal",
+   "collision": "box over the model bounds",
+   "tris": 7450,
+   "surfaces": 1,
+   "licence": "CC-BY-4.0 (credited in data/credits.json)"
+  },
+  "car_offroad": {
+   "source": "res://assets/models/r7/car_offroad.gltf",
+   "footprint": [
+    2.19,
+    4.4
+   ],
+   "height": 1.75,
+   "bounds_min": [
+    -1.095,
+    0.0,
+    -2.2
+   ],
+   "bounds_max": [
+    1.095,
+    1.753,
+    2.2
+   ],
+   "front": "+Z",
+   "use": "street, parking, house",
+   "kind": "vehicle",
+   "static": true,
+   "mat": "sheet_metal",
+   "collision": "box over the model bounds",
+   "tris": 6502,
+   "surfaces": 1,
+   "licence": "CC-BY-4.0 (credited in data/credits.json)"
+  },
+  "car_pickup": {
+   "source": "res://assets/models/r7/car_pickup.gltf",
+   "footprint": [
+    2.12,
+    5.3
+   ],
+   "height": 1.74,
+   "bounds_min": [
+    -1.058,
+    -0.0,
+    -2.65
+   ],
+   "bounds_max": [
+    1.058,
+    1.737,
+    2.65
+   ],
+   "front": "+Z",
+   "use": "street, parking, factory, gas station",
+   "kind": "vehicle",
+   "static": true,
+   "mat": "sheet_metal",
+   "collision": "box over the model bounds",
+   "tris": 6917,
+   "surfaces": 1,
+   "licence": "CC-BY-4.0 (credited in data/credits.json)"
+  },
+  "car_sedan": {
+   "source": "res://assets/models/r7/car_sedan.gltf",
+   "footprint": [
+    2.05,
+    4.6
+   ],
+   "height": 1.42,
+   "bounds_min": [
+    -1.024,
+    0.0,
+    -2.3
+   ],
+   "bounds_max": [
+    1.024,
+    1.416,
+    2.3
+   ],
+   "front": "+Z",
+   "use": "street, parking, house",
+   "kind": "vehicle",
+   "static": true,
+   "mat": "sheet_metal",
+   "collision": "box over the model bounds",
+   "tris": 7122,
+   "surfaces": 1,
+   "licence": "CC-BY-4.0 (credited in data/credits.json)"
+  },
+  "car_sport": {
+   "source": "res://assets/models/r7/car_sport.gltf",
+   "footprint": [
+    1.99,
+    4.4
+   ],
+   "height": 1.17,
+   "bounds_min": [
+    -0.994,
+    0.0,
+    -2.2
+   ],
+   "bounds_max": [
+    0.994,
+    1.169,
+    2.2
+   ],
+   "front": "+Z",
+   "use": "street, parking",
+   "kind": "vehicle",
+   "static": true,
+   "mat": "sheet_metal",
+   "collision": "box over the model bounds",
+   "tris": 6268,
+   "surfaces": 1,
+   "licence": "CC-BY-4.0 (credited in data/credits.json)"
+  },
+  "car_suv": {
+   "source": "res://assets/models/r7/car_suv.gltf",
+   "footprint": [
+    2.11,
+    4.7
+   ],
+   "height": 1.77,
+   "bounds_min": [
+    -1.054,
+    0.0,
+    -2.35
+   ],
+   "bounds_max": [
+    1.054,
+    1.767,
+    2.35
+   ],
+   "front": "+Z",
+   "use": "street, parking, house",
+   "kind": "vehicle",
+   "static": true,
+   "mat": "sheet_metal",
+   "collision": "box over the model bounds",
+   "tris": 7950,
+   "surfaces": 1,
+   "licence": "CC-BY-4.0 (credited in data/credits.json)"
+  },
+  "car_wagon": {
+   "source": "res://assets/models/r7/car_wagon.gltf",
+   "footprint": [
+    2.09,
+    4.7
+   ],
+   "height": 1.48,
+   "bounds_min": [
+    -1.046,
+    0.0,
+    -2.35
+   ],
+   "bounds_max": [
+    1.046,
+    1.48,
+    2.35
+   ],
+   "front": "+Z",
+   "use": "street, parking, house",
+   "kind": "vehicle",
+   "static": true,
+   "mat": "sheet_metal",
+   "collision": "box over the model bounds",
+   "tris": 6982,
+   "surfaces": 1,
+   "licence": "CC-BY-4.0 (credited in data/credits.json)"
+  },
+  "car_saloon_old": {
+   "source": "res://assets/models/r7/car_saloon_old.gltf",
+   "footprint": [
+    2.06,
+    4.3
+   ],
+   "height": 1.45,
+   "bounds_min": [
+    -1.028,
+    0.0,
+    -2.15
+   ],
+   "bounds_max": [
+    1.028,
+    1.448,
+    2.15
+   ],
+   "front": "+Z",
+   "use": "street, parking, house",
+   "kind": "vehicle",
+   "static": true,
+   "mat": "sheet_metal",
+   "collision": "box over the model bounds",
+   "tris": 4106,
+   "surfaces": 1,
+   "licence": "CC-BY-4.0 (credited in data/credits.json)"
+  },
+  "car_sedan_80s": {
+   "source": "res://assets/models/r7/car_sedan_80s.gltf",
+   "footprint": [
+    1.92,
+    4.9
+   ],
+   "height": 1.36,
+   "bounds_min": [
+    -0.959,
+    0.0,
+    -2.45
+   ],
+   "bounds_max": [
+    0.959,
+    1.362,
+    2.45
+   ],
+   "front": "+Z",
+   "use": "street, parking, house",
+   "kind": "vehicle",
+   "static": true,
+   "mat": "sheet_metal",
+   "collision": "box over the model bounds",
+   "tris": 7999,
+   "surfaces": 1,
+   "licence": "CC-BY-4.0 (credited in data/credits.json)"
+  },
+  "car_sedan_80s_b": {
+   "source": "res://assets/models/r7/car_sedan_80s_b.gltf",
+   "footprint": [
+    1.8,
+    4.9
+   ],
+   "height": 1.32,
+   "bounds_min": [
+    -0.9,
+    0.0,
+    -2.45
+   ],
+   "bounds_max": [
+    0.9,
+    1.323,
+    2.45
+   ],
+   "front": "+Z",
+   "use": "street, parking, house",
+   "kind": "vehicle",
+   "static": true,
+   "mat": "sheet_metal",
+   "collision": "box over the model bounds",
+   "tris": 7999,
+   "surfaces": 1,
+   "licence": "CC-BY-4.0 (credited in data/credits.json)"
+  },
+  "car_pickup_old": {
+   "source": "res://assets/models/r7/car_pickup_old.gltf",
+   "footprint": [
+    1.96,
+    4.89
+   ],
+   "height": 1.44,
+   "bounds_min": [
+    -0.98,
+    0.0,
+    -2.447
+   ],
+   "bounds_max": [
+    0.98,
+    1.443,
+    2.447
+   ],
+   "front": "+Z",
+   "use": "street, parking, house, gas station",
+   "kind": "vehicle",
+   "static": true,
+   "mat": "sheet_metal",
+   "collision": "box over the model bounds",
+   "tris": 7999,
+   "surfaces": 1,
+   "licence": "CC-BY-4.0 (credited in data/credits.json)"
+  },
+  "van_delivery": {
+   "source": "res://assets/models/r7/van_delivery.gltf",
+   "footprint": [
+    2.35,
+    4.9
+   ],
+   "height": 2.06,
+   "bounds_min": [
+    -1.174,
+    0.0,
+    -2.45
+   ],
+   "bounds_max": [
+    1.174,
+    2.056,
+    2.45
+   ],
+   "front": "+Z",
+   "use": "street, parking, store (loading), factory",
+   "kind": "vehicle",
+   "static": true,
+   "mat": "sheet_metal",
+   "collision": "box over the model bounds",
+   "tris": 8000,
+   "surfaces": 1,
+   "licence": "CC-BY-4.0 (credited in data/credits.json)"
+  },
+  "car_burnt_a": {
+   "source": "res://assets/models/r7/car_burnt_a.gltf",
+   "footprint": [
+    1.85,
+    4.4
+   ],
+   "height": 1.28,
+   "bounds_min": [
+    -0.924,
+    0.0,
+    -2.2
+   ],
+   "bounds_max": [
+    0.924,
+    1.276,
+    2.2
+   ],
+   "front": "+Z",
+   "use": "street, parking (wreck)",
+   "kind": "vehicle",
+   "static": true,
+   "mat": "sheet_metal",
+   "collision": "box over the model bounds",
+   "tris": 1957,
+   "surfaces": 1,
+   "licence": "CC-BY-4.0 (credited in data/credits.json)"
+  },
+  "car_burnt_b": {
+   "source": "res://assets/models/r7/car_burnt_b.gltf",
+   "footprint": [
+    1.87,
+    4.4
+   ],
+   "height": 1.23,
+   "bounds_min": [
+    -0.936,
+    0.0,
+    -2.2
+   ],
+   "bounds_max": [
+    0.936,
+    1.23,
+    2.2
+   ],
+   "front": "+Z",
+   "use": "street, parking (wreck)",
+   "kind": "vehicle",
+   "static": true,
+   "mat": "sheet_metal",
+   "collision": "box over the model bounds",
+   "tris": 1494,
+   "surfaces": 1,
+   "licence": "CC-BY-4.0 (credited in data/credits.json)"
+  },
+  "car_police_burnt": {
+   "source": "res://assets/models/r7/car_police_burnt.gltf",
+   "footprint": [
+    1.94,
+    4.8
+   ],
+   "height": 1.27,
+   "bounds_min": [
+    -0.97,
+    0.0,
+    -2.4
+   ],
+   "bounds_max": [
+    0.97,
+    1.265,
+    2.4
+   ],
+   "front": "+Z",
+   "use": "street, barricade (wreck)",
+   "kind": "vehicle",
+   "static": true,
+   "mat": "sheet_metal",
+   "collision": "box over the model bounds",
+   "tris": 7999,
+   "surfaces": 1,
+   "licence": "CC-BY-4.0 (credited in data/credits.json)"
+  },
+  "car_police_flipped": {
+   "source": "res://assets/models/r7/car_police_flipped.gltf",
+   "footprint": [
+    2.66,
+    4.8
+   ],
+   "height": 1.68,
+   "bounds_min": [
+    -1.33,
+    0.0,
+    -2.4
+   ],
+   "bounds_max": [
+    1.33,
+    1.685,
+    2.4
+   ],
+   "front": "+Z (lying on its roof)",
+   "use": "street, barricade (wreck on its roof)",
+   "kind": "vehicle",
+   "static": true,
+   "mat": "sheet_metal",
+   "collision": "box over the model bounds",
+   "tris": 7999,
+   "surfaces": 1,
+   "licence": "CC-BY-4.0 (credited in data/credits.json)"
+  },
+  "jeepney_painted": {
+   "source": "res://assets/models/r7/jeepney_painted.gltf",
+   "footprint": [
+    2.36,
+    6.6
+   ],
+   "height": 2.38,
+   "bounds_min": [
+    -1.178,
+    0.0,
+    -3.3
+   ],
+   "bounds_max": [
+    1.178,
+    2.379,
+    3.3
+   ],
+   "front": "+Z",
+   "use": "street (stalled on the avenue), terminal",
+   "kind": "vehicle",
+   "static": true,
+   "mat": "sheet_metal",
+   "collision": "box over the model bounds",
+   "tris": 15000,
+   "surfaces": 1,
+   "licence": "CC-BY-4.0 (credited in data/credits.json)"
+  },
+  "forklift_a": {
+   "source": "res://assets/models/r7/forklift_a.gltf",
+   "footprint": [
+    1.21,
+    3.3
+   ],
+   "height": 2.03,
+   "bounds_min": [
+    -0.604,
+    0.0,
+    -1.65
+   ],
+   "bounds_max": [
+    0.604,
+    2.029,
+    1.65
+   ],
+   "front": "+Z",
+   "use": "factory, warehouse yard",
+   "kind": "vehicle",
+   "static": true,
+   "mat": "steel",
+   "collision": "box over the model bounds",
+   "tris": 1590,
+   "surfaces": 1,
+   "licence": "CC-BY-4.0 (credited in data/credits.json)"
+  },
+  "forklift_b": {
+   "source": "res://assets/models/r7/forklift_b.gltf",
+   "footprint": [
+    1.05,
+    3.3
+   ],
+   "height": 1.89,
+   "bounds_min": [
+    -0.523,
+    0.0,
+    -1.65
+   ],
+   "bounds_max": [
+    0.523,
+    1.887,
+    1.65
+   ],
+   "front": "+Z",
+   "use": "factory, warehouse yard",
+   "kind": "vehicle",
+   "static": true,
+   "mat": "steel",
+   "collision": "box over the model bounds",
+   "tris": 4000,
+   "surfaces": 1,
+   "licence": "CC-BY-4.0 (credited in data/credits.json)"
+  },
+  "store_display_case": {
+   "source": "res://assets/models/r7/store_display_case.gltf",
+   "footprint": [
+    0.64,
+    0.65
+   ],
+   "height": 1.3,
+   "bounds_min": [
+    -0.318,
+    0.0,
+    -0.323
+   ],
+   "bounds_max": [
+    0.318,
+    1.3,
+    0.323
+   ],
+   "front": "+Z",
+   "use": "store (counter)",
+   "kind": "cabinet",
+   "static": true,
+   "mat": "sheet_metal",
+   "collision": "box over the model bounds",
+   "tris": 4000,
+   "surfaces": 1,
+   "licence": "CC-BY-4.0 (credited in data/credits.json)"
+  },
+  "store_chiller": {
+   "source": "res://assets/models/r7/store_chiller.gltf",
+   "footprint": [
+    1.3,
+    0.69
+   ],
+   "height": 2.0,
+   "bounds_min": [
+    -0.651,
+    0.0,
+    -0.345
+   ],
+   "bounds_max": [
+    0.651,
+    2.0,
+    0.345
+   ],
+   "front": "+Z",
+   "use": "store (wall)",
+   "kind": "cabinet",
+   "static": true,
+   "mat": "sheet_metal",
+   "collision": "box over the model bounds",
+   "tris": 2000,
+   "surfaces": 1,
+   "licence": "CC-BY-4.0 (credited in data/credits.json)"
+  },
+  "store_shelf_wall": {
+   "source": "res://assets/models/r7/store_shelf_wall.gltf",
+   "footprint": [
+    2.1,
+    0.53
+   ],
+   "height": 1.9,
+   "bounds_min": [
+    -1.052,
+    0.0,
+    -0.263
+   ],
+   "bounds_max": [
+    1.052,
+    1.9,
+    0.263
+   ],
+   "front": "+Z",
+   "use": "store (wall)",
+   "kind": "cabinet",
+   "static": true,
+   "mat": "steel",
+   "collision": "box over the model bounds",
+   "tris": 1840,
+   "surfaces": 1,
+   "licence": "CC-BY-4.0 (credited in data/credits.json)"
+  },
+  "chem_tanks": {
+   "source": "res://assets/models/r7/chem_tanks.gltf",
+   "footprint": [
+    2.7,
+    6.12
+   ],
+   "height": 5.6,
+   "bounds_min": [
+    -1.351,
+    0.0,
+    -3.06
+   ],
+   "bounds_max": [
+    1.351,
+    5.6,
+    3.06
+   ],
+   "front": "+Z",
+   "use": "factory yard",
+   "kind": "fixture",
+   "static": true,
+   "mat": "steel",
+   "collision": "box over the model bounds",
+   "tris": 8693,
+   "surfaces": 1,
+   "licence": "CC-BY-4.0 (credited in data/credits.json)"
+  },
+  "conveyor": {
+   "source": "res://assets/models/r7/conveyor.gltf",
+   "footprint": [
+    0.74,
+    8.81
+   ],
+   "height": 0.9,
+   "bounds_min": [
+    -0.368,
+    0.0,
+    -4.405
+   ],
+   "bounds_max": [
+    0.368,
+    0.9,
+    4.405
+   ],
+   "front": "+Z",
+   "use": "factory floor",
+   "kind": "fixture",
+   "static": true,
+   "mat": "steel",
+   "collision": "box over the model bounds",
+   "tris": 2876,
+   "surfaces": 1,
+   "licence": "CC-BY-4.0 (credited in data/credits.json)"
+  },
+  "control_pedestal": {
+   "source": "res://assets/models/r7/control_pedestal.gltf",
+   "footprint": [
+    0.31,
+    0.41
+   ],
+   "height": 1.6,
+   "bounds_min": [
+    -0.153,
+    0.0,
+    -0.206
+   ],
+   "bounds_max": [
+    0.153,
+    1.6,
+    0.206
+   ],
+   "front": "+Z",
+   "use": "factory floor",
+   "kind": "fixture",
+   "static": true,
+   "mat": "steel",
+   "collision": "box over the model bounds",
+   "tris": 1674,
+   "surfaces": 1,
+   "licence": "CC-BY-4.0 (credited in data/credits.json)"
+  },
+  "basketball_hoop": {
+   "source": "res://assets/models/r7/basketball_hoop.gltf",
+   "footprint": [
+    1.81,
+    2.73
+   ],
+   "height": 3.95,
+   "bounds_min": [
+    -0.905,
+    0.0,
+    -1.366
+   ],
+   "bounds_max": [
+    0.905,
+    3.95,
+    1.366
+   ],
+   "front": "+Z (the board and rim overhang toward +Z, the post stands at the back)",
+   "use": "court, clubhouse, playground",
+   "kind": "fixture",
+   "static": true,
+   "mat": "steel",
+   "collision": "none in PROPS; add the \"col\" post boxes with map.sink.col_box",
+   "tris": 2596,
+   "surfaces": 1,
+   "licence": "CC-BY-4.0 (credited in data/credits.json)",
+   "col": [
+    [
+     -0.006,
+     1.5,
+     -1.054,
+     0.625,
+     3.0,
+     0.625
+    ]
+   ]
+  },
+  "playground_slide": {
+   "source": "res://assets/models/r7/playground_slide.gltf",
+   "footprint": [
+    0.63,
+    3.22
+   ],
+   "height": 2.1,
+   "bounds_min": [
+    -0.316,
+    0.0,
+    -1.612
+   ],
+   "bounds_max": [
+    0.316,
+    2.1,
+    1.612
+   ],
+   "front": "+Z",
+   "use": "playground, park",
+   "kind": "fixture",
+   "static": true,
+   "mat": "steel",
+   "collision": "box over the model bounds",
+   "tris": 1390,
+   "surfaces": 1,
+   "licence": "CC-BY-4.0 (credited in data/credits.json)"
+  },
+  "playground_set": {
+   "source": "res://assets/models/r7/playground_set.gltf",
+   "footprint": [
+    5.05,
+    4.67
+   ],
+   "height": 2.0,
+   "bounds_min": [
+    -2.526,
+    0.0,
+    -2.335
+   ],
+   "bounds_max": [
+    2.526,
+    2.0,
+    2.335
+   ],
+   "front": "+Z (a scattered set: monkey bars, swings, see-saw)",
+   "use": "playground, park",
+   "kind": "fixture",
+   "static": true,
+   "mat": "steel",
+   "collision": "none in PROPS; add the \"col\" post boxes with map.sink.col_box",
+   "tris": 2340,
+   "surfaces": 1,
+   "licence": "CC-BY-4.0 (credited in data/credits.json)",
+   "col": [
+    [
+     -0.293,
+     1.0,
+     0.049,
+     1.124,
+     2.0,
+     0.582
+    ],
+    [
+     -1.924,
+     1.0,
+     2.253,
+     0.12,
+     2.0,
+     0.163
+    ],
+    [
+     -1.349,
+     1.0,
+     -0.193,
+     0.12,
+     2.0,
+     0.163
+    ],
+    [
+     -2.472,
+     1.0,
+     1.969,
+     0.12,
+     2.0,
+     0.163
+    ],
+    [
+     1.022,
+     1.0,
+     -2.298,
+     0.12,
+     2.0,
+     0.12
+    ],
+    [
+     -0.052,
+     1.0,
+     -2.298,
+     0.12,
+     2.0,
+     0.12
+    ],
+    [
+     -0.052,
+     1.0,
+     0.92,
+     0.12,
+     2.0,
+     0.12
+    ],
+    [
+     1.419,
+     1.0,
+     0.803,
+     0.914,
+     2.0,
+     0.433
+    ],
+    [
+     0.991,
+     1.0,
+     -1.707,
+     0.593,
+     2.0,
+     0.12
+    ],
+    [
+     0.991,
+     1.0,
+     -1.165,
+     0.593,
+     2.0,
+     0.12
+    ],
+    [
+     2.366,
+     1.0,
+     0.024,
+     0.319,
+     2.0,
+     0.333
+    ]
+   ]
+  },
+  "traffic_light": {
+   "source": "res://assets/models/r7/traffic_light.gltf",
+   "footprint": [
+    1.46,
+    5.53
+   ],
+   "height": 5.4,
+   "bounds_min": [
+    -0.729,
+    0.0,
+    -2.766
+   ],
+   "bounds_max": [
+    0.729,
+    5.4,
+    2.766
+   ],
+   "front": "+Z (the arm with the signal heads reaches toward +Z: stand the post at the kerb, arm over the road)",
+   "use": "street (major intersection corner)",
+   "kind": "fixture",
+   "static": true,
+   "mat": "steel",
+   "collision": "none in PROPS; add the \"col\" post boxes with map.sink.col_box",
+   "tris": 2652,
+   "surfaces": 1,
+   "licence": "CC-BY-4.0 (credited in data/credits.json)",
+   "col": [
+    [
+     0.29,
+     1.5,
+     -2.573,
+     0.257,
+     3.0,
+     0.257
+    ]
+   ]
+  },
+  "ped_signal": {
+   "source": "res://assets/models/r7/ped_signal.gltf",
+   "footprint": [
+    0.5,
+    0.54
+   ],
+   "height": 2.75,
+   "bounds_min": [
+    -0.249,
+    0.0,
+    -0.272
+   ],
+   "bounds_max": [
+    0.249,
+    2.75,
+    0.272
+   ],
+   "front": "+Z",
+   "use": "street (zebra crossing kerb)",
+   "kind": "fixture",
+   "static": true,
+   "mat": "steel",
+   "collision": "box over the model bounds",
+   "tris": 1294,
+   "surfaces": 1,
+   "licence": "CC-BY-4.0 (credited in data/credits.json)"
+  },
+  "gas_pump_old": {
+   "source": "res://assets/models/r7/gas_pump_old.gltf",
+   "footprint": [
+    1.12,
+    1.21
+   ],
+   "height": 1.98,
+   "bounds_min": [
+    -0.561,
+    0.0,
+    -0.603
+   ],
+   "bounds_max": [
+    0.561,
+    1.98,
+    0.603
+   ],
+   "front": "+Z",
+   "use": "gas station (island)",
+   "kind": "fixture",
+   "static": true,
+   "mat": "sheet_metal",
+   "collision": "box over the model bounds",
+   "tris": 1360,
+   "surfaces": 1,
+   "licence": "CC-BY-4.0 (credited in data/credits.json)"
+  },
+  "gas_pump_round": {
+   "source": "res://assets/models/r7/gas_pump_round.gltf",
+   "footprint": [
+    0.73,
+    0.44
+   ],
+   "height": 1.6,
+   "bounds_min": [
+    -0.367,
+    0.0,
+    -0.222
+   ],
+   "bounds_max": [
+    0.367,
+    1.6,
+    0.222
+   ],
+   "front": "+Z",
+   "use": "gas station (island)",
+   "kind": "fixture",
+   "static": true,
+   "mat": "sheet_metal",
+   "collision": "box over the model bounds",
+   "tris": 1092,
+   "surfaces": 1,
+   "licence": "CC-BY-4.0 (credited in data/credits.json)"
+  },
+  "aircon_condenser": {
+   "source": "res://assets/models/r7/aircon_condenser.gltf",
+   "footprint": [
+    0.64,
+    0.37
+   ],
+   "height": 0.85,
+   "bounds_min": [
+    -0.32,
+    0.0,
+    -0.187
+   ],
+   "bounds_max": [
+    0.32,
+    0.85,
+    0.187
+   ],
+   "front": "+Z (fan side; the bracket goes against the wall at -Z)",
+   "use": "house (outside wall), store, office (wall bracket)",
+   "kind": "fixture",
+   "static": true,
+   "mat": "steel",
+   "collision": "box over the model bounds",
+   "tris": 548,
+   "surfaces": 1,
+   "licence": "CC-BY-4.0 (credited in data/credits.json)"
+  }
+ }
+}

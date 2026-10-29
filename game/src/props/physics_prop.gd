@@ -1,6 +1,12 @@
 extends RigidBody3D
 ## A movable prop that has been woken up (pushed, grabbed, shot or hit). Server: a real rigid body with mass,
 ## friction, impact sounds and damage-dependent breaking. Clients: a kinematic copy following snapshots.
+## Furniture and crates break chunk by chunk (world/destruct.gd): a hit knocks out the chunk nearest the hit once
+## that chunk has taken enough, its collision box goes with it (so a table shot through the legs drops), and the
+## whole prop collapses when most of it is gone or its strength runs out.
+
+const Destruct := preload("res://src/world/destruct.gd")
+const CHUNK_KINDS := ["chair", "table", "crate", "sofa", "small", "heavy", "electronics", "tank", "appliance"]
 
 var dyn = null
 var p: Dictionary = {}
@@ -13,6 +19,12 @@ var _scrape_t := 0.0
 var _rest_sent := false
 var _impact_cd := 0.0
 var held_by := -1
+var chunk_info: Dictionary = {}
+var alive: Array = []          # chunk cells still on the prop
+var _chunk_hp := {}
+var _mi: MeshInstance3D = null
+var _shapes: Array = []        # CollisionShape3D nodes
+var _base_mass := 1.0
 
 
 func setup(d, prop: Dictionary, s: Dictionary, shape: Dictionary, model: Dictionary, is_server: bool) -> void:
@@ -23,8 +35,14 @@ func setup(d, prop: Dictionary, s: Dictionary, shape: Dictionary, model: Diction
 	if not server:
 		# Clients place it every frame from snapshots (interpolate()); engine interpolation on top would step.
 		physics_interpolation_mode = Node.PHYSICS_INTERPOLATION_MODE_OFF
-	hp = float(prop.get("health", s.get("hp", 100)))
+	if _chunked(s):
+		chunk_info = Destruct.chunks_for(d.models, str(prop.name))
+		if chunk_info.is_empty() or (chunk_info.keys as Array).size() < 3:
+			chunk_info = {}
+	# Chunked props take more to bring down whole: they lose pieces on the way.
+	hp = float(prop.get("health", float(s.get("hp", 100)) * (2.0 if not chunk_info.is_empty() else 1.0)))
 	mass = maxf(float(s.get("mass", 5.0)), 0.2)
+	_base_mass = mass
 	collision_layer = Defs.PHYS_PROP | Defs.PHYS_INTERACT
 	collision_mask = Defs.PHYS_WORLD | Defs.PHYS_PROP | Defs.PHYS_GLASS | Defs.PHYS_CHAR
 	if s.get("no_block", false):
@@ -60,11 +78,20 @@ func setup(d, prop: Dictionary, s: Dictionary, shape: Dictionary, model: Diction
 	cs.shape = bs
 	cs.position = shape.center
 	add_child(cs)
+	_shapes.append(cs)
 	if DisplayServer.get_name() != "headless" and model.has("mesh"):
 		var mi := MeshInstance3D.new()
 		mi.mesh = model.mesh
 		mi.position = model.get("offset", Vector3.ZERO)
 		add_child(mi)
+		_mi = mi
+	if not chunk_info.is_empty():
+		alive = (chunk_info.keys as Array).duplicate()
+		var gone: Array = prop.get("lost", [])
+		for k in gone:
+			alive.erase(k)
+		if not gone.is_empty():
+			_rebuild_chunks()
 	if not server:
 		freeze = true
 		freeze_mode = RigidBody3D.FREEZE_MODE_KINEMATIC
@@ -96,7 +123,8 @@ func _on_body_entered(other: Node) -> void:
 	var energy := 0.5 * mass * speed * speed
 	var mat := str(spec.get("mat", "wood"))
 	dyn.world.server_sound("impact_" + _impact_family(mat), global_position, clampf(linear_to_db(speed / 6.0), -18.0, 4.0), -1)
-	take_damage(energy * 0.6, linear_velocity)
+	# Only a real crash knocks pieces off where it lands; a tip-over just wears the whole prop.
+	take_damage(energy * 0.6, linear_velocity, global_position + linear_velocity.normalized() * 0.2 if energy > 60.0 else Vector3.INF)
 
 
 func _impact_family(mat: String) -> String:
@@ -112,11 +140,73 @@ func _impact_family(mat: String) -> String:
 	return "wood"
 
 
-func take_damage(amount: float, impulse: Vector3) -> void:
+func _chunked(s: Dictionary) -> bool:
+	return str(s.get("kind", "")) in CHUNK_KINDS and str(s.get("mat", "wood")) != "glass" and not s.get("no_block", false) \
+		and not s.get("glass", false)
+
+
+func take_damage(amount: float, impulse: Vector3, at: Vector3 = Vector3.INF) -> void:
 	hp -= amount
 	p.health = hp
+	if hp > 0.0 and not chunk_info.is_empty() and at != Vector3.INF and not alive.is_empty():
+		var key := Destruct.nearest_chunk(chunk_info, alive, global_transform.affine_inverse() * at)
+		if key >= 0:
+			# Each chunk takes at least a pistol round's worth: a plastic chair loses pieces, it does not burst.
+			var per := maxf(float(spec.get("hp", 100)) * 1.2 / maxf((chunk_info.keys as Array).size(), 1.0), 28.0)
+			var left := float(_chunk_hp.get(key, per)) - amount
+			_chunk_hp[key] = left
+			if left <= 0.0:
+				dyn.server_prop_chunk(int(p.id), key, impulse)
+				if remaining() < 0.3:
+					hp = 0.0
 	if hp <= 0.0:
 		dyn.server_break_prop(int(p.id), impulse)
+
+
+func remaining() -> float:
+	## Share of the model (by triangles) still on the prop.
+	var r := 0.0
+	for k in alive:
+		r += float(chunk_info.volume.get(k, 0.0))
+	return r
+
+
+func lose_chunk(key: int) -> bool:
+	## Server and clients: chunk `key` is knocked off. False if it was already gone.
+	if chunk_info.is_empty() or not alive.has(key):
+		return false
+	alive.erase(key)
+	var lost: Array = p.get("lost", [])
+	lost.append(key)
+	p.lost = lost
+	_rebuild_chunks()
+	if server:
+		sleeping = false
+	return true
+
+
+func _rebuild_chunks() -> void:
+	# Collision: one box per chunk still there (a chair shot through a leg tips over, a table without legs drops).
+	for c in _shapes:
+		remove_child(c)
+		c.free()
+	_shapes.clear()
+	for k in alive:
+		var b: AABB = chunk_info.chunks[k].aabb
+		var cs := CollisionShape3D.new()
+		var bs := BoxShape3D.new()
+		bs.size = b.size.max(Vector3(0.04, 0.04, 0.04))
+		cs.shape = bs
+		cs.position = b.get_center()
+		add_child(cs)
+		_shapes.append(cs)
+	mass = maxf(_base_mass * maxf(remaining(), 0.15), 0.2)
+	if _mi:
+		_mi.mesh = Destruct.build_mesh(chunk_info, alive)
+
+
+func chunk_box(key: int) -> AABB:
+	return chunk_info.chunks[key].aabb if chunk_info.chunks.has(key) else AABB()
 
 
 func _on_sleep() -> void:

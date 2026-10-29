@@ -84,7 +84,8 @@ static func encode(tick: int, ack: int, me, others: Array, props: Array, weapon_
 		b.put_half((w.kick as Vector2).x)
 		b.put_half((w.kick as Vector2).y)
 		b.put_u16(int(w.mag))
-		b.put_u8((1 if w.chamber else 0) | (2 if w.pf else 0) | (4 if w.pr else 0) | (8 if w.pm else 0))
+		b.put_u8((1 if w.chamber else 0) | (2 if w.pf else 0) | (4 if w.pr else 0) | (8 if w.pm else 0)
+			| (clampi(int(w.get("bl", 0)), 0, 3) << 4) | (64 if w.get("rq", false) else 0))
 		b.put_u8(int(w.mode))
 		b.put_u8(1 if me.light.on else 0)
 		b.put_half(me.light.swap_t)
@@ -168,6 +169,8 @@ static func decode(bytes: PackedByteArray, weapon_ids: Array) -> Dictionary:
 		w.pf = (bits & 2) != 0
 		w.pr = (bits & 4) != 0
 		w.pm = (bits & 8) != 0
+		w.bl = (bits >> 4) & 3
+		w.rq = (bits & 64) != 0
 		w.mode = b.get_u8()
 		s.wpn = w
 		s.light_on = b.get_u8() == 1

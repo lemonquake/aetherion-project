@@ -15,6 +15,7 @@ const BAD := Color(0.95, 0.38, 0.32)
 const DIM := Color(0.55, 0.62, 0.6)
 const INK := Color(0.86, 0.92, 0.88)
 const BG := Color(0.03, 0.05, 0.05)
+const MIN_TEXT := 19   # px on the 720 px canvas: small print stays readable on the held device
 
 var world = null
 var page := 0
@@ -95,7 +96,7 @@ func close_container() -> void:
 # ------------------------------------------------------------------ drawing helpers
 
 func _t(text: String, pos: Vector2, size: int, col: Color = INK, font: Font = null) -> void:
-	draw_string(font if font else _font, pos, text, HORIZONTAL_ALIGNMENT_LEFT, -1, int(size * _scale), col)
+	draw_string(font if font else _font, pos, text, HORIZONTAL_ALIGNMENT_LEFT, -1, int(maxi(size, MIN_TEXT) * _scale), col)
 
 
 func _button(r: Rect2, label: String, action: Dictionary, accent: Color = Color(0.25, 0.35, 0.3)) -> void:
@@ -174,9 +175,10 @@ func _status(ch) -> void:
 				mode = "  " + ch.wpn.fire_mode().capitalize()
 			var feed := str(d.get("feed", "mag"))
 			var chamber_txt := ""
-			if feed == "mag":
-				chamber_txt = "  (%d in magazine%s)" % [int(w.mag), ", +1 chambered" if w.chamber else ""]
-			_t("%d loaded%s   %d spare%s" % [loaded, chamber_txt, reserve, mode], Vector2(40, y + 26), 20, INK if active else DIM, _mono)
+			if feed == "mag" and w.chamber:
+				chamber_txt = " (%d+1)" % int(w.mag)
+			# Short enough to stay left of the body diagram (x 470).
+			_t("%d loaded%s  %d spare%s" % [loaded, chamber_txt, reserve, mode], Vector2(40, y + 26), 20, INK if active else DIM, _mono)
 			var atts: Array = w.get("att", [])
 			if not atts.is_empty():
 				_t(", ".join(atts.map(func(a): return str(Defs.attachments.get(a, {}).get("name", a)))), Vector2(40, y + 48), 18, DIM)

@@ -10,6 +10,73 @@ Evidence folders (not committed, regenerate with the commands in the README): `w
 play-through), `work/screens/net/` (two clients), `work/screens/L1`, `L2` (lighting previews), `work/items/`
 (model checks), bot-match logs from `--matchlog`, `work/scale/` (map size, benchmarks, 40-bot matches).
 
+## 2026-10-29 r10 run (version 0.10.0)
+
+Evidence: `work/r10/` (shots, autotest captures `at/`, `at2/`, menu flow `menu/`, regression `reg/`, headless match logs
+`logs/`).
+
+- **Tested** Ground glitch (user screenshot 1): Lawless Sub's terrain heightfield was built at the walkable height, so on
+  bridge decks it lay in the deck's plane and its dirt showed through the asphalt; it is now the bare ground (canal bed
+  under bridges). Canal-walk planter strips that ran across the road at both ends of the Canal Bridge are cut where a
+  road or bridge covers them. Before/after renders `shots/sub_bridge_detail_t450.png`, `shots/after/`; check
+  `r10_bridge_no_dirt`.
+- **Tested** Kerbs and low ledges: `_try_step` now uses the stick direction (the slide had erased the way into a kerb)
+  and tries three reaches. `tools/step_lab.tscn`: every ledge up to 0.42 m is climbed at 0/45/65/75 degrees in every gait
+  (14 of 52 blocked before); 0.5 m still needs a vault. In map: `r10_kerb_shallow`. Gemini's r9 handoff described this
+  change but it was not in the code.
+- **Tested** Rubble (user screenshot 3, the wall breaches) and old mattresses have no collision.
+- **Tested** PLAY NOW opens the lobby; START MATCH loads (`--menu_test`). Loading screen drawn mid-build
+  (`r10_loading_screen`, `menu/loading.png`); the old screen is taken out of the tree at once (a screen only queued for
+  deletion stayed on top through the synchronous build).
+- **Tested** Laser pointer (hold V, colour in Profile and Settings > Gameplay, sent to the host and drawn by everyone),
+  enemy bots follow it back (`r10_laser_visible`, `r10_laser_alerts_enemy`). Ping a spot (middle mouse): HUD marker,
+  minimap, team bots act on it (`r10_ping_point`, `r10_ping_reaches_bots`). Teammate names and minimap teammates
+  (`r10_ally_names`, `r10_minimap_allies`). Hit punch ~3 degrees, settles in 0.4 s, frame-rate independent
+  (`r10_hit_kick`).
+- **Tested** Bots: roles (looter/camper, rusher, sniper, stalker), squads and human followers, radio callouts (208
+  Windows TTS clips in 4 voices through the Radio bus, with subtitles), ping and laser reactions, haze timing (simulates
+  the closing circle), exits houses by the door, edge guard against walled canals, vaults only toward open ground,
+  waypoints surveyed on a worker thread, learning saved per map. Walk-grid fixes found from logs: subdivision walls were
+  left open wherever a yard claimed the cell first (image 2: bots on walls), bridge parapets and the estero beside
+  bridge abutments were open, the edge guard had treated bridge decks as canal. Headless DM 20 bots, 7 min: canal
+  falls 0 in the last 5 runs (were 6-10), haze deaths 0-4 (were 5-9), mostly campers far from the circle.
+- **Implemented** Bots use the laser themselves: no (they react to it). Learning effect over many matches: not measured.
+- **Incomplete** One walker test flaky before this run too (`use_takes_items`, passes on rerun).
+
+## 2026-10-28 r6 run (version 0.7.0)
+
+Evidence: `work/lemondev/r6/` (contract, handoff, captures, logs; `gates/` first regression batch, `gates2/` reruns on
+the final revision). Started on top of the unfinished r5 run (its own components are still open, see the handoff).
+
+| Requirement (owner, 2026-10-28) | Status | Evidence / notes |
+|---|---|---|
+| Walking/running camera motion 50 % less | Tested | Head bob, side sway and limp roll x0.5 (`GAIT_BOB`), gun bob halved. `walk_bob_halved`: 0.028 m up/down, 0.018 m sideways over 1.5 s of walking (0.050 / 0.036 before) |
+| Downloaded gun and impact sounds for everything | Tested (definitions, timing) / Not verified by ear | 133 Freesound recordings (121 CC0, 12 CC BY; licence read from each page) + OpenGameArt CC0 clips -> 48 sound sets: bullet impacts per material (concrete, wood, sheet metal, steel, dirt/sand, water, glass, cloth, plastic, foliage, tile), flesh, head, helmet, ricochet, fly-bys, brass and shotgun shells, body falls, and 26 reload steps. The owner's work/sounds hits and reload clips are folded in. `sounds_complete` 71/71 ids, `impact_variety`, `reload_step_sounds` (rifle, pistol, pump, bolt: every step in order, on the hands' timing), `bot_reload_heard`, fixes `work_sounds_used`. Nobody listened to them |
+| Blood on walls and ground when hit, on bodies and ragdolls too | Tested | Droplet arcs land as wet red marks (round or stretched by angle), wall bursts with runs, drops at the feet, drip trails, crawl smears, spreading pools under bodies, spray when a body is shot; cards on every renderer. `blood_spatter_visible` 0.52 % of the view turned blood red from 3 hits, `blood_on_wall` 892 px, `blood_at_feet` 369 px, `blood_drip_trail` 10 drops over 3 m, `blood_pool_spreads`, `blood_corpse_hit` 71 marks, `blood_cost` 0.61 ms per hit (PC) / 0.69 ms (phone profile) |
+| SmarTab: no hands through it; screen and text 2x | Tested | Device and screen doubled (61 % of view height, smallest text ~15 px on a 1600x900 window, was ~7), held flat from behind. `smartab_no_hands_on_screen`: 0 screen pixels change when the arms are hidden (PC and phone profile). Text-size slider now to 2.0 |
+| Regressions | Tested, with noted exceptions | Final revision: r6 20/20, tour 26/26, fixes grab+sounds 8/8, phone profile 9/9; first batch: r3 19/19, network 17/17, fixes 24/26 (both fixed or passing on rerun). r4 holes_wall below its 2.5-luma threshold on dark wood although the holes are visible in the capture (its screen-rect scaling bug fixed); r4 suppression flaky (passed, then failed); r5 ragdoll_mesh_touches_ground 2/34 bodies float 3.5 cm (r5's open item) |
+| Builds | Tested | From the final revision (0.7.0): `builds/windows/Aetherion.exe` (1.29 GB) runs `--autotest=r6` 14/14 and exits with code 0; `builds/android/Aetherion.apk` and `Aetherion-opengl.apk` (416 MB each, versionCode 7): the OpenGL APK installed on the `aetherion_test` emulator, opened the menu (Version 0.7.0) and started a practice match; map fingerprint #49929ca0 identical to the PC runs. The Vulkan APK was not run (that emulator cannot present Vulkan). The 0.6.0 EXE is kept as `Aetherion-0.6.0.exe` for A/B |
+
+## 2026-10-27 r4 run (version 0.6.0)
+
+Evidence: `work/lemondev/r4/` (contract, captures, logs, blind-review packets). All on the final source revision
+unless noted. The PC was at 100% CPU from other work for most of the run (frame times below are not comparable).
+
+| Requirement (owner, 2026-10-27) | Status | Evidence / notes |
+|---|---|---|
+| Particle system | Tested | Pooled GPU particles (`fx/particles.gd`): 21 kinds (dust, chips, splinters, sparks, shards, soil, splash, blood, muzzle smoke, casings, fire, smoke, blast debris…), created and drawn once behind the loading screen; no node or material per impact. `impact_particles`: 21–30 bursts, 12–15 luma change in the impact area while the dust flies. `fx_perf`: an impact every frame for 60 frames costs +0.0–0.4 ms GPU; each call 0.04 ms (particles) / 0.06 ms (holes); the sound path (0.55–0.64 ms, pre-existing) is now cached for bursts |
+| Bullet impacts that leave holes | Tested | Atlas of 16 material marks with normals and roughness (`tools/make_impact_textures.py`), entry and exit, drawn as MultiMesh cards (works on the OpenGL fallback, where decals do not); holes hang on doors and props and move with them (`holes_follow_door`: a hole moved 0.66–0.83 m when the door opened); budget 450 (PC) / 160 (phone). Bug found and fixed: with physics interpolation on, the cards were never drawn |
+| Destructible props, tables, chairs, objects, doors, chunk by chunk | Tested | `chunks_prop`: a 18-chunk bench lost 1 chunk per shot (17, 16, 15, 14) and then collapsed; the falling piece is the real cut-out of the model (`world/destruct.gd`, cut in 2–10 ms per model, cached; identical on a headless server). `door_panels` / `door_destroyed`: hinge-side panels shot out one per row, a ray passes through the first hole, then the leaf falls and the doorway is clear (10 shots). `blast_props`: a grenade broke a chair and left a scorch mark. Late joiners receive lost chunks and panels. Cabinets and other static furniture are not destructible |
+| Loudspeaker warnings 60 s, 30 s, 10…1, then a 7 s siren | Tested (schedule and playback; not by ear) | `pa_schedule_ignite` / `pa_schedule_dusk`: all 15 cues at the right second before each change (chime 61.4, 60, chime 31.4, 30, 10…1, siren 0.15) and every one heard from a horn; 23 horn poles, every sampled house within 168 m of one; HUD countdown captured. Voice: Windows "Microsoft David" TTS through a horn/street-echo chain (spectrogram checked); nobody listened to it |
+| Main menu remake with real textures; intuitive on PC and phone | Tested + blind review | Key art rendered from the map, textured panels and buttons, Home / Play / Locker / Profile / Leaderboard. UI tour: every page, lobby and Locker on screen with nothing clipped at 1920×1080, 3840×2160 and the phone layout (1800×810 at 1.5x). Blind review vs 0.5.0 (fresh reviewer, randomised labels): the new menus won with a clear advantage; its one gap: large empty areas and an orphaned fifth team card (cards now centred) |
+| Easy setup: 20 bots (5 squads of 4) by default, up to 7 teams, humans join any team | Tested | Lobby with team cards (tap to join), teams 2–7, squad size 1–4, bots fill open slots. PLAY NOW starts you + 19 bots in 5 squads of 4 (20 slots). Max 28 players (7×4): down from 0.5.0's 50 (recorded in the contract) |
+| Lobby listing online players; join; custom hosted games | Tested | `tools/online_test.sh`: stats server + host + client, 5/5: the hosted game is listed (stats server and LAN beacon), both players are listed online with status, the client joins, the match ends, both profiles get 508 XP, the leaderboard lists both, stats.json is saved. The Join button in the menus calls the same join; it was not clicked by a script |
+| Dedicated server for global stats and leaderboard; profiles that level up | Tested | `--master` (or `--server --stats`): presence, open games, results, profiles, leaderboard (HTTP/JSON, saved to disk, LAN-announced). Profiles: XP per match (play, kills, damage, time, place), level curve 500 +150/level, results screen shows XP and level reached. No accounts or anti-cheat (anyone who reaches the server can post results) |
+| Customizable player model, ≥4 models per part | Tested + blind review (plateau, see notes) | 87 pieces: hair 4, headwear 5, face 4, jacket 6, inner shirt 5, hands 4, elbow pads 4 (two sizes), knee pads 4, pants 5, footwear 4, backpacks 4, plus colourways and 4 skin tones; skinned to the existing rig and animated; Locker with a turning 3D preview. `outfits_vary`: 7 different outfits among 7 bots; `outfits_draws`: 2 draw surfaces per body (the hooded body had 8). Blind review: the new lineup won both passes with a clear advantage, but the reviewers flagged layer artifacts (pass 1: holes and strips; pass 2: boot shafts). Both were fixed after pass 2 (holes in the skin under shirts, clean open fronts, boot shafts from the leg's own shape); the fix is in `critic/old/lineup_new7.png` but was not re-reviewed (two consecutive gaps on the same area: stopped by the plateau rule) |
+| Realism, gameplay, performance | Tested (mechanics) / Not verified (frame-time A/B) | Spent cases with tinkle, muzzle smoke, suppression from near misses (`casings`, `suppression`), grenades now throw props (the old code never matched a body), cached sound paths, 8→2 draw surfaces per character, particle/hole warm-up. Frame-time A/B against 0.5.0 not valid: the PC was at 100% CPU from other work and no 0.5.0 build was kept |
+| Regressions | Tested | `--autotest=r3` 19/19, `--autotest=tour` 26/26, network test 17/17, online test 5/5. `--autotest=fixes` 24/26 in the full run; the two (`use_takes_items`, one stair flight, landing-spot dependent) pass on the re-run: 24/24 flights |
+| Builds | Tested | `builds/windows/Aetherion.exe` (0.6.0): r4 checks 15/15, no crash at exit. `builds/android/Aetherion.apk` and `-opengl.apk` (376 MB each): the OpenGL APK installed on the emulator and opened the new menu |
+
 ## 2026-10-27 polish run (version 0.5.0)
 
 Evidence: `work/lemondev/r3/` (contract, final captures, logs). All on the final revision unless noted.

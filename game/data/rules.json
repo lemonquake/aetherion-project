@@ -7,6 +7,37 @@
     "duo": {"team_size": 2},
     "squad": {"team_size": 4}
   },
+  "game_modes": {
+    "classic": {"name": "Classic", "map": "kalinaw"},
+    "deathmatch": {"name": "Deathmatch", "map": "lawless_sub"}
+  },
+  "deathmatch": {
+    "_doc": "Team vs team on Lawless Sub: 2 teams, no respawn, no downed state, chosen guns plus armour and a heavy-plate helmet.",
+    "teams": 2, "team_size": 10, "max_team_size": 10,
+    "team_names": ["West Team", "East Team"],
+    "primary": ["rifle_m416", "rifle_556", "rifle_scar", "rifle_762", "rifle_m762", "smg_9", "smg_ump45", "smg_vector",
+                "smg_tommy", "machine_pistol", "marksman_308", "dmr_mini14", "dmr_sks", "bolt_308", "bolt_kar98",
+                "lmg_m249", "shotgun_pump", "shotgun_saiga", "shotgun_double"],
+    "secondary": ["pistol_9", "pistol_45", "revolver_357", "pistol_deagle"],
+    "default_primary": "rifle_m416", "default_secondary": "pistol_9",
+    "spare_mags_primary": 3, "spare_mags_secondary": 2, "spare_rounds_min": 12,
+    "gear": ["vest_heavy", "helmet_heavy"],
+    "extras": [["bandage", 3]],
+    "downed": false,
+    "spawn_spacing": 3.2, "start_hold_s": 4.0,
+    "zone": {
+      "centre_jitter": 60.0,
+      "phases": [
+        {"wait": 60, "shrink": 60, "radius": 0.55, "dps": 1.0},
+        {"wait": 45, "shrink": 45, "radius": 0.32, "dps": 2.0},
+        {"wait": 40, "shrink": 40, "radius": 0.18, "dps": 4.0},
+        {"wait": 30, "shrink": 30, "radius": 0.08, "dps": 7.0},
+        {"wait": 25, "shrink": 25, "radius": 0.0, "dps": 12.0}
+      ]
+    },
+    "day_offsets": [0, 150, 300, 450],
+    "results_s": 15
+  },
   "lobby": {"min_players_to_start": 1, "countdown_s": 5, "fill_with_bots": true},
   "loading_timeout_s": 90,
   "plane": {"altitude": 320.0, "speed": 70.0, "pre_jump_delay_s": 6.0, "path_margin": 120.0},

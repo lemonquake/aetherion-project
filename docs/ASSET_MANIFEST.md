@@ -439,11 +439,182 @@ Each folder's `source.json` also lists SHA-256 hashes of the shipped files.
 | `game/assets/audio/guns` | [Single shots cut from the library recordings; distant variants derived from them](https://opengameart.org/content/the-free-firearm-sound-library) | The Free Firearm Sound Library (Prepared SFX Library), via OpenGameArt | Ben Jaszczak, Brian Nelson, Kevin Heras, Matthew Nanney | CC0-1.0 | not required | Single shots cut, mixed to mono, resampled to 48 kHz, normalised; *_far files low-passed with a slap-back echo and synthetic tail (tools/build_audio.py); *_sup files: suppressed variants (high-passed, short envelope, synthetic gas puff and action click) |
 | `game/assets/audio/commons` | [Glass breaking 1-4 (Gravity Sound)](https://commons.wikimedia.org/wiki/File:Glass_breaking_(Gravity_Sound).wav) | Wikimedia Commons | Gravity Sound | CC BY 4.0 | required | trimmed to the break, mono, 48 kHz, normalised |
 
-## Made in this project on 2026-10-27 (not downloaded)
+## Made in this project on 2026-10-27 (not downloaded; runs r3 and r4)
 
 | Path | What | Made by | Licence |
 |---|---|---|---|
 | `game/assets/fx/vandal_atlas.png`, `.json` | Wall and ground decal atlas: spray tags, stencilled signs, posters with invented names, eerie writing, rust, damp, mould, oil and mud | `tools/make_vandal_atlas.py` (drawn with Pillow; text in Pillow's bundled default font, Aileron, CC0), plus the owner's Sleep tag art from `game/assets/models/sleep/tags` packed in as is | Project-owned / owner's own work |
 | `game/assets/audio/synth/sun_*.wav`, `radio_key.wav`, `radio_squelch.wav`, `ladder_step_*.wav` | Artificial-sun ignition, dusk and warning siren; push-to-talk key click and squelch tail; ladder rungs | `tools/add_r3_sounds.py` (synthesised with numpy) | Project-owned |
+| `game/assets/models/gear/gear.glb`, `gear_albedo.png`, `gear_normal.png`, `gear_meta.json` | Player outfits: 89 pieces (hair, headwear, face gear, jackets, shirts, gloves, elbow and knee pads, pants, footwear, backpacks, bare-skin regions) on the character rig; 16-layer fabric texture array | `tools/blender/make_gear.py` (garments derived from the owner's Sleep body `stranger.glb`, hard gear modelled in code), `tools/make_gear_textures.py` (numpy) | Owner's own work (body) / project-owned |
+| `game/assets/ui/*.png`, `game/assets/ui/gear/*.png` | Menu panels, buttons, tab marks, grain, hazard tape; outfit card pictures (Blender check renders of the gear) | `tools/make_ui_textures.py`, `tools/blender/render_gear.py` | Project-owned |
+| `game/assets/ui/menu_bg.jpg`, `lobby_bg.jpg`, `locker_bg.jpg` | Menu key art: frames of the game's own map (`tools/map_preview.tscn`), colour-graded, with a painted artificial sun | rendered by the game, graded with Pillow/numpy | Project-owned |
+| `game/assets/fx/holes_*.png`, `fx_smoke.png`, `fx_spark.png`, `fx_drop.png` | Bullet-hole atlas (16 materials, entry/exit, scorch) with normals and roughness; particle sprites | `tools/make_impact_textures.py` (numpy) | Project-owned |
+| `game/assets/audio/announcer/*.wav` | Loudspeaker warnings before each day/night change, countdown, attention chime, 7 s siren | `tools/make_announcer.py`: speech from the Windows "Microsoft David Desktop" text-to-speech voice (System.Speech), processed into a loudspeaker horn with street echoes; chime and siren synthesised | Project-generated. The speech is output of a Microsoft TTS voice: check Microsoft's terms before a commercial release, or replace it with a recorded voice |
+| `game/assets/audio/synth/casing_drop_*.wav` | Spent cases landing | `tools/add_r4_sounds.py` (numpy) | Project-owned |
 
 (This section is kept by hand: `tools/fetch_assets.py --manifest` regenerates only the table above.)
+
+| `game/assets/thirdparty/polyhaven/textures/grass_ground` | [Grass Ground](https://polyhaven.com/a/grass_ground) | Poly Haven | Charlotte Baglioni | CC0-1.0 | not required | renamed map files (albedo/normal(OpenGL)/roughness/ao) |
+| `game/assets/thirdparty/polyhaven/textures/aerial_grass_rock` | [Aerial Grass Rock](https://polyhaven.com/a/aerial_grass_rock) | Poly Haven | Rob Tuytel | CC0-1.0 | not required | renamed map files (albedo/normal(OpenGL)/roughness/ao) |
+
+## Bot radio callouts (run r10, 2026-10-29)
+
+`game/assets/audio/botradio/*.wav` (208 clips: 19 lines, 2-3 phrasings, 4 voices) are spoken by the text-to-speech voices
+that ship with Windows (Microsoft David Desktop and Microsoft Zira Desktop, two pitch/rate settings each) through
+`System.Speech`, then trimmed and levelled by `tools/make_bot_radio.py`, which also writes their entries in
+`game/data/sounds.json` (ids `botr_<line>_<voice>_<n>`) and the words in `game/data/bot_radio.json`. Nothing downloaded.
+**Check the Windows voice licence before a commercial release**, or replace the clips with recorded lines (same file
+names). Rerun the script after `tools/build_audio.py`, which rewrites sounds.json.
+
+## Sounds downloaded on 2026-10-28 (run r6)
+
+`game/assets/audio/r6/*.wav` are made by `tools/build_r6_sounds.py` from the recordings below: takes cut out of each
+recording, layered (a bullet's crack over a material's own hit), filtered, trimmed and normalised to 48 kHz mono.
+Freesound sounds were fetched as the site's public high-quality previews (Ogg Vorbis); each licence was read from the
+sound's own page at download time (copies in `tools/cache/freesound/<id>.json`, list in
+`game/assets/audio/r6/CREDITS.json`). 121 are CC0 (no attribution required, credited anyway); 12 are CC BY and
+**must be credited in the game's credits**. The mag pouch cloth is Kenney's RPG audio pack (CC0, already listed).
+
+OpenGameArt (CC0): [gun reload sounds](https://opengameart.org/content/gun-reload-sounds) (clip load),
+[handgun reload sound effect](https://opengameart.org/content/handgun-reload-sound-effect),
+[gun reload sound effects](https://opengameart.org/content/gun-reload-sound-effects) (clip load, single round).
+
+| Freesound id | Sound | Author | Licence | Used for |
+|---|---|---|---|---|
+| 134024 | [Bullet passbys.wav by Audionautics](https://freesound.org/people/Audionautics/sounds/134024/) | Audionautics | CC-BY-3.0 | bullet pass-bys |
+| 90782 | [Bullet_Flyby_2.wav by kMoon](https://freesound.org/people/kMoon/sounds/90782/) | kMoon | CC-BY-3.0 | bullet fly-by |
+| 90783 | [Bullet_Flyby_3.wav by kMoon](https://freesound.org/people/kMoon/sounds/90783/) | kMoon | CC-BY-3.0 | bullet fly-by |
+| 90784 | [Bullet_Flyby_4.wav by kMoon](https://freesound.org/people/kMoon/sounds/90784/) | kMoon | CC-BY-3.0 | bullet fly-by |
+| 150837 | [Bullet_Impact_1 by toxicwafflezz](https://freesound.org/people/toxicwafflezz/sounds/150837/) | toxicwafflezz | CC-BY-3.0 | bullet impact |
+| 150838 | [Bullet_Impact_2 by toxicwafflezz](https://freesound.org/people/toxicwafflezz/sounds/150838/) | toxicwafflezz | CC-BY-3.0 | bullet impact |
+| 150839 | [Bullet_Impact_3 by toxicwafflezz](https://freesound.org/people/toxicwafflezz/sounds/150839/) | toxicwafflezz | CC-BY-3.0 | bullet impact |
+| 123222 | [Bullet_whiz.wav by CGEffex](https://freesound.org/people/CGEffex/sounds/123222/) | CGEffex | CC-BY-4.0 | bullet whizz |
+| 423106 | [Guns &amp; Explosions Album - Bullet Impact 21.wav by OGsoundFX](https://freesound.org/people/OGsoundFX/sounds/423106/) | OGsoundFX | CC-BY-4.0 | bullet impact |
+| 423107 | [Guns &amp; Explosions Album - Bullet Impact 14.wav by OGsoundFX](https://freesound.org/people/OGsoundFX/sounds/423107/) | OGsoundFX | CC-BY-4.0 | bullet impact |
+| 470585 | [Headshot 1.wav by SilverIllusionist](https://freesound.org/people/SilverIllusionist/sounds/470585/) | SilverIllusionist | CC-BY-4.0 | headshot |
+| 470586 | [Headshot 2 by SilverIllusionist](https://freesound.org/people/SilverIllusionist/sounds/470586/) | SilverIllusionist | CC-BY-4.0 | headshot |
+| 233607 | [Breaking Glass #1.wav by abstraktgeneriert](https://freesound.org/people/abstraktgeneriert/sounds/233607/) | abstraktgeneriert | CC0-1.0 | breaking glass |
+| 402790 | [Cocking a revolver by acidsnowflake](https://freesound.org/people/acidsnowflake/sounds/402790/) | acidsnowflake | CC0-1.0 | cocking a revolver |
+| 364690 | [Human Impact on Ground by alegemaate](https://freesound.org/people/alegemaate/sounds/364690/) | alegemaate | CC0-1.0 | human impact on ground |
+| 244983 | [ANI Big Pipe Hit by ani_music](https://freesound.org/people/ani_music/sounds/244983/) | ani_music | CC0-1.0 | pipe hit |
+| 30932 | [bullet ricochet.wav by aust_paul](https://freesound.org/people/aust_paul/sounds/30932/) | aust_paul | CC0-1.0 | ricochet |
+| 452155 | [Bullets hitting Gore by bananplyte](https://freesound.org/people/bananplyte/sounds/452155/) | bananplyte | CC0-1.0 | bullets hitting gore |
+| 500912 | [Squish impact by Bertsz](https://freesound.org/people/Bertsz/sounds/500912/) | Bertsz | CC0-1.0 | squish impact |
+| 399550 | [bullet hits the car by BorekPL](https://freesound.org/people/BorekPL/sounds/399550/) | BorekPL | CC0-1.0 | bullet hits a car |
+| 500293 | [Shotgun Shell Load by Bratish](https://freesound.org/people/Bratish/sounds/500293/) | Bratish | CC0-1.0 | shotgun shell load |
+| 449955 | [Wooden Thud (Mono) by Breviceps](https://freesound.org/people/Breviceps/sounds/449955/) | Breviceps | CC0-1.0 | wooden thud |
+| 148827 | [.22 ricochet.mp3 by cedarstudios](https://freesound.org/people/cedarstudios/sounds/148827/) | cedarstudios | CC0-1.0 | .22 ricochets |
+| 148840 | [ricochet.mp3 by cedarstudios](https://freesound.org/people/cedarstudios/sounds/148840/) | cedarstudios | CC0-1.0 | ricochet |
+| 108793 | [shell load.ogg by CeebFrack](https://freesound.org/people/CeebFrack/sounds/108793/) | CeebFrack | CC0-1.0 | shell load |
+| 244238 | [Glass Smash.wav by chewiesmissus](https://freesound.org/people/chewiesmissus/sounds/244238/) | chewiesmissus | CC0-1.0 | glass smash |
+| 505238 | [Whizzby by Daleonfire](https://freesound.org/people/Daleonfire/sounds/505238/) | Daleonfire | CC0-1.0 | whizz-by |
+| 204204 | [22 Bolt.wav by Danwardvs](https://freesound.org/people/Danwardvs/sounds/204204/) | Danwardvs | CC0-1.0 | .22 bolt |
+| 205126 | [.30 Shell Bouncing by Danwardvs](https://freesound.org/people/Danwardvs/sounds/205126/) | Danwardvs | CC0-1.0 | .30 case bouncing |
+| 344669 | [Pillow Smash.mp3 by daymonjlong](https://freesound.org/people/daymonjlong/sounds/344669/) | daymonjlong | CC0-1.0 | pillow smash |
+| 161001 | [Whipper Snappers/Bullet Hits.wav by deleted_user_1371021](https://freesound.org/people/deleted_user_1371021/sounds/161001/) | deleted_user_1371021 | CC0-1.0 | bullet hits |
+| 166325 | [Water_drop_9.wav by deleted_user_2104797](https://freesound.org/people/deleted_user_2104797/sounds/166325/) | deleted_user_2104797 | CC0-1.0 | water drop |
+| 325268 | [Brick on soil.wav by deleted_user_2104797](https://freesound.org/people/deleted_user_2104797/sounds/325268/) | deleted_user_2104797 | CC0-1.0 | brick on soil |
+| 346694 | [Body fall_02.wav by deleted_user_2104797](https://freesound.org/people/deleted_user_2104797/sounds/346694/) | deleted_user_2104797 | CC0-1.0 | body fall |
+| 418194 | [Hard Glass Impact by deleted_user_3656686](https://freesound.org/people/deleted_user_3656686/sounds/418194/) | deleted_user_3656686 | CC0-1.0 | hard glass impact |
+| 213925 | [pistol_riccochet.ogg by Diboz](https://freesound.org/people/Diboz/sounds/213925/) | Diboz | CC0-1.0 | ricochet |
+| 351422 | [Wood crack by Diramus](https://freesound.org/people/Diramus/sounds/351422/) | Diramus | CC0-1.0 | wood crack |
+| 177863 | [Clean Revolver Reload by Dredile](https://freesound.org/people/Dredile/sounds/177863/) | Dredile | CC0-1.0 | revolver reload |
+| 417994 | [Body fall.wav by DylanTheFish](https://freesound.org/people/DylanTheFish/sounds/417994/) | DylanTheFish | CC0-1.0 | body fall |
+| 456195 | [Handgun / Pistol Removing Mag and Inserting Mag Foley by e9118586020](https://freesound.org/people/e9118586020/sounds/456195/) | e9118586020 | CC0-1.0 | handgun mag out and in |
+| 536803 | [Stone.ogg by egomassive](https://freesound.org/people/egomassive/sounds/536803/) | egomassive | CC0-1.0 | stone |
+| 683788 | [Hard Impact on Sand by Elements-Library](https://freesound.org/people/Elements-Library/sounds/683788/) | Elements-Library | CC0-1.0 | hard impact on sand |
+| 235754 | [Crumple Dry Leaf 2 by elliotlp](https://freesound.org/people/elliotlp/sounds/235754/) | elliotlp | CC0-1.0 | dry leaf |
+| 583310 | [Tile Breaking by Fission9](https://freesound.org/people/Fission9/sounds/583310/) | Fission9 | CC0-1.0 | tile breaking |
+| 629977 | [Clothed Body Hit 1 .wav by Flem0527](https://freesound.org/people/Flem0527/sounds/629977/) | Flem0527 | CC0-1.0 | clothed body hit |
+| 538152 | [Game Rustle Leaves by Fupicat](https://freesound.org/people/Fupicat/sounds/538152/) | Fupicat | CC0-1.0 | leaves |
+| 730351 | [Bullet Fly By by GO_s0unds123](https://freesound.org/people/GO_s0unds123/sounds/730351/) | GO_s0unds123 | CC0-1.0 | bullet fly-bys |
+| 321294 | [plastic_boxes_fall_01.wav by goldendiaphragm](https://freesound.org/people/goldendiaphragm/sounds/321294/) | goldendiaphragm | CC0-1.0 | plastic boxes |
+| 360942 | [splat.ogg by gprosser](https://freesound.org/people/gprosser/sounds/360942/) | gprosser | CC0-1.0 | splat |
+| 210102 | [Brass bullet shell casing drop onto concrete, multiple takes by GrayJo](https://freesound.org/people/GrayJoy/sounds/210102/) | GrayJoy | CC0-1.0 | brass casings on concrete |
+| 634884 | [fx_ricochet.wav by harrisonlace](https://freesound.org/people/harrisonlace/sounds/634884/) | harrisonlace | CC0-1.0 | ricochet |
+| 395331 | [Body falling on the ground 1 by ihitokage](https://freesound.org/people/ihitokage/sounds/395331/) | ihitokage | CC0-1.0 | body falling |
+| 276600 | [body_hit.wav by insanity54](https://freesound.org/people/insanity54/sounds/276600/) | insanity54 | CC0-1.0 | body hit |
+| 567251 | [Stones Falling by iwanPlays](https://freesound.org/people/iwanPlays/sounds/567251/) | iwanPlays | CC0-1.0 | stones falling |
+| 106113 | [bushhit.wav by j1987](https://freesound.org/people/j1987/sounds/106113/) | j1987 | CC0-1.0 | bush hit |
+| 107795 | [gunfiddle.wav by j1987](https://freesound.org/people/j1987/sounds/107795/) | j1987 | CC0-1.0 | gun fiddle |
+| 532139 | [wet_plastic_hit.wav by j1987](https://freesound.org/people/j1987/sounds/532139/) | j1987 | CC0-1.0 | wet plastic hit |
+| 565642 | [Plate Break 1.wav by jc.sg](https://freesound.org/people/jc.sg/sounds/565642/) | jc.sg | CC0-1.0 | plate break |
+| 505963 | [small single plastic impacts.wav by jedg](https://freesound.org/people/jedg/sounds/505963/) | jedg | CC0-1.0 | small plastic impacts |
+| 139001 | [Revolver Chamber Spin (Ratchet Sound) by jhka](https://freesound.org/people/jhka/sounds/139001/) | jhka | CC0-1.0 | revolver chamber spin |
+| 496187 | [Light Body thud (on clothing) by JonasTisell](https://freesound.org/people/JonasTisell/sounds/496187/) | JonasTisell | CC0-1.0 | body thud on clothing |
+| 190396 | [Pillow Punch by JoyDreamerJourney](https://freesound.org/people/JoyDreamerJourney/sounds/190396/) | JoyDreamerJourney | CC0-1.0 | pillow punch |
+| 233044 | [UTS-15 Shotgun with pump action 4takes.wav by klangfabrik](https://freesound.org/people/klangfabrik/sounds/233044/) | klangfabrik | CC0-1.0 | pump shotgun takes |
+| 154934 | [Empty Gun Shot by KlawyKogut](https://freesound.org/people/KlawyKogut/sounds/154934/) | KlawyKogut | CC0-1.0 | empty gun |
+| 580287 | [Bullet Shell.mp3 by kmmediafactory](https://freesound.org/people/kmmediafactory/sounds/580287/) | kmmediafactory | CC0-1.0 | bullet shells |
+| 327894 | [Bush Cut.wav by Kreastricon62](https://freesound.org/people/Kreastricon62/sounds/327894/) | Kreastricon62 | CC0-1.0 | bush cut |
+| 453756 | [bash plastic bike helmet hit with metal pipe window rattle.flac by kyl](https://freesound.org/people/kyles/sounds/453756/) | kyles | CC0-1.0 | plastic helmet hit |
+| 453769 | [blood squirt gob splash sponge.flac by kyles](https://freesound.org/people/kyles/sounds/453769/) | kyles | CC0-1.0 | blood squirt |
+| 504626 | [BODY FALL - V HVY - DIRT by leonelmail](https://freesound.org/people/leonelmail/sounds/504626/) | leonelmail | CC0-1.0 | body fall on dirt |
+| 370805 | [Bullet Shell Thrown On Table.wav by LilMati](https://freesound.org/people/LilMati/sounds/370805/) | LilMati | CC0-1.0 | shell on a table |
+| 179365 | [Small Rock and Stone Hits.wav by lolamadeus](https://freesound.org/people/lolamadeus/sounds/179365/) | lolamadeus | CC0-1.0 | rock and stone hits |
+| 660769 | [Headshot sound by MadPanCake](https://freesound.org/people/MadPanCake/sounds/660769/) | MadPanCake | CC0-1.0 | headshot |
+| 641040 | [GROSS IMPACT by magnuswaker](https://freesound.org/people/magnuswaker/sounds/641040/) | magnuswaker | CC0-1.0 | gross impact |
+| 697829 | [SKULLCRUSH by magnuswaker](https://freesound.org/people/magnuswaker/sounds/697829/) | magnuswaker | CC0-1.0 | skull crush |
+| 182263 | [Foley bullet hit metal 02.wav by martian](https://freesound.org/people/martian/sounds/182263/) | martian | CC0-1.0 | bullet hit metal |
+| 533146 | [Drop - Water by mattfinarelli](https://freesound.org/people/mattfinarelli/sounds/533146/) | mattfinarelli | CC0-1.0 | water drop |
+| 432139 | [PistolReloadSound.wav by MaximBomba](https://freesound.org/people/MaximBomba/sounds/432139/) | MaximBomba | CC0-1.0 | pistol reload |
+| 432141 | [Rifle-or-shotgun-reload.wav by MaximBomba](https://freesound.org/people/MaximBomba/sounds/432141/) | MaximBomba | CC0-1.0 | rifle reload |
+| 620929 | [empty shotgun shells/casings hitting ground bouncing by Metrolynn](https://freesound.org/people/Metrolynn/sounds/620929/) | Metrolynn | CC0-1.0 | shotgun shells hitting ground |
+| 421929 | [Chopping wood 02 by micahlg](https://freesound.org/people/micahlg/sounds/421929/) | micahlg | CC0-1.0 | chopping wood |
+| 427603 | [Rifle clip empty by michorvath](https://freesound.org/people/michorvath/sounds/427603/) | michorvath | CC0-1.0 | rifle clip empty |
+| 789222 | [Fly-by whiz SFX (subsonic) by modusmogulus](https://freesound.org/people/modusmogulus/sounds/789222/) | modusmogulus | CC0-1.0 | subsonic whizz |
+| 789388 | [Bullet impact ground (subsonic) SFX by modusmogulus](https://freesound.org/people/modusmogulus/sounds/789388/) | modusmogulus | CC0-1.0 | bullet into ground |
+| 178615 | [The Rustle of a Bush by Montacue](https://freesound.org/people/Montacue/sounds/178615/) | Montacue | CC0-1.0 | bush rustle |
+| 444402 | [Magazine Hitting Surface.wav by MootMcnoodles](https://freesound.org/people/MootMcnoodles/sounds/444402/) | MootMcnoodles | CC0-1.0 | magazine hitting surface |
+| 379976 | [Inserting Shell.wav by morganpurkis](https://freesound.org/people/morganpurkis/sounds/379976/) | morganpurkis | CC0-1.0 | inserting shell |
+| 379977 | [Inserting Magazine.wav by morganpurkis](https://freesound.org/people/morganpurkis/sounds/379977/) | morganpurkis | CC0-1.0 | inserting magazine |
+| 392975 | [Ricochet 2.wav by morganpurkis](https://freesound.org/people/morganpurkis/sounds/392975/) | morganpurkis | CC0-1.0 | ricochet |
+| 773860 | [12 guage shotgun shell drop by MrGungus](https://freesound.org/people/MrGungus/sounds/773860/) | MrGungus | CC0-1.0 | 12 gauge shell drop |
+| 104407 | [Mag remove.wav by Nanashi](https://freesound.org/people/Nanashi/sounds/104407/) | Nanashi | CC0-1.0 | mag remove |
+| 104412 | [Trigger with hammer fall.wav by Nanashi](https://freesound.org/people/Nanashi/sounds/104412/) | Nanashi | CC0-1.0 | trigger and hammer |
+| 504617 | [Body falling by NeoSpica](https://freesound.org/people/NeoSpica/sounds/504617/) | NeoSpica | CC0-1.0 | body falling |
+| 377145 | [Pistol Draw Unholster by nioczkus](https://freesound.org/people/nioczkus/sounds/377145/) | nioczkus | CC0-1.0 | pistol draw |
+| 396331 | [1911 Reload by nioczkus](https://freesound.org/people/nioczkus/sounds/396331/) | nioczkus | CC0-1.0 | 1911 reload |
+| 415304 | [Police 357 Pistol Unholster by nioczkus](https://freesound.org/people/nioczkus/sounds/415304/) | nioczkus | CC0-1.0 | revolver unholster |
+| 554148 | [Foley_Impact_Stones_Strong_Debris_Stereo_DS.wav by Nox_Sound](https://freesound.org/people/Nox_Sound/sounds/554148/) | Nox_Sound | CC0-1.0 | stone debris |
+| 554367 | [Foley_Impact_Smash_Tiles_Stereo.wav by Nox_Sound](https://freesound.org/people/Nox_Sound/sounds/554367/) | Nox_Sound | CC0-1.0 | tiles smash |
+| 401773 | [Plastic cup dropping by oztrum](https://freesound.org/people/oztrum/sounds/401773/) | oztrum | CC0-1.0 | plastic cup |
+| 511194 | [Headshot.wav by Pablobd](https://freesound.org/people/Pablobd/sounds/511194/) | Pablobd | CC0-1.0 | headshot |
+| 200966 | [Shotgun Cock Reload Layered (Powerful) by Paul368](https://freesound.org/people/Paul368/sounds/200966/) | Paul368 | CC0-1.0 | shotgun cock |
+| 144444 | [bullet impacts by pushkin](https://freesound.org/people/pushkin/sounds/144444/) | pushkin | CC0-1.0 | bullet impacts |
+| 688765 | [Unholster Gun by qubodup](https://freesound.org/people/qubodup/sounds/688765/) | qubodup | CC0-1.0 | unholster gun |
+| 815879 | [Assault Rifle Reload by qubodup](https://freesound.org/people/qubodup/sounds/815879/) | qubodup | CC0-1.0 | assault rifle reload |
+| 855248 | [Real Bullet Flyby Sound by qubodup](https://freesound.org/people/qubodup/sounds/855248/) | qubodup | CC0-1.0 | real bullet fly-by |
+| 436070 | [12 Gauge Shell drop by rammbostein](https://freesound.org/people/rammbostein/sounds/436070/) | rammbostein | CC0-1.0 | 12 gauge shell drop |
+| 128286 | [Plate Stack Hit.aif by rebeat](https://freesound.org/people/rebeat/sounds/128286/) | rebeat | CC0-1.0 | plate stack hit |
+| 530486 | [Metal Impact by Rickplayer](https://freesound.org/people/Rickplayer/sounds/530486/) | Rickplayer | CC0-1.0 | metal impact |
+| 388035 | [Loud Pillow Hit 2.wav by saturdaysoundguy](https://freesound.org/people/saturdaysoundguy/sounds/388035/) | saturdaysoundguy | CC0-1.0 | pillow hit |
+| 52202 | [Single Barreled Shotgun Loading.wav by sentryx86](https://freesound.org/people/sentryx86/sounds/52202/) | sentryx86 | CC0-1.0 | single barrel shotgun loading |
+| 674742 | [AK-47 Assault Rifle being unloaded and reloaded by serøutōnin--deprivə](https://freesound.org/people/ser%C3%B8ut%C5%8Dnin--depriv%C9%99d/sounds/674742/) | serøutōnin--deprivəd | CC0-1.0 | AK-47 unload and reload |
+| 677159 | [22lr revolver handling clicking foley by serøutōnin--deprivəd](https://freesound.org/people/ser%C3%B8ut%C5%8Dnin--depriv%C9%99d/sounds/677159/) | serøutōnin--deprivəd | CC0-1.0 | revolver handling |
+| 677160 | [Uzi submachine gun being reloaded while empty. Full sequence by serøut](https://freesound.org/people/ser%C3%B8ut%C5%8Dnin--depriv%C9%99d/sounds/677160/) | serøutōnin--deprivəd | CC0-1.0 | Uzi empty reload sequence |
+| 693125 | [22lr Revolver ejecting bullets from cylinder by serøutōnin--deprivəd](https://freesound.org/people/ser%C3%B8ut%C5%8Dnin--depriv%C9%99d/sounds/693125/) | serøutōnin--deprivəd | CC0-1.0 | revolver ejecting |
+| 725397 | [An M16 Rifle being reloaded while empty; full sequence by serøutōnin--](https://freesound.org/people/ser%C3%B8ut%C5%8Dnin--depriv%C9%99d/sounds/725397/) | serøutōnin--deprivəd | CC0-1.0 | M16 empty reload sequence |
+| 725398 | [An M1 Garand clip being ejected w/ ping by serøutōnin--deprivəd](https://freesound.org/people/ser%C3%B8ut%C5%8Dnin--depriv%C9%99d/sounds/725398/) | serøutōnin--deprivəd | CC0-1.0 | M1 Garand clip |
+| 55234 | [Splattt.mp3 by SlykMrByches](https://freesound.org/people/SlykMrByches/sounds/55234/) | SlykMrByches | CC0-1.0 | splat |
+| 398032 | [Splash by swordofkings128](https://freesound.org/people/swordofkings128/sounds/398032/) | swordofkings128 | CC0-1.0 | splash |
+| 722902 | [Revolver Reload Break 2 by tkane0512](https://freesound.org/people/tkane0512/sounds/722902/) | tkane0512 | CC0-1.0 | break-top revolver |
+| 423301 | [VisceralBulletImpacts.wav by u1769092](https://freesound.org/people/u1769092/sounds/423301/) | u1769092 | CC0-1.0 | visceral bullet impacts |
+| 221528 | [Glass Break by unfa](https://freesound.org/people/unfa/sounds/221528/) | unfa | CC0-1.0 | glass break |
+| 50623 | [water_splash_10shots.wav by vibe_crc](https://freesound.org/people/vibe_crc/sounds/50623/) | vibe_crc | CC0-1.0 | water splashes |
+| 263513 | [AR15 Various Sounds by wadaltmon](https://freesound.org/people/wadaltmon/sounds/263513/) | wadaltmon | CC0-1.0 | AR15 sounds |
+| 351371 | [HeavyBulletPing.mp3 by wilhellboy](https://freesound.org/people/wilhellboy/sounds/351371/) | wilhellboy | CC0-1.0 | heavy bullet ping |
+| 116645 | [bullets hit EDIT.aif by Woodingp](https://freesound.org/people/Woodingp/sounds/116645/) | Woodingp | CC0-1.0 | bullet hits |
+| 319222 | [Single Rock hit Dirt.wav by worthahep88](https://freesound.org/people/worthahep88/sounds/319222/) | worthahep88 | CC0-1.0 | rock on dirt |
+| 319223 | [Single Rock Hitting wood 3.wav by worthahep88](https://freesound.org/people/worthahep88/sounds/319223/) | worthahep88 | CC0-1.0 | rock on wood |
+| 319226 | [Single rock hitting wood.wav by worthahep88](https://freesound.org/people/worthahep88/sounds/319226/) | worthahep88 | CC0-1.0 | rock on wood |
+| 319227 | [Single Rock hitting wood 4.wav by worthahep88](https://freesound.org/people/worthahep88/sounds/319227/) | worthahep88 | CC0-1.0 | rock on wood |
+| 319228 | [Single Rock hitting wood 2.wav by worthahep88](https://freesound.org/people/worthahep88/sounds/319228/) | worthahep88 | CC0-1.0 | rock on wood |
+| 319229 | [Single Rock hit dirt 2.wav by worthahep88](https://freesound.org/people/worthahep88/sounds/319229/) | worthahep88 | CC0-1.0 | rock on dirt |
+| 537724 | [Realistic Shotgun Cocking Sound!! by yeet2020202020](https://freesound.org/people/yeet2020202020/sounds/537724/) | yeet2020202020 | CC0-1.0 | shotgun cocking |
+| 370344 | [Pump Action Shotgun Cycle by Zott820](https://freesound.org/people/Zott820/sounds/370344/) | Zott820 | CC0-1.0 | pump shotgun cycle |
+| 370345 | [Mosin Nagant Bolt Action Cycle by Zott820](https://freesound.org/people/Zott820/sounds/370345/) | Zott820 | CC0-1.0 | Mosin Nagant bolt cycle |
+
+Also made in run r6 (not downloaded): `game/assets/fx/blood_albedo.png`, `blood_normal.png` - the wet blood mark atlas
+(drops, directional spatter, wall bursts with runs, mist, pools, smear, drip trail) drawn as metaball fields by
+`tools/make_blood_textures.py` (numpy/scipy/Pillow). Project-owned.

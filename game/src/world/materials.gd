@@ -76,6 +76,38 @@ const SURFACES := {
 	"gravel": {"tex": "gravel_road", "tile": 4.0, "phys": "dirt", "grime": 0.1},
 	"sand": {"tex": "coast_sand_01", "tile": 4.0, "phys": "sand", "grime": 0.0},
 	"bark": {"tex": "palm_tree_bark", "tile": 1.5, "phys": "wood", "grime": 0.2},
+	# Lawless Sub (r7): a suburb's roads, lots and canals, its houses' walls, roofs and floors, and the factory.
+	"road_asphalt": {"tex": "asphalt_04", "tile": 6.0, "phys": "concrete", "grime": 0.25},
+	"road_asphalt2": {"tex": "asphalt_06", "tile": 6.0, "phys": "concrete", "grime": 0.25},
+	"lot_asphalt": {"tex": "clean_asphalt", "tile": 5.0, "phys": "concrete", "grime": 0.3},
+	"sidewalk": {"tex": "concrete_pavers", "tile": 3.0, "phys": "concrete", "grime": 0.35},
+	"pavers": {"tex": "interlocking_concrete_pavers", "tile": 2.5, "phys": "concrete", "grime": 0.35},
+	"driveway": {"tex": "grooved_concrete_driveway", "tile": 3.0, "phys": "concrete", "grime": 0.35},
+	"canal_wall": {"tex": "concrete_wall_007", "tile": 3.0, "phys": "concrete", "grime": 0.6},
+	"concrete_panels": {"tex": "concrete_panels", "tile": 4.0, "phys": "concrete", "grime": 0.5},
+	"facade_tile": {"tex": "concrete_tile_facade", "tile": 3.0, "phys": "concrete", "grime": 0.5},
+	"lawn": {"tex": "grass_path_2", "tile": 4.0, "phys": "dirt", "grime": 0.0},
+	"lawn_leafy": {"tex": "grass_ground", "tile": 3.0, "phys": "dirt", "grime": 0.0},
+	"roof_tiles": {"tex": "clay_roof_tiles_02", "tile": 2.5, "phys": "concrete", "grime": 0.45},
+	"roof_tiles_grey": {"tex": "grey_roof_tiles", "tile": 2.5, "phys": "concrete", "grime": 0.45},
+	"wall_beige": {"tex": "beige_wall_002", "tile": 2.5, "phys": "plaster", "grime": 0.6, "flake": 0.4},
+	"wall_grey": {"tex": "grey_plaster", "tile": 2.5, "phys": "plaster", "grime": 0.6, "flake": 0.4},
+	"wall_painted": {"tex": "painted_plaster_wall", "tile": 2.5, "phys": "plaster", "grime": 0.6, "flake": 0.45},
+	"wall_plaster4": {"tex": "plastered_wall_04", "tile": 2.5, "phys": "plaster", "grime": 0.6},
+	"brick_painted": {"tex": "painted_brick", "tile": 2.0, "phys": "hollow_block", "grime": 0.5},
+	"brick": {"tex": "brick_wall_006", "tile": 2.0, "phys": "hollow_block", "grime": 0.5},
+	"cladding": {"tex": "exterior_wall_cladding_03", "tile": 2.5, "phys": "plaster", "grime": 0.5},
+	"laminate": {"tex": "laminate_floor_02", "tile": 2.0, "phys": "wood", "grime": 0.25},
+	"parquet": {"tex": "herringbone_parquet", "tile": 1.5, "phys": "wood", "grime": 0.25},
+	"tiles_interior": {"tex": "interior_tiles", "tile": 1.5, "phys": "concrete", "grime": 0.25},
+	"tiles_white": {"tex": "long_white_tiles", "tile": 1.5, "phys": "concrete", "grime": 0.3},
+	"marble": {"tex": "marble_tiles", "tile": 2.0, "phys": "concrete", "grime": 0.2},
+	"patio": {"tex": "patio_tiles", "tile": 2.0, "phys": "concrete", "grime": 0.35},
+	"factory_wall": {"tex": "factory_wall", "tile": 3.0, "phys": "sheet_metal", "metal": 0.4, "grime": 0.45},
+	"factory_floor": {"tex": "hangar_concrete_floor", "tile": 4.0, "phys": "concrete", "grime": 0.35},
+	"factory_brick": {"tex": "factory_brick", "tile": 2.5, "phys": "hollow_block", "grime": 0.5},
+	"metal_plate": {"tex": "metal_plate", "tile": 1.5, "phys": "steel", "metal": 0.6, "grime": 0.3},
+	"metal_blue": {"tex": "blue_metal_plate", "tile": 1.5, "phys": "steel", "metal": 0.4, "grime": 0.35},
 }
 
 ## Paint colours seen on Filipino informal housing: sun-faded pastels, institutional greens and blues, primer reds.
@@ -88,6 +120,28 @@ const PAINTS := [
 
 var _cache: Dictionary = {}
 var _tex_cache: Dictionary = {}
+var urban_arrays := false
+var _urban_layers: Dictionary = {}
+
+
+func enable_urban_arrays() -> void:
+	## Opaque architecture shares three imported, compressed arrays. Models and
+	## transparent surfaces retain their existing materials and physical metadata.
+	var data = JSON.parse_string(FileAccess.get_file_as_string("res://assets/urban/surfaces.json"))
+	if data is Dictionary:
+		_urban_layers = data
+		urban_arrays = true
+
+
+func batch_name(name: String) -> String:
+	return "urban_array" if urban_arrays and _urban_layers.has(name) else name
+
+
+func surface_data(name: String) -> PackedFloat32Array:
+	if not urban_arrays or not _urban_layers.has(name):
+		return PackedFloat32Array()
+	var s: Dictionary = SURFACES[name]
+	return PackedFloat32Array([float(_urban_layers[name]), float(s.get("metal", 0.0)), float(s.get("grime", 0.5)), float(s.get("flake", 0.55))])
 
 
 func get_material(name: String) -> Material:
@@ -95,6 +149,14 @@ func get_material(name: String) -> Material:
 		return _cache[name]
 	var m: Material
 	match name:
+		"urban_array":
+			var ua := ShaderMaterial.new()
+			ua.shader = preload("res://src/world/urban_surface.gdshader")
+			ua.set_shader_parameter("albedo_array", load("res://assets/urban/surfaces_albedo.png"))
+			ua.set_shader_parameter("normal_array", load("res://assets/urban/surfaces_normal.png"))
+			ua.set_shader_parameter("orm_array", load("res://assets/urban/surfaces_orm.png"))
+			ua.set_shader_parameter("noise_tex", NOISE)
+			m = ua
 		"glass":
 			var g := StandardMaterial3D.new()
 			g.albedo_color = Color(0.55, 0.62, 0.6, 0.32)

@@ -1,5 +1,5 @@
 {
- "_doc": "Firearm definitions. Times in seconds, angles in degrees, velocity m/s. recoil.kick_up/kick_side are per-shot weapon impulses; camera_share is the fraction of the kick that moves the view (the rest is weapon-only offset that recovers). climb is the extra upward bias added per consecutive shot, recovery is deg/s back toward the aim point, pattern lists horizontal bias multipliers cycled per shot so guns do not share one spray pattern. Attachments: kind is the slot (sight, muzzle, grip, mag, stock, light; one of each per weapon). *_mult fields multiply the weapon's value (recoil_up, recoil_side, recovery, spread_hip, move_spread, sway, ads_time, reload, loudness, flash, pellet_spread). ext switches to the weapon's mag_ext capacity. Sights: zoom; axis = optical axis height above the rail in metres (axis_f: fraction of the model height); reticle style; scope = magnified, drawn as a scope view while aiming. rank orders same-slot attachments when picking up. Weapons: value ranks weapons for bots; hold = [grip, fore-end] as fractions of the length from the muzzle; mounts overrides the automatic mount points.",
+ "_doc": "Firearm definitions. Times in seconds, angles in degrees, velocity m/s. recoil.kick_up/kick_side are per-shot weapon impulses; camera_share is the fraction of the kick that moves the view (the rest is weapon-only offset that recovers). climb is the extra upward bias added per consecutive shot, recovery is deg/s back toward the aim point, pattern lists horizontal bias multipliers cycled per shot so guns do not share one spray pattern. Attachments: kind is the slot (sight, muzzle, grip, mag, stock, light; one of each per weapon). *_mult fields multiply the weapon's value (recoil_up, recoil_side, recovery, spread_hip, move_spread, sway, ads_time, reload, loudness, flash, pellet_spread). ext switches to the weapon's mag_ext capacity. Sights: zoom; axis = optical axis height above the rail in metres (axis_f: fraction of the model height); reticle style; scope = magnified, drawn as a scope view while aiming. rank orders same-slot attachments when picking up. Weapons: value ranks weapons for bots; hold = [grip, fore-end] as fractions of the length from the muzzle, optionally followed by their heights as fractions of the model height; mounts overrides the automatic mount points.",
  "weapons": {
   "pistol_9": {
    "name": "P92",
@@ -51,7 +51,12 @@
    "sound": "p92",
    "handed": "pistol",
    "mag_ext": 21,
-   "value": 2.0
+   "value": 2.0,
+   "hold": [
+    0.8,
+    0.3,
+    0.35
+   ]
   },
   "pistol_45": {
    "name": "P1911",
@@ -102,7 +107,12 @@
    "sound": "p1911",
    "handed": "pistol",
    "mag_ext": 12,
-   "value": 2.2
+   "value": 2.2,
+   "hold": [
+    0.82,
+    0.3,
+    0.35
+   ]
   },
   "revolver_357": {
    "name": "R1895 Revolver",
@@ -149,7 +159,12 @@
    "model": "revolver_357",
    "sound": "revolver_357",
    "handed": "pistol",
-   "value": 2.5
+   "value": 2.5,
+   "hold": [
+    0.85,
+    0.3,
+    0.3
+   ]
   },
   "shotgun_pump": {
    "name": "S1897 Pump",
@@ -201,7 +216,13 @@
    "model": "shotgun_pump",
    "sound": "shotgun",
    "handed": "rifle",
-   "value": 4.0
+   "value": 4.0,
+   "hold": [
+    0.67,
+    0.27,
+    0.45,
+    0.6
+   ]
   },
   "smg_9": {
    "name": "MP5K",
@@ -268,7 +289,13 @@
    "sound": "smg_9",
    "handed": "rifle",
    "mag_ext": 40,
-   "value": 5.0
+   "value": 5.0,
+   "hold": [
+    0.7,
+    0.25,
+    0.3,
+    0.65
+   ]
   },
   "machine_pistol": {
    "name": "Micro UZI",
@@ -326,7 +353,13 @@
    "sound": "smg_9",
    "handed": "rifle",
    "mag_ext": 45,
-   "value": 3.5
+   "value": 3.5,
+   "hold": [
+    0.6,
+    0.2,
+    0.4,
+    0.72
+   ]
   },
   "rifle_556": {
    "name": "AR-15",
@@ -393,7 +426,13 @@
    "sound": "rifle_556",
    "handed": "rifle",
    "mag_ext": 40,
-   "value": 7.0
+   "value": 7.0,
+   "hold": [
+    0.64,
+    0.33,
+    0.2,
+    0.62
+   ]
   },
   "rifle_762": {
    "name": "AKM",
@@ -456,7 +495,13 @@
    "sound": "rifle_762",
    "handed": "rifle",
    "mag_ext": 40,
-   "value": 7.0
+   "value": 7.0,
+   "hold": [
+    0.73,
+    0.4,
+    0.3,
+    0.65
+   ]
   },
   "bolt_308": {
    "name": "M24",
@@ -511,7 +556,13 @@
    "sound": "m24",
    "handed": "rifle",
    "mag_ext": 8,
-   "value": 6.0
+   "value": 6.0,
+   "hold": [
+    0.76,
+    0.45,
+    0.45,
+    0.6
+   ]
   },
   "shotgun_double": {
    "name": "S686",
@@ -557,8 +608,10 @@
    "sound": "s686",
    "handed": "rifle",
    "hold": [
-    0.62,
-    0.27
+    0.72,
+    0.47,
+    0.45,
+    0.73
    ],
    "value": 3.0
   },
@@ -602,8 +655,10 @@
    "sound": "shotgun",
    "handed": "rifle",
    "hold": [
-    0.8,
-    0.14
+    0.6,
+    0.3,
+    0.75,
+    0.92
    ],
    "value": 1.5
   },
@@ -663,8 +718,10 @@
    "sound": "slr",
    "handed": "rifle",
    "hold": [
-    0.66,
-    0.38
+    0.71,
+    0.37,
+    0.3,
+    0.68
    ],
    "value": 6.5
   },
@@ -733,7 +790,13 @@
    "sound": "scar",
    "handed": "rifle",
    "mag_ext": 40,
-   "value": 7.2
+   "value": 7.2,
+   "hold": [
+    0.7,
+    0.4,
+    0.3,
+    0.62
+   ]
   },
   "rifle_m416": {
    "name": "M416",
@@ -801,7 +864,13 @@
    "sound": "m416",
    "handed": "rifle",
    "mag_ext": 40,
-   "value": 7.6
+   "value": 7.6,
+   "hold": [
+    0.69,
+    0.38,
+    0.3,
+    0.65
+   ]
   },
   "lmg_m249": {
    "name": "M249",
@@ -857,7 +926,13 @@
    "model": "lmg_m249",
    "sound": "m249",
    "handed": "rifle",
-   "value": 7.5
+   "value": 7.5,
+   "hold": [
+    0.67,
+    0.38,
+    0.33,
+    0.55
+   ]
   },
   "dmr_mini14": {
    "name": "Mini 14",
@@ -913,7 +988,13 @@
    "model": "dmr_mini14",
    "sound": "mini14",
    "handed": "rifle",
-   "value": 6.4
+   "value": 6.4,
+   "hold": [
+    0.7,
+    0.35,
+    0.5,
+    0.65
+   ]
   },
   "rifle_m762": {
    "name": "Beryl M762",
@@ -979,7 +1060,13 @@
    "sound": "m762",
    "handed": "rifle",
    "mag_ext": 40,
-   "value": 7.4
+   "value": 7.4,
+   "hold": [
+    0.73,
+    0.42,
+    0.3,
+    0.7
+   ]
   },
   "dmr_sks": {
    "name": "SKS",
@@ -1035,7 +1122,13 @@
    "model": "dmr_sks",
    "sound": "sks",
    "handed": "rifle",
-   "value": 6.4
+   "value": 6.4,
+   "hold": [
+    0.73,
+    0.4,
+    0.5,
+    0.7
+   ]
   },
   "bolt_kar98": {
    "name": "Kar98k",
@@ -1088,7 +1181,13 @@
    "model": "bolt_kar98",
    "sound": "kar98",
    "handed": "rifle",
-   "value": 6.2
+   "value": 6.2,
+   "hold": [
+    0.73,
+    0.45,
+    0.42,
+    0.5
+   ]
   },
   "smg_ump45": {
    "name": "UMP45",
@@ -1152,7 +1251,13 @@
    "sound": "ump45",
    "handed": "rifle",
    "mag_ext": 35,
-   "value": 5.2
+   "value": 5.2,
+   "hold": [
+    0.58,
+    0.17,
+    0.35,
+    0.45
+   ]
   },
   "smg_vector": {
    "name": "Vector",
@@ -1216,7 +1321,13 @@
    "sound": "vector",
    "handed": "rifle",
    "mag_ext": 33,
-   "value": 5.3
+   "value": 5.3,
+   "hold": [
+    0.62,
+    0.23,
+    0.5,
+    0.45
+   ]
   },
   "smg_tommy": {
    "name": "Tommy Gun",
@@ -1269,7 +1380,13 @@
    "sound": "tommy",
    "handed": "rifle",
    "mag_ext": 50,
-   "value": 4.6
+   "value": 4.6,
+   "hold": [
+    0.62,
+    0.28,
+    0.3,
+    0.35
+   ]
   },
   "shotgun_saiga": {
    "name": "S12K",
@@ -1322,7 +1439,13 @@
    "sound": "saiga",
    "handed": "rifle",
    "value": 5.0,
-   "mag_ext": 8
+   "mag_ext": 8,
+   "hold": [
+    0.67,
+    0.3,
+    0.25,
+    0.7
+   ]
   },
   "pistol_deagle": {
    "name": "Deagle",
@@ -1372,7 +1495,12 @@
    "sound": "deagle",
    "handed": "pistol",
    "mag_ext": 10,
-   "value": 3.0
+   "value": 3.0,
+   "hold": [
+    0.85,
+    0.3,
+    0.35
+   ]
   }
  },
  "attachments": {

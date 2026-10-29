@@ -1,0 +1,101 @@
+{
+ "_doc": "Bot radio callouts (tools/make_bot_radio.py): line -> phrasings; sound id botr_<line>_<voice>_<index>.",
+ "voices": [
+  "m1",
+  "m2",
+  "f1",
+  "f2"
+ ],
+ "lines": {
+  "go_with": [
+   "I'll go with you.",
+   "Right behind you.",
+   "Sticking with you. Let's go."
+  ],
+  "this_way": [
+   "This way.",
+   "Follow me.",
+   "On me. Let's move."
+  ],
+  "contact": [
+   "Contact!",
+   "Enemy spotted!",
+   "Eyes on one!"
+  ],
+  "taking_fire": [
+   "Taking fire!",
+   "I'm hit!",
+   "They're shooting at me!"
+  ],
+  "reloading": [
+   "Reloading!",
+   "Cover me, reloading!"
+  ],
+  "haze": [
+   "Haze is coming. Move!",
+   "Get inside the circle, now!",
+   "We need to outrun the haze!"
+  ],
+  "copy": [
+   "Copy that.",
+   "On my way.",
+   "Roger. Moving."
+  ],
+  "watching": [
+   "I'll watch it.",
+   "Eyes on it.",
+   "I've got that angle."
+  ],
+  "laser": [
+   "Laser! Someone's pointing at us.",
+   "Watch it, there's a laser.",
+   "Follow that laser!"
+  ],
+  "good_spot": [
+   "Good spot here.",
+   "Nice sniping spot. Marking it.",
+   "This spot's safe."
+  ],
+  "clear": [
+   "Clear.",
+   "Area clear.",
+   "Nothing here."
+  ],
+  "down": [
+   "Man down!",
+   "We lost one!"
+  ],
+  "lost_you": [
+   "Lost you. Going my own way.",
+   "Can't keep up. Splitting off."
+  ],
+  "kill": [
+   "Got one!",
+   "Enemy down!",
+   "Scratch one."
+  ],
+  "need_help": [
+   "Need help here!",
+   "I need backup!"
+  ],
+  "inside": [
+   "I'm holding this house.",
+   "Taking this building.",
+   "Inside. Watching the door."
+  ],
+  "sniping": [
+   "Setting up overwatch.",
+   "Moving to a sniping spot."
+  ],
+  "hunting": [
+   "Going hunting.",
+   "I'm pushing up.",
+   "Let's find them."
+  ],
+  "sneaking": [
+   "Moving quiet.",
+   "Flanking around.",
+   "Going around them."
+  ]
+ }
+}

@@ -29,9 +29,13 @@ func _init(map_builder) -> void:
 
 
 func build_all(only: Array = []) -> void:
+	var di := 0
 	for d in L.districts:
+		di += 1
 		if not only.is_empty() and not (d.name in only):
 			continue
+		if Game.loading_screen:
+			Game.load_progress(lerpf(0.16, 0.7, float(di - 1) / maxf(L.districts.size(), 1)), "Building %s (%d of %d)" % [str(d.name).capitalize(), di, L.districts.size()])
 		match str(d.kind):
 			"dense":
 				_dense(d)
@@ -99,7 +103,8 @@ func place(center: Vector2, front2d: Vector2, w: float, d: float, opts: Dictiona
 		"stilts": stilts, "ground_y": hmin, "front": str(opts.get("front", "door")), "seed": rng.randi(),
 		"district": str(opts.get("district", "")), "can_overhang": bool(opts.get("can_overhang", true)),
 		"covered": bool(opts.get("covered", false)), "roof_deck": bool(opts.get("roof_deck", false)), "ladder": bool(opts.get("ladder", false)),
-		"parapet": bool(opts.get("parapet", true)), "side_holes": opts.get("side_holes", []),
+		"parapet": bool(opts.get("parapet", true)), "side_holes": opts.get("side_holes", []), "back_blocked": bool(opts.get("back_blocked", false)),
+		"front_lane_w": float(opts.get("front_lane_w", 9.0)),
 		"front_gy": float(opts.get("deck_y", -INF)) if stilts else L.ground_height(fp.x, fp.y),
 	}
 	if not stilts and hmax - hmin > 0.12:
@@ -203,7 +208,7 @@ func _dense(D: Dictionary) -> void:
 				mb.loobans.append({"c": c + xa * ((u0 + u1) * 0.5) + za * ((v0 + v1) * 0.5), "half": Vector2((u1 - u0) * 0.5, (v1 - v0) * 0.5),
 					"ang": ang, "district": D.name})
 				continue
-			_fill_block(c, xa, za, u0, u1, v0, v1, D, covered.has(Vector2i(i, j)), covered.has(Vector2i(i, j + 1)))
+			_fill_block(c, xa, za, u0, u1, v0, v1, D, covered.has(Vector2i(i, j)), covered.has(Vector2i(i, j + 1)), float(aw_v[j]), float(aw_v[j + 1]))
 	# Junk barricades across some open lanes: vault them, or go round.
 	for j in range(1, vs.size() - 1):
 		for i in us.size() - 1:
@@ -218,7 +223,7 @@ func _dense(D: Dictionary) -> void:
 
 
 func _fill_block(c: Vector2, xa: Vector2, za: Vector2, u0: float, u1: float, v0: float, v1: float, D: Dictionary,
-		cov0: bool = false, cov1: bool = false) -> void:
+		cov0: bool = false, cov1: bool = false, lane0: float = 9.0, lane1: float = 9.0) -> void:
 	var bv := v1 - v0
 	var bu := u1 - u0
 	if bu < 3.0 or bv < 3.0:
@@ -267,7 +272,9 @@ func _fill_block(c: Vector2, xa: Vector2, za: Vector2, u0: float, u1: float, v0:
 			var floors := _floors_dense(float(D.density))
 			var style := _style_dense()
 			var opts := {"floors": floors, "style": style, "front": front_kind,
-				"kind": "store" if front_kind == "store" else "house", "district": D.name, "covered": row_cov}
+				"kind": "store" if front_kind == "store" else "house", "district": D.name, "covered": row_cov,
+				# Two rows back to back: the back wall stands against the house behind (no back door into it).
+				"back_blocked": bv >= 8.0 and not courtyard, "front_lane_w": lane0 if face < 0.0 else lane1}
 			_deck_opts(style, floors, row_cov, opts)
 			var holes := []
 			if hole_p != Vector2.INF:
@@ -343,7 +350,7 @@ func _creek(D: Dictionary) -> void:
 			if rng.randf() > 0.07:
 				place(center, -nrm, w - 0.1, d, {"floors": 2 if rng.randf() < 0.6 else 1, "style": _style_dense(), "district": D.name,
 					"stilts": true, "deck_y": deck, "allow_water": true, "covered": cov})
-			var wp: Vector2 = Vector2(x + w * 0.5, z) + nrm * (L.estero_w * 0.5 + 0.7)
+			var wp: Vector2 = Vector2(x + w * 0.5, z) + nrm * (L.estero_w * 0.5 + 0.78)
 			walk_pts.append(wp)
 			if cov:
 				if cov_run == 0:
@@ -357,7 +364,8 @@ func _creek(D: Dictionary) -> void:
 		if cov_run > 0:
 			mb.tunnels.append({"a": cov_start, "b": Vector2(x, L.estero_z(x) + side * (L.estero_w * 0.5 + 0.7)),
 				"w": 1.3, "kind": "walk", "y": deck, "house_side": Vector2(0, side), "district": D.name})
-		_boardwalk(walk_pts, 1.3, deck - 0.05)
+		# Wide enough to reach the house fronts (it stopped 15-40 cm short of the doors, over the water).
+		_boardwalk(walk_pts, 1.5, deck - 0.05)
 		for k in range(0, walk_pts.size() - 1, 3):
 			mb.alleys.append({"a": walk_pts[k], "b": walk_pts[mini(k + 3, walk_pts.size() - 1)], "w": 1.3, "kind": "walk", "y": deck})
 
@@ -368,7 +376,7 @@ func _boardwalk(pts: Array, width: float, y: float) -> void:
 		var b: Vector2 = pts[i + 1]
 		var seg := b - a
 		var len := seg.length()
-		if len < 0.2 or len > 9.0:
+		if len < 0.2 or len > 13.0:
 			continue
 		var ang := atan2(-seg.y, seg.x)
 		var basis := Basis(Vector3.UP, ang)
@@ -411,9 +419,10 @@ func _river_bank(D: Dictionary) -> void:
 		if rng.randf() > 0.08:
 			place(center, -nrm, w - 0.1, d, {"floors": 2 if rng.randf() < 0.55 else 1, "style": _style_dense(), "district": D.name,
 				"stilts": true, "deck_y": deck, "allow_water": true})
-		walk_pts.append(Vector2(cx, z + w * 0.5) + nrm * (hw - 0.6))
+		walk_pts.append(Vector2(cx, z + w * 0.5) + nrm * (hw - 0.5))
 		z += w + rng.randf_range(0.0, 0.4)
-	_boardwalk(walk_pts, 1.4, deck - 0.05)
+	# Up to the house fronts (they stand 0.4 m back from the bank's edge: the doors opened on to the river).
+	_boardwalk(walk_pts, 1.9, deck - 0.05)
 	for k in range(0, walk_pts.size() - 1, 3):
 		mb.alleys.append({"a": walk_pts[k], "b": walk_pts[mini(k + 3, walk_pts.size() - 1)], "w": 1.4, "kind": "walk", "y": deck})
 

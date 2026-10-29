@@ -35,6 +35,12 @@ func _on_setting(section: String, key: String) -> void:
 		_cam_id = 0   # re-apply on the next update
 
 
+func dispose() -> void:
+	if Settings.changed.is_connected(_on_setting):
+		Settings.changed.disconnect(_on_setting)
+	mb = null
+
+
 func update(dt: float) -> void:
 	_t -= dt
 	if _t > 0.0:

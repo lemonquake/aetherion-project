@@ -1,10 +1,10 @@
 extends Control
-## Lite minimap, top-left: the streets around you (north up), your own arrow and the edge of the safe area.
-## Teammates are not tracked: a teammate shows only when they ping (V), as a green dot that blinks for 5 s where
-## they stood. Enemies never show. The full map stays on the SmarTab (hold M).
+## Lite minimap, top-left: the streets around you (north up), your own arrow, your teammates (team-coloured dots
+## facing where they look, with their initial), the edge of the safe area, and spots your team pinged (middle
+## mouse; a green diamond for 8 s). Enemies never show. The full map stays on the SmarTab (hold M).
 
 const SPAN := 160.0          # metres shown edge to edge
-const PING_TIME := 5.0
+const PING_TIME := 8.0
 const GREEN := Color(0.35, 1.0, 0.45)
 
 var world = null
@@ -64,14 +64,35 @@ func _draw() -> void:
 	if not world.match_info.get("zone", {}).is_empty():
 		var circ: Array = world.zone_circle(Net.interp_tick() if not world.is_server else float(Net.tick))
 		draw_arc(to_px.call(circ[0]), float(circ[1]) * s, 0, TAU, 128, Color(0.95, 0.95, 0.95, 0.85), 1.5)
-	# Pings: a blinking green dot, or an arrow on the edge when the teammate is outside the window.
+	# Teammates.
+	var team := int(Net.players.get(Net.local_pid, {}).get("team", -1))
+	if team >= 0:
+		var tc: Color = UITheme.TEAM_COLORS[team % UITheme.TEAM_COLORS.size()]
+		var font := get_theme_default_font()
+		for o in world.characters.values():
+			if o == ch or o.team != team or o.mode in [Motor.DEAD, Motor.SPECTATE, Motor.PLANE]:
+				continue
+			var op: Vector2 = to_px.call(Vector2(o.global_position.x, o.global_position.z))
+			var oc := tc if o.mode != Motor.DOWNED else Color(1.0, 0.42, 0.38)
+			if r.grow(-5.0).has_point(op):
+				var of := Vector2(-sin(o.yaw), -cos(o.yaw))
+				draw_line(op, op + of * 9.0, Color(oc.r, oc.g, oc.b, 0.9), 2.0)
+				draw_circle(op, 5.0, Color(0, 0, 0, 0.6))
+				draw_circle(op, 4.0, oc)
+				var ini := str(o.pname).substr(0, 1).to_upper()
+				draw_string(font, op + Vector2(6, -4), ini, HORIZONTAL_ALIGNMENT_LEFT, -1, 12, Color(oc.r, oc.g, oc.b, 0.95))
+			else:
+				var dd := (op - c).normalized()
+				var ee := c + dd * minf((size.x * 0.5 - 6.0) / maxf(absf(dd.x), 0.001), (size.y * 0.5 - 6.0) / maxf(absf(dd.y), 0.001))
+				draw_circle(ee, 3.5, Color(oc.r, oc.g, oc.b, 0.8))
+	# Pings: a blinking green diamond at the marked spot, or an arrow on the edge when it is outside the window.
 	var blink := 0.5 + 0.5 * sin(Time.get_ticks_msec() / 1000.0 * TAU * 2.0)
 	for p in pings:
 		var pp: Vector2 = to_px.call(Vector2((p.pos as Vector3).x, (p.pos as Vector3).z))
 		var a := clampf(float(p.t), 0.0, 1.0) * (0.35 + 0.65 * blink)
 		var col := Color(GREEN.r, GREEN.g, GREEN.b, a)
 		if r.grow(-6.0).has_point(pp):
-			draw_circle(pp, 6.0, col)
+			draw_colored_polygon(PackedVector2Array([pp + Vector2(0, -6), pp + Vector2(6, 0), pp + Vector2(0, 6), pp + Vector2(-6, 0)]), col)
 			draw_arc(pp, 9.0 + blink * 5.0, 0, TAU, 24, Color(GREEN.r, GREEN.g, GREEN.b, a * 0.6), 1.5)
 		else:
 			var d := (pp - c).normalized()

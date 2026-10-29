@@ -1,0 +1,31 @@
+"""r4: CHECKLIST section for the effects/destruction/announcer/menu/outfits run (0.6.0)."""
+import os
+
+f = os.path.join(os.path.dirname(os.path.abspath(__file__)), '..', '..', 'docs', 'CHECKLIST.md')
+s = open(f, encoding='utf-8').read()
+section = '''## 2026-10-27 r4 run (version 0.6.0)
+
+Evidence: `work/lemondev/r4/` (contract, captures, logs, blind-review packets). All on the final source revision
+unless noted. The PC was at 100% CPU from other work for most of the run (frame times below are not comparable).
+
+| Requirement (owner, 2026-10-27) | Status | Evidence / notes |
+|---|---|---|
+| Particle system | Tested | Pooled GPU particles (`fx/particles.gd`): 21 kinds (dust, chips, splinters, sparks, shards, soil, splash, blood, muzzle smoke, casings, fire, smoke, blast debris…), created and drawn once behind the loading screen; no node or material per impact. `impact_particles`: 21–30 bursts, 12–15 luma change in the impact area while the dust flies. `fx_perf`: an impact every frame for 60 frames costs +0.0–0.4 ms GPU; each call 0.04 ms (particles) / 0.06 ms (holes); the sound path (0.55–0.64 ms, pre-existing) is now cached for bursts |
+| Bullet impacts that leave holes | Tested | Atlas of 16 material marks with normals and roughness (`tools/make_impact_textures.py`), entry and exit, drawn as MultiMesh cards (works on the OpenGL fallback, where decals do not); holes hang on doors and props and move with them (`holes_follow_door`: a hole moved 0.66–0.83 m when the door opened); budget 450 (PC) / 160 (phone). Bug found and fixed: with physics interpolation on, the cards were never drawn |
+| Destructible props, tables, chairs, objects, doors, chunk by chunk | Tested | `chunks_prop`: a 18-chunk bench lost 1 chunk per shot (17, 16, 15, 14) and then collapsed; the falling piece is the real cut-out of the model (`world/destruct.gd`, cut in 2–10 ms per model, cached; identical on a headless server). `door_panels` / `door_destroyed`: hinge-side panels shot out one per row, a ray passes through the first hole, then the leaf falls and the doorway is clear (10 shots). `blast_props`: a grenade broke a chair and left a scorch mark. Late joiners receive lost chunks and panels. Cabinets and other static furniture are not destructible |
+| Loudspeaker warnings 60 s, 30 s, 10…1, then a 7 s siren | Tested (schedule and playback; not by ear) | `pa_schedule_ignite` / `pa_schedule_dusk`: all 15 cues at the right second before each change (chime 61.4, 60, chime 31.4, 30, 10…1, siren 0.15) and every one heard from a horn; 23 horn poles, every sampled house within 168 m of one; HUD countdown captured. Voice: Windows "Microsoft David" TTS through a horn/street-echo chain (spectrogram checked); nobody listened to it |
+| Main menu remake with real textures; intuitive on PC and phone | Tested + blind review | Key art rendered from the map, textured panels and buttons, Home / Play / Locker / Profile / Leaderboard. UI tour: every page, lobby and Locker on screen with nothing clipped at 1920×1080, 3840×2160 and the phone layout (1800×810 at 1.5x). Blind review vs 0.5.0 (fresh reviewer, randomised labels): the new menus won with a clear advantage; its one gap: large empty areas and an orphaned fifth team card (cards now centred) |
+| Easy setup: 20 bots (5 squads of 4) by default, up to 7 teams, humans join any team | Tested | Lobby with team cards (tap to join), teams 2–7, squad size 1–4, bots fill open slots. PLAY NOW starts you + 19 bots in 5 squads of 4 (20 slots). Max 28 players (7×4): down from 0.5.0's 50 (recorded in the contract) |
+| Lobby listing online players; join; custom hosted games | Tested | `tools/online_test.sh`: stats server + host + client, 5/5: the hosted game is listed (stats server and LAN beacon), both players are listed online with status, the client joins, the match ends, both profiles get 508 XP, the leaderboard lists both, stats.json is saved. The Join button in the menus calls the same join; it was not clicked by a script |
+| Dedicated server for global stats and leaderboard; profiles that level up | Tested | `--master` (or `--server --stats`): presence, open games, results, profiles, leaderboard (HTTP/JSON, saved to disk, LAN-announced). Profiles: XP per match (play, kills, damage, time, place), level curve 500 +150/level, results screen shows XP and level reached. No accounts or anti-cheat (anyone who reaches the server can post results) |
+| Customizable player model, ≥4 models per part | Tested + blind review (plateau, see notes) | 87 pieces: hair 4, headwear 5, face 4, jacket 6, inner shirt 5, hands 4, elbow pads 4 (two sizes), knee pads 4, pants 5, footwear 4, backpacks 4, plus colourways and 4 skin tones; skinned to the existing rig and animated; Locker with a turning 3D preview. `outfits_vary`: 7 different outfits among 7 bots; `outfits_draws`: 2 draw surfaces per body (the hooded body had 8). Blind review: the new lineup won both passes with a clear advantage, but the reviewers flagged layer artifacts (pass 1: holes and strips; pass 2: boot shafts). Both were fixed after pass 2 (holes in the skin under shirts, clean open fronts, boot shafts from the leg's own shape); the fix is in `critic/old/lineup_new7.png` but was not re-reviewed (two consecutive gaps on the same area: stopped by the plateau rule) |
+| Realism, gameplay, performance | Tested (mechanics) / Not verified (frame-time A/B) | Spent cases with tinkle, muzzle smoke, suppression from near misses (`casings`, `suppression`), grenades now throw props (the old code never matched a body), cached sound paths, 8→2 draw surfaces per character, particle/hole warm-up. Frame-time A/B against 0.5.0 not valid: the PC was at 100% CPU from other work and no 0.5.0 build was kept |
+| Regressions | Tested | `--autotest=r3` 19/19, `--autotest=tour` 26/26, network test 17/17, online test 5/5. `--autotest=fixes` 24/26: `use_takes_items` and one of 24 stair flights failed in the full run (see the handoff) |
+| Builds | see the handoff | |
+
+'''
+marker = '## 2026-10-27 polish run (version 0.5.0)'
+if '## 2026-10-27 r4 run' not in s:
+    s = s.replace(marker, section + marker, 1)
+open(f, 'w', encoding='utf-8', newline='\n').write(s)
+print('checklist updated')

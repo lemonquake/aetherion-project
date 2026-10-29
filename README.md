@@ -29,9 +29,74 @@ Open `game/project.godot` in the Godot editor and press Play, or run it directly
 "/a/Installer/Godot_v4.7.2-stable_win64/Godot_v4.7.2-stable_win64.exe" --path game
 ```
 
-The main menu offers **Play** (Host a game, Join a game, Practice with bots), **Settings** and **Quit**. In the lobby,
-join a team, mark **Ready**, and the host presses **Start Match**. A match holds up to 50 players; by default the host
-adds 20 bots (Game Setup in the lobby changes it).
+### Main menu
+
+The menu opens on key art of the settlement at night under the artificial sun. Along the top: **Home**, **Play**,
+**Locker**, **Profile**, **Leaderboard**, your level and XP (tap it for your profile) and **Settings**.
+
+- **Home**: **PLAY NOW** opens the lobby of a practice match (you and 19 bots in 5 squads of 4, or 10 a side in
+  Deathmatch): check your team, guns and outfit there, then **START MATCH**. **Find a game** and **Host a game** open
+  Play. The right side lists who is online (with a **Join** button when they are in an open
+  game) and your last match.
+- **Play**: **Host a game** with a name, the number of teams (2 to 7, 5 by default), squad size (Solo, Duo, Trio,
+  Squad), whether bots fill empty slots (on by default) and the safe zone's speed. **Open games** lists games on your
+  Wi-Fi/LAN (hosts announce themselves on the network) and on the stats server, each with a **Join** button; or join
+  by address.
+- **Locker**: dress your character: hair, headwear, face, jacket, inner shirt, hands, elbow pads, knee pads, pants,
+  footwear and backpack (at least four models in each, five in most), each with colourways, and four skin tones. A
+  3D preview turns on its own (drag to turn); **Random** and **Reset**. Everything is saved at once and worn in
+  matches; other players and bots see it.
+- **Profile**: level, XP to the next level, career stats (matches, wins, top 5, kills, deaths, K/D, damage, time
+  played, best place) and your recent matches. Your name and your **laser pointer colour** (red, purple, green, blue,
+  pink or yellow; also in Settings > Gameplay) are set here.
+- **Leaderboard**: everyone the stats server has seen, by level, wins or kills.
+
+Phones get the same screens, drawn 1.5x larger, with shorter text where space is tight.
+
+### Lobby and teams
+
+A match has *teams x squad size* slots (5 x 4 = 20 by default, at most 7 teams of up to 4 = 28 players). Every
+team is a card with its seats: players, the bots that will take empty seats, and **Tap to join** on teams you can move
+to; you start in the first team with room. The host's **Game Setup** changes teams, squad size, bots and the safe zone
+(everyone else sees the settings); **Outfit** opens the Locker without leaving. Others press **READY**; the host
+presses **START MATCH**, and bots fill whatever the humans left open.
+
+Then the loading screen: the map and mode, a progress bar with what is being built at that moment ("Building houses
+(139 of 256)", "Wiring the lights (and the faulty ones)"...), a rotating line of nonsense and a tip. It stays up while
+the other players finish loading and fades into the match.
+
+### Game modes: Classic and Deathmatch
+
+- **Classic** is the battle royale: parachute in from the plane, loot weapons and gear, stay ahead of the haze, and
+  live through the 5-minute nights and days on Sitio Kalinaw.
+- **Deathmatch** is two teams of up to 10 (bots fill empty seats) on Lawless Sub. In the lobby's **Game Setup** each
+  player picks a primary and a secondary gun; everyone starts on the ground at their team's spawn with those guns,
+  spare magazines, a plate carrier and a heavy-plate helmet. Nothing is bought: loot buildings and swap guns as you
+  go. There is no downed state; the dead watch their living teammates (Fire or Space for the next, right-click for
+  the previous) until the round ends, which is when one team has nobody standing. The haze still closes in and the
+  day/night cycle still runs (a round starts at a random point in it).
+
+```bash
+godot --path game -- --host --game_mode=deathmatch --bots=19 --autostart=1     # a practice round on Lawless Sub
+```
+
+### Levels, XP and the stats server
+
+Every match gives XP: 100 for playing, 60 per kill, 1 per 4 damage dealt, 1 per 3 seconds alive, and 50 to 400 for
+your team's place. Levels need 500 XP at first and 150 more each level. The results screen shows what you earned and
+any level reached; the profile keeps counting on your device even with no server.
+
+The stats server keeps profiles, the leaderboard, who is online and the list of open games. It is part of the game:
+
+```bash
+# a stats server only (any PC on the network; phones and PCs on the same Wi-Fi find it by themselves)
+godot --headless --path game -- --master [--master_port=27420] [--data=<folder>]
+# a dedicated match server that is also the stats server
+godot --headless --path game -- --server --stats --bots=19 --autostart=2 --expect_players=1
+```
+
+Players elsewhere set its address in **Settings → Online** (or `--stats_server=host:port`). The host of each match
+reports it; there are no accounts (a profile is a random id made on the device), so run it for friends.
 
 ### Controls (rebindable in Settings)
 
@@ -45,20 +110,44 @@ adds 20 bots (Game Setup in the lobby changes it).
 | SmarTab (next to a box or body: shows what is inside) | Tab (hold) | SmarTab pages | Q / E while held |
 | Map page | M (hold) | Quick heal | H |
 | Grab, drag or carry an object (again: put it down) | T | Throw a frag grenade | G |
-| Ping your position to the team (radio click) | V | Push to talk | Caps Lock |
+| Ping the spot you look at (team marker, bots act on it) | Middle mouse | Push to talk | Caps Lock |
+| Laser pointer (hold) | V | | |
 | Text chat | Y | Menu | Esc |
 | Climb a ladder | walk into it (W up, S down) | Let go of a ladder | Space |
 
 Jump right in front of a low wall, a crate, a table or a window opening and you vault over or through it instead
-(the gun drops out of sight while you do and comes back up after). The lite minimap (top left) shows the streets
-around you, the roofed lanes (dark) and the courtyards, and the safe area; a teammate appears on it only when they
-ping, as a green dot that blinks for 5 seconds. Enemies never show on it. Under the minimap a compass shows the
-bearing you face in degrees (0 = north, clockwise; N, NE, E... and a number every 15 degrees), so you can call
-"north one-twenty" on the radio; teammates' pings show on it as green marks.
+(the gun drops out of sight while you do and comes back up after). Kerbs, sidewalks, low steps and anything up to
+about 40 cm are climbed just by walking into them, from any angle. The lite minimap (top left) shows the streets
+around you, the roofed lanes (dark) and the courtyards, the safe area, your teammates (team-coloured dots facing where
+they look, with their initial) and the spots your team pinged (a green diamond for 8 seconds). Enemies never show on
+it. Teammates also have their names over their heads (Settings > Gameplay > Teammate names). Under the minimap a
+compass shows the bearing you face in degrees (0 = north, clockwise; N, NE, E... and a number every 15 degrees), so you
+can call "north one-twenty" on the radio; teammates' pings show on it as green marks.
+
+**Ping** (middle mouse): marks the spot in the middle of your view for your team, a diamond on their screens with who
+marked it and how far it is (held at the screen edge with an arrow when it is behind them) and on their minimaps, with a
+click on the team radio. Your team's bots act on it by temperament: rushers go there, stalkers flank it, snipers find a
+spot with a view of it, house campers turn to watch it; a bot following you goes.
+
+**Laser pointer** (hold V; the Laser button on phones toggles it): a beam from your hand to whatever you point at,
+bright at your end and fading along its length, with a glowing dot where it lands. Everyone sees it, enemies included:
+a bot that sees the beam or the dot may follow it back to you.
+
+Being hit punches your view a few degrees away from the shot (up from the front, down from behind, turned and rolled
+from the side) and it settles within half a second; where your gun points does not change.
 
 Walk into a ladder (on house fronts, up to flat roof decks) facing the wall and you climb it: W climbs, S goes down
 (or W while facing away from the wall or looking down), Space lets go. At the top, keep walking to step on to the
 roof; walk off a roof edge at a ladder and it catches you.
+
+### Day and night: the loudspeakers
+
+Horn loudspeakers stand on street poles across the settlement (one roughly every 85 m). Before every change of the
+artificial sun a man's voice comes over them: an attention chime and a warning 60 seconds ahead ("The sun will ignite
+in sixty seconds" / "Lights out in sixty seconds"), again at 30 seconds, then a countdown from ten, and a siren for
+7 seconds as the sun ignites or starts to die. You hear it from the nearest horns (the next one down the line a
+moment later, like a real PA), muffled indoors; the countdown also shows under the compass. The voice is the Windows
+"David" text-to-speech voice put through a loudspeaker horn and street echoes (`tools/make_announcer.py`).
 
 ### Day and night
 
@@ -68,6 +157,33 @@ ten minutes, the same moment for every player (it follows the server's clock). B
 open ground (bots too), but rooms and the roofed lanes stay dark: the lane roofs keep the sun out except through
 their gaps, so you still need your flashlight in there.
 
+### Damage to the world
+
+Rounds leave holes that suit what they hit (concrete and hollow block craters with cracks, splintered wood, punched
+metal, cracked glass, frayed cloth, soil) and exit holes where they come through; holes on doors and loose props move
+with them. Impacts throw dust, chips, splinters, sparks, shards or blood mist; guns leave muzzle smoke and spent cases
+that tinkle on the ground; a round cracking past your head darkens the edges of your view for a moment.
+
+Furniture and crates break chunk by chunk where they are hit: a chair or table loses pieces (the real piece of the
+model falls away), its legs can be shot out so it drops, and it collapses when most of it is gone. Doors and window
+shutters lose panels where they are shot; rounds and eyes pass through the holes, and once the hinge side is shot
+out (or most of the leaf) the door falls and the doorway stays open. Grenades knock props apart and blow panels out
+of nearby doors. Everything is decided by the server and the same for every player (and for players who join late).
+
+People bleed where they are shot. A round through a body throws droplets on along its path and a few back toward the
+shooter; each flies a short arc and lands as a wet red mark, round where it fell straight and stretched with a tail
+where it hit at a glancing angle. A wall right behind takes a burst with runs dripping down it, the ground where they
+stood takes drops, the wounded leave a drip trail for a while, the downed smear the ground as they crawl, and a body
+lies in a pool that spreads for half a minute. Shooting a body again sprays it again. Blood on doors and loose props
+moves with them. All of it is drawn locally by each player (cosmetic, not sent over the network).
+
+Every material has its own bullet-impact sound (concrete, wood, sheet metal, steel, dirt and sand, water, glass,
+cloth, plastic, foliage, tile), as do flesh, heads, helmets and vests, ricochets, near misses, brass and shotgun shells
+landing and bodies falling. Reloads sound step by step in time with the hands: the magazine out, a fresh one from the
+pouch, the magazine seated, the charging handle or slide, the bolt lifted, drawn, run home and turned down, each shell
+into the tube, the cylinder opened, loaded and closed, the barrels broken open and shut. You hear other players'
+reloads the same way.
+
 ### Radio
 
 Push to talk keys your handheld radio: a click when you key up, your speech on your teammates' radios (narrow-band,
@@ -75,6 +191,33 @@ with a hiss), the squelch tail when you let go. Radios can be overheard: anyone 
 teammates hears what you say coming out of that radio, and anyone within about 9 m of you hears your voice. Farther
 away nobody gets anything. Ranges are in `game/data/rules.json` (`radio`). Third-party voice apps cannot make these
 sounds in the game.
+
+Bots talk on the team radio too, in four voices: "I'll go with you", "This way", "Contact!", "Taking fire!", "Haze is
+coming, move!", "Copy that", "Laser! Someone's pointing at us", "Good spot here" and more, each with its words in the
+lower left. A bot's callouts can be overheard like yours.
+
+### Bots
+
+Every bot thinks for itself and has a role:
+
+- **Looters / campers** hurry into a house, search it, shut the door behind them and hold the room facing the door.
+- **Rushers** are fearless: they hunt in the open toward the latest sighting, noise or ping, at a sprint.
+- **Snipers** take a waypoint with cover beside it and a long sightline (or one the team learned is good), watch through
+  the scope, and move on after a kill or when shot at.
+- **Stalkers** hunt from cover to cover, walking quietly and crouching when close, and flank.
+
+About half the bots of a team pair up or make threes behind a leader; some attach themselves to a human teammate
+("I'll go with you") and follow until they lose you. In Classic everyone loots first until armed. Bots work out how long
+the run to the next circle takes and leave in time (campers walk out by their door first). Stuck bots hop or vault
+where the far side is open ground (never over a bridge parapet or into a canal), open a door in the way, back off and
+sidestep, and report the spot.
+
+Waypoints: when a match starts the map's walk grid is surveyed on a worker thread for tactical spots every 8 m (cover
+beside, the longest clear sightline). **Bots learn** (Settings > Gameplay, on by default): they mark spots where kills
+were scored (good, and sniping spots past 45 m), where they stayed unhurt (safe) and where bots died (danger); the whole
+team uses those marks at once, and they are saved per map (`user://bot_memory_<map>.json`, fading by a fifth each
+match) for the next match. Spots where bots kept getting stuck against something the walk grid called open are closed
+on the grid (three reports from two bots, at most 60 per map).
 
 ### The map
 
@@ -91,6 +234,21 @@ their side walls into the next house. Walls carry graffiti, stencilled "BAWAL" s
 damp and mould, and in the roofed lanes the frightened writing (handprints, eyes, X marks, "HUWAG KANG LALABAS SA
 GABI"). Open doors swing aside when you walk or run into them and latch shut with a click when
 pushed back into the frame.
+
+### Lawless Sub (Deathmatch)
+
+A walled Philippine subdivision nobody polices any more, at the edge of a city, built from
+`game/data/maps/lawless_sub.json` (440 m square play area). A four-lane avenue with a median and a central
+intersection (zebra crossings on every arm, traffic lights, a wreck pile of police cars and a jeepney) splits it; a
+walled canal and an angular basin cut the west side, a shallow estero the south (wade it, or take the road bridge).
+West Team spawns in the office tower's parking plaza, East Team in the plastics factory's loading yard, about 420 m
+apart. Some 230 two-storey houses, bungalows and shophouses have real interiors (sala, dining, kitchen, toilet, stair
+hall downstairs; bedrooms, bathroom and hall upstairs), furniture, loot, doors on two sides and vault-sized ground-floor
+windows. The big buildings: Lawless Tower (four floors of offices round a stair core, roof ladder), the Canal Flats,
+the clubhouse with its empty pool and covered court, the chapel, Lawless Mart (aisles, chillers, stock room) and its
+shop strip, the gas station, the plastics factory (machine lines, offices under a mezzanine), the warehouse, the tanks
+and the container yard. Parked cars and burnt wrecks fill the lots and streets. Bots climb out of the canals by its
+ladders.
 
 ### Loot, weapons and attachments
 
@@ -134,7 +292,7 @@ preset (70 % render scale, no shadow maps, AO or fog volumes, shorter lamp and d
 drawn 1.5× larger, and on-screen controls: a floating move stick on the left (push past the ring to sprint), drag on
 the right to look (also while holding Fire), and buttons for Fire (two), Aim, Jump, Crouch, Reload, Use, Light (hold
 to change batteries), Phone (SmarTab), Heal, Weapon, Radio and Menu. Practice and hosted matches add 20 bots by default on
-phones and PCs alike (up to 50 players in a match). Try the phone profile on a PC with `--mobile`
+phones and PCs alike (up to 28 players in a match: 7 teams of 4). Try the phone profile on a PC with `--mobile`
 (and `--rendering-method mobile` for the phone renderer).
 
 ### Local multiplayer
@@ -174,6 +332,71 @@ photographs of every droppable item laid out):
 
 ```bash
 godot --path game -- --host --bots=11 --autostart=1 --autotest=loot --shots=<folder>
+```
+
+r7 Deathmatch checks (`--autotest=dm`, `--dm_only=map,kit,body,arms,haze`): the round is on Lawless Sub with
+10 v 10 standing, you spawn at your team's spawn with both guns, the plate carrier and the heavy helmet, nothing of your
+own body shows when you look straight down, the first-person arms stay clear of the camera through an empty reload,
+and the haze runs on the Deathmatch schedule. With `--autotest=perf` and `--game_mode=deathmatch` the perf run measures
+the spawn, the intersection, a house street, the mart lot, the factory yard, the canal row, a room by flashlight and two
+spots by day:
+
+```bash
+godot --path game -- --host --game_mode=deathmatch --bots=19 --autostart=1 --autotest=dm --shots=<folder>
+```
+
+r10 checks (`--autotest=r10`, `--r10_only=loading,bridge,laser,names,ping,kick,kerb,roles`), measured from captures
+where they are visual: the loading screen was drawn mid-build, the Canal Bridge deck shows asphalt and not the dirt
+under it, the laser draws a beam and a dot and an enemy bot near the dot follows it back, a teammate in view gets a name
+tag and teammates show on the minimap, a ping marks the spot looked at and reaches the team's bots, a hit punches the
+view and it settles, running at a sidewalk kerb 65 degrees off square gets on top of it, and the bots have mixed roles.
+The menu flow (PLAY NOW opens the lobby, START MATCH loads) has its own run:
+
+```bash
+godot --path game -- --host --game_mode=deathmatch --bots=19 --autostart=1 --autotest=r10 --shots=<folder> --loadshot=<folder>/loading.png
+godot --path game -- --menu_test --shots=<folder> --loadshot=<folder>/loading.png
+godot --headless --path game res://tools/step_lab.tscn      # every ledge height x approach angle x gait: climbed or not
+godot --headless --path game res://tools/ray_probe.tscn -- --map=lawless_sub --rect=x0,z0,x1,z1 [--top=5]   # what the ground is made of
+```
+
+Bot behaviour in a headless match: `--matchlog` prints every 15 s what each role is doing (`roles:`), squads, radio
+lines, waypoints and what the bots learned; `--radiolog` adds every callout, `[stuck]` bots with what is ahead of them,
+`[canal]` falls with the trail that led there, and `[haze death]` with the bot's state, goal and path:
+
+```bash
+godot --headless --path game -- --server --game_mode=deathmatch --bots=20 --expect_players=0 --autostart=1 --matchlog --radiolog --end_after=440 --quit_after_results
+```
+
+Z-fighting (two surfaces in the same place flickering through each other) is checked over the map's geometry: dump
+every drawn face, then list the pairs that face the same way, lie within 1.5 cm of each other and overlap:
+
+```bash
+godot --headless --path game res://tools/map_preview.tscn -- [--map=lawless_sub] --dumpfaces=<file>
+python -I tools/zfight_faces.py <file> --verbose
+```
+
+r6 checks (`--autotest=r6`; `--r6_only=sounds,bob,cues,blood`, `--r6_fast=1` skips the parachute): every sound the
+game asks for exists and loads, each impact material has several takes, the walking camera's sway, empty reloads of a
+rifle, pistol, pump gun and bolt rifle (every step's sound in order), a bot's reload heard beside the player, and blood:
+three rifle hits on a bot in front of a light wall (marks, blood-red pixels on the wall and at its feet), a body's pool
+spreading on screen, rounds into the body, and the spray's cost per hit:
+
+```bash
+godot --path game -- --host --bots=11 --autostart=1 --autotest=r6 --shots=<folder>
+```
+
+r4 checks (`--autotest=r4`; `--r4_only=outfits,pa,holes,chunks,doors,blast,realism,fx_perf` runs some): outfits in a
+match (variety, two draw surfaces per body), the loudspeaker schedule at forced match times (every cue heard from a
+horn) and horn coverage, bullet holes and impact particles measured in captures, a table or chair losing chunks shot
+by shot until it collapses, holes moving with a door that swings, a door's panels shot out until it falls and the
+doorway is clear, a grenade among furniture, shell casings and muzzle smoke, suppression from a near miss, and the cost
+of an impact every frame (GPU time):
+
+```bash
+godot --path game -- --host --bots=11 --autostart=1 --autotest=r4 --shots=<folder>
+bash tools/online_test.sh      # stats server + host + client: presence, open game, join, results, leaderboard, XP
+godot --path game -- --ui_tour=<folder> --ui_sizes=1920x1080,3840x2160      # every menu page, lobby, Locker
+godot --path game -- --mobile --ui_tour=<folder> --ui_sizes=1800x810        # the phone layout
 ```
 
 Polish-run checks (`--autotest=r3`): map census (roofed lanes, three-storey houses, roof decks and ladders, vault
@@ -241,6 +464,9 @@ python -I tools/build_audio.py --suppressed                                     
 python -I tools/add_work_sounds.py                                                # work/sounds (rerun after build_audio)
 python -I tools/add_r3_sounds.py                                                  # sun, radio key/squelch, ladder (rerun after both)
 python -I tools/make_vandal_atlas.py                                              # wall/ground decal atlas (game/assets/fx)
+python -I tools/build_r6_sounds.py fetch                                          # Freesound sources (CC0 / CC BY) into tools/cache
+python -I tools/build_r6_sounds.py build                                          # impacts, reload steps... (rerun after all of the above)
+python -I tools/make_blood_textures.py                                            # blood mark atlas (game/assets/fx)
 ```
 
 Downloaded guns (Sketchfab CC-BY models via the Objaverse mirror, listed in `tools/asset_sources.json`) are processed
@@ -269,6 +495,23 @@ does not work; `--args "--join=<address> ..."` bakes launch options into a test 
 
 Install on a phone with USB debugging on: `adb install -r builds/android/Aetherion.apk`. From an Android emulator
 the PC is `10.0.2.2`.
+
+## Rebuilding the outfits, menu art, impacts and announcer
+
+```bash
+python -I tools/make_gear_textures.py                                                        # fabric texture array
+"C:/Program Files/Blender Foundation/Blender 5.2/blender.exe" -b --factory-startup -P tools/blender/make_gear.py   # outfits
+"C:/Program Files/Blender Foundation/Blender 5.2/blender.exe" -b --factory-startup -P tools/blender/render_gear.py # check renders
+python -I tools/gear_contact_sheet.py                                                        # work/gear/sheet_<slot>.png
+python -I tools/make_ui_textures.py                                                          # panels, buttons, card pictures
+python -I tools/make_impact_textures.py                                                      # bullet-hole atlas, particle sprites
+python -I tools/make_announcer.py                                                            # loudspeaker voice and siren
+python -I tools/add_r4_sounds.py                                                             # spent cases
+bash tools/import.sh
+```
+
+The menu backgrounds (`game/assets/ui/*_bg.jpg`) are frames of the game's own map from `tools/map_preview.tscn`,
+colour-graded (see `work/lemondev/r4/HANDOFF.md`). Outfit pieces and colourways are listed in `game/data/cosmetics.json`.
 
 ## Rebuilding generated content
 

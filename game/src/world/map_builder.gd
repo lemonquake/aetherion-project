@@ -20,6 +20,13 @@ const ViewLod := preload("res://src/world/view_lod.gd")
 const Lagusan := preload("res://src/world/lagusan.gd")
 const Looban := preload("res://src/world/looban.gd")
 const Vandal := preload("res://src/world/vandal.gd")
+const PaSystem := preload("res://src/world/pa_system.gd")
+const HousePlan := preload("res://src/world/house_plan.gd")
+const SubLayout := preload("res://src/world/maps/lawless_sub/sub_layout.gd")
+const SubStreets := preload("res://src/world/maps/lawless_sub/sub_streets.gd")
+const SubWorks := preload("res://src/world/maps/lawless_sub/sub_works.gd")
+const SubDress := preload("res://src/world/maps/lawless_sub/sub_dress.gd")
+const SubBuildings := preload("res://src/world/maps/lawless_sub/buildings.gd")
 
 const GROUND_SHADER := preload("res://src/world/ground.gdshader")
 const WATER_SHADER := preload("res://src/world/water.gdshader")
@@ -51,39 +58,37 @@ var ladders: Array = []   # [{base, top_y, n, w}] climbable (Ladder in the movem
 var vandal_spots: Array = []  # [{pos, n, kind}] extra places that want a decal (barricades)
 var vault_spots: Array = []   # [{pos (top centre), size, yaw}] crates built to vault on to (looban.gd)
 var cover = null          # Lagusan: which ground is roofed over
+var pole_tops: Array = []   # [[top: Vector3, along: Vector2]] street utility poles (pa_system.gd picks some)
+var pa_speakers: Array = [] # [{pos, along}] loudspeaker horns the announcer talks through
+var stall_spots: Array = []   # (Lawless Sub) painted parking-stall rows [{rect, w, n, facing}]
+var canal_edges: Array = []   # (Lawless Sub) canal wall tops [{a, b, n, d, len}]
 var _ladder_grid := {}    # Vector2i (4 m) -> [ladder index]
 var stats := {}
 var map_image: Image
 var _next_bid := 1
+var _disposed := false
 
 
 func build(world_node: Node3D, map_seed: int, match_seed: int, opts: Dictionary = {}) -> void:
-	world = world_node
-	root = Node3D.new()
-	root.name = "Map"
-	world_node.add_child(root)
+	if str(opts.get("map", "kalinaw")) == "lawless_sub":
+		_build_sub(world_node, map_seed, match_seed, opts)
+		return
 	var t0 := Time.get_ticks_msec()
-	layout = Layout.new(map_seed)
+	_progress(0.02, "Surveying Sitio Kalinaw")
+	var lay = Layout.new(map_seed)
 	stats.layout_ms = Time.get_ticks_msec() - t0
-	mats = Materials.new()
-	models = ModelLib.new(mats)
-	acoustics = Acoustics.new()
-	sink = GeoSink.new(mats, root, map_seed)
-	dyn = Dynamics.new(self, world_node, root, mats, models, map_seed, match_seed)
-	# Bodies and render instances made directly on the servers (ground items, dormant props, glass, open box lids)
-	# are freed before the map leaves the tree: on teardown and when the game quits.
-	root.tree_exiting.connect(dyn.dispose)
-	dresser = Dresser.new(self)
-	lighting = Lighting.new(self)
-	self.match_seed = match_seed
-	practical = PracticalLights.new(self, match_seed)
+	setup(world_node, lay, map_seed, match_seed, opts)
 	t0 = Time.get_ticks_msec()
+	_progress(0.05, "Raising the riverbanks")
 	_terrain()
+	_progress(0.09, "Filling the river (with water of unknown origin)")
 	_water()
 	stats.terrain_ms = Time.get_ticks_msec() - t0
 	t0 = Time.get_ticks_msec()
+	_progress(0.11, "Paving the roads and the railway")
 	_roads()
 	_railway()
+	_progress(0.14, "Building the market, the chapel and the sites")
 	var sites := Sites.new(self)
 	sites.build_all()
 	var bridges_t := Time.get_ticks_msec()
@@ -91,9 +96,14 @@ func build(world_node: Node3D, map_seed: int, match_seed: int, opts: Dictionary 
 	var districts := Districts.new(self)
 	if opts.get("districts", true):
 		districts.build_all(opts.get("only", []))
+	# Water drums by the doors: now every house of the districts stands, so none ends up in a doorway across the lane.
+	_progress(0.72, "Putting water drums by the doors")
+	dyn.place_deferred()
+	_progress(0.74, "Roofing over the lanes")
 	cover = Lagusan.new(self)
 	cover.build()
 	stats.tunnels = cover.stats
+	_progress(0.77, "Stacking crates in the looban")
 	var lb := Looban.new(self)
 	lb.build()
 	stats.looban = lb.stats
@@ -101,22 +111,154 @@ func build(world_node: Node3D, map_seed: int, match_seed: int, opts: Dictionary 
 	ent.build()
 	stats.entrances = ent.stats
 	if opts.get("dress", true):
+		_progress(0.8, "Dressing the streets (laundry lines included)")
 		StreetDress.new(self).build()
+		PaSystem.new(self).build()
 		practical.porch_lights()
 		var vd := Vandal.new(self)
 		vd.build()
 		stats.decals = vd.stats
-	_index_ladders()
-	stats.ladders = ladders.size()
 	if DisplayServer.get_name() != "headless":
 		_paint_lanes()
-	stats.lights = practical.stats
 	stats.towns_ms = Time.get_ticks_msec() - t0
+	finalize(world_node)
+
+
+func _build_sub(world_node: Node3D, map_seed: int, match_seed: int, opts: Dictionary) -> void:
+	## (r7) Lawless Sub, the Deathmatch map: terrain and canals from its plan (data/maps/lawless_sub.json), the paved
+	## network, civil works (canal walls, bridges, subdivision walls, the perimeter), every lot's building, then the
+	## street furniture and the team spawns.
+	var t0 := Time.get_ticks_msec()
+	_progress(0.02, "Surveying the subdivision")
+	var lay = SubLayout.new(map_seed)
+	stats.layout_ms = Time.get_ticks_msec() - t0
+	setup(world_node, lay, map_seed, match_seed, opts)
 	t0 = Time.get_ticks_msec()
+	_progress(0.05, "Grading the ground")
+	_terrain()
+	_progress(0.1, "Filling the canals")
+	_water()
+	_progress(0.13, "Letting the lawns go to seed")
+	_sub_ground()
+	stats.terrain_ms = Time.get_ticks_msec() - t0
+	t0 = Time.get_ticks_msec()
+	_progress(0.17, "Paving streets and painting lines nobody follows")
+	var st = SubStreets.new(self)
+	st.build()
+	_progress(0.25, "Walling the subdivision and bridging the canals")
+	var wk = SubWorks.new(self)
+	wk.build()
+	SubBuildings.build_all(self, lay)
+	_progress(0.78, "Hiding the loot under the beds")
+	dyn.place_deferred()
+	if opts.get("dress", true):
+		_progress(0.8, "Parking the cars badly")
+		var dr = SubDress.new(self)
+		dr.build()
+		stats.dress = dr.stats
+		PaSystem.new(self).build()
+		practical.porch_lights()
+	stats.streets = st.stats
+	stats.works = wk.stats
+	_progress(0.86, "Picking the team spawns")
+	lay.pick_spawns()
+	stats.towns_ms = Time.get_ticks_msec() - t0
+	finalize(world_node)
+
+
+func _sub_ground() -> void:
+	## Lawless Sub's open ground: lawns gone to seed in the house lots and along the canal walk, packed dirt and
+	## gravel on the big lots, worn patches everywhere (splat: r mud, g grass, b sand, a path).
+	if ground_mat == null or ground_splat == null:
+		return
+	var img := ground_splat
+	var size := img.get_width()
+	var half: float = layout.HALF
+	var nz := FastNoiseLite.new()
+	nz.seed = layout.rng.seed + 91
+	nz.frequency = 0.05
+	for iz in size:
+		for ix in size:
+			var x := -half + (ix + 0.5) * half * 2.0 / size
+			var z := -half + (iz + 0.5) * half * 2.0 / size
+			var c := img.get_pixel(ix, iz)
+			var n := nz.get_noise_2d(x, z)
+			var res: int = layout.reserved_at(x, z)
+			var grass := 0.72 + n * 0.35
+			if res == 2:
+				grass = 0.12 + n * 0.2
+				c.a = 0.5
+			elif not layout.in_play_area(Vector2(x, z)):
+				grass = 0.5
+			c.g = clampf(grass * (1.0 - c.r), 0.0, 1.0)
+			c.r = clampf(c.r + maxf(-n - 0.35, 0.0), 0.0, 1.0)
+			img.set_pixel(ix, iz, c)
+	ground_mat.set_shader_parameter("splat", ImageTexture.create_from_image(img))
+	ground_mat.set_shader_parameter("lush", 0.8)
+	ground_mat.set_shader_parameter("grass_alb", _tex(TEX + "grass_ground/albedo.jpg"))
+	ground_mat.set_shader_parameter("grass_nrm", _tex(TEX + "grass_ground/normal.jpg"))
+
+
+func _progress(frac: float, what: String) -> void:
+	## The loading screen (only while a match loads; map previews and headless servers have none).
+	if Game.loading_screen:
+		Game.load_progress(frac, what)
+
+
+func obstacles_add(p: Vector2, r: float) -> void:
+	## Street furniture a team spawn must keep clear of (Lawless Sub).
+	if "obstacles" in layout:
+		layout.obstacles.append([p, r])
+
+
+func setup(world_node: Node3D, layout_obj, map_seed: int, match_seed: int, opts: Dictionary = {}) -> void:
+	## (r7 hook) The map-agnostic registries every map builds on: the root node, materials, models, acoustics, the
+	## geometry sink, dynamics, dresser, lighting and practical lights, over the given layout object (Kalinaw's
+	## Layout, or any object with the same members). Call first; then build terrain, roads and buildings (shanty(),
+	## house()), then finalize().
+	if is_instance_valid(root):
+		root.free()
+	_disposed = false
+	world = world_node
+	root = Node3D.new()
+	root.name = "Map"
+	world_node.add_child(root)
+	layout = layout_obj
+	mats = Materials.new()
+	if opts.get("map", "") == "lawless_sub":
+		mats.enable_urban_arrays()
+	models = ModelLib.new(mats)
+	acoustics = Acoustics.new()
+	sink = GeoSink.new(mats, root, map_seed)
+	# The map scan names what it bumps into from the collision boxes as they were made (test runs only).
+	sink.record = str(Game.arg("autotest", "")) == "mapscan" or opts.get("record", false)
+	sink.dump_faces = opts.get("dump_faces", false)
+	dyn = Dynamics.new(self, world_node, root, mats, models, map_seed, match_seed)
+	# Bodies and render instances made directly on the servers (ground items, dormant props, glass, open box lids)
+	# are freed before the map leaves the tree: on teardown and when the game quits.
+	root.tree_exiting.connect(dispose)
+	dresser = Dresser.new(self)
+	lighting = Lighting.new(self)
+	self.match_seed = match_seed
+	practical = PracticalLights.new(self, match_seed)
+
+
+func finalize(world_node: Node3D) -> void:
+	## (r7 hook) After every building and street feature exists: ladder index, geometry flush, instancing, lighting,
+	## view LOD, stats, fingerprint, the per-match door/loot roll and the map image. Lamp poles and anything else drawn
+	## into the sink must come before this.
+	_index_ladders()
+	stats.ladders = ladders.size()
+	stats.lights = practical.stats
+	var t0 := Time.get_ticks_msec()
+	_progress(0.88, "Welding the geometry into chunks")
 	sink.finish()
+	_progress(0.91, "Placing furniture and props")
 	dyn.instantiate()
 	stats.finish_ms = Time.get_ticks_msec() - t0
-	lighting.build(world_node)
+	# Lighting belongs to this map too, so replacing just the map root cannot leave old fixtures in the world.
+	_progress(0.93, "Wiring the lights (and the faulty ones)")
+	lighting.build(root)
 	view_lod = ViewLod.new(self)
 	stats.buildings = buildings.size()
 	stats.sink = sink.stats
@@ -128,6 +270,62 @@ func build(world_node: Node3D, map_seed: int, match_seed: int, opts: Dictionary 
 	fingerprint = _fingerprint()
 	dyn.randomize_for_match(world_node.get("is_server") == true)
 	_make_map_image()
+
+
+func dispose() -> void:
+	## The map owns RefCounted helpers which point back to it. Explicitly break those cycles when its root exits;
+	## otherwise every rematch retains the old map's geometry, textures, settings listeners and door records.
+	if _disposed:
+		return
+	_disposed = true
+	if view_lod:
+		view_lod.dispose()
+	if lighting:
+		lighting.dispose()
+	if dyn:
+		dyn.dispose()
+		for record in dyn.doors:
+			var leaf = record.get("node")
+			if leaf:
+				leaf.dyn = null
+				leaf.spec = {}
+			record.node = null
+		for record in dyn.windows:
+			var leaf = record.get("door")
+			if leaf:
+				leaf.dyn = null
+				leaf.spec = {}
+			if record.has("door"):
+				record.door = null
+		dyn.map = null
+		dyn.world = null
+	if dresser:
+		dresser.mb = null
+	if practical:
+		practical.mb = null
+	if cover:
+		cover.mb = null
+	view_lod = null
+	lighting = null
+	dresser = null
+	practical = null
+	cover = null
+	dyn = null
+	sink = null
+	models = null
+	mats = null
+	acoustics = null
+	layout = null
+	ground_mat = null
+	ground_splat = null
+	map_image = null
+	world = null
+	root = null
+	for records in [buildings, rooms, stairs, alleys, tunnels, loobans, barricades, yard_walls, ladders,
+		vandal_spots, vault_spots, pole_tops, pa_speakers, stall_spots, canal_edges]:
+		records.clear()
+	_ladder_grid.clear()
+	_next_bid = 1
 
 
 var fingerprint := ""
@@ -271,27 +469,57 @@ func new_building_id() -> int:
 	return _next_bid
 
 
+func kit_ctx() -> Dictionary:
+	## What the building generators draw into and register with (building_kit.gd's ctx).
+	return {"sink": sink, "mats": mats, "acoustics": acoustics, "dyn": dyn}
+
+
 func shanty(spec: Dictionary) -> Dictionary:
 	spec.id = new_building_id()
-	var ctx := {"sink": sink, "mats": mats, "acoustics": acoustics, "dyn": dyn}
-	var s := Shanty.new(ctx)
+	var s := Shanty.new(kit_ctx())
 	var out := s.build(spec)
 	stairs.append_array(s.flights)
 	ladders.append_array(s.ladders)
+	_register_building(spec, out)
+	return out
+
+
+func house(plan: Dictionary) -> Dictionary:
+	## (r7) A building from an explicit plan (house_plan.gd: rooms per floor, interior walls and doors, windows, stairs,
+	## roof). Registered like a shanty; returns the same out dictionary (plus out.spec, the summary registered).
+	plan.id = new_building_id()
+	var hp := HousePlan.new(kit_ctx())
+	var out: Dictionary = hp.build(plan)
+	stairs.append_array(hp.flights)
+	ladders.append_array(hp.ladders)
+	_register_building(out.spec, out)
+	return out
+
+
+func _register_building(spec: Dictionary, out: Dictionary) -> void:
+	## Everything a generated building needs once its geometry, doors, windows and zones exist: the buildings record
+	## (bots, ambience, the map image), its far block, furniture and loot in every room (dresser: containers get the
+	## building id), the rooms list and practical lights. spec: {id, xf, w, d, kind, district, style, floors, covered};
+	## out: {rooms, top, deck, front_open, h0, far_body?, far_roof?, light_rooms?}.
 	buildings.append({"id": spec.id, "xf": spec.xf, "w": spec.w, "d": spec.d, "kind": spec.get("kind", "house"), "district": spec.get("district", ""),
 		"style": spec.get("style", "wood"), "floors": spec.get("floors", 1), "covered": spec.get("covered", false), "deck": out.get("deck", false),
 		"top": out.top, "front_open": out.get("front_open", []), "h0": out.get("h0", 2.4)})
-	var body := {"chb": Color(0.3, 0.29, 0.27), "concrete": Color(0.42, 0.42, 0.4), "wood": Color(0.22, 0.17, 0.12),
-		"yero": Color(0.26, 0.18, 0.13), "bamboo": Color(0.3, 0.26, 0.17), "patch": Color(0.25, 0.2, 0.16)}.get(str(spec.get("style", "wood")), Color(0.25, 0.2, 0.15))
-	var roof := Color(0.22, 0.14, 0.1) if sink.rng.randf() < 0.6 else Color(0.3, 0.3, 0.3)
+	var body: Color
+	var roof: Color
+	if out.has("far_body"):
+		body = out.far_body
+		roof = out.get("far_roof", Color(0.3, 0.3, 0.3))
+	else:
+		body = {"chb": Color(0.3, 0.29, 0.27), "concrete": Color(0.42, 0.42, 0.4), "wood": Color(0.22, 0.17, 0.12),
+			"yero": Color(0.26, 0.18, 0.13), "bamboo": Color(0.3, 0.26, 0.17), "patch": Color(0.25, 0.2, 0.16)}.get(str(spec.get("style", "wood")), Color(0.25, 0.2, 0.15))
+		roof = Color(0.22, 0.14, 0.1) if sink.rng.randf() < 0.6 else Color(0.3, 0.3, 0.3)
 	var top: float = out.top + 0.4
 	var fx: Transform3D = spec.xf
 	sink.far_block(fx * Transform3D(Basis(), Vector3(0, top * 0.5, 0)), Vector3(float(spec.w) + 0.6, top, float(spec.d) + 0.6), body, roof)
 	for r in out.rooms:
 		dresser.dress_room(r, spec)
 	rooms.append_array(out.rooms)
-	practical.house(spec, out.rooms)
-	return out
+	practical.house(spec, out.get("light_rooms", out.rooms))
 
 
 # ------------------------------------------------------------------ terrain
@@ -310,10 +538,14 @@ func _terrain() -> void:
 	var n := int(half * 2.0 / step) + 1
 	var heights := PackedFloat32Array()
 	heights.resize(n * n)
+	# The bare ground. Lawless Sub's ground_height() is the walkable top (bridge decks, canal wall copings, the walk
+	# slab), which have geometry of their own; a heightfield raised to those tops lay in the same plane as them and
+	# its dirt showed through the bridge asphalt.
+	var bare: bool = layout.has_method("terrain_height")
 	for iz in n:
 		var z := -half + iz * step
 		for ix in n:
-			heights[iz * n + ix] = layout.ground_height(-half + ix * step, z)
+			heights[iz * n + ix] = layout.terrain_height(-half + ix * step, z) if bare else layout.ground_height(-half + ix * step, z)
 	# Collision: one heightfield, 2 m spacing.
 	var body := StaticBody3D.new()
 	body.name = "Terrain"
@@ -680,8 +912,64 @@ func server_break_glass(collider, pos: Vector3, dir: Vector3) -> void:
 func server_prop_hit(prop_id: int, pos: Vector3, dir: Vector3, energy: float, momentum: float) -> void:
 	var body = dyn.server_activate(prop_id)
 	if body and is_instance_valid(body):
-		body.apply_impulse(dir * minf(momentum * 6.0, 40.0), pos - body.global_position)
-		body.take_damage(energy * 0.08, dir)
+		# About the round's own momentum (a pistol round nudges a chair; it does not throw it across the room).
+		body.apply_impulse(dir * minf(momentum * 1.5, 12.0), pos - body.global_position)
+		body.take_damage(energy * 0.08, dir, pos)
+
+
+func server_blast(pos: Vector3, radius: float, damage: float) -> void:
+	## A grenade: loose props within the radius are thrown and knocked apart, doors and shutters lose panels, nearest
+	## the blast first.
+	var space := PhysicsServer3D.space_get_direct_state(dyn.space_rid)
+	var q := PhysicsShapeQueryParameters3D.new()
+	var sph := SphereShape3D.new()
+	sph.radius = radius
+	q.shape = sph
+	q.transform = Transform3D(Basis(), pos)
+	q.collision_mask = Defs.PHYS_PROP
+	var seen := {}
+	var hits := space.intersect_shape(q, 64)
+	# Doors and shutters by distance: the world's own shapes would fill any shape query's result list.
+	for d in dyn.doors:
+		var dn = d.get("node")
+		if dn and not dn.destroyed and (d.xf as Transform3D).origin.distance_to(pos) < radius + 1.0:
+			hits.append({"collider": dn})
+	for w in dyn.windows:
+		if w.has("door") and not w.door.destroyed and (w.xf as Transform3D).origin.distance_to(pos) < radius + 1.0:
+			hits.append({"collider": w.door})
+	for r in hits:
+		var c = r.collider
+		if c == null:
+			continue
+		if c.has_meta("prop_id"):
+			var pid := int(c.get_meta("prop_id"))
+			if seen.has("p%d" % pid):
+				continue
+			seen["p%d" % pid] = true
+			var body = dyn.server_activate(pid)
+			if body and is_instance_valid(body):
+				var bp: Vector3 = body.global_position
+				var k := clampf(1.0 - bp.distance_to(pos) / radius, 0.0, 1.0)
+				body.apply_central_impulse((bp - pos + Vector3.UP * 0.5).normalized() * 9.0 * k * minf(body.mass, 30.0) * 0.4)
+				for i in 3:
+					if is_instance_valid(body):
+						body.take_damage(damage * k * 0.9, (bp - pos).normalized(), bp.lerp(pos, 0.35))
+		elif c.has_meta("door_id") or c.has_meta("shutter_id"):
+			var key := str(c.get_instance_id())
+			if seen.has(key):
+				continue
+			seen[key] = true
+			var d = c
+			if d.destroyed:
+				continue
+			for i in 4:
+				var cc: Vector3 = d.center()
+				var k2 := clampf(1.0 - cc.distance_to(pos) / radius, 0.0, 1.0)
+				var pi: int = d.server_damage(cc.lerp(pos, 0.5), damage * k2 * 1.2)
+				if pi >= 0:
+					world.server_door_panel(d, pi, (cc - pos).normalized())
+				if d.destroyed:
+					break
 
 
 func server_corpse_hit(corpse_id: int, pos: Vector3, dir: Vector3) -> void:
@@ -720,6 +1008,15 @@ func server_sync_peer(pid: int) -> void:
 			world.map_prop_break.rpc_id(pid, int(p.id), (p.xf as Transform3D).origin, Vector3.ZERO)
 		elif p.state == "active":
 			world.map_prop_activate.rpc_id(pid, int(p.id), (p.body as Node3D).global_transform if p.get("body") else p.xf)
+			if not (p.get("lost", []) as Array).is_empty():
+				world.map_prop_chunks.rpc_id(pid, int(p.id), PackedInt32Array(p.lost))
+	for d in dyn.doors:
+		var dn2 = d.get("node")
+		if dn2 and not dn2.lost.is_empty():
+			world.map_door_panels.rpc_id(pid, int(d.id), false, PackedInt32Array(dn2.lost.keys()))
+	for w2 in dyn.windows:
+		if w2.has("door") and not w2.door.lost.is_empty():
+			world.map_door_panels.rpc_id(pid, int(w2.id), true, PackedInt32Array(w2.door.lost.keys()))
 	for cid in dyn.corpses:
 		var c = dyn.corpses[cid]
 		world.map_corpse_spawn.rpc_id(pid, cid, c.pname, c.team, c.pose())

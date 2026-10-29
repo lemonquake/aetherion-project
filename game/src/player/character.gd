@@ -38,6 +38,8 @@ var vault_a := Vector3.ZERO # start, over-the-top point, landing
 var vault_m := Vector3.ZERO
 var vault_b := Vector3.ZERO
 var vault_h := 1.78         # body height while going over (fits a window opening)
+var wish_h := Vector3.ZERO  # stick direction x speed of the last ground step (Motor): kerbs are climbed toward it
+var laser_on := false       # holding the laser pointer (server: from commands; drawn by everyone from F_LASER)
 
 # --- gameplay state
 var flags := 0
@@ -82,6 +84,7 @@ const F_WATER := 16384
 const F_LIMP := 32768
 const F_WLIGHT := 65536  # active light is weapon-mounted
 const F_BUSY := 131072   # swapping battery / treating / reviving
+const F_LASER := 262144  # laser pointer on (hold V): everyone draws the beam
 
 
 func _init() -> void:
@@ -196,31 +199,86 @@ func move_body(dt: float, airborne: bool = false) -> void:
 	move_and_slide()
 	if k > 1.01:
 		velocity /= k
-	if not airborne and is_on_floor() and horizontal.length() > 0.2:
+	if not airborne and is_on_floor() and horizontal.length() > 0.15:
 		_try_step(pre, horizontal, dt)
 	_push_props(dt)
 
 
 func _try_step(pre: Vector3, horizontal: Vector3, dt: float) -> void:
-	## CharacterBody3D does not climb kerbs: if we were blocked by something shorter than step_height, lift over it.
-	var moved := Vector3(global_position.x - pre.x, 0.0, global_position.z - pre.z).length()
+	## CharacterBody3D does not climb kerbs: if we were blocked or deflected by a step shorter than step_height, lift over it.
+	var moved_v := Vector3(global_position.x - pre.x, 0.0, global_position.z - pre.z)
+	var moved := moved_v.length()
 	var wanted := horizontal.length() * dt
-	if moved > wanted * 0.6:
+	var wall_into := Vector3.ZERO
+	for i in get_slide_collision_count():
+		var c := get_slide_collision(i)
+		var n := c.get_normal()
+		if absf(n.y) < 0.72:
+			var into := -Vector3(n.x, 0.0, n.z)
+			if into.length_squared() > 1e-4 and into.dot(horizontal) > 0.0:
+				wall_into = into.normalized()
+				break
+	# Sliding along a kerb at a shallow angle keeps most of the speed (sin 65 deg = 0.9), the box edge may be reported
+	# with an upward normal, and after the first tick of sliding the velocity no longer points into the kerb at all.
+	# The stick still does: what the slide takes away from the way the player pushes is the way into the kerb.
+	var intent := wish_h.normalized() if wish_h.length() > 0.1 else horizontal.normalized()
+	var lost := intent * wanted - moved_v
+	if moved > 1e-4:
+		var md := moved_v / moved
+		lost -= md * maxf(lost.dot(md), 0.0)
+	if wall_into == Vector3.ZERO and lost.length() > wanted * 0.2:
+		wall_into = lost.normalized()
+	if moved > wanted * 0.85 and wall_into == Vector3.ZERO:
 		return
 	var step_h := Defs.move("step_height")
-	var motion := horizontal * dt
-	var t := global_transform
-	if test_move(t, Vector3.UP * step_h):
-		return
-	t.origin += Vector3.UP * step_h
-	if test_move(t, motion):
-		return
-	t.origin += motion
-	var col := KinematicCollision3D.new()
-	if test_move(t, Vector3.DOWN * (step_h + 0.05), col):
-		t.origin += col.get_travel()
-		if col.get_normal().y > 0.7:
-			global_position = t.origin
+	var t0 := global_transform
+	var up_col := KinematicCollision3D.new()
+	var lift := step_h
+	if test_move(t0, Vector3.UP * step_h, up_col):
+		lift = up_col.get_travel().y
+		if lift < 0.03:
+			return
+	var t_up := t0
+	t_up.origin.y += lift
+	var fwd_dir := intent
+	var dirs: Array[Vector3] = [fwd_dir]
+	if wall_into != Vector3.ZERO:
+		# Running along a kerb at a shallow angle: the way into the kerb matters more than the way we were going.
+		dirs.append((fwd_dir * 0.45 + wall_into * 0.85).normalized())
+		dirs.append(wall_into)
+	# A capsule of radius R=0.30m contacts a 0.18m curb at horizontal distance d=0.275m, while its hemisphere only
+	# becomes a walkable floor (<50 deg) inside d<0.21m. Where the lip sits depends on the ledge height and the angle
+	# of approach, so several reaches are tried, shortest first (one reach alone missed kerbs taken at 60+ degrees).
+	var base := clampf(maxf(wanted * 1.5, _capsule.radius * 0.70), 0.14, _capsule.radius * 0.85)
+	for dir in dirs:
+		for reach in [base, _capsule.radius * 1.05, _capsule.radius * 1.45]:
+			var probe: Vector3 = dir * float(reach)
+			var fwd_col := KinematicCollision3D.new()
+			if test_move(t_up, probe, fwd_col):
+				probe = fwd_col.get_travel()
+				if Vector3(probe.x, 0.0, probe.z).length() < 0.05:
+					break
+			var t_probe := t_up
+			t_probe.origin += probe
+			var down_col := KinematicCollision3D.new()
+			if not test_move(t_probe, Vector3.DOWN * (lift + 0.06), down_col):
+				continue
+			if down_col.get_normal().y <= 0.65:
+				continue
+			var landed := t_probe.origin + down_col.get_travel()
+			var dh := landed.y - global_position.y
+			if dh >= 0.015 and dh <= step_h + 0.02:
+				# Up and a short way onto it (never the whole probe: that would be a teleport along a wall).
+				var onto: Vector3 = Vector3(probe.x, 0.0, probe.z).limit_length(maxf(wanted, 0.06))
+				var t_end := t_up
+				t_end.origin += onto
+				var d2 := KinematicCollision3D.new()
+				if test_move(t_end, Vector3.DOWN * (lift + 0.06), d2) and d2.get_normal().y > 0.65 \
+						and (t_end.origin + d2.get_travel()).y - global_position.y >= 0.015:
+					global_position = t_end.origin + d2.get_travel() + Vector3.UP * 0.005
+				else:
+					global_position = landed + Vector3.UP * 0.005
+				return
 
 
 func _push_props(dt: float) -> void:
@@ -304,6 +362,8 @@ func compute_flags() -> int:
 		f |= F_WATER
 	if injury_speed < 0.95:
 		f |= F_LIMP
+	if laser_on:
+		f |= F_LASER
 	f |= flags & (F_TAB | F_HEAL | F_RADIO | F_BUSY)
 	return f
 

@@ -64,12 +64,20 @@ func _surface_y(p: Vector2, fallback: float) -> float:
 	return maxf(_gy(p), fallback)
 
 
-func _lane_prop(name: String, xf: Transform3D) -> void:
-	## Loose clutter against a wall. A door shoves light things aside; anything heavier stays out of door swings.
-	if float(mb.models.spec(name).get("mass", 99.0)) >= 6.0 			and not dyn.door_swing_clear(Vector2(xf.origin.x, xf.origin.z), Vector2(0.4, 0.4), 0.0):
+func _lane_prop(name: String, xf: Transform3D, lane_w: float = 9.0) -> void:
+	## Loose clutter against a wall: never in a doorway or a door's swing, and nothing heavy where it would leave
+	## less than a person's width of the lane (a drum in a 1.3 m eskinita closed it).
+	var heavy := float(mb.models.spec(name).get("mass", 99.0)) >= 6.0
+	if heavy and lane_w < 2.4:
 		return
-	dyn.add_prop_spec(name, xf)
+	if not _spot_ok(xf.origin, 0.35):
+		return
+	dyn.add_prop_spec(name, dyn.seat(name, xf))
 	stats.props += 1
+
+
+func _spot_ok(p: Vector3, r: float) -> bool:
+	return dyn.spot_clear(Vector2(p.x, p.z), Vector2(r, r), 0.0, p.y)
 
 
 func _free_spot(p: Vector2, r: float) -> bool:
@@ -104,6 +112,9 @@ func _lane(a: Dictionary) -> void:
 		if L.is_water(p.x, p.y) and not walk:
 			t += rng.randf_range(14.0, 20.0)
 			prev_top = Vector3.INF
+			continue
+		if not _spot_ok(Vector3(p.x, gy, p.y), 0.16):
+			t += 1.1   # not in front of a door: a little further along
 			continue
 		var top := _pole(Vector3(p.x, gy, p.y), dir, walk)
 		if prev_top != Vector3.INF and prev_top.distance_to(top) < 26.0:
@@ -144,19 +155,24 @@ func _lane(a: Dictionary) -> void:
 		# Under a lane roof the clutter is lit like an inside room (interior layers).
 		dyn.interior_scope = under
 		if r < 0.22:
-			dyn.add_static_prop(_pick(["trashbag_static", "heap_small_a", "heap_small_b", "litter_a", "litter_b"]) if false else _pick(["heap_small_a", "heap_small_b", "litter_a", "litter_b"]), xf)
+			if not _spot_ok(xf.origin, 0.4):
+				continue
+			var cn: String = _pick(["heap_small_a", "heap_small_b", "litter_a", "litter_b"])
+			dyn.add_static_prop(cn, dyn.seat(cn, xf))
 			stats.clutter += 1
 		elif r < 0.5:
-			_lane_prop(_pick(["trashbag", "trashbag", "box", "crate_plastic", "crate_plastic2", "crate_plastic3", "bucket", "gallon", "jerrycan", "container", "can", "old_tyre", "trash_can"]), xf)
+			_lane_prop(_pick(["trashbag", "trashbag", "box", "crate_plastic", "crate_plastic2", "crate_plastic3", "bucket", "gallon", "jerrycan", "container", "can", "old_tyre", "trash_can"]), xf, w)
 		elif r < 0.62:
-			_lane_prop("bottle", xf)
+			_lane_prop("bottle", xf, w)
 		elif r < 0.7 and not walk:
-			_lane_prop(_pick(["monobloc", "stool", "bench_paint"]), xf)
+			_lane_prop(_pick(["monobloc", "stool", "bench_paint"]), xf, w)
 		elif r < 0.78 and not walk:
-			dyn.add_static_prop(_pick(["fern", "weeds", "grass_clump"]), xf)
-			stats.plants += 1
+			if _spot_ok(xf.origin, 0.3):
+				var pn: String = _pick(["fern", "weeds", "grass_clump"])
+				dyn.add_static_prop(pn, dyn.seat(pn, xf))
+				stats.plants += 1
 		elif r < 0.84 and not walk:
-			_lane_prop(_pick(["drum_blue", "oil_drum", "drum"]), xf)
+			_lane_prop(_pick(["drum_blue", "oil_drum", "drum"]), xf, w)
 		elif r < 0.9 and not walk and w > 1.6 and not under:
 			_puddle(Vector3(pa.x + dir.x * step, y2 + 0.02, pa.y + dir.y * step), rng.randf_range(0.8, 2.2))
 		elif r < 0.935:
@@ -165,7 +181,7 @@ func _lane(a: Dictionary) -> void:
 			stats.loot += 1
 		elif r < 0.95 and not walk:
 			var c: Array = _pick([["lootbox_bin", "box_bin"], ["lootbox_cooler", "box_cooler"], ["lootbox_balikbayan", "box_balikbayan"]])
-			if dyn.door_swing_clear(Vector2(p2.x, p2.y), Vector2(0.45, 0.45), 0.0) and dyn.add_loot_box(str(c[0]), xf, str(c[1]), -1) >= 0:
+			if w >= 1.9 and _spot_ok(xf.origin, 0.45) and dyn.add_loot_box(str(c[0]), xf, str(c[1]), -1) >= 0:
 				stats.boxes += 1
 	dyn.interior_scope = false
 	# Open drain along one edge of wider lanes
@@ -178,8 +194,9 @@ func _lane(a: Dictionary) -> void:
 			if not L.is_water(mid.x, mid.y):
 				var y3 := _gy(mid)
 				var ang := atan2(-dir.y, dir.x)
-				sink.box(Transform3D(Basis(Vector3.UP, ang), Vector3(mid.x, y3 + 0.03, mid.y)), Vector3(seg, 0.06, 0.34), "concrete_dirty", {"collide": false, "faces": 4 | 1 | 2 | 16 | 32, "dirt": 1.0, "layer": "mid"})
-				sink.box(Transform3D(Basis(Vector3.UP, ang), Vector3(mid.x, y3 + 0.045, mid.y)), Vector3(seg, 0.01, 0.2), "mud", {"collide": false, "faces": 4, "dirt": 0.0, "layer": "mid"})
+				# Concrete sides, the silt on top (the silt 1 cm under the concrete's top z-fought with it).
+				sink.box(Transform3D(Basis(Vector3.UP, ang), Vector3(mid.x, y3 + 0.03, mid.y)), Vector3(seg, 0.06, 0.34), "concrete_dirty", {"collide": false, "faces": 1 | 2 | 16 | 32, "dirt": 1.0, "layer": "mid"})
+				sink.box(Transform3D(Basis(Vector3.UP, ang), Vector3(mid.x, y3 + 0.055, mid.y)), Vector3(seg, 0.01, 0.34), "mud", {"collide": false, "faces": 4, "dirt": 0.0, "layer": "mid"})
 			k += seg
 
 
@@ -197,6 +214,8 @@ func _pole(base: Vector3, along: Vector2, light: bool) -> Vector3:
 	if rng.randf() < 0.3:
 		# A pole-mounted transformer or a junction box with a tangle under it.
 		sink.box(Transform3D(Basis(), top + Vector3(0, -0.9, 0.18)), Vector3(0.4, 0.55, 0.32), "metal_paint", {"collide": false, "tint": Color(0.55, 0.58, 0.55), "paint": 0.8, "layer": "mid"})
+	if not light:
+		mb.pole_tops.append([top, along])
 	if not light and mb.practical.rng.randf() < 0.5:
 		# About half the posts carry a bare bulb for the lane (some dead, many faulty).
 		mb.practical.pole_bulb(top + Vector3(0, -0.12, 0), along)
@@ -325,7 +344,7 @@ func _vegetation() -> void:
 		if water:
 			continue
 		var bank = L.is_water(p.x + 3.0, p.y) or L.is_water(p.x - 3.0, p.y) or L.is_water(p.x, p.y + 3.0) or L.is_water(p.x, p.y - 3.0)
-		if not L.rect_free(p, Vector2(0.6, 0.6), 0.0, false, 0.0):
+		if not L.rect_free(p, Vector2(0.6, 0.6), 0.0, false, 0.0) or not _spot_ok(Vector3(p.x, gy, p.y), 0.6):
 			continue
 		var xf := Transform3D(Basis(Vector3.UP, rng.randf() * TAU), Vector3(p.x, gy, p.y))
 		var q: Vector2 = p / L.MAP_SCALE  # in the unscaled layout's coordinates
@@ -356,11 +375,11 @@ func _vehicles() -> void:
 			while t < len:
 				var side := 1.0 if rng.randf() < 0.5 else -1.0
 				var p := a + dir * t + Vector2(-dir.y, dir.x) * side * (float(r.w) * 0.5 - 1.0)
-				if not L.is_water(p.x, p.y) and L.in_play_area(p):
+				if not L.is_water(p.x, p.y) and L.in_play_area(p) and _spot_ok(Vector3(p.x, _gy(p), p.y), 1.6):
 					var yaw := atan2(dir.x, dir.y) + (PI if rng.randf() < 0.5 else 0.0) + rng.randf_range(-0.15, 0.15)
 					var kind: String = _pick(["tricycle_a", "tricycle_b", "tricycle_a", "food_cart_a", "food_cart_b", "food_stall"])
 					if float(r.w) >= 8.0 and rng.randf() < 0.18:
 						kind = "jeepney"
-					dyn.add_static_prop(kind, Transform3D(Basis(Vector3.UP, yaw), Vector3(p.x, _gy(p) + 0.08, p.y)))
+					dyn.add_static_prop(kind, dyn.seat(kind, Transform3D(Basis(Vector3.UP, yaw), Vector3(p.x, _gy(p), p.y))))
 					stats.vehicles += 1
 				t += rng.randf_range(25.0, 70.0)

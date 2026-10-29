@@ -7,6 +7,12 @@ signal state_changed(state: String)
 const WorldScript := preload("res://src/match/world.gd")
 const MenuScript := preload("res://src/ui/main_menu.gd")
 const LobbyScript := preload("res://src/ui/lobby_ui.gd")
+const Outfit := preload("res://src/player/outfit.gd")
+const MasterServer := preload("res://src/online/master_server.gd")
+const LoadingScreen := preload("res://src/ui/loading_screen.gd")
+
+var master: Node = null      # the stats server when this process runs one (--master, or --server --stats)
+var last_xp: Dictionary = {} # {xp, level_before, level_after} from the last match, for the results screen
 
 const BOT_NAMES := [
 	"Kuya Bert", "Aling Nena", "Tito Boy", "Mang Kanor", "Pareng Jun", "Tsong Ramil", "Bossing Dodong",
@@ -27,6 +33,7 @@ var args := {}
 var match_seed := 0
 var _loaded_peers := {}
 var _load_timer := -1.0
+var loading_screen = null   # src/ui/loading_screen.gd while a match loads
 ## Voice transmission bookkeeping on the server: pid -> seconds since last packet.
 var _talking := {}
 
@@ -62,6 +69,15 @@ func boot() -> void:
 	if OS.get_name() == "Android" and not "android.permission.RECORD_AUDIO" in OS.get_granted_permissions():
 		# Ask for the microphone (team radio) at the menu, not when the first match starts.
 		OS.request_permission("android.permission.RECORD_AUDIO")
+	if arg("rules_capture"):
+		# r7 Deathmatch evidence captures (src/debug/rules_capture.gd); lives under Game, so it outlasts the World.
+		var rc: Node = load("res://src/debug/rules_capture.gd").new()
+		rc.name = "RulesCapture"
+		add_child(rc)
+	if arg("ui_tour"):
+		var tour: Node = load("res://src/debug/ui_tour.gd").new()
+		tour.name = "UiTour"
+		add_child(tour)
 	if arg("shot"):
 		# --shot=<png> [--shot_after=<s>]: save the screen and quit (menus and lobby at any window size).
 		get_tree().create_timer(float(arg("shot_after", 3.0))).timeout.connect(func():
@@ -71,12 +87,25 @@ func boot() -> void:
 			get_tree().quit())
 	if arg("name"):
 		Settings.set_value("player", "name", str(arg("name")))
+	if arg("master") or arg("stats"):
+		master = MasterServer.new()
+		master.name = "Master"
+		add_child(master)
+		master.start(int(arg("master_port", MasterServer.PORT)), str(arg("data", "")))
+		if arg("master") and not arg("server"):
+			print("[master] running (no match server in this process)")
+			return
 	if arg("server"):
 		Net.host(int(arg("port", Net.DEFAULT_PORT)), true)
 		_apply_arg_config()
 		show_lobby()
 		print("[server] dedicated server listening on %d" % int(arg("port", Net.DEFAULT_PORT)))
 		return
+	if arg("menu_test"):
+		# r10: PLAY NOW opens the lobby (not the match); START MATCH then loads it (src/debug/menu_test.gd).
+		var mt: Node = load("res://src/debug/menu_test.gd").new()
+		mt.name = "MenuTest"
+		add_child(mt)
 	if arg("host"):
 		if Net.host(int(arg("port", Net.DEFAULT_PORT))) == OK:
 			_apply_arg_config()
@@ -91,11 +120,28 @@ func boot() -> void:
 
 
 func _apply_arg_config() -> void:
+	# --game_mode=classic|deathmatch first: it resets teams, team size and map to that mode's defaults.
+	if arg("game_mode"):
+		Net.set_config("game_mode", str(arg("game_mode")))
+	if arg("map"):
+		Net.set_config("map", str(arg("map")))
 	if arg("mode"):
 		Net.set_config("mode", str(arg("mode")))
+	if arg("teams") != null:
+		Net.set_config("teams", clampi(int(arg("teams")), 1, Net.MAX_TEAMS))
+	if arg("team_size") != null:
+		Net.set_config("team_size", clampi(int(arg("team_size")), 1, Net.max_team_size()))
+	if arg("primary") != null or arg("secondary") != null:
+		# Tests and headless hosts: this player's Deathmatch guns (the Game Setup picker sends the same request).
+		Net.request_loadout({"primary": str(arg("primary", "")), "secondary": str(arg("secondary", ""))})
 	if arg("bots") != null:
-		Net.set_config("bot_count", int(arg("bots")))
-		Net.set_config("bots", int(arg("bots")) > 0)
+		# --bots=N: room for N bots besides the humans expected (teams grow to fit, up to 7).
+		var n := int(arg("bots"))
+		Net.set_config("bot_count", n)
+		Net.set_config("bots", n > 0)
+		if arg("teams") == null and not Net.is_dm():
+			var want := n + maxi(int(arg("expect_players", 1)), 1)
+			Net.set_config("teams", clampi(ceili(float(want) / Net.team_size()), 2, Net.MAX_TEAMS))
 	if arg("seed") != null:
 		Net.set_config("map_seed", int(arg("seed")))
 	if arg("zone_speed") != null:
@@ -121,6 +167,10 @@ func _autostart() -> void:
 
 func show_screen(c: Control) -> void:
 	if screen and is_instance_valid(screen):
+		# Out of the tree now, freed later: a screen only queued for deletion stays up through a synchronous map
+		# build, and the loading screen's forced redraws never showed over it.
+		if screen.get_parent():
+			screen.get_parent().remove_child(screen)
 		screen.queue_free()
 	screen = c
 	if c:
@@ -129,6 +179,7 @@ func show_screen(c: Control) -> void:
 
 func show_menu() -> void:
 	_set_state("menu")
+	_hide_loading()
 	teardown_world()
 	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 	show_screen(MenuScript.new())
@@ -136,6 +187,7 @@ func show_menu() -> void:
 
 func show_lobby() -> void:
 	_set_state("lobby")
+	_hide_loading()
 	teardown_world()
 	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 	if DisplayServer.get_name() == "headless":
@@ -165,7 +217,7 @@ func _set_state(s: String) -> void:
 func start_match() -> void:
 	if not Net.is_server or state == "loading" or state == "match":
 		return
-	# Bots fill to the configured count.
+	# Bots fill the team slots the humans left open (5 teams of 4 by default: 20 slots).
 	Net.remove_bots()
 	if Net.config.get("bots", true):
 		var names := BOT_NAMES.duplicate()
@@ -176,12 +228,17 @@ func start_match() -> void:
 			var t = names[i]
 			names[i] = names[j]
 			names[j] = t
-		var room := int(Defs.rule("max_players", 40)) - Net.players.size()
-		for i in mini(int(Net.config.get("bot_count", 20)), room):
-			Net.add_bot(names[i % names.size()])
+		var room := Net.slot_count() - Net.humans()
+		if arg("bots") != null:
+			room = mini(room, int(arg("bots")))
+		for i in maxi(room, 0):
+			Net.add_bot(names[i % names.size()], Outfit.random_look(rng.randi()))
 	Net.assign_teams()
 	for pid in Net.players:
 		Net.players[pid].in_match = true
+	if arg("primary") != null or arg("secondary") != null:
+		# Command-line guns win over the saved Game Setup choice the lobby sent (tests).
+		Net.request_loadout({"primary": str(arg("primary", "")), "secondary": str(arg("secondary", ""))})
 	match_seed = randi() if arg("match_seed") == null else int(arg("match_seed"))
 	_loaded_peers.clear()
 	_load_timer = float(Defs.rule("loading_timeout_s", 90))
@@ -196,15 +253,46 @@ func _load_match(cfg: Dictionary, seed_value: int) -> void:
 	_set_state("loading")
 	show_screen(null)
 	teardown_world()
+	_show_loading(cfg)
 	world = WorldScript.new()
 	world.name = "World"
 	add_child(world)
+	if loading_screen:
+		loading_screen.sync = true
 	world.build(cfg, seed_value)
+	if loading_screen:
+		loading_screen.sync = false
+		load_progress(0.96, "Waiting for the other players" if not Net.is_server else "Briefing the bots")
 	print("[map] %s on %s" % [world.map.fingerprint, Net.platform()])
 	if Net.is_server:
 		_on_peer_loaded(1)
 	else:
 		_client_loaded.rpc_id(1, world.map.fingerprint)
+
+
+func _show_loading(cfg: Dictionary) -> void:
+	_hide_loading()
+	if DisplayServer.get_name() == "headless":
+		return
+	var titles := {"kalinaw": "Sitio Kalinaw", "lawless_sub": "Lawless Sub"}
+	var dm := str(cfg.get("game_mode", "classic")) == "deathmatch"
+	loading_screen = LoadingScreen.new(str(titles.get(str(cfg.get("map", "kalinaw")), "Sitio Kalinaw")),
+		("Deathmatch · %d a side" % int(cfg.get("team_size", 10))) if dm else ("Classic · %d teams of %d" % [int(cfg.get("teams", 5)), int(cfg.get("team_size", 4))]))
+	loading_screen.name = "Loading"
+	add_child(loading_screen)
+	load_progress(0.01, "Surveying the ground")
+
+
+func _hide_loading() -> void:
+	if loading_screen and is_instance_valid(loading_screen):
+		loading_screen.queue_free()
+	loading_screen = null
+
+
+func load_progress(frac: float, what: String = "") -> void:
+	## Map builders report how far along they are (0-1) and what they are building now; the loading screen shows it.
+	if loading_screen and is_instance_valid(loading_screen):
+		loading_screen.progress(frac, what)
 
 
 @rpc("any_peer", "reliable")
@@ -244,8 +332,15 @@ func _check_all_loaded() -> void:
 func _begin_match() -> void:
 	_load_timer = -1.0
 	_set_state("match")
+	if loading_screen and is_instance_valid(loading_screen):
+		loading_screen.finish()
 	_match_started.rpc()
 	world.server_start_match()
+	if arg("end_after"):
+		# Tests: end the match after this many seconds with whoever is standing.
+		get_tree().create_timer(float(arg("end_after"))).timeout.connect(func():
+			if world and world.match_server and state == "match":
+				world.match_server.force_end())
 	if arg("autotest") and not Net.dedicated:
 		_add_autotest()
 
@@ -262,6 +357,8 @@ func _add_autotest() -> void:
 @rpc("authority", "call_remote", "reliable")
 func _match_started() -> void:
 	_set_state("match")
+	if loading_screen and is_instance_valid(loading_screen):
+		loading_screen.finish()
 	print("[game] match started (client)")
 	if world:
 		world.client_match_started()
@@ -270,17 +367,42 @@ func _match_started() -> void:
 
 
 func end_match_to_results(summary: Dictionary) -> void:
-	## Server: called by the world when a winner is decided.
+	## Server: called by the world when a winner is decided. Every human's row carries the XP it earned; the host
+	## reports the match to the stats server.
+	preload("res://src/ai/bot_team.gd").save()   # what the bots learned on this map (Settings > Bots learn)
+	for r in summary.get("rows", []):
+		r.xp = 0 if r.get("bot", false) else Profile.match_xp(r)
+		var p: Dictionary = Net.players.get(int(r.get("pid", 0)), {})
+		r.profile = str(p.get("profile", ""))
+		r.platform = str(p.get("platform", "PC"))
+	if master:
+		master._result({"players": summary.rows.filter(func(r): return not r.get("bot", false) and str(r.profile) != "").map(func(r): return {
+			"id": r.profile, "name": r.name, "platform": r.platform, "kills": r.kills, "damage": r.damage, "place": r.place, "winner": r.winner,
+			"time": r.time, "xp": r.xp})})
+	elif not Net.dedicated:
+		Online.post_result(summary.get("rows", []))
 	_show_results.rpc(summary)
 	_show_results(summary)
-	get_tree().create_timer(float(Defs.rule("results_s", 25))).timeout.connect(_return_to_lobby)
+	var res_s := float(Defs.rule("deathmatch.results_s", 15)) if Net.is_dm() else float(Defs.rule("results_s", 25))
+	get_tree().create_timer(res_s).timeout.connect(_return_to_lobby)
 
 
 @rpc("authority", "call_remote", "reliable")
 func _show_results(summary: Dictionary) -> void:
 	_set_state("results")
+	last_xp = {}
+	if not Net.dedicated:
+		for r in summary.get("rows", []):
+			if int(r.get("pid", 0)) == Net.local_pid and not r.get("bot", false):
+				r.teams = int(summary.get("teams", 0))
+				last_xp = Profile.add_match(r)
+				summary.me = r
+				summary.me_xp = last_xp
 	if world:
 		world.show_results(summary)
+	if arg("quit_after_results"):
+		print("[game] results: %s" % JSON.stringify(summary.get("me", {})))
+		get_tree().create_timer(4.0).timeout.connect(func(): get_tree().quit())
 
 
 func _return_to_lobby() -> void:

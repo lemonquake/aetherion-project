@@ -268,3 +268,21 @@ What this pass changed for speed:
 
 Remaining: one isolated 160 ms frame in one phone-profile phase (not reproduced; probably a first-time effect such
 as a nearby fight's particles, which the warm-up does not cover).
+
+## 2026-10-27 (r4, 0.6.0): outfits, particles, holes, destruction, new menus
+
+Not an A/B: the PC was at 100% CPU from other work through the run and no 0.5.0 build was kept, so frame times are
+not comparable with the tables above. What was measured:
+
+- **Characters**: 2 draw surfaces per body (outfit merged into one surface through a texture array, plus the head)
+  instead of the hooded body's 8 (`--autotest=r4` `outfits_draws`). Looks are cached, so bots in the same outfit share
+  one mesh. An outfit is about 9–19 k triangles (the 0.5.0 body was 22 k).
+- **Impacts**: pooled GPU particles and MultiMesh hole cards, no node or material per hit. One impact every frame for
+  60 frames: +0.0–0.4 ms GPU, 0.04 ms (particles) and 0.06 ms (holes) of script per call. The sound path for an
+  impact (rays and a portal search, ~0.6 ms) is now cached per 1.5 m cell for 0.35 s, so bursts reuse it.
+- **No first-shot stalls**: every particle kind and the hole material are drawn once by the loading warm-up.
+- **Chunking a prop model**: 2–10 ms the first time that model breaks, then cached.
+- `--autotest=perf` with 19 bots (editor, 1600×900, High, vsync off, under the background load): aircraft 2.27 ms,
+  free fall 6.08, canopy 8.6 / 10.9, landed 13.1, market 13.7, looban 15.6, densest spot 20.2, rail 13.4, indoors
+  14.8, roofed lane 19.4, densest spot / market at noon 19.1 / 14.6 (`work/lemondev/r4/final/perf.log`). Re-measure
+  on an idle machine with release EXEs (`tools/perf_exe.ps1`) before drawing conclusions.

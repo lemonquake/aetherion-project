@@ -31,6 +31,8 @@ var _rng := RandomNumberGenerator.new()
 var _delayed: Array = []  # [time_left, callable]
 var _loops: Dictionary = {}  # key -> {player, id, pos, refresh}
 var _root: Node3D
+var trace: Array = []     # tests: [msec, id, "local"/"world"] of every sound started, while trace_on
+var trace_on := false
 
 
 func _ready() -> void:
@@ -243,11 +245,30 @@ func play_ui(id: String, db: float = 0.0) -> void:
 			return
 
 
+func play_radio(id: String, db: float = 0.0) -> void:
+	## A callout heard on your own team radio: non-positional, through the Radio bus (band-limited, a little grit).
+	var s := _pick(id)
+	if s == null:
+		return
+	if trace_on:
+		trace.append([Time.get_ticks_msec(), id, "radio"])
+	for q in _pool_2d:
+		if not q.playing:
+			q.stream = s
+			q.bus = "Radio"
+			q.volume_db = float(defs[id].get("db", 0.0)) + db
+			q.pitch_scale = 1.0
+			q.play()
+			return
+
+
 func play_local(id: String, db: float = 0.0, pitch: float = 1.0) -> void:
 	## Non-positional sound heard only by the local player (own breathing, SmarTab handling).
 	var s := _pick(id)
 	if s == null:
 		return
+	if trace_on:
+		trace.append([Time.get_ticks_msec(), id, "local"])
 	for q in _pool_2d:
 		if not q.playing:
 			q.stream = s
@@ -269,6 +290,8 @@ func play_at(id: String, pos: Vector3, db: float = 0.0, opts: Dictionary = {}) -
 	var max_d := float(d.get("dist", 40.0)) * float(opts.get("dist_mult", 1.0))
 	if dist > max_d:
 		return
+	if trace_on:
+		trace.append([Time.get_ticks_msec(), id, "world"])
 	var delay := 0.0
 	if opts.get("delay", float(d.get("dist", 40.0)) > 120.0) and dist > 25.0:
 		delay = dist / SPEED_OF_SOUND
@@ -292,7 +315,7 @@ func _play_now(id: String, pos: Vector3, db: float, opts: Dictionary) -> AudioSt
 		return null
 	var prop := {"pos": pos, "gain_db": 0.0, "occ": 0, "reverb": "outdoor", "dist": dist}
 	if acoustics and not opts.get("no_prop", false):
-		prop = acoustics.propagate(pos, lpos, float(d.get("dist", 40.0)))
+		prop = _propagate_cached(pos, lpos, float(d.get("dist", 40.0)))
 	elif acoustics:
 		prop.reverb = acoustics.reverb_at(lpos)
 	var gain := float(d.get("db", 0.0)) + db + float(prop.gain_db)
@@ -312,6 +335,32 @@ func _play_now(id: String, pos: Vector3, db: float, opts: Dictionary) -> AudioSt
 	p.set_meta("prio", int(opts.get("prio", d.get("prio", 1))))
 	p.play()
 	return p
+
+
+var _paths := {}   # "src cell|listener cell" -> [time, source, result]
+var _paths_t := 0.0
+
+
+func _propagate_cached(src: Vector3, lis: Vector3, max_d: float) -> Dictionary:
+	## The way a sound reaches the listener (rays and a portal search, about half a millisecond) changes little within
+	## a metre and a fraction of a second: a burst of rounds hitting one wall, a stream of footsteps, reuse it.
+	var now := Time.get_ticks_msec() / 1000.0
+	var key := "%s|%s" % [Vector3i((src / 1.5).floor()), Vector3i((lis / 1.5).floor())]
+	var e: Array = _paths.get(key, [])
+	if not e.is_empty() and now - float(e[0]) < 0.35:
+		var r: Dictionary = (e[2] as Dictionary).duplicate()
+		if (r.pos as Vector3).is_equal_approx(e[1]):
+			r.pos = src   # heard straight from the source: keep this event's own position
+		r.dist = src.distance_to(lis)
+		return r
+	var res: Dictionary = acoustics.propagate(src, lis, max_d)
+	_paths[key] = [now, src, res]
+	if now - _paths_t > 2.0:
+		_paths_t = now
+		for k in _paths.keys():
+			if now - float(_paths[k][0]) > 1.0:
+				_paths.erase(k)
+	return res
 
 
 func _grab(prio: int) -> AudioStreamPlayer3D:

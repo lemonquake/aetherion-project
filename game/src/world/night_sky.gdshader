@@ -125,7 +125,7 @@ vec4 clouds(vec3 d, vec3 m, float up, out float thick) {
 	return vec4(col, cover * 0.92);
 }
 
-vec3 day_sky(vec3 d, float up, vec4 cl, float thick) {
+vec3 day_sky(vec3 d, float up, vec4 cl, float thick, bool cube_pass) {
 	vec3 s = normalize(sun_direction);
 	vec3 c = mix(day_horizon, day_zenith, smoothstep(-0.02, 0.6, up));
 	float sc = max(dot(d, s), 0.0);
@@ -134,7 +134,7 @@ vec3 day_sky(vec3 d, float up, vec4 cl, float thick) {
 		vec3 cloud = mix(vec3(0.94, 0.94, 0.95), vec3(0.5, 0.53, 0.58), thick * 0.8) + sun_color * pow(sc, 10.0) * 0.4;
 		c = mix(c, cloud, cl.a * 0.85);
 	}
-	if (!AT_CUBEMAP_PASS) {
+	if (!cube_pass) {
 		float ang = acos(clamp(dot(d, s), -1.0, 1.0));
 		float core = 1.0 - smoothstep(0.017, 0.02, ang);
 		float ring = (1.0 - smoothstep(0.0, 0.0025, abs(ang - 0.047))) * 0.5;
@@ -173,7 +173,7 @@ void sky() {
 	}
 	c = mix(horizon_color * 0.8, c, smoothstep(-0.05, 0.0, up));
 	if (day_k > 0.0) {
-		vec3 dc = day_sky(d, up, cl, thick);
+		vec3 dc = day_sky(d, up, cl, thick, AT_CUBEMAP_PASS);
 		if (AT_CUBEMAP_PASS) {
 			dc *= day_radiance;
 		}

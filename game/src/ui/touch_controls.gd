@@ -35,11 +35,13 @@ const BUTTONS := [
 	{"name": "grab", "action": "grab", "label": "Grab", "pos": Vector2(-660, -300), "r": 52.0, "mode": "tap"},
 	{"name": "frag", "action": "throw_grenade", "label": "Frag", "pos": Vector2(-640, -150), "r": 52.0, "mode": "tap"},
 	{"name": "ping", "action": "ping", "label": "Ping", "pos": Vector2(-820, 115), "r": 54.0, "mode": "tap", "tab": true},
+	{"name": "laser", "action": "laser", "label": "Laser", "pos": Vector2(-960, 115), "r": 54.0, "mode": "toggle"},
 	{"name": "flashlight", "action": "flashlight", "label": "Light", "pos": Vector2(-120, 115), "r": 54.0, "mode": "hold", "tab": true},
 	{"name": "smartab", "action": "smartab", "label": "Phone", "pos": Vector2(-260, 115), "r": 54.0, "mode": "toggle", "tab": true},
 	{"name": "heal", "action": "heal", "label": "Heal", "pos": Vector2(-400, 115), "r": 54.0, "mode": "tap"},
 	{"name": "weapon", "action": "next_weapon", "label": "Weapon", "pos": Vector2(-540, 115), "r": 54.0, "mode": "tap"},
 	{"name": "radio", "action": "push_to_talk", "label": "Radio", "pos": Vector2(-680, 115), "r": 54.0, "mode": "hold"},
+	{"name": "fire_mode", "action": "fire_mode", "label": "Auto", "pos": Vector2(-540, 245), "r": 58.0, "mode": "tap"},
 	{"name": "menu", "action": "menu", "label": "Menu", "pos": Vector2(80, 80), "r": 48.0, "mode": "tap", "tab": true},
 	{"name": "page_prev", "action": "smartab_prev", "label": "<", "pos": Vector2(-400, -300), "r": 60.0, "mode": "tap", "tab_only": true},
 	{"name": "page_next", "action": "smartab_next", "label": ">", "pos": Vector2(-250, -300), "r": 60.0, "mode": "tap", "tab_only": true},
@@ -67,9 +69,16 @@ func _tab_up() -> bool:
 
 
 func _visible_button(b: Dictionary) -> bool:
+	if b.name == "fire_mode" and not _selector_available():
+		return false
 	if b.get("tab_only", false):
 		return _tab_up()
 	return not _tab_up() or b.get("tab", false)
+
+
+func _selector_available() -> bool:
+	return controller != null and is_instance_valid(controller.ch) and controller.ch.wpn != null \
+		and controller.ch.wpn.has_selector(controller.ch.wpn.current_id()) and controller.ch.mode == Motor.GROUND
 
 
 func _k() -> float:
@@ -249,7 +258,11 @@ func _button(b: Dictionary, on: bool) -> void:
 	var r := float(b.r) * _k()
 	draw_circle(c, r, Color(1, 1, 1, 0.22 if on else 0.09))
 	draw_arc(c, r, 0.0, TAU, 40, Color(1, 1, 1, 0.6 if on else 0.32), 3.0)
-	_label(c, str(b.label), 24 if float(b.r) < 80.0 else 30)
+	if b.name == "fire_mode" and _selector_available():
+		_label(c + Vector2(0, -16.0 * _k()), "Mode", 20)
+		_label(c + Vector2(0, 13.0 * _k()), controller.ch.wpn.fire_mode_label(), 26)
+	else:
+		_label(c, str(b.label), 24 if float(b.r) < 80.0 else 30)
 
 
 func _label(c: Vector2, text: String, size: int) -> void:
