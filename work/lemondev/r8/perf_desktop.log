@@ -1,0 +1,58 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+Vulkan 1.4.329 - Forward+ - Using Device #0: NVIDIA - NVIDIA GeForce RTX 4060
+
+[ui] loadout_received pid=1 Hehe {"primary":"rifle_m416","secondary":"pistol_9"}
+[ui] lobby shows my loadout (pid 1): {"primary":"rifle_m416","secondary":"pistol_9"}
+[ui] request_loadout {"primary":"rifle_m416","secondary":"pistol_9"}
+[world] map built in 11962 ms
+[map] 256 buildings, 1970 doors, 2518 containers, 2480 props, #f9b648fc on PC
+[game] autotest perf
+[perf] NVIDIA GeForce RTX 4060, window (1920, 1080), shadows 2, ssao true, volumetric fog true, render scale 1.00
+[perf]   view tier -1 -> 0 at 2 m above ground (dm_spawn)
+[perf] dm_spawn        1222 fr  avg   6.55 ms (  153 fps)  p50   6.04  p95   9.66  p99  11.80  max  15.01  >16.7ms    0 | render cpu  1.51 gpu  3.38 | process  8.48 physics  5.12 | draws    437 objs    617 prims  1020384 | agl 0
+[perf]   0.39 physics steps/frame; engine physics step avg 0.57 ms max 1.02 ms; active bodies 0, pairs 0, islands 0
+[perf]   ms/frame: 
+[perf]   worst single call (ms): 
+[perf]   bot path searches (worker thread): 19, avg 1.54 ms, max 2.53 ms
+[perf] dm_intersection  1368 fr  avg   5.85 ms (  171 fps)  p50   5.50  p95   7.97  p99   8.99  max  10.91  >16.7ms    0 | render cpu  1.57 gpu  3.70 | process  7.36 physics  3.35 | draws    418 objs    561 prims  1274470 | agl 0
+[perf]   0.35 physics steps/frame; engine physics step avg 0.52 ms max 0.77 ms; active bodies 0, pairs 0, islands 0
+[perf]   ms/frame: 
+[perf]   worst single call (ms): 
+[perf]   bot path searches (worker thread): 44, avg 1.35 ms, max 2.27 ms
+[perf] dm_houses       1208 fr  avg   6.62 ms (  151 fps)  p50   6.24  p95   9.85  p99  11.66  max  12.99  >16.7ms    0 | render cpu  1.77 gpu  3.79 | process  8.33 physics  3.77 | draws    438 objs    575 prims  1320838 | agl 0
+[perf]   0.40 physics steps/frame; engine physics step avg 0.56 ms max 1.13 ms; active bodies 0, pairs 0, islands 0
+[perf]   ms/frame: 
+[perf]   worst single call (ms): 
+[perf]   bot path searches (worker thread): 28, avg 1.48 ms, max 2.37 ms
+[perf] dm_mart_lot     1219 fr  avg   6.56 ms (  152 fps)  p50   6.25  p95   8.95  p99  10.11  max  17.46  >16.7ms    1 | render cpu  1.71 gpu  3.53 | process  8.44 physics  4.10 | draws    444 objs    610 prims  1237053 | agl 0
+[perf]   0.39 physics steps/frame; engine physics step avg 0.56 ms max 0.89 ms; active bodies 0, pairs 0, islands 0
+[perf]   ms/frame: 
+[perf]   worst single call (ms): 
+[perf]   bot path searches (worker thread): 43, avg 1.02 ms, max 2.15 ms
+[perf] dm_factory_yard  1389 fr  avg   5.76 ms (  174 fps)  p50   5.35  p95   8.53  p99   9.88  max  11.80  >16.7ms    0 | render cpu  1.41 gpu  3.17 | process  6.85 physics  4.35 | draws    369 objs    515 prims   691750 | agl 0
+[perf]   0.35 physics steps/frame; engine physics step avg 0.53 ms max 0.99 ms; active bodies 0, pairs 0, islands 0
+[perf]   ms/frame: 
+[perf]   worst single call (ms): 
+[perf]   bot path searches (worker thread): 31, avg 0.87 ms, max 1.44 ms
+[perf] dm_canal_row    1216 fr  avg   6.58 ms (  152 fps)  p50   6.09  p95   8.97  p99  10.69  max  12.75  >16.7ms    0 | render cpu  1.76 gpu  4.11 | process  7.71 physics  4.13 | draws    442 objs    608 prims  1289784 | agl 0
+[perf]   0.40 physics steps/frame; engine physics step avg 0.55 ms max 0.85 ms; active bodies 0, pairs 0, islands 0
+[perf]   ms/frame: 
+[perf]   worst single call (ms): 
+[perf]   bot path searches (worker thread): 40, avg 0.73 ms, max 1.30 ms
+[perf] dm_indoor_light  1234 fr  avg   6.48 ms (  154 fps)  p50   5.89  p95   8.88  p99  10.05  max  11.21  >16.7ms    0 | render cpu  1.83 gpu  4.08 | process  7.46 physics  4.03 | draws    416 objs    562 prims  1482428 | agl 1
+[perf]   0.39 physics steps/frame; engine physics step avg 0.53 ms max 0.78 ms; active bodies 0, pairs 0, islands 0
+[perf]   ms/frame: 
+[perf]   worst single call (ms): 
+[perf]   bot path searches (worker thread): 36, avg 0.72 ms, max 1.39 ms
+[perf] dm_intersection_day  1217 fr  avg   6.56 ms (  152 fps)  p50   5.79  p95   9.36  p99  11.36  max  13.59  >16.7ms    0 | render cpu  1.59 gpu  3.23 | process  7.43 physics  5.53 | draws    413 objs    558 prims  1142471 | agl 0
+[perf]   0.39 physics steps/frame; engine physics step avg 0.55 ms max 0.82 ms; active bodies 0, pairs 0, islands 0
+[perf]   ms/frame: 
+[perf]   worst single call (ms): 
+[perf]   bot path searches (worker thread): 36, avg 0.63 ms, max 1.26 ms
+[perf] dm_houses_day   1196 fr  avg   6.69 ms (  150 fps)  p50   6.00  p95   9.32  p99  10.98  max  12.22  >16.7ms    0 | render cpu  1.80 gpu  3.35 | process  7.72 physics  8.58 | draws    436 objs    599 prims  1290960 | agl 0
+[perf]   0.40 physics steps/frame; engine physics step avg 0.55 ms max 1.61 ms; active bodies 0, pairs 0, islands 0
+[perf]   ms/frame: 
+[perf]   worst single call (ms): 
+[perf]   bot path searches (worker thread): 36, avg 0.49 ms, max 1.41 ms
+[autotest] PASS perf_recorded: 9 phases, worst average 6.69 ms
+[autotest] done: 1 checks, 0 failed

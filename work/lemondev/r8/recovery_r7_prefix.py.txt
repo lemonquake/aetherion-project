@@ -1,0 +1,56 @@
+import sys; sys.path.insert(0, r"C:\Users\LEMONP~1\AppData\Local\Temp\claude_pl")
+from patchlib import sub
+sub('README.md', [
+('''### Levels, XP and the stats server''','''### Game modes: Classic and Deathmatch
+
+- **Classic** is the battle royale: parachute in from the plane, loot weapons and gear, stay ahead of the haze, and
+  live through the 5-minute nights and days on Sitio Kalinaw.
+- **Deathmatch** is two teams of up to 10 (bots fill empty seats) on Lawless Sub. In the lobby's **Game Setup** each
+  player picks a primary and a secondary gun; everyone starts on the ground at their team's spawn with those guns,
+  spare magazines, a plate carrier and a heavy-plate helmet. Nothing is bought: loot buildings and swap guns as you
+  go. There is no downed state; the dead watch their living teammates (Fire or Space for the next, right-click for
+  the previous) until the round ends, which is when one team has nobody standing. The haze still closes in and the
+  day/night cycle still runs (a round starts at a random point in it).
+
+```bash
+godot --path game -- --host --game_mode=deathmatch --bots=19 --autostart=1     # a practice round on Lawless Sub
+```
+
+### Levels, XP and the stats server'''),
+('''### Loot, weapons and attachments''','''### Lawless Sub (Deathmatch)
+
+A walled Philippine subdivision nobody polices any more, at the edge of a city, built from
+`game/data/maps/lawless_sub.json` (440 m square play area). A four-lane avenue with a median and a central
+intersection (zebra crossings on every arm, traffic lights, a wreck pile of police cars and a jeepney) splits it; a
+walled canal and an angular basin cut the west side, a shallow estero the south (wade it, or take the road bridge).
+West Team spawns in the office tower's parking plaza, East Team in the plastics factory's loading yard, about 420 m
+apart. Some 230 two-storey houses, bungalows and shophouses have real interiors (sala, dining, kitchen, toilet, stair
+hall downstairs; bedrooms, bathroom and hall upstairs), furniture, loot, doors on two sides and vault-sized ground-floor
+windows. The big buildings: Lawless Tower (four floors of offices round a stair core, roof ladder), the Canal Flats,
+the clubhouse with its empty pool and covered court, the chapel, Lawless Mart (aisles, chillers, stock room) and its
+shop strip, the gas station, the plastics factory (machine lines, offices under a mezzanine), the warehouse, the tanks
+and the container yard. Parked cars and burnt wrecks fill the lots and streets. Bots climb out of the canals by its
+ladders.
+
+### Loot, weapons and attachments'''),
+('''r6 checks (`--autotest=r6`;''','''r7 Deathmatch checks (`--autotest=dm`, `--dm_only=map,kit,body,arms,haze`): the round is on Lawless Sub with
+10 v 10 standing, you spawn at your team's spawn with both guns, the plate carrier and the heavy helmet, nothing of your
+own body shows when you look straight down, the first-person arms stay clear of the camera through an empty reload,
+and the haze runs on the Deathmatch schedule. With `--autotest=perf` and `--game_mode=deathmatch` the perf run measures
+the spawn, the intersection, a house street, the mart lot, the factory yard, the canal row, a room by flashlight and two
+spots by day:
+
+```bash
+godot --path game -- --host --game_mode=deathmatch --bots=19 --autostart=1 --autotest=dm --shots=<folder>
+```
+
+Z-fighting (two surfaces in the same place flickering through each other) is checked over the map's geometry: dump
+every drawn face, then list the pairs that face the same way, lie within 1.5 cm of each other and overlap:
+
+```bash
+godot --headless --path game res://tools/map_preview.tscn -- [--map=lawless_sub] --dumpfaces=<file>
+python -I tools/zfight_faces.py <file> --verbose
+```
+
+r6 checks (`--autotest=r6`;'''),
+])

@@ -1,0 +1,57 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+Vulkan 1.4.329 - Forward Mobile - Using Device #0: NVIDIA - NVIDIA GeForce RTX 4060
+
+WARNING: TAA is only available when using the Forward+ renderer.
+   at: viewport_set_use_taa (servers/rendering/renderer_viewport.cpp:1450)
+[ui] loadout_received pid=1 Player719 {"primary":"rifle_m416","secondary":"pistol_9"}
+[ui] lobby shows my loadout (pid 1): {"primary":"rifle_m416","secondary":"pistol_9"}
+[ui] request_loadout {"primary":"rifle_m416","secondary":"pistol_9"}
+WARNING: Screen-space ambient occlusion (SSAO) is only available when using the Forward+ or Compatibility renderers.
+   at: environment_set_ssao (servers/rendering/storage/environment_storage.cpp:700)
+   GDScript backtrace (most recent call first):
+       [0] build (res://src/world/lighting.gd:91)
+       [1] finalize (res://src/world/map_builder.gd:234)
+       [2] _build_sub (res://src/world/map_builder.gd:148)
+       [3] build (res://src/world/map_builder.gd:74)
+       [4] build (res://src/match/world.gd:74)
+       [5] _load_match (res://src/core/game.gd:246)
+       [6] start_match (res://src/core/game.gd:233)
+       [7] _autostart (res://src/core/game.gd:156)
+WARNING: Volumetric fog is only available when using the Forward+ renderer.
+   at: environment_set_volumetric_fog (servers/rendering/storage/environment_storage.cpp:458)
+   GDScript backtrace (most recent call first):
+       [0] build (res://src/world/lighting.gd:105)
+       [1] finalize (res://src/world/map_builder.gd:234)
+       [2] _build_sub (res://src/world/map_builder.gd:148)
+       [3] build (res://src/world/map_builder.gd:74)
+       [4] build (res://src/match/world.gd:74)
+       [5] _load_match (res://src/core/game.gd:246)
+       [6] start_match (res://src/core/game.gd:233)
+       [7] _autostart (res://src/core/game.gd:156)
+[world] map built in 13856 ms
+[map] 256 buildings, 1970 doors, 2518 containers, 2480 props, #f9b648fc on Mobile
+[game] autotest r8
+[autotest] PASS r8_map: 256 buildings, 1970 doors, 2518 containers, 2480 props, #f9b648fc
+[autotest] PASS r8_default_auto: rifle_m416: auto
+[autotest] shot A:/Python/aetherion-project/work/lemondev/r8/input_mobile/01_auto.png
+[autotest] PASS r8_auto_continuous: 6 shots held 0.6s
+[autotest] PASS r8_mode_semi: local semi, authoritative index 1
+[autotest] shot A:/Python/aetherion-project/work/lemondev/r8/input_mobile/02_single.png
+[autotest] PASS r8_single_once: 1 shots held 0.5s
+[autotest] PASS r8_mode_burst: local burst, authoritative index 2
+[autotest] shot A:/Python/aetherion-project/work/lemondev/r8/input_mobile/03_burst.png
+[autotest] PASS r8_burst_three: 3 shots held 0.65s
+[autotest] PASS r8_pause_cancels: 1 shots, 0 queued
+[autotest] shot A:/Python/aetherion-project/work/lemondev/r8/input_mobile/04_pause.png
+[autotest] PASS r8_resume_release: 1 shots with held trigger through Resume
+[autotest] PASS r8_mode_auto: local auto, authoritative index 0
+[autotest] shot A:/Python/aetherion-project/work/lemondev/r8/input_mobile/05_resumed_auto.png
+[autotest] PASS r8_touch_visible: mode button (960.0, 76.66667), radius 38.7, viewport (1600.0, 720.0)
+[autotest] PASS r8_mode_semi: local semi, authoritative index 1
+[autotest] shot A:/Python/aetherion-project/work/lemondev/r8/input_mobile/06_touch_single.png
+[autotest] PASS r8_network_acks: 0 server snapshots
+[autotest] PASS r8_overpass_climb: actual player at (-30.00014, 7.298721, -47.07387)
+[autotest] shot A:/Python/aetherion-project/work/lemondev/r8/input_mobile/07_overpass_walk.png
+[autotest] PASS r8_overpass_cross: actual player at (-10.27482, 7.298746, -47.42135)
+[autotest] PASS r8_overpass_descent: actual player at (-9.495755, 1.537519, -35.57991)
+[autotest] done: 16 checks, 0 failed

@@ -1,0 +1,1709 @@
+{
+  "backend": "headless",
+  "bridge_checks": [
+    {
+      "name": "Canal Bridge",
+      "samples": 21,
+      "supported": true
+    },
+    {
+      "name": "Acacia Bridge",
+      "samples": 21,
+      "supported": true
+    },
+    {
+      "name": "Narra Footbridge",
+      "samples": 21,
+      "supported": true
+    }
+  ],
+  "bridge_types": [
+    {
+      "name": "Canal Bridge",
+      "rect": "[P: (-93.0, -10.0), S: (30.0, 20.0)]",
+      "road": "Sub Boulevard",
+      "type": "road_bridge"
+    },
+    {
+      "name": "Acacia Bridge",
+      "rect": "[P: (24.5, 109.0), S: (11.0, 18.0)]",
+      "road": "Acacia St",
+      "type": "road_bridge"
+    },
+    {
+      "a": "(100.0, 106.0)",
+      "b": "(100.0, 130.0)",
+      "name": "Narra Footbridge",
+      "type": "footbridge",
+      "w": 2.2
+    },
+    {
+      "a": "(170.0, 107.0)",
+      "b": "(170.0, 129.0)",
+      "name": "Molave Pipe Crossing",
+      "type": "pipe",
+      "w": 1.0
+    }
+  ],
+  "build_0_ms": 7851,
+  "checks": 6756,
+  "engine": {
+    "build": "official",
+    "hash": "ed1daf0bf001b61586d9930840f2f1394092c079",
+    "hex": 263938,
+    "major": 4,
+    "minor": 7,
+    "patch": 2,
+    "status": "stable",
+    "string": "4.7.2-stable (official)",
+    "timestamp": 0
+  },
+  "failures": [
+    {
+      "check": "stair_surface_support",
+      "detail": {
+        "foot": "(-184.4, 1.16, -196.5)",
+        "position": "(-184.9, 2.86, -198.82)",
+        "top": "(-185.4, 4.56, -201.14)"
+      }
+    },
+    {
+      "check": "stair_surface_support",
+      "detail": {
+        "foot": "(-185.6, 4.56, -202.09)",
+        "position": "(-185.1, 6.26, -199.77)",
+        "top": "(-184.6, 7.96, -197.45)"
+      }
+    },
+    {
+      "check": "stair_surface_support",
+      "detail": {
+        "foot": "(-184.4, 7.96, -196.5)",
+        "position": "(-184.9, 9.66, -198.82)",
+        "top": "(-185.4, 11.36, -201.14)"
+      }
+    },
+    {
+      "check": "stair_surface_support",
+      "detail": {
+        "foot": "(-116.5, 1.16, -181.4)",
+        "position": "(-114.45, 2.66, -181.9)",
+        "top": "(-112.4, 4.16, -182.4)"
+      }
+    },
+    {
+      "check": "stair_surface_support",
+      "detail": {
+        "foot": "(-111.45, 4.16, -182.6)",
+        "position": "(-113.5, 5.66, -182.1)",
+        "top": "(-115.55, 7.16, -181.6)"
+      }
+    },
+    {
+      "check": "stair_surface_support",
+      "detail": {
+        "foot": "(-116.5, 1.02, -105.4)",
+        "position": "(-114.45, 2.52, -105.9)",
+        "top": "(-112.4, 4.02, -106.4)"
+      }
+    },
+    {
+      "check": "stair_surface_support",
+      "detail": {
+        "foot": "(-111.45, 4.02, -106.6)",
+        "position": "(-113.5, 5.52, -106.1)",
+        "top": "(-115.55, 7.02, -105.6)"
+      }
+    },
+    {
+      "check": "stair_surface_support",
+      "detail": {
+        "foot": "(119.5, 0.95, -50.25)",
+        "position": "(121.82, 2.65, -49.7)",
+        "top": "(124.14, 4.35, -49.15)"
+      }
+    },
+    {
+      "check": "stair_surface_support",
+      "detail": {
+        "foot": "(109.5, 1.12, 150.1)",
+        "position": "(107.18, 2.82, 150.6)",
+        "top": "(104.86, 4.52, 151.1)"
+      }
+    },
+    {
+      "check": "stair_surface_support",
+      "detail": {
+        "foot": "(-33.1, 1.05, -198.45)",
+        "position": "(-35.15, 2.55, -198.95)",
+        "top": "(-37.2, 4.05, -199.45)"
+      }
+    },
+    {
+      "check": "stair_surface_support",
+      "detail": {
+        "foot": "(-33.1, 1.01, -197.05)",
+        "position": "(-35.15, 2.51, -196.55)",
+        "top": "(-37.2, 4.01, -196.05)"
+      }
+    },
+    {
+      "check": "stair_surface_support",
+      "detail": {
+        "foot": "(-33.1, 0.99, -189.05)",
+        "position": "(-35.15, 2.49, -188.55)",
+        "top": "(-37.2, 3.99, -188.05)"
+      }
+    },
+    {
+      "check": "stair_surface_support",
+      "detail": {
+        "foot": "(-33.1, 0.96, -174.45)",
+        "position": "(-35.15, 2.46, -174.95)",
+        "top": "(-37.2, 3.96, -175.45)"
+      }
+    },
+    {
+      "check": "stair_surface_support",
+      "detail": {
+        "foot": "(-33.1, 0.95, -173.05)",
+        "position": "(-35.15, 2.45, -172.55)",
+        "top": "(-37.2, 3.95, -172.05)"
+      }
+    },
+    {
+      "check": "stair_surface_support",
+      "detail": {
+        "foot": "(-33.1, 0.97, -160.55)",
+        "position": "(-35.15, 2.47, -160.05)",
+        "top": "(-37.2, 3.97, -159.55)"
+      }
+    },
+    {
+      "check": "stair_surface_support",
+      "detail": {
+        "foot": "(-33.1, 0.99, -145.95)",
+        "position": "(-35.15, 2.49, -146.45)",
+        "top": "(-37.2, 3.99, -146.95)"
+      }
+    },
+    {
+      "check": "stair_surface_support",
+      "detail": {
+        "foot": "(-33.1, 1.0, -144.55)",
+        "position": "(-35.15, 2.5, -144.05)",
+        "top": "(-37.2, 4.0, -143.55)"
+      }
+    },
+    {
+      "check": "stair_surface_support",
+      "detail": {
+        "foot": "(-33.1, 1.0, -136.55)",
+        "position": "(-35.15, 2.5, -136.05)",
+        "top": "(-37.2, 4.0, -135.55)"
+      }
+    },
+    {
+      "check": "stair_surface_support",
+      "detail": {
+        "foot": "(-33.1, 1.0, -128.55)",
+        "position": "(-35.15, 2.5, -128.05)",
+        "top": "(-37.2, 4.0, -127.55)"
+      }
+    },
+    {
+      "check": "stair_surface_support",
+      "detail": {
+        "foot": "(-33.1, 0.99, -109.45)",
+        "position": "(-35.15, 2.49, -109.95)",
+        "top": "(-37.2, 3.99, -110.45)"
+      }
+    },
+    {
+      "check": "stair_surface_support",
+      "detail": {
+        "foot": "(-33.1, 0.97, -101.45)",
+        "position": "(-35.15, 2.47, -101.95)",
+        "top": "(-37.2, 3.97, -102.45)"
+      }
+    },
+    {
+      "check": "stair_surface_support",
+      "detail": {
+        "foot": "(-33.1, 0.95, -93.45)",
+        "position": "(-35.15, 2.45, -93.95)",
+        "top": "(-37.2, 3.95, -94.45)"
+      }
+    },
+    {
+      "check": "stair_surface_support",
+      "detail": {
+        "foot": "(-33.1, 0.94, -92.05)",
+        "position": "(-35.15, 2.44, -91.55)",
+        "top": "(-37.2, 3.94, -91.05)"
+      }
+    },
+    {
+      "check": "stair_surface_support",
+      "detail": {
+        "foot": "(-33.1, 0.95, -77.45)",
+        "position": "(-35.15, 2.45, -77.95)",
+        "top": "(-37.2, 3.95, -78.45)"
+      }
+    },
+    {
+      "check": "stair_surface_support",
+      "detail": {
+        "foot": "(-33.1, 1.0, -71.55)",
+        "position": "(-35.15, 2.5, -71.05)",
+        "top": "(-37.2, 4.0, -70.55)"
+      }
+    },
+    {
+      "check": "stair_surface_support",
+      "detail": {
+        "foot": "(-33.1, 1.04, -63.55)",
+        "position": "(-35.15, 2.54, -63.05)",
+        "top": "(-37.2, 4.04, -62.55)"
+      }
+    },
+    {
+      "check": "stair_surface_support",
+      "detail": {
+        "foot": "(-33.1, 1.07, -55.55)",
+        "position": "(-35.15, 2.57, -55.05)",
+        "top": "(-37.2, 4.07, -54.55)"
+      }
+    },
+    {
+      "check": "stair_surface_support",
+      "detail": {
+        "foot": "(-33.1, 1.1, -40.95)",
+        "position": "(-35.15, 2.6, -41.45)",
+        "top": "(-37.2, 4.1, -41.95)"
+      }
+    },
+    {
+      "check": "stair_surface_support",
+      "detail": {
+        "foot": "(-33.1, 1.12, -32.95)",
+        "position": "(-35.15, 2.62, -33.45)",
+        "top": "(-37.2, 4.12, -33.95)"
+      }
+    },
+    {
+      "check": "stair_surface_support",
+      "detail": {
+        "foot": "(19.45, 1.1, -209.3166)",
+        "position": "(17.4, 2.6, -208.8166)",
+        "top": "(15.35, 4.1, -208.3166)"
+      }
+    },
+    {
+      "check": "stair_surface_support",
+      "detail": {
+        "foot": "(19.45, 1.09, -188.7139)",
+        "position": "(17.4, 2.59, -189.2139)",
+        "top": "(15.35, 4.09, -189.7139)"
+      }
+    },
+    {
+      "check": "stair_surface_support",
+      "detail": {
+        "foot": "(19.45, 1.08, -182.8521)",
+        "position": "(17.4, 2.58, -182.3521)",
+        "top": "(15.35, 4.08, -181.8521)"
+      }
+    },
+    {
+      "check": "stair_surface_support",
+      "detail": {
+        "foot": "(19.45, 1.05, -161.9356)",
+        "position": "(17.4, 2.55, -162.4356)",
+        "top": "(15.35, 4.05, -162.9356)"
+      }
+    },
+    {
+      "check": "stair_surface_support",
+      "detail": {
+        "foot": "(19.45, 1.01, -156.6713)",
+        "position": "(17.4, 2.51, -156.1713)",
+        "top": "(15.35, 4.01, -155.6713)"
+      }
+    },
+    {
+      "check": "stair_surface_support",
+      "detail": {
+        "foot": "(19.45, 0.96, -123.793)",
+        "position": "(17.4, 2.46, -124.293)",
+        "top": "(15.35, 3.96, -124.793)"
+      }
+    },
+    {
+      "check": "stair_surface_support",
+      "detail": {
+        "foot": "(19.45, 0.94, -112.6833)",
+        "position": "(17.4, 2.44, -113.1833)",
+        "top": "(15.35, 3.94, -113.6833)"
+      }
+    },
+    {
+      "check": "stair_surface_support",
+      "detail": {
+        "foot": "(19.45, 0.94, -108.7617)",
+        "position": "(17.4, 2.44, -108.2617)",
+        "top": "(15.35, 3.94, -107.7617)"
+      }
+    },
+    {
+      "check": "stair_surface_support",
+      "detail": {
+        "foot": "(19.45, 0.96, -97.65)",
+        "position": "(17.4, 2.46, -97.15)",
+        "top": "(15.35, 3.96, -96.65)"
+      }
+    },
+    {
+      "check": "stair_surface_support",
+      "detail": {
+        "foot": "(19.45, 1.03, -52.95653)",
+        "position": "(17.4, 2.53, -53.45653)",
+        "top": "(15.35, 4.03, -53.95653)"
+      }
+    },
+    {
+      "check": "stair_surface_support",
+      "detail": {
+        "foot": "(19.45, 1.06, -48.58504)",
+        "position": "(17.4, 2.56, -48.08504)",
+        "top": "(15.35, 4.06, -47.58504)"
+      }
+    },
+    {
+      "check": "stair_surface_support",
+      "detail": {
+        "foot": "(19.45, 1.08, -35.9488)",
+        "position": "(17.4, 2.58, -35.4488)",
+        "top": "(15.35, 4.08, -34.9488)"
+      }
+    },
+    {
+      "check": "stair_surface_support",
+      "detail": {
+        "foot": "(19.45, 1.08, -15.75912)",
+        "position": "(17.4, 2.58, -16.25912)",
+        "top": "(15.35, 4.08, -16.75912)"
+      }
+    },
+    {
+      "check": "stair_surface_support",
+      "detail": {
+        "foot": "(40.55, 1.18, -209.0711)",
+        "position": "(42.6, 2.68, -208.5711)",
+        "top": "(44.65, 4.18, -208.0711)"
+      }
+    },
+    {
+      "check": "stair_surface_support",
+      "detail": {
+        "foot": "(40.55, 1.15, -188.3488)",
+        "position": "(42.6, 2.65, -188.8488)",
+        "top": "(44.65, 4.15, -189.3488)"
+      }
+    },
+    {
+      "check": "stair_surface_support",
+      "detail": {
+        "foot": "(40.55, 1.11, -175.2657)",
+        "position": "(42.6, 2.61, -175.7657)",
+        "top": "(44.65, 4.11, -176.2657)"
+      }
+    },
+    {
+      "check": "stair_surface_support",
+      "detail": {
+        "foot": "(40.55, 1.07, -162.1506)",
+        "position": "(42.6, 2.57, -162.6506)",
+        "top": "(44.65, 4.07, -163.1506)"
+      }
+    },
+    {
+      "check": "stair_surface_support",
+      "detail": {
+        "foot": "(40.55, 1.04, -149.1151)",
+        "position": "(42.6, 2.54, -149.6151)",
+        "top": "(44.65, 4.04, -150.1151)"
+      }
+    },
+    {
+      "check": "stair_surface_support",
+      "detail": {
+        "foot": "(40.55, 1.02, -123.7615)",
+        "position": "(42.6, 2.52, -124.2615)",
+        "top": "(44.65, 4.02, -124.7615)"
+      }
+    },
+    {
+      "check": "stair_surface_support",
+      "detail": {
+        "foot": "(40.55, 1.03, -120.45)",
+        "position": "(42.6, 2.53, -119.95)",
+        "top": "(44.65, 4.03, -119.45)"
+      }
+    },
+    {
+      "check": "stair_surface_support",
+      "detail": {
+        "foot": "(40.55, 1.03, -109.0238)",
+        "position": "(42.6, 2.53, -108.5238)",
+        "top": "(44.65, 4.03, -108.0238)"
+      }
+    },
+    {
+      "check": "stair_surface_support",
+      "detail": {
+        "foot": "(40.55, 1.03, -89.8011)",
+        "position": "(42.6, 2.53, -90.3011)",
+        "top": "(44.65, 4.03, -90.8011)"
+      }
+    },
+    {
+      "check": "stair_surface_support",
+      "detail": {
+        "foot": "(40.55, 1.03, -78.57858)",
+        "position": "(42.6, 2.53, -79.07858)",
+        "top": "(44.65, 4.03, -79.57858)"
+      }
+    },
+    {
+      "check": "stair_surface_support",
+      "detail": {
+        "foot": "(40.55, 1.03, -60.74364)",
+        "position": "(42.6, 2.53, -60.24364)",
+        "top": "(44.65, 4.03, -59.74364)"
+      }
+    },
+    {
+      "check": "stair_surface_support",
+      "detail": {
+        "foot": "(40.55, 1.03, -40.91085)",
+        "position": "(42.6, 2.53, -41.41085)",
+        "top": "(44.65, 4.03, -41.91085)"
+      }
+    },
+    {
+      "check": "stair_surface_support",
+      "detail": {
+        "foot": "(40.55, 1.04, -36.00398)",
+        "position": "(42.6, 2.54, -35.50398)",
+        "top": "(44.65, 4.04, -35.00398)"
+      }
+    },
+    {
+      "check": "stair_surface_support",
+      "detail": {
+        "foot": "(40.55, 1.04, -15.62646)",
+        "position": "(42.6, 2.54, -16.12646)",
+        "top": "(44.65, 4.04, -16.62646)"
+      }
+    },
+    {
+      "check": "stair_surface_support",
+      "detail": {
+        "foot": "(89.45, 1.18, -209.0698)",
+        "position": "(87.39999, 2.68, -208.5698)",
+        "top": "(85.35, 4.18, -208.0698)"
+      }
+    },
+    {
+      "check": "stair_surface_support",
+      "detail": {
+        "foot": "(89.45, 1.16, -196.3298)",
+        "position": "(87.40001, 2.66, -195.8298)",
+        "top": "(85.35001, 4.16, -195.3298)"
+      }
+    },
+    {
+      "check": "stair_surface_support",
+      "detail": {
+        "foot": "(89.45, 1.15, -183.089)",
+        "position": "(87.39999, 2.65, -182.589)",
+        "top": "(85.35, 4.15, -182.089)"
+      }
+    },
+    {
+      "check": "stair_surface_support",
+      "detail": {
+        "foot": "(89.45, 1.13, -170.2311)",
+        "position": "(87.39999, 2.63, -169.7311)",
+        "top": "(85.35, 4.13, -169.2311)"
+      }
+    },
+    {
+      "check": "stair_surface_support",
+      "detail": {
+        "foot": "(89.45, 1.09, -157.1203)",
+        "position": "(87.39999, 2.59, -156.6203)",
+        "top": "(85.35, 4.09, -156.1203)"
+      }
+    },
+    {
+      "check": "stair_surface_support",
+      "detail": {
+        "foot": "(89.45, 1.04, -131.5249)",
+        "position": "(87.39999, 2.54, -131.0249)",
+        "top": "(85.35, 4.04, -130.5249)"
+      }
+    },
+    {
+      "check": "stair_surface_support",
+      "detail": {
+        "foot": "(89.45, 1.04, -120.0709)",
+        "position": "(87.4, 2.54, -119.5709)",
+        "top": "(85.35, 4.04, -119.0709)"
+      }
+    },
+    {
+      "check": "stair_surface_support",
+      "detail": {
+        "foot": "(89.45, 1.04, -101.4338)",
+        "position": "(87.4, 2.54, -101.9338)",
+        "top": "(85.35, 4.04, -102.4338)"
+      }
+    },
+    {
+      "check": "stair_surface_support",
+      "detail": {
+        "foot": "(89.45, 1.04, -97.49809)",
+        "position": "(87.39999, 2.54, -96.99809)",
+        "top": "(85.35, 4.04, -96.49809)"
+      }
+    },
+    {
+      "check": "stair_surface_support",
+      "detail": {
+        "foot": "(89.45, 1.03, -78.14999)",
+        "position": "(87.39999, 2.53, -78.64999)",
+        "top": "(85.35, 4.03, -79.14999)"
+      }
+    },
+    {
+      "check": "stair_surface_support",
+      "detail": {
+        "foot": "(89.45, 1.01, -52.95827)",
+        "position": "(87.39999, 2.51, -53.45827)",
+        "top": "(85.35, 4.01, -53.95827)"
+      }
+    },
+    {
+      "check": "stair_surface_support",
+      "detail": {
+        "foot": "(89.45, 1.0, -48.70443)",
+        "position": "(87.39999, 2.5, -48.20443)",
+        "top": "(85.35, 4.0, -47.70443)"
+      }
+    },
+    {
+      "check": "stair_surface_support",
+      "detail": {
+        "foot": "(89.45, 0.98, -28.13099)",
+        "position": "(87.39999, 2.48, -28.63099)",
+        "top": "(85.35, 3.98, -29.13099)"
+      }
+    },
+    {
+      "check": "stair_surface_support",
+      "detail": {
+        "foot": "(89.45, 0.96, -23.20601)",
+        "position": "(87.39999, 2.46, -22.70601)",
+        "top": "(85.35, 3.96, -22.20601)"
+      }
+    },
+    {
+      "check": "stair_surface_support",
+      "detail": {
+        "foot": "(110.55, 1.17, -209.2318)",
+        "position": "(112.6, 2.67, -208.7318)",
+        "top": "(114.65, 4.17, -208.2318)"
+      }
+    },
+    {
+      "check": "stair_surface_support",
+      "detail": {
+        "foot": "(110.55, 1.19, -188.6938)",
+        "position": "(112.6, 2.69, -189.1938)",
+        "top": "(114.65, 4.19, -189.6938)"
+      }
+    },
+    {
+      "check": "stair_surface_support",
+      "detail": {
+        "foot": "(110.55, 1.19, -183.4396)",
+        "position": "(112.6, 2.69, -182.9396)",
+        "top": "(114.65, 4.19, -182.4396)"
+      }
+    },
+    {
+      "check": "stair_surface_support",
+      "detail": {
+        "foot": "(110.55, 1.18, -169.8934)",
+        "position": "(112.6, 2.68, -169.3934)",
+        "top": "(114.65, 4.18, -168.8934)"
+      }
+    },
+    {
+      "check": "stair_surface_support",
+      "detail": {
+        "foot": "(110.55, 1.14, -157.0731)",
+        "position": "(112.6, 2.64, -156.5731)",
+        "top": "(114.65, 4.14, -156.0731)"
+      }
+    },
+    {
+      "check": "stair_surface_support",
+      "detail": {
+        "foot": "(110.55, 1.04, -131.8489)",
+        "position": "(112.6, 2.54, -131.3489)",
+        "top": "(114.65, 4.04, -130.8489)"
+      }
+    },
+    {
+      "check": "stair_surface_support",
+      "detail": {
+        "foot": "(110.55, 1.03, -120.2307)",
+        "position": "(112.6, 2.53, -119.7307)",
+        "top": "(114.65, 4.03, -119.2307)"
+      }
+    },
+    {
+      "check": "stair_surface_support",
+      "detail": {
+        "foot": "(110.55, 1.04, -100.95)",
+        "position": "(112.6, 2.54, -101.45)",
+        "top": "(114.65, 4.04, -101.95)"
+      }
+    },
+    {
+      "check": "stair_surface_support",
+      "detail": {
+        "foot": "(110.55, 1.04, -97.34929)",
+        "position": "(112.6, 2.54, -96.84929)",
+        "top": "(114.65, 4.04, -96.34929)"
+      }
+    },
+    {
+      "check": "stair_surface_support",
+      "detail": {
+        "foot": "(110.55, 1.03, -78.14999)",
+        "position": "(112.6, 2.53, -78.64999)",
+        "top": "(114.65, 4.03, -79.14999)"
+      }
+    },
+    {
+      "check": "stair_surface_support",
+      "detail": {
+        "foot": "(159.45, 1.17, -201.6345)",
+        "position": "(157.4, 2.67, -202.1345)",
+        "top": "(155.35, 4.17, -202.6345)"
+      }
+    },
+    {
+      "check": "stair_surface_support",
+      "detail": {
+        "foot": "(159.45, 1.19, -188.3757)",
+        "position": "(157.4, 2.69, -188.8757)",
+        "top": "(155.35, 4.19, -189.3757)"
+      }
+    },
+    {
+      "check": "stair_surface_support",
+      "detail": {
+        "foot": "(159.45, 1.19, -175.3853)",
+        "position": "(157.4, 2.69, -175.8853)",
+        "top": "(155.35, 4.19, -176.3853)"
+      }
+    },
+    {
+      "check": "stair_surface_support",
+      "detail": {
+        "foot": "(159.45, 1.18, -162.5708)",
+        "position": "(157.4, 2.68, -163.0708)",
+        "top": "(155.35, 4.18, -163.5708)"
+      }
+    },
+    {
+      "check": "stair_surface_support",
+      "detail": {
+        "foot": "(159.45, 1.14, -149.1959)",
+        "position": "(157.4, 2.64, -149.6959)",
+        "top": "(155.35, 4.14, -150.1959)"
+      }
+    },
+    {
+      "check": "stair_surface_support",
+      "detail": {
+        "foot": "(159.45, 1.04, -123.75)",
+        "position": "(157.4, 2.54, -124.25)",
+        "top": "(155.35, 4.04, -124.75)"
+      }
+    },
+    {
+      "check": "stair_surface_support",
+      "detail": {
+        "foot": "(159.45, 1.02, -112.35)",
+        "position": "(157.4, 2.52, -112.85)",
+        "top": "(155.35, 4.02, -113.35)"
+      }
+    },
+    {
+      "check": "stair_surface_support",
+      "detail": {
+        "foot": "(159.45, 1.02, -108.655)",
+        "position": "(157.4, 2.52, -108.155)",
+        "top": "(155.35, 4.02, -107.655)"
+      }
+    },
+    {
+      "check": "stair_surface_support",
+      "detail": {
+        "foot": "(159.45, 1.02, -97.3849)",
+        "position": "(157.4, 2.52, -96.8849)",
+        "top": "(155.35, 4.02, -96.3849)"
+      }
+    },
+    {
+      "check": "stair_surface_support",
+      "detail": {
+        "foot": "(159.45, 1.01, -85.81923)",
+        "position": "(157.4, 2.51, -85.31923)",
+        "top": "(155.35, 4.01, -84.81923)"
+      }
+    },
+    {
+      "check": "stair_surface_support",
+      "detail": {
+        "foot": "(180.55, 1.13, -182.8299)",
+        "position": "(182.6, 2.63, -182.3299)",
+        "top": "(184.65, 4.13, -181.8299)"
+      }
+    },
+    {
+      "check": "stair_surface_support",
+      "detail": {
+        "foot": "(180.55, 1.12, -170.2448)",
+        "position": "(182.6, 2.62, -169.7448)",
+        "top": "(184.65, 4.12, -169.2448)"
+      }
+    },
+    {
+      "check": "stair_surface_support",
+      "detail": {
+        "foot": "(180.55, 1.1, -156.8875)",
+        "position": "(182.6, 2.6, -156.3875)",
+        "top": "(184.65, 4.1, -155.8875)"
+      }
+    },
+    {
+      "check": "stair_surface_support",
+      "detail": {
+        "foot": "(180.55, 1.03, -123.8895)",
+        "position": "(182.6, 2.53, -124.3895)",
+        "top": "(184.65, 4.03, -124.8895)"
+      }
+    },
+    {
+      "check": "stair_surface_support",
+      "detail": {
+        "foot": "(180.55, 1.02, -119.9775)",
+        "position": "(182.6, 2.52, -119.4775)",
+        "top": "(184.65, 4.02, -118.9775)"
+      }
+    },
+    {
+      "check": "stair_surface_support",
+      "detail": {
+        "foot": "(180.55, 1.06, -101.3039)",
+        "position": "(182.6, 2.56, -101.8039)",
+        "top": "(184.65, 4.06, -102.3039)"
+      }
+    },
+    {
+      "check": "stair_surface_support",
+      "detail": {
+        "foot": "(180.55, 1.12, -89.55)",
+        "position": "(182.6, 2.62, -90.05)",
+        "top": "(184.65, 4.12, -90.55)"
+      }
+    },
+    {
+      "check": "stair_surface_support",
+      "detail": {
+        "foot": "(180.55, 1.17, -78.14999)",
+        "position": "(182.6, 2.67, -78.64999)",
+        "top": "(184.65, 4.17, -79.14999)"
+      }
+    },
+    {
+      "check": "stair_surface_support",
+      "detail": {
+        "foot": "(180.55, 1.23, -61.41303)",
+        "position": "(182.6, 2.73, -60.91303)",
+        "top": "(184.65, 4.23, -60.41303)"
+      }
+    },
+    {
+      "check": "stair_surface_support",
+      "detail": {
+        "foot": "(180.55, 1.23, -40.58212)",
+        "position": "(182.6, 2.73, -41.08212)",
+        "top": "(184.65, 4.23, -41.58212)"
+      }
+    },
+    {
+      "check": "stair_surface_support",
+      "detail": {
+        "foot": "(180.55, 1.21, -35.72324)",
+        "position": "(182.6, 2.71, -35.22324)",
+        "top": "(184.65, 4.21, -34.72324)"
+      }
+    },
+    {
+      "check": "stair_surface_support",
+      "detail": {
+        "foot": "(180.55, 1.19, -15.08443)",
+        "position": "(182.6, 2.69, -15.58443)",
+        "top": "(184.65, 4.19, -16.08443)"
+      }
+    },
+    {
+      "check": "stair_surface_support",
+      "detail": {
+        "foot": "(19.45, 1.07, 15.74519)",
+        "position": "(17.4, 2.57, 16.24519)",
+        "top": "(15.35, 4.07, 16.74519)"
+      }
+    },
+    {
+      "check": "stair_surface_support",
+      "detail": {
+        "foot": "(19.45, 1.08, 36.98913)",
+        "position": "(17.4, 2.58, 36.48913)",
+        "top": "(15.35, 4.08, 35.98913)"
+      }
+    },
+    {
+      "check": "stair_surface_support",
+      "detail": {
+        "foot": "(19.45, 1.12, 42.59034)",
+        "position": "(17.4, 2.62, 43.09034)",
+        "top": "(15.35, 4.12, 43.59034)"
+      }
+    },
+    {
+      "check": "stair_surface_support",
+      "detail": {
+        "foot": "(19.45, 1.2, 77.27924)",
+        "position": "(17.4, 2.7, 76.77924)",
+        "top": "(15.35, 4.2, 76.27924)"
+      }
+    },
+    {
+      "check": "stair_surface_support",
+      "detail": {
+        "foot": "(19.45, 1.22, 83.54631)",
+        "position": "(17.4, 2.72, 84.04631)",
+        "top": "(15.35, 4.22, 84.54631)"
+      }
+    },
+    {
+      "check": "stair_surface_support",
+      "detail": {
+        "foot": "(19.45, 1.22, 105.2873)",
+        "position": "(17.4, 2.72, 104.7873)",
+        "top": "(15.35, 4.22, 104.2873)"
+      }
+    },
+    {
+      "check": "stair_surface_support",
+      "detail": {
+        "foot": "(40.55, 1.03, 23.43157)",
+        "position": "(42.6, 2.53, 22.93156)",
+        "top": "(44.65, 4.03, 22.43156)"
+      }
+    },
+    {
+      "check": "stair_surface_support",
+      "detail": {
+        "foot": "(40.55, 1.05, 37.42176)",
+        "position": "(42.6, 2.55, 36.92176)",
+        "top": "(44.65, 4.05, 36.42176)"
+      }
+    },
+    {
+      "check": "stair_surface_support",
+      "detail": {
+        "foot": "(40.55, 1.1, 50.60249)",
+        "position": "(42.6, 2.6, 50.10249)",
+        "top": "(44.65, 4.1, 49.60249)"
+      }
+    },
+    {
+      "check": "stair_surface_support",
+      "detail": {
+        "foot": "(40.55, 1.19, 77.04769)",
+        "position": "(42.6, 2.69, 76.54769)",
+        "top": "(44.65, 4.19, 76.04769)"
+      }
+    },
+    {
+      "check": "stair_surface_support",
+      "detail": {
+        "foot": "(40.55, 1.19, 83.27423)",
+        "position": "(42.6, 2.69, 83.77423)",
+        "top": "(44.65, 4.19, 84.27423)"
+      }
+    },
+    {
+      "check": "stair_surface_support",
+      "detail": {
+        "foot": "(40.55, 1.18, 105.2679)",
+        "position": "(42.6, 2.68, 104.7679)",
+        "top": "(44.65, 4.18, 104.2679)"
+      }
+    },
+    {
+      "check": "stair_surface_support",
+      "detail": {
+        "foot": "(89.45, 0.98, 15.84267)",
+        "position": "(87.39999, 2.48, 16.34267)",
+        "top": "(85.35, 3.98, 16.84267)"
+      }
+    },
+    {
+      "check": "stair_surface_support",
+      "detail": {
+        "foot": "(89.45, 1.02, 29.47593)",
+        "position": "(87.39999, 2.52, 29.97593)",
+        "top": "(85.35, 4.02, 30.47593)"
+      }
+    },
+    {
+      "check": "stair_surface_support",
+      "detail": {
+        "foot": "(89.45, 1.07, 50.91481)",
+        "position": "(87.39999, 2.57, 50.41481)",
+        "top": "(85.35, 4.07, 49.91481)"
+      }
+    },
+    {
+      "check": "stair_surface_support",
+      "detail": {
+        "foot": "(89.45, 1.17, 69.59057)",
+        "position": "(87.4, 2.67, 70.09057)",
+        "top": "(85.35, 4.17, 70.59057)"
+      }
+    },
+    {
+      "check": "stair_surface_support",
+      "detail": {
+        "foot": "(89.45, 1.2, 91.16496)",
+        "position": "(87.39999, 2.7, 90.66496)",
+        "top": "(85.35, 4.2, 90.16496)"
+      }
+    },
+    {
+      "check": "stair_surface_support",
+      "detail": {
+        "foot": "(89.45, 1.21, 104.9589)",
+        "position": "(87.40001, 2.71, 104.4589)",
+        "top": "(85.35001, 4.21, 103.9589)"
+      }
+    },
+    {
+      "check": "stair_surface_support",
+      "detail": {
+        "foot": "(110.55, 1.12, 23.32714)",
+        "position": "(112.6, 2.62, 22.82714)",
+        "top": "(114.65, 4.12, 22.32714)"
+      }
+    },
+    {
+      "check": "stair_surface_support",
+      "detail": {
+        "foot": "(110.55, 1.12, 29.56337)",
+        "position": "(112.6, 2.62, 30.06337)",
+        "top": "(114.65, 4.12, 30.56337)"
+      }
+    },
+    {
+      "check": "stair_surface_support",
+      "detail": {
+        "foot": "(110.55, 1.12, 42.64559)",
+        "position": "(112.6, 2.62, 43.14559)",
+        "top": "(114.65, 4.12, 43.64559)"
+      }
+    },
+    {
+      "check": "stair_surface_support",
+      "detail": {
+        "foot": "(159.45, 1.14, 15.96178)",
+        "position": "(157.4, 2.64, 16.46178)",
+        "top": "(155.35, 4.14, 16.96178)"
+      }
+    },
+    {
+      "check": "stair_surface_support",
+      "detail": {
+        "foot": "(159.45, 1.14, 37.26074)",
+        "position": "(157.4, 2.64, 36.76074)",
+        "top": "(155.35, 4.14, 36.26074)"
+      }
+    },
+    {
+      "check": "stair_surface_support",
+      "detail": {
+        "foot": "(159.45, 1.13, 42.88406)",
+        "position": "(157.4, 2.63, 43.38406)",
+        "top": "(155.35, 4.13, 43.88406)"
+      }
+    },
+    {
+      "check": "stair_surface_support",
+      "detail": {
+        "foot": "(180.55, 1.18, 15.99333)",
+        "position": "(182.6, 2.68, 16.49333)",
+        "top": "(184.65, 4.18, 16.99333)"
+      }
+    },
+    {
+      "check": "stair_surface_support",
+      "detail": {
+        "foot": "(180.55, 1.18, 29.14111)",
+        "position": "(182.6, 2.68, 29.64111)",
+        "top": "(184.65, 4.18, 30.14111)"
+      }
+    },
+    {
+      "check": "stair_surface_support",
+      "detail": {
+        "foot": "(180.55, 1.17, 50.75463)",
+        "position": "(182.6, 2.67, 50.25463)",
+        "top": "(184.65, 4.17, 49.75463)"
+      }
+    },
+    {
+      "check": "stair_surface_support",
+      "detail": {
+        "foot": "(180.55, 1.11, 77.4211)",
+        "position": "(182.6, 2.61, 76.9211)",
+        "top": "(184.65, 4.11, 76.4211)"
+      }
+    },
+    {
+      "check": "stair_surface_support",
+      "detail": {
+        "foot": "(180.55, 1.09, 90.89045)",
+        "position": "(182.6, 2.59, 90.39045)",
+        "top": "(184.65, 4.09, 89.89045)"
+      }
+    },
+    {
+      "check": "stair_surface_support",
+      "detail": {
+        "foot": "(180.55, 1.08, 97.42324)",
+        "position": "(182.6, 2.58, 97.92324)",
+        "top": "(184.65, 4.08, 98.42324)"
+      }
+    },
+    {
+      "check": "stair_surface_support",
+      "detail": {
+        "foot": "(19.45, 1.19, 129.9016)",
+        "position": "(17.4, 2.69, 130.4016)",
+        "top": "(15.35, 4.19, 130.9016)"
+      }
+    },
+    {
+      "check": "stair_surface_support",
+      "detail": {
+        "foot": "(19.45, 1.17, 149.6061)",
+        "position": "(17.4, 2.67, 149.1061)",
+        "top": "(15.35, 4.17, 148.6061)"
+      }
+    },
+    {
+      "check": "stair_surface_support",
+      "detail": {
+        "foot": "(19.45, 1.15, 161.6543)",
+        "position": "(17.4, 2.65, 161.1543)",
+        "top": "(15.35, 4.15, 160.6543)"
+      }
+    },
+    {
+      "check": "stair_surface_support",
+      "detail": {
+        "foot": "(19.45, 1.09, 178.1922)",
+        "position": "(17.4, 2.59, 178.6922)",
+        "top": "(15.35, 4.09, 179.1922)"
+      }
+    },
+    {
+      "check": "stair_surface_support",
+      "detail": {
+        "foot": "(19.45, 1.04, 198.4227)",
+        "position": "(17.4, 2.54, 197.9227)",
+        "top": "(15.35, 4.04, 197.4227)"
+      }
+    },
+    {
+      "check": "stair_surface_support",
+      "detail": {
+        "foot": "(19.45, 0.98, 209.8905)",
+        "position": "(17.4, 2.48, 209.3905)",
+        "top": "(15.35, 3.98, 208.8905)"
+      }
+    },
+    {
+      "check": "stair_surface_support",
+      "detail": {
+        "foot": "(-186.95, 1.03, -93.85)",
+        "position": "(-184.9, 2.53, -94.35)",
+        "top": "(-182.85, 4.03, -94.85)"
+      }
+    },
+    {
+      "check": "stair_surface_support",
+      "detail": {
+        "foot": "(-186.95, 1.01, -90.55)",
+        "position": "(-184.9, 2.51, -90.05)",
+        "top": "(-182.85, 4.01, -89.55)"
+      }
+    },
+    {
+      "check": "stair_surface_support",
+      "detail": {
+        "foot": "(-186.95, 1.01, -64.14999)",
+        "position": "(-184.9, 2.51, -64.64999)",
+        "top": "(-182.85, 4.01, -65.14999)"
+      }
+    },
+    {
+      "check": "stair_surface_support",
+      "detail": {
+        "foot": "(-160.55, 1.04, -90.55)",
+        "position": "(-162.6, 2.54, -90.05)",
+        "top": "(-164.65, 4.04, -89.55)"
+      }
+    },
+    {
+      "check": "stair_surface_support",
+      "detail": {
+        "foot": "(-160.55, 1.03, -74.05)",
+        "position": "(-162.6, 2.53, -74.55)",
+        "top": "(-164.65, 4.03, -75.05)"
+      }
+    },
+    {
+      "check": "stair_surface_support",
+      "detail": {
+        "foot": "(-160.55, 1.02, -64.14999)",
+        "position": "(-162.6, 2.52, -64.64999)",
+        "top": "(-164.65, 4.02, -65.14999)"
+      }
+    },
+    {
+      "check": "stair_surface_support",
+      "detail": {
+        "foot": "(-160.55, 1.01, -60.85)",
+        "position": "(-162.6, 2.51, -60.35)",
+        "top": "(-164.65, 4.01, -59.85)"
+      }
+    },
+    {
+      "check": "stair_surface_support",
+      "detail": {
+        "foot": "(-160.55, 0.99, -44.35)",
+        "position": "(-162.6, 2.49, -44.85)",
+        "top": "(-164.65, 3.99, -45.35)"
+      }
+    },
+    {
+      "check": "stair_surface_support",
+      "detail": {
+        "foot": "(-160.55, 0.97, -41.05)",
+        "position": "(-162.6, 2.47, -40.55)",
+        "top": "(-164.65, 3.97, -40.05)"
+      }
+    },
+    {
+      "check": "stair_surface_support",
+      "detail": {
+        "foot": "(-186.95, 1.12, 14.65)",
+        "position": "(-184.9, 2.62, 15.15)",
+        "top": "(-182.85, 4.12, 15.65)"
+      }
+    },
+    {
+      "check": "stair_surface_support",
+      "detail": {
+        "foot": "(-186.95, 1.11, 51.15)",
+        "position": "(-184.9, 2.61, 50.65)",
+        "top": "(-182.85, 4.11, 50.15)"
+      }
+    },
+    {
+      "check": "stair_surface_support",
+      "detail": {
+        "foot": "(-186.95, 1.1, 61.1)",
+        "position": "(-184.9, 2.6, 60.6)",
+        "top": "(-182.85, 4.1, 60.1)"
+      }
+    },
+    {
+      "check": "stair_surface_support",
+      "detail": {
+        "foot": "(-186.95, 1.22, 120.8)",
+        "position": "(-184.9, 2.72, 120.3)",
+        "top": "(-182.85, 4.22, 119.8)"
+      }
+    },
+    {
+      "check": "stair_surface_support",
+      "detail": {
+        "foot": "(-186.95, 1.16, 144.0)",
+        "position": "(-184.9, 2.66, 144.5)",
+        "top": "(-182.85, 4.16, 145.0)"
+      }
+    },
+    {
+      "check": "stair_surface_support",
+      "detail": {
+        "foot": "(-186.95, 1.11, 163.9)",
+        "position": "(-184.9, 2.61, 164.4)",
+        "top": "(-182.85, 4.11, 164.9)"
+      }
+    },
+    {
+      "check": "stair_surface_support",
+      "detail": {
+        "foot": "(-186.95, 1.08, 183.8)",
+        "position": "(-184.9, 2.58, 184.3)",
+        "top": "(-182.85, 4.08, 184.8)"
+      }
+    },
+    {
+      "check": "stair_surface_support",
+      "detail": {
+        "foot": "(-160.55, 1.08, 14.65)",
+        "position": "(-162.6, 2.58, 15.15)",
+        "top": "(-164.65, 4.08, 15.65)"
+      }
+    },
+    {
+      "check": "stair_surface_support",
+      "detail": {
+        "foot": "(-160.55, 1.07, 51.15)",
+        "position": "(-162.6, 2.57, 50.65)",
+        "top": "(-164.65, 4.07, 50.15)"
+      }
+    },
+    {
+      "check": "stair_surface_support",
+      "detail": {
+        "foot": "(-160.55, 1.07, 81.0)",
+        "position": "(-162.6, 2.57, 80.5)",
+        "top": "(-164.65, 4.07, 80.0)"
+      }
+    },
+    {
+      "check": "stair_surface_support",
+      "detail": {
+        "foot": "(-160.55, 1.18, 110.85)",
+        "position": "(-162.6, 2.68, 110.35)",
+        "top": "(-164.65, 4.18, 109.85)"
+      }
+    },
+    {
+      "check": "stair_surface_support",
+      "detail": {
+        "foot": "(-160.55, 1.19, 120.8)",
+        "position": "(-162.6, 2.69, 120.3)",
+        "top": "(-164.65, 4.19, 119.8)"
+      }
+    },
+    {
+      "check": "stair_surface_support",
+      "detail": {
+        "foot": "(-160.55, 1.19, 130.75)",
+        "position": "(-162.6, 2.69, 130.25)",
+        "top": "(-164.65, 4.19, 129.75)"
+      }
+    },
+    {
+      "check": "stair_surface_support",
+      "detail": {
+        "foot": "(-160.55, 1.15, 144.0)",
+        "position": "(-162.6, 2.65, 144.5)",
+        "top": "(-164.65, 4.15, 145.0)"
+      }
+    },
+    {
+      "check": "stair_surface_support",
+      "detail": {
+        "foot": "(-160.55, 1.12, 160.6)",
+        "position": "(-162.6, 2.62, 160.1)",
+        "top": "(-164.65, 4.12, 159.6)"
+      }
+    },
+    {
+      "check": "stair_surface_support",
+      "detail": {
+        "foot": "(-160.55, 1.09, 173.85)",
+        "position": "(-162.6, 2.59, 174.35)",
+        "top": "(-164.65, 4.09, 174.85)"
+      }
+    },
+    {
+      "check": "stair_surface_support",
+      "detail": {
+        "foot": "(-160.55, 1.09, 193.75)",
+        "position": "(-162.6, 2.59, 194.25)",
+        "top": "(-164.65, 4.09, 194.75)"
+      }
+    },
+    {
+      "check": "stair_surface_support",
+      "detail": {
+        "foot": "(-160.55, 1.09, 210.35)",
+        "position": "(-162.6, 2.59, 209.85)",
+        "top": "(-164.65, 4.09, 209.35)"
+      }
+    },
+    {
+      "check": "stair_surface_support",
+      "detail": {
+        "foot": "(-139.45, 1.07, 25.07857)",
+        "position": "(-137.4, 2.57, 25.57857)",
+        "top": "(-135.35, 4.07, 26.07857)"
+      }
+    },
+    {
+      "check": "stair_surface_support",
+      "detail": {
+        "foot": "(-139.45, 1.07, 63.49286)",
+        "position": "(-137.4, 2.57, 62.99286)",
+        "top": "(-135.35, 4.07, 62.49286)"
+      }
+    },
+    {
+      "check": "stair_surface_support",
+      "detail": {
+        "foot": "(-141.5438, 1.09, 178.55)",
+        "position": "(-141.0438, 2.59, 180.6)",
+        "top": "(-140.5438, 4.09, 182.65)"
+      }
+    },
+    {
+      "check": "stair_surface_support",
+      "detail": {
+        "foot": "(-119.503, 1.07, 178.55)",
+        "position": "(-119.003, 2.57, 180.6)",
+        "top": "(-118.503, 4.07, 182.65)"
+      }
+    },
+    {
+      "check": "stair_surface_support",
+      "detail": {
+        "foot": "(-100.8885, 1.06, 178.55)",
+        "position": "(-101.3885, 2.56, 180.6)",
+        "top": "(-101.8885, 4.06, 182.65)"
+      }
+    },
+    {
+      "check": "stair_surface_support",
+      "detail": {
+        "foot": "(-89.56227, 1.06, 178.55)",
+        "position": "(-90.06227, 2.56, 180.6)",
+        "top": "(-90.56227, 4.06, 182.65)"
+      }
+    },
+    {
+      "check": "stair_surface_support",
+      "detail": {
+        "foot": "(-86.10001, 1.05, 178.55)",
+        "position": "(-85.60001, 2.55, 180.6)",
+        "top": "(-85.10001, 4.05, 182.65)"
+      }
+    },
+    {
+      "check": "stair_surface_support",
+      "detail": {
+        "foot": "(-67.3135, 1.05, 178.55)",
+        "position": "(-67.8135, 2.55, 180.6)",
+        "top": "(-68.3135, 4.05, 182.65)"
+      }
+    },
+    {
+      "check": "stair_surface_support",
+      "detail": {
+        "foot": "(-41.5, 1.09, 178.55)",
+        "position": "(-41.0, 2.59, 180.6)",
+        "top": "(-40.5, 4.09, 182.65)"
+      }
+    }
+  ],
+  "fingerprint": "256 buildings, 1970 doors, 2518 containers, 2480 props, #f9b648fc",
+  "lot_categories": {
+    "apartment": 2,
+    "chapel": 1,
+    "clubhouse": 1,
+    "container_yard": 1,
+    "court": 1,
+    "factory": 1,
+    "gas_station": 1,
+    "guard_booth": 1,
+    "guardhouse": 1,
+    "house": 216,
+    "office_tower": 1,
+    "playground": 1,
+    "pool": 1,
+    "shophouse": 20,
+    "store": 1,
+    "strip_shops": 1,
+    "tank": 3,
+    "warehouse": 1,
+    "water_tower": 1
+  },
+  "map_stats": {
+    "buildings": 256,
+    "containers": 2518,
+    "doors": 1970,
+    "dress": {
+      "cars": 115,
+      "lamps": 63,
+      "lights": 36,
+      "shrubs": 60,
+      "trees": 80
+    },
+    "finish_ms": 597,
+    "ladders": 31,
+    "layout_ms": 172,
+    "lights": {
+      "dead": 10,
+      "house_dark": 130,
+      "house_lit": 117,
+      "pole": 0,
+      "porch": 65,
+      "rooms": 137
+    },
+    "props": 2480,
+    "sink": {
+      "boxes": 85886,
+      "colliders": 616,
+      "far_tris": 4080,
+      "meshes": 1558,
+      "tris": 690254
+    },
+    "streets": {
+      "lots": 4,
+      "paint": 1591,
+      "road_quads": 631,
+      "stalls": 342,
+      "walk_boxes": 1098,
+      "zebra": 56
+    },
+    "terrain_ms": 2100,
+    "towns_ms": 4145,
+    "windows": 3037,
+    "works": {
+      "apron_boxes": 30,
+      "backdrop": 65,
+      "bridges": 4,
+      "ladders": 6,
+      "panels": 901,
+      "wall_boxes": 15
+    },
+    "zones": 2443
+  },
+  "nodes_after_cycle_0": 91.0,
+  "note": "No renderer frame-rate claim. Collision tests use built physics geometry, not layout masks.",
+  "orphan_nodes_after_cycle_0": 0.0,
+  "passed": false,
+  "roads": 12,
+  "seed": 1729,
+  "spawn_checks": [
+    {
+      "clear": true,
+      "position": "(-170.0, 1.106861, -150.0)",
+      "surface_error_m": 0.00230181217193604,
+      "team": 0
+    },
+    {
+      "clear": true,
+      "position": "(-173.2, 1.100821, -150.0)",
+      "surface_error_m": 0.00178909301757813,
+      "team": 0
+    },
+    {
+      "clear": true,
+      "position": "(-170.0, 1.112744, -153.2)",
+      "surface_error_m": 0.00138223171234131,
+      "team": 0
+    },
+    {
+      "clear": true,
+      "position": "(-170.0, 1.09896, -146.8)",
+      "surface_error_m": 0.00138342380523682,
+      "team": 0
+    },
+    {
+      "clear": true,
+      "position": "(-166.8, 1.111623, -150.0)",
+      "surface_error_m": 0.00232744216918945,
+      "team": 0
+    },
+    {
+      "clear": true,
+      "position": "(-173.2, 1.106842, -153.2)",
+      "surface_error_m": 0.000826597213745117,
+      "team": 0
+    },
+    {
+      "clear": true,
+      "position": "(-173.2, 1.092766, -146.8)",
+      "surface_error_m": 0.000719785690307617,
+      "team": 0
+    },
+    {
+      "clear": true,
+      "position": "(-166.8, 1.117373, -153.2)",
+      "surface_error_m": 0.00146019458770752,
+      "team": 0
+    },
+    {
+      "clear": true,
+      "position": "(-166.8, 1.103891, -146.8)",
+      "surface_error_m": 0.00139510631561279,
+      "team": 0
+    },
+    {
+      "clear": true,
+      "position": "(-176.4, 1.093778, -150.0)",
+      "surface_error_m": 0.00197875499725342,
+      "team": 0
+    },
+    {
+      "clear": true,
+      "position": "(-170.0, 1.116451, -156.4)",
+      "surface_error_m": 0.00232601165771484,
+      "team": 0
+    },
+    {
+      "clear": true,
+      "position": "(-170.0, 1.089264, -143.6)",
+      "surface_error_m": 0.00153446197509766,
+      "team": 0
+    },
+    {
+      "clear": true,
+      "position": "(-163.6, 1.114871, -150.0)",
+      "surface_error_m": 0.00198876857757568,
+      "team": 0
+    },
+    {
+      "clear": true,
+      "position": "(-176.4, 1.099918, -153.2)",
+      "surface_error_m": 0.00113034248352051,
+      "team": 0
+    },
+    {
+      "clear": true,
+      "position": "(130.0, 0.890496, 150.0)",
+      "surface_error_m": 0.000171005725860596,
+      "team": 1
+    },
+    {
+      "clear": true,
+      "position": "(126.8, 0.902332, 150.0)",
+      "surface_error_m": 0.000100612640380859,
+      "team": 1
+    },
+    {
+      "clear": true,
+      "position": "(130.0, 0.898283, 146.8)",
+      "surface_error_m": 0.00107699632644653,
+      "team": 1
+    },
+    {
+      "clear": true,
+      "position": "(130.0, 0.884166, 153.2)",
+      "surface_error_m": 0.0011589527130127,
+      "team": 1
+    },
+    {
+      "clear": true,
+      "position": "(133.2, 0.878873, 150.0)",
+      "surface_error_m": 0.000347912311553955,
+      "team": 1
+    },
+    {
+      "clear": true,
+      "position": "(126.8, 0.910293, 146.8)",
+      "surface_error_m": 0.00102758407592773,
+      "team": 1
+    },
+    {
+      "clear": true,
+      "position": "(126.8, 0.895789, 153.2)",
+      "surface_error_m": 0.00121992826461792,
+      "team": 1
+    },
+    {
+      "clear": true,
+      "position": "(133.2, 0.886499, 146.8)",
+      "surface_error_m": 0.0012090802192688,
+      "team": 1
+    },
+    {
+      "clear": true,
+      "position": "(133.2, 0.872743, 153.2)",
+      "surface_error_m": 0.00135707855224609,
+      "team": 1
+    },
+    {
+      "clear": true,
+      "position": "(123.6, 0.91409, 150.0)",
+      "surface_error_m": 0.0000254511833190918,
+      "team": 1
+    },
+    {
+      "clear": true,
+      "position": "(130.0, 0.907423, 143.6)",
+      "surface_error_m": 0.000423610210418701,
+      "team": 1
+    },
+    {
+      "clear": true,
+      "position": "(130.0, 0.87933, 156.4)",
+      "surface_error_m": 0.000758707523345947,
+      "team": 1
+    },
+    {
+      "clear": true,
+      "position": "(136.4, 0.867724, 150.0)",
+      "surface_error_m": 0.000652074813842773,
+      "team": 1
+    },
+    {
+      "clear": true,
+      "position": "(123.6, 0.922236, 146.8)",
+      "surface_error_m": 0.000788867473602295,
+      "team": 1
+    }
+  ],
+  "stair_checks": {
+    "flights": 174,
+    "samples": 522,
+    "supported": 348
+  }
+}

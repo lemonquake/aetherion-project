@@ -1,0 +1,1340 @@
+{
+  "backend": "headless",
+  "bridge_checks": [
+    {
+      "name": "Canal Bridge",
+      "samples": 21,
+      "supported": true
+    },
+    {
+      "name": "Acacia Bridge",
+      "samples": 21,
+      "supported": true
+    },
+    {
+      "name": "Narra Footbridge",
+      "samples": 21,
+      "supported": true
+    }
+  ],
+  "bridge_types": [
+    {
+      "name": "Canal Bridge",
+      "rect": "[P: (-93.0, -10.0), S: (30.0, 20.0)]",
+      "road": "Sub Boulevard",
+      "type": "road_bridge"
+    },
+    {
+      "name": "Acacia Bridge",
+      "rect": "[P: (24.5, 109.0), S: (11.0, 18.0)]",
+      "road": "Acacia St",
+      "type": "road_bridge"
+    },
+    {
+      "a": "(100.0, 106.0)",
+      "b": "(100.0, 130.0)",
+      "name": "Narra Footbridge",
+      "type": "footbridge",
+      "w": 2.2
+    },
+    {
+      "a": "(170.0, 107.0)",
+      "b": "(170.0, 129.0)",
+      "name": "Molave Pipe Crossing",
+      "type": "pipe",
+      "w": 1.0
+    }
+  ],
+  "build_0_ms": 7829,
+  "build_1_ms": 7244,
+  "checks": 74275,
+  "collision_categories": {
+    "backdrop": 65,
+    "balcony": 140,
+    "balcony_wall": 210,
+    "bollard": 3,
+    "bridge": 2,
+    "bridge_deck": 2,
+    "bridge_walk": 4,
+    "bus": 2,
+    "canal_walk": 30,
+    "canal_wall": 15,
+    "canopy": 1,
+    "ceiling": 223,
+    "column": 24,
+    "concrete": 1,
+    "concrete_dirty": 5,
+    "container": 26,
+    "court_roof": 1,
+    "curb": 144,
+    "edge_wall": 443,
+    "floor": 528,
+    "floor_finish": 2630,
+    "floor_slab": 247,
+    "footbridge": 1,
+    "gable": 190,
+    "gate_pillar": 2,
+    "grate": 5,
+    "lootbox:lootbox_ammocan": 12,
+    "lootbox:lootbox_balikbayan": 315,
+    "lootbox:lootbox_bin": 206,
+    "lootbox:lootbox_cooler": 67,
+    "lootbox:lootbox_footlocker": 170,
+    "lootbox:lootbox_riflecase": 28,
+    "median": 90,
+    "metal_paint": 106,
+    "metal_plate": 6,
+    "metal_rust": 6,
+    "mezzanine": 4,
+    "overpass_deck": 1,
+    "overpass_pier": 2,
+    "overpass_rail": 4,
+    "overpass_stair_rail": 4,
+    "overpass_stair_ramp": 2,
+    "parapet": 133,
+    "parking": 175,
+    "partition": 8294,
+    "perimeter_wall": 900,
+    "planks_paint": 1,
+    "plywood": 2,
+    "pool_floor": 1,
+    "pump_island": 2,
+    "rail": 2,
+    "railing": 572,
+    "road": 631,
+    "roof": 721,
+    "shed_floor": 1,
+    "sidewalk": 1098,
+    "slab": 5,
+    "stair_rail": 174,
+    "stair_ramp": 174,
+    "static:banig": 131,
+    "static:bed_old": 104,
+    "static:cabinet_paint": 193,
+    "static:cabinet_paint2": 145,
+    "static:car_burnt_a": 3,
+    "static:car_burnt_b": 3,
+    "static:car_compact": 3,
+    "static:car_coupe": 3,
+    "static:car_hatchback": 11,
+    "static:car_minivan": 8,
+    "static:car_offroad": 5,
+    "static:car_pickup": 4,
+    "static:car_pickup_old": 9,
+    "static:car_police_burnt": 2,
+    "static:car_police_flipped": 1,
+    "static:car_saloon_old": 10,
+    "static:car_sedan": 5,
+    "static:car_sedan_80s": 6,
+    "static:car_sedan_80s_b": 2,
+    "static:car_suv": 4,
+    "static:car_wagon": 5,
+    "static:china_cabinet": 20,
+    "static:control_pedestal": 7,
+    "static:conveyor": 7,
+    "static:counter": 20,
+    "static:covered_car": 21,
+    "static:daybed": 122,
+    "static:display_shelves": 88,
+    "static:drawer_cabinet": 127,
+    "static:drawer_old": 228,
+    "static:forklift_a": 1,
+    "static:forklift_b": 1,
+    "static:hollow_block_pile": 1,
+    "static:jeepney": 1,
+    "static:jeepney_painted": 2,
+    "static:metal_rack": 32,
+    "static:nightstand": 265,
+    "static:nightstand_classic": 238,
+    "static:rubble_a": 11,
+    "static:rubble_b": 7,
+    "static:sandbag": 1,
+    "static:shelf": 26,
+    "static:shelves_paint": 42,
+    "static:sink_counter": 25,
+    "static:steel_shelves": 21,
+    "static:steel_shelves2": 15,
+    "static:steel_shelves3": 16,
+    "static:store_chiller": 7,
+    "static:store_display_case": 8,
+    "static:store_shelf_wall": 31,
+    "static:street_bench": 1,
+    "static:toilet": 171,
+    "static:tool_chest": 5,
+    "static:tree_island": 23,
+    "static:tree_island2": 12,
+    "static:tree_small": 45,
+    "static:tv_cabinet": 8,
+    "static:van_delivery": 7,
+    "tank_stand": 85,
+    "tiles_white": 4,
+    "tower": 1,
+    "utility_cabinet": 4,
+    "utility_plinth": 4,
+    "wall": 11865,
+    "yard_wall": 432,
+    "yero_paint": 1
+  },
+  "engine": {
+    "build": "official",
+    "hash": "ed1daf0bf001b61586d9930840f2f1394092c079",
+    "hex": 263938,
+    "major": 4,
+    "minor": 7,
+    "patch": 2,
+    "status": "stable",
+    "string": "4.7.2-stable (official)",
+    "timestamp": 0
+  },
+  "failures": [],
+  "fingerprint": "256 buildings, 1970 doors, 2518 containers, 2480 props, #f9b648fc",
+  "lot_categories": {
+    "apartment": 2,
+    "chapel": 1,
+    "clubhouse": 1,
+    "container_yard": 1,
+    "court": 1,
+    "factory": 1,
+    "gas_station": 1,
+    "guard_booth": 1,
+    "guardhouse": 1,
+    "house": 216,
+    "office_tower": 1,
+    "playground": 1,
+    "pool": 1,
+    "shophouse": 20,
+    "store": 1,
+    "strip_shops": 1,
+    "tank": 3,
+    "warehouse": 1,
+    "water_tower": 1
+  },
+  "map_stats": {
+    "buildings": 256,
+    "containers": 2518,
+    "doors": 1970,
+    "dress": {
+      "cars": 115,
+      "lamps": 63,
+      "lights": 36,
+      "shrubs": 60,
+      "trees": 80
+    },
+    "finish_ms": 592,
+    "ladders": 31,
+    "layout_ms": 171,
+    "lights": {
+      "dead": 10,
+      "house_dark": 130,
+      "house_lit": 117,
+      "pole": 0,
+      "porch": 65,
+      "rooms": 137
+    },
+    "props": 2480,
+    "sink": {
+      "boxes": 89293,
+      "colliders": 616,
+      "far_tris": 4080,
+      "meshes": 1836,
+      "tris": 729886
+    },
+    "street_detail": {
+      "bollards": 3,
+      "bridge_bearings": 8,
+      "bridge_joints": 4,
+      "drains": 200,
+      "manholes": 100,
+      "overpass": {
+        "center": "(-20.0, 6.88, -48.0)",
+        "deck_top": 6.88,
+        "road_clearance": 5.16,
+        "stair_feet": [
+          "(-30.0, 1.08, -34.8)",
+          "(-10.0, 1.08, -34.8)"
+        ],
+        "width": 2.4
+      },
+      "overpasses": 1,
+      "repairs": 100,
+      "stair_flights": 2,
+      "utility_cabinets": 4
+    },
+    "streets": {
+      "lots": 4,
+      "paint": 1591,
+      "road_quads": 631,
+      "stalls": 342,
+      "walk_boxes": 1098,
+      "zebra": 56
+    },
+    "terrain_ms": 2137,
+    "towns_ms": 4092,
+    "windows": 3037,
+    "works": {
+      "apron_boxes": 30,
+      "backdrop": 65,
+      "bridges": 4,
+      "detail": {
+        "bollards": 3,
+        "bridge_bearings": 8,
+        "bridge_joints": 4,
+        "drains": 200,
+        "manholes": 100,
+        "overpass": {
+          "center": "(-20.0, 6.88, -48.0)",
+          "deck_top": 6.88,
+          "road_clearance": 5.16,
+          "stair_feet": [
+            "(-30.0, 1.08, -34.8)",
+            "(-10.0, 1.08, -34.8)"
+          ],
+          "width": 2.4
+        },
+        "overpasses": 1,
+        "repairs": 100,
+        "stair_flights": 2,
+        "utility_cabinets": 4
+      },
+      "ladders": 6,
+      "panels": 901,
+      "wall_boxes": 15
+    },
+    "zones": 2443
+  },
+  "material_count": 56,
+  "nodes_after_cycle_0": 91.0,
+  "nodes_after_cycle_1": 91.0,
+  "note": "No renderer frame-rate claim. Collision tests use built physics geometry, not layout masks.",
+  "orphan_nodes_after_cycle_0": 0.0,
+  "orphan_nodes_after_cycle_1": 0.0,
+  "passed": true,
+  "physics_memory_bytes": 1127630970.0,
+  "roads": 12,
+  "scene_census": {
+    "collision_shapes": 617,
+    "lights": 0,
+    "mesh_surfaces": 5440,
+    "meshes": 2033,
+    "model_instances": 8832,
+    "multimeshes": 2895,
+    "nodes": 6546,
+    "occluders": 136,
+    "triangles": 895976
+  },
+  "seed": 1729,
+  "spawn_checks": [
+    {
+      "clear": true,
+      "position": "(-170.0, 1.106861, -150.0)",
+      "surface_error_m": 0.00230181217193604,
+      "team": 0
+    },
+    {
+      "clear": true,
+      "position": "(-173.2, 1.100821, -150.0)",
+      "surface_error_m": 0.00178909301757813,
+      "team": 0
+    },
+    {
+      "clear": true,
+      "position": "(-170.0, 1.112744, -153.2)",
+      "surface_error_m": 0.00138223171234131,
+      "team": 0
+    },
+    {
+      "clear": true,
+      "position": "(-170.0, 1.09896, -146.8)",
+      "surface_error_m": 0.00138342380523682,
+      "team": 0
+    },
+    {
+      "clear": true,
+      "position": "(-166.8, 1.111623, -150.0)",
+      "surface_error_m": 0.00232744216918945,
+      "team": 0
+    },
+    {
+      "clear": true,
+      "position": "(-173.2, 1.106842, -153.2)",
+      "surface_error_m": 0.000826597213745117,
+      "team": 0
+    },
+    {
+      "clear": true,
+      "position": "(-173.2, 1.092766, -146.8)",
+      "surface_error_m": 0.000719785690307617,
+      "team": 0
+    },
+    {
+      "clear": true,
+      "position": "(-166.8, 1.117373, -153.2)",
+      "surface_error_m": 0.00146019458770752,
+      "team": 0
+    },
+    {
+      "clear": true,
+      "position": "(-166.8, 1.103891, -146.8)",
+      "surface_error_m": 0.00139510631561279,
+      "team": 0
+    },
+    {
+      "clear": true,
+      "position": "(-176.4, 1.093778, -150.0)",
+      "surface_error_m": 0.00197875499725342,
+      "team": 0
+    },
+    {
+      "clear": true,
+      "position": "(-170.0, 1.116451, -156.4)",
+      "surface_error_m": 0.00232601165771484,
+      "team": 0
+    },
+    {
+      "clear": true,
+      "position": "(-170.0, 1.089264, -143.6)",
+      "surface_error_m": 0.00153446197509766,
+      "team": 0
+    },
+    {
+      "clear": true,
+      "position": "(-163.6, 1.114871, -150.0)",
+      "surface_error_m": 0.00198876857757568,
+      "team": 0
+    },
+    {
+      "clear": true,
+      "position": "(-176.4, 1.099918, -153.2)",
+      "surface_error_m": 0.00113034248352051,
+      "team": 0
+    },
+    {
+      "clear": true,
+      "position": "(130.0, 0.890496, 150.0)",
+      "surface_error_m": 0.000171005725860596,
+      "team": 1
+    },
+    {
+      "clear": true,
+      "position": "(126.8, 0.902332, 150.0)",
+      "surface_error_m": 0.000100612640380859,
+      "team": 1
+    },
+    {
+      "clear": true,
+      "position": "(130.0, 0.898283, 146.8)",
+      "surface_error_m": 0.00107699632644653,
+      "team": 1
+    },
+    {
+      "clear": true,
+      "position": "(130.0, 0.884166, 153.2)",
+      "surface_error_m": 0.0011589527130127,
+      "team": 1
+    },
+    {
+      "clear": true,
+      "position": "(133.2, 0.878873, 150.0)",
+      "surface_error_m": 0.000347912311553955,
+      "team": 1
+    },
+    {
+      "clear": true,
+      "position": "(126.8, 0.910293, 146.8)",
+      "surface_error_m": 0.00102758407592773,
+      "team": 1
+    },
+    {
+      "clear": true,
+      "position": "(126.8, 0.895789, 153.2)",
+      "surface_error_m": 0.00121992826461792,
+      "team": 1
+    },
+    {
+      "clear": true,
+      "position": "(133.2, 0.886499, 146.8)",
+      "surface_error_m": 0.0012090802192688,
+      "team": 1
+    },
+    {
+      "clear": true,
+      "position": "(133.2, 0.872743, 153.2)",
+      "surface_error_m": 0.00135707855224609,
+      "team": 1
+    },
+    {
+      "clear": true,
+      "position": "(123.6, 0.91409, 150.0)",
+      "surface_error_m": 0.0000254511833190918,
+      "team": 1
+    },
+    {
+      "clear": true,
+      "position": "(130.0, 0.907423, 143.6)",
+      "surface_error_m": 0.000423610210418701,
+      "team": 1
+    },
+    {
+      "clear": true,
+      "position": "(130.0, 0.87933, 156.4)",
+      "surface_error_m": 0.000758707523345947,
+      "team": 1
+    },
+    {
+      "clear": true,
+      "position": "(136.4, 0.867724, 150.0)",
+      "surface_error_m": 0.000652074813842773,
+      "team": 1
+    },
+    {
+      "clear": true,
+      "position": "(123.6, 0.922236, 146.8)",
+      "surface_error_m": 0.000788867473602295,
+      "team": 1
+    }
+  ],
+  "stair_checks": {
+    "flights": 176,
+    "samples": 528,
+    "supported": 528
+  },
+  "texture_count": 209,
+  "texture_dimensions": {
+    "res://assets/thirdparty/polyhaven/textures/asphalt_04/albedo.jpg": [
+      2048,
+      2048
+    ],
+    "res://assets/thirdparty/polyhaven/textures/asphalt_04/ao.jpg": [
+      2048,
+      2048
+    ],
+    "res://assets/thirdparty/polyhaven/textures/asphalt_04/normal.jpg": [
+      2048,
+      2048
+    ],
+    "res://assets/thirdparty/polyhaven/textures/asphalt_04/roughness.jpg": [
+      2048,
+      2048
+    ],
+    "res://assets/thirdparty/polyhaven/textures/asphalt_06/albedo.jpg": [
+      2048,
+      2048
+    ],
+    "res://assets/thirdparty/polyhaven/textures/asphalt_06/ao.jpg": [
+      2048,
+      2048
+    ],
+    "res://assets/thirdparty/polyhaven/textures/asphalt_06/normal.jpg": [
+      2048,
+      2048
+    ],
+    "res://assets/thirdparty/polyhaven/textures/asphalt_06/roughness.jpg": [
+      2048,
+      2048
+    ],
+    "res://assets/thirdparty/polyhaven/textures/bamboo_wall/albedo.jpg": [
+      1024,
+      1024
+    ],
+    "res://assets/thirdparty/polyhaven/textures/bamboo_wall/ao.jpg": [
+      1024,
+      1024
+    ],
+    "res://assets/thirdparty/polyhaven/textures/bamboo_wall/normal.jpg": [
+      1024,
+      1024
+    ],
+    "res://assets/thirdparty/polyhaven/textures/bamboo_wall/roughness.jpg": [
+      1024,
+      1024
+    ],
+    "res://assets/thirdparty/polyhaven/textures/bamboo_wall_02/albedo.jpg": [
+      1024,
+      1024
+    ],
+    "res://assets/thirdparty/polyhaven/textures/bamboo_wall_02/ao.jpg": [
+      1024,
+      1024
+    ],
+    "res://assets/thirdparty/polyhaven/textures/bamboo_wall_02/normal.jpg": [
+      1024,
+      1024
+    ],
+    "res://assets/thirdparty/polyhaven/textures/bamboo_wall_02/roughness.jpg": [
+      1024,
+      1024
+    ],
+    "res://assets/thirdparty/polyhaven/textures/beige_wall_002/albedo.jpg": [
+      1024,
+      256
+    ],
+    "res://assets/thirdparty/polyhaven/textures/beige_wall_002/ao.jpg": [
+      1024,
+      256
+    ],
+    "res://assets/thirdparty/polyhaven/textures/beige_wall_002/normal.jpg": [
+      1024,
+      256
+    ],
+    "res://assets/thirdparty/polyhaven/textures/beige_wall_002/roughness.jpg": [
+      1024,
+      256
+    ],
+    "res://assets/thirdparty/polyhaven/textures/blue_floor_tiles_01/albedo.jpg": [
+      1024,
+      1024
+    ],
+    "res://assets/thirdparty/polyhaven/textures/blue_floor_tiles_01/ao.jpg": [
+      1024,
+      1024
+    ],
+    "res://assets/thirdparty/polyhaven/textures/blue_floor_tiles_01/normal.jpg": [
+      1024,
+      1024
+    ],
+    "res://assets/thirdparty/polyhaven/textures/blue_floor_tiles_01/roughness.jpg": [
+      1024,
+      1024
+    ],
+    "res://assets/thirdparty/polyhaven/textures/ceiling_interior/albedo.jpg": [
+      1024,
+      1024
+    ],
+    "res://assets/thirdparty/polyhaven/textures/ceiling_interior/ao.jpg": [
+      1024,
+      1024
+    ],
+    "res://assets/thirdparty/polyhaven/textures/ceiling_interior/normal.jpg": [
+      1024,
+      1024
+    ],
+    "res://assets/thirdparty/polyhaven/textures/ceiling_interior/roughness.jpg": [
+      1024,
+      1024
+    ],
+    "res://assets/thirdparty/polyhaven/textures/clay_roof_tiles_02/albedo.jpg": [
+      2048,
+      2048
+    ],
+    "res://assets/thirdparty/polyhaven/textures/clay_roof_tiles_02/ao.jpg": [
+      2048,
+      2048
+    ],
+    "res://assets/thirdparty/polyhaven/textures/clay_roof_tiles_02/normal.jpg": [
+      2048,
+      2048
+    ],
+    "res://assets/thirdparty/polyhaven/textures/clay_roof_tiles_02/roughness.jpg": [
+      2048,
+      2048
+    ],
+    "res://assets/thirdparty/polyhaven/textures/clean_asphalt/albedo.jpg": [
+      1024,
+      1024
+    ],
+    "res://assets/thirdparty/polyhaven/textures/clean_asphalt/ao.jpg": [
+      1024,
+      1024
+    ],
+    "res://assets/thirdparty/polyhaven/textures/clean_asphalt/normal.jpg": [
+      1024,
+      1024
+    ],
+    "res://assets/thirdparty/polyhaven/textures/clean_asphalt/roughness.jpg": [
+      1024,
+      1024
+    ],
+    "res://assets/thirdparty/polyhaven/textures/concrete_block_wall/albedo.jpg": [
+      2048,
+      2048
+    ],
+    "res://assets/thirdparty/polyhaven/textures/concrete_block_wall/ao.jpg": [
+      2048,
+      2048
+    ],
+    "res://assets/thirdparty/polyhaven/textures/concrete_block_wall/normal.jpg": [
+      2048,
+      2048
+    ],
+    "res://assets/thirdparty/polyhaven/textures/concrete_block_wall/roughness.jpg": [
+      2048,
+      2048
+    ],
+    "res://assets/thirdparty/polyhaven/textures/concrete_block_wall_02/albedo.jpg": [
+      1024,
+      1024
+    ],
+    "res://assets/thirdparty/polyhaven/textures/concrete_block_wall_02/ao.jpg": [
+      1024,
+      1024
+    ],
+    "res://assets/thirdparty/polyhaven/textures/concrete_block_wall_02/normal.jpg": [
+      1024,
+      1024
+    ],
+    "res://assets/thirdparty/polyhaven/textures/concrete_block_wall_02/roughness.jpg": [
+      1024,
+      1024
+    ],
+    "res://assets/thirdparty/polyhaven/textures/concrete_floor_02/albedo.jpg": [
+      1024,
+      1024
+    ],
+    "res://assets/thirdparty/polyhaven/textures/concrete_floor_02/ao.jpg": [
+      1024,
+      1024
+    ],
+    "res://assets/thirdparty/polyhaven/textures/concrete_floor_02/normal.jpg": [
+      1024,
+      1024
+    ],
+    "res://assets/thirdparty/polyhaven/textures/concrete_floor_02/roughness.jpg": [
+      1024,
+      1024
+    ],
+    "res://assets/thirdparty/polyhaven/textures/concrete_floor_painted/albedo.jpg": [
+      1024,
+      1024
+    ],
+    "res://assets/thirdparty/polyhaven/textures/concrete_floor_painted/ao.jpg": [
+      1024,
+      1024
+    ],
+    "res://assets/thirdparty/polyhaven/textures/concrete_floor_painted/normal.jpg": [
+      1024,
+      1024
+    ],
+    "res://assets/thirdparty/polyhaven/textures/concrete_floor_painted/roughness.jpg": [
+      1024,
+      1024
+    ],
+    "res://assets/thirdparty/polyhaven/textures/concrete_panels/albedo.jpg": [
+      1024,
+      1024
+    ],
+    "res://assets/thirdparty/polyhaven/textures/concrete_panels/ao.jpg": [
+      1024,
+      1024
+    ],
+    "res://assets/thirdparty/polyhaven/textures/concrete_panels/normal.jpg": [
+      1024,
+      1024
+    ],
+    "res://assets/thirdparty/polyhaven/textures/concrete_panels/roughness.jpg": [
+      1024,
+      1024
+    ],
+    "res://assets/thirdparty/polyhaven/textures/concrete_pavers/albedo.jpg": [
+      2048,
+      2048
+    ],
+    "res://assets/thirdparty/polyhaven/textures/concrete_pavers/ao.jpg": [
+      2048,
+      2048
+    ],
+    "res://assets/thirdparty/polyhaven/textures/concrete_pavers/normal.jpg": [
+      2048,
+      2048
+    ],
+    "res://assets/thirdparty/polyhaven/textures/concrete_pavers/roughness.jpg": [
+      2048,
+      2048
+    ],
+    "res://assets/thirdparty/polyhaven/textures/concrete_tile_facade/albedo.jpg": [
+      1024,
+      1024
+    ],
+    "res://assets/thirdparty/polyhaven/textures/concrete_tile_facade/ao.jpg": [
+      1024,
+      1024
+    ],
+    "res://assets/thirdparty/polyhaven/textures/concrete_tile_facade/normal.jpg": [
+      1024,
+      1024
+    ],
+    "res://assets/thirdparty/polyhaven/textures/concrete_tile_facade/roughness.jpg": [
+      1024,
+      1024
+    ],
+    "res://assets/thirdparty/polyhaven/textures/concrete_wall_007/albedo.jpg": [
+      2048,
+      2048
+    ],
+    "res://assets/thirdparty/polyhaven/textures/concrete_wall_007/ao.jpg": [
+      2048,
+      2048
+    ],
+    "res://assets/thirdparty/polyhaven/textures/concrete_wall_007/normal.jpg": [
+      2048,
+      2048
+    ],
+    "res://assets/thirdparty/polyhaven/textures/concrete_wall_007/roughness.jpg": [
+      2048,
+      2048
+    ],
+    "res://assets/thirdparty/polyhaven/textures/concrete_wall_008/albedo.jpg": [
+      1024,
+      1024
+    ],
+    "res://assets/thirdparty/polyhaven/textures/concrete_wall_008/ao.jpg": [
+      1024,
+      1024
+    ],
+    "res://assets/thirdparty/polyhaven/textures/concrete_wall_008/normal.jpg": [
+      1024,
+      1024
+    ],
+    "res://assets/thirdparty/polyhaven/textures/concrete_wall_008/roughness.jpg": [
+      1024,
+      1024
+    ],
+    "res://assets/thirdparty/polyhaven/textures/container_side/albedo.jpg": [
+      1024,
+      1024
+    ],
+    "res://assets/thirdparty/polyhaven/textures/container_side/ao.jpg": [
+      1024,
+      1024
+    ],
+    "res://assets/thirdparty/polyhaven/textures/container_side/normal.jpg": [
+      1024,
+      1024
+    ],
+    "res://assets/thirdparty/polyhaven/textures/container_side/roughness.jpg": [
+      1024,
+      1024
+    ],
+    "res://assets/thirdparty/polyhaven/textures/corrugated_iron_03/albedo.jpg": [
+      1024,
+      1024
+    ],
+    "res://assets/thirdparty/polyhaven/textures/corrugated_iron_03/ao.jpg": [
+      1024,
+      1024
+    ],
+    "res://assets/thirdparty/polyhaven/textures/corrugated_iron_03/normal.jpg": [
+      1024,
+      1024
+    ],
+    "res://assets/thirdparty/polyhaven/textures/corrugated_iron_03/roughness.jpg": [
+      1024,
+      1024
+    ],
+    "res://assets/thirdparty/polyhaven/textures/cracked_concrete/albedo.jpg": [
+      1024,
+      1024
+    ],
+    "res://assets/thirdparty/polyhaven/textures/cracked_concrete/ao.jpg": [
+      1024,
+      1024
+    ],
+    "res://assets/thirdparty/polyhaven/textures/cracked_concrete/normal.jpg": [
+      1024,
+      1024
+    ],
+    "res://assets/thirdparty/polyhaven/textures/cracked_concrete/roughness.jpg": [
+      1024,
+      1024
+    ],
+    "res://assets/thirdparty/polyhaven/textures/dark_wooden_planks/albedo.jpg": [
+      1024,
+      1024
+    ],
+    "res://assets/thirdparty/polyhaven/textures/dark_wooden_planks/ao.jpg": [
+      1024,
+      1024
+    ],
+    "res://assets/thirdparty/polyhaven/textures/dark_wooden_planks/normal.jpg": [
+      1024,
+      1024
+    ],
+    "res://assets/thirdparty/polyhaven/textures/dark_wooden_planks/roughness.jpg": [
+      1024,
+      1024
+    ],
+    "res://assets/thirdparty/polyhaven/textures/dirty_concrete/albedo.jpg": [
+      1024,
+      1024
+    ],
+    "res://assets/thirdparty/polyhaven/textures/dirty_concrete/ao.jpg": [
+      1024,
+      1024
+    ],
+    "res://assets/thirdparty/polyhaven/textures/dirty_concrete/normal.jpg": [
+      1024,
+      1024
+    ],
+    "res://assets/thirdparty/polyhaven/textures/dirty_concrete/roughness.jpg": [
+      1024,
+      1024
+    ],
+    "res://assets/thirdparty/polyhaven/textures/dirty_tiles/albedo.jpg": [
+      1024,
+      1024
+    ],
+    "res://assets/thirdparty/polyhaven/textures/dirty_tiles/ao.jpg": [
+      1024,
+      1024
+    ],
+    "res://assets/thirdparty/polyhaven/textures/dirty_tiles/normal.jpg": [
+      1024,
+      1024
+    ],
+    "res://assets/thirdparty/polyhaven/textures/dirty_tiles/roughness.jpg": [
+      1024,
+      1024
+    ],
+    "res://assets/thirdparty/polyhaven/textures/distressed_painted_planks/albedo.jpg": [
+      1024,
+      1024
+    ],
+    "res://assets/thirdparty/polyhaven/textures/distressed_painted_planks/ao.jpg": [
+      1024,
+      1024
+    ],
+    "res://assets/thirdparty/polyhaven/textures/distressed_painted_planks/normal.jpg": [
+      1024,
+      1024
+    ],
+    "res://assets/thirdparty/polyhaven/textures/distressed_painted_planks/roughness.jpg": [
+      1024,
+      1024
+    ],
+    "res://assets/thirdparty/polyhaven/textures/exterior_wall_cladding_03/albedo.jpg": [
+      1024,
+      1024
+    ],
+    "res://assets/thirdparty/polyhaven/textures/exterior_wall_cladding_03/ao.jpg": [
+      1024,
+      1024
+    ],
+    "res://assets/thirdparty/polyhaven/textures/exterior_wall_cladding_03/normal.jpg": [
+      1024,
+      1024
+    ],
+    "res://assets/thirdparty/polyhaven/textures/exterior_wall_cladding_03/roughness.jpg": [
+      1024,
+      1024
+    ],
+    "res://assets/thirdparty/polyhaven/textures/factory_wall/albedo.jpg": [
+      2048,
+      2048
+    ],
+    "res://assets/thirdparty/polyhaven/textures/factory_wall/ao.jpg": [
+      2048,
+      2048
+    ],
+    "res://assets/thirdparty/polyhaven/textures/factory_wall/normal.jpg": [
+      2048,
+      2048
+    ],
+    "res://assets/thirdparty/polyhaven/textures/factory_wall/roughness.jpg": [
+      2048,
+      2048
+    ],
+    "res://assets/thirdparty/polyhaven/textures/gingham_check/albedo.jpg": [
+      1024,
+      1071
+    ],
+    "res://assets/thirdparty/polyhaven/textures/gingham_check/ao.jpg": [
+      1024,
+      1071
+    ],
+    "res://assets/thirdparty/polyhaven/textures/gingham_check/normal.jpg": [
+      1024,
+      1071
+    ],
+    "res://assets/thirdparty/polyhaven/textures/gingham_check/roughness.jpg": [
+      1024,
+      1071
+    ],
+    "res://assets/thirdparty/polyhaven/textures/grass_ground/albedo.jpg": [
+      1024,
+      1024
+    ],
+    "res://assets/thirdparty/polyhaven/textures/grass_ground/ao.jpg": [
+      1024,
+      1024
+    ],
+    "res://assets/thirdparty/polyhaven/textures/grass_ground/normal.jpg": [
+      1024,
+      1024
+    ],
+    "res://assets/thirdparty/polyhaven/textures/grass_ground/roughness.jpg": [
+      1024,
+      1024
+    ],
+    "res://assets/thirdparty/polyhaven/textures/grey_plaster/albedo.jpg": [
+      1024,
+      1024
+    ],
+    "res://assets/thirdparty/polyhaven/textures/grey_plaster/ao.jpg": [
+      1024,
+      1024
+    ],
+    "res://assets/thirdparty/polyhaven/textures/grey_plaster/normal.jpg": [
+      1024,
+      1024
+    ],
+    "res://assets/thirdparty/polyhaven/textures/grey_plaster/roughness.jpg": [
+      1024,
+      1024
+    ],
+    "res://assets/thirdparty/polyhaven/textures/grey_roof_tiles/albedo.jpg": [
+      1024,
+      1024
+    ],
+    "res://assets/thirdparty/polyhaven/textures/grey_roof_tiles/ao.jpg": [
+      1024,
+      1024
+    ],
+    "res://assets/thirdparty/polyhaven/textures/grey_roof_tiles/normal.jpg": [
+      1024,
+      1024
+    ],
+    "res://assets/thirdparty/polyhaven/textures/grey_roof_tiles/roughness.jpg": [
+      1024,
+      1024
+    ],
+    "res://assets/thirdparty/polyhaven/textures/hangar_concrete_floor/albedo.jpg": [
+      2048,
+      2048
+    ],
+    "res://assets/thirdparty/polyhaven/textures/hangar_concrete_floor/ao.jpg": [
+      2048,
+      2048
+    ],
+    "res://assets/thirdparty/polyhaven/textures/hangar_concrete_floor/normal.jpg": [
+      2048,
+      2048
+    ],
+    "res://assets/thirdparty/polyhaven/textures/hangar_concrete_floor/roughness.jpg": [
+      2048,
+      2048
+    ],
+    "res://assets/thirdparty/polyhaven/textures/hessian_230/albedo.jpg": [
+      1024,
+      1018
+    ],
+    "res://assets/thirdparty/polyhaven/textures/hessian_230/ao.jpg": [
+      1024,
+      1018
+    ],
+    "res://assets/thirdparty/polyhaven/textures/hessian_230/normal.jpg": [
+      1024,
+      1018
+    ],
+    "res://assets/thirdparty/polyhaven/textures/hessian_230/roughness.jpg": [
+      1024,
+      1018
+    ],
+    "res://assets/thirdparty/polyhaven/textures/interior_tiles/albedo.jpg": [
+      1024,
+      1024
+    ],
+    "res://assets/thirdparty/polyhaven/textures/interior_tiles/ao.jpg": [
+      1024,
+      1024
+    ],
+    "res://assets/thirdparty/polyhaven/textures/interior_tiles/normal.jpg": [
+      1024,
+      1024
+    ],
+    "res://assets/thirdparty/polyhaven/textures/interior_tiles/roughness.jpg": [
+      1024,
+      1024
+    ],
+    "res://assets/thirdparty/polyhaven/textures/interlocking_concrete_pavers/albedo.jpg": [
+      1024,
+      1024
+    ],
+    "res://assets/thirdparty/polyhaven/textures/interlocking_concrete_pavers/ao.jpg": [
+      1024,
+      1024
+    ],
+    "res://assets/thirdparty/polyhaven/textures/interlocking_concrete_pavers/normal.jpg": [
+      1024,
+      1024
+    ],
+    "res://assets/thirdparty/polyhaven/textures/interlocking_concrete_pavers/roughness.jpg": [
+      1024,
+      1024
+    ],
+    "res://assets/thirdparty/polyhaven/textures/laminate_floor_02/albedo.jpg": [
+      1024,
+      1024
+    ],
+    "res://assets/thirdparty/polyhaven/textures/laminate_floor_02/ao.jpg": [
+      1024,
+      1024
+    ],
+    "res://assets/thirdparty/polyhaven/textures/laminate_floor_02/normal.jpg": [
+      1024,
+      1024
+    ],
+    "res://assets/thirdparty/polyhaven/textures/laminate_floor_02/roughness.jpg": [
+      1024,
+      1024
+    ],
+    "res://assets/thirdparty/polyhaven/textures/long_white_tiles/albedo.jpg": [
+      1024,
+      1024
+    ],
+    "res://assets/thirdparty/polyhaven/textures/long_white_tiles/ao.jpg": [
+      1024,
+      1024
+    ],
+    "res://assets/thirdparty/polyhaven/textures/long_white_tiles/normal.jpg": [
+      1024,
+      1024
+    ],
+    "res://assets/thirdparty/polyhaven/textures/long_white_tiles/roughness.jpg": [
+      1024,
+      1024
+    ],
+    "res://assets/thirdparty/polyhaven/textures/marble_tiles/albedo.jpg": [
+      1024,
+      1024
+    ],
+    "res://assets/thirdparty/polyhaven/textures/marble_tiles/ao.jpg": [
+      1024,
+      1024
+    ],
+    "res://assets/thirdparty/polyhaven/textures/marble_tiles/normal.jpg": [
+      1024,
+      1024
+    ],
+    "res://assets/thirdparty/polyhaven/textures/marble_tiles/roughness.jpg": [
+      1024,
+      1024
+    ],
+    "res://assets/thirdparty/polyhaven/textures/metal_grate_rusty/albedo.jpg": [
+      1024,
+      1024
+    ],
+    "res://assets/thirdparty/polyhaven/textures/metal_grate_rusty/ao.jpg": [
+      1024,
+      1024
+    ],
+    "res://assets/thirdparty/polyhaven/textures/metal_grate_rusty/normal.jpg": [
+      1024,
+      1024
+    ],
+    "res://assets/thirdparty/polyhaven/textures/metal_grate_rusty/roughness.jpg": [
+      1024,
+      1024
+    ],
+    "res://assets/thirdparty/polyhaven/textures/metal_plate/albedo.jpg": [
+      1024,
+      1024
+    ],
+    "res://assets/thirdparty/polyhaven/textures/metal_plate/ao.jpg": [
+      1024,
+      1024
+    ],
+    "res://assets/thirdparty/polyhaven/textures/metal_plate/normal.jpg": [
+      1024,
+      1024
+    ],
+    "res://assets/thirdparty/polyhaven/textures/metal_plate/roughness.jpg": [
+      1024,
+      1024
+    ],
+    "res://assets/thirdparty/polyhaven/textures/painted_plaster_wall/albedo.jpg": [
+      1024,
+      1024
+    ],
+    "res://assets/thirdparty/polyhaven/textures/painted_plaster_wall/ao.jpg": [
+      1024,
+      1024
+    ],
+    "res://assets/thirdparty/polyhaven/textures/painted_plaster_wall/normal.jpg": [
+      1024,
+      1024
+    ],
+    "res://assets/thirdparty/polyhaven/textures/painted_plaster_wall/roughness.jpg": [
+      1024,
+      1024
+    ],
+    "res://assets/thirdparty/polyhaven/textures/patio_tiles/albedo.jpg": [
+      1024,
+      1024
+    ],
+    "res://assets/thirdparty/polyhaven/textures/patio_tiles/ao.jpg": [
+      1024,
+      1024
+    ],
+    "res://assets/thirdparty/polyhaven/textures/patio_tiles/normal.jpg": [
+      1024,
+      1024
+    ],
+    "res://assets/thirdparty/polyhaven/textures/patio_tiles/roughness.jpg": [
+      1024,
+      1024
+    ],
+    "res://assets/thirdparty/polyhaven/textures/plywood/albedo.jpg": [
+      2048,
+      2048
+    ],
+    "res://assets/thirdparty/polyhaven/textures/plywood/ao.jpg": [
+      2048,
+      2048
+    ],
+    "res://assets/thirdparty/polyhaven/textures/plywood/normal.jpg": [
+      2048,
+      2048
+    ],
+    "res://assets/thirdparty/polyhaven/textures/plywood/roughness.jpg": [
+      2048,
+      2048
+    ],
+    "res://assets/thirdparty/polyhaven/textures/rusty_metal_04/albedo.jpg": [
+      1024,
+      1024
+    ],
+    "res://assets/thirdparty/polyhaven/textures/rusty_metal_04/ao.jpg": [
+      1024,
+      1024
+    ],
+    "res://assets/thirdparty/polyhaven/textures/rusty_metal_04/normal.jpg": [
+      1024,
+      1024
+    ],
+    "res://assets/thirdparty/polyhaven/textures/rusty_metal_04/roughness.jpg": [
+      1024,
+      1024
+    ],
+    "res://assets/thirdparty/polyhaven/textures/rusty_metal_sheet/albedo.jpg": [
+      1024,
+      1024
+    ],
+    "res://assets/thirdparty/polyhaven/textures/rusty_metal_sheet/ao.jpg": [
+      1024,
+      1024
+    ],
+    "res://assets/thirdparty/polyhaven/textures/rusty_metal_sheet/normal.jpg": [
+      1024,
+      1024
+    ],
+    "res://assets/thirdparty/polyhaven/textures/rusty_metal_sheet/roughness.jpg": [
+      1024,
+      1024
+    ],
+    "res://assets/thirdparty/polyhaven/textures/rusty_painted_metal/albedo.jpg": [
+      1024,
+      1024
+    ],
+    "res://assets/thirdparty/polyhaven/textures/rusty_painted_metal/ao.jpg": [
+      1024,
+      1024
+    ],
+    "res://assets/thirdparty/polyhaven/textures/rusty_painted_metal/normal.jpg": [
+      1024,
+      1024
+    ],
+    "res://assets/thirdparty/polyhaven/textures/rusty_painted_metal/roughness.jpg": [
+      1024,
+      1024
+    ],
+    "res://assets/thirdparty/polyhaven/textures/scuffed_cement/albedo.jpg": [
+      1024,
+      1024
+    ],
+    "res://assets/thirdparty/polyhaven/textures/scuffed_cement/ao.jpg": [
+      1024,
+      1024
+    ],
+    "res://assets/thirdparty/polyhaven/textures/scuffed_cement/normal.jpg": [
+      1024,
+      1024
+    ],
+    "res://assets/thirdparty/polyhaven/textures/scuffed_cement/roughness.jpg": [
+      1024,
+      1024
+    ],
+    "res://assets/thirdparty/polyhaven/textures/square_tiled_wall/albedo.jpg": [
+      1024,
+      1024
+    ],
+    "res://assets/thirdparty/polyhaven/textures/square_tiled_wall/ao.jpg": [
+      1024,
+      1024
+    ],
+    "res://assets/thirdparty/polyhaven/textures/square_tiled_wall/normal.jpg": [
+      1024,
+      1024
+    ],
+    "res://assets/thirdparty/polyhaven/textures/square_tiled_wall/roughness.jpg": [
+      1024,
+      1024
+    ],
+    "res://assets/thirdparty/polyhaven/textures/terrazzo_tiles/albedo.jpg": [
+      1024,
+      1024
+    ],
+    "res://assets/thirdparty/polyhaven/textures/terrazzo_tiles/ao.jpg": [
+      1024,
+      1024
+    ],
+    "res://assets/thirdparty/polyhaven/textures/terrazzo_tiles/normal.jpg": [
+      1024,
+      1024
+    ],
+    "res://assets/thirdparty/polyhaven/textures/terrazzo_tiles/roughness.jpg": [
+      1024,
+      1024
+    ],
+    "res://assets/thirdparty/polyhaven/textures/weathered_peeling_timber/albedo.jpg": [
+      1024,
+      1024
+    ],
+    "res://assets/thirdparty/polyhaven/textures/weathered_peeling_timber/ao.jpg": [
+      1024,
+      1024
+    ],
+    "res://assets/thirdparty/polyhaven/textures/weathered_peeling_timber/normal.jpg": [
+      1024,
+      1024
+    ],
+    "res://assets/thirdparty/polyhaven/textures/weathered_peeling_timber/roughness.jpg": [
+      1024,
+      1024
+    ],
+    "res://assets/thirdparty/polyhaven/textures/white_plaster_02/albedo.jpg": [
+      1024,
+      1024
+    ],
+    "res://assets/thirdparty/polyhaven/textures/white_plaster_02/ao.jpg": [
+      1024,
+      1024
+    ],
+    "res://assets/thirdparty/polyhaven/textures/white_plaster_02/normal.jpg": [
+      1024,
+      1024
+    ],
+    "res://assets/thirdparty/polyhaven/textures/white_plaster_02/roughness.jpg": [
+      1024,
+      1024
+    ],
+    "res://assets/thirdparty/polyhaven/textures/worn_tile_floor/albedo.jpg": [
+      1024,
+      1024
+    ],
+    "res://assets/thirdparty/polyhaven/textures/worn_tile_floor/ao.jpg": [
+      1024,
+      1024
+    ],
+    "res://assets/thirdparty/polyhaven/textures/worn_tile_floor/normal.jpg": [
+      1024,
+      1024
+    ],
+    "res://assets/thirdparty/polyhaven/textures/worn_tile_floor/roughness.jpg": [
+      1024,
+      1024
+    ],
+    "res://src/world/maps/lawless_sub/paint.png": [
+      256,
+      256
+    ]
+  }
+}

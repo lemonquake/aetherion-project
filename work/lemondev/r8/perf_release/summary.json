@@ -1,0 +1,21 @@
+{
+  "backend": "Forward+ Vulkan",
+  "gpu": "NVIDIA RTX4060",
+  "cpu": "Ryzen7 5700X",
+  "viewport": [
+    1920,
+    1080
+  ],
+  "bots": 19,
+  "staging_exe": true,
+  "phases": 10,
+  "seconds": 80.119227,
+  "frames": 10780,
+  "average_ms": 7.432210296846011,
+  "p95_ms": 15.564,
+  "p99_ms": 32.669,
+  "max_ms": 145.864,
+  "over_16_67ms": 391,
+  "over_33_33ms": 104,
+  "worst_phase_p95_ms": 109.429
+}

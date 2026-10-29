@@ -1,0 +1,107 @@
+--- r4-rebuilt
+
++++ observed
+
+@@ -71,6 +71,20 @@
+
+ out (or most of the leaf) the door falls and the doorway stays open. Grenades knock props apart and blow panels out
+ of nearby doors. Everything is decided by the server and the same for every player (and for players who join late).
+ 
++People bleed where they are shot. A round through a body throws droplets on along its path and a few back toward the
++shooter; each flies a short arc and lands as a wet red mark, round where it fell straight and stretched with a tail
++where it hit at a glancing angle. A wall right behind takes a burst with runs dripping down it, the ground where they
++stood takes drops, the wounded leave a drip trail for a while, the downed smear the ground as they crawl, and a body
++lies in a pool that spreads for half a minute. Shooting a body again sprays it again. Blood on doors and loose props
++moves with them. All of it is drawn locally by each player (cosmetic, not sent over the network).
++
++Every material has its own bullet-impact sound (concrete, wood, sheet metal, steel, dirt and sand, water, glass,
++cloth, plastic, foliage, tile), as do flesh, heads, helmets and vests, ricochets, near misses, brass and shotgun shells
++landing and bodies falling. Reloads sound step by step in time with the hands: the magazine out, a fresh one from the
++pouch, the magazine seated, the charging handle or slide, the bolt lifted, drawn, run home and turned down, each shell
++into the tube, the cylinder opened, loaded and closed, the barrels broken open and shut. You hear other players'
++reloads the same way.
++
+ ### Radio
+ 
+ Push to talk keys your handheld radio: a click when you key up, your speech on your teammates' radios (narrow-band,
+@@ -95,6 +109,21 @@
+
+ GABI"). Open doors swing aside when you walk or run into them and latch shut with a click when
+ pushed back into the frame.
+ 
++### Lawless Sub (Deathmatch)
++
++A walled Philippine subdivision nobody polices any more, at the edge of a city, built from
++`game/data/maps/lawless_sub.json` (440 m square play area). A four-lane avenue with a median and a central
++intersection (zebra crossings on every arm, traffic lights, a wreck pile of police cars and a jeepney) splits it; a
++walled canal and an angular basin cut the west side, a shallow estero the south (wade it, or take the road bridge).
++West Team spawns in the office tower's parking plaza, East Team in the plastics factory's loading yard, about 420 m
++apart. Some 230 two-storey houses, bungalows and shophouses have real interiors (sala, dining, kitchen, toilet, stair
++hall downstairs; bedrooms, bathroom and hall upstairs), furniture, loot, doors on two sides and vault-sized ground-floor
++windows. The big buildings: Lawless Tower (four floors of offices round a stair core, roof ladder), the Canal Flats,
++the clubhouse with its empty pool and covered court, the chapel, Lawless Mart (aisles, chillers, stock room) and its
++shop strip, the gas station, the plastics factory (machine lines, offices under a mezzanine), the warehouse, the tanks
++and the container yard. Parked cars and burnt wrecks fill the lots and streets. Bots climb out of the canals by its
++ladders.
++
+ ### Loot, weapons and attachments
+ 
+ Loot lies where people would leave it: loose on floors (guns, ammunition, attachments, medicine, batteries,
+@@ -137,7 +166,7 @@
+
+ drawn 1.5× larger, and on-screen controls: a floating move stick on the left (push past the ring to sprint), drag on
+ the right to look (also while holding Fire), and buttons for Fire (two), Aim, Jump, Crouch, Reload, Use, Light (hold
+ to change batteries), Phone (SmarTab), Heal, Weapon, Radio and Menu. Practice and hosted matches add 20 bots by default on
+-phones and PCs alike (up to 50 players in a match). Try the phone profile on a PC with `--mobile`
++phones and PCs alike (up to 28 players in a match: 7 teams of 4). Try the phone profile on a PC with `--mobile`
+ (and `--rendering-method mobile` for the phone renderer).
+ 
+ ### Local multiplayer
+@@ -177,6 +206,35 @@
+
+ 
+ ```bash
+ godot --path game -- --host --bots=11 --autostart=1 --autotest=loot --shots=<folder>
++```
++
++r7 Deathmatch checks (`--autotest=dm`, `--dm_only=map,kit,body,arms,haze`): the round is on Lawless Sub with
++10 v 10 standing, you spawn at your team's spawn with both guns, the plate carrier and the heavy helmet, nothing of your
++own body shows when you look straight down, the first-person arms stay clear of the camera through an empty reload,
++and the haze runs on the Deathmatch schedule. With `--autotest=perf` and `--game_mode=deathmatch` the perf run measures
++the spawn, the intersection, a house street, the mart lot, the factory yard, the canal row, a room by flashlight and two
++spots by day:
++
++```bash
++godot --path game -- --host --game_mode=deathmatch --bots=19 --autostart=1 --autotest=dm --shots=<folder>
++```
++
++Z-fighting (two surfaces in the same place flickering through each other) is checked over the map's geometry: dump
++every drawn face, then list the pairs that face the same way, lie within 1.5 cm of each other and overlap:
++
++```bash
++godot --headless --path game res://tools/map_preview.tscn -- [--map=lawless_sub] --dumpfaces=<file>
++python -I tools/zfight_faces.py <file> --verbose
++```
++
++r6 checks (`--autotest=r6`; `--r6_only=sounds,bob,cues,blood`, `--r6_fast=1` skips the parachute): every sound the
++game asks for exists and loads, each impact material has several takes, the walking camera's sway, empty reloads of a
++rifle, pistol, pump gun and bolt rifle (every step's sound in order), a bot's reload heard beside the player, and blood:
++three rifle hits on a bot in front of a light wall (marks, blood-red pixels on the wall and at its feet), a body's pool
++spreading on screen, rounds into the body, and the spray's cost per hit:
++
++```bash
++godot --path game -- --host --bots=11 --autostart=1 --autotest=r6 --shots=<folder>
+ ```
+ 
+ r4 checks (`--autotest=r4`; `--r4_only=outfits,pa,holes,chunks,doors,blast,realism,fx_perf` runs some): outfits in a
+@@ -258,6 +316,9 @@
+
+ python -I tools/add_work_sounds.py                                                # work/sounds (rerun after build_audio)
+ python -I tools/add_r3_sounds.py                                                  # sun, radio key/squelch, ladder (rerun after both)
+ python -I tools/make_vandal_atlas.py                                              # wall/ground decal atlas (game/assets/fx)
++python -I tools/build_r6_sounds.py fetch                                          # Freesound sources (CC0 / CC BY) into tools/cache
++python -I tools/build_r6_sounds.py build                                          # impacts, reload steps... (rerun after all of the above)
++python -I tools/make_blood_textures.py                                            # blood mark atlas (game/assets/fx)
+ ```
+ 
+ Downloaded guns (Sketchfab CC-BY models via the Objaverse mirror, listed in `tools/asset_sources.json`) are processed

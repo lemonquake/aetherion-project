@@ -1,0 +1,9 @@
+# Visual review stop / resumption record
+
+Artifact: Deathmatch Lawless Sub overhaul, world source manifest ab3e9f6cd51aa1e30cef72a5dc9e161c39e7de3bd478aed392966de7969f2d43 (final3-validation-hashes.json).
+Acceptance: STOPPED — PLATEAU for the commercial visual benchmark. Implementation exists; it is not accepted as matching/exceeding the requested commercial visual quality. User-facing builds remain review artifacts in builds/r8-preview; prior release exports are untouched.
+Used visual reviews: 3 of maximum8. Review1 rejected architectural relief. Review2 rejected material response/local detail. After a bounded material refinement, review3 again rejected facade material scale/response. The two consecutive underlying material-response gaps trigger the plateau breaker.
+Largest remaining gap: oversized/repetitive facade variation and dark window response weaken material scale, surface lighting and contact depth against the reference. Evidence: critic2/review.txt, critic3/review.txt and raw packets. Critic3 candidate=B, reference=A; mappings are private records outside critic packets. Shared filesystem review isolation was instruction-enforced; each reviewer lists only authorized packet reads.
+Preserved source: current working tree; baseline snapshot baseline/src,data,project.godot; previous release builds/windows/Aetherion.exe and builds/android/Aetherion.apk were not overwritten.
+Smallest next action for a NEW authorized visual iteration: pick one representative office frontage and calibrate facade texture scale and window/reflection response with controlled street-height direct/oblique light captures, then propagate only after it passes. A new scope/benchmark/budget decision is required to resume this stopped visual loop under lemondev/SKILL.md.
+Independent work that continued: correctness/cleanup, firing modes, desktop/mobile-renderer compatibility, packaged builds and performance measurements. These cannot grant visual acceptance.

@@ -1,0 +1,781 @@
+{
+  "backend": "headless",
+  "bridge_checks": [
+    {
+      "name": "Canal Bridge",
+      "samples": 21,
+      "supported": true
+    },
+    {
+      "name": "Acacia Bridge",
+      "samples": 21,
+      "supported": true
+    },
+    {
+      "name": "Narra Footbridge",
+      "samples": 21,
+      "supported": true
+    }
+  ],
+  "bridge_types": [
+    {
+      "name": "Canal Bridge",
+      "rect": "[P: (-93.0, -10.0), S: (30.0, 20.0)]",
+      "road": "Sub Boulevard",
+      "type": "road_bridge"
+    },
+    {
+      "name": "Acacia Bridge",
+      "rect": "[P: (24.5, 109.0), S: (11.0, 18.0)]",
+      "road": "Acacia St",
+      "type": "road_bridge"
+    },
+    {
+      "a": "(100.0, 106.0)",
+      "b": "(100.0, 130.0)",
+      "name": "Narra Footbridge",
+      "type": "footbridge",
+      "w": 2.2
+    },
+    {
+      "a": "(170.0, 107.0)",
+      "b": "(170.0, 129.0)",
+      "name": "Molave Pipe Crossing",
+      "type": "pipe",
+      "w": 1.0
+    }
+  ],
+  "build_0_ms": 11180,
+  "build_1_ms": 11163,
+  "build_2_ms": 11184,
+  "checks": 75400,
+  "collision_categories": {
+    "backdrop": 65,
+    "balcony": 140,
+    "balcony_wall": 210,
+    "bollard": 3,
+    "bridge": 2,
+    "bridge_deck": 2,
+    "bridge_walk": 4,
+    "bus": 2,
+    "canal_walk": 30,
+    "canal_wall": 15,
+    "canopy": 1,
+    "ceiling": 223,
+    "column": 24,
+    "concrete": 1,
+    "concrete_dirty": 5,
+    "container": 26,
+    "court_roof": 1,
+    "curb": 144,
+    "curb_ramp": 170,
+    "edge_wall": 443,
+    "floor": 528,
+    "floor_finish": 2630,
+    "floor_slab": 247,
+    "footbridge": 1,
+    "gable": 190,
+    "gate_pillar": 2,
+    "grate": 5,
+    "lootbox:lootbox_ammocan": 12,
+    "lootbox:lootbox_balikbayan": 315,
+    "lootbox:lootbox_bin": 206,
+    "lootbox:lootbox_cooler": 67,
+    "lootbox:lootbox_footlocker": 170,
+    "lootbox:lootbox_riflecase": 28,
+    "median": 90,
+    "median_planter": 20,
+    "metal_paint": 106,
+    "metal_plate": 6,
+    "metal_rust": 6,
+    "mezzanine": 4,
+    "overpass_deck": 1,
+    "overpass_pier": 2,
+    "overpass_rail": 4,
+    "overpass_stair_rail": 4,
+    "overpass_stair_ramp": 2,
+    "parapet": 133,
+    "parking": 175,
+    "partition": 8294,
+    "perimeter_wall": 900,
+    "planks_paint": 1,
+    "plywood": 2,
+    "pool_floor": 1,
+    "pump_island": 2,
+    "rail": 2,
+    "railing": 572,
+    "road": 631,
+    "roof": 721,
+    "shed_floor": 1,
+    "sidewalk": 1059,
+    "slab": 5,
+    "stair_rail": 174,
+    "stair_ramp": 174,
+    "static:banig": 131,
+    "static:bed_old": 104,
+    "static:cabinet_paint": 193,
+    "static:cabinet_paint2": 145,
+    "static:car_burnt_a": 3,
+    "static:car_burnt_b": 3,
+    "static:car_compact": 3,
+    "static:car_coupe": 3,
+    "static:car_hatchback": 11,
+    "static:car_minivan": 8,
+    "static:car_offroad": 5,
+    "static:car_pickup": 4,
+    "static:car_pickup_old": 9,
+    "static:car_police_burnt": 2,
+    "static:car_police_flipped": 1,
+    "static:car_saloon_old": 10,
+    "static:car_sedan": 5,
+    "static:car_sedan_80s": 6,
+    "static:car_sedan_80s_b": 2,
+    "static:car_suv": 4,
+    "static:car_wagon": 5,
+    "static:china_cabinet": 20,
+    "static:control_pedestal": 7,
+    "static:conveyor": 7,
+    "static:counter": 20,
+    "static:covered_car": 21,
+    "static:daybed": 122,
+    "static:display_shelves": 88,
+    "static:drawer_cabinet": 127,
+    "static:drawer_old": 228,
+    "static:forklift_a": 1,
+    "static:forklift_b": 1,
+    "static:hollow_block_pile": 1,
+    "static:jeepney": 1,
+    "static:jeepney_painted": 2,
+    "static:metal_rack": 32,
+    "static:nightstand": 265,
+    "static:nightstand_classic": 238,
+    "static:rubble_a": 11,
+    "static:rubble_b": 7,
+    "static:sandbag": 1,
+    "static:shelf": 26,
+    "static:shelves_paint": 42,
+    "static:sink_counter": 25,
+    "static:steel_shelves": 21,
+    "static:steel_shelves2": 15,
+    "static:steel_shelves3": 16,
+    "static:store_chiller": 7,
+    "static:store_display_case": 8,
+    "static:store_shelf_wall": 31,
+    "static:street_bench": 1,
+    "static:toilet": 171,
+    "static:tool_chest": 5,
+    "static:tree_island": 23,
+    "static:tree_island2": 12,
+    "static:tree_small": 50,
+    "static:tv_cabinet": 8,
+    "static:van_delivery": 7,
+    "tank_stand": 85,
+    "tiles_white": 4,
+    "tower": 1,
+    "utility_cabinet": 4,
+    "utility_plinth": 4,
+    "wall": 11865,
+    "yard_wall": 432,
+    "yero_paint": 1
+  },
+  "engine": {
+    "build": "official",
+    "hash": "ed1daf0bf001b61586d9930840f2f1394092c079",
+    "hex": 263938,
+    "major": 4,
+    "minor": 7,
+    "patch": 2,
+    "status": "stable",
+    "string": "4.7.2-stable (official)",
+    "timestamp": 0
+  },
+  "failures": [],
+  "fingerprint": "256 buildings, 1970 doors, 2518 containers, 2480 props, #f9b648fc",
+  "lot_categories": {
+    "apartment": 2,
+    "chapel": 1,
+    "clubhouse": 1,
+    "container_yard": 1,
+    "court": 1,
+    "factory": 1,
+    "gas_station": 1,
+    "guard_booth": 1,
+    "guardhouse": 1,
+    "house": 216,
+    "office_tower": 1,
+    "playground": 1,
+    "pool": 1,
+    "shophouse": 20,
+    "store": 1,
+    "strip_shops": 1,
+    "tank": 3,
+    "warehouse": 1,
+    "water_tower": 1
+  },
+  "map_stats": {
+    "buildings": 256,
+    "containers": 2518,
+    "doors": 1970,
+    "dress": {
+      "cars": 115,
+      "lamps": 63,
+      "lights": 36,
+      "shrubs": 60,
+      "trees": 80
+    },
+    "facades": {
+      "awnings": 26,
+      "buildings": 247,
+      "condensers": 141,
+      "downpipes": 492,
+      "entrance_surrounds": 534,
+      "gutters": 494,
+      "landmarks": 5,
+      "meters": 247,
+      "pilasters": 8,
+      "plinths": 902,
+      "roof_vents": 4,
+      "signs": 32,
+      "skipped_openings": 600,
+      "slab_bands": 0,
+      "window_surrounds": 3037
+    },
+    "finish_ms": 636,
+    "ladders": 31,
+    "layout_ms": 199,
+    "lights": {
+      "dead": 10,
+      "house_dark": 130,
+      "house_lit": 117,
+      "pole": 0,
+      "porch": 65,
+      "rooms": 137
+    },
+    "props": 2480,
+    "sink": {
+      "boxes": 108023,
+      "colliders": 616,
+      "far_tris": 36100,
+      "meshes": 428,
+      "tris": 970762
+    },
+    "street_detail": {
+      "added_shrubs": 10,
+      "added_trees": 5,
+      "bollards": 3,
+      "bridge_bearings": 12,
+      "bridge_joints": 4,
+      "drains": 200,
+      "manholes": 100,
+      "median_gardens": [
+        "(-20.0, 1.186646, -190.0)",
+        "(-20.0, 1.146165, -110.0)",
+        "(-20.0, 1.358084, 70.0)",
+        "(-20.0, 1.382792, 145.0)",
+        "(-20.0, 1.259379, 185.0)"
+      ],
+      "overpass": {
+        "center": "(-20.0, 7.28, -48.0)",
+        "deck_top": 7.28,
+        "road_clearance": 5.56,
+        "stair_feet": [
+          "(-30.0, 1.08, -34.8)",
+          "(-10.0, 1.08, -34.8)"
+        ],
+        "width": 2.4
+      },
+      "overpasses": 1,
+      "repairs": 100,
+      "stair_flights": 2,
+      "utility_cabinets": 4
+    },
+    "streets": {
+      "curb_ramps": 170,
+      "lots": 4,
+      "paint": 1591,
+      "road_quads": 631,
+      "stalls": 342,
+      "walk_boxes": 1059,
+      "zebra": 56
+    },
+    "terrain_ms": 2552,
+    "towns_ms": 6692,
+    "windows": 3037,
+    "works": {
+      "apron_boxes": 30,
+      "backdrop": 65,
+      "bridges": 4,
+      "detail": {
+        "added_shrubs": 10,
+        "added_trees": 5,
+        "bollards": 3,
+        "bridge_bearings": 12,
+        "bridge_joints": 4,
+        "drains": 200,
+        "manholes": 100,
+        "median_gardens": [
+          "(-20.0, 1.186646, -190.0)",
+          "(-20.0, 1.146165, -110.0)",
+          "(-20.0, 1.358084, 70.0)",
+          "(-20.0, 1.382792, 145.0)",
+          "(-20.0, 1.259379, 185.0)"
+        ],
+        "overpass": {
+          "center": "(-20.0, 7.28, -48.0)",
+          "deck_top": 7.28,
+          "road_clearance": 5.56,
+          "stair_feet": [
+            "(-30.0, 1.08, -34.8)",
+            "(-10.0, 1.08, -34.8)"
+          ],
+          "width": 2.4
+        },
+        "overpasses": 1,
+        "repairs": 100,
+        "stair_flights": 2,
+        "utility_cabinets": 4
+      },
+      "ladders": 6,
+      "panels": 901,
+      "skyline_parts": 1397,
+      "wall_boxes": 15
+    },
+    "zones": 2443
+  },
+  "material_count": 17,
+  "nodes_after_cycle_0": 91.0,
+  "nodes_after_cycle_1": 91.0,
+  "nodes_after_cycle_2": 91.0,
+  "note": "No renderer frame-rate claim. Collision tests use built physics geometry, not layout masks.",
+  "objects_after_cycle_0": 1989.0,
+  "objects_after_cycle_1": 1989.0,
+  "objects_after_cycle_2": 1989.0,
+  "orphan_nodes_after_cycle_0": 0.0,
+  "orphan_nodes_after_cycle_1": 0.0,
+  "orphan_nodes_after_cycle_2": 0.0,
+  "overpass_checked": true,
+  "passed": true,
+  "roads": 12,
+  "scene_census": {
+    "collision_shapes": 617,
+    "lights": 2,
+    "mesh_surfaces": 4064,
+    "meshes": 651,
+    "model_instances": 8847,
+    "multimeshes": 2901,
+    "nodes": 5199,
+    "occluders": 136,
+    "triangles": 1168872
+  },
+  "seed": 1729,
+  "source_sha256": {
+    "res://src/world/building_kit.gd": "c6a006b5197db7c5b8dfd8ddec64493be52730f8df1cc5de8f0cdc763a92b44c",
+    "res://src/world/day_cycle.gd": "2d1728f571d8449964f26a60fe770cfcb95ffb23f494251058897730fae32835",
+    "res://src/world/decal.gdshader": "6d76b3f84ee752ffbb0e047b25910e9d5cae1d86d289155330c1bbad5db29793",
+    "res://src/world/destruct.gd": "cc2a139f80298383ad35d299d0573a48aa22a5970965ab2ff25ac463669bb7cc",
+    "res://src/world/districts.gd": "c050934336905c1846c3a359af2f9149617ffe7a3f17c816476357c10851a95e",
+    "res://src/world/door.gd": "207373de637bbdb5d9d467d6994411a45211049e05cd4cd2fb536b3beba55db8",
+    "res://src/world/dresser.gd": "fbec37d2e178df2089873b7e777df3a627c0674e557f48a63bbc55da3c957e1e",
+    "res://src/world/dynamics.gd": "dbacecafa0e3c9bce3cb566a3dc8e0120e3ba21867d8d5e6bd7f1674c3a0e8fb",
+    "res://src/world/entrances.gd": "42a53a97398b8e7672acfe6fa57e799a3988f7e53e3ff6549a2a0604376f3ad4",
+    "res://src/world/geo_sink.gd": "cc8670f86e16a2b67c3b62e9fb44bd0c69fde4718968ca0a2b71e1709c780a20",
+    "res://src/world/ground.gdshader": "2748d9ef451e77eaa655546b73428fd8188ad43d46159ea8eb2b076b1f6244a5",
+    "res://src/world/house_plan.gd": "b3b801cc9eed3db30e1fddcf2fb73538f0ba439db1ac2fddfc92195700c77e08",
+    "res://src/world/lagusan.gd": "1ed48b3ac1d828f06f0313eba2565d7331139cfbc8a3c9584fa305652383bab4",
+    "res://src/world/layout.gd": "a72e08840489bd699274f6ff330e298e89ce6624fbe59a0001cb88119f97a2a8",
+    "res://src/world/light_glint.gdshader": "1a4558f8fe06dac7918444a782f1a9a76a2ca313a39274bc6f04451c9ec8e375",
+    "res://src/world/lighting.gd": "bed5b9a86eda4faf4d3105dc131e27748fe33fbb3c61f5d01ac82d1bdef929d5",
+    "res://src/world/looban.gd": "a4f94f27630b651f2806aebf43e9bc51a76cf2004fa1bc8f4931c3a5fe49c964",
+    "res://src/world/map_builder.gd": "e546dc5e1a83950d8c0e47231ef6d8951076946b349ce69ab328a23c3270ac96",
+    "res://src/world/maps/lawless_sub/big_buildings.gd": "c5d85cbba923d767428b3712594a7d418d2376a01c46eb7d1328083c7f0336f8",
+    "res://src/world/maps/lawless_sub/big_plans.gd": "5a37d451f15c1d766a039ebc0a5707dae0a66a5c43515aa686f3cd7f2dc79500",
+    "res://src/world/maps/lawless_sub/buildings.gd": "919e675307bd494876e911577dc8f68f8a2323e68531e3a6d9dd44561239187b",
+    "res://src/world/maps/lawless_sub/facade_detail.gd": "459ee189252691293bba88e2c5a3fa6151bd1c30df2c63234a2888e239c83921",
+    "res://src/world/maps/lawless_sub/houses.gd": "7715122d9aa2c2bcfb9a782b262cda51431eb12d5e1e7ce113c7692a3026924d",
+    "res://src/world/maps/lawless_sub/street_detail.gd": "a5fcb0b23eaa5a29a5f3afa6970d04fdd11f8e36d87cafc3ac2d5bb89d9c1d1c",
+    "res://src/world/maps/lawless_sub/sub_dress.gd": "af03bc64fdc892d67e5d5e927c2daa636895393bf28a83630b9fa810792134f2",
+    "res://src/world/maps/lawless_sub/sub_layout.gd": "040daa93bee82779aec00b0acf2c4c34533b973b28e9dabe43a1a124b976aac8",
+    "res://src/world/maps/lawless_sub/sub_streets.gd": "0b5686e7dc071acbb8a84418250cd20c1387d8d627e5f0b9f238f6381bcb4e92",
+    "res://src/world/maps/lawless_sub/sub_works.gd": "fd62b267cd6664c83593ae0a000358c214b5ac88cd6221b834182cdb4cdbec97",
+    "res://src/world/materials.gd": "274a081aae034ed129c8b0551ee8ac9087b784639f394be1ffbca85810882ba2",
+    "res://src/world/model_lib.gd": "c84c534f47955897406f3a95b235cc5642fe4d2db2673b951e96470aea1bca14",
+    "res://src/world/night_sky.gdshader": "93af26e5e5230d82b8a39ff8b27f4a9b7c91dda2df0952787fae02e9d13f510d",
+    "res://src/world/pa_system.gd": "0bbe3d9f5dacee8ba061db23123e44c945a5957fe1880e1fca8e3e4007156b65",
+    "res://src/world/practical_lights.gd": "38853d5473814ec57c8b1489f4b22a6cb3bf3583b53aff80ba49030bf814b290",
+    "res://src/world/puddle.gdshader": "0d2a5d9b47dd83fe9ce54a93afcff087f31c9776eb183d561144a02a967e1336",
+    "res://src/world/shanty.gd": "2d3b5d5e108145a2da8a4728af104af9ffdfac906246a8378730c7e162d753c8",
+    "res://src/world/sites.gd": "498b69805380e984275d49a0988a5d5cf4362ea439d7fdcd7d9438b10c351e99",
+    "res://src/world/street_dress.gd": "cf0331e0cde998b0df765f87663a068ffe42a95fad238745c27356cce808fad6",
+    "res://src/world/surface.gdshader": "8f31b1a77e5a328122b5e1841086b66165b37edf815708f4944e017ee17c1427",
+    "res://src/world/urban_surface.gdshader": "523421ea372f71428a323553dab2a1e8ed7624069b88c01a9e462dc7b09ee4cd",
+    "res://src/world/vandal.gd": "175aca5e1361ba4ed58d66f539caf34f350c4022ec53f5f19068e3f4d2756e25",
+    "res://src/world/view_lod.gd": "8d4b6f2c6b5c73adcae22faf91ba0dcd417ea09e9de8a3ccf5311f51d9a9fc1e",
+    "res://src/world/water.gdshader": "4ec354e67c7ae80f41eb7be18244ada2b383fe388a406d35da3ec44fb452c995"
+  },
+  "spawn_checks": [
+    {
+      "clear": true,
+      "position": "(-170.0, 1.106861, -150.0)",
+      "surface_error_m": 0.00230288505554199,
+      "team": 0
+    },
+    {
+      "clear": true,
+      "position": "(-173.2, 1.100821, -150.0)",
+      "surface_error_m": 0.00178909301757813,
+      "team": 0
+    },
+    {
+      "clear": true,
+      "position": "(-170.0, 1.112744, -153.2)",
+      "surface_error_m": 0.00138318538665771,
+      "team": 0
+    },
+    {
+      "clear": true,
+      "position": "(-170.0, 1.09896, -146.8)",
+      "surface_error_m": 0.00138318538665771,
+      "team": 0
+    },
+    {
+      "clear": true,
+      "position": "(-166.8, 1.111623, -150.0)",
+      "surface_error_m": 0.00232791900634766,
+      "team": 0
+    },
+    {
+      "clear": true,
+      "position": "(-173.2, 1.106842, -153.2)",
+      "surface_error_m": 0.000827908515930176,
+      "team": 0
+    },
+    {
+      "clear": true,
+      "position": "(-173.2, 1.092766, -146.8)",
+      "surface_error_m": 0.000718593597412109,
+      "team": 0
+    },
+    {
+      "clear": true,
+      "position": "(-166.8, 1.117373, -153.2)",
+      "surface_error_m": 0.00145912170410156,
+      "team": 0
+    },
+    {
+      "clear": true,
+      "position": "(-166.8, 1.103891, -146.8)",
+      "surface_error_m": 0.0013958215713501,
+      "team": 0
+    },
+    {
+      "clear": true,
+      "position": "(-176.4, 1.093778, -150.0)",
+      "surface_error_m": 0.00197744369506836,
+      "team": 0
+    },
+    {
+      "clear": true,
+      "position": "(-170.0, 1.116451, -156.4)",
+      "surface_error_m": 0.00232458114624023,
+      "team": 0
+    },
+    {
+      "clear": true,
+      "position": "(-170.0, 1.089264, -143.6)",
+      "surface_error_m": 0.00153231620788574,
+      "team": 0
+    },
+    {
+      "clear": true,
+      "position": "(-163.6, 1.114871, -150.0)",
+      "surface_error_m": 0.00198781490325928,
+      "team": 0
+    },
+    {
+      "clear": true,
+      "position": "(-176.4, 1.099918, -153.2)",
+      "surface_error_m": 0.00113034248352051,
+      "team": 0
+    },
+    {
+      "clear": true,
+      "position": "(130.0, 0.890496, 150.0)",
+      "surface_error_m": 0.000171065330505371,
+      "team": 1
+    },
+    {
+      "clear": true,
+      "position": "(126.8, 0.902332, 150.0)",
+      "surface_error_m": 0.000100612640380859,
+      "team": 1
+    },
+    {
+      "clear": true,
+      "position": "(130.0, 0.898283, 146.8)",
+      "surface_error_m": 0.00107699632644653,
+      "team": 1
+    },
+    {
+      "clear": true,
+      "position": "(130.0, 0.884166, 153.2)",
+      "surface_error_m": 0.00115793943405151,
+      "team": 1
+    },
+    {
+      "clear": true,
+      "position": "(133.2, 0.878873, 150.0)",
+      "surface_error_m": 0.00034797191619873,
+      "team": 1
+    },
+    {
+      "clear": true,
+      "position": "(126.8, 0.910293, 146.8)",
+      "surface_error_m": 0.00102758407592773,
+      "team": 1
+    },
+    {
+      "clear": true,
+      "position": "(126.8, 0.895789, 153.2)",
+      "surface_error_m": 0.00121861696243286,
+      "team": 1
+    },
+    {
+      "clear": true,
+      "position": "(133.2, 0.886499, 146.8)",
+      "surface_error_m": 0.00120913982391357,
+      "team": 1
+    },
+    {
+      "clear": true,
+      "position": "(133.2, 0.872743, 153.2)",
+      "surface_error_m": 0.00135672092437744,
+      "team": 1
+    },
+    {
+      "clear": true,
+      "position": "(123.6, 0.91409, 150.0)",
+      "surface_error_m": 0.0000255107879638672,
+      "team": 1
+    },
+    {
+      "clear": true,
+      "position": "(130.0, 0.907423, 143.6)",
+      "surface_error_m": 0.000423610210418701,
+      "team": 1
+    },
+    {
+      "clear": true,
+      "position": "(130.0, 0.87933, 156.4)",
+      "surface_error_m": 0.000757277011871338,
+      "team": 1
+    },
+    {
+      "clear": true,
+      "position": "(136.4, 0.867724, 150.0)",
+      "surface_error_m": 0.000652134418487549,
+      "team": 1
+    },
+    {
+      "clear": true,
+      "position": "(123.6, 0.922236, 146.8)",
+      "surface_error_m": 0.000788867473602295,
+      "team": 1
+    }
+  ],
+  "stair_checks": {
+    "flights": 176,
+    "samples": 528,
+    "supported": 528
+  },
+  "static_memory_after_cycle_0": 99703992.0,
+  "static_memory_after_cycle_1": 99730432.0,
+  "static_memory_after_cycle_2": 99762456.0,
+  "static_memory_bytes": 954795728.0,
+  "texture_count": 46,
+  "texture_dimensions": {
+    "res://assets/thirdparty/polyhaven/textures/bamboo_wall_02/albedo.jpg": [
+      1024,
+      1024
+    ],
+    "res://assets/thirdparty/polyhaven/textures/bamboo_wall_02/ao.jpg": [
+      1024,
+      1024
+    ],
+    "res://assets/thirdparty/polyhaven/textures/bamboo_wall_02/normal.jpg": [
+      1024,
+      1024
+    ],
+    "res://assets/thirdparty/polyhaven/textures/bamboo_wall_02/roughness.jpg": [
+      1024,
+      1024
+    ],
+    "res://assets/thirdparty/polyhaven/textures/concrete_block_wall/albedo.jpg": [
+      2048,
+      2048
+    ],
+    "res://assets/thirdparty/polyhaven/textures/concrete_block_wall/ao.jpg": [
+      2048,
+      2048
+    ],
+    "res://assets/thirdparty/polyhaven/textures/concrete_block_wall/normal.jpg": [
+      2048,
+      2048
+    ],
+    "res://assets/thirdparty/polyhaven/textures/concrete_block_wall/roughness.jpg": [
+      2048,
+      2048
+    ],
+    "res://assets/thirdparty/polyhaven/textures/concrete_block_wall_02/albedo.jpg": [
+      1024,
+      1024
+    ],
+    "res://assets/thirdparty/polyhaven/textures/concrete_block_wall_02/ao.jpg": [
+      1024,
+      1024
+    ],
+    "res://assets/thirdparty/polyhaven/textures/concrete_block_wall_02/normal.jpg": [
+      1024,
+      1024
+    ],
+    "res://assets/thirdparty/polyhaven/textures/concrete_block_wall_02/roughness.jpg": [
+      1024,
+      1024
+    ],
+    "res://assets/thirdparty/polyhaven/textures/dark_wooden_planks/albedo.jpg": [
+      1024,
+      1024
+    ],
+    "res://assets/thirdparty/polyhaven/textures/dark_wooden_planks/ao.jpg": [
+      1024,
+      1024
+    ],
+    "res://assets/thirdparty/polyhaven/textures/dark_wooden_planks/normal.jpg": [
+      1024,
+      1024
+    ],
+    "res://assets/thirdparty/polyhaven/textures/dark_wooden_planks/roughness.jpg": [
+      1024,
+      1024
+    ],
+    "res://assets/thirdparty/polyhaven/textures/dirty_tiles/albedo.jpg": [
+      1024,
+      1024
+    ],
+    "res://assets/thirdparty/polyhaven/textures/dirty_tiles/ao.jpg": [
+      1024,
+      1024
+    ],
+    "res://assets/thirdparty/polyhaven/textures/dirty_tiles/normal.jpg": [
+      1024,
+      1024
+    ],
+    "res://assets/thirdparty/polyhaven/textures/dirty_tiles/roughness.jpg": [
+      1024,
+      1024
+    ],
+    "res://assets/thirdparty/polyhaven/textures/distressed_painted_planks/albedo.jpg": [
+      1024,
+      1024
+    ],
+    "res://assets/thirdparty/polyhaven/textures/distressed_painted_planks/ao.jpg": [
+      1024,
+      1024
+    ],
+    "res://assets/thirdparty/polyhaven/textures/distressed_painted_planks/normal.jpg": [
+      1024,
+      1024
+    ],
+    "res://assets/thirdparty/polyhaven/textures/distressed_painted_planks/roughness.jpg": [
+      1024,
+      1024
+    ],
+    "res://assets/thirdparty/polyhaven/textures/gingham_check/albedo.jpg": [
+      1024,
+      1071
+    ],
+    "res://assets/thirdparty/polyhaven/textures/gingham_check/ao.jpg": [
+      1024,
+      1071
+    ],
+    "res://assets/thirdparty/polyhaven/textures/gingham_check/normal.jpg": [
+      1024,
+      1071
+    ],
+    "res://assets/thirdparty/polyhaven/textures/gingham_check/roughness.jpg": [
+      1024,
+      1071
+    ],
+    "res://assets/thirdparty/polyhaven/textures/hessian_230/albedo.jpg": [
+      1024,
+      1018
+    ],
+    "res://assets/thirdparty/polyhaven/textures/hessian_230/ao.jpg": [
+      1024,
+      1018
+    ],
+    "res://assets/thirdparty/polyhaven/textures/hessian_230/normal.jpg": [
+      1024,
+      1018
+    ],
+    "res://assets/thirdparty/polyhaven/textures/hessian_230/roughness.jpg": [
+      1024,
+      1018
+    ],
+    "res://assets/thirdparty/polyhaven/textures/rusty_metal_04/albedo.jpg": [
+      1024,
+      1024
+    ],
+    "res://assets/thirdparty/polyhaven/textures/rusty_metal_04/ao.jpg": [
+      1024,
+      1024
+    ],
+    "res://assets/thirdparty/polyhaven/textures/rusty_metal_04/normal.jpg": [
+      1024,
+      1024
+    ],
+    "res://assets/thirdparty/polyhaven/textures/rusty_metal_04/roughness.jpg": [
+      1024,
+      1024
+    ],
+    "res://assets/thirdparty/polyhaven/textures/rusty_painted_metal/albedo.jpg": [
+      1024,
+      1024
+    ],
+    "res://assets/thirdparty/polyhaven/textures/rusty_painted_metal/ao.jpg": [
+      1024,
+      1024
+    ],
+    "res://assets/thirdparty/polyhaven/textures/rusty_painted_metal/normal.jpg": [
+      1024,
+      1024
+    ],
+    "res://assets/thirdparty/polyhaven/textures/rusty_painted_metal/roughness.jpg": [
+      1024,
+      1024
+    ],
+    "res://assets/thirdparty/polyhaven/textures/scuffed_cement/albedo.jpg": [
+      1024,
+      1024
+    ],
+    "res://assets/thirdparty/polyhaven/textures/scuffed_cement/ao.jpg": [
+      1024,
+      1024
+    ],
+    "res://assets/thirdparty/polyhaven/textures/scuffed_cement/normal.jpg": [
+      1024,
+      1024
+    ],
+    "res://assets/thirdparty/polyhaven/textures/scuffed_cement/roughness.jpg": [
+      1024,
+      1024
+    ],
+    "res://assets/urban/signs.png": [
+      2048,
+      1024
+    ],
+    "res://src/world/maps/lawless_sub/paint.png": [
+      256,
+      256
+    ]
+  }
+}

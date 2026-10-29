@@ -1,0 +1,12 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+[server] dedicated server listening on 27415
+[world] map built in 10000 ms
+[map] 256 buildings, 1970 doors, 2518 containers, 2480 props, #f9b648fc on PC
+[match    3.2] deathmatch start on lawless_sub: 1 players, 1 teams; spawns (-170.0, 1.0, -150.0) and (130.0, 1.0, 150.0) (424 m apart, layout); day offset 0 s; zone centre (-42.0, 38.0) r=375
+[match    3.2] status: { "ground": 1 }; armed 1; shots 0; zone 0 wait r=375; corpses 0; server tick avg 0.12 ms, p99 0.32 ms, max 0.39 ms over 193 ticks
+[match    3.2] dm teams: West Team 1 at (-170.0, -150.0) spread 0 m; gap -1 m; zone centre (-42.0, 38.0)
+[match   18.2] status: { "ground": 1 }; armed 1; shots 11; zone 0 wait r=375; corpses 0; server tick avg 0.51 ms, p99 1.02 ms, max 1.62 ms over 900 ticks
+[match   18.2] dm teams: West Team 1 at (-14.0, -27.0) spread 0 m; gap -1 m; zone centre (-42.0, 38.0)
+[match   33.2] status: { "ground": 1 }; armed 1; shots 11; zone 0 wait r=375; corpses 0; server tick avg 0.41 ms, p99 0.69 ms, max 1.10 ms over 900 ticks
+[match   33.2] dm teams: West Team 1 at (-14.0, -27.0) spread 0 m; gap -1 m; zone centre (-42.0, 38.0)
