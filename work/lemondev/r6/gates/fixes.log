@@ -1,0 +1,85 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+Vulkan 1.4.329 - Forward+ - Using Device #0: NVIDIA - NVIDIA GeForce RTX 4060
+
+[lagusan] { "segments": 123, "metres": 1910.45543050766, "lights": 258, "dead": 23, "gaps": 109, "shrines": 18, "walks": 23 }
+[looban] { "loobans": 20, "crate_stacks": 60, "low_walls": 243, "sandbags": 10, "kiosks": 20, "barricades": 10, "yard_walls": 100, &"vacant": 80 }
+[dress] { "poles": 989, "wires": 5598, "laundry": 452, "clutter": 1024, "props": 2116, "tags": 0, "puddles": 170, "plants": 1147, "vehicles": 71, "floating": 14, "loot": 462, "boxes": 27 }
+[vandal] { "wall": 1415, "covered": 441, "stains": 3509, "ground": 870, "spots": 10 }
+[world] map built in 21753 ms
+[map] 2216 buildings, 4146 doors, 10390 containers, 11250 props, #49929ca0 on PC
+[game] autotest fixes
+[autotest] PASS floor_guns_in_houses: 5952 guns on the ground; 1869 of 2025 houses/shops/apartments (92%) have one lying on a floor
+[autotest] PASS balikbayan_has_guns: 32% of balikbayan box rolls are a gun
+[autotest] shot A:/Python/aetherion-project/work/lemondev/r6/gates/fixes/01_plane.png
+[autotest] PASS jump: left the plane
+[autotest] shot A:/Python/aetherion-project/work/lemondev/r6/gates/fixes/02_freefall.png
+[autotest] PASS view_tier_freefall: tier 2 at 265 m above ground, interiors hidden, AO false, local shadows 0
+[autotest] PASS team_cluster: 3 teammates, farthest 24.4 m at canopy
+[autotest] shot A:/Python/aetherion-project/work/lemondev/r6/gates/fixes/03_canopy_team.png
+[autotest] PASS landed: mode 3, health 85 at (148.0, 1.0, -242.0)
+[autotest] PASS view_tier_ground: tier 0 at 2 m above ground, interiors drawn, AO true, local shadows 8
+[autotest] shot A:/Python/aetherion-project/work/lemondev/r6/gates/fixes/04_landed.png
+[autotest] PASS use_takes_items: ["ammo_556: T left it true, E took it true", "rifle_scar: T left it true, E took it true"]; carrying 30 5.56 rounds, SCAR-L in a slot true
+[autotest] PASS stairs_recorded: 1798 indoor flights
+[autotest] shot A:/Python/aetherion-project/work/lemondev/r6/gates/fixes/05_stair_top_0.png
+[autotest] shot A:/Python/aetherion-project/work/lemondev/r6/gates/fixes/06_stair_down_view.png
+[autotest] shot A:/Python/aetherion-project/work/lemondev/r6/gates/fixes/07_stair_top_1.png
+[autotest] shot A:/Python/aetherion-project/work/lemondev/r6/gates/fixes/08_stair_top_2.png
+[autotest] shot A:/Python/aetherion-project/work/lemondev/r6/gates/fixes/09_stair_top_3.png
+[autotest] shot A:/Python/aetherion-project/work/lemondev/r6/gates/fixes/10_stair_top_4.png
+[autotest] shot A:/Python/aetherion-project/work/lemondev/r6/gates/fixes/11_stair_top_5.png
+[autotest] shot A:/Python/aetherion-project/work/lemondev/r6/gates/fixes/12_stair_top_6.png
+[autotest] shot A:/Python/aetherion-project/work/lemondev/r6/gates/fixes/13_stair_top_7.png
+[autotest] shot A:/Python/aetherion-project/work/lemondev/r6/gates/fixes/14_stair_top_8.png
+[autotest] shot A:/Python/aetherion-project/work/lemondev/r6/gates/fixes/15_stair_top_9.png
+[autotest] shot A:/Python/aetherion-project/work/lemondev/r6/gates/fixes/16_stair_top_10.png
+[autotest] shot A:/Python/aetherion-project/work/lemondev/r6/gates/fixes/17_stair_top_11.png
+[autotest] shot A:/Python/aetherion-project/work/lemondev/r6/gates/fixes/18_stair_top_12.png
+[autotest] shot A:/Python/aetherion-project/work/lemondev/r6/gates/fixes/19_stair_top_13.png
+[autotest] shot A:/Python/aetherion-project/work/lemondev/r6/gates/fixes/20_stair_top_14.png
+[autotest] shot A:/Python/aetherion-project/work/lemondev/r6/gates/fixes/21_stair_top_15.png
+[autotest] shot A:/Python/aetherion-project/work/lemondev/r6/gates/fixes/22_stair_top_16.png
+[autotest] shot A:/Python/aetherion-project/work/lemondev/r6/gates/fixes/23_stair_top_17.png
+[autotest] shot A:/Python/aetherion-project/work/lemondev/r6/gates/fixes/24_stair_top_18.png
+[autotest] shot A:/Python/aetherion-project/work/lemondev/r6/gates/fixes/25_stair_top_19.png
+[autotest] shot A:/Python/aetherion-project/work/lemondev/r6/gates/fixes/26_stair_top_20.png
+[autotest] shot A:/Python/aetherion-project/work/lemondev/r6/gates/fixes/27_stair_top_21.png
+[autotest] shot A:/Python/aetherion-project/work/lemondev/r6/gates/fixes/28_stair_top_22.png
+[autotest] shot A:/Python/aetherion-project/work/lemondev/r6/gates/fixes/29_stair_top_23.png
+[autotest] PASS stairs_climbable: 24 of 24 flights climbed, 24 stepped off on the upper floor; []
+[autotest] shot A:/Python/aetherion-project/work/lemondev/r6/gates/fixes/30_floor_gun_shotgun_pump.png
+[autotest] PASS floor_gun_visible: shotgun_pump at 3.0 m in an unlit room, no flashlight: 818 pixels show the gun (mean luma 75.5)
+[autotest] shot A:/Python/aetherion-project/work/lemondev/r6/gates/fixes/31_tab_box_items.png
+[autotest] PASS tab_opens_box: beside lootbox_balikbayan: container shown true (id 9989, a loot box true, walked to 9989), page Items, its lid opened true, 2 entries listed (the box holds 2)
+[autotest] shot A:/Python/aetherion-project/work/lemondev/r6/gates/fixes/32_grab_holding_box.png
+[autotest] FAIL grab_with_t: box: prompt 'T  Pick up', after E held -1, after T held false, after second T dropped true
+[autotest] shot A:/Python/aetherion-project/work/lemondev/r6/gates/fixes/33_minimap_before_ping.png
+[autotest] shot A:/Python/aetherion-project/work/lemondev/r6/gates/fixes/34_minimap_ping.png
+[autotest] PASS ping_minimap: ping shown true, 122 green pixels in the minimap, cleared after 5 s true, minimap visible true at (20.0, 20.0)
+[autotest] shot A:/Python/aetherion-project/work/lemondev/r6/gates/fixes/35_door_opened_forward.png
+[autotest] PASS door_opens_forward: door 3979 swung 95 deg, leaf on the far side true (player side +1, leaf side -1)
+[autotest] PASS door_walk_through: walked from (114.7, 1.2, -189.9) through the doorway to (115.0, 1.1, -192.2)
+[autotest] shot A:/Python/aetherion-project/work/lemondev/r6/gates/fixes/36_door_pushed.png
+[autotest] PASS door_push_swings: leaf at 52 deg, shoved 35 deg by a running player (swinging on its own afterwards true), now 78 deg
+[autotest] PASS door_latches_shut: angle 0.000, solid true
+[autotest] shot A:/Python/aetherion-project/work/lemondev/r6/gates/fixes/37_vault_through_window.png
+[autotest] PASS vault_through_window: 6 of 6 windows vaulted through; []
+[autotest] PASS vault_hides_weapon: gun lowered while vaulting true, back up after true
+[autotest] PASS trash_no_block: trashbag: blocks movement false, stops bullets false; 562 garbage heaps placed without collision
+[autotest] shot A:/Python/aetherion-project/work/lemondev/r6/gates/fixes/38_weapon_pistol_9.png
+[autotest] shot A:/Python/aetherion-project/work/lemondev/r6/gates/fixes/39_weapon_rifle_scar.png
+[autotest] shot A:/Python/aetherion-project/work/lemondev/r6/gates/fixes/40_weapon_smg_vector.png
+[autotest] shot A:/Python/aetherion-project/work/lemondev/r6/gates/fixes/41_weapon_pistol_deagle.png
+[autotest] weapons: P92 3 shots, view +3.8 deg, reload ok; P1911 3 shots, view +6.3 deg, reload ok; R1895 Revolver 3 shots, view +8.2 deg, reload ok; S1897 Pump 3 shots, view +14.0 deg, reload ok; MP5K 7 shots, view +5.8 deg, reload ok; Micro UZI 6 shots, view +5.8 deg, reload ok; AR-15 7 shots, view +11.5 deg, reload ok; AKM 5 shots, view +10.5 deg, reload ok; M24 3 shots, view +9.4 deg, reload ok; S686 2 shots, view +10.8 deg, reload ok; Sumpak 1 shots, view +5.1 deg, reload ok; SLR 3 shots, view +6.8 deg, reload ok; SCAR-L 6 shots, view +8.3 deg, reload ok; M416 6 shots, view +6.9 deg, reload ok; M249 7 shots, view +7.4 deg, reload ok; Mini 14 3 shots, view +4.3 deg, reload ok; Beryl M762 6 shots, view +14.8 deg, reload ok; SKS 3 shots, view +5.3 deg, reload ok; Kar98k 3 shots, view +10.2 deg, reload ok; UMP45 6 shots, view +4.7 deg, reload ok; Vector 9 shots, view +7.1 deg, reload ok; Tommy Gun 6 shots, view +5.3 deg, reload ok; S12K 3 shots, view +12.5 deg, reload ok; Deagle 3 shots, view +10.2 deg, reload ok
+[autotest] PASS all_weapons_work: 24 guns tested; problems: []
+[autotest] PASS shared_calibres: by calibre: { "9x19": ["P92", "MP5K", "Micro UZI", "Vector"], "45acp": ["P1911", "UMP45", "Tommy Gun"], "357": ["R1895 Revolver"], "12buck": ["S1897 Pump", "S686", "Sumpak", "S12K"], "556": ["AR-15", "SCAR-L", "M416", "M249", "Mini 14"], "762x39": ["AKM", "Beryl M762", "SKS"], "308": ["M24", "SLR", "Kar98k"], "50ae": ["Deagle"] }
+[autotest] PASS frag_grenade: thrown true, frags left 1, teammate 2 m away 100 -> 17 health, exploded at (105.2, 1.0, -177.4)
+[autotest] FAIL work_sounds_used: 35 work/sounds files in use; unused ["assets/audio/work/guns/dirt_hit1.mp3", "assets/audio/work/guns/dirt_hit2.mp3", "assets/audio/work/guns/metal_hit1.mp3", "assets/audio/work/guns/metal_hit2.mp3", "assets/audio/work/guns/metal_hit3.mp3", "assets/audio/work/guns/wall_hit1.mp3", "assets/audio/work/guns/wall_hit2.mp3", "assets/audio/work/guns/wall_hit3.mp3", "assets/audio/work/guns/wall_hit4.mp3", "assets/audio/work/guns/wood_hit1.mp3", "assets/audio/work/guns/wood_hit2.mp3"]; not loading []
+[autotest] PASS door_sounds_60: door open -6.4 dB (was -2.0), door close -4.4 dB (was 0.0), ambience default 60%
+[autotest] done: 26 checks, 2 failed
+ERROR: 1 RID allocations of type 'N10RendererRD5SkyRD3SkyE' were leaked at exit.
+ERROR: 1 RID allocations of type 'N26RendererEnvironmentStorage11EnvironmentE' were leaked at exit.
+ERROR: 211 RID allocations of type 'N10RendererRD11MeshStorage4MeshE' were leaked at exit.
+ERROR: 1759 RID allocations of type 'N10RendererRD15MaterialStorage8MaterialE' were leaked at exit.
+ERROR: 37 RID allocations of type 'N10RendererRD15MaterialStorage6ShaderE' were leaked at exit.
+ERROR: 861 RID allocations of type 'N10RendererRD14TextureStorage7TextureE' were leaked at exit.

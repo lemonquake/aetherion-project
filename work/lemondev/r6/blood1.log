@@ -1,0 +1,21 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+Vulkan 1.4.329 - Forward+ - Using Device #0: NVIDIA - NVIDIA GeForce RTX 4060
+
+[lagusan] { "segments": 123, "metres": 1910.45543050766, "lights": 258, "dead": 23, "gaps": 109, "shrines": 18, "walks": 23 }
+[looban] { "loobans": 20, "crate_stacks": 60, "low_walls": 243, "sandbags": 10, "kiosks": 20, "barricades": 10, "yard_walls": 100, &"vacant": 80 }
+[dress] { "poles": 989, "wires": 5598, "laundry": 452, "clutter": 1024, "props": 2116, "tags": 0, "puddles": 170, "plants": 1147, "vehicles": 71, "floating": 14, "loot": 462, "boxes": 27 }
+[vandal] { "wall": 1415, "covered": 441, "stains": 3509, "ground": 870, "spots": 10 }
+[world] map built in 33683 ms
+[map] 2216 buildings, 4146 doors, 10390 containers, 11250 props, #49929ca0 on PC
+[game] autotest r6
+[autotest] FAIL sounds_complete: 71 sounds needed by impacts, guns, reload steps and bodies; missing ["impact_metal_sheet", "impact_tile", "impact_flesh_head", "shell_drop", "bodyfall", "mag_out_pistol", "mag_in_pistol", "mag_pouch", "charge_back", "charge_release", "slide_back", "slide_release", "bolt_up", "bolt_back", "bolt_fwd", "bolt_down", "clip_in", "pump_back", "pump_fwd", "shell_insert", "cylinder_open", "cylinder_close", "round_insert", "cylinder_click", "break_open", "break_close", "shell_eject", "pipe_slide", "weapon_draw"]; unloadable files []
+[autotest] FAIL impact_variety: impact sets with fewer than 3 takes: ["impact_water"]
+[autotest] PASS walk_bob_halved: camera sway over 1.5 s of walking: 0.030 m up/down, 0.018 m side to side (old peak-to-peak 0.050 / 0.036)
+[autotest] FAIL blood_spatter_visible: no bot to shoot
+[autotest] done: 4 checks, 3 failed
+ERROR: 1 RID allocations of type 'N10RendererRD5SkyRD3SkyE' were leaked at exit.
+ERROR: 1 RID allocations of type 'N26RendererEnvironmentStorage11EnvironmentE' were leaked at exit.
+ERROR: 207 RID allocations of type 'N10RendererRD11MeshStorage4MeshE' were leaked at exit.
+ERROR: 1735 RID allocations of type 'N10RendererRD15MaterialStorage8MaterialE' were leaked at exit.
+ERROR: 37 RID allocations of type 'N10RendererRD15MaterialStorage6ShaderE' were leaked at exit.
+ERROR: 849 RID allocations of type 'N10RendererRD14TextureStorage7TextureE' were leaked at exit.

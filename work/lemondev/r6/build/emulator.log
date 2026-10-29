@@ -1,0 +1,204 @@
+INFO         | Android emulator version 36.5.11.0 (build_id 15261927) (CL:N/A)
+INFO         | Graphics backend: gfxstream
+INFO         | Found systemPath C:\Users\Lemon PC\AppData\Local\Android\Sdk\system-images/android-36/google_apis_playstore/x86_64/
+WARNING      | Please update the emulator to one that supports the feature(s): VulkanVirtualQueue
+INFO         | IPv4 server found: 10.2.0.1
+INFO         | Ignore IPv6 address: 40fe:5541:7a02:0:a0ec:5541:7a02:0
+INFO         | Ignore IPv6 address: 40fe:5541:7a02:0:a0ec:5541:7a02:0
+INFO         | Ignore IPv6 address: 40fe:5541:7a02:0:a0ec:5541:7a02:0
+INFO         | Guest GLES Driver: Auto (ext controls)
+INFO         | emuglConfig_get_vulkan_hardware_gpu_support_info: Found physical GPU 'NVIDIA GeForce RTX 4060', type: VK_PHYSICAL_DEVICE_TYPE_DISCRETE_GPU, apiVersion: 1.4.329, driverVersion: 596.36
+
+INFO         | emuglConfig_init: vulkan_mode_selected:host gles_mode_selected:host
+INFO         | Checking system compatibility:
+INFO         |   Checking: hasCompatibleHypervisor
+INFO         |      Ok: Hypervisor compatibility to run avd: `aetherion_test` are met
+INFO         |   Checking: hasSufficientSystem
+INFO         |      Ok: System requirements to run avd: `aetherion_test` are met
+INFO         |   Checking: hasSufficientHwGpu
+INFO         |      Ok: Hardware GPU requirements to run avd: `aetherion_test` are passed
+INFO         |   Checking: hasSufficientDiskSpace
+INFO         |      Ok: Disk space requirements to run avd: `aetherion_test` are met
+INFO         | Critical: Failed to load opengl32sw (The specified module could not be found.) (:0, )
+INFO         | Warning: Software OpenGL failed. Falling back to system OpenGL. (:0, )
+INFO         | Storing crashdata in: C:\Users\LEMONP~1\AppData\Local\Temp\\AndroidEmulator\emu-crash-36.5.11.db, detection is enabled for process: 21580
+INFO         | Initializing gfxstream backend
+INFO         | android_startOpenglesRenderer: gpu info
+INFO         | GPU #1
+  Make: 10de
+  Model: NVIDIA GeForce RTX 4060
+  Device ID: 2882
+
+INFO         | SharedLibrary::open for [C:\Users\Lemon PC\AppData\Local\Android\Sdk\emulator\qemu\windows-x86_64\lib64\vulkan\vulkan-1.dll]
+INFO         | SharedLibrary::open for [C:\Users\Lemon PC\AppData\Local\Android\Sdk\emulator\lib64\vulkan\vulkan-1.dll]
+INFO         | Added library: C:\Users\Lemon PC\AppData\Local\Android\Sdk\emulator\lib64\vulkan\vulkan-1.dll
+INFO         | Selecting Vulkan device: NVIDIA GeForce RTX 4060, Version: 1.4.329
+INFO         | Initializing VkEmulation features:
+INFO         |     glInteropSupported: true
+INFO         |     useDeferredCommands: true
+INFO         |     createResourceWithRequirements: true
+INFO         |     useVulkanComposition: false
+INFO         |     useVulkanNativeSwapchain: false
+INFO         |     enable guestRenderDoc: false
+INFO         |     ASTC LDR emulation mode: Gpu
+INFO         |     enable ETC2 emulation: true
+INFO         |     enable Ycbcr emulation: false
+INFO         |     guestVulkanOnly: false
+INFO         |     useDedicatedAllocations: false
+INFO         |     guestVulkanMaxApiVersion: 1.3.0
+INFO         | Graphics Adapter Vendor Google (NVIDIA Corporation)
+INFO         | Graphics Adapter Android Emulator OpenGL ES Translator (NVIDIA GeForce RTX 4060/PCIe/SSE2)
+INFO         | Graphics API Version OpenGL ES 3.0 (4.5.0 NVIDIA 596.36)
+INFO         | Graphics API Extensions GL_OES_EGL_sync GL_OES_EGL_image GL_OES_EGL_image_external GL_OES_depth24 GL_OES_depth32 GL_OES_element_index_uint GL_OES_texture_float GL_OES_texture_float_linear GL_OES_compressed_paletted_texture GL_OES_compressed_ETC1_RGB8_texture GL_OES_depth_texture GL_OES_texture_half_float GL_OES_texture_half_float_linear GL_OES_packed_depth_stencil GL_OES_vertex_half_float GL_OES_texture_npot GL_OES_rgb8_rgba8 GL_OVR_multiview2 GL_EXT_multiview_texture_multisample GL_EXT_color_buffer_float GL_EXT_color_buffer_half_float GL_EXT_texture_format_BGRA8888 GL_APPLE_texture_format_BGRA8888 GL_EXT_texture_buffer 
+INFO         | Graphics Device Extensions N/A
+INFO         | Disabling sparse binding feature support
+INFO         | Sending adb public key [QAAAAEWDG7FzaBBDS3Rw7xWzTorQrl2qP/HHFJQW70cQL2WBeNA9oUBUUvno7N1Q8b6ZsktrmDO+0TS6O3n0/094qtL0js3qnjBIfdceFzUbN2O40ESXDzj+ByTR9hZwe5yA3SIvRv78bsZAb6vEzz8fl82E9X/M68MLurBNsETj6O/SijySTfnpVrc2PrPtNyYqU54dFY249whBtfjtC3pUVr8N3kD4zidrSVGk2oaTPbVHSsYkEGZqdcDMn+o2WSwPMUDZUlAqVh9pJ5swPc5/XZ7kTCGAMqMh2vOnfbTxeY/rp8uqeyhH23h4Lz9MRfiive6kjhG5QWE/gU+OB44t22mY/6u2QPpcWJLA8xzcmPSeyZENiKzCjlUT3NDCOJiICv7et9BxPByH8QNlnAbpVIS76brsAer/CYFhk+ELiDEoP5AUrAxnG55xfOEFKNOxRgE0poZ4maR4IUEY4q309ZSQFlnjjg78lvv9wb4bMmfgGnispDn9OhA6VWI8JaSc2QCOBr8pT3Bd2T4gnSUlznlaRm3jgoIQnXPZK2co2UWsyFutixvpw0OYUBqWJ24sM4doIzzua9Viejie+9P1AxTpfgcalqoyXxOzaXbJFbA7T2fSIAjrXCcliMYJEQ94JwPzwPH5MiVKDs+SUqBbtRaEHKDM7NoziHpv11pbw6dqdQaGgQEAAQA= @unknown]
+INFO         | Userspace boot properties:
+INFO         |   androidboot.boot_devices=pci0000:00/0000:00:03.0 pci0000:00/0000:00:06.0
+INFO         |   androidboot.dalvik.vm.heapsize=576m
+INFO         |   androidboot.debug.hwui.renderer=skiagl
+INFO         |   androidboot.debug.sf.nobootanimation=1
+INFO         |   androidboot.hardware=ranchu
+INFO         |   androidboot.hardware.gltransport=pipe
+INFO         |   androidboot.hardware.vulkan=ranchu
+INFO         |   androidboot.logcat=*:V
+INFO         |   androidboot.opengles.version=196609
+INFO         |   androidboot.qemu=1
+INFO         |   androidboot.qemu.adb.pubkey=QAAAAEWDG7FzaBBDS3Rw7xWzTorQrl2qP/HHFJQW70cQL2WBeNA9oUBUUvno7N1Q8b6ZsktrmDO+0TS6O3n0/094qtL0js3qnjBIfdceFzUbN2O40ESXDzj+ByTR9hZwe5yA3SIvRv78bsZAb6vEzz8fl82E9X/M68MLurBNsETj6O/SijySTfnpVrc2PrPtNyYqU54dFY249whBtfjtC3pUVr8N3kD4zidrSVGk2oaTPbVHSsYkEGZqdcDMn+o2WSwPMUDZUlAqVh9pJ5swPc5/XZ7kTCGAMqMh2vOnfbTxeY/rp8uqeyhH23h4Lz9MRfiive6kjhG5QWE/gU+OB44t22mY/6u2QPpcWJLA8xzcmPSeyZENiKzCjlUT3NDCOJiICv7et9BxPByH8QNlnAbpVIS76brsAer/CYFhk+ELiDEoP5AUrAxnG55xfOEFKNOxRgE0poZ4maR4IUEY4q309ZSQFlnjjg78lvv9wb4bMmfgGnispDn9OhA6VWI8JaSc2QCOBr8pT3Bd2T4gnSUlznlaRm3jgoIQnXPZK2co2UWsyFutixvpw0OYUBqWJ24sM4doIzzua9Viejie+9P1AxTpfgcalqoyXxOzaXbJFbA7T2fSIAjrXCcliMYJEQ94JwPzwPH5MiVKDs+SUqBbtRaEHKDM7NoziHpv11pbw6dqdQaGgQEAAQA= @unknown
+INFO         |   androidboot.qemu.avd_name=aetherion_test
+INFO         |   androidboot.qemu.camera_hq_edge_processing=0
+INFO         |   androidboot.qemu.camera_protocol_ver=1
+INFO         |   androidboot.qemu.cpuvulkan.version=4202496
+INFO         |   androidboot.qemu.gltransport.drawFlushInterval=800
+INFO         |   androidboot.qemu.gltransport.name=pipe
+INFO         |   androidboot.qemu.hwcodec.avcdec=2
+INFO         |   androidboot.qemu.hwcodec.hevcdec=2
+INFO         |   androidboot.qemu.hwcodec.vpxdec=2
+INFO         |   androidboot.qemu.settings.system.screen_off_timeout=2147483647
+INFO         |   androidboot.qemu.skin=1080x2400
+INFO         |   androidboot.qemu.virtiowifi=1
+INFO         |   androidboot.qemu.vsync=60
+INFO         |   androidboot.serialno=EMULATOR36X5X11X0
+INFO         |   androidboot.vbmeta.digest=43d61dbc053c8dbf3adaff951e5bdfcf174ece9dd24ffe8e6120f951cb412b2a
+INFO         |   androidboot.vbmeta.hash_alg=sha256
+INFO         |   androidboot.vbmeta.size=6784
+INFO         |   androidboot.veritymode=enforcing
+WHPX on Windows 10.0.19045 detected.
+Windows Hypervisor Platform accelerator is operational
+netsimd I 10-28 12:04:07.518 external/netsim+/rust/daemon/src\rust_main.rs:100 - netsim artifacts path: "C:\\Users\\LEMONP~1\\AppData\\Local\\Temp\\netsimd"
+netsimd I 10-28 12:04:07.520 external/netsim+/rust/daemon/src\rust_main.rs:103 - NetsimdArgs {
+    fd_startup_str: None,
+    no_cli_ui: true,
+    no_web_ui: true,
+    pcap: false,
+    disable_address_reuse: false,
+    hci_port: None,
+    connector_instance: None,
+    instance: None,
+    logtostderr: false,
+    dev: false,
+    forward_host_mdns: false,
+    vsock: None,
+    config: None,
+    host_dns: Some(
+        "10.2.0.1",
+    ),
+    http_proxy: None,
+    wifi_tap: None,
+    wifi: None,
+    test_beacons: false,
+    no_test_beacons: false,
+    no_shutdown: false,
+    verbose: false,
+    version: false,
+    debug: DebugArgs {
+        debug_no_traffic: false,
+        debug_no_network: false,
+        debug_no_wmedium: false,
+        debug_no_mdns_wmedium: false,
+        debug_no_guest_to_host_mdns: false,
+    },
+    rssi: None,
+}
+pc_memory_init: above 4g size: 40000000
+INFO         | Monitoring duration of emulator setup.
+INFO         | Activated packet streamer for bluetooth emulation
+INFO         | Activated packet streamer for uwb emulation
+INFO         | Successfully initialized netsim WiFi
+INFO         | Setting display: 0 configuration to: 1080x2400, dpi: 420x420 
+INFO         | setDisplayActiveConfig: id:0, 1080x2400
+INFO         | emulatorSetupEnvironment: Setting up screen background view and display layout at env:1080x2400, lcd:1080x2400
+WARNING      | getEnvironmentConfig: No environment config is provided
+INFO         | getEnvironmentConfig: Using default virtual scene contents for the environment.
+INFO         | Checking system compatibility:
+INFO         |   Checking: hasCompatibleHypervisor
+INFO         |      Ok: Hypervisor compatibility to run avd: `aetherion_test` are met
+INFO         |   Checking: hasSufficientSystem
+INFO         |      Ok: System requirements to run avd: `aetherion_test` are met
+INFO         |   Checking: hasSufficientHwGpu
+INFO         |      Ok: Hardware GPU requirements to run avd: `aetherion_test` are passed
+INFO         |   Checking: hasSufficientDiskSpace
+INFO         |      Ok: Disk space requirements to run avd: `aetherion_test` are met
+INFO         | Loading snapshot 'default_boot'...
+ERROR        | The snapshot requires the feature: 117, which the emulator does not support
+WARNING      | Error -1 from the snapshot callback
+
+WARNING      | Failed to load snapshot 'default_boot'
+USER_INFO    | The emulator is starting from scratch. Reason: different emulator features
+INFO         | Warning: QMetaObject::connectSlotsByName: No matching signal for on_rgbcSensorValueWidget_valueChanged() (:0, )
+INFO         | Warning: QMetaObject::connectSlotsByName: No matching signal for on_posture_valueChanged(int) (:0, )
+INFO         | Warning: QObject::connect: Cannot queue arguments of type 'std::vector<android::emulation::control::SnapshotInfo>'
+(Make sure 'std::vector<android::emulation::control::SnapshotInfo>' is registered using qRegisterMetaType().) (:0, )
+INFO         | AVD supportsNativeGLES=1, supportsGuestAngle=1
+INFO         | Guest Angle is still unstable for API > 35.
+INFO         | Warning: QObject::connect: No such signal ToolWindow::microphoneEnabledChanged() in C:/buildbot/src/googleplex-android/emu-36-5-release/external/qemu/android/android-ui/modules/aemu-ui-qt/src/android/skin/qt/extended-window.cpp:160 (:0, )
+INFO         | Warning: QObject::connect:  (sender name:   'ToolControls') (:0, )
+INFO         | Warning: QObject::connect:  (receiver name: 'microphonePage') (:0, )
+INFO         | Warning: QObject::connect: No such signal MicrophonePage::microphoneEnabledChanged() in C:/buildbot/src/googleplex-android/emu-36-5-release/external/qemu/android/android-ui/modules/aemu-ui-qt/src/android/skin/qt/extended-window.cpp:162 (:0, )
+INFO         | Warning: QObject::connect:  (sender name:   'microphonePage') (:0, )
+INFO         | Warning: QObject::connect:  (receiver name: 'ToolControls') (:0, )
+INFO         | Created extended window in 969.803ms
+WARNING      | adb command 'C:\Users\Lemon PC\AppData\Local\Android\Sdk\platform-tools\adb.exe -s emulator-5562 shell getprop sys.boot_completed ' failed: 'adb.exe: device offline'
+WARNING      | adb command 'C:\Users\Lemon PC\AppData\Local\Android\Sdk\platform-tools\adb.exe -s emulator-5562 shell getprop sys.boot_completed ' failed: 'adb.exe: device offline'
+INFO         | Critical: UpdateLayeredWindowIndirect failed for ptDst=(144, 131), size=(300x21), dirty=(300x21 0, 0) (A device attached to the system is not functioning.) (:0, )
+INFO         | Boot completed in 37005 ms
+INFO         | Increasing screen off timeout, logcat buffer size to 2M.
+INFO         | IPv4 server found: 10.2.0.1
+INFO         | Ignore IPv6 address: c0da:cacf:7b02:0:20c9:cacf:7b02:0
+INFO         | Ignore IPv6 address: c0da:cacf:7b02:0:20c9:cacf:7b02:0
+INFO         | Ignore IPv6 address: c0da:cacf:7b02:0:20c9:cacf:7b02:0
+INFO         | IPv4 server found: 10.2.0.1
+INFO         | Ignore IPv6 address: c0da:cacf:7b02:0:20c9:cacf:7b02:0
+INFO         | Ignore IPv6 address: c0da:cacf:7b02:0:20c9:cacf:7b02:0
+INFO         | Ignore IPv6 address: c0da:cacf:7b02:0:20c9:cacf:7b02:0
+INFO         | IPv4 server found: 10.2.0.1
+INFO         | Ignore IPv6 address: c0da:cacf:7b02:0:20c9:cacf:7b02:0
+INFO         | Ignore IPv6 address: c0da:cacf:7b02:0:20c9:cacf:7b02:0
+INFO         | Ignore IPv6 address: c0da:cacf:7b02:0:20c9:cacf:7b02:0
+WARNING      | adb command 'C:\Users\Lemon PC\AppData\Local\Android\Sdk\platform-tools\adb.exe -s emulator-5562 shell dumpsys package com.google.android.gms ' failed: ''
+ERROR        | Unable to connect to adb daemon on port: 5037
+WARNING      | adb command 'C:\Users\Lemon PC\AppData\Local\Android\Sdk\platform-tools\adb.exe -s emulator-5562 shell dumpsys package com.google.android.gms ' failed: '* daemon not running; starting now at tcp:5037
+* daemon started successfully
+adb.exe: device 'emulator-5562' not found'
+ERROR        | Unable to connect to adb daemon on port: 5037
+WARNING      | adb command 'C:\Users\Lemon PC\AppData\Local\Android\Sdk\platform-tools\adb.exe -s emulator-5562 shell dumpsys package com.google.android.gms ' failed: '* daemon not running; starting now at tcp:5037
+* daemon started successfully
+adb.exe: device 'emulator-5562' not found'
+ERROR        | Unable to connect to adb daemon on port: 5037
+WARNING      | adb command 'C:\Users\Lemon PC\AppData\Local\Android\Sdk\platform-tools\adb.exe -s emulator-5562 shell dumpsys package com.google.android.gms ' failed: '* daemon not running; starting now at tcp:5037
+* daemon started successfully
+adb.exe: device 'emulator-5562' not found'
+ERROR        | Unable to connect to adb daemon on port: 5037
+WARNING      | adb command 'C:\Users\Lemon PC\AppData\Local\Android\Sdk\platform-tools\adb.exe -s emulator-5562 shell dumpsys package com.google.android.gms ' failed: '* daemon not running; starting now at tcp:5037
+* daemon started successfully
+adb.exe: device 'emulator-5562' not found'
+ERROR        | Unable to connect to adb daemon on port: 5037
+WARNING      | adb command 'C:\Users\Lemon PC\AppData\Local\Android\Sdk\platform-tools\adb.exe -s emulator-5562 shell dumpsys package com.google.android.gms ' failed: 'adb.exe: device 'emulator-5562' not found'
+INFO         | Wait for emulator (pid 21580) 20 seconds to shutdown gracefully before kill;you can set environment variable ANDROID_EMULATOR_WAIT_TIME_BEFORE_KILL(in seconds) to change the default value (20 seconds)
+
+WARNING      | Not saving state: RAM not mapped as shared
+INFO         | Saving snapshot 'default_boot' using 4 ms
+INFO         | Wait for emulator (pid 21580) 20 seconds to shutdown gracefully before kill;you can set environment variable ANDROID_EMULATOR_WAIT_TIME_BEFORE_KILL(in seconds) to change the default value (20 seconds)
+
+WARNING      | Emulator client has not yet been configured.. Call configure me first!
+WARNING      | Netsim Wifi localhost:63601 is gone due to CANCELLED

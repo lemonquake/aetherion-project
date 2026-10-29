@@ -1,0 +1,51 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+Vulkan 1.4.329 - Forward+ - Using Device #0: NVIDIA - NVIDIA GeForce RTX 4060
+
+[lagusan] { "segments": 123, "metres": 1910.45543050766, "lights": 258, "dead": 23, "gaps": 109, "shrines": 18, "walks": 23 }
+[looban] { "loobans": 20, "crate_stacks": 60, "low_walls": 243, "sandbags": 10, "kiosks": 20, "barricades": 10, "yard_walls": 100, &"vacant": 80 }
+[dress] { "poles": 989, "wires": 5598, "laundry": 452, "clutter": 1024, "props": 2116, "tags": 0, "puddles": 170, "plants": 1147, "vehicles": 71, "floating": 14, "loot": 462, "boxes": 27 }
+[vandal] { "wall": 1415, "covered": 441, "stains": 3509, "ground": 870, "spots": 10 }
+[world] map built in 32433 ms
+[map] 2216 buildings, 4146 doors, 10390 containers, 11250 props, #49929ca0 on PC
+[game] autotest r6
+[autotest] shot A:/Python/aetherion-project/work/lemondev/r6/gates2/r6d/01_plane.png
+[autotest] PASS jump: left the plane
+[autotest] shot A:/Python/aetherion-project/work/lemondev/r6/gates2/r6d/02_freefall.png
+[autotest] PASS view_tier_freefall: tier 2 at 264 m above ground, interiors hidden, AO false, local shadows 0
+[autotest] PASS team_cluster: 3 teammates, farthest 28.0 m at canopy
+[autotest] shot A:/Python/aetherion-project/work/lemondev/r6/gates2/r6d/03_canopy_team.png
+[autotest] PASS landed: mode 3, health 85 at (90.0, 1.0, -272.0)
+[autotest] PASS view_tier_ground: tier 0 at 2 m above ground, interiors drawn, AO true, local shadows 8
+[autotest] shot A:/Python/aetherion-project/work/lemondev/r6/gates2/r6d/04_landed.png
+[autotest] PASS sounds_complete: 71 sounds needed by impacts, guns, reload steps and bodies; missing []; unloadable files []
+[autotest] PASS impact_variety: impact sets with fewer than 3 takes: []
+[r6] bob: flat spot true, at (89.79664, 0.859732, -277.73), mode 3, floor true
+[r6] bob: walked to (89.79165, 0.840463, -286.4712), speed 4.40
+[autotest] PASS walk_bob_halved: camera sway over 1.5 s of walking: 0.028 m up/down, 0.018 m side to side (old peak-to-peak 0.050 / 0.036)
+[autotest] PASS reload_step_sounds: rifle_m416: mag_out@536 mag_pouch@1019 mag_in@1686 charge_back@2187 charge_release@2359; pistol_9: mag_out_pistol@289 mag_pouch@837 mag_in_pistol@1472 slide_back@1820 slide_release@1904; shotgun_pump: mag_pouch@438 shell_insert@837 shell_insert@1355 shell_insert@1871 shell_insert@2388 shell_insert@2906 shell_insert@3434 shell_insert@3938 pump_back@4438 pump_fwd@4539; bolt_kar98: bolt_up@482 bolt_back@715 mag_pouch@1232 clip_in@2048 round_insert@2282 bolt_fwd@2731 bolt_down@2898
+[r6] bot reload: state 0 -> 2, weapon rifle_m416, mag 0, timer 3.00
+[autotest] PASS bot_reload_heard: steps heard from a bot 2.5 m away: ["mag_out", "mag_pouch", "mag_in", "charge_back", "charge_release"]
+[autotest] shot A:/Python/aetherion-project/work/lemondev/r6/gates2/r6d/05_smartab_up.png
+[autotest] PASS smartab_size: screen 583x550 px = 61% of the view height; smallest text about 15 px tall (was ~7 px on a 900 px window)
+[autotest] PASS smartab_no_hands_on_screen: 0 pixels of the screen change when the arms are hidden (worst 0.02 luma)
+[autotest] shot A:/Python/aetherion-project/work/lemondev/r6/gates2/r6d/06_blood_before.png
+[autotest] shot A:/Python/aetherion-project/work/lemondev/r6/gates2/r6d/07_blood_on_hit.png
+[autotest] shot A:/Python/aetherion-project/work/lemondev/r6/gates2/r6d/08_blood_after.png
+[r6] victim (87.84012, 1.396434, -290.5415), camera (87.84851, 3.123598, -293.6961); of the last 64 marks 59 within 4 m of the victim, 0 on moving objects; first: [[(87.78385, 2.511596, -289.6415), 1, 0.05157082155347, false], [(87.90156, 2.144174, -289.6415), 3, 0.05399279296398, false], [(87.74899, 1.461336, -291.7866), 0, 0.03761704266071, false], [(88.0009, 1.4684, -291.9507), 0, 0.0253260396421, false], [(87.8678, 1.469326, -292.1992), 2, 0.04749377071857, false], [(87.7527, 1.451354, -291.5863), 2, 0.04640452563763, false]]
+[autotest] PASS blood_spatter_visible: 77 blood marks from 3 hits; 1864 pixels turned blood red (0.52% of the view)
+[autotest] PASS blood_on_wall: 892 pixels turned blood red on the wall behind the victim
+[autotest] PASS blood_at_feet: 369 pixels turned blood red on the ground where they stood
+[autotest] PASS blood_drip_trail: 10 drops left by the wounded bot over 3 m in 3 s
+[autotest] shot A:/Python/aetherion-project/work/lemondev/r6/gates2/r6d/09_blood_pool_early.png
+[autotest] shot A:/Python/aetherion-project/work/lemondev/r6/gates2/r6d/10_blood_pool_late.png
+[autotest] PASS blood_pool_spreads: 2 pools under the body; 141 pixels around it turned blood red in the 14 s after it came to rest
+[autotest] shot A:/Python/aetherion-project/work/lemondev/r6/gates2/r6d/11_blood_corpse_shot.png
+[autotest] PASS blood_corpse_hit: 71 new marks from 2 rounds into the body on the ground
+[autotest] PASS blood_cost: 0.61 ms per hit's spray (mean of 20), 539 marks alive in 3 draw sets (budget 1400)
+[autotest] done: 19 checks, 0 failed
+ERROR: 1 RID allocations of type 'N10RendererRD5SkyRD3SkyE' were leaked at exit.
+ERROR: 1 RID allocations of type 'N26RendererEnvironmentStorage11EnvironmentE' were leaked at exit.
+ERROR: 209 RID allocations of type 'N10RendererRD11MeshStorage4MeshE' were leaked at exit.
+ERROR: 1838 RID allocations of type 'N10RendererRD15MaterialStorage8MaterialE' were leaked at exit.
+ERROR: 35 RID allocations of type 'N10RendererRD15MaterialStorage6ShaderE' were leaked at exit.
+ERROR: 855 RID allocations of type 'N10RendererRD14TextureStorage7TextureE' were leaked at exit.

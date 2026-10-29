@@ -1,0 +1,82 @@
+[
+  [
+    "jump",
+    true,
+    "left the plane"
+  ],
+  [
+    "view_tier_freefall",
+    true,
+    "tier 2 at 265 m above ground, interiors hidden, AO false, local shadows 0"
+  ],
+  [
+    "team_cluster",
+    true,
+    "3 teammates, farthest 39.9 m at canopy"
+  ],
+  [
+    "landed",
+    true,
+    "mode 3, health 85 at (150.0, 2.0, -298.0)"
+  ],
+  [
+    "view_tier_ground",
+    true,
+    "tier 0 at 2 m above ground, interiors drawn, AO true, local shadows 8"
+  ],
+  [
+    "sounds_complete",
+    true,
+    "71 sounds needed by impacts, guns, reload steps and bodies; missing []; unloadable files []"
+  ],
+  [
+    "impact_variety",
+    true,
+    "impact sets with fewer than 3 takes: []"
+  ],
+  [
+    "walk_bob_halved",
+    false,
+    "camera sway over 1.5 s of walking: 0.055 m up/down, 0.021 m side to side (old peak-to-peak 0.050 / 0.036)"
+  ],
+  [
+    "reload_step_sounds",
+    true,
+    "rifle_m416: mag_out@537 mag_pouch@1020 mag_in@1686 charge_back@2186 charge_release@2354; pistol_9: mag_out_pistol@287 mag_pouch@837 mag_in_pistol@1470 slide_back@1820 slide_release@1904; shotgun_pump: mag_pouch@421 shell_insert@823 shell_insert@1337 shell_insert@1871 shell_insert@2410 shell_insert@2907 shell_insert@3423 shell_insert@3939 pump_back@4439 pump_fwd@4540; bolt_kar98: bolt_up@478 bolt_back@712 mag_pouch@1230 clip_in@2045 round_insert@2281 bolt_fwd@2730 bolt_down@2895"
+  ],
+  [
+    "bot_reload_heard",
+    true,
+    "steps heard from a bot 2.5 m away: [\"mag_out\", \"mag_pouch\", \"mag_in\", \"charge_back\", \"charge_release\"]"
+  ],
+  [
+    "blood_spatter_visible",
+    true,
+    "77 blood marks from 3 hits; blood-red pixels in the frame 9650 -> 10928 (+0.35% of the view)"
+  ],
+  [
+    "blood_on_wall",
+    true,
+    "red pixels on the wall behind the victim 0 -> 889"
+  ],
+  [
+    "blood_at_feet",
+    true,
+    "red pixels on the ground where they stood 0 -> 244"
+  ],
+  [
+    "blood_drip_trail",
+    true,
+    "the shot bot is marked as bleeding (drips as it moves)"
+  ],
+  [
+    "blood_pool_spreads",
+    true,
+    "2 pools under the body; red pixels around it 997 at rest -> 1214 14 s later"
+  ],
+  [
+    "blood_corpse_hit",
+    true,
+    "72 new marks from 2 rounds into the body on the ground"
+  ]
+]

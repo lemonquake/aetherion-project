@@ -1,0 +1,57 @@
+[
+  [
+    "jump",
+    true,
+    "left the plane"
+  ],
+  [
+    "view_tier_freefall",
+    true,
+    "tier 2 at 266 m above ground, interiors hidden, AO false, local shadows 0"
+  ],
+  [
+    "team_cluster",
+    true,
+    "3 teammates, farthest 37.8 m at canopy"
+  ],
+  [
+    "landed",
+    true,
+    "mode 3, health 100 at (47.0, 1.0, -206.0)"
+  ],
+  [
+    "view_tier_ground",
+    true,
+    "tier 0 at 2 m above ground, interiors drawn, AO true, local shadows 8"
+  ],
+  [
+    "holes_wall",
+    false,
+    "3 holes on wood; the most-changed hole spot differs by 1.0 luma from before the shots, once the dust settled"
+  ],
+  [
+    "impact_particles",
+    true,
+    "6 particle bursts; the frame with the dust flying differs from the settled one by 41.6 luma (holes are in both)"
+  ],
+  [
+    "chunks_cut",
+    true,
+    "bench_paint cut into 18 chunks (grid (3, 3, 2)) in 3.9 ms"
+  ],
+  [
+    "chunks_prop",
+    true,
+    "bench_paint: chunks left after each of 5 shots [17, 16, 15, 14, 0]; collapsed"
+  ],
+  [
+    "casings",
+    true,
+    "4 casings and 4 muzzle smoke puffs from a burst"
+  ],
+  [
+    "suppression",
+    false,
+    "a supersonic round passing 0.8 m away darkened the view edges to 0.00"
+  ]
+]

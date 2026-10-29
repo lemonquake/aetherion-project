@@ -1,0 +1,38 @@
+WARNING: [Physics interpolation] MultiMesh interpolation is being triggered from outside physics process, this might lead to issues (possibly benign).
+   at: multimesh_instance_set_transform (servers/rendering/storage/mesh_storage.cpp:107)
+   GDScript backtrace (most recent call first):
+       [0] set_leaf_transform (res://src/world/dynamics.gd:504)
+       [1] _apply (res://src/world/door.gd:142)
+       [2] reset_state (res://src/world/door.gd:125)
+       [3] randomize_for_match (res://src/world/dynamics.gd:736)
+       [4] build (res://src/world/map_builder.gd:137)
+       [5] build (res://src/match/world.gd:74)
+       [6] _load_match (res://src/core/game.gd:230)
+       [7] start_match (res://src/core/game.gd:217)
+       [8] _autostart (res://src/core/game.gd:143)
+ERROR: 34 shaders of type SceneForwardClusteredShaderRD were never freed
+   at: ~ShaderRD (servers/rendering/renderer_rd/shader_rd.cpp:1236)
+ERROR: 1 shaders of type SkyShaderRD were never freed
+   at: ~ShaderRD (servers/rendering/renderer_rd/shader_rd.cpp:1236)
+WARNING: 1713 RIDs of type "UniformBuffer" were leaked.
+   at: _free_rids (servers/rendering/rendering_device.cpp:8686)
+WARNING: 1804 RIDs of type "IndexArray" were leaked.
+   at: _free_rids (servers/rendering/rendering_device.cpp:8686)
+WARNING: 1804 RIDs of type "IndexBuffer" were leaked.
+   at: _free_rids (servers/rendering/rendering_device.cpp:8686)
+WARNING: 721 RIDs of type "VertexArray" were leaked.
+   at: _free_rids (servers/rendering/rendering_device.cpp:8686)
+WARNING: 1060 RIDs of type "VertexBuffer" were leaked.
+   at: _free_rids (servers/rendering/rendering_device.cpp:8686)
+WARNING: 48 RIDs of type "Framebuffer" were leaked.
+   at: _free_rids (servers/rendering/rendering_device.cpp:8686)
+WARNING: 1627 RIDs of type "Texture" were leaked.
+   at: finalize (servers/rendering/rendering_device.cpp:8900)
+WARNING: 22779 ObjectDB instances were leaked at exit (run with `--verbose` for details).
+   at: cleanup (core/object/object.cpp:2536)
+ERROR: 1262 resources still in use at exit (run with --verbose for details).
+   at: clear (core/io/resource.cpp:822)
+ERROR: Pages in use exist at exit in PagedAllocator: N12VariantPools12BucketMediumE
+   at: ~PagedAllocator (./core/templates/paged_allocator.h:170)
+ERROR: Pages in use exist at exit in PagedAllocator: N12VariantPools11BucketSmallE
+   at: ~PagedAllocator (./core/templates/paged_allocator.h:170)

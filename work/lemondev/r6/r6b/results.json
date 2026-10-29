@@ -1,0 +1,47 @@
+[
+  [
+    "walk_bob_halved",
+    true,
+    "camera sway over 1.5 s of walking: 0.032 m up/down, 0.018 m side to side (old peak-to-peak 0.050 / 0.036)"
+  ],
+  [
+    "reload_step_sounds",
+    true,
+    "rifle_m416: mag_out@533 mag_pouch@1016 mag_in@1683 charge_back@2183 charge_release@2350; pistol_9: mag_out_pistol@286 mag_pouch@837 mag_in_pistol@1471 slide_back@1820 slide_release@1904; shotgun_pump: mag_pouch@436 shell_insert@836 shell_insert@1352 shell_insert@1869 shell_insert@2386 shell_insert@2902 shell_insert@3419 shell_insert@3936 pump_back@4436 pump_fwd@4537; bolt_kar98: bolt_up@484 bolt_back@717 mag_pouch@1234 clip_in@2050 round_insert@2284 bolt_fwd@2734 bolt_down@2902"
+  ],
+  [
+    "bot_reload_heard",
+    false,
+    "steps heard from a bot 2.5 m away: []"
+  ],
+  [
+    "blood_spatter_visible",
+    false,
+    "78 blood marks from 3 hits; blood-red pixels in the frame 16880 -> 17095 (+0.06% of the view)"
+  ],
+  [
+    "blood_on_wall",
+    false,
+    "red pixels on the wall behind the victim 0 -> 0"
+  ],
+  [
+    "blood_at_feet",
+    false,
+    "red pixels on the ground where they stood 0 -> 0"
+  ],
+  [
+    "blood_drip_trail",
+    true,
+    "the shot bot is marked as bleeding (drips as it moves)"
+  ],
+  [
+    "blood_pool_spreads",
+    false,
+    "2 pools under the body; red pixels around it 60 at rest -> 62 14 s later"
+  ],
+  [
+    "blood_corpse_hit",
+    true,
+    "110 new marks from 2 rounds into the body on the ground"
+  ]
+]

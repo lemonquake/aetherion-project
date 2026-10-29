@@ -1,0 +1,12 @@
+[
+  [
+    "smartab_size",
+    true,
+    "screen 582x550 px = 61% of the view height; smallest text about 15 px tall (was ~7 px on a 900 px window)"
+  ],
+  [
+    "smartab_no_hands_on_screen",
+    false,
+    "68 pixels of the screen change when the arms are hidden (worst 0.56 luma)"
+  ]
+]

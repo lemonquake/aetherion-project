@@ -1,0 +1,30 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+Vulkan 1.4.329 - Forward+ - Using Device #0: NVIDIA - NVIDIA GeForce RTX 4060
+
+[lagusan] { "segments": 123, "metres": 1910.45543050766, "lights": 258, "dead": 23, "gaps": 109, "shrines": 18, "walks": 23 }
+[looban] { "loobans": 20, "crate_stacks": 60, "low_walls": 243, "sandbags": 10, "kiosks": 20, "barricades": 10, "yard_walls": 100, &"vacant": 80 }
+[dress] { "poles": 989, "wires": 5598, "laundry": 452, "clutter": 1024, "props": 2116, "tags": 0, "puddles": 170, "plants": 1147, "vehicles": 71, "floating": 14, "loot": 462, "boxes": 27 }
+[vandal] { "wall": 1415, "covered": 441, "stains": 3509, "ground": 870, "spots": 10 }
+[world] map built in 28873 ms
+[map] 2216 buildings, 4146 doors, 10390 containers, 11250 props, #49929ca0 on PC
+[game] autotest fixes
+[autotest] shot A:/Python/aetherion-project/work/lemondev/r6/gates2/fixes_grab/01_plane.png
+[autotest] PASS jump: left the plane
+[autotest] shot A:/Python/aetherion-project/work/lemondev/r6/gates2/fixes_grab/02_freefall.png
+[autotest] PASS view_tier_freefall: tier 2 at 264 m above ground, interiors hidden, AO false, local shadows 0
+[autotest] PASS team_cluster: 3 teammates, farthest 34.6 m at canopy
+[autotest] shot A:/Python/aetherion-project/work/lemondev/r6/gates2/fixes_grab/03_canopy_team.png
+[autotest] PASS landed: mode 3, health 85 at (-63.0, 8.0, 97.0)
+[autotest] PASS view_tier_ground: tier 0 at 9 m above ground, interiors drawn, AO true, local shadows 8
+[autotest] shot A:/Python/aetherion-project/work/lemondev/r6/gates2/fixes_grab/04_landed.png
+[autotest] shot A:/Python/aetherion-project/work/lemondev/r6/gates2/fixes_grab/05_grab_holding_boots.png
+[autotest] PASS grab_with_t: boots: prompt 'T  Pick up', after E held -1, after T held true, after second T dropped true
+[autotest] PASS work_sounds_used: 46 work/sounds files in use; unused []; not loading []
+[autotest] PASS door_sounds_60: door open -6.4 dB (was -2.0), door close -4.4 dB (was 0.0), ambience default 60%
+[autotest] done: 8 checks, 0 failed
+ERROR: 1 RID allocations of type 'N10RendererRD5SkyRD3SkyE' were leaked at exit.
+ERROR: 1 RID allocations of type 'N26RendererEnvironmentStorage11EnvironmentE' were leaked at exit.
+ERROR: 208 RID allocations of type 'N10RendererRD11MeshStorage4MeshE' were leaked at exit.
+ERROR: 1725 RID allocations of type 'N10RendererRD15MaterialStorage8MaterialE' were leaked at exit.
+ERROR: 35 RID allocations of type 'N10RendererRD15MaterialStorage6ShaderE' were leaked at exit.
+ERROR: 850 RID allocations of type 'N10RendererRD14TextureStorage7TextureE' were leaked at exit.

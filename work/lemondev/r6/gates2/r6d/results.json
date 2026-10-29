@@ -1,0 +1,97 @@
+[
+  [
+    "jump",
+    true,
+    "left the plane"
+  ],
+  [
+    "view_tier_freefall",
+    true,
+    "tier 2 at 264 m above ground, interiors hidden, AO false, local shadows 0"
+  ],
+  [
+    "team_cluster",
+    true,
+    "3 teammates, farthest 28.0 m at canopy"
+  ],
+  [
+    "landed",
+    true,
+    "mode 3, health 85 at (90.0, 1.0, -272.0)"
+  ],
+  [
+    "view_tier_ground",
+    true,
+    "tier 0 at 2 m above ground, interiors drawn, AO true, local shadows 8"
+  ],
+  [
+    "sounds_complete",
+    true,
+    "71 sounds needed by impacts, guns, reload steps and bodies; missing []; unloadable files []"
+  ],
+  [
+    "impact_variety",
+    true,
+    "impact sets with fewer than 3 takes: []"
+  ],
+  [
+    "walk_bob_halved",
+    true,
+    "camera sway over 1.5 s of walking: 0.028 m up/down, 0.018 m side to side (old peak-to-peak 0.050 / 0.036)"
+  ],
+  [
+    "reload_step_sounds",
+    true,
+    "rifle_m416: mag_out@536 mag_pouch@1019 mag_in@1686 charge_back@2187 charge_release@2359; pistol_9: mag_out_pistol@289 mag_pouch@837 mag_in_pistol@1472 slide_back@1820 slide_release@1904; shotgun_pump: mag_pouch@438 shell_insert@837 shell_insert@1355 shell_insert@1871 shell_insert@2388 shell_insert@2906 shell_insert@3434 shell_insert@3938 pump_back@4438 pump_fwd@4539; bolt_kar98: bolt_up@482 bolt_back@715 mag_pouch@1232 clip_in@2048 round_insert@2282 bolt_fwd@2731 bolt_down@2898"
+  ],
+  [
+    "bot_reload_heard",
+    true,
+    "steps heard from a bot 2.5 m away: [\"mag_out\", \"mag_pouch\", \"mag_in\", \"charge_back\", \"charge_release\"]"
+  ],
+  [
+    "smartab_size",
+    true,
+    "screen 583x550 px = 61% of the view height; smallest text about 15 px tall (was ~7 px on a 900 px window)"
+  ],
+  [
+    "smartab_no_hands_on_screen",
+    true,
+    "0 pixels of the screen change when the arms are hidden (worst 0.02 luma)"
+  ],
+  [
+    "blood_spatter_visible",
+    true,
+    "77 blood marks from 3 hits; 1864 pixels turned blood red (0.52% of the view)"
+  ],
+  [
+    "blood_on_wall",
+    true,
+    "892 pixels turned blood red on the wall behind the victim"
+  ],
+  [
+    "blood_at_feet",
+    true,
+    "369 pixels turned blood red on the ground where they stood"
+  ],
+  [
+    "blood_drip_trail",
+    true,
+    "10 drops left by the wounded bot over 3 m in 3 s"
+  ],
+  [
+    "blood_pool_spreads",
+    true,
+    "2 pools under the body; 141 pixels around it turned blood red in the 14 s after it came to rest"
+  ],
+  [
+    "blood_corpse_hit",
+    true,
+    "71 new marks from 2 rounds into the body on the ground"
+  ],
+  [
+    "blood_cost",
+    true,
+    "0.61 ms per hit's spray (mean of 20), 539 marks alive in 3 draw sets (budget 1400)"
+  ]
+]

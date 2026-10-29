@@ -1,0 +1,57 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+Vulkan 1.4.329 - Forward+ - Using Device #0: NVIDIA - NVIDIA GeForce RTX 4060
+
+[lagusan] { "segments": 123, "metres": 1910.45543050766, "lights": 258, "dead": 23, "gaps": 109, "shrines": 18, "walks": 23 }
+[looban] { "loobans": 20, "crate_stacks": 60, "low_walls": 243, "sandbags": 10, "kiosks": 20, "barricades": 10, "yard_walls": 100, &"vacant": 80 }
+[dress] { "poles": 989, "wires": 5598, "laundry": 452, "clutter": 1024, "props": 2116, "tags": 0, "puddles": 170, "plants": 1147, "vehicles": 71, "floating": 14, "loot": 462, "boxes": 27 }
+[vandal] { "wall": 1415, "covered": 441, "stains": 3509, "ground": 870, "spots": 10 }
+[world] map built in 26688 ms
+[map] 2216 buildings, 4146 doors, 10390 containers, 11250 props, #49929ca0 on PC
+[game] autotest r4
+[autotest] PASS pa_horns: 27 loudspeaker poles; the farthest sampled house is 131 m from a horn
+[autotest] shot A:/Python/aetherion-project/work/lemondev/r6/gates/r4/01_plane.png
+[autotest] PASS jump: left the plane
+[autotest] shot A:/Python/aetherion-project/work/lemondev/r6/gates/r4/02_freefall.png
+[autotest] PASS view_tier_freefall: tier 2 at 264 m above ground, interiors hidden, AO false, local shadows 0
+[autotest] PASS team_cluster: 3 teammates, farthest 36.8 m at canopy
+[autotest] shot A:/Python/aetherion-project/work/lemondev/r6/gates/r4/03_canopy_team.png
+[autotest] PASS landed: mode 3, health 100 at (-115.0, 1.0, -190.0)
+[autotest] PASS view_tier_ground: tier 0 at 2 m above ground, interiors drawn, AO true, local shadows 8
+[autotest] shot A:/Python/aetherion-project/work/lemondev/r6/gates/r4/04_landed.png
+[autotest] PASS outfits_vary: 7 of 7 characters carry a look; 7 different outfits among them
+[autotest] PASS outfits_draws: at most 2 mesh surfaces per character body (outfit and head; the gun as before; the hooded body had 8): OutfitHead:1, Outfit:1
+[autotest] shot A:/Python/aetherion-project/work/lemondev/r6/gates/r4/05_outfits_lineup.png
+[autotest] shot A:/Python/aetherion-project/work/lemondev/r6/gates/r4/06_pa_horn.png
+[autotest] shot A:/Python/aetherion-project/work/lemondev/r6/gates/r4/07_pa_countdown.png
+[autotest] PASS pa_schedule_ignite: chime@-61.3, 60@-59.9, chime@-31.4, 30@-30.0, n10@-10.0, n9@-9.0, n8@-8.0, n7@-7.0, n6@-6.0, n5@-5.0, n4@-4.0, n3@-3.0, n2@-2.0, n1@-1.0, siren@-0.1; 15 of 15 cues heard from a horn; 
+[autotest] PASS pa_schedule_dusk: chime@-61.4, 60@-60.0, chime@-31.4, 30@-30.0, n10@-10.0, n9@-9.0, n8@-8.0, n7@-7.0, n6@-6.0, n5@-5.0, n4@-4.0, n3@-3.0, n2@-2.0, n1@-1.0, siren@-0.1; 15 of 15 cues heard from a horn; 
+[autotest] shot A:/Python/aetherion-project/work/lemondev/r6/gates/r4/08_holes_impact_wood.png
+[autotest] shot A:/Python/aetherion-project/work/lemondev/r6/gates/r4/09_holes_after_wood.png
+[autotest] FAIL holes_wall: 84 holes on wood; the most-changed hole spot differs by 1.3 luma from before the shots, once the dust settled
+[autotest] PASS impact_particles: 194 particle bursts; the frame with the dust flying differs from the settled one by 3.9 luma (holes are in both)
+[autotest] shot A:/Python/aetherion-project/work/lemondev/r6/gates/r4/10_chunks_monobloc_0.png
+[autotest] PASS chunks_cut: monobloc cut into 12 chunks (grid (2, 3, 2)) in 6.5 ms
+[autotest] FAIL chunks_prop: monobloc: chunks left after each of 2 shots [11, 0]; collapsed
+[autotest] shot A:/Python/aetherion-project/work/lemondev/r6/gates/r4/11_chunks_monobloc_end.png
+[autotest] shot A:/Python/aetherion-project/work/lemondev/r6/gates/r4/12_door_0.png
+[autotest] shot A:/Python/aetherion-project/work/lemondev/r6/gates/r4/13_door_holes.png
+[autotest] PASS holes_follow_door: 2 holes hang on the leaf; a hole moved 0.90 m when the door swung open
+[autotest] shot A:/Python/aetherion-project/work/lemondev/r6/gates/r4/14_door_holes_open.png
+[autotest] shot A:/Python/aetherion-project/work/lemondev/r6/gates/r4/15_door_panel_out.png
+[autotest] PASS door_panels: panels lost after each row of shots [1, 2, 3, 4, 5]; a ray passes through the first hole: true
+[autotest] PASS door_destroyed: 10 shots; leaf fell; doorway clear: true
+[autotest] shot A:/Python/aetherion-project/work/lemondev/r6/gates/r4/16_door_destroyed.png
+[autotest] shot A:/Python/aetherion-project/work/lemondev/r6/gates/r4/17_blast.png
+[autotest] PASS blast_props: bench_paint was dormant, now broken with 1 chunks lost; scorch mark laid
+[autotest] shot A:/Python/aetherion-project/work/lemondev/r6/gates/r4/18_blast_after.png
+[autotest] shot A:/Python/aetherion-project/work/lemondev/r6/gates/r4/19_realism_firing.png
+[autotest] FAIL casings: 0 casings and 0 muzzle smoke puffs from a burst
+[autotest] PASS suppression: a supersonic round passing 0.8 m away darkened the view edges to 0.36
+[autotest] PASS fx_perf: an impact every frame for 60 frames vs quiet: quiet 16.86 ms (p95 24.25, GPU 5.97, call 0.003 ms); all 19.51 ms (p95 27.36, GPU 6.76, call 0.229 ms); particles 20.56 ms (p95 30.49, GPU 6.57, call 0.042 ms); holes 20.58 ms (p95 28.27, GPU 5.86, call 0.062 ms); sound 17.81 ms (p95 24.90, GPU 5.77, call 0.167 ms); quiet2 15.16 ms (p95 20.24, GPU 4.87, call 0.003 ms)
+[autotest] done: 21 checks, 3 failed
+ERROR: 1 RID allocations of type 'N10RendererRD5SkyRD3SkyE' were leaked at exit.
+ERROR: 1 RID allocations of type 'N26RendererEnvironmentStorage11EnvironmentE' were leaked at exit.
+ERROR: 210 RID allocations of type 'N10RendererRD11MeshStorage4MeshE' were leaked at exit.
+ERROR: 1786 RID allocations of type 'N10RendererRD15MaterialStorage8MaterialE' were leaked at exit.
+ERROR: 37 RID allocations of type 'N10RendererRD15MaterialStorage6ShaderE' were leaked at exit.
+ERROR: 856 RID allocations of type 'N10RendererRD14TextureStorage7TextureE' were leaked at exit.

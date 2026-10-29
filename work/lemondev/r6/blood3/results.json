@@ -1,0 +1,32 @@
+[
+  [
+    "blood_spatter_visible",
+    true,
+    "71 blood marks from 3 hits; blood-red pixels in the frame 16697 -> 18670 (+0.55% of the view)"
+  ],
+  [
+    "blood_on_wall",
+    false,
+    "red pixels on the wall behind the victim 2591 -> 2593"
+  ],
+  [
+    "blood_at_feet",
+    true,
+    "red pixels on the ground where they stood 25 -> 273"
+  ],
+  [
+    "blood_drip_trail",
+    true,
+    "the shot bot is marked as bleeding (drips as it moves)"
+  ],
+  [
+    "blood_pool_spreads",
+    true,
+    "2 pools under the body; red pixels around it 1035 at rest -> 1293 14 s later"
+  ],
+  [
+    "blood_corpse_hit",
+    true,
+    "74 new marks from 2 rounds into the body on the ground"
+  ]
+]

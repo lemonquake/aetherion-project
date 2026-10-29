@@ -1,0 +1,97 @@
+[
+  [
+    "map_tunnels",
+    true,
+    "123 roofed lanes and walks, 1910 m, 258 lamps (23 dead), 109 gaps in the roofs, 18 shrines"
+  ],
+  [
+    "map_three_storey",
+    true,
+    "368 of 2137 houses are three storeys (17%)"
+  ],
+  [
+    "map_roof_decks",
+    true,
+    "174 flat roof decks, 80 ladders"
+  ],
+  [
+    "map_vault_cover",
+    true,
+    "20 loobans, 60 crate stacks, 243 low walls, 10 sandbag rows, 10 barricades; 2459 glassless windows sized to vault through"
+  ],
+  [
+    "map_decals",
+    true,
+    "1415 wall decals (441 under lane roofs), 3509 stains, 870 on the ground"
+  ],
+  [
+    "day_cycle_schedule",
+    true,
+    "night 0-300 s, day 300-600 s, repeating"
+  ],
+  [
+    "jump",
+    true,
+    "left the plane"
+  ],
+  [
+    "view_tier_freefall",
+    true,
+    "tier 2 at 264 m above ground, interiors hidden, AO false, local shadows 0"
+  ],
+  [
+    "team_cluster",
+    true,
+    "3 teammates, farthest 37.5 m at canopy"
+  ],
+  [
+    "landed",
+    true,
+    "mode 3, health 91 at (-111.0, 1.0, 0.0)"
+  ],
+  [
+    "view_tier_ground",
+    true,
+    "tier 0 at 2 m above ground, interiors drawn, AO true, local shadows 8"
+  ],
+  [
+    "compass_bearing",
+    true,
+    "compass under the minimap at (20.0, 258.0), 230 px wide; bearings 0/90/120/225/330 read back"
+  ],
+  [
+    "radio_eavesdrop",
+    true,
+    "radio: kind 1 from teammate, voice: kind 2 from speaker, far: kind -1 from -; overheard frame plays at the teammate's radio on the Radio bus: true; teammates get every frame on their own radio"
+  ],
+  [
+    "radio_clicks",
+    true,
+    "key-down click, squelch tail and a band-limited radio bus are loaded"
+  ],
+  [
+    "artificial_sun_lights_map",
+    true,
+    "courtyard view luma 34.9 at night, 87.6 at noon"
+  ],
+  [
+    "sun_ignites",
+    true,
+    "luma 36.2 at 0.5 s after ignition, 87.4 at 12 s"
+  ],
+  [
+    "tunnel_dark_at_noon",
+    true,
+    "open courtyard at noon 87.6; inside roofed lanes at noon (flashlight off -> on): 17.1 -> 30.6, 24.8 -> 32.1, 11.3 -> 19.9"
+  ],
+  [
+    "ladder_climb",
+    true,
+    "4.8 m ladder: up yes (y 5.65 / 5.62), down yes; 4.9 m ladder: up yes (y 5.99 / 5.96), down yes; 5.0 m ladder: up yes (y 5.84 / 5.81), down yes"
+  ],
+  [
+    "crate_vault",
+    true,
+    "1.38 m crate: rose 0.01 m, moved 2.02 m; 1.38 m crate: rose 1.14 m, moved 1.13 m; 0.92 m crate: rose 0.92 m, moved 0.98 m; 0.92 m crate: rose 0.02 m, moved 2.03 m"
+  ]
+]

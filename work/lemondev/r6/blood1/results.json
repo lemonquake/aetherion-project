@@ -1,0 +1,22 @@
+[
+  [
+    "sounds_complete",
+    false,
+    "71 sounds needed by impacts, guns, reload steps and bodies; missing [\"impact_metal_sheet\", \"impact_tile\", \"impact_flesh_head\", \"shell_drop\", \"bodyfall\", \"mag_out_pistol\", \"mag_in_pistol\", \"mag_pouch\", \"charge_back\", \"charge_release\", \"slide_back\", \"slide_release\", \"bolt_up\", \"bolt_back\", \"bolt_fwd\", \"bolt_down\", \"clip_in\", \"pump_back\", \"pump_fwd\", \"shell_insert\", \"cylinder_open\", \"cylinder_close\", \"round_insert\", \"cylinder_click\", \"break_open\", \"break_close\", \"shell_eject\", \"pipe_slide\", \"weapon_draw\"]; unloadable files []"
+  ],
+  [
+    "impact_variety",
+    false,
+    "impact sets with fewer than 3 takes: [\"impact_water\"]"
+  ],
+  [
+    "walk_bob_halved",
+    true,
+    "camera sway over 1.5 s of walking: 0.030 m up/down, 0.018 m side to side (old peak-to-peak 0.050 / 0.036)"
+  ],
+  [
+    "blood_spatter_visible",
+    false,
+    "no bot to shoot"
+  ]
+]
