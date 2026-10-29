@@ -1,0 +1,62 @@
+{
+  "buildings_with_sky_gap": 827,
+  "face_rays": 594213,
+  "invisible_from_inside": {
+    "examples": [
+      "building 890 room sala: partition at (163.8, 2.34, -3.3) has no face toward (163.0, 2.34, -1.4)"
+    ],
+    "n": 1,
+    "what": {
+      "partition": 1
+    }
+  },
+  "room_centre_in_geometry": {
+    "examples": [
+      "building 85 room bed: its middle (-97.5, 4.62, -135.0) is inside a static:bed_old",
+      "building 186 room bed: its middle (-290.4, 6.76, -145.8) is inside a static:bed_old",
+      "building 293 room bed: its middle (-215.8, 4.51, -138.7) is inside a static:bed_old",
+      "building 522 room sala: its middle (28.0, 2.21, 122.6) is inside a wall",
+      "building 870 room bed: its middle (140.4, 4.62, 36.3) is inside a static:bed_old",
+      "building 917 room bed: its middle (176.2, 7.01, -9.0) is inside a static:bed_old",
+      "building 1064 room bed: its middle (264.5, 4.63, -18.9) is inside a static:bed_old",
+      "building 1390 room bed: its middle (-203.2, 4.41, -67.6) is inside a static:bed_old",
+      "building 1394 room bed: its middle (-187.7, 4.68, -107.6) is inside a static:bed_old",
+      "building 1414 room bed: its middle (-175.3, 4.71, -95.5) is inside a static:bed_old",
+      "building 1459 room bed: its middle (-104.8, 7.26, -98.4) is inside a static:bed_old",
+      "building 1468 room bed: its middle (-106.2, 7.00, -70.7) is inside a static:bed_old",
+      "building 1529 room bed: its middle (-85.6, 6.83, 25.2) is inside a static:bed_old",
+      "building 1543 room bed: its middle (-88.6, 4.55, 66.9) is inside a static:bed_old"
+    ],
+    "n": 17,
+    "what": {
+      "static:bed_old": 16,
+      "wall": 1
+    }
+  },
+  "sky_gap": {
+    "examples": [
+      "building 2 (chapel, concrete) room workshop: ray (0.9, 0.37, 0.4) from (-76.4, 2.45, -173.4) leaves through the ceiling",
+      "building 2 (chapel, concrete) room kitchen: ray (0.4, 0.37, -0.9) from (-77.1, 2.45, -167.0) leaves through the wall_top_gap",
+      "building 11 (hall, concrete) room bed: ray (0.9, 0.37, 0.0) from (-170.3, 4.81, 46.8) leaves through the ceiling",
+      "building 12 (clinic, concrete) room sala: ray (0.9, 0.37, 0.4) from (-150.8, 2.30, 64.1) leaves through the ceiling",
+      "building 12 (clinic, concrete) room kitchen: ray (0.7, 0.37, -0.7) from (-150.8, 2.30, 68.6) leaves through the wall_top_gap",
+      "building 13 (outpost, chb) room sala: ray (0.5, 0.71, 0.5) from (-130.0, 2.46, -115.7) leaves through the ceiling",
+      "building 14 (pump, concrete) room bed: ray (0.9, 0.37, 0.0) from (-36.4, 4.69, -7.8) leaves through the ceiling",
+      "building 15 (workshop, yero) room workshop: ray (0.5, 0.71, 0.5) from (-254.0, 2.30, -242.0) leaves through the ceiling",
+      "building 16 (church, concrete) room sala: ray (0.7, 0.00, 0.7) from (153.3, 2.21, -83.5) leaves through the wall",
+      "building 16 (church, concrete) room bed: ray (0.9, 0.37, 0.0) from (153.8, 2.21, -68.5) leaves through the ceiling",
+      "building 18 (shop, concrete) room bed: ray (0.5, 0.71, 0.5) from (138.4, 6.95, -143.5) leaves through the ceiling",
+      "building 22 (shop, concrete) room bed: ray (0.7, 0.71, 0.0) from (139.5, 4.63, -173.9) leaves through the ceiling",
+      "building 23 (shop, concrete) room bed: ray (0.9, 0.37, 0.0) from (139.8, 6.94, -181.5) leaves through the ceiling",
+      "building 29 (store, concrete) room store: ray (0.9, 0.37, 0.4) from (138.0, 2.31, 25.5) leaves through the ceiling"
+    ],
+    "n": 860,
+    "what": {
+      "ceiling": 827,
+      "wall": 14,
+      "wall_top_gap": 19
+    }
+  },
+  "visual_calibration_pct": 100,
+  "visual_tris": 3112280
+}

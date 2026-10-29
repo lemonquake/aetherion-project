@@ -1,0 +1,21 @@
+{
+  "source": "Sketchfab (downloaded from the Objaverse mirror, allenai/objaverse on Hugging Face)",
+  "title": "ACOG",
+  "url": "https://sketchfab.com/3d-models/03b721583643441caaa4509f83c74e19",
+  "mirror_url": "https://huggingface.co/datasets/allenai/objaverse/resolve/main/glbs/000-018/03b721583643441caaa4509f83c74e19.glb",
+  "authors": [
+    "German Huskey"
+  ],
+  "author_url": "https://sketchfab.com/migueld1994",
+  "license": "CC-BY-4.0",
+  "license_url": "http://creativecommons.org/licenses/by/4.0/",
+  "attribution_required": true,
+  "kind": "model",
+  "purpose": "4x prism scope attachment",
+  "modifications": "Joined into one mesh, re-oriented (front along -Z in Godot), scaled to 0.160 m overall, centred, decimated 3091 -> 3091 triangles, textures reduced to 1024 px JPEG (tools/blender/process_items.py).",
+  "retrieved": "2026-10-25",
+  "files": {
+    "scope_4x.glb": ""
+  },
+  "processed_from": "tools/cache/sketchfab/scope_acog/scope_acog.glb"
+}

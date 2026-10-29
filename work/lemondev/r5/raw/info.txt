@@ -1,0 +1,52 @@
+[raw] arms_fischer meshes 3 armatures 1 bones 63 tris 8232 actions 0 []
+[raw]   bones: ['_rootJoint', 'clavicle.R_01', 'deltoid.R_02', 'upper_arm.R_03', 'forearm.R_04', 'forearm.R_end_051', 'clavicle.L_05', 'deltoid.L_06', 'upper_arm.L_07', 'forearm.L_08', 'forearm.L_end_052', 'forearm.R.001_09', 'hand.R_010', 'palm_pinky.R_011', 'f_pinky.01.R_012', 'f_pinky.02.R_013', 'f_pinky.03.R_014', 'f_pinky.03.R_end_053', 'palm_middle.R_015', 'f_middle.01.R_016', 'f_middle.02.R_017', 'f_middle.03.R_018', 'f_middle.03.R_end_054', 'palm_ring.R_019', 'f_ring.01.R_020', 'f_ring.02.R_021', 'f_ring.03.R_022', 'f_ring.03.R_end_055', 'thumb.01.R_023', 'thumb.02.R_024', 'thumb.03.R_025', 'thumb.03.R_end_056', 'palm_index.R_026', 'f_index.01.R_027', 'f_index.02.R_028', 'f_index.03.R_029', 'f_index.03.R_end_057', 'forearm.L.001_030', 'hand.L_031', 'palm_pinky.L_032', 'f_pinky.01.L_033', 'f_pinky.02.L_034', 'f_pinky.03.L_035', 'f_pinky.03.L_end_058', 'palm_index.L_036', 'f_index.01.L_037', 'f_index.02.L_038', 'f_index.03.L_039', 'f_index.03.L_end_059', 'palm_ring.L_040', 'f_ring.01.L_041', 'f_ring.02.L_042', 'f_ring.03.L_043', 'f_ring.03.L_end_060', 'palm_middle.L_044', 'f_middle.01.L_045', 'f_middle.02.L_046', 'f_middle.03.L_047', 'f_middle.03.L_end_061', 'thumb.01.L_048', 'thumb.02.L_049', 'thumb.03.L_050', 'thumb.03.L_end_00']
+[raw]   size 74.562 30.267 92.396
+[raw] arms_goldgryphon meshes 1 armatures 0 bones 0 tris 8694 actions 0 []
+[raw]   size 2.000 0.292 1.081
+[raw] arms_bumstrum meshes 2 armatures 1 bones 50 tris 7320 actions 0 []
+[raw]   bones: ['_rootJoint', 'chest_01', 'L_arm_02', 'L_elbow_03', 'L_wrist_04', 'L_thumb1_05', 'L_thumb2_06', 'L_thumb3_07', 'L_thumb4_08', 'L_point1_09', 'L_point2_00', 'L_point3_010', 'L_point4_011', 'L_middle1_012', 'L_middle2_013', 'L_middle3_014', 'L_middle4_015', 'L_palm_016', 'L_ring1_017', 'L_ring2_018', 'L_ring3_019', 'L_ring4_020', 'L_pink1_021', 'L_pink2_022', 'L_pink3_023', 'L_pink4_024', 'R_arm_025', 'R_elbow_026', 'R_wrist_027', 'R_thumb1_028', 'R_thumb2_029', 'R_thumb3_030', 'R_thumb4_031', 'R_point1_032', 'R_point2_033', 'R_point3_034', 'R_point4_035', 'R_middle1_036', 'R_middle2_037', 'R_middle3_038', 'R_middle4_039', 'R_palm_040', 'R_ring1_041', 'R_ring2_042', 'R_ring3_043', 'R_ring4_044', 'R_pink1_045', 'R_pink2_046', 'R_pink3_047', 'R_pink4_048']
+[raw]   size 57.653 61.624 21.560
+[raw] arms_aerolab meshes 2 armatures 1 bones 53 tris 8584 actions 1 ['Take 001']
+[raw]   bones: ['_rootJoint', 'Character1_Hips_00', 'Character1_Spine_049', 'Character1_Spine1_050', 'Character1_Spine2_051', 'Character1_LeftShoulder_024', 'Character1_LeftArm_01', 'Character1_LeftForeArm_02', 'Character1_LeftHand_03', 'Character1_LeftHandThumb1_020', 'Character1_LeftHandThumb2_021', 'Character1_LeftHandThumb3_022', 'Character1_LeftHandThumb4_023', 'Character1_LeftHandIndex1_04', 'Character1_LeftHandIndex2_05', 'Character1_LeftHandIndex3_06', 'Character1_LeftHandIndex4_07', 'Character1_LeftHandMiddle1_08', 'Character1_LeftHandMiddle2_09', 'Character1_LeftHandMiddle3_010', 'Character1_LeftHandMiddle4_011', 'Character1_LeftHandRing1_016', 'Character1_LeftHandRing2_017', 'Character1_LeftHandRing3_018', 'Character1_LeftHandRing4_019', 'Character1_LeftHandPinky1_012', 'Character1_LeftHandPinky2_013', 'Character1_LeftHandPinky3_014', 'Character1_LeftHandPinky4_015', 'Character1_RightShoulder_048', 'Character1_RightArm_025', 'Character1_RightForeArm_026', 'Character1_RightHand_027', 'Character1_RightHandThumb1_044', 'Character1_RightHandThumb2_045', 'Character1_RightHandThumb3_046', 'Character1_RightHandThumb4_047', 'Character1_RightHandIndex1_028', 'Character1_RightHandIndex2_029', 'Character1_RightHandIndex3_030', 'Character1_RightHandIndex4_031', 'Character1_RightHandMiddle1_032', 'Character1_RightHandMiddle2_033', 'Character1_RightHandMiddle3_034', 'Character1_RightHandMiddle4_035', 'Character1_RightHandRing1_040', 'Character1_RightHandRing2_041', 'Character1_RightHandRing3_042', 'Character1_RightHandRing4_043', 'Character1_RightHandPinky1_036', 'Character1_RightHandPinky2_037', 'Character1_RightHandPinky3_038', 'Character1_RightHandPinky4_039']
+[raw]   size 80.663 61.629 153.224
+[raw] pistol_m9 meshes 113 armatures 0 bones 0 tris 28530 actions 0 []
+[raw]   size 21.387 22.253 4.529
+[raw] pistol_92fs meshes 1 armatures 0 bones 0 tris 5953 actions 0 []
+[raw]   size 0.211 0.031 0.139
+[raw] pistol_92_dunlop meshes 1 armatures 0 bones 0 tris 7948 actions 0 []
+[raw]   size 0.968 5.864 3.960
+[raw] shotgun_ou_toz34 meshes 6 armatures 0 bones 0 tris 3320 actions 0 []
+[raw]   size 0.162 4.693 2.305
+[raw] shotgun_db_pepego meshes 6 armatures 0 bones 0 tris 4978 actions 0 []
+[raw]   size 1.667 0.105 0.318
+[raw] shotgun_db_schris meshes 12 armatures 0 bones 0 tris 6088 actions 0 []
+[raw]   size 0.108 2.000 0.360
+[raw] rifle_fal meshes 5 armatures 0 bones 0 tris 14194 actions 0 []
+[raw]   size 2.094 0.168 0.416
+[raw] rifle_l1a1 meshes 93 armatures 0 bones 0 tris 8450 actions 0 []
+[raw]   size 215.166 952.921 243.517
+[raw] smg_microuzi meshes 5 armatures 0 bones 0 tris 11284 actions 1 ['Scene']
+[raw]   size 36.851 284.125 278.049
+[raw] smg_microuzi_b meshes 18 armatures 0 bones 0 tris 5294 actions 0 []
+[raw]   size 4.192 1.557 1.722
+[raw] smg_thompson meshes 12 armatures 0 bones 0 tris 20802 actions 0 []
+[raw]   size 2.000 0.363 0.484
+[raw] smg_thompson_b meshes 97 armatures 0 bones 0 tris 37781 actions 0 []
+[raw]   size 1.816 0.518 0.687
+[raw] bolt_m24 meshes 25 armatures 0 bones 0 tris 29989 actions 0 []
+[raw]   size 1.585 0.097 0.286
+[raw] bolt_m24_b meshes 5 armatures 0 bones 0 tris 7801 actions 0 []
+[raw]   size 25.296 1.483 5.728
+[raw] bolt_r700 meshes 25 armatures 0 bones 0 tris 18216 actions 0 []
+[raw]   size 10.533 1.579 4.721
+[raw] revolver_nagant meshes 22 armatures 0 bones 0 tris 20858 actions 0 []
+[raw]   size 957.070 366.631 713.589
+[raw] revolver_nagant_b meshes 1 armatures 0 bones 0 tris 7029 actions 0 []
+[raw]   size 0.235 0.042 0.132
+[raw] shotgun_pipe meshes 4 armatures 1 bones 6 tris 6188 actions 2 ['Cycle', 'Idle']
+[raw]   bones: ['pipe_gun_armature_rootJoint', 'gun_pipe_gun_armature', 'shell_pipe_gun_armature', 'bolt_pipe_gun_armature', 'zip_tie_pipe_gun_armature', 'trigger_pipe_gun_armature']
+[raw]   size 4.674 7.254 2.000
+[raw] shotgun_pipe_ph meshes 6 armatures 0 bones 0 tris 710 actions 0 []
+[raw]   size 4.433 0.222 1.043
+[raw] shotgun_pipe_bosnian meshes 1 armatures 0 bones 0 tris 5212 actions 0 []
+[raw]   size 15.360 89.731 29.626

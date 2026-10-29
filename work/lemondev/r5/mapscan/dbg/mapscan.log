@@ -1,0 +1,82 @@
+map 2118 buildings, 4494 doors, 9548 containers, 15415 props, #1375a694, seed 1729, 114009 collision boxes recorded
+visual calibration: 40 of 40 back-wall rays hit the drawn outer face where the wall is
+visual space: 3097728 triangles in 6151 ms
+faces: 595182 rays; 1418 buildings with a gap to the outside, 298 invisible solid faces
+scan took 75657 ms
+capture A:/Python/aetherion-project/work/lemondev/r5/mapscan/dbg/gap_b2_ceiling_day.png (luma 3.6)
+capture A:/Python/aetherion-project/work/lemondev/r5/mapscan/dbg/gap_b2_ceiling_night.png (luma 0.2)
+capture A:/Python/aetherion-project/work/lemondev/r5/mapscan/dbg/gap_b2_wall_top_gap_day.png (luma 6.9)
+capture A:/Python/aetherion-project/work/lemondev/r5/mapscan/dbg/gap_b2_wall_top_gap_night.png (luma 0.8)
+capture A:/Python/aetherion-project/work/lemondev/r5/mapscan/dbg/gap_b4_ceiling_day.png (luma 8.9)
+capture A:/Python/aetherion-project/work/lemondev/r5/mapscan/dbg/gap_b4_ceiling_night.png (luma 2.4)
+capture A:/Python/aetherion-project/work/lemondev/r5/mapscan/dbg/gap_b10_ceiling_day.png (luma 4.4)
+capture A:/Python/aetherion-project/work/lemondev/r5/mapscan/dbg/gap_b10_ceiling_night.png (luma 1.6)
+capture A:/Python/aetherion-project/work/lemondev/r5/mapscan/dbg/gap_b11_ceiling_day.png (luma 2.8)
+capture A:/Python/aetherion-project/work/lemondev/r5/mapscan/dbg/gap_b11_ceiling_night.png (luma 0.1)
+capture A:/Python/aetherion-project/work/lemondev/r5/mapscan/dbg/gap_b12_ceiling_day.png (luma 2.9)
+capture A:/Python/aetherion-project/work/lemondev/r5/mapscan/dbg/gap_b12_ceiling_night.png (luma 0.6)
+capture A:/Python/aetherion-project/work/lemondev/r5/mapscan/dbg/inv_b23_day.png (luma 4.1)
+capture A:/Python/aetherion-project/work/lemondev/r5/mapscan/dbg/inv_b23_night.png (luma 2.3)
+capture A:/Python/aetherion-project/work/lemondev/r5/mapscan/dbg/inv_b48_day.png (luma 4.0)
+capture A:/Python/aetherion-project/work/lemondev/r5/mapscan/dbg/inv_b48_night.png (luma 0.9)
+capture A:/Python/aetherion-project/work/lemondev/r5/mapscan/dbg/inv_b49_day.png (luma 2.7)
+capture A:/Python/aetherion-project/work/lemondev/r5/mapscan/dbg/inv_b49_night.png (luma 0.2)
+capture A:/Python/aetherion-project/work/lemondev/r5/mapscan/dbg/inv_b51_day.png (luma 7.4)
+capture A:/Python/aetherion-project/work/lemondev/r5/mapscan/dbg/inv_b51_night.png (luma 6.8)
+capture A:/Python/aetherion-project/work/lemondev/r5/mapscan/dbg/invout_b7_day.png (luma 38.7)
+capture A:/Python/aetherion-project/work/lemondev/r5/mapscan/dbg/invout_b7_night.png (luma 2.5)
+capture A:/Python/aetherion-project/work/lemondev/r5/mapscan/dbg/invout_b40_day.png (luma 68.8)
+capture A:/Python/aetherion-project/work/lemondev/r5/mapscan/dbg/invout_b40_night.png (luma 7.8)
+capture A:/Python/aetherion-project/work/lemondev/r5/mapscan/dbg/invout_b42_day.png (luma 45.6)
+capture A:/Python/aetherion-project/work/lemondev/r5/mapscan/dbg/invout_b42_night.png (luma 15.5)
+capture A:/Python/aetherion-project/work/lemondev/r5/mapscan/dbg/invout_b102_day.png (luma 24.4)
+capture A:/Python/aetherion-project/work/lemondev/r5/mapscan/dbg/invout_b102_night.png (luma 21.3)
+---------------- PASS/FAIL ----------------
+FAIL no_sky_gaps: 1561 of 595182 {"ceiling":1393,"wall":14,"wall_top_gap":154}
+FAIL no_invisible_inside: 205 of 595182 {"cr_wall":5,"partition":2,"wall":198}
+FAIL no_invisible_outside: 93 of 595182 {"cr_wall":1,"partition":1,"wall":91}
+== sky_gap (1561)
+   building 2 (chapel, concrete) room workshop: ray (0.9, 0.37, 0.4) from (-76.4, 2.45, -173.4) leaves through the ceiling
+   building 2 (chapel, concrete) room kitchen: ray (0.4, 0.37, -0.9) from (-77.1, 2.45, -167.0) leaves through the wall_top_gap
+   building 4 (classroom, concrete) room sala: ray (0.0, 0.37, 0.9) from (-240.5, 2.10, 28.4) leaves through the ceiling
+   building 10 (classroom, concrete) room sala: ray (-0.9, 0.37, -0.4) from (-213.5, 2.17, 57.5) leaves through the ceiling
+   building 11 (hall, concrete) room bed: ray (0.9, 0.37, 0.0) from (-170.3, 4.81, 46.8) leaves through the ceiling
+   building 12 (clinic, concrete) room sala: ray (0.9, 0.37, 0.4) from (-150.8, 2.30, 64.1) leaves through the ceiling
+   building 12 (clinic, concrete) room kitchen: ray (0.7, 0.37, -0.7) from (-150.8, 2.30, 68.6) leaves through the wall_top_gap
+   building 13 (outpost, chb) room sala: ray (0.5, 0.71, 0.5) from (-130.0, 2.46, -115.7) leaves through the ceiling
+   building 14 (pump, concrete) room bed: ray (0.9, 0.37, 0.0) from (-36.4, 4.69, -7.8) leaves through the ceiling
+   building 15 (workshop, yero) room workshop: ray (0.7, 0.37, 0.7) from (-254.0, 2.30, -242.0) leaves through the ceiling
+   building 16 (church, concrete) room sala: ray (0.7, 0.00, 0.7) from (153.3, 2.21, -83.5) leaves through the wall
+   building 16 (church, concrete) room bed: ray (0.9, 0.37, 0.0) from (153.8, 2.21, -68.5) leaves through the ceiling
+   building 18 (shop, concrete) room bed: ray (0.4, 0.37, 0.9) from (138.4, 6.95, -143.5) leaves through the ceiling
+   building 19 (shop, concrete) room bed: ray (0.0, 0.37, 0.9) from (138.7, 6.90, -151.1) leaves through the ceiling
+== invisible_from_inside (205)
+   building 23 room bed: wall at (141.3, 4.68, -185.1) has no face toward (139.8, 4.68, -181.5)
+   building 48 room bed: wall at (-128.2, 4.58, -150.5) has no face toward (-129.8, 4.58, -150.5)
+   building 49 room bed: wall at (-132.6, 6.95, -145.8) has no face toward (-131.0, 6.95, -145.1)
+   building 51 room bed: wall at (-119.6, 5.64, -199.8) has no face toward (-117.7, 5.64, -199.8)
+   building 53 room bed: wall at (-120.4, 5.56, -192.8) has no face toward (-118.6, 4.80, -192.1)
+   building 56 room bed: wall at (-121.8, 7.54, -179.2) has no face toward (-120.0, 6.78, -178.4)
+   building 69 room kitchen: wall at (-88.0, 2.48, -185.9) has no face toward (-88.0, 2.48, -186.3)
+   building 70 room bed: wall at (-106.6, 4.91, -183.3) has no face toward (-104.7, 4.91, -183.3)
+   building 75 room bed: wall at (-93.3, 4.86, -176.5) has no face toward (-95.0, 4.86, -175.8)
+   building 77 room bed: wall at (-101.0, 5.69, -167.8) has no face toward (-101.0, 5.69, -170.5)
+   building 117 room bed: wall at (-49.4, 2.37, -181.4) has no face toward (-48.7, 2.37, -183.3)
+   building 123 room sala: wall at (-50.9, 2.32, -162.6) has no face toward (-50.9, 2.32, -165.1)
+   building 125 room bed: wall at (-53.4, 4.60, -158.4) has no face toward (-50.8, 4.60, -157.3)
+   building 131 room bed: wall at (-54.0, 5.23, -134.0) has no face toward (-52.9, 5.23, -136.7)
+== invisible_from_outside (93)
+   building 7: wall at (-261.9, 4.34, 53.6) has no face toward (-264.4, 4.34, 53.5)
+   building 40: wall at (-134.3, 4.56, -196.8) has no face toward (-134.0, 4.56, -199.3)
+   building 42: wall at (-131.8, 2.21, -189.6) has no face toward (-131.6, 2.21, -192.1)
+   building 102: wall at (-60.5, 2.35, -179.2) has no face toward (-63.1, 2.35, -179.5)
+   building 121: wall at (-48.9, 6.69, -173.2) has no face toward (-48.6, 6.69, -175.7)
+   building 123: wall at (-52.7, 4.53, -165.4) has no face toward (-55.1, 4.53, -165.8)
+   building 125: cr_wall at (-48.5, 2.19, -154.7) has no face toward (-46.0, 2.19, -154.4)
+   building 130: wall at (-44.9, 4.37, -141.8) has no face toward (-47.4, 4.37, -142.1)
+   building 158: wall at (-17.2, 2.12, -181.5) has no face toward (-19.7, 2.12, -181.7)
+   building 191: wall at (-295.2, 2.06, -114.9) has no face toward (-292.9, 2.06, -115.1)
+   building 195: wall at (-290.7, 4.33, -97.7) has no face toward (-290.5, 4.33, -95.2)
+   building 218: wall at (-278.9, 4.25, -127.8) has no face toward (-278.8, 4.25, -125.3)
+   building 220: wall at (-274.2, 4.55, -120.9) has no face toward (-276.7, 4.55, -120.8)
+   building 245: wall at (-251.9, 4.87, -142.9) has no face toward (-254.4, 4.87, -142.8)

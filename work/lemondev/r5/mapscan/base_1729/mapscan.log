@@ -1,0 +1,382 @@
+map 2118 buildings, 4494 doors, 9548 containers, 15415 props, #1375a694, seed 1729, 114009 collision boxes recorded
+doors: 4494 ({"back":703,"cr":1446,"front":2074,"partition":271})
+doorways: 788
+stairs: 1642 flights
+ladders: 85
+lanes: 264, 16418 samples
+props/static/loot boxes checked: 26175, ground items: 16382
+visual calibration: 0 of 40 back-wall rays hit the drawn outer face where the wall is
+calibration 0%: rebuilding with the other winding
+visual calibration: 0 of 40 back-wall rays hit the drawn outer face where the wall is
+visual space: 3098532 triangles in 40080 ms
+faces: 595182 rays; 2118 buildings with a gap to the outside, 9848 invisible solid faces
+scan took 121075 ms
+capture A:/Python/aetherion-project/work/lemondev/r5/mapscan/base_1729/door1_day.png (luma 7.5)
+capture A:/Python/aetherion-project/work/lemondev/r5/mapscan/base_1729/door1_night.png (luma 0.0)
+capture A:/Python/aetherion-project/work/lemondev/r5/mapscan/base_1729/door20_day.png (luma 16.7)
+capture A:/Python/aetherion-project/work/lemondev/r5/mapscan/base_1729/door20_night.png (luma 13.2)
+capture A:/Python/aetherion-project/work/lemondev/r5/mapscan/base_1729/door21_day.png (luma 42.8)
+capture A:/Python/aetherion-project/work/lemondev/r5/mapscan/base_1729/door21_night.png (luma 3.2)
+capture A:/Python/aetherion-project/work/lemondev/r5/mapscan/base_1729/door24_day.png (luma 28.5)
+capture A:/Python/aetherion-project/work/lemondev/r5/mapscan/base_1729/door24_night.png (luma 31.3)
+capture A:/Python/aetherion-project/work/lemondev/r5/mapscan/base_1729/stairtop8_day.png (luma 0.0)
+capture A:/Python/aetherion-project/work/lemondev/r5/mapscan/base_1729/stairtop8_night.png (luma 0.0)
+capture A:/Python/aetherion-project/work/lemondev/r5/mapscan/base_1729/stairtop9_day.png (luma 0.0)
+capture A:/Python/aetherion-project/work/lemondev/r5/mapscan/base_1729/stairtop9_night.png (luma 0.0)
+capture A:/Python/aetherion-project/work/lemondev/r5/mapscan/base_1729/stairtop27_day.png (luma 0.3)
+capture A:/Python/aetherion-project/work/lemondev/r5/mapscan/base_1729/stairtop27_night.png (luma 0.0)
+capture A:/Python/aetherion-project/work/lemondev/r5/mapscan/base_1729/stairtop28_day.png (luma 0.1)
+capture A:/Python/aetherion-project/work/lemondev/r5/mapscan/base_1729/stairtop28_night.png (luma 0.0)
+capture A:/Python/aetherion-project/work/lemondev/r5/mapscan/base_1729/gap_b2_wall_day.png (luma 17.6)
+capture A:/Python/aetherion-project/work/lemondev/r5/mapscan/base_1729/gap_b2_wall_night.png (luma 2.7)
+capture A:/Python/aetherion-project/work/lemondev/r5/mapscan/base_1729/gap_b2_ceiling_day.png (luma 7.8)
+capture A:/Python/aetherion-project/work/lemondev/r5/mapscan/base_1729/gap_b2_ceiling_night.png (luma 2.8)
+capture A:/Python/aetherion-project/work/lemondev/r5/mapscan/base_1729/gap_b2_wall_top_gap_day.png (luma 4.5)
+capture A:/Python/aetherion-project/work/lemondev/r5/mapscan/base_1729/gap_b2_wall_top_gap_night.png (luma 2.6)
+capture A:/Python/aetherion-project/work/lemondev/r5/mapscan/base_1729/gap_b3_wall_day.png (luma 11.0)
+capture A:/Python/aetherion-project/work/lemondev/r5/mapscan/base_1729/gap_b3_wall_night.png (luma 0.1)
+capture A:/Python/aetherion-project/work/lemondev/r5/mapscan/base_1729/gap_b3_ceiling_day.png (luma 2.7)
+capture A:/Python/aetherion-project/work/lemondev/r5/mapscan/base_1729/gap_b3_ceiling_night.png (luma 0.0)
+capture A:/Python/aetherion-project/work/lemondev/r5/mapscan/base_1729/gap_b4_wall_day.png (luma 12.3)
+capture A:/Python/aetherion-project/work/lemondev/r5/mapscan/base_1729/gap_b4_wall_night.png (luma 2.9)
+---------------- PASS/FAIL ----------------
+FAIL doors_passable: 1566 of 4494
+FAIL doors_swing_open: 869 of 4494
+FAIL door_light_props: 793 of 4494
+FAIL doorways_passable: 535 of 788
+FAIL doorway_light_props: 145 of 788
+FAIL stairs_foot: 517 of 1642
+FAIL stairs_flight: 1642 of 1642
+FAIL stairs_landing: 283 of 1642
+FAIL ladders_foot: 14 of 85
+PASS ladders_top: 0 of 85
+FAIL lanes_open: 326 of 264
+FAIL props_supported: 831 of 26175 {"Barrel_01":235,"bottle":17,"box":4,"bucket":3,"can":2,"cash_register":33,"container":1,"crate_plastic":3,"crate_plastic2":4,"crate_plastic3":5,"drum_blue":358,"gallon":3,"jerrycan":3,"old_tyre":1,"pot":151,"trash_can":2,"trashbag":6}
+FAIL props_not_sunk: 361 of 26175 {"Barrel_01":4,"basket":3,"bench_paint":8,"boots":1,"bottle":44,"bowl":2,"box":10,"bucket":16,"can":10,"chair_wood":2,"container":10,"crate_plastic":10,"crate_plastic2":16,"crate_plastic3":6,"drum":5,"drum_blue":14,"gallon":13,"hand_truck":1,"jerrycan":13,"jug":4,"lpg_small":10,"monobloc":10,"oil_drum":4,"old_tyre":94,"propane":11,"stool":13,"suitcase":1,"sungka":1,"table_small":1,"trash_can":8,"trashbag":16}
+FAIL static_supported: 4190 of 26175 {"bed_old":14,"boat":5,"cabinet_paint":397,"cabinet_paint2":405,"daybed":22,"drawer_cabinet":27,"drawer_old":222,"drill_press":13,"food_cart_a":6,"food_cart_b":5,"food_stall":3,"jeepney":1,"nightstand":60,"old_tyre":1994,"shelf":191,"shelves_paint":573,"steel_shelves":108,"steel_shelves2":98,"tool_chest":22,"tricycle_a":17,"tricycle_b":7}
+FAIL static_not_sunk: 4 of 26175 {"wheel_rim":4}
+FAIL lootbox_supported: 2216 of 26175 {"lootbox_ammocan":20,"lootbox_balikbayan":1279,"lootbox_bin":571,"lootbox_cooler":244,"lootbox_footlocker":46,"lootbox_medcase":8,"lootbox_riflecase":6,"lootbox_toolbox":42}
+PASS lootbox_not_sunk: 0 of 26175
+FAIL props_not_in_walls: 40 of 26175 {"wall":40}
+PASS static_not_in_walls: 0 of 26175
+FAIL lootbox_not_in_walls: 1 of 26175 {"wall":1}
+PASS items_supported: 0 of 16382
+FAIL items_not_sunk: 2 of 16382
+FAIL items_not_in_walls: 7 of 16382 {"wall":7}
+FAIL no_sky_gaps: 5700 of 595182 {"ceiling":2118,"wall":2118,"wall_top_gap":1464}
+FAIL no_invisible_inside: 7561 of 595182 {"cr_wall":1461,"deck":186,"parapet":39,"partition":1057,"partition_lintel":997,"roof_gable":385,"upper_floor":1318,"wall":2118}
+FAIL no_invisible_outside: 2287 of 595182 {"cr_wall":134,"partition":35,"wall":2118}
+door_blocked_by: 2077 {"bark":4,"blocker":100,"chb2":9,"concrete_dirty":19,"cr_wall":148,"door_leaf":41,"floor_planks":15,"floor_slab":1,"glass":14,"lootbox:lootbox_balikbayan":60,"lootbox:lootbox_bin":23,"lootbox:lootbox_cooler":9,"metal_rust":8,"osb":1,"partition":426,"partition_lintel":1,"plaster_white":1,"prop:Barrel_01":5,"prop:bench_paint":40,"prop:drum_blue":19,"prop:lpg_small":16,"prop:oil_drum":1,"prop:propane":14,"prop:sofa_paint":61,"prop:table_paint":21,"prop:table_round":7,"prop:table_small":13,"prop:table_wood":5,"prop:trash_can":2,"prop:tv":6,"prop:tv2":6,"shutter":10,"sill":42,"stair_ramp":13,"static:bed_old":3,"static:cabinet_paint":33,"static:cabinet_paint2":42,"static:counter":8,"static:daybed":1,"static:drawer_cabinet":1,"static:drawer_old":21,"static:nightstand":2,"static:palm_b":1,"static:shelf":8,"static:shelves_paint":28,"static:sink_counter":8,"static:steel_shelves":3,"static:steel_shelves2":2,"static:toilet":8,"static:workbench":1,"steel":5,"stilt":4,"tiles":1,"timber":15,"unnamed":325,"unrecorded":24,"wall":364,"wood":8}
+doorway_blocked_by: 877 {"blocker":3,"cr_wall":55,"door_leaf":21,"glass":7,"lootbox:lootbox_balikbayan":41,"lootbox:lootbox_bin":44,"lootbox:lootbox_cooler":41,"lootbox:lootbox_footlocker":5,"partition_lintel":21,"prop:bench_paint":49,"prop:chalkboard":1,"prop:crate_wood":3,"prop:desk_metal":1,"prop:drum_blue":4,"prop:generator":2,"prop:hand_truck":1,"prop:lpg_small":3,"prop:old_tyre":1,"prop:sofa_paint":79,"prop:table_paint":28,"prop:table_round":2,"prop:table_small":43,"prop:table_wood":22,"prop:tv":12,"prop:tv2":10,"prop:wheel_rim":1,"prop:wheelchair":1,"shutter":7,"sill":22,"static:bed_old":1,"static:cabinet_paint":29,"static:cabinet_paint2":35,"static:counter":19,"static:daybed":4,"static:drawer_cabinet":3,"static:drawer_old":36,"static:nightstand":1,"static:old_tyre":1,"static:shelf":17,"static:shelves_paint":27,"static:sink_counter":12,"static:steel_shelves":9,"static:steel_shelves2":6,"static:toilet":10,"static:workbench":12,"stilt":1,"timber":1,"unrecorded":15,"wall":108}
+door_swing_blocked_by: 869 {"bark":4,"blocker":80,"concrete_dirty":16,"cr_wall":130,"door_leaf":16,"floor_slab":1,"glass":4,"metal_rust":8,"osb":1,"partition":204,"prop:bench_paint":1,"prop:oil_drum":2,"shutter":2,"sill":18,"stair_ramp":3,"steel":5,"terrain":1,"tiles":109,"timber":16,"wall":239,"wood":9}
+stair_blocked_by: 2531 {"flight:concrete_dirty":2,"flight:cr_wall":1,"flight:metal_rust":2,"flight:parapet":1,"flight:roof":1,"flight:roof_gable":1,"flight:sheet_metal":2,"flight:timber":2,"flight:upper_floor":1,"flight:wall":1635,"foot:blocker":16,"foot:door_leaf":1,"foot:partition":28,"foot:sill":68,"foot:unrecorded":1,"foot:wall":484,"top:lootbox:lootbox_balikbayan":32,"top:lootbox:lootbox_bin":5,"top:lootbox:lootbox_footlocker":16,"top:static:bed_old":35,"top:static:cabinet_paint":29,"top:static:cabinet_paint2":20,"top:static:daybed":43,"top:static:drawer_cabinet":17,"top:static:drawer_old":35,"top:static:nightstand":51,"top:unrecorded":1,"top:wall":1}
+lane_blocked_by: 443 {"bark":11,"blocker":2,"cement":1,"chb2":1,"concrete_dirty":14,"cr_wall":4,"door_leaf":4,"floor_planks":5,"glass":4,"lootbox:lootbox_balikbayan":5,"lootbox:lootbox_bin":1,"metal_rust":1,"osb":7,"partition":6,"planks":9,"planks_dark":4,"planks_peel":4,"plaster_white":1,"plywood":2,"prop:Barrel_01":36,"prop:bench_paint":24,"prop:chalkboard":1,"prop:drum":9,"prop:drum_blue":62,"prop:oil_drum":7,"prop:sofa_paint":5,"prop:table_paint":4,"prop:table_round":5,"prop:table_small":1,"prop:table_wood":2,"prop:trash_can":7,"prop:tv":1,"prop:tv2":1,"shutter":3,"sill":12,"stair_ramp":3,"static:cabinet_paint":1,"static:cabinet_paint2":2,"static:counter":2,"static:daybed":1,"static:drawer_cabinet":1,"static:drawer_old":2,"static:food_cart_a":2,"static:food_stall":1,"static:shelf":1,"static:shelves_paint":1,"static:steel_shelves":2,"static:toilet":3,"static:tricycle_b":1,"steel":2,"stilt":1,"tiles":1,"timber":8,"unrecorded":3,"wall":127,"wood":12}
+door_drop: 136 {"back":22,"front":114}
+doorway_drop: 3 {"partition_curtain":1,"partition_opening":2}
+== door_blocked (1566)
+   door 1 (partition, building 2) at (-77.6, 1.18, -170.2): prop:table_wood@(-77.6, 2.21, -170.9) (capsule stopped)
+   door 20 (front, building 16) at (157.4, 0.96, -95.7): plaster_white@(157.4, 1.50, -95.1) (capsule stopped)
+   door 21 (back, building 16) at (153.8, 0.96, -65.7): prop:table_wood@(153.8, 1.99, -66.3) (capsule stopped)
+   door 24 (front, building 18) at (133.6, 1.06, -146.1): wall@(133.5, 1.88, -146.1), blocker@(133.6, 1.96, -146.1) (capsule stopped)
+   door 26 (front, building 19) at (133.9, 1.06, -153.6): wall@(133.8, 1.74, -153.6), blocker@(133.9, 1.96, -153.6) (capsule stopped)
+   door 28 (front, building 20) at (134.1, 1.06, -161.0): wall@(134.0, 1.50, -161.0), blocker@(134.1, 1.96, -161.0) (capsule stopped)
+   door 52 (partition, building 36) at (249.9, 1.02, 106.8): static:shelf@(249.8, 1.56, 107.7) (capsule stopped)
+   door 61 (cr, building 41) at (-127.6, 1.04, -191.7):  (capsule stopped)
+   door 63 (cr, building 42) at (-132.1, 1.01, -188.2): partition@(-132.1, 1.55, -187.7) (capsule stopped)
+   door 66 (cr, building 44) at (-132.1, 0.91, -164.1): static:sink_counter@(-132.1, 2.07, -164.7) (capsule stopped)
+   door 68 (back, building 45) at (-128.2, 0.94, -162.0): partition@(-128.2, 1.74, -162.8) (capsule stopped)
+   door 70 (cr, building 46) at (-131.2, 0.94, -160.3): partition@(-131.2, 1.48, -159.5) (capsule stopped)
+   door 75 (back, building 48) at (-130.6, 1.01, -148.1): wall@(-130.6, 2.57, -147.5), cr_wall@(-130.5, 1.44, -148.0)
+   door 76 (cr, building 48) at (-130.9, 1.01, -149.5): prop:table_round@(-130.8, 2.04, -150.2) (capsule stopped)
+== door_swing_blocked (869)
+   door 20 (front, building 16) at (157.4, 0.96, -95.7) swinging -: floor_slab at -41 deg
+   door 24 (front, building 18) at (133.6, 1.06, -146.1) swinging +: blocker at 8 deg
+   door 24 (front, building 18) at (133.6, 1.06, -146.1) swinging -: blocker at -8 deg
+   door 26 (front, building 19) at (133.9, 1.06, -153.6) swinging +: blocker at 8 deg
+   door 26 (front, building 19) at (133.9, 1.06, -153.6) swinging -: blocker at -8 deg
+   door 28 (front, building 20) at (134.1, 1.06, -161.0) swinging +: blocker at 8 deg
+   door 28 (front, building 20) at (134.1, 1.06, -161.0) swinging -: blocker at -8 deg
+   door 63 (cr, building 42) at (-132.1, 1.01, -188.2) swinging +: partition at 65 deg
+   door 75 (back, building 48) at (-130.6, 1.01, -148.1) swinging +: tiles at 8 deg
+   door 75 (back, building 48) at (-130.6, 1.01, -148.1) swinging -: cr_wall at -8 deg
+   door 78 (back, building 49) at (-130.2, 1.05, -147.4) swinging +: wall at 8 deg
+   door 78 (back, building 49) at (-130.2, 1.05, -147.4) swinging -: cr_wall at -8 deg
+   door 82 (cr, building 51) at (-116.2, 1.12, -202.0) swinging +: partition at 25 deg
+   door 84 (back, building 52) at (-113.5, 1.14, -203.7) swinging +: wall at 8 deg
+== door_light_props (793)
+   door 27 (back, building 19) at (143.6, 1.06, -150.4): light_prop:bucket@(142.9, 2.09, -150.4)
+   door 43 (back, building 30) at (34.0, 0.79, 168.3): light_prop:bucket@(34.0, 1.70, 168.5)
+   door 58 (cr, building 40) at (-134.8, 0.99, -191.9): light_prop:bottle@(-134.7, 2.02, -192.1), light_prop:bucket@(-134.8, 2.04, -191.8)
+   door 63 (cr, building 42) at (-132.1, 1.01, -188.2): light_prop:bucket@(-132.1, 2.04, -188.3)
+   door 68 (back, building 45) at (-128.2, 0.94, -162.0): light_prop:boots@(-128.2, 1.97, -162.0)
+   door 78 (back, building 49) at (-130.2, 1.05, -147.4): light_prop:bucket@(-130.3, 2.08, -146.9)
+   door 79 (cr, building 49) at (-129.7, 1.05, -146.0): light_prop:bucket@(-129.7, 2.08, -146.0)
+   door 83 (front, building 52) at (-114.2, 1.14, -196.2): light_prop:container@(-114.3, 2.03, -195.5)
+   door 85 (cr, building 52) at (-113.0, 1.14, -202.2): light_prop:bottle@(-113.0, 2.17, -201.7)
+   door 97 (cr, building 56) at (-119.0, 1.05, -176.7): light_prop:bucket@(-119.0, 2.08, -176.7)
+   door 103 (back, building 59) at (-121.5, 1.00, -161.5): light_prop:bottle@(-121.5, 2.03, -162.1)
+   door 105 (cr, building 60) at (-118.7, 1.05, -162.3): light_prop:bucket@(-118.7, 2.08, -162.3), light_prop:jerrycan@(-118.8, 2.10, -162.0)
+   door 125 (back, building 70) at (-104.6, 1.17, -186.8): light_prop:jerrycan@(-104.6, 2.20, -186.7)
+   door 126 (partition, building 70) at (-104.9, 1.17, -186.1): light_prop:jerrycan@(-104.9, 2.20, -186.2)
+== door_drop (136)
+   door 817 (front, building 391) at (-318.5, 0.99, -39.8): no floor within 0.6 m on the - side
+   door 822 (front, building 393) at (-310.2, 1.00, -41.0): no floor within 0.6 m on the - side
+   door 833 (front, building 398) at (-281.3, 1.08, -36.5): no floor within 0.6 m on the - side
+   door 849 (front, building 407) at (-210.7, 0.95, -38.5): no floor within 0.6 m on the - side
+   door 853 (front, building 409) at (-188.5, 0.98, -43.7): no floor within 0.6 m on the - side
+   door 861 (front, building 413) at (-158.0, 0.95, -38.2): no floor within 0.6 m on the - side
+   door 882 (front, building 422) at (-92.7, 0.96, -38.4): no floor within 0.6 m on the - side
+   door 893 (front, building 427) at (-53.7, 1.05, -37.9): no floor within 0.6 m on the - side
+   door 903 (front, building 432) at (-316.5, 0.97, -30.0): no floor within 0.6 m on the - side
+   door 906 (front, building 434) at (-296.2, 1.01, -29.2): no floor within 0.6 m on the - side
+   door 923 (front, building 441) at (-240.6, 1.01, -19.5): no floor within 0.6 m on the - side
+   door 928 (front, building 443) at (-225.2, 0.98, -23.8): no floor within 0.6 m on the - side
+   door 929 (front, building 444) at (-210.9, 0.99, -27.4): no floor within 0.6 m on the - side
+   door 936 (front, building 447) at (-186.3, 0.97, -33.3): no floor within 0.6 m on the - side
+== doorway_blocked (535)
+   doorway 2 (partition_curtain, building 5) at (-229.8, 0.89, 30.8): prop:chalkboard@(-229.8, 1.92, 30.8) (capsule stopped)
+   doorway 3 (partition_curtain, building 6) at (-215.6, 0.99, 32.4): wall@(-215.6, 1.53, 33.1) (capsule stopped)
+   doorway 4 (partition_opening, building 7) at (-252.5, 0.93, 50.9): static:steel_shelves@(-252.5, 2.45, 51.4), wall@(-252.5, 1.47, 50.1) (capsule stopped)
+   doorway 8 (partition_curtain, building 12) at (-151.1, 1.10, 66.5): prop:wheelchair@(-151.1, 2.13, 65.7), prop:desk_metal@(-151.1, 2.13, 66.9) (capsule stopped)
+   doorway 12 (partition_opening, building 18) at (140.3, 1.06, -143.2): static:shelves_paint@(139.8, 2.18, -143.2) (capsule stopped)
+   doorway 14 (partition_curtain, building 20) at (138.0, 1.06, -159.1): lootbox:lootbox_bin@(137.4, 1.38, -159.2), unrecorded@(137.6, 1.60, -159.2) (capsule stopped)
+   doorway 15 (partition_opening, building 21) at (140.5, 1.08, -166.8): lootbox:lootbox_balikbayan@(139.9, 1.69, -166.9) (capsule stopped)
+   doorway 16 (partition_opening, building 22) at (142.0, 1.12, -173.9): prop:table_wood@(142.7, 2.15, -173.8) (capsule stopped)
+   doorway 18 (partition_curtain, building 24) at (101.4, 0.90, -6.7): lootbox:lootbox_bin@(100.7, 1.22, -6.7) (capsule stopped)
+   doorway 20 (partition_curtain, building 26) at (101.3, 0.81, -21.9): lootbox:lootbox_cooler@(100.7, 1.21, -22.0), unrecorded@(100.9, 1.35, -22.0) (capsule stopped)
+   doorway 21 (partition_curtain, building 27) at (104.9, 0.80, -30.2): static:shelf@(104.5, 1.34, -30.2) (capsule stopped)
+   doorway 24 (partition_opening, building 34) at (238.7, 1.12, 106.3): lootbox:lootbox_balikbayan@(238.5, 1.73, 105.6), prop:table_wood@(238.7, 2.15, 106.3) (capsule stopped)
+   doorway 29 (partition_opening, building 42) at (-131.3, 1.01, -187.6): prop:tv2@(-131.3, 2.04, -186.8), static:cabinet_paint@(-131.4, 2.19, -186.8), cr_wall@(-131.5, 1.55, -188.1) (capsule stopped)
+   doorway 31 (partition_curtain, building 45) at (-129.1, 0.94, -162.9): wall@(-129.2, 1.48, -162.1) (capsule stopped)
+== doorway_light_props (145)
+   doorway 10 (front_open, building 15) at (-254.1, 1.13, -244.5): light_prop:jerrycan_metal@(-254.1, 2.16, -243.7)
+   doorway 12 (partition_opening, building 18) at (140.3, 1.06, -143.2): light_prop:stool@(140.7, 2.09, -143.1)
+   doorway 16 (partition_opening, building 22) at (142.0, 1.12, -173.9): light_prop:monobloc@(141.9, 2.15, -173.9)
+   doorway 26 (partition_curtain, building 37) at (255.7, 0.97, 104.6): light_prop:gallon@(255.7, 2.00, 105.2)
+   doorway 29 (partition_opening, building 42) at (-131.3, 1.01, -187.6): light_prop:bucket@(-131.3, 2.04, -187.6)
+   doorway 30 (partition_curtain, building 44) at (-133.3, 0.91, -166.5): light_prop:crate_plastic@(-133.3, 1.94, -167.2)
+   doorway 33 (partition_curtain, building 51) at (-117.8, 1.12, -201.9): light_prop:bottle@(-117.7, 2.15, -202.5), light_prop:jerrycan@(-117.7, 2.15, -202.7)
+   doorway 36 (partition_curtain, building 59) at (-121.5, 1.00, -163.1): light_prop:bottle@(-121.6, 2.03, -162.4)
+   doorway 37 (partition_opening, building 60) at (-115.8, 1.05, -163.3): light_prop:stool_fold@(-115.8, 2.08, -163.1)
+   doorway 40 (partition_curtain, building 67) at (-95.0, 1.20, -189.1): light_prop:chair_wood@(-94.9, 2.23, -189.9)
+   doorway 42 (partition_curtain, building 78) at (-107.3, 1.12, -160.8): light_prop:bucket@(-107.3, 2.15, -160.8)
+   doorway 46 (partition_opening, building 96) at (-65.7, 1.16, -195.7): light_prop:monobloc@(-65.7, 2.19, -194.9)
+   doorway 53 (partition_curtain, building 108) at (-70.4, 1.03, -152.8): light_prop:bottle@(-70.4, 2.06, -153.5)
+   doorway 56 (partition_curtain, building 116) at (-43.8, 1.05, -194.7): light_prop:jerrycan@(-43.8, 2.08, -195.0)
+== doorway_drop (3)
+   doorway 137 (partition_opening, building 379) at (172.3, 1.55, -305.7): no floor on the + side
+   doorway 140 (partition_opening, building 388) at (148.1, 1.54, -288.1): no floor on the + side
+   doorway 160 (partition_curtain, building 493) at (-21.4, 1.00, 158.3): no floor on the + side
+== stair_foot_blocked (517)
+   flight at (-260.6, 0.80, 28.5): wall@(-260.9, 1.38, 28.5)
+   flight at (-232.7, 0.89, 29.3): wall@(-232.9, 1.43, 29.3)
+   flight at (-261.5, 0.93, 52.8): wall@(-261.8, 2.39, 52.8)
+   flight at (-221.3, 0.94, 54.3): wall@(-221.1, 1.48, 54.3)
+   flight at (-177.4, 1.04, 48.8): wall@(-177.7, 1.58, 48.8)
+   flight at (-28.6, 1.07, -5.6): wall@(-28.4, 1.61, -5.6)
+   flight at (139.8, 1.05, -133.1): wall@(139.8, 1.59, -132.9)
+   flight at (140.3, 1.06, -146.3): sill@(140.3, 1.89, -146.6), wall@(140.3, 1.60, -146.6)
+   flight at (140.3, 3.53, -140.6): wall@(140.3, 4.05, -140.3)
+   flight at (140.6, 1.06, -153.9): wall@(140.7, 1.60, -154.1)
+   flight at (140.5, 3.44, -148.2): wall@(140.5, 3.96, -147.9)
+   flight at (140.7, 1.06, -156.0): wall@(140.7, 1.60, -155.7)
+   flight at (140.9, 1.08, -163.2): wall@(140.9, 2.17, -162.9)
+   flight at (141.4, 3.56, -169.3): wall@(141.4, 4.08, -169.6)
+== stair_flight_blocked (1642)
+   flight at (-260.6, 0.80, 28.5) at 95% of the flight: wall@(-260.8, 4.64, 31.7)
+   flight at (-232.7, 0.89, 29.3) at 95% of the flight: wall@(-232.8, 3.81, 32.5)
+   flight at (-261.5, 0.93, 52.8) at 95% of the flight: wall@(-261.4, 4.77, 49.6)
+   flight at (-221.3, 0.94, 54.3) at 95% of the flight: wall@(-221.2, 4.88, 51.1)
+   flight at (-177.4, 1.04, 48.8) at 95% of the flight: wall@(-177.5, 5.05, 52.2)
+   flight at (-28.6, 1.07, -5.6) at 95% of the flight: wall@(-28.2, 3.90, -2.6)
+   flight at (139.8, 1.05, -133.1) at 95% of the flight: wall@(143.1, 5.00, -133.0)
+   flight at (140.3, 1.06, -146.3) at 95% of the flight: wall@(143.5, 4.96, -146.2)
+   flight at (140.3, 3.53, -140.6) at 95% of the flight: wall@(143.3, 7.25, -140.4)
+   flight at (140.6, 1.06, -153.9) at 95% of the flight: wall@(143.8, 4.87, -153.7)
+   flight at (140.5, 3.44, -148.2) at 95% of the flight: wall@(143.6, 6.13, -148.1)
+   flight at (140.7, 1.06, -156.0) at 95% of the flight: wall@(143.9, 4.85, -155.9)
+   flight at (140.9, 1.08, -163.2) at 95% of the flight: wall@(144.1, 4.98, -163.1)
+   flight at (141.4, 3.56, -169.3) at 95% of the flight: wall@(144.2, 6.17, -169.2)
+== stair_top_blocked (283)
+   flight at (140.3, 1.06, -146.3): landing (142.9, 3.53, -145.5): static:nightstand@(142.8, 4.15, -145.5)
+   flight at (140.3, 3.53, -140.6): landing (142.8, 5.81, -141.2): static:drawer_old@(142.8, 6.90, -141.3)
+   flight at (36.2, 0.78, 164.9): landing (37.1, 3.26, 167.5): static:cabinet_paint@(37.1, 4.27, 167.3)
+   flight at (41.2, 3.26, 164.7): landing (40.6, 5.60, 167.3): static:cabinet_paint@(40.5, 6.40, 167.3)
+   flight at (252.5, 1.02, 105.0): landing (251.6, 3.40, 107.6): static:drawer_cabinet@(251.3, 3.92, 107.5)
+   flight at (253.5, 0.97, 104.9): landing (254.2, 3.56, 107.7): static:drawer_old@(254.4, 4.65, 107.7)
+   flight at (-133.5, 0.98, -180.3): landing (-133.2, 3.53, -177.5): static:daybed@(-133.0, 4.66, -177.4)
+   flight at (-135.2, 0.94, -158.8): landing (-134.2, 3.41, -161.3): static:nightstand@(-134.0, 4.02, -161.3)
+   flight at (-136.4, 3.49, -152.0): landing (-135.8, 5.75, -149.5): static:drawer_old@(-136.0, 6.84, -149.5)
+   flight at (-130.0, 1.09, -139.0): landing (-131.1, 3.47, -136.6): static:daybed@(-131.0, 3.99, -136.6)
+   flight at (-118.8, 3.63, -164.0): landing (-118.2, 5.98, -161.5): lootbox:lootbox_footlocker@(-118.1, 6.38, -161.5)
+   flight at (-93.7, 1.21, -176.1): landing (-94.6, 3.74, -173.4): lootbox:lootbox_balikbayan@(-94.8, 4.35, -173.7)
+   flight at (-99.3, 1.19, -169.7): landing (-99.9, 3.77, -172.5): static:bed_old@(-99.7, 4.98, -172.5)
+   flight at (-108.0, 1.11, -136.8): landing (-109.0, 3.57, -134.3): static:nightstand@(-109.0, 4.19, -134.3)
+== ladder_foot_blocked (14)
+   ladder at (-206.5, 0.95, -185.1): prop:old_tyre@(-206.5, 1.96, -185.2)
+   ladder at (-254.4, 0.98, 110.5): plaster_damaged@(-254.4, 1.50, 110.5)
+   ladder at (-210.6, 1.02, 131.0): chb@(-210.6, 2.14, 131.1)
+   ladder at (-239.6, 0.92, 133.6): chb@(-239.6, 1.92, 133.4)
+   ladder at (-176.1, 1.04, 135.9): plaster_damaged@(-176.1, 2.06, 135.8)
+   ladder at (-148.9, 0.83, 159.8): chb@(-148.9, 1.85, 159.8)
+   ladder at (-207.3, 1.00, 175.3): cr_wall@(-207.0, 2.14, 175.4)
+   ladder at (-88.5, 0.98, 91.7): plaster_damaged@(-88.5, 1.51, 91.6)
+   ladder at (-53.8, 1.02, 105.3): chb2@(-53.8, 1.72, 105.5)
+   ladder at (-52.1, 0.88, 125.6): plaster_damaged@(-52.1, 1.40, 125.8)
+   ladder at (-98.1, 0.91, 150.6): plaster_damaged@(-98.0, 1.55, 150.8)
+   ladder at (220.3, 0.88, -81.8): prop:oil_drum@(220.3, 1.89, -81.7)
+   ladder at (159.6, 0.94, 88.8): timber@(159.4, 1.46, 88.8)
+   ladder at (-264.6, 0.79, 193.1): prop:trash_can@(-264.6, 1.80, 193.2)
+== lane_blocked (326)
+   alley lane w 1.3 at (-17.7, -183.4), 1 m: prop:drum_blue
+   alley lane w 1.2 at (-79.9, -208.5), 3 m: concrete_dirty, static:tricycle_b
+   alley lane w 1.2 at (-71.0, -207.6), 1 m: prop:oil_drum
+   alley lane w 1.2 at (-53.1, -205.7), 1 m: prop:trash_can
+   alley lane w 1.2 at (-20.2, -202.3), 1 m: prop:drum_blue
+   alley lane w 1.3 at (-123.4, -196.5), 1 m: prop:drum
+   alley lane w 1.3 at (-119.4, -196.0), 1 m: prop:drum_blue
+   alley lane w 1.3 at (-115.5, -195.6), 1 m: prop:drum_blue
+   alley lane w 1.3 at (-102.5, -194.3), 1 m: planks_dark, plywood
+   alley lane w 1.3 at (-75.7, -191.4), 1 m: prop:Barrel_01
+   alley lane w 1.3 at (-68.7, -190.7), 1 m: prop:drum_blue
+   alley lane w 1.3 at (-53.8, -189.1), 1 m: prop:drum_blue
+   alley lane w 1.3 at (-44.9, -188.2), 1 m: prop:Barrel_01
+   alley lane w 1.3 at (-31.9, -186.8), 1 m: prop:drum_blue
+== prop_floating (831)
+   prop drum_blue at (-163.1, 1.04, 41.0), 0.10 m above the surface
+   prop drum_blue at (-156.8, 1.10, 61.2), 0.13 m above the surface
+   prop Barrel_01 at (-127.4, 1.16, -118.6), 0.09 m above the surface
+   prop drum_blue at (-44.4, 1.07, -13.7), 0.10 m above the surface
+   prop Barrel_01 at (-251.1, 1.12, -245.1), 0.08 m above the surface
+   prop drum_blue at (144.3, 0.96, -95.7), 0.15 m above the surface
+   prop Barrel_01 at (132.8, 1.04, -138.8), 0.09 m above the surface
+   prop cash_register at (134.9, 2.01, -151.5), 0.48 m above the surface
+   prop pot at (143.5, 2.01, -158.5), 0.47 m above the surface
+   prop cash_register at (135.7, 2.07, -174.3), 0.48 m above the surface
+   prop pot at (143.3, 2.09, -178.1), 0.48 m above the surface
+   prop drum_blue at (96.7, 0.90, -4.2), 0.09 m above the surface
+   prop cash_register at (98.2, 1.85, -7.2), 0.47 m above the surface
+   prop drum_blue at (96.3, 0.84, -16.8), 0.11 m above the surface
+== prop_sunk (361)
+   prop propane at (-111.1, 1.12, -188.5): the surface under it is 0.20 m above its bottom
+   prop can at (-105.8, 1.12, -160.0): the surface under it is 0.20 m above its bottom
+   prop box at (-56.8, 1.10, -169.2): the surface under it is 0.20 m above its bottom
+   prop suitcase at (-70.1, 5.65, -146.1): the surface under it is 0.34 m above its bottom
+   prop propane at (-33.7, 0.92, -196.4): the surface under it is 0.20 m above its bottom
+   prop crate_plastic2 at (-22.9, 3.31, -177.4): the surface under it is 0.21 m above its bottom
+   prop lpg_small at (-1.3, 0.90, -191.2): the surface under it is 0.20 m above its bottom
+   prop drum_blue at (-297.2, 0.85, -122.8): the surface under it is 0.18 m above its bottom
+   prop crate_plastic2 at (-299.9, 3.24, -120.9): the surface under it is 0.18 m above its bottom
+   prop lpg_small at (-276.9, 1.19, -189.3): the surface under it is 0.20 m above its bottom
+   prop trashbag at (-196.9, 0.91, -150.2): the surface under it is 0.20 m above its bottom
+   prop sungka at (-102.6, 1.49, -290.9): the surface under it is 0.20 m above its bottom
+   prop crate_plastic at (-29.9, 1.48, -294.3): the surface under it is 0.20 m above its bottom
+   prop Barrel_01 at (-300.8, 6.50, -272.3): the surface under it is 0.09 m above its bottom
+== prop_in_wall (40)
+   prop crate_plastic at (195.8, 0.92, -84.4) inside a wall
+   prop drum_blue at (-119.5, 1.02, -203.4) inside a wall
+   prop crate_plastic3 at (-159.3, 0.98, -28.7) inside a wall
+   prop container at (17.7, 1.00, -49.6) inside a wall
+   prop crate_plastic3 at (-282.2, 1.03, 105.7) inside a wall
+   prop bottle at (-161.9, 1.03, 109.8) inside a wall
+   prop bucket at (-285.4, 0.91, 127.8) inside a wall
+   prop bottle at (-278.8, 0.92, 128.1) inside a wall
+   prop crate_plastic2 at (-208.4, 1.02, 130.6) inside a wall
+   prop trashbag at (-163.4, 1.00, 132.1) inside a wall
+   prop bottle at (-243.8, 0.88, 152.7) inside a wall
+   prop trashbag at (-231.4, 0.89, 153.1) inside a wall
+   prop drum at (-214.9, 1.01, 153.7) inside a wall
+   prop monobloc at (-187.2, 1.05, 154.7) inside a wall
+== static_floating (4190)
+   static old_tyre at (-257.1, 5.73, 28.8), nothing below within 1.5 m
+   static old_tyre at (-256.8, 5.82, 27.7), nothing below within 1.5 m
+   static steel_shelves at (-253.4, 0.80, 29.9), 0.09 m above the surface
+   static steel_shelves at (-255.7, 0.80, 31.4), 0.08 m above the surface
+   static old_tyre at (-242.0, 3.32, 27.0), nothing below within 1.5 m
+   static old_tyre at (-238.3, 3.34, 26.8), nothing below within 1.5 m
+   static steel_shelves at (-240.5, 0.83, 31.9), 0.08 m above the surface
+   static old_tyre at (-214.4, 3.47, 31.6), nothing below within 1.5 m
+   static old_tyre at (-212.2, 3.70, 29.2), nothing below within 1.5 m
+   static old_tyre at (-250.9, 5.57, 56.1), nothing below within 1.5 m
+   static old_tyre at (-229.9, 5.96, 52.9), nothing below within 1.5 m
+   static steel_shelves at (-217.8, 1.00, 56.0), 0.13 m above the surface
+   static steel_shelves at (-210.3, 1.00, 51.9), 0.08 m above the surface
+   static old_tyre at (-169.3, 6.31, 47.7), nothing below within 1.5 m
+== static_sunk (4)
+   static wheel_rim at (-262.9, 0.82, -248.6): the surface under it is 0.21 m above its bottom
+   static wheel_rim at (-259.3, 0.82, -245.7): the surface under it is 0.20 m above its bottom
+   static wheel_rim at (-259.6, 0.82, -240.1): the surface under it is 0.20 m above its bottom
+   static wheel_rim at (195.6, 0.74, 147.1): the surface under it is 0.23 m above its bottom
+== lootbox_floating (2216)
+   lootbox lootbox_bin at (-260.5, 0.80, 25.1), nothing below within 1.5 m
+   lootbox lootbox_bin at (-239.1, 0.83, 24.8), nothing below within 1.5 m
+   lootbox lootbox_bin at (-220.5, 0.89, 31.9), nothing below within 1.5 m
+   lootbox lootbox_bin at (-211.7, 0.99, 32.1), 0.09 m above the surface
+   lootbox lootbox_bin at (-219.5, 1.00, 53.1), 0.13 m above the surface
+   lootbox lootbox_ammocan at (-171.9, 1.04, 52.0), 0.10 m above the surface
+   lootbox lootbox_medcase at (-151.1, 1.10, 62.1), 0.12 m above the surface
+   lootbox lootbox_medcase at (-156.9, 1.10, 65.5), 0.10 m above the surface
+   lootbox lootbox_medcase at (-157.0, 1.10, 67.3), 0.09 m above the surface
+   lootbox lootbox_ammocan at (-127.9, 1.17, -117.9), 0.10 m above the surface
+   lootbox lootbox_footlocker at (-127.4, 1.17, -115.3), 0.09 m above the surface
+   lootbox lootbox_ammocan at (-34.4, 1.07, -2.2), 0.11 m above the surface
+   lootbox lootbox_footlocker at (-41.6, 1.07, -1.8), 0.09 m above the surface
+   lootbox lootbox_bin at (-42.2, 1.07, -2.8), 0.09 m above the surface
+== lootbox_in_wall (1)
+   lootbox lootbox_cooler at (-250.6, 0.87, 152.5) inside a wall
+== item_in_wall (7)
+   item pistol_45 at (-226.7, 1.02, -175.4)
+   item ammo_50ae at (-167.3, 1.14, 149.4)
+   item battery at (-83.9, 1.05, 121.2)
+   item ammo_45acp at (-151.9, 0.94, -65.0)
+   item ammo_12buck at (-123.3, 1.21, -108.2)
+   item painkillers at (-127.1, 1.09, -242.0)
+   item ammo_9x19 at (213.1, 1.26, 109.9)
+== item_sunk (2)
+   item ammo_556 at (-65.2, 1.13, -25.1): surface 0.32 m above it
+   item flashlight at (50.8, 1.06, 97.5): surface 0.32 m above it
+== invisible_from_inside (7561)
+   building 2 room workshop: wall at (-72.0, 2.45, -173.4) has no face toward (-76.4, 2.45, -173.4)
+   building 2 room workshop: partition at (-72.6, 2.45, -169.7) has no face toward (-76.4, 2.45, -173.4)
+   building 2 room workshop: partition_lintel at (-77.7, 3.48, -170.2) has no face toward (-76.4, 3.48, -173.4)
+   building 3 room sala: wall at (-248.1, 2.01, 27.1) has no face toward (-254.5, 2.01, 27.1)
+   building 3 room sala: partition at (-251.2, 2.01, 30.4) has no face toward (-254.5, 2.01, 27.1)
+   building 3 room sala: upper_floor at (-251.7, 3.15, 27.1) has no face toward (-254.5, 2.01, 27.1)
+   building 3 room sala: partition_lintel at (-254.5, 2.96, 30.3) has no face toward (-254.5, 2.96, 27.1)
+   building 4 room sala: wall at (-234.2, 2.10, 28.4) has no face toward (-240.5, 2.10, 28.4)
+   building 5 room sala: wall at (-220.1, 2.16, 27.9) has no face toward (-226.5, 2.16, 27.9)
+   building 5 room sala: partition at (-223.4, 2.16, 31.0) has no face toward (-226.5, 2.16, 27.9)
+   building 5 room sala: upper_floor at (-223.5, 3.38, 27.9) has no face toward (-226.5, 2.16, 27.9)
+   building 5 room sala: partition_lintel at (-229.4, 3.19, 30.8) has no face toward (-226.5, 3.19, 27.9)
+   building 6 room sala: wall at (-206.3, 2.21, 31.5) has no face toward (-212.5, 2.21, 28.9)
+   building 6 room sala: partition at (-208.9, 2.21, 32.6) has no face toward (-212.5, 2.21, 28.9)
+== sky_gap (5700)
+   building 2 (chapel, concrete) room workshop: ray (1.0, 0.00, 0.0) from (-76.4, 2.45, -173.4) leaves through the wall
+   building 2 (chapel, concrete) room workshop: ray (0.9, 0.37, 0.0) from (-76.4, 2.45, -173.4) leaves through the ceiling
+   building 2 (chapel, concrete) room kitchen: ray (0.0, 0.37, 0.9) from (-77.1, 2.45, -167.0) leaves through the wall_top_gap
+   building 3 (classroom, concrete) room sala: ray (1.0, 0.00, 0.0) from (-254.5, 2.01, 27.1) leaves through the wall
+   building 3 (classroom, concrete) room sala: ray (0.9, 0.37, 0.0) from (-254.5, 2.01, 27.1) leaves through the ceiling
+   building 4 (classroom, concrete) room sala: ray (1.0, 0.00, 0.0) from (-240.5, 2.10, 28.4) leaves through the wall
+   building 4 (classroom, concrete) room sala: ray (0.9, 0.37, 0.0) from (-240.5, 2.10, 28.4) leaves through the ceiling
+   building 5 (classroom, concrete) room sala: ray (1.0, 0.00, 0.0) from (-226.5, 2.16, 27.9) leaves through the wall
+   building 5 (classroom, concrete) room sala: ray (0.9, 0.37, 0.0) from (-226.5, 2.16, 27.9) leaves through the ceiling
+   building 5 (classroom, concrete) room sala: ray (0.0, 0.37, 0.9) from (-226.5, 2.16, 27.9) leaves through the wall_top_gap
+   building 6 (classroom, concrete) room sala: ray (0.9, 0.00, 0.4) from (-212.5, 2.21, 28.9) leaves through the wall
+   building 6 (classroom, concrete) room sala: ray (0.9, 0.37, 0.0) from (-212.5, 2.21, 28.9) leaves through the ceiling
+   building 6 (classroom, concrete) room kitchen: ray (0.7, 0.71, 0.3) from (-212.7, 2.21, 32.9) leaves through the wall_top_gap
+   building 7 (classroom, concrete) room sala: ray (1.0, 0.00, 0.0) from (-255.5, 2.14, 54.3) leaves through the wall
+== invisible_from_outside (2287)
+   building 2: wall at (-74.7, 2.38, -163.6) has no face toward (-75.0, 2.38, -161.1)
+   building 3: wall at (-258.3, 2.00, 23.7) has no face toward (-258.2, 2.00, 21.2)
+   building 4: wall at (-244.3, 2.03, 24.2) has no face toward (-244.2, 2.03, 21.7)
+   building 5: wall at (-230.3, 2.09, 24.7) has no face toward (-230.2, 2.09, 22.2)
+   building 6: wall at (-216.3, 2.19, 25.2) has no face toward (-216.2, 2.19, 22.7)
+   building 7: wall at (-251.7, 2.13, 58.0) has no face toward (-251.8, 2.13, 60.5)
+   building 8: wall at (-237.7, 2.13, 58.5) has no face toward (-237.8, 2.13, 61.0)
+   building 9: wall at (-223.7, 2.14, 59.0) has no face toward (-223.8, 2.14, 61.5)
+   building 10: wall at (-209.7, 2.20, 59.5) has no face toward (-209.8, 2.20, 62.0)
+   building 11: wall at (-174.7, 4.60, 41.2) has no face toward (-174.7, 4.60, 38.7)
+   building 12: wall at (-154.6, 2.30, 61.7) has no face toward (-154.6, 2.30, 59.2)
+   building 13: wall at (-131.8, 2.37, -118.2) has no face toward (-131.8, 2.37, -120.7)
+   building 14: wall at (-41.6, 2.27, -13.5) has no face toward (-41.8, 2.27, -15.9)
+   building 15: wall at (-251.8, 2.33, -239.6) has no face toward (-251.7, 2.33, -237.1)

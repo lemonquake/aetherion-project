@@ -1,0 +1,21 @@
+{
+  "source": "Sketchfab (downloaded from the Objaverse mirror, allenai/objaverse on Hugging Face)",
+  "title": "Ump.45",
+  "url": "https://sketchfab.com/3d-models/152fc06d0f484056a3748f3c10771a1b",
+  "mirror_url": "https://huggingface.co/datasets/allenai/objaverse/resolve/main/glbs/000-076/152fc06d0f484056a3748f3c10771a1b.glb",
+  "authors": [
+    "Rahul Kumar Dey"
+  ],
+  "author_url": "https://sketchfab.com/Elementbreeder",
+  "license": "CC-BY-4.0",
+  "license_url": "http://creativecommons.org/licenses/by/4.0/",
+  "attribution_required": true,
+  "kind": "model",
+  "purpose": "UMP45 .45 submachine gun",
+  "modifications": "Joined into one mesh, re-oriented (front along -Z in Godot), scaled to 0.690 m overall, centred, decimated 9271 -> 9271 triangles, textures reduced to 1024 px JPEG (tools/blender/process_items.py).",
+  "retrieved": "2026-10-27",
+  "files": {
+    "smg_ump45.glb": ""
+  },
+  "processed_from": "tools/cache/sketchfab/smg_ump45/smg_ump45.glb"
+}

@@ -1,0 +1,105 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+Vulkan 1.4.329 - Forward+ - Using Device #0: NVIDIA - NVIDIA GeForce RTX 4060
+
+[lagusan] { "segments": 97, "metres": 1510.29132175446, "lights": 210, "dead": 19, "gaps": 94, "shrines": 20, "walks": 19 }
+[looban] { "loobans": 25, "crate_stacks": 76, "low_walls": 293, "sandbags": 9, "kiosks": 25, "barricades": 8, "yard_walls": 99, &"vacant": 80 }
+[dress] { "poles": 975, "wires": 5294, "laundry": 453, "clutter": 1048, "props": 2131, "tags": 0, "puddles": 172, "plants": 1174, "vehicles": 70, "floating": 15, "loot": 441, "boxes": 10 }
+[vandal] { "wall": 1275, "covered": 340, "stains": 3328, "ground": 823, "spots": 8 }
+[world] map built in 27332 ms
+[map] 2118 buildings, 4048 doors, 9851 containers, 11810 props, #5c291308 on PC
+[game] autotest mapscan
+[mapscan] map 2118 buildings, 4048 doors, 9851 containers, 11810 props, #5c291308, seed 1729, 119760 collision boxes recorded
+[mapscan] doors: 4048 ({"back":259,"cr":1446,"front":2074,"partition":269})
+[mapscan] doorways: 790
+[mapscan] stairs: 1642 flights
+[mapscan] ladders: 85
+[mapscan] lanes: 264, 16418 samples
+[mapscan] props/static/loot boxes checked: 23003, ground items: 16567
+[mapscan] visual calibration: 41 of 41 back-wall rays hit the drawn outer face where the wall is
+[mapscan] visual space: 3112532 triangles in 8506 ms
+[mapscan] faces: 593700 rays; 834 buildings with a gap to the outside, 0 invisible solid faces
+[mapscan] scan took 94372 ms
+[mapscan] capture A:/Python/aetherion-project/work/lemondev/r5/mapscan/fix1_1729/door1_day.png (luma 9.2)
+[mapscan] capture A:/Python/aetherion-project/work/lemondev/r5/mapscan/fix1_1729/door1_night.png (luma 0.2)
+[mapscan] capture A:/Python/aetherion-project/work/lemondev/r5/mapscan/fix1_1729/door20_day.png (luma 16.0)
+[mapscan] capture A:/Python/aetherion-project/work/lemondev/r5/mapscan/fix1_1729/door20_night.png (luma 12.6)
+[mapscan] capture A:/Python/aetherion-project/work/lemondev/r5/mapscan/fix1_1729/door21_day.png (luma 43.9)
+[mapscan] capture A:/Python/aetherion-project/work/lemondev/r5/mapscan/fix1_1729/door21_night.png (luma 1.6)
+[mapscan] capture A:/Python/aetherion-project/work/lemondev/r5/mapscan/fix1_1729/door24_day.png (luma 27.5)
+[mapscan] capture A:/Python/aetherion-project/work/lemondev/r5/mapscan/fix1_1729/door24_night.png (luma 30.4)
+[mapscan] capture A:/Python/aetherion-project/work/lemondev/r5/mapscan/fix1_1729/stairtop8_day.png (luma 0.0)
+[mapscan] capture A:/Python/aetherion-project/work/lemondev/r5/mapscan/fix1_1729/stairtop8_night.png (luma 0.0)
+[mapscan] capture A:/Python/aetherion-project/work/lemondev/r5/mapscan/fix1_1729/stairtop9_day.png (luma 0.0)
+[mapscan] capture A:/Python/aetherion-project/work/lemondev/r5/mapscan/fix1_1729/stairtop9_night.png (luma 0.1)
+[mapscan] capture A:/Python/aetherion-project/work/lemondev/r5/mapscan/fix1_1729/stairtop27_day.png (luma 0.7)
+[mapscan] capture A:/Python/aetherion-project/work/lemondev/r5/mapscan/fix1_1729/stairtop27_night.png (luma 0.4)
+[mapscan] capture A:/Python/aetherion-project/work/lemondev/r5/mapscan/fix1_1729/stairtop28_day.png (luma 0.0)
+[mapscan] capture A:/Python/aetherion-project/work/lemondev/r5/mapscan/fix1_1729/stairtop28_night.png (luma 0.0)
+[mapscan] capture A:/Python/aetherion-project/work/lemondev/r5/mapscan/fix1_1729/gap_b2_ceiling_day.png (luma 1.6)
+[mapscan] capture A:/Python/aetherion-project/work/lemondev/r5/mapscan/fix1_1729/gap_b2_ceiling_night.png (luma 0.3)
+[mapscan] capture A:/Python/aetherion-project/work/lemondev/r5/mapscan/fix1_1729/gap_b2_wall_top_gap_day.png (luma 1.9)
+[mapscan] capture A:/Python/aetherion-project/work/lemondev/r5/mapscan/fix1_1729/gap_b2_wall_top_gap_night.png (luma 0.5)
+[mapscan] capture A:/Python/aetherion-project/work/lemondev/r5/mapscan/fix1_1729/gap_b4_ceiling_day.png (luma 4.3)
+[mapscan] capture A:/Python/aetherion-project/work/lemondev/r5/mapscan/fix1_1729/gap_b4_ceiling_night.png (luma 2.1)
+[mapscan] capture A:/Python/aetherion-project/work/lemondev/r5/mapscan/fix1_1729/gap_b10_ceiling_day.png (luma 3.0)
+[mapscan] capture A:/Python/aetherion-project/work/lemondev/r5/mapscan/fix1_1729/gap_b10_ceiling_night.png (luma 1.3)
+[mapscan] capture A:/Python/aetherion-project/work/lemondev/r5/mapscan/fix1_1729/gap_b11_ceiling_day.png (luma 0.4)
+[mapscan] capture A:/Python/aetherion-project/work/lemondev/r5/mapscan/fix1_1729/gap_b11_ceiling_night.png (luma 0.0)
+[mapscan] capture A:/Python/aetherion-project/work/lemondev/r5/mapscan/fix1_1729/gap_b12_ceiling_day.png (luma 2.1)
+[mapscan] capture A:/Python/aetherion-project/work/lemondev/r5/mapscan/fix1_1729/gap_b12_ceiling_night.png (luma 0.6)
+[mapscan] capture A:/Python/aetherion-project/work/lemondev/r5/mapscan/fix1_1729/inv_b23_day.png (luma 1.7)
+[mapscan] capture A:/Python/aetherion-project/work/lemondev/r5/mapscan/fix1_1729/inv_b23_night.png (luma 0.2)
+[mapscan] capture A:/Python/aetherion-project/work/lemondev/r5/mapscan/fix1_1729/inv_b48_day.png (luma 1.2)
+[mapscan] capture A:/Python/aetherion-project/work/lemondev/r5/mapscan/fix1_1729/inv_b48_night.png (luma 0.0)
+[mapscan] capture A:/Python/aetherion-project/work/lemondev/r5/mapscan/fix1_1729/inv_b49_day.png (luma 5.7)
+[mapscan] capture A:/Python/aetherion-project/work/lemondev/r5/mapscan/fix1_1729/inv_b49_night.png (luma 0.5)
+[mapscan] capture A:/Python/aetherion-project/work/lemondev/r5/mapscan/fix1_1729/inv_b51_day.png (luma 1.9)
+[mapscan] capture A:/Python/aetherion-project/work/lemondev/r5/mapscan/fix1_1729/inv_b51_night.png (luma 2.3)
+[mapscan] capture A:/Python/aetherion-project/work/lemondev/r5/mapscan/fix1_1729/invout_b7_day.png (luma 39.3)
+[mapscan] capture A:/Python/aetherion-project/work/lemondev/r5/mapscan/fix1_1729/invout_b7_night.png (luma 3.4)
+[mapscan] capture A:/Python/aetherion-project/work/lemondev/r5/mapscan/fix1_1729/invout_b40_day.png (luma 59.2)
+[mapscan] capture A:/Python/aetherion-project/work/lemondev/r5/mapscan/fix1_1729/invout_b40_night.png (luma 7.5)
+[mapscan] capture A:/Python/aetherion-project/work/lemondev/r5/mapscan/fix1_1729/invout_b42_day.png (luma 46.3)
+[mapscan] capture A:/Python/aetherion-project/work/lemondev/r5/mapscan/fix1_1729/invout_b42_night.png (luma 16.1)
+[mapscan] capture A:/Python/aetherion-project/work/lemondev/r5/mapscan/fix1_1729/invout_b102_day.png (luma 22.9)
+[mapscan] capture A:/Python/aetherion-project/work/lemondev/r5/mapscan/fix1_1729/invout_b102_night.png (luma 19.9)
+[mapscan] ---------------- PASS/FAIL ----------------
+[autotest] FAIL map_doors_passable: 459 of 4048
+[autotest] FAIL map_doors_swing_open: 46 of 4048
+[autotest] PASS map_door_light_props: 0 of 4048
+[autotest] FAIL map_doorways_passable: 34 of 790
+[autotest] PASS map_doorway_light_props: 0 of 790
+[autotest] FAIL map_stairs_foot: 6 of 1642
+[autotest] FAIL map_stairs_flight: 9 of 1642
+[autotest] FAIL map_stairs_landing: 3 of 1642
+[autotest] FAIL map_ladders_foot: 12 of 85
+[autotest] PASS map_ladders_top: 0 of 85
+[autotest] FAIL map_lanes_open: 276 of 264
+[autotest] FAIL map_props_supported: 104 of 23003 {"Barrel_01":30,"bottle":18,"box":2,"bucket":4,"container":5,"crate_plastic2":3,"crate_plastic3":2,"drum_blue":29,"gallon":6,"jerrycan":1,"stool":1,"trashbag":3}
+[autotest] FAIL map_props_not_sunk: 162 of 23003 {"Barrel_01":2,"basket":3,"bench_paint":2,"bottle":30,"box":7,"bucket":6,"can":4,"container":6,"crate_plastic":6,"crate_plastic2":7,"crate_plastic3":7,"drum":3,"drum_blue":8,"gallon":3,"jerrycan":8,"mattress":1,"monobloc":5,"oil_drum":7,"old_tyre":20,"school_desk":1,"stool":6,"trash_can":7,"trashbag":13}
+[autotest] FAIL map_static_supported: 7092 of 23003 {"bed_old":455,"boat":5,"cabinet_paint":674,"cabinet_paint2":707,"daybed":329,"drawer_cabinet":380,"drawer_old":824,"drill_press":9,"food_cart_a":6,"food_cart_b":4,"food_stall":5,"jeepney":2,"nightstand":698,"old_tyre":1995,"shelf":166,"shelves_paint":578,"steel_shelves":113,"steel_shelves2":99,"tool_chest":27,"tricycle_a":11,"tricycle_b":5}
+[autotest] FAIL map_static_not_sunk: 10 of 23003 {"old_tyre":4,"rubble_b":1,"shelves_paint":1,"wheel_rim":4}
+[autotest] FAIL map_lootbox_supported: 3871 of 23003 {"lootbox_ammocan":23,"lootbox_balikbayan":1813,"lootbox_bin":905,"lootbox_cooler":266,"lootbox_footlocker":577,"lootbox_medcase":163,"lootbox_riflecase":83,"lootbox_toolbox":41}
+[autotest] FAIL map_lootbox_not_sunk: 1 of 23003 {"lootbox_balikbayan":1}
+[autotest] FAIL map_props_not_in_walls: 18 of 23003 {"wall":18}
+[autotest] PASS map_static_not_in_walls: 0 of 23003
+[autotest] PASS map_lootbox_not_in_walls: 0 of 23003
+[autotest] PASS map_items_supported: 0 of 16567
+[autotest] PASS map_items_not_sunk: 0 of 16567
+[autotest] FAIL map_items_not_in_walls: 5 of 16567 {"wall":5}
+[autotest] FAIL map_no_sky_gaps: 867 of 593700 {"ceiling":834,"wall":14,"wall_top_gap":19}
+[autotest] PASS map_no_invisible_inside: 0 of 593700
+[autotest] PASS map_no_invisible_outside: 0 of 593700
+[mapscan] door_blocked_by: 502 {"bark":4,"blocker":1,"chb2":7,"cr_wall":18,"deck":2,"door_leaf":6,"floor_planks":14,"floor_slab":1,"glass":2,"metal_rust":6,"partition":394,"partition_lintel":1,"plaster_white":1,"prop:Barrel_01":1,"prop:drum_blue":5,"sill":1,"stair_ramp":3,"static:palm_b":1,"steel":4,"stilt":5,"terrain":1,"unrecorded":3,"wall":15,"wood":6}
+[mapscan] doorway_blocked_by: 39 {"cr_wall":28,"door_leaf":5,"lootbox:lootbox_balikbayan":1,"prop:crate_wood":1,"prop:school_desk":1,"prop:table_paint":1,"prop:table_round":2}
+[mapscan] door_swing_blocked_by: 46 {"bark":4,"cr_wall":1,"deck":2,"door_leaf":2,"glass":2,"metal_rust":8,"plaster_white":1,"prop:drum_blue":1,"sill":1,"stair_ramp":2,"steel":4,"terrain":3,"wall":6,"wood":9}
+[mapscan] stair_blocked_by: 21 {"flight:cr_wall":1,"flight:deck":1,"flight:metal_rust":2,"flight:sheet_metal":2,"flight:timber":1,"flight:wall":4,"foot:partition":1,"foot:sill":2,"foot:unrecorded":1,"foot:wall":3,"top:concrete_dirty":1,"top:sill":1,"top:wall":1}
+[mapscan] lane_blocked_by: 370 {"bark":11,"blocker":1,"concrete_dirty":12,"cr_wall":3,"door_leaf":5,"floor_planks":4,"glass":6,"lootbox:lootbox_balikbayan":5,"lootbox:lootbox_medcase":1,"metal_rust":1,"osb":2,"partition":5,"planks":7,"planks_dark":5,"planks_peel":1,"plaster_white":1,"plywood":5,"prop:Barrel_01":28,"prop:bench_paint":5,"prop:cash_register":1,"prop:drum_blue":52,"prop:sofa_paint":10,"prop:table_paint":4,"prop:table_round":3,"prop:table_small":2,"prop:trash_can":3,"prop:tv2":1,"shutter":4,"sill":13,"stair_ramp":3,"static:cabinet_paint":1,"static:cabinet_paint2":2,"static:counter":3,"static:daybed":1,"static:drawer_cabinet":1,"static:drawer_old":2,"static:nightstand":1,"static:shelf":1,"static:shelves_paint":1,"static:steel_shelves":1,"static:tricycle_b":3,"steel":2,"stilt":1,"tiles":1,"timber":11,"unrecorded":1,"wall":125,"wood":8}
+[mapscan] door_drop: 135 {"back":20,"front":115}
+[autotest] done: 26 checks, 17 failed
+ERROR: 1 RID allocations of type 'N10RendererRD5SkyRD3SkyE' were leaked at exit.
+ERROR: 1 RID allocations of type 'N26RendererEnvironmentStorage11EnvironmentE' were leaked at exit.
+ERROR: 206 RID allocations of type 'N10RendererRD11MeshStorage4MeshE' were leaked at exit.
+ERROR: 1740 RID allocations of type 'N10RendererRD15MaterialStorage8MaterialE' were leaked at exit.
+ERROR: 35 RID allocations of type 'N10RendererRD15MaterialStorage6ShaderE' were leaked at exit.
+ERROR: 846 RID allocations of type 'N10RendererRD14TextureStorage7TextureE' were leaked at exit.

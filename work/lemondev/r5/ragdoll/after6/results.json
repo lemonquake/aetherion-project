@@ -1,0 +1,47 @@
+[
+  [
+    "ragdoll_deaths",
+    true,
+    "33 bodies (0 through the real kill path) in 15 kinds of place"
+  ],
+  [
+    "ragdoll_parts_above_surface",
+    false,
+    "1 of 33 bodies have a ragdoll part > 3 cm inside the surface under it or a wall; worst 0.032 m"
+  ],
+  [
+    "ragdoll_mesh_above_surface",
+    true,
+    "0 of 33 skinned bodies have skin or clothing > 3 cm under the ground, a floor or a stair tread; worst 0.018 m"
+  ],
+  [
+    "ragdoll_mesh_touches_ground",
+    false,
+    "1 of 33 bodies float: lowest skin or clothing more than 3 cm over the surface; worst 0.034 m"
+  ],
+  [
+    "ragdoll_settles",
+    false,
+    "median settle 2.03 s, slowest 4.29 s, 1 over 4 s"
+  ],
+  [
+    "ragdoll_still_after_settle",
+    true,
+    "0 bodies moved more than 2 mm in the 1.5 s after settling; worst 0.0000 m"
+  ],
+  [
+    "ragdoll_joints_hold",
+    true,
+    "0 bodies with a joint pulled apart > 3 cm"
+  ],
+  [
+    "ragdoll_skinned_body",
+    true,
+    "33 of 33 bodies drawn as the character's own skinned, dressed body"
+  ],
+  [
+    "ragdoll_client_matches",
+    true,
+    "client copies vs server: 1: 0.0000 m, 6: 0.0000 m, 11: 0.0000 m, 16: 0.0000 m, 21: 0.0000 m, 26: 0.0000 m, 31: 0.0000 m"
+  ]
+]

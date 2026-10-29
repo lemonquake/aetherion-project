@@ -1,0 +1,21 @@
+{
+  "source": "Sketchfab (downloaded from the Objaverse mirror, allenai/objaverse on Hugging Face)",
+  "title": "Military Vest",
+  "url": "https://sketchfab.com/3d-models/7759ea95ef6d49d59255bddc674d469e",
+  "mirror_url": "https://huggingface.co/datasets/allenai/objaverse/resolve/main/glbs/000-114/7759ea95ef6d49d59255bddc674d469e.glb",
+  "authors": [
+    "PrasadSawant"
+  ],
+  "author_url": "https://sketchfab.com/prasadsawant",
+  "license": "CC-BY-4.0",
+  "license_url": "http://creativecommons.org/licenses/by/4.0/",
+  "attribution_required": true,
+  "kind": "model",
+  "purpose": "armor vest",
+  "modifications": "Joined into one mesh, re-oriented (front along -Z in Godot), scaled to 0.620 m overall, centred, decimated 3386 -> 3386 triangles, textures reduced to 1024 px JPEG (tools/blender/process_items.py).",
+  "retrieved": "2026-10-25",
+  "files": {
+    "vest_light.glb": ""
+  },
+  "processed_from": "tools/cache/sketchfab/vest_military/vest_military.glb"
+}

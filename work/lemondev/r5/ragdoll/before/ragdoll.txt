@@ -1,0 +1,36 @@
+scenarios: 34 { "open": 3, "crouched": 3, "downed": 2, "running": 3, "falling": 1, "slope": 4, "bank": 2, "room": 2, "wall": 2, "wall_downed": 1, "wall_crouch": 1, "upper": 4, "upper_downed": 1, "stairs": 3, "stairs_downed": 1, "stairs_crouch": 1 }
+body 1 open       at (271.8, 0.8, 197.1): spawn overlap 0.000, settle 3.17 s, part overlap 0.009 (larm_l), below surface 0.009 (larm_l), mesh -, moved 0.0000, joint gap 0.000, pelvis drop -0.10
+body 2 crouched   at (-48.6, 0.8, -84.8): spawn overlap 0.070, settle 2.69 s, part overlap 0.010 (larm_l), below surface 0.010 (larm_l), mesh -, moved 0.0000, joint gap 0.000, pelvis drop -0.10
+body 3 crouched   at (-81.6, 0.9, -116.6): spawn overlap 0.071, settle 2.85 s, part overlap 0.010 (lleg_r), below surface 0.011 (head), mesh -, moved 0.0000, joint gap 0.000, pelvis drop -0.10
+body 4 downed     at (-165.5, 1.0, 83.1): spawn overlap 0.000, settle 5.79 s, part overlap 0.010 (larm_r), below surface 0.010 (larm_r), mesh -, moved 0.0000, joint gap 0.000, pelvis drop -0.10
+body 5 running    at (87.2, 0.7, -27.3): spawn overlap 0.000, settle 3.05 s, part overlap 0.010 (larm_r), below surface 0.010 (chest), mesh -, moved 0.0000, joint gap 0.000, pelvis drop -0.09
+body 6 running    at (290.2, 1.0, 194.0): spawn overlap 0.000, settle 5.16 s, part overlap 0.010 (larm_r), below surface 0.010 (larm_r), mesh -, moved 0.0000, joint gap 0.000, pelvis drop -0.09
+body 7 falling    at (63.8, 3.5, 60.1): spawn overlap 0.000, settle 5.43 s, part overlap 0.011 (larm_l), below surface 0.011 (larm_l), mesh -, moved 0.0000, joint gap 0.000, pelvis drop -0.10
+body 8 open       at (136.1, 0.8, 92.3): spawn overlap 0.001, settle 3.77 s, part overlap 0.010 (lleg_r), below surface 0.010 (lleg_r), mesh -, moved 0.0000, joint gap 0.000, pelvis drop -0.10
+body 9 open       at (40.5, 0.4, 260.2): spawn overlap 0.000, settle 3.91 s, part overlap 0.010 (uleg_r), below surface 0.010 (uleg_r), mesh -, moved 0.0000, joint gap 0.000, pelvis drop -0.17
+body 10 slope      at (51.1, 0.6, -107.3): spawn overlap 0.003, settle 4.83 s, part overlap 0.010 (larm_r), below surface 0.010 (larm_r), mesh -, moved 0.0000, joint gap 0.000, pelvis drop -0.26
+body 11 slope      at (44.1, 0.5, -89.4): spawn overlap 0.021, settle 3.26 s, part overlap 0.010 (larm_r), below surface 0.009 (larm_l), mesh -, moved 0.0000, joint gap 0.000, pelvis drop -0.04
+body 12 slope      at (-80.5, 1.4, -280.2): spawn overlap 0.001, settle 3.45 s, part overlap 0.010 (larm_r), below surface 0.010 (larm_r), mesh -, moved 0.0000, joint gap 0.000, pelvis drop -0.19
+body 13 slope      at (272.4, 1.4, -297.1): spawn overlap 0.027, settle 3.43 s, part overlap 0.010 (lleg_r), below surface 0.009 (larm_l), mesh -, moved 0.0000, joint gap 0.000, pelvis drop -0.02
+body 14 bank       at (16.1, 0.9, -148.4): spawn overlap 0.025, settle 3.34 s, part overlap 0.010 (larm_r), below surface 0.010 (larm_r), mesh -, moved 0.0000, joint gap 0.000, pelvis drop -0.07
+body 15 bank       at (-200.0, -0.6, 251.8): spawn overlap 0.006, settle 2.79 s, part overlap 0.010 (uleg_l), below surface 0.010 (larm_l), mesh -, moved 0.0000, joint gap 0.000, pelvis drop -0.06
+body 16 room       at (20.9, 1.1, 54.8): spawn overlap 0.000, settle 3.55 s, part overlap 0.012 (uleg_l), below surface 0.012 (uleg_l), mesh -, moved 0.0000, joint gap 0.000, pelvis drop -0.15
+body 17 crouched   at (15.9, 1.0, 51.2): spawn overlap 0.070, settle 3.91 s, part overlap 0.010 (uleg_l), below surface 0.010 (uleg_l), mesh -, moved 0.0000, joint gap 0.000, pelvis drop -0.09
+body 18 downed     at (45.6, 1.1, 69.7): spawn overlap 0.036, settle 5.98 s, part overlap 0.010 (larm_l), below surface 0.010 (larm_l), mesh -, moved 0.0000, joint gap 0.000, pelvis drop -0.10
+body 19 running    at (9.2, 1.0, 34.0): spawn overlap 0.000, settle 99.00 s, part overlap 0.014 (uarm_l), below surface 0.011 (uleg_l), mesh -, moved 0.0082, joint gap 0.000, pelvis drop -0.16
+body 20 room       at (36.0, 1.1, 69.4): spawn overlap 0.000, settle 5.18 s, part overlap 0.013 (larm_l), below surface 0.013 (larm_l), mesh -, moved 0.0000, joint gap 0.000, pelvis drop -0.17
+body 21 wall       at (57.0, 1.1, 69.6): spawn overlap 0.124, settle 99.00 s, part overlap 0.010 (larm_r), below surface 0.344 (uleg_r), mesh -, moved 0.0159, joint gap 0.000, pelvis drop -0.82
+body 22 wall_downed at (22.5, 1.0, 67.1): spawn overlap 0.180, settle 4.03 s, part overlap 0.012 (lleg_l), below surface 0.010 (larm_r), mesh -, moved 0.0000, joint gap 0.000, pelvis drop -0.09
+body 23 wall_crouch at (6.7, 1.0, 27.7): spawn overlap 0.070, settle 5.32 s, part overlap 0.014 (larm_r), below surface 0.014 (larm_r), mesh -, moved 0.0000, joint gap 0.000, pelvis drop -0.10
+body 24 wall       at (63.9, 1.1, 68.9): spawn overlap 0.149, settle 7.03 s, part overlap 0.022 (larm_r), below surface 0.271 (larm_r), mesh -, moved 0.0000, joint gap 0.000, pelvis drop -0.72
+body 25 upper      at (17.0, 1.1, 55.6): spawn overlap 0.000, settle 3.86 s, part overlap 0.010 (uleg_l), below surface 0.010 (uleg_l), mesh -, moved 0.0000, joint gap 0.000, pelvis drop -0.12
+body 26 upper_downed at (54.7, 3.6, 68.4): spawn overlap 0.000, settle 1.86 s, part overlap 0.010 (larm_l), below surface 0.010 (larm_l), mesh -, moved 0.0000, joint gap 0.000, pelvis drop -0.10
+body 27 upper      at (22.5, 3.4, 68.1): spawn overlap 0.000, settle 3.27 s, part overlap 0.010 (larm_r), below surface 0.014 (head), mesh -, moved 0.0000, joint gap 0.000, pelvis drop -0.09
+body 28 upper      at (60.5, 3.6, 69.5): spawn overlap 0.000, settle 3.21 s, part overlap 0.011 (uarm_r), below surface 0.011 (uarm_r), mesh -, moved 0.0000, joint gap 0.000, pelvis drop -0.10
+body 29 upper      at (46.4, 3.5, 75.0): spawn overlap 0.000, settle 2.82 s, part overlap 0.010 (uarm_l), below surface 0.157 (uarm_r), mesh -, moved 0.0000, joint gap 0.000, pelvis drop -0.10
+body 30 stairs     at (-260.7, 1.8, 30.0): spawn overlap 0.035, settle 4.36 s, part overlap 0.011 (uarm_r), below surface 0.160 (lleg_r), mesh -, moved 0.0000, joint gap 0.000, pelvis drop 0.81
+body 31 stairs     at (247.4, 4.4, 106.4): spawn overlap 0.035, settle 7.78 s, part overlap 0.013 (uarm_r), below surface 0.081 (lleg_l), mesh -, moved 0.0000, joint gap 0.000, pelvis drop 0.56
+body 32 stairs_downed at (-92.9, 4.7, -188.1): spawn overlap 0.107, settle 8.67 s, part overlap 0.021 (uarm_r), below surface 0.197 (uarm_r), mesh -, moved 0.0000, joint gap 0.000, pelvis drop 0.20
+body 33 stairs_crouch at (-70.1, 2.0, -143.4): spawn overlap 0.068, settle 8.83 s, part overlap 0.010 (uleg_r), below surface 0.104 (uleg_r), mesh -, moved 0.0000, joint gap 0.000, pelvis drop 0.52
+body 34 stairs     at (-27.6, 1.9, -139.1): spawn overlap 0.035, settle 6.14 s, part overlap 0.010 (larm_l), below surface 0.141 (lleg_r), mesh -, moved 0.0000, joint gap 0.000, pelvis drop 0.92
+by kind: open 3 (worst 0.010), crouched 3 (worst 0.011), downed 2 (worst 0.010), running 3 (worst 0.014), falling 1 (worst 0.011), slope 4 (worst 0.010), bank 2 (worst 0.010), room 2 (worst 0.013), wall 2 (worst 0.344), wall_downed 1 (worst 0.012), wall_crouch 1 (worst 0.014), upper 4 (worst 0.157), upper_downed 1 (worst 0.010), stairs 3 (worst 0.160), stairs_downed 1 (worst 0.197), stairs_crouch 1 (worst 0.104)

@@ -1,0 +1,163 @@
+map 2118 buildings, 4048 doors, 9841 containers, 10962 props, #bf33f9f2, seed 1729, 119685 collision boxes recorded
+props/static/loot boxes checked: 22163, ground items: 16518
+visual calibration: 41 of 41 back-wall rays hit the drawn outer face where the wall is
+visual space: 3113384 triangles in 5856 ms
+faces: 594213 rays; 827 buildings with a gap to the outside, 1 invisible solid faces
+scan took 84026 ms
+---------------- PASS/FAIL ----------------
+FAIL props_supported: 56 of 22163 {"Barrel_01":2,"bottle":17,"box":2,"bucket":4,"container":5,"crate_plastic":1,"crate_plastic2":3,"crate_plastic3":2,"drum_blue":8,"gallon":6,"jerrycan":1,"oil_drum":1,"stool":1,"trashbag":3}
+FAIL props_not_sunk: 203 of 22163 {"Barrel_01":2,"basket":2,"bench_paint":4,"boots":1,"bottle":44,"box":8,"bucket":13,"can":8,"chair_wood":1,"container":7,"crate_plastic":6,"crate_plastic2":13,"crate_plastic3":10,"drum":4,"drum_blue":4,"gallon":7,"jerrycan":9,"monobloc":4,"oil_drum":5,"old_tyre":19,"sofa_paint":1,"stool":11,"suitcase":3,"trash_can":5,"trashbag":12}
+FAIL static_supported: 11 of 22163 {"boat":5,"food_cart_a":1,"old_tyre":5}
+FAIL static_not_sunk: 110 of 22163 {"cabinet_paint":2,"cabinet_paint2":1,"daybed":3,"drawer_old":5,"food_cart_a":1,"nightstand":5,"old_tyre":74,"rubble_a":13,"rubble_b":1,"tricycle_a":1,"wheel_rim":4}
+PASS lootbox_supported: 0 of 22163
+FAIL lootbox_not_sunk: 20 of 22163 {"lootbox_balikbayan":7,"lootbox_bin":7,"lootbox_cooler":4,"lootbox_footlocker":1,"lootbox_toolbox":1}
+FAIL props_not_in_walls: 40 of 22163 {"low_wall":20,"wall":20}
+FAIL static_not_in_walls: 2 of 22163 {"low_wall":2}
+PASS lootbox_not_in_walls: 0 of 22163
+PASS items_supported: 0 of 16518
+FAIL items_not_sunk: 20 of 16518
+FAIL items_not_in_walls: 3 of 16518 {"wall":3}
+FAIL no_sky_gaps: 860 of 594213 {"ceiling":827,"wall":14,"wall_top_gap":19}
+FAIL no_invisible_inside: 1 of 594213 {"partition":1}
+PASS no_invisible_outside: 0 of 594213
+== prop_sunk (203)
+   prop bucket at (237.2, 1.12, 106.2): 0.28 m into light_prop:box
+   prop sofa_paint at (-214.7, 0.95, -38.9): 0.34 m into wood
+   prop bench_paint at (-272.5, 0.99, -22.6): 0.30 m into wood
+   prop chair_wood at (-52.5, 1.09, -25.5): 0.19 m into wood
+   prop suitcase at (8.0, 3.46, -28.2): 0.12 m into static:cabinet_paint2
+   prop suitcase at (265.4, 3.42, -57.1): 0.20 m into static:cabinet_paint2
+   prop basket at (77.3, 3.46, 100.0): 0.18 m into static:cabinet_paint2
+   prop basket at (-41.1, 5.80, -261.7): 0.31 m into static:cabinet_paint2
+   prop boots at (203.9, 3.68, 93.9): 0.12 m into static:cabinet_paint2
+   prop suitcase at (-242.1, 3.40, 197.3): 0.10 m into static:cabinet_paint2
+   prop drum at (-101.6, 1.11, -208.0): 0.08 m into pavement
+   prop bucket at (-97.4, 1.12, -206.0): 0.08 m into pavement
+   prop bucket at (242.5, 1.21, -52.0): 0.35 m into crate
+   prop oil_drum at (31.1, -0.00, 115.2): 0.10 m into terrain
+== prop_in_wall (40)
+   prop generator at (181.7, 1.13, 110.8) inside a low_wall
+   prop bucket at (242.5, 1.21, -52.0) inside a low_wall
+   prop drum_blue at (-289.2, 1.03, 87.2) inside a low_wall
+   prop drum_blue at (-164.3, 1.03, 91.6) inside a low_wall
+   prop drum_blue at (-297.0, 1.06, 105.7) inside a low_wall
+   prop drum_blue at (-294.4, 1.06, 105.8) inside a low_wall
+   prop drum_blue at (-256.8, 1.00, 110.4) inside a low_wall
+   prop Barrel_01 at (-202.4, 1.00, 112.3) inside a low_wall
+   prop Barrel_01 at (-163.1, 1.04, 113.7) inside a low_wall
+   prop Barrel_01 at (-218.6, 0.99, 130.8) inside a low_wall
+   prop Barrel_01 at (-186.5, 1.04, 131.9) inside a low_wall
+   prop Barrel_01 at (-147.8, 0.90, 133.3) inside a low_wall
+   prop Barrel_01 at (-304.9, 0.83, 131.3) inside a low_wall
+   prop Barrel_01 at (-257.3, 0.93, 133.0) inside a low_wall
+== prop_floating (56)
+   prop oil_drum at (-27.9, -1.39, 14.0), nothing below within 1.5 m
+   prop drum_blue at (-163.1, 1.04, 41.0), 0.10 m above the surface
+   prop drum_blue at (-156.8, 1.10, 61.2), 0.13 m above the surface
+   prop Barrel_01 at (-127.4, 1.16, -118.6), 0.09 m above the surface
+   prop drum_blue at (-44.4, 1.07, -13.7), 0.10 m above the surface
+   prop drum_blue at (144.3, 0.96, -95.7), 0.15 m above the surface
+   prop Barrel_01 at (132.8, 1.04, -138.8), 0.09 m above the surface
+   prop drum_blue at (96.3, 0.84, -16.8), 0.11 m above the surface
+   prop drum_blue at (235.7, 1.12, 99.2), 0.11 m above the surface
+   prop drum_blue at (252.6, 1.02, 99.7), 0.13 m above the surface
+   prop drum_blue at (-32.0, 1.45, -283.0), 0.10 m above the surface
+   prop bottle at (-238.4, 0.95, -28.5), nothing below within 1.5 m
+   prop gallon at (-194.7, 0.95, -40.7), nothing below within 1.5 m
+   prop crate_plastic2 at (-243.7, 0.95, -21.5), nothing below within 1.5 m
+== static_sunk (110)
+   static wheel_rim at (-262.9, 0.83, -248.6): 0.20 m into terrain
+   static old_tyre at (-255.9, 0.72, -237.4): 0.30 m into terrain
+   static old_tyre at (210.2, 0.64, 158.5): 0.30 m into terrain
+   static wheel_rim at (195.6, 0.77, 147.1): 0.20 m into terrain
+   static wheel_rim at (194.4, 0.77, 148.6): 0.20 m into terrain
+   static wheel_rim at (194.3, 0.81, 161.7): 0.20 m into terrain
+   static old_tyre at (196.6, 0.67, 155.6): 0.30 m into terrain
+   static cabinet_paint at (-9.4, 5.70, -158.7): 0.35 m into static:cabinet_paint2
+   static drawer_old at (-303.2, 3.51, -167.1): 0.15 m into static:cabinet_paint2
+   static old_tyre at (-285.8, 5.95, -151.2): 0.15 m into static:cabinet_paint2
+   static drawer_old at (-284.8, 5.88, -142.4): 0.19 m into static:cabinet_paint2
+   static old_tyre at (-255.2, 4.15, -106.9): 0.20 m into static:hollow_block
+   static nightstand at (-263.4, 4.36, -272.6): 0.12 m into static:cabinet_paint2
+   static drawer_old at (-257.1, 5.86, 113.6): 0.31 m into static:cabinet_paint2
+== static_floating (11)
+   static boat at (70.0, -3.11, 256.9), nothing below within 1.5 m
+   static boat at (88.0, -3.11, 266.0), nothing below within 1.5 m
+   static boat at (70.0, -3.11, 275.0), nothing below within 1.5 m
+   static boat at (88.0, -3.11, 284.1), nothing below within 1.5 m
+   static boat at (70.0, -3.11, 292.8), nothing below within 1.5 m
+   static old_tyre at (191.6, 3.54, -12.9), nothing below within 1.5 m
+   static old_tyre at (59.0, 3.52, 76.9), nothing below within 1.5 m
+   static old_tyre at (-270.7, 1.59, -125.1), 0.64 m above the surface
+   static old_tyre at (-283.0, 1.45, -110.5), 0.61 m above the surface
+   static old_tyre at (35.4, 1.48, 108.7), 0.66 m above the surface
+   static food_cart_a at (-87.1, 1.02, 218.2), 0.09 m above the surface
+== static_in_wall (2)
+   static tricycle_b at (241.4, 1.06, -50.0) inside a low_wall
+   static tricycle_a at (-288.8, 0.82, 197.7) inside a low_wall
+== lootbox_sunk (20)
+   lootbox lootbox_bin at (241.4, 1.07, 105.3): 0.22 m into light_prop:crate_plastic
+   lootbox lootbox_cooler at (78.2, 1.20, 257.0): 0.35 m into static:boat
+   lootbox lootbox_cooler at (80.7, 1.20, 265.0): 0.35 m into static:boat
+   lootbox lootbox_toolbox at (78.8, 1.20, 273.0): 0.35 m into static:boat
+   lootbox lootbox_cooler at (75.3, 1.20, 281.0): 0.35 m into static:boat
+   lootbox lootbox_cooler at (78.1, 1.20, 289.0): 0.35 m into static:boat
+   lootbox lootbox_bin at (-201.1, 3.53, -192.7): 0.11 m into static:cabinet_paint2
+   lootbox lootbox_bin at (-51.8, 1.09, -26.1): 0.15 m into wood
+   lootbox lootbox_balikbayan at (16.2, 3.36, 163.1): 0.21 m into static:cabinet_paint2
+   lootbox lootbox_balikbayan at (-259.3, 3.48, 106.1): 0.35 m into timber
+   lootbox lootbox_footlocker at (-102.8, 5.69, 119.3): 0.35 m into static:cabinet_paint2
+   lootbox lootbox_bin at (-61.5, 5.76, 133.0): 0.30 m into static:cabinet_paint2
+   lootbox lootbox_bin at (135.9, 3.48, -7.4): 0.16 m into static:cabinet_paint2
+   lootbox lootbox_balikbayan at (43.4, 3.46, 84.7): 0.17 m into static:cabinet_paint2
+== item_sunk (20)
+   item ammo_762x39 at (77.9, 1.21, 267.1): 0.35 m under the surface (static:boat)
+   item ammo_9x19 at (148.3, 5.66, -13.2): 0.35 m under the surface (static:cabinet_paint2)
+   item rifle_m762 at (-81.8, 0.98, -132.5): 0.35 m under the surface (crate)
+   item ammo_762x39 at (-81.7, 0.98, -132.5): 0.35 m under the surface (crate)
+   item bandage at (42.1, 0.90, 115.0): 0.35 m under the surface (crate)
+   item battery at (-303.9, 0.95, -60.1): 0.35 m under the surface (crate)
+   item ammo_9x19 at (49.1, 0.91, -261.6): 0.35 m under the surface (static:tricycle_a)
+   item sight_reddot at (72.0, 1.03, -169.6): 0.35 m under the surface (crate)
+   item battery at (307.3, 0.97, -199.7): 0.35 m under the surface (static:rubble_a)
+   item grip_half at (14.7, 0.97, 248.7): 0.35 m under the surface (static:rubble_b)
+   item battery at (-162.9, 0.83, -189.1): 0.35 m under the surface (static:rubble_a)
+   item battery at (320.9, 1.02, -251.0): 0.35 m under the surface (static:rubble_a)
+   item ammo_9x19 at (3.7, 0.83, -99.0): 0.35 m under the surface (static:rubble_a)
+   item mag_ext_light at (-67.0, 1.03, -216.2): 0.35 m under the surface (static:rubble_a)
+== item_in_wall (3)
+   item battery at (-45.4, 0.97, -152.1)
+   item ammo_45acp at (-188.8, 1.03, -49.5)
+   item mag_ext_light at (222.7, 1.22, 96.9)
+== sky_gap (860)
+   building 2 (chapel, concrete, 9.0x13.0, top 1.38) room workshop: ray (0.9, 0.37, 0.4) from (-76.4, 2.45, -173.4) leaves through the ceiling; crosses the walls' line at house-local (4.5, 3.17, -1.8); drawn hit (4.4, 3.12, -1.8)
+   building 2 (chapel, concrete, 9.0x13.0, top 1.38) room kitchen: ray (0.4, 0.37, -0.9) from (-77.1, 2.45, -167.0) leaves through the wall_top_gap; crosses the walls' line at house-local (2.9, 5.44, -6.5); drawn hit (1.3, 3.19, -1.2)
+   building 11 (hall, concrete, 15.0x11.0, top 3.91) room bed: ray (0.9, 0.37, 0.0) from (-170.3, 4.81, 46.8) leaves through the ceiling; crosses the walls' line at house-local (7.5, 6.80, -0.1); drawn hit (4.5, 5.59, -0.1)
+   building 12 (clinic, concrete, 13.0x9.0, top 1.29) room sala: ray (0.9, 0.37, 0.4) from (-150.8, 2.30, 64.1) leaves through the ceiling; crosses the walls' line at house-local (6.5, 4.02, 0.4); drawn hit (4.3, 3.06, -0.5)
+   building 12 (clinic, concrete, 13.0x9.0, top 1.29) room kitchen: ray (0.7, 0.37, -0.7) from (-150.8, 2.30, 68.6) leaves through the wall_top_gap; crosses the walls' line at house-local (6.5, 4.98, -4.4); drawn hit (3.1, 3.01, -0.9)
+   building 13 (outpost, chb, 6.0x5.0, top 1.42) room sala: ray (0.5, 0.71, 0.5) from (-130.0, 2.46, -115.7) leaves through the ceiling; crosses the walls' line at house-local (2.5, 4.83, 2.5); drawn hit (1.2, 3.04, 1.2)
+   building 14 (pump, concrete, 16.0x12.0, top 3.71) room bed: ray (0.9, 0.37, 0.0) from (-36.4, 4.69, -7.8) leaves through the ceiling; crosses the walls' line at house-local (8.0, 6.86, 0.6); drawn hit (4.5, 5.46, 0.3)
+   building 15 (workshop, yero, 7.0x5.0, top 1.23) room workshop: ray (0.5, 0.71, 0.5) from (-254.0, 2.30, -242.0) leaves through the ceiling; crosses the walls' line at house-local (2.3, 4.59, 2.5); drawn hit (1.2, 2.88, 1.2)
+   building 16 (church, concrete, 18.0x30.0, top 1.54) room sala: ray (0.7, 0.00, 0.7) from (153.3, 2.21, -83.5) leaves through the wall; crosses the walls' line at house-local (9.0, 1.25, 6.7); drawn hit none
+   building 16 (church, concrete, 18.0x30.0, top 1.54) room bed: ray (0.9, 0.37, 0.0) from (153.8, 2.21, -68.5) leaves through the ceiling; crosses the walls' line at house-local (9.0, 4.89, 12.4); drawn hit (4.7, 3.15, 12.2)
+   building 18 (shop, concrete, 6.6x10.0, top 5.97) room bed: ray (0.5, 0.71, 0.5) from (138.4, 6.95, -143.5) leaves through the ceiling; crosses the walls' line at house-local (-3.3, 10.73, 3.5); drawn hit (-1.2, 7.60, 1.3)
+   building 22 (shop, concrete, 5.6x10.0, top 3.53) room bed: ray (0.7, 0.71, 0.0) from (139.5, 4.63, -173.9) leaves through the ceiling; crosses the walls' line at house-local (0.2, 8.52, 5.0); drawn hit (0.1, 5.17, 1.7)
+   building 23 (shop, concrete, 7.5x10.0, top 5.80) room bed: ray (0.9, 0.37, 0.0) from (139.8, 6.94, -181.5) leaves through the ceiling; crosses the walls' line at house-local (0.2, 7.82, 5.0); drawn hit (0.1, 7.51, 4.2)
+   building 29 (store, concrete, 8.0x5.0, top 1.26) room store: ray (0.9, 0.37, 0.4) from (138.0, 2.31, 25.5) leaves through the ceiling; crosses the walls' line at house-local (4.0, 2.97, 1.8); drawn hit (4.0, 2.96, 1.8)
+== room_centre_in_geometry (17)
+   building 85 room bed: its middle (-97.5, 4.62, -135.0) is inside a static:bed_old
+   building 186 room bed: its middle (-290.4, 6.76, -145.8) is inside a static:bed_old
+   building 293 room bed: its middle (-215.8, 4.51, -138.7) is inside a static:bed_old
+   building 522 room sala: its middle (28.0, 2.21, 122.6) is inside a wall
+   building 870 room bed: its middle (140.4, 4.62, 36.3) is inside a static:bed_old
+   building 917 room bed: its middle (176.2, 7.01, -9.0) is inside a static:bed_old
+   building 1064 room bed: its middle (264.5, 4.63, -18.9) is inside a static:bed_old
+   building 1390 room bed: its middle (-203.2, 4.41, -67.6) is inside a static:bed_old
+   building 1394 room bed: its middle (-187.7, 4.68, -107.6) is inside a static:bed_old
+   building 1414 room bed: its middle (-175.3, 4.71, -95.5) is inside a static:bed_old
+   building 1459 room bed: its middle (-104.8, 7.26, -98.4) is inside a static:bed_old
+   building 1468 room bed: its middle (-106.2, 7.00, -70.7) is inside a static:bed_old
+   building 1529 room bed: its middle (-85.6, 6.83, 25.2) is inside a static:bed_old
+   building 1543 room bed: its middle (-88.6, 4.55, 66.9) is inside a static:bed_old
+== invisible_from_inside (1)
+   building 890 room sala: partition at (163.8, 2.34, -3.3) has no face toward (163.0, 2.34, -1.4)

@@ -1,0 +1,132 @@
+[
+  [
+    "map_doors_passable",
+    false,
+    "459 of 4048"
+  ],
+  [
+    "map_doors_swing_open",
+    false,
+    "46 of 4048"
+  ],
+  [
+    "map_door_light_props",
+    true,
+    "0 of 4048"
+  ],
+  [
+    "map_doorways_passable",
+    false,
+    "34 of 790"
+  ],
+  [
+    "map_doorway_light_props",
+    true,
+    "0 of 790"
+  ],
+  [
+    "map_stairs_foot",
+    false,
+    "6 of 1642"
+  ],
+  [
+    "map_stairs_flight",
+    false,
+    "9 of 1642"
+  ],
+  [
+    "map_stairs_landing",
+    false,
+    "3 of 1642"
+  ],
+  [
+    "map_ladders_foot",
+    false,
+    "12 of 85"
+  ],
+  [
+    "map_ladders_top",
+    true,
+    "0 of 85"
+  ],
+  [
+    "map_lanes_open",
+    false,
+    "276 of 264"
+  ],
+  [
+    "map_props_supported",
+    false,
+    "104 of 23003 {\"Barrel_01\":30,\"bottle\":18,\"box\":2,\"bucket\":4,\"container\":5,\"crate_plastic2\":3,\"crate_plastic3\":2,\"drum_blue\":29,\"gallon\":6,\"jerrycan\":1,\"stool\":1,\"trashbag\":3}"
+  ],
+  [
+    "map_props_not_sunk",
+    false,
+    "162 of 23003 {\"Barrel_01\":2,\"basket\":3,\"bench_paint\":2,\"bottle\":30,\"box\":7,\"bucket\":6,\"can\":4,\"container\":6,\"crate_plastic\":6,\"crate_plastic2\":7,\"crate_plastic3\":7,\"drum\":3,\"drum_blue\":8,\"gallon\":3,\"jerrycan\":8,\"mattress\":1,\"monobloc\":5,\"oil_drum\":7,\"old_tyre\":20,\"school_desk\":1,\"stool\":6,\"trash_can\":7,\"trashbag\":13}"
+  ],
+  [
+    "map_static_supported",
+    false,
+    "7092 of 23003 {\"bed_old\":455,\"boat\":5,\"cabinet_paint\":674,\"cabinet_paint2\":707,\"daybed\":329,\"drawer_cabinet\":380,\"drawer_old\":824,\"drill_press\":9,\"food_cart_a\":6,\"food_cart_b\":4,\"food_stall\":5,\"jeepney\":2,\"nightstand\":698,\"old_tyre\":1995,\"shelf\":166,\"shelves_paint\":578,\"steel_shelves\":113,\"steel_shelves2\":99,\"tool_chest\":27,\"tricycle_a\":11,\"tricycle_b\":5}"
+  ],
+  [
+    "map_static_not_sunk",
+    false,
+    "10 of 23003 {\"old_tyre\":4,\"rubble_b\":1,\"shelves_paint\":1,\"wheel_rim\":4}"
+  ],
+  [
+    "map_lootbox_supported",
+    false,
+    "3871 of 23003 {\"lootbox_ammocan\":23,\"lootbox_balikbayan\":1813,\"lootbox_bin\":905,\"lootbox_cooler\":266,\"lootbox_footlocker\":577,\"lootbox_medcase\":163,\"lootbox_riflecase\":83,\"lootbox_toolbox\":41}"
+  ],
+  [
+    "map_lootbox_not_sunk",
+    false,
+    "1 of 23003 {\"lootbox_balikbayan\":1}"
+  ],
+  [
+    "map_props_not_in_walls",
+    false,
+    "18 of 23003 {\"wall\":18}"
+  ],
+  [
+    "map_static_not_in_walls",
+    true,
+    "0 of 23003"
+  ],
+  [
+    "map_lootbox_not_in_walls",
+    true,
+    "0 of 23003"
+  ],
+  [
+    "map_items_supported",
+    true,
+    "0 of 16567"
+  ],
+  [
+    "map_items_not_sunk",
+    true,
+    "0 of 16567"
+  ],
+  [
+    "map_items_not_in_walls",
+    false,
+    "5 of 16567 {\"wall\":5}"
+  ],
+  [
+    "map_no_sky_gaps",
+    false,
+    "867 of 593700 {\"ceiling\":834,\"wall\":14,\"wall_top_gap\":19}"
+  ],
+  [
+    "map_no_invisible_inside",
+    true,
+    "0 of 593700"
+  ],
+  [
+    "map_no_invisible_outside",
+    true,
+    "0 of 593700"
+  ]
+]

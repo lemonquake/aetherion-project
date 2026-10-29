@@ -1,0 +1,39 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+Vulkan 1.4.329 - Forward+ - Using Device #0: NVIDIA - NVIDIA GeForce RTX 4060
+
+[lagusan] { "segments": 97, "metres": 1510.29132175446, "lights": 210, "dead": 19, "gaps": 94, "shrines": 20, "walks": 19 }
+[looban] { "loobans": 25, "crate_stacks": 76, "low_walls": 277, "sandbags": 9, "kiosks": 25, "barricades": 8, "yard_walls": 99, &"vacant": 80 }
+[dress] { "poles": 970, "wires": 5292, "laundry": 415, "clutter": 1011, "props": 2090, "tags": 0, "puddles": 182, "plants": 1178, "vehicles": 66, "floating": 9, "loot": 441, "boxes": 12 }
+[vandal] { "wall": 1275, "covered": 340, "stains": 3328, "ground": 823, "spots": 8 }
+[world] map built in 26502 ms
+[map] 2118 buildings, 4048 doors, 9841 containers, 10962 props, #bf33f9f2 on PC
+[game] autotest mapscan
+[mapscan] map 2118 buildings, 4048 doors, 9841 containers, 10962 props, #bf33f9f2, seed 1729, 119685 collision boxes recorded
+[mapscan] props/static/loot boxes checked: 22163, ground items: 16518
+[mapscan] visual calibration: 41 of 41 back-wall rays hit the drawn outer face where the wall is
+[mapscan] visual space: 3113384 triangles in 5856 ms
+[mapscan] faces: 594213 rays; 827 buildings with a gap to the outside, 1 invisible solid faces
+[mapscan] scan took 84026 ms
+[mapscan] ---------------- PASS/FAIL ----------------
+[autotest] FAIL map_props_supported: 56 of 22163 {"Barrel_01":2,"bottle":17,"box":2,"bucket":4,"container":5,"crate_plastic":1,"crate_plastic2":3,"crate_plastic3":2,"drum_blue":8,"gallon":6,"jerrycan":1,"oil_drum":1,"stool":1,"trashbag":3}
+[autotest] FAIL map_props_not_sunk: 203 of 22163 {"Barrel_01":2,"basket":2,"bench_paint":4,"boots":1,"bottle":44,"box":8,"bucket":13,"can":8,"chair_wood":1,"container":7,"crate_plastic":6,"crate_plastic2":13,"crate_plastic3":10,"drum":4,"drum_blue":4,"gallon":7,"jerrycan":9,"monobloc":4,"oil_drum":5,"old_tyre":19,"sofa_paint":1,"stool":11,"suitcase":3,"trash_can":5,"trashbag":12}
+[autotest] FAIL map_static_supported: 11 of 22163 {"boat":5,"food_cart_a":1,"old_tyre":5}
+[autotest] FAIL map_static_not_sunk: 110 of 22163 {"cabinet_paint":2,"cabinet_paint2":1,"daybed":3,"drawer_old":5,"food_cart_a":1,"nightstand":5,"old_tyre":74,"rubble_a":13,"rubble_b":1,"tricycle_a":1,"wheel_rim":4}
+[autotest] PASS map_lootbox_supported: 0 of 22163
+[autotest] FAIL map_lootbox_not_sunk: 20 of 22163 {"lootbox_balikbayan":7,"lootbox_bin":7,"lootbox_cooler":4,"lootbox_footlocker":1,"lootbox_toolbox":1}
+[autotest] FAIL map_props_not_in_walls: 40 of 22163 {"low_wall":20,"wall":20}
+[autotest] FAIL map_static_not_in_walls: 2 of 22163 {"low_wall":2}
+[autotest] PASS map_lootbox_not_in_walls: 0 of 22163
+[autotest] PASS map_items_supported: 0 of 16518
+[autotest] FAIL map_items_not_sunk: 20 of 16518
+[autotest] FAIL map_items_not_in_walls: 3 of 16518 {"wall":3}
+[autotest] FAIL map_no_sky_gaps: 860 of 594213 {"ceiling":827,"wall":14,"wall_top_gap":19}
+[autotest] FAIL map_no_invisible_inside: 1 of 594213 {"partition":1}
+[autotest] PASS map_no_invisible_outside: 0 of 594213
+[autotest] done: 15 checks, 11 failed
+ERROR: 1 RID allocations of type 'N10RendererRD5SkyRD3SkyE' were leaked at exit.
+ERROR: 1 RID allocations of type 'N26RendererEnvironmentStorage11EnvironmentE' were leaked at exit.
+ERROR: 208 RID allocations of type 'N10RendererRD11MeshStorage4MeshE' were leaked at exit.
+ERROR: 1740 RID allocations of type 'N10RendererRD15MaterialStorage8MaterialE' were leaked at exit.
+ERROR: 35 RID allocations of type 'N10RendererRD15MaterialStorage6ShaderE' were leaked at exit.
+ERROR: 851 RID allocations of type 'N10RendererRD14TextureStorage7TextureE' were leaked at exit.

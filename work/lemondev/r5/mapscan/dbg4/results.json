@@ -1,0 +1,82 @@
+[
+  [
+    "map_doors_passable",
+    false,
+    "42 of 4146"
+  ],
+  [
+    "map_doors_swing_open",
+    false,
+    "40 of 4146"
+  ],
+  [
+    "map_door_light_props",
+    true,
+    "0 of 4146"
+  ],
+  [
+    "map_lanes_open",
+    false,
+    "213 of 271"
+  ],
+  [
+    "map_props_supported",
+    false,
+    "40 of 23157 {\"Barrel_01\":3,\"bottle\":10,\"box\":2,\"container\":1,\"crate_plastic\":1,\"crate_plastic2\":3,\"crate_plastic3\":4,\"drum_blue\":8,\"gallon\":3,\"jerrycan\":3,\"old_tyre\":1,\"trashbag\":1}"
+  ],
+  [
+    "map_props_not_sunk",
+    false,
+    "183 of 23157 {\"basket\":3,\"bench_paint\":5,\"bottle\":27,\"box\":8,\"bucket\":12,\"can\":12,\"container\":8,\"crate_plastic\":7,\"crate_plastic2\":9,\"crate_plastic3\":10,\"drum\":8,\"drum_blue\":1,\"gallon\":11,\"jerrycan\":9,\"monobloc\":10,\"oil_drum\":5,\"old_tyre\":3,\"school_desk\":3,\"sofa_paint\":1,\"stool\":12,\"suitcase\":1,\"trash_can\":1,\"trashbag\":17}"
+  ],
+  [
+    "map_static_supported",
+    false,
+    "7 of 23157 {\"boat\":5,\"old_tyre\":1,\"tricycle_a\":1}"
+  ],
+  [
+    "map_static_not_sunk",
+    false,
+    "68 of 23157 {\"cabinet_paint\":1,\"cabinet_paint2\":2,\"daybed\":4,\"drawer_cabinet\":5,\"drawer_old\":4,\"food_cart_a\":3,\"food_cart_b\":6,\"food_stall\":5,\"nightstand\":8,\"old_tyre\":11,\"tricycle_a\":12,\"tricycle_b\":7}"
+  ],
+  [
+    "map_lootbox_supported",
+    false,
+    "1 of 23157 {\"lootbox_bin\":1}"
+  ],
+  [
+    "map_lootbox_not_sunk",
+    false,
+    "12 of 23157 {\"lootbox_balikbayan\":7,\"lootbox_bin\":4,\"lootbox_footlocker\":1}"
+  ],
+  [
+    "map_props_not_in_walls",
+    false,
+    "19 of 23157 {\"low_wall\":2,\"wall\":17}"
+  ],
+  [
+    "map_static_not_in_walls",
+    true,
+    "0 of 23157"
+  ],
+  [
+    "map_lootbox_not_in_walls",
+    true,
+    "0 of 23157"
+  ],
+  [
+    "map_items_supported",
+    true,
+    "0 of 17070"
+  ],
+  [
+    "map_items_not_sunk",
+    false,
+    "1 of 17070"
+  ],
+  [
+    "map_items_not_in_walls",
+    false,
+    "5 of 17070 {\"wall\":5}"
+  ]
+]

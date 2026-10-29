@@ -1,0 +1,54 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+Vulkan 1.4.329 - Forward+ - Using Device #0: NVIDIA - NVIDIA GeForce RTX 4060
+
+[lagusan] { "segments": 97, "metres": 1510.29132175446, "lights": 210, "dead": 19, "gaps": 94, "shrines": 20, "walks": 19 }
+[looban] { "loobans": 25, "crate_stacks": 88, "low_walls": 291, "sandbags": 18, "kiosks": 25, "barricades": 9, "yard_walls": 99, &"vacant": 80 }
+[dress] { "poles": 1000, "wires": 5503, "laundry": 437, "clutter": 1246, "props": 2925, "tags": 0, "puddles": 163, "plants": 1235, "vehicles": 66, "floating": 5, "loot": 469, "boxes": 67 }
+[vandal] { "wall": 1247, "covered": 355, "stains": 3298, "ground": 844, "spots": 9 }
+[world] map built in 27332 ms
+[map] 2118 buildings, 4494 doors, 9548 containers, 15415 props, #1375a694 on PC
+[game] autotest mapscan
+[mapscan] map 2118 buildings, 4494 doors, 9548 containers, 15415 props, #1375a694, seed 1729, 114009 collision boxes recorded
+[mapscan] visual calibration: 40 of 40 back-wall rays hit the drawn outer face where the wall is
+[mapscan] visual space: 3097728 triangles in 6151 ms
+[mapscan] faces: 595182 rays; 1418 buildings with a gap to the outside, 298 invisible solid faces
+[mapscan] scan took 75657 ms
+[mapscan] capture A:/Python/aetherion-project/work/lemondev/r5/mapscan/dbg/gap_b2_ceiling_day.png (luma 3.6)
+[mapscan] capture A:/Python/aetherion-project/work/lemondev/r5/mapscan/dbg/gap_b2_ceiling_night.png (luma 0.2)
+[mapscan] capture A:/Python/aetherion-project/work/lemondev/r5/mapscan/dbg/gap_b2_wall_top_gap_day.png (luma 6.9)
+[mapscan] capture A:/Python/aetherion-project/work/lemondev/r5/mapscan/dbg/gap_b2_wall_top_gap_night.png (luma 0.8)
+[mapscan] capture A:/Python/aetherion-project/work/lemondev/r5/mapscan/dbg/gap_b4_ceiling_day.png (luma 8.9)
+[mapscan] capture A:/Python/aetherion-project/work/lemondev/r5/mapscan/dbg/gap_b4_ceiling_night.png (luma 2.4)
+[mapscan] capture A:/Python/aetherion-project/work/lemondev/r5/mapscan/dbg/gap_b10_ceiling_day.png (luma 4.4)
+[mapscan] capture A:/Python/aetherion-project/work/lemondev/r5/mapscan/dbg/gap_b10_ceiling_night.png (luma 1.6)
+[mapscan] capture A:/Python/aetherion-project/work/lemondev/r5/mapscan/dbg/gap_b11_ceiling_day.png (luma 2.8)
+[mapscan] capture A:/Python/aetherion-project/work/lemondev/r5/mapscan/dbg/gap_b11_ceiling_night.png (luma 0.1)
+[mapscan] capture A:/Python/aetherion-project/work/lemondev/r5/mapscan/dbg/gap_b12_ceiling_day.png (luma 2.9)
+[mapscan] capture A:/Python/aetherion-project/work/lemondev/r5/mapscan/dbg/gap_b12_ceiling_night.png (luma 0.6)
+[mapscan] capture A:/Python/aetherion-project/work/lemondev/r5/mapscan/dbg/inv_b23_day.png (luma 4.1)
+[mapscan] capture A:/Python/aetherion-project/work/lemondev/r5/mapscan/dbg/inv_b23_night.png (luma 2.3)
+[mapscan] capture A:/Python/aetherion-project/work/lemondev/r5/mapscan/dbg/inv_b48_day.png (luma 4.0)
+[mapscan] capture A:/Python/aetherion-project/work/lemondev/r5/mapscan/dbg/inv_b48_night.png (luma 0.9)
+[mapscan] capture A:/Python/aetherion-project/work/lemondev/r5/mapscan/dbg/inv_b49_day.png (luma 2.7)
+[mapscan] capture A:/Python/aetherion-project/work/lemondev/r5/mapscan/dbg/inv_b49_night.png (luma 0.2)
+[mapscan] capture A:/Python/aetherion-project/work/lemondev/r5/mapscan/dbg/inv_b51_day.png (luma 7.4)
+[mapscan] capture A:/Python/aetherion-project/work/lemondev/r5/mapscan/dbg/inv_b51_night.png (luma 6.8)
+[mapscan] capture A:/Python/aetherion-project/work/lemondev/r5/mapscan/dbg/invout_b7_day.png (luma 38.7)
+[mapscan] capture A:/Python/aetherion-project/work/lemondev/r5/mapscan/dbg/invout_b7_night.png (luma 2.5)
+[mapscan] capture A:/Python/aetherion-project/work/lemondev/r5/mapscan/dbg/invout_b40_day.png (luma 68.8)
+[mapscan] capture A:/Python/aetherion-project/work/lemondev/r5/mapscan/dbg/invout_b40_night.png (luma 7.8)
+[mapscan] capture A:/Python/aetherion-project/work/lemondev/r5/mapscan/dbg/invout_b42_day.png (luma 45.6)
+[mapscan] capture A:/Python/aetherion-project/work/lemondev/r5/mapscan/dbg/invout_b42_night.png (luma 15.5)
+[mapscan] capture A:/Python/aetherion-project/work/lemondev/r5/mapscan/dbg/invout_b102_day.png (luma 24.4)
+[mapscan] capture A:/Python/aetherion-project/work/lemondev/r5/mapscan/dbg/invout_b102_night.png (luma 21.3)
+[mapscan] ---------------- PASS/FAIL ----------------
+[autotest] FAIL map_no_sky_gaps: 1561 of 595182 {"ceiling":1393,"wall":14,"wall_top_gap":154}
+[autotest] FAIL map_no_invisible_inside: 205 of 595182 {"cr_wall":5,"partition":2,"wall":198}
+[autotest] FAIL map_no_invisible_outside: 93 of 595182 {"cr_wall":1,"partition":1,"wall":91}
+[autotest] done: 3 checks, 3 failed
+ERROR: 1 RID allocations of type 'N10RendererRD5SkyRD3SkyE' were leaked at exit.
+ERROR: 1 RID allocations of type 'N26RendererEnvironmentStorage11EnvironmentE' were leaked at exit.
+ERROR: 207 RID allocations of type 'N10RendererRD11MeshStorage4MeshE' were leaked at exit.
+ERROR: 1700 RID allocations of type 'N10RendererRD15MaterialStorage8MaterialE' were leaked at exit.
+ERROR: 35 RID allocations of type 'N10RendererRD15MaterialStorage6ShaderE' were leaked at exit.
+ERROR: 849 RID allocations of type 'N10RendererRD14TextureStorage7TextureE' were leaked at exit.

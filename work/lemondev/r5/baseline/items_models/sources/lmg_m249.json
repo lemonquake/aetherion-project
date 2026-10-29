@@ -1,0 +1,21 @@
+{
+  "source": "Sketchfab (downloaded from the Objaverse mirror, allenai/objaverse on Hugging Face)",
+  "title": "M249 Machine Gun",
+  "url": "https://sketchfab.com/3d-models/bf0105376a2d4c37926f3ce95316460d",
+  "mirror_url": "https://huggingface.co/datasets/allenai/objaverse/resolve/main/glbs/000-008/bf0105376a2d4c37926f3ce95316460d.glb",
+  "authors": [
+    "Kendrick Russell"
+  ],
+  "author_url": "https://sketchfab.com/Buce",
+  "license": "CC-BY-4.0",
+  "license_url": "http://creativecommons.org/licenses/by/4.0/",
+  "attribution_required": true,
+  "kind": "model",
+  "purpose": "M249 5.56 light machine gun",
+  "modifications": "Joined into one mesh, re-oriented (front along -Z in Godot), scaled to 1.040 m overall, centred, decimated 13339 -> 12000 triangles, textures reduced to 1024 px JPEG (tools/blender/process_items.py).",
+  "retrieved": "2026-10-27",
+  "files": {
+    "lmg_m249.glb": ""
+  },
+  "processed_from": "tools/cache/sketchfab/lmg_m249/lmg_m249.glb"
+}

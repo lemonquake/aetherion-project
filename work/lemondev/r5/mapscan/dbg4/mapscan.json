@@ -1,0 +1,397 @@
+{
+  "door_blocked": {
+    "examples": [
+      "door 447 (cr, building 253 house/Looban Kanluran) at (-252.5, 1.15, -108.0): wall@(-252.5, 1.91, -108.4), sill@(-252.5, 2.05, -108.4) (capsule stopped)",
+      "door 449 (front, building 255 house/Looban Kanluran) at (-258.6, 1.16, -100.0): wall@(-258.6, 1.94, -99.2) (capsule stopped)",
+      "door 574 (front, building 326 house/Looban Kanluran) at (-207.9, 1.06, -103.5): wall@(-208.0, 1.57, -102.6) (capsule stopped)",
+      "door 582 (back, building 329 house/Riles) at (-307.2, 10.70, -283.2): floor_planks@(-307.2, 10.70, -283.3) (capsule stopped)",
+      "door 590 (front, building 333 house/Riles) at (-258.4, 1.91, -280.3): floor_slab@(-258.4, 1.93, -280.2) (capsule stopped)",
+      "door 630 (front, building 352 house/Riles) at (-316.3, 5.05, -271.4): floor_planks@(-316.3, 5.05, -271.5), stilt@(-316.3, 5.05, -271.4) (capsule stopped)",
+      "door 635 (front, building 354 house/Riles) at (-265.2, 2.29, -272.9): floor_planks@(-265.2, 2.29, -273.0) (capsule stopped)",
+      "door 637 (front, building 355 house/Riles) at (-261.6, 1.91, -273.2): floor_planks@(-261.6, 1.91, -273.3) (capsule stopped)",
+      "door 662 (cr, building 367 house/Riles) at (-105.9, 1.46, -276.2): wall@(-105.8, 2.08, -277.0), stair_ramp@(-105.8, 1.92, -276.4), glass@(-106.0, 2.53, -276.5) (capsule stopped)",
+      "door 672 (front, building 372 house/Riles) at (-29.0, 1.46, -282.8): wood@(-29.1, 1.93, -283.6), metal_rust@(-29.1, 1.95, -283.7) (capsule stopped)",
+      "door 734 (front, building 399 house/Estero Kalinaw) at (-273.2, 1.08, -34.8): bark@(-273.6, 2.22, -34.1), wall@(-273.2, 3.03, -34.7) (capsule stopped)",
+      "door 760 (cr, building 412 house/Estero Kalinaw) at (-165.0, 0.95, -41.6): bark@(-165.1, 2.18, -40.8), wood@(-165.1, 1.32, -41.4)",
+      "door 779 (back, building 420 house/Estero Kalinaw) at (-103.7, 0.97, -40.7): wood@(-103.7, 1.41, -40.0), bark@(-103.4, 2.22, -39.9) (capsule stopped)",
+      "door 794 (partition, building 427 house/Estero Kalinaw) at (-51.8, 1.05, -40.1): partition_lintel@(-51.8, 3.02, -40.1), wood@(-51.7, 1.41, -40.4) (capsule stopped)"
+    ],
+    "n": 42,
+    "what": {}
+  },
+  "door_blocked_by": {
+    "examples": [],
+    "n": 66,
+    "what": {
+      "bark": 4,
+      "chb2": 3,
+      "cr_wall": 2,
+      "floor_planks": 16,
+      "floor_slab": 1,
+      "glass": 1,
+      "metal_rust": 6,
+      "partition_lintel": 1,
+      "shutter": 1,
+      "sill": 2,
+      "stair_ramp": 1,
+      "steel": 3,
+      "stilt": 3,
+      "unrecorded": 3,
+      "wall": 15,
+      "wood": 4
+    }
+  },
+  "door_drop": {
+    "examples": [
+      "door 717 (front, building 391 house/Estero Kalinaw) at (-318.5, 0.99, -39.8): no floor within 0.6 m on the - side (1.6 m down to unrecorded over water)",
+      "door 803 (front, building 432 house/Estero Kalinaw) at (-316.5, 0.96, -30.2): no floor within 0.6 m on the - side (1.5 m down to unrecorded over water)",
+      "door 871 (front, building 467 house/Pampang Kanluran) at (19.0, 1.00, -110.5): no floor within 0.6 m on the - side (2.4 m down to unrecorded over water)",
+      "door 872 (front, building 468 house/Pampang Kanluran) at (13.8, 1.00, -99.0): no floor within 0.6 m on the - side (0.0 m down to wood over water)",
+      "door 880 (front, building 471 house/Pampang Kanluran) at (-6.9, 1.00, -59.0): no floor within 0.6 m on the - side (2.5 m down to unrecorded over water)",
+      "door 902 (front, building 481 house/Pampang Kanluran) at (-23.2, 1.00, 27.8): no floor within 0.6 m on the - side (2.3 m down to unrecorded over water)",
+      "door 905 (front, building 482 house/Pampang Kanluran) at (-18.2, 1.00, 43.0): no floor within 0.6 m on the - side (2.2 m down to unrecorded over water)",
+      "door 931 (front, building 496 house/Pampang Kanluran) at (-17.7, 1.00, 161.0): no floor within 0.6 m on the - side (2.5 m down to unrecorded over water)",
+      "door 933 (front, building 497 house/Pampang Kanluran) at (-24.4, 1.00, 173.7): no floor within 0.6 m on the - side (2.4 m down to unrecorded over water)",
+      "door 940 (front, building 500 house/Pampang Kanluran) at (-32.0, 1.00, 190.7): no floor within 0.6 m on the - side (2.5 m down to unrecorded over water)",
+      "door 941 (front, building 501 house/Pampang Kanluran) at (-35.9, 1.00, 202.0): no floor within 0.6 m on the - side (2.3 m down to unrecorded over water)",
+      "door 944 (front, building 502 house/Pampang Silangan) at (28.5, 1.00, -70.5): no floor within 0.6 m on the - side (2.7 m down to unrecorded over water)",
+      "door 945 (front, building 503 house/Pampang Silangan) at (21.8, 1.00, -54.3): no floor within 0.6 m on the - side (2.0 m down to unrecorded over water)",
+      "door 948 (front, building 504 house/Pampang Silangan) at (22.4, 1.00, -60.1): no floor within 0.6 m on the - side (2.6 m down to unrecorded over water)"
+    ],
+    "n": 64,
+    "what": {
+      "back": 15,
+      "front": 49
+    }
+  },
+  "door_swing_blocked": {
+    "examples": [
+      "door 447 (cr, building 253 house/Looban Kanluran) at (-252.5, 1.15, -108.0) swinging +: wall at 8 deg",
+      "door 574 (front, building 326 house/Looban Kanluran) at (-207.9, 1.06, -103.5) swinging +: wall at 74 deg",
+      "door 633 (front, building 353 house/Riles) at (-302.8, 6.51, -271.8) swinging +: terrain at 49 deg",
+      "door 662 (cr, building 367 house/Riles) at (-105.9, 1.46, -276.2) swinging +: stair_ramp at 8 deg",
+      "door 662 (cr, building 367 house/Riles) at (-105.9, 1.46, -276.2) swinging -: glass at -8 deg",
+      "door 672 (front, building 372 house/Riles) at (-29.0, 1.46, -282.8) swinging +: wood at 74 deg",
+      "door 672 (front, building 372 house/Riles) at (-29.0, 1.46, -282.8) swinging -: metal_rust at -8 deg",
+      "door 734 (front, building 399 house/Estero Kalinaw) at (-273.2, 1.08, -34.8) swinging +: wood at 8 deg",
+      "door 734 (front, building 399 house/Estero Kalinaw) at (-273.2, 1.08, -34.8) swinging -: wood at -8 deg",
+      "door 760 (cr, building 412 house/Estero Kalinaw) at (-165.0, 0.95, -41.6) swinging +: bark at 8 deg",
+      "door 760 (cr, building 412 house/Estero Kalinaw) at (-165.0, 0.95, -41.6) swinging -: bark at -8 deg",
+      "door 778 (front, building 420 house/Estero Kalinaw) at (-103.0, 0.97, -36.5) swinging +: bark at 8 deg",
+      "door 778 (front, building 420 house/Estero Kalinaw) at (-103.0, 0.97, -36.5) swinging -: bark at -8 deg",
+      "door 794 (partition, building 427 house/Estero Kalinaw) at (-51.8, 1.05, -40.1) swinging +: wood at 8 deg"
+    ],
+    "n": 40,
+    "what": {}
+  },
+  "door_swing_blocked_by": {
+    "examples": [],
+    "n": 40,
+    "what": {
+      "bark": 6,
+      "glass": 1,
+      "metal_rust": 7,
+      "shutter": 2,
+      "sill": 1,
+      "stair_ramp": 1,
+      "steel": 4,
+      "terrain": 2,
+      "wall": 9,
+      "wood": 7
+    }
+  },
+  "doors_total": 4146,
+  "item_in_wall": {
+    "examples": [
+      "item rifle_m416 at (-226.9, 1.11, -193.0)",
+      "item ammo_12buck at (-189.0, 1.03, -49.5)",
+      "item battery at (-37.5, 1.15, -19.5)",
+      "item sumpak at (64.4, 1.06, 108.7)",
+      "item ammo_9x19 at (-243.4, 1.06, -48.3)"
+    ],
+    "n": 5,
+    "what": {
+      "wall": 5
+    }
+  },
+  "item_sunk": {
+    "examples": [
+      "item ammo_9x19 at (305.0, 0.98, -215.0): 0.35 m under the surface (concrete_dirty (box at (304.2, 4.62, -214.0), (2.2, 7.36, 2.2)))"
+    ],
+    "n": 1,
+    "what": {}
+  },
+  "items_checked": 17070,
+  "lane_barricade": {
+    "examples": [
+      "alley lane w 1.3 at (-102.5, -194.3), 1 m: crate",
+      "alley lane w 1.9 at (-92.4, -165.9), 1 m: barricade, crate",
+      "alley lane w 3.2 at (-270.8, -125.9), 1 m: barricade, crate",
+      "alley lane w 2.9 at (-282.8, -111.2), 1 m: barricade, crate",
+      "alley lane w 1.7 at (218.4, -28.5), 1 m: crate, barricade",
+      "alley lane w 2.0 at (240.8, 3.5), 1 m: crate, barricade",
+      "alley lane w 2.9 at (-170.6, -57.5), 2 m: barricade, crate",
+      "alley lane w 1.3 at (-142.1, -247.0), 1 m: crate",
+      "alley lane w 1.9 at (158.2, -88.9), 1 m: crate",
+      "alley lane w 1.5 at (165.6, -82.6), 1 m: crate, barricade",
+      "alley lane w 1.3 at (190.7, 76.3), 2 m: crate",
+      "alley lane w 1.8 at (76.2, -222.9), 1 m: crate, barricade",
+      "alley lane w 1.3 at (46.3, -214.1), 1 m: crate, barricade",
+      "alley lane w 2.9 at (-251.5, 177.0), 2 m: crate, barricade"
+    ],
+    "n": 14,
+    "what": {}
+  },
+  "lane_blocked": {
+    "examples": [
+      "alley lane w 1.8 at (-140.6, -172.2), 2 m: static:tricycle_a",
+      "alley lane w 1.2 at (-134.6, -214.3), 1 m: lootbox:lootbox_balikbayan, wall",
+      "alley lane w 1.2 at (-131.6, -214.0), 1 m: concrete_dirty, wall",
+      "alley lane w 1.2 at (-75.9, -208.1), 1 m: static:food_cart_b",
+      "alley lane w 1.9 at (-140.2, -170.9), 1 m: static:tricycle_a",
+      "alley lane w 1.9 at (-81.5, -164.7), 1 m: wall",
+      "alley lane w 1.5 at (-138.5, -129.9), 1 m: static:food_cart_a",
+      "alley lane w 1.5 at (-81.8, -123.9), 1 m: static:food_cart_a",
+      "alley lane w 2.9 at (-284.8, -96.5), 1 m: wall, stair_ramp",
+      "alley lane w 2.9 at (-279.8, -96.9), 1 m: sill, stair_ramp, wall",
+      "alley lane w 2.9 at (-270.8, -97.5), 1 m: wall",
+      "alley lane w 2.9 at (-265.9, -97.9), 1 m: wall",
+      "alley lane w 2.9 at (-238.9, -99.7), 1 m: static:tricycle_a",
+      "alley lane w 2.9 at (-227.0, -100.6), 1 m: wall"
+    ],
+    "n": 213,
+    "what": {}
+  },
+  "lane_blocked_by": {
+    "examples": [],
+    "n": 326,
+    "what": {
+      "bark": 12,
+      "blocker": 3,
+      "chb2": 1,
+      "concrete_dirty": 9,
+      "cr_wall": 8,
+      "door_leaf": 7,
+      "floor_planks": 8,
+      "glass": 7,
+      "lootbox:lootbox_balikbayan": 8,
+      "metal_paint": 1,
+      "metal_rust": 3,
+      "partition": 14,
+      "plaster_white": 2,
+      "prop:bench_paint": 7,
+      "prop:cash_register": 2,
+      "prop:drum_blue": 2,
+      "prop:lpg_small": 1,
+      "prop:sofa_paint": 6,
+      "prop:table_paint": 2,
+      "prop:table_round": 4,
+      "prop:table_small": 2,
+      "prop:tv": 1,
+      "shutter": 6,
+      "sill": 16,
+      "stair_ramp": 14,
+      "static:bed_old": 1,
+      "static:cabinet_paint": 4,
+      "static:counter": 4,
+      "static:drawer_cabinet": 1,
+      "static:drawer_old": 2,
+      "static:food_cart_a": 2,
+      "static:food_cart_b": 3,
+      "static:nightstand": 1,
+      "static:shelf": 3,
+      "static:shelves_paint": 3,
+      "static:steel_shelves2": 2,
+      "static:tricycle_a": 3,
+      "steel": 4,
+      "stilt": 4,
+      "tiles": 2,
+      "timber": 4,
+      "wall": 137
+    }
+  },
+  "lane_samples": 17137,
+  "lanes_total": 271,
+  "lootbox_floating": {
+    "examples": [
+      "lootbox lootbox_bin at (51.2, 1.08, -178.6), 0.11 m above the surface"
+    ],
+    "n": 1,
+    "what": {
+      "lootbox_bin": 1
+    }
+  },
+  "lootbox_sunk": {
+    "examples": [
+      "lootbox lootbox_bin at (-248.3, 5.79, -165.3): 0.23 m into static:cabinet_paint2",
+      "lootbox lootbox_bin at (-201.1, 3.53, -192.7): 0.11 m into static:cabinet_paint2",
+      "lootbox lootbox_balikbayan at (-242.6, 0.97, 149.2): 0.16 m into light_prop:crate_plastic2",
+      "lootbox lootbox_footlocker at (131.2, 3.37, -53.6): 0.18 m into static:cabinet_paint2",
+      "lootbox lootbox_balikbayan at (204.3, 5.92, -40.1): 0.35 m into static:cabinet_paint2 (box at (204.4, 4.99, -39.8), (1.0, 2.57, 0.72))",
+      "lootbox lootbox_bin at (-300.7, 3.51, 40.6): 0.35 m into timber (box at (-300.7, 3.94, 40.7), (0.16, 5.95, 0.16))",
+      "lootbox lootbox_balikbayan at (-80.0, 3.44, -243.2): 0.21 m into static:cabinet_paint2",
+      "lootbox lootbox_balikbayan at (-216.8, 5.61, 201.9): 0.31 m into static:cabinet_paint2",
+      "lootbox lootbox_balikbayan at (-85.9, 0.96, -128.5): 0.08 m into pavement",
+      "lootbox lootbox_balikbayan at (-204.2, 1.00, 172.3): 0.10 m into floor_slab",
+      "lootbox lootbox_balikbayan at (123.4, 0.92, -106.4): 0.09 m into asphalt",
+      "lootbox lootbox_bin at (127.9, 1.03, -203.1): 0.10 m into asphalt"
+    ],
+    "n": 12,
+    "what": {
+      "lootbox_balikbayan": 7,
+      "lootbox_bin": 4,
+      "lootbox_footlocker": 1
+    }
+  },
+  "prop_floating": {
+    "examples": [
+      "prop drum_blue at (-163.1, 1.04, 41.0), 0.10 m above the surface",
+      "prop drum_blue at (-156.8, 1.10, 61.2), 0.13 m above the surface",
+      "prop Barrel_01 at (-127.4, 1.17, -118.6), 0.10 m above the surface",
+      "prop drum_blue at (-44.4, 1.07, -13.7), 0.10 m above the surface",
+      "prop drum_blue at (144.3, 0.96, -95.7), 0.15 m above the surface",
+      "prop Barrel_01 at (132.8, 1.05, -138.8), 0.10 m above the surface",
+      "prop Barrel_01 at (133.2, 1.06, -148.5), 0.08 m above the surface",
+      "prop drum_blue at (96.3, 0.84, -16.8), 0.11 m above the surface",
+      "prop drum_blue at (235.7, 1.12, 99.2), 0.11 m above the surface",
+      "prop drum_blue at (252.6, 1.02, 99.7), 0.13 m above the surface",
+      "prop drum_blue at (-32.0, 1.45, -283.0), 0.10 m above the surface",
+      "prop crate_plastic2 at (-246.0, 0.95, -29.6), 0.38 m above the surface",
+      "prop bottle at (-245.9, 0.98, -20.7), nothing below within 1.5 m",
+      "prop crate_plastic at (-240.1, 0.95, -21.6), nothing below within 1.5 m"
+    ],
+    "n": 40,
+    "what": {
+      "Barrel_01": 3,
+      "bottle": 10,
+      "box": 2,
+      "container": 1,
+      "crate_plastic": 1,
+      "crate_plastic2": 3,
+      "crate_plastic3": 4,
+      "drum_blue": 8,
+      "gallon": 3,
+      "jerrycan": 3,
+      "old_tyre": 1,
+      "trashbag": 1
+    }
+  },
+  "prop_in_wall": {
+    "examples": [
+      "prop sofa_paint at (-250.3, 1.15, -107.3) inside a wall",
+      "prop monobloc at (22.7, 1.00, 143.1) inside a wall",
+      "prop container at (-243.1, 1.07, -100.6) inside a low_wall",
+      "prop crate_plastic3 at (-282.8, 1.03, 103.7) inside a wall",
+      "prop oil_drum at (-296.0, 0.92, 123.7) inside a wall",
+      "prop stool at (-238.7, 0.96, 125.6) inside a wall",
+      "prop trashbag at (-304.4, 0.79, 150.7) inside a low_wall",
+      "prop monobloc at (-280.6, 0.85, 148.1) inside a wall",
+      "prop crate_plastic2 at (-180.0, 1.03, 151.7) inside a wall",
+      "prop bottle at (-177.4, 1.02, 151.8) inside a wall",
+      "prop old_tyre at (-300.2, 0.71, 165.6) inside a wall",
+      "prop old_tyre at (-149.4, 0.76, 170.8) inside a wall",
+      "prop drum at (-55.8, 1.00, 107.5) inside a wall",
+      "prop jerrycan at (-60.4, 0.85, 131.7) inside a wall"
+    ],
+    "n": 19,
+    "what": {
+      "low_wall": 2,
+      "wall": 17
+    }
+  },
+  "prop_sunk": {
+    "examples": [
+      "prop school_desk at (-259.9, 3.21, 26.0): 0.25 m into sheet_metal",
+      "prop school_desk at (-258.3, 3.21, 26.1): 0.25 m into sheet_metal",
+      "prop school_desk at (-256.7, 3.21, 26.1): 0.25 m into sheet_metal",
+      "prop can at (257.4, 0.97, 106.3): 0.33 m into light_prop:stool",
+      "prop basket at (-61.7, 5.56, -150.0): 0.35 m into static:cabinet_paint2 (box at (-61.7, 4.68, -149.9), (1.0, 2.57, 0.72))",
+      "prop sofa_paint at (-214.7, 0.95, -38.9): 0.34 m into wood",
+      "prop bench_paint at (23.0, 1.00, 148.3): 0.23 m into wood",
+      "prop suitcase at (-219.1, 3.49, 166.2): 0.13 m into sheet_metal",
+      "prop basket at (218.8, 5.85, 5.0): 0.20 m into static:cabinet_paint2",
+      "prop box at (-190.3, 3.47, -74.2): 0.13 m into static:cabinet_paint2",
+      "prop crate_plastic2 at (276.4, 5.59, 108.6): 0.35 m into static:cabinet_paint2 (box at (276.4, 4.72, 108.6), (1.0, 2.57, 0.72))",
+      "prop basket at (111.3, 5.95, -204.7): 0.22 m into static:cabinet_paint2",
+      "prop drum_blue at (-153.3, 0.77, 221.7): 0.09 m into asphalt",
+      "prop bucket at (-97.4, 1.12, -206.0): 0.08 m into pavement"
+    ],
+    "n": 183,
+    "what": {
+      "basket": 3,
+      "bench_paint": 5,
+      "bottle": 27,
+      "box": 8,
+      "bucket": 12,
+      "can": 12,
+      "container": 8,
+      "crate_plastic": 7,
+      "crate_plastic2": 9,
+      "crate_plastic3": 10,
+      "drum": 8,
+      "drum_blue": 1,
+      "gallon": 11,
+      "jerrycan": 9,
+      "monobloc": 10,
+      "oil_drum": 5,
+      "old_tyre": 3,
+      "school_desk": 3,
+      "sofa_paint": 1,
+      "stool": 12,
+      "suitcase": 1,
+      "trash_can": 1,
+      "trashbag": 17
+    }
+  },
+  "props_checked": 23157,
+  "static_floating": {
+    "examples": [
+      "static boat at (67.9, -3.11, 258.0), nothing below within 1.5 m",
+      "static boat at (88.2, -3.11, 267.0), nothing below within 1.5 m",
+      "static boat at (67.8, -3.11, 276.0), nothing below within 1.5 m",
+      "static boat at (88.2, -3.11, 285.0), nothing below within 1.5 m",
+      "static boat at (67.9, -3.11, 294.0), nothing below within 1.5 m",
+      "static old_tyre at (-292.9, 3.78, -67.4), nothing below within 1.5 m",
+      "static tricycle_a at (-46.4, -0.17, 225.0), 0.11 m above the surface"
+    ],
+    "n": 7,
+    "what": {
+      "boat": 5,
+      "old_tyre": 1,
+      "tricycle_a": 1
+    }
+  },
+  "static_sunk": {
+    "examples": [
+      "static nightstand at (-131.6, 5.71, -169.3): 0.31 m into static:cabinet_paint2",
+      "static drawer_old at (-78.6, 3.67, -188.4): 0.09 m into static:cabinet_paint2",
+      "static daybed at (-55.6, 3.62, -197.1): 0.09 m into static:cabinet_paint2",
+      "static nightstand at (-37.9, 3.52, -184.9): 0.08 m into static:cabinet_paint2",
+      "static drawer_cabinet at (-267.5, 5.80, -100.5): 0.35 m into static:cabinet_paint2 (box at (-267.6, 4.93, -100.4), (1.0, 2.57, 0.72))",
+      "static old_tyre at (-255.2, 4.15, -106.9): 0.20 m into static:hollow_block",
+      "static nightstand at (-263.4, 4.36, -272.6): 0.12 m into static:cabinet_paint2",
+      "static old_tyre at (-284.9, 5.86, 109.1): 0.24 m into static:cabinet_paint2",
+      "static old_tyre at (164.5, 5.99, -12.8): 0.20 m into static:hollow_block",
+      "static nightstand at (171.7, 3.49, 23.6): 0.12 m into static:cabinet_paint2",
+      "static nightstand at (263.2, 3.56, -40.9): 0.15 m into static:cabinet_paint2",
+      "static drawer_cabinet at (257.5, 3.62, -37.9): 0.09 m into static:cabinet_paint2",
+      "static daybed at (249.5, 3.22, 37.1): 0.14 m into static:cabinet_paint2",
+      "static old_tyre at (46.7, 8.52, 76.3): 0.20 m into static:hollow_block"
+    ],
+    "n": 68,
+    "what": {
+      "cabinet_paint": 1,
+      "cabinet_paint2": 2,
+      "daybed": 4,
+      "drawer_cabinet": 5,
+      "drawer_old": 4,
+      "food_cart_a": 3,
+      "food_cart_b": 6,
+      "food_stall": 5,
+      "nightstand": 8,
+      "old_tyre": 11,
+      "tricycle_a": 12,
+      "tricycle_b": 7
+    }
+  }
+}

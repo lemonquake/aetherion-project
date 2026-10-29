@@ -1,0 +1,40 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+Vulkan 1.4.329 - Forward+ - Using Device #0: NVIDIA - NVIDIA GeForce RTX 4060
+
+[lagusan] { "segments": 97, "metres": 1510.29132175446, "lights": 210, "dead": 19, "gaps": 94, "shrines": 20, "walks": 19 }
+[looban] { "loobans": 25, "crate_stacks": 76, "low_walls": 277, "sandbags": 9, "kiosks": 25, "barricades": 8, "yard_walls": 99, &"vacant": 80 }
+[dress] { "poles": 970, "wires": 5292, "laundry": 415, "clutter": 1011, "props": 2090, "tags": 0, "puddles": 182, "plants": 1178, "vehicles": 66, "floating": 9, "loot": 441, "boxes": 12 }
+[vandal] { "wall": 1275, "covered": 340, "stains": 3328, "ground": 823, "spots": 8 }
+[world] map built in 22221 ms
+[map] 2118 buildings, 4048 doors, 9841 containers, 10962 props, #bf33f9f2 on PC
+[game] autotest mapscan
+[mapscan] map 2118 buildings, 4048 doors, 9841 containers, 10962 props, #bf33f9f2, seed 1729, 119685 collision boxes recorded
+[mapscan] visual calibration: 41 of 41 back-wall rays hit the drawn outer face where the wall is
+[mapscan] visual space: 3112280 triangles in 5422 ms
+[mapscan] faces: 594213 rays; 827 buildings with a gap to the outside, 1 invisible solid faces
+[mapscan] scan took 43444 ms
+[mapscan] capture A:/Python/aetherion-project/work/lemondev/r5/mapscan/dbg2/gap_b2_ceiling_day.png (luma 1.9)
+[mapscan] capture A:/Python/aetherion-project/work/lemondev/r5/mapscan/dbg2/gap_b2_ceiling_night.png (luma 0.1)
+[mapscan] capture A:/Python/aetherion-project/work/lemondev/r5/mapscan/dbg2/gap_b2_wall_top_gap_day.png (luma 2.5)
+[mapscan] capture A:/Python/aetherion-project/work/lemondev/r5/mapscan/dbg2/gap_b2_wall_top_gap_night.png (luma 0.1)
+[mapscan] capture A:/Python/aetherion-project/work/lemondev/r5/mapscan/dbg2/gap_b11_ceiling_day.png (luma 0.4)
+[mapscan] capture A:/Python/aetherion-project/work/lemondev/r5/mapscan/dbg2/gap_b11_ceiling_night.png (luma 0.0)
+[mapscan] capture A:/Python/aetherion-project/work/lemondev/r5/mapscan/dbg2/gap_b12_ceiling_day.png (luma 2.1)
+[mapscan] capture A:/Python/aetherion-project/work/lemondev/r5/mapscan/dbg2/gap_b12_ceiling_night.png (luma 0.5)
+[mapscan] capture A:/Python/aetherion-project/work/lemondev/r5/mapscan/dbg2/gap_b12_wall_top_gap_day.png (luma 2.4)
+[mapscan] capture A:/Python/aetherion-project/work/lemondev/r5/mapscan/dbg2/gap_b12_wall_top_gap_night.png (luma 0.3)
+[mapscan] capture A:/Python/aetherion-project/work/lemondev/r5/mapscan/dbg2/gap_b13_ceiling_day.png (luma 46.0)
+[mapscan] capture A:/Python/aetherion-project/work/lemondev/r5/mapscan/dbg2/gap_b13_ceiling_night.png (luma 42.2)
+[mapscan] capture A:/Python/aetherion-project/work/lemondev/r5/mapscan/dbg2/inv_b890_day.png (luma 9.7)
+[mapscan] capture A:/Python/aetherion-project/work/lemondev/r5/mapscan/dbg2/inv_b890_night.png (luma 5.8)
+[mapscan] ---------------- PASS/FAIL ----------------
+[autotest] FAIL map_no_sky_gaps: 860 of 594213 {"ceiling":827,"wall":14,"wall_top_gap":19}
+[autotest] FAIL map_no_invisible_inside: 1 of 594213 {"partition":1}
+[autotest] PASS map_no_invisible_outside: 0 of 594213
+[autotest] done: 3 checks, 2 failed
+ERROR: 1 RID allocations of type 'N10RendererRD5SkyRD3SkyE' were leaked at exit.
+ERROR: 1 RID allocations of type 'N26RendererEnvironmentStorage11EnvironmentE' were leaked at exit.
+ERROR: 209 RID allocations of type 'N10RendererRD11MeshStorage4MeshE' were leaked at exit.
+ERROR: 1741 RID allocations of type 'N10RendererRD15MaterialStorage8MaterialE' were leaked at exit.
+ERROR: 35 RID allocations of type 'N10RendererRD15MaterialStorage6ShaderE' were leaked at exit.
+ERROR: 858 RID allocations of type 'N10RendererRD14TextureStorage7TextureE' were leaked at exit.

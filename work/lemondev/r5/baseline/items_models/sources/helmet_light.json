@@ -1,0 +1,21 @@
+{
+  "source": "Sketchfab (downloaded from the Objaverse mirror, allenai/objaverse on Hugging Face)",
+  "title": "M1 Helmet",
+  "url": "https://sketchfab.com/3d-models/6d7929b10c994db0b6b39e35b379bfbd",
+  "mirror_url": "https://huggingface.co/datasets/allenai/objaverse/resolve/main/glbs/000-126/6d7929b10c994db0b6b39e35b379bfbd.glb",
+  "authors": [
+    "Melvin Stubbe"
+  ],
+  "author_url": "https://sketchfab.com/MelvinEbbuts",
+  "license": "CC-BY-4.0",
+  "license_url": "http://creativecommons.org/licenses/by/4.0/",
+  "attribution_required": true,
+  "kind": "model",
+  "purpose": "light helmet",
+  "modifications": "Joined into one mesh, re-oriented (front along -Z in Godot), scaled to 0.290 m overall, centred, decimated 3416 -> 3416 triangles, textures reduced to 1024 px JPEG (tools/blender/process_items.py).",
+  "retrieved": "2026-10-25",
+  "files": {
+    "helmet_light.glb": ""
+  },
+  "processed_from": "tools/cache/sketchfab/helmet_light/helmet_light.glb"
+}

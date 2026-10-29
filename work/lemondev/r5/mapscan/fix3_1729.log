@@ -1,0 +1,62 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+Vulkan 1.4.329 - Forward+ - Using Device #0: NVIDIA - NVIDIA GeForce RTX 4060
+
+[lagusan] { "segments": 123, "metres": 1910.45543050766, "lights": 258, "dead": 23, "gaps": 109, "shrines": 18, "walks": 23 }
+[looban] { "loobans": 20, "crate_stacks": 60, "low_walls": 243, "sandbags": 10, "kiosks": 20, "barricades": 10, "yard_walls": 100, &"vacant": 80 }
+[dress] { "poles": 989, "wires": 5598, "laundry": 452, "clutter": 1024, "props": 2116, "tags": 0, "puddles": 170, "plants": 1147, "vehicles": 71, "floating": 14, "loot": 462, "boxes": 27 }
+[vandal] { "wall": 1415, "covered": 441, "stains": 3509, "ground": 870, "spots": 10 }
+[world] map built in 26740 ms
+[map] 2216 buildings, 4146 doors, 10390 containers, 11250 props, #49929ca0 on PC
+[game] autotest mapscan
+[mapscan] map 2216 buildings, 4146 doors, 10390 containers, 11250 props, #49929ca0, seed 1729, 126358 collision boxes recorded
+[mapscan] doors: 4146 ({"back":262,"cr":1470,"front":2171,"partition":243})
+[mapscan] doorways: 792
+[mapscan] stairs: 1798 flights
+[mapscan] ladders: 80
+[mapscan] lanes: 271, 17137 samples
+[mapscan] props/static/loot boxes checked: 23157, ground items: 17010
+[mapscan] visual calibration: 41 of 41 back-wall rays hit the drawn outer face where the wall is
+[mapscan] visual space: 3309172 triangles in 9217 ms
+[mapscan] faces: 622329 rays; 1 buildings with a gap to the outside, 0 invisible solid faces
+[mapscan] scan took 107723 ms
+[mapscan] ---------------- PASS/FAIL ----------------
+[autotest] FAIL map_doors_passable: 42 of 4146
+[autotest] FAIL map_doors_swing_open: 40 of 4146
+[autotest] PASS map_door_light_props: 0 of 4146
+[autotest] FAIL map_doorways_passable: 3 of 792
+[autotest] FAIL map_doorway_light_props: 2 of 792
+[autotest] FAIL map_stairs_foot: 6 of 1798
+[autotest] FAIL map_stairs_flight: 4 of 1798
+[autotest] PASS map_stairs_landing: 0 of 1798
+[autotest] PASS map_ladders_foot: 0 of 80
+[autotest] PASS map_ladders_top: 0 of 80
+[autotest] FAIL map_lanes_open: 213 of 271
+[autotest] FAIL map_props_supported: 40 of 23157 {"Barrel_01":3,"bottle":10,"box":2,"container":1,"crate_plastic":1,"crate_plastic2":3,"crate_plastic3":4,"drum_blue":8,"gallon":3,"jerrycan":3,"old_tyre":1,"trashbag":1}
+[autotest] FAIL map_props_not_sunk: 183 of 23157 {"basket":3,"bench_paint":5,"bottle":27,"box":8,"bucket":12,"can":12,"container":8,"crate_plastic":7,"crate_plastic2":9,"crate_plastic3":10,"drum":8,"drum_blue":1,"gallon":11,"jerrycan":9,"monobloc":10,"oil_drum":5,"old_tyre":3,"school_desk":3,"sofa_paint":1,"stool":12,"suitcase":1,"trash_can":1,"trashbag":17}
+[autotest] FAIL map_static_supported: 7 of 23157 {"boat":5,"old_tyre":1,"tricycle_a":1}
+[autotest] FAIL map_static_not_sunk: 68 of 23157 {"cabinet_paint":1,"cabinet_paint2":2,"daybed":4,"drawer_cabinet":5,"drawer_old":4,"food_cart_a":3,"food_cart_b":6,"food_stall":5,"nightstand":8,"old_tyre":11,"tricycle_a":12,"tricycle_b":7}
+[autotest] FAIL map_lootbox_supported: 1 of 23157 {"lootbox_bin":1}
+[autotest] FAIL map_lootbox_not_sunk: 12 of 23157 {"lootbox_balikbayan":7,"lootbox_bin":4,"lootbox_footlocker":1}
+[autotest] FAIL map_props_not_in_walls: 19 of 23157 {"low_wall":2,"wall":17}
+[autotest] PASS map_static_not_in_walls: 0 of 23157
+[autotest] PASS map_lootbox_not_in_walls: 0 of 23157
+[autotest] PASS map_items_supported: 0 of 17010
+[autotest] FAIL map_items_not_sunk: 1 of 17010
+[autotest] FAIL map_items_not_in_walls: 6 of 17010 {"wall":6}
+[autotest] FAIL map_no_sky_gaps: 1 of 622329 {"wall":1}
+[autotest] PASS map_no_invisible_inside: 0 of 622329
+[autotest] PASS map_no_invisible_outside: 0 of 622329
+[mapscan] door_blocked_by: 67 {"bark":4,"chb2":3,"cr_wall":2,"door_leaf":1,"floor_planks":16,"floor_slab":1,"glass":1,"metal_rust":6,"partition_lintel":1,"shutter":1,"sill":2,"stair_ramp":1,"steel":3,"stilt":3,"unrecorded":3,"wall":15,"wood":4}
+[mapscan] doorway_blocked_by: 3 {"metal_rust":1,"prop:school_desk":1,"prop:table_paint":1}
+[mapscan] door_swing_blocked_by: 40 {"bark":6,"glass":1,"metal_rust":7,"shutter":2,"sill":1,"stair_ramp":1,"steel":4,"terrain":2,"wall":9,"wood":7}
+[mapscan] stair_blocked_by: 12 {"flight:cr_wall":1,"flight:steel":1,"flight:timber":1,"flight:wall":2,"foot:bark":1,"foot:concrete_dirty":1,"foot:partition":2,"foot:steel":1,"foot:wall":1,"foot:wood":1}
+[mapscan] lane_blocked_by: 323 {"bark":12,"blocker":2,"chb2":1,"concrete_dirty":9,"cr_wall":7,"door_leaf":6,"floor_planks":8,"glass":7,"lootbox:lootbox_balikbayan":8,"metal_paint":1,"metal_rust":3,"partition":14,"plaster_white":2,"prop:bench_paint":7,"prop:cash_register":2,"prop:drum_blue":2,"prop:lpg_small":1,"prop:sofa_paint":6,"prop:table_paint":2,"prop:table_round":4,"prop:table_small":2,"prop:tv":1,"shutter":6,"sill":16,"stair_ramp":14,"static:bed_old":1,"static:cabinet_paint":4,"static:counter":4,"static:drawer_cabinet":1,"static:drawer_old":2,"static:food_cart_a":2,"static:food_cart_b":3,"static:nightstand":1,"static:shelf":3,"static:shelves_paint":3,"static:steel_shelves2":2,"static:tricycle_a":3,"steel":4,"stilt":4,"tiles":2,"timber":4,"wall":137}
+[mapscan] door_drop: 64 {"back":15,"front":49}
+[mapscan] lane_barricade: 14 {}
+[autotest] done: 26 checks, 17 failed
+ERROR: 1 RID allocations of type 'N10RendererRD5SkyRD3SkyE' were leaked at exit.
+ERROR: 1 RID allocations of type 'N26RendererEnvironmentStorage11EnvironmentE' were leaked at exit.
+ERROR: 210 RID allocations of type 'N10RendererRD11MeshStorage4MeshE' were leaked at exit.
+ERROR: 1800 RID allocations of type 'N10RendererRD15MaterialStorage8MaterialE' were leaked at exit.
+ERROR: 37 RID allocations of type 'N10RendererRD15MaterialStorage6ShaderE' were leaked at exit.
+ERROR: 859 RID allocations of type 'N10RendererRD14TextureStorage7TextureE' were leaked at exit.

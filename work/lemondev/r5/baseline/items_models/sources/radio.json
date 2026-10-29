@@ -1,0 +1,21 @@
+{
+  "source": "Sketchfab (downloaded from the Objaverse mirror, allenai/objaverse on Hugging Face)",
+  "title": "Walkie Talkie",
+  "url": "https://sketchfab.com/3d-models/5d57f97915a844f584157cb86a474eba",
+  "mirror_url": "https://huggingface.co/datasets/allenai/objaverse/resolve/main/glbs/000-083/5d57f97915a844f584157cb86a474eba.glb",
+  "authors": [
+    "barism09"
+  ],
+  "author_url": "https://sketchfab.com/barism09",
+  "license": "CC-BY-4.0",
+  "license_url": "http://creativecommons.org/licenses/by/4.0/",
+  "attribution_required": true,
+  "kind": "model",
+  "purpose": "team radio worn on characters",
+  "modifications": "Joined into one mesh, re-oriented (front along -Z in Godot), scaled to 0.210 m overall, centred, decimated 6800 -> 3000 triangles, textures reduced to 1024 px JPEG (tools/blender/process_items.py).",
+  "retrieved": "2026-10-25",
+  "files": {
+    "radio.glb": ""
+  },
+  "processed_from": "tools/cache/sketchfab/walkie_talkie/walkie_talkie.glb"
+}

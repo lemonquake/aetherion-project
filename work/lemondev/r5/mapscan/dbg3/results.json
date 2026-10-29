@@ -1,0 +1,77 @@
+[
+  [
+    "map_props_supported",
+    false,
+    "56 of 22163 {\"Barrel_01\":2,\"bottle\":17,\"box\":2,\"bucket\":4,\"container\":5,\"crate_plastic\":1,\"crate_plastic2\":3,\"crate_plastic3\":2,\"drum_blue\":8,\"gallon\":6,\"jerrycan\":1,\"oil_drum\":1,\"stool\":1,\"trashbag\":3}"
+  ],
+  [
+    "map_props_not_sunk",
+    false,
+    "203 of 22163 {\"Barrel_01\":2,\"basket\":2,\"bench_paint\":4,\"boots\":1,\"bottle\":44,\"box\":8,\"bucket\":13,\"can\":8,\"chair_wood\":1,\"container\":7,\"crate_plastic\":6,\"crate_plastic2\":13,\"crate_plastic3\":10,\"drum\":4,\"drum_blue\":4,\"gallon\":7,\"jerrycan\":9,\"monobloc\":4,\"oil_drum\":5,\"old_tyre\":19,\"sofa_paint\":1,\"stool\":11,\"suitcase\":3,\"trash_can\":5,\"trashbag\":12}"
+  ],
+  [
+    "map_static_supported",
+    false,
+    "11 of 22163 {\"boat\":5,\"food_cart_a\":1,\"old_tyre\":5}"
+  ],
+  [
+    "map_static_not_sunk",
+    false,
+    "110 of 22163 {\"cabinet_paint\":2,\"cabinet_paint2\":1,\"daybed\":3,\"drawer_old\":5,\"food_cart_a\":1,\"nightstand\":5,\"old_tyre\":74,\"rubble_a\":13,\"rubble_b\":1,\"tricycle_a\":1,\"wheel_rim\":4}"
+  ],
+  [
+    "map_lootbox_supported",
+    true,
+    "0 of 22163"
+  ],
+  [
+    "map_lootbox_not_sunk",
+    false,
+    "20 of 22163 {\"lootbox_balikbayan\":7,\"lootbox_bin\":7,\"lootbox_cooler\":4,\"lootbox_footlocker\":1,\"lootbox_toolbox\":1}"
+  ],
+  [
+    "map_props_not_in_walls",
+    false,
+    "40 of 22163 {\"low_wall\":20,\"wall\":20}"
+  ],
+  [
+    "map_static_not_in_walls",
+    false,
+    "2 of 22163 {\"low_wall\":2}"
+  ],
+  [
+    "map_lootbox_not_in_walls",
+    true,
+    "0 of 22163"
+  ],
+  [
+    "map_items_supported",
+    true,
+    "0 of 16518"
+  ],
+  [
+    "map_items_not_sunk",
+    false,
+    "20 of 16518"
+  ],
+  [
+    "map_items_not_in_walls",
+    false,
+    "3 of 16518 {\"wall\":3}"
+  ],
+  [
+    "map_no_sky_gaps",
+    false,
+    "860 of 594213 {\"ceiling\":827,\"wall\":14,\"wall_top_gap\":19}"
+  ],
+  [
+    "map_no_invisible_inside",
+    false,
+    "1 of 594213 {\"partition\":1}"
+  ],
+  [
+    "map_no_invisible_outside",
+    true,
+    "0 of 594213"
+  ]
+]

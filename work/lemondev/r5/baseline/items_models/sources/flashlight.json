@@ -1,0 +1,21 @@
+{
+  "source": "Sketchfab (downloaded from the Objaverse mirror, allenai/objaverse on Hugging Face)",
+  "title": "Tactical Flashlight",
+  "url": "https://sketchfab.com/3d-models/dfb9ec2ec4f846438eab24f32ec8c656",
+  "mirror_url": "https://huggingface.co/datasets/allenai/objaverse/resolve/main/glbs/000-110/dfb9ec2ec4f846438eab24f32ec8c656.glb",
+  "authors": [
+    "Blender3D"
+  ],
+  "author_url": "https://sketchfab.com/Blender3D",
+  "license": "CC-BY-4.0",
+  "license_url": "http://creativecommons.org/licenses/by/4.0/",
+  "attribution_required": true,
+  "kind": "model",
+  "purpose": "handheld flashlight",
+  "modifications": "Joined into one mesh, re-oriented (front along -Z in Godot), scaled to 0.150 m overall, centred, decimated 11516 -> 4000 triangles, textures reduced to 1024 px JPEG (tools/blender/process_items.py).",
+  "retrieved": "2026-10-25",
+  "files": {
+    "flashlight.glb": ""
+  },
+  "processed_from": "tools/cache/sketchfab/flashlight_tactical/flashlight_tactical.glb"
+}

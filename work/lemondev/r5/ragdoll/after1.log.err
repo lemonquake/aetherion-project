@@ -1,0 +1,212 @@
+WARNING: GENERAL - Message Id Number: 0 | Message Id Name: Loader Message
+	windows_read_data_files_in_registry: Registry lookup failed to get layer manifest files.
+	Objects - 1
+		Object[0] - VK_OBJECT_TYPE_INSTANCE, Handle 2380362444144
+   at: _debug_messenger_callback (drivers/vulkan/rendering_context_driver_vulkan.cpp:654)
+WARNING: Image format RGB8 not supported by hardware, converting to RGBA8.
+   at: _validate_texture_format (servers/rendering/renderer_rd/storage_rd/texture_storage.cpp:2855)
+   GDScript backtrace (most recent call first):
+       [0] _ready (res://src/ui/menu_bg.gd:42)
+       [1] _ready (res://src/ui/lobby_ui.gd:24)
+       [2] show_screen (res://src/core/game.gd:153)
+       [3] show_lobby (res://src/core/game.gd:170)
+       [4] boot (res://src/core/game.gd:100)
+       [5] _ready (res://src/core/boot.gd:7)
+WARNING: Image format RGB8 not supported by hardware, converting to RGBA8.
+   at: _validate_texture_format (servers/rendering/renderer_rd/storage_rd/texture_storage.cpp:2855)
+   GDScript backtrace (most recent call first):
+       [0] _fallback (res://src/world/materials.gd:205)
+       [1] _surface (res://src/world/materials.gd:154)
+       [2] get_material (res://src/world/materials.gd:141)
+       [3] finish (res://src/world/geo_sink.gd:403)
+       [4] build (res://src/world/map_builder.gd:122)
+       [5] build (res://src/match/world.gd:74)
+       [6] _load_match (res://src/core/game.gd:230)
+       [7] start_match (res://src/core/game.gd:217)
+       [8] _autostart (res://src/core/game.gd:143)
+WARNING: Image format RGB8 not supported by hardware, converting to RGBA8.
+   at: _validate_texture_format (servers/rendering/renderer_rd/storage_rd/texture_storage.cpp:2855)
+   GDScript backtrace (most recent call first):
+       [0] build (res://src/world/lighting.gd:76)
+       [1] build (res://src/world/map_builder.gd:125)
+       [2] build (res://src/match/world.gd:74)
+       [3] _load_match (res://src/core/game.gd:230)
+       [4] start_match (res://src/core/game.gd:217)
+       [5] _autostart (res://src/core/game.gd:143)
+WARNING: Image format RGB8 not supported by hardware, converting to RGBA8.
+   at: _validate_texture_format (servers/rendering/renderer_rd/storage_rd/texture_storage.cpp:2855)
+   GDScript backtrace (most recent call first):
+       [0] build (res://src/world/lighting.gd:77)
+       [1] build (res://src/world/map_builder.gd:125)
+       [2] build (res://src/match/world.gd:74)
+       [3] _load_match (res://src/core/game.gd:230)
+       [4] start_match (res://src/core/game.gd:217)
+       [5] _autostart (res://src/core/game.gd:143)
+WARNING: [Physics interpolation] MultiMesh interpolation is being triggered from outside physics process, this might lead to issues (possibly benign).
+   at: multimesh_instance_set_transform (servers/rendering/storage/mesh_storage.cpp:107)
+   GDScript backtrace (most recent call first):
+       [0] set_leaf_transform (res://src/world/dynamics.gd:471)
+       [1] _apply (res://src/world/door.gd:142)
+       [2] reset_state (res://src/world/door.gd:125)
+       [3] randomize_for_match (res://src/world/dynamics.gd:702)
+       [4] build (res://src/world/map_builder.gd:135)
+       [5] build (res://src/match/world.gd:74)
+       [6] _load_match (res://src/core/game.gd:230)
+       [7] start_match (res://src/core/game.gd:217)
+       [8] _autostart (res://src/core/game.gd:143)
+WARNING: Image format RGBFloat not supported by hardware, converting to RGBAFloat.
+   at: _validate_texture_format (servers/rendering/renderer_rd/storage_rd/texture_storage.cpp:2855)
+   GDScript backtrace (most recent call first):
+       [0] _process_material (res://src/fx/particles.gd:130)
+       [1] setup (res://src/fx/particles.gd:69)
+       [2] setup (res://src/fx/effects.gd:45)
+       [3] build (res://src/match/world.gd:89)
+       [4] _load_match (res://src/core/game.gd:230)
+       [5] start_match (res://src/core/game.gd:217)
+       [6] _autostart (res://src/core/game.gd:143)
+WARNING: Image format RGBFloat not supported by hardware, converting to RGBAFloat.
+   at: _validate_texture_format (servers/rendering/renderer_rd/storage_rd/texture_storage.cpp:2855)
+   GDScript backtrace (most recent call first):
+       [0] _process_material (res://src/fx/particles.gd:130)
+       [1] setup (res://src/fx/particles.gd:69)
+       [2] setup (res://src/fx/effects.gd:45)
+       [3] build (res://src/match/world.gd:89)
+       [4] _load_match (res://src/core/game.gd:230)
+       [5] start_match (res://src/core/game.gd:217)
+       [6] _autostart (res://src/core/game.gd:143)
+WARNING: Image format RGBFloat not supported by hardware, converting to RGBAFloat.
+   at: _validate_texture_format (servers/rendering/renderer_rd/storage_rd/texture_storage.cpp:2855)
+   GDScript backtrace (most recent call first):
+       [0] _process_material (res://src/fx/particles.gd:130)
+       [1] setup (res://src/fx/particles.gd:69)
+       [2] setup (res://src/fx/effects.gd:45)
+       [3] build (res://src/match/world.gd:89)
+       [4] _load_match (res://src/core/game.gd:230)
+       [5] start_match (res://src/core/game.gd:217)
+       [6] _autostart (res://src/core/game.gd:143)
+WARNING: Image format RGBFloat not supported by hardware, converting to RGBAFloat.
+   at: _validate_texture_format (servers/rendering/renderer_rd/storage_rd/texture_storage.cpp:2855)
+   GDScript backtrace (most recent call first):
+       [0] _process_material (res://src/fx/particles.gd:130)
+       [1] setup (res://src/fx/particles.gd:69)
+       [2] setup (res://src/fx/effects.gd:45)
+       [3] build (res://src/match/world.gd:89)
+       [4] _load_match (res://src/core/game.gd:230)
+       [5] start_match (res://src/core/game.gd:217)
+       [6] _autostart (res://src/core/game.gd:143)
+WARNING: Image format RGBFloat not supported by hardware, converting to RGBAFloat.
+   at: _validate_texture_format (servers/rendering/renderer_rd/storage_rd/texture_storage.cpp:2855)
+   GDScript backtrace (most recent call first):
+       [0] _process_material (res://src/fx/particles.gd:130)
+       [1] setup (res://src/fx/particles.gd:69)
+       [2] setup (res://src/fx/effects.gd:45)
+       [3] build (res://src/match/world.gd:89)
+       [4] _load_match (res://src/core/game.gd:230)
+       [5] start_match (res://src/core/game.gd:217)
+       [6] _autostart (res://src/core/game.gd:143)
+WARNING: Image format RGBFloat not supported by hardware, converting to RGBAFloat.
+   at: _validate_texture_format (servers/rendering/renderer_rd/storage_rd/texture_storage.cpp:2855)
+   GDScript backtrace (most recent call first):
+       [0] _process_material (res://src/fx/particles.gd:130)
+       [1] setup (res://src/fx/particles.gd:69)
+       [2] setup (res://src/fx/effects.gd:45)
+       [3] build (res://src/match/world.gd:89)
+       [4] _load_match (res://src/core/game.gd:230)
+       [5] start_match (res://src/core/game.gd:217)
+       [6] _autostart (res://src/core/game.gd:143)
+WARNING: Image format RGBFloat not supported by hardware, converting to RGBAFloat.
+   at: _validate_texture_format (servers/rendering/renderer_rd/storage_rd/texture_storage.cpp:2855)
+   GDScript backtrace (most recent call first):
+       [0] _process_material (res://src/fx/particles.gd:130)
+       [1] setup (res://src/fx/particles.gd:69)
+       [2] setup (res://src/fx/effects.gd:45)
+       [3] build (res://src/match/world.gd:89)
+       [4] _load_match (res://src/core/game.gd:230)
+       [5] start_match (res://src/core/game.gd:217)
+       [6] _autostart (res://src/core/game.gd:143)
+WARNING: Image format RGBFloat not supported by hardware, converting to RGBAFloat.
+   at: _validate_texture_format (servers/rendering/renderer_rd/storage_rd/texture_storage.cpp:2855)
+   GDScript backtrace (most recent call first):
+       [0] _process_material (res://src/fx/particles.gd:130)
+       [1] setup (res://src/fx/particles.gd:69)
+       [2] setup (res://src/fx/effects.gd:45)
+       [3] build (res://src/match/world.gd:89)
+       [4] _load_match (res://src/core/game.gd:230)
+       [5] start_match (res://src/core/game.gd:217)
+       [6] _autostart (res://src/core/game.gd:143)
+WARNING: Image format RGBFloat not supported by hardware, converting to RGBAFloat.
+   at: _validate_texture_format (servers/rendering/renderer_rd/storage_rd/texture_storage.cpp:2855)
+   GDScript backtrace (most recent call first):
+       [0] _process_material (res://src/fx/particles.gd:130)
+       [1] setup (res://src/fx/particles.gd:69)
+       [2] setup (res://src/fx/effects.gd:45)
+       [3] build (res://src/match/world.gd:89)
+       [4] _load_match (res://src/core/game.gd:230)
+       [5] start_match (res://src/core/game.gd:217)
+       [6] _autostart (res://src/core/game.gd:143)
+WARNING: Image format RGBFloat not supported by hardware, converting to RGBAFloat.
+   at: _validate_texture_format (servers/rendering/renderer_rd/storage_rd/texture_storage.cpp:2855)
+   GDScript backtrace (most recent call first):
+       [0] _process_material (res://src/fx/particles.gd:130)
+       [1] setup (res://src/fx/particles.gd:69)
+       [2] setup (res://src/fx/effects.gd:45)
+       [3] build (res://src/match/world.gd:89)
+       [4] _load_match (res://src/core/game.gd:230)
+       [5] start_match (res://src/core/game.gd:217)
+       [6] _autostart (res://src/core/game.gd:143)
+WARNING: Image format RGBFloat not supported by hardware, converting to RGBAFloat.
+   at: _validate_texture_format (servers/rendering/renderer_rd/storage_rd/texture_storage.cpp:2855)
+   GDScript backtrace (most recent call first):
+       [0] _process_material (res://src/fx/particles.gd:130)
+       [1] setup (res://src/fx/particles.gd:69)
+       [2] setup (res://src/fx/effects.gd:45)
+       [3] build (res://src/match/world.gd:89)
+       [4] _load_match (res://src/core/game.gd:230)
+       [5] start_match (res://src/core/game.gd:217)
+       [6] _autostart (res://src/core/game.gd:143)
+WARNING: Image format RGBFloat not supported by hardware, converting to RGBAFloat.
+   at: _validate_texture_format (servers/rendering/renderer_rd/storage_rd/texture_storage.cpp:2855)
+   GDScript backtrace (most recent call first):
+       [0] _process_material (res://src/fx/particles.gd:130)
+       [1] setup (res://src/fx/particles.gd:69)
+       [2] setup (res://src/fx/effects.gd:45)
+       [3] build (res://src/match/world.gd:89)
+       [4] _load_match (res://src/core/game.gd:230)
+       [5] start_match (res://src/core/game.gd:217)
+       [6] _autostart (res://src/core/game.gd:143)
+WARNING: Image format RGBFloat not supported by hardware, converting to RGBAFloat.
+   at: _validate_texture_format (servers/rendering/renderer_rd/storage_rd/texture_storage.cpp:2855)
+   GDScript backtrace (most recent call first):
+       [0] _process_material (res://src/fx/particles.gd:130)
+       [1] setup (res://src/fx/particles.gd:69)
+       [2] setup (res://src/fx/effects.gd:45)
+       [3] build (res://src/match/world.gd:89)
+       [4] _load_match (res://src/core/game.gd:230)
+       [5] start_match (res://src/core/game.gd:217)
+       [6] _autostart (res://src/core/game.gd:143)
+ERROR: 34 shaders of type SceneForwardClusteredShaderRD were never freed
+   at: ~ShaderRD (servers/rendering/renderer_rd/shader_rd.cpp:1236)
+ERROR: 1 shaders of type SkyShaderRD were never freed
+   at: ~ShaderRD (servers/rendering/renderer_rd/shader_rd.cpp:1236)
+WARNING: 1660 RIDs of type "UniformBuffer" were leaked.
+   at: _free_rids (servers/rendering/rendering_device.cpp:8686)
+WARNING: 1674 RIDs of type "IndexArray" were leaked.
+   at: _free_rids (servers/rendering/rendering_device.cpp:8686)
+WARNING: 1674 RIDs of type "IndexBuffer" were leaked.
+   at: _free_rids (servers/rendering/rendering_device.cpp:8686)
+WARNING: 912 RIDs of type "VertexArray" were leaked.
+   at: _free_rids (servers/rendering/rendering_device.cpp:8686)
+WARNING: 988 RIDs of type "VertexBuffer" were leaked.
+   at: _free_rids (servers/rendering/rendering_device.cpp:8686)
+WARNING: 48 RIDs of type "Framebuffer" were leaked.
+   at: _free_rids (servers/rendering/rendering_device.cpp:8686)
+WARNING: 1364 RIDs of type "Texture" were leaked.
+   at: finalize (servers/rendering/rendering_device.cpp:8900)
+WARNING: 26719 ObjectDB instances were leaked at exit (run with `--verbose` for details).
+   at: cleanup (core/object/object.cpp:2536)
+ERROR: 1089 resources still in use at exit.
+   at: clear (core/io/resource.cpp:817)
+ERROR: Pages in use exist at exit in PagedAllocator: N12VariantPools12BucketMediumE
+   at: ~PagedAllocator (./core/templates/paged_allocator.h:170)
+ERROR: Pages in use exist at exit in PagedAllocator: N12VariantPools11BucketSmallE
+   at: ~PagedAllocator (./core/templates/paged_allocator.h:170)

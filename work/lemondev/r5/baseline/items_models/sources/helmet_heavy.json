@@ -1,0 +1,21 @@
+{
+  "source": "Sketchfab (downloaded from the Objaverse mirror, allenai/objaverse on Hugging Face)",
+  "title": "Low-Poly Altyn Helmet",
+  "url": "https://sketchfab.com/3d-models/c3cf2fdf55b94b248d39063d11507230",
+  "mirror_url": "https://huggingface.co/datasets/allenai/objaverse/resolve/main/glbs/000-061/c3cf2fdf55b94b248d39063d11507230.glb",
+  "authors": [
+    "notcplkerry"
+  ],
+  "author_url": "https://sketchfab.com/notcplkerry",
+  "license": "CC-BY-4.0",
+  "license_url": "http://creativecommons.org/licenses/by/4.0/",
+  "attribution_required": true,
+  "kind": "model",
+  "purpose": "heavy-plate helmet",
+  "modifications": "Joined into one mesh, re-oriented (front along -Z in Godot), scaled to 0.310 m overall, centred, decimated 1768 -> 1768 triangles, textures reduced to 1024 px JPEG (tools/blender/process_items.py).",
+  "retrieved": "2026-10-25",
+  "files": {
+    "helmet_heavy.glb": ""
+  },
+  "processed_from": "tools/cache/sketchfab/helmet_heavy/helmet_heavy.glb"
+}
