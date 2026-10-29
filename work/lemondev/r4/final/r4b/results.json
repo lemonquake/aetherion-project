@@ -1,0 +1,87 @@
+[
+  [
+    "jump",
+    true,
+    "left the plane"
+  ],
+  [
+    "view_tier_freefall",
+    true,
+    "tier 2 at 266 m above ground, interiors hidden, AO false, local shadows 0"
+  ],
+  [
+    "team_cluster",
+    true,
+    "3 teammates, farthest 29.4 m at canopy"
+  ],
+  [
+    "landed",
+    true,
+    "mode 3, health 85 at (17.0, -1.0, -312.0)"
+  ],
+  [
+    "view_tier_ground",
+    true,
+    "tier 0 at -0 m above ground, interiors drawn, AO true, local shadows 0"
+  ],
+  [
+    "outfits_vary",
+    true,
+    "7 of 7 characters carry a look; 7 different outfits among them"
+  ],
+  [
+    "outfits_draws",
+    true,
+    "at most 2 mesh surfaces per character body (outfit and head; the gun as before; the hooded body had 8): OutfitHead:1, Outfit:1"
+  ],
+  [
+    "holes_wall",
+    false,
+    "3 holes on plaster; the most-changed hole spot differs by 0.4 luma from before the shots, once the dust settled"
+  ],
+  [
+    "impact_particles",
+    true,
+    "6 particle bursts; 0.8 luma change while the dust flies vs 0.4 after"
+  ],
+  [
+    "chunks_cut",
+    true,
+    "bench_paint cut into 18 chunks (grid (3, 3, 2)) in 3.5 ms"
+  ],
+  [
+    "chunks_prop",
+    true,
+    "bench_paint: chunks left after each of 5 shots [17, 16, 15, 14, 0]; collapsed"
+  ],
+  [
+    "holes_follow_door",
+    true,
+    "2 holes hang on the leaf; a hole moved 0.90 m when the door swung open"
+  ],
+  [
+    "door_panels",
+    true,
+    "panels lost after each row of shots [1, 2, 3, 4, 5]; a ray passes through the first hole: true"
+  ],
+  [
+    "door_destroyed",
+    true,
+    "10 shots; leaf fell; doorway clear: true"
+  ],
+  [
+    "blast_props",
+    true,
+    "table_small was dormant, now broken with 1 chunks lost; scorch mark laid"
+  ],
+  [
+    "casings",
+    true,
+    "4 casings and 4 muzzle smoke puffs from a burst"
+  ],
+  [
+    "suppression",
+    false,
+    "a supersonic round passing 0.8 m away darkened the view edges to 0.00"
+  ]
+]

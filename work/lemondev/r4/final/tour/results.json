@@ -1,0 +1,132 @@
+[
+  [
+    "master_volume_cap",
+    true,
+    "slider 100 -> 0.750 of full output; with debug unlock -> 1.000"
+  ],
+  [
+    "quality_preset",
+    true,
+    "low: no shadows, AO or fog; ultra: 4 moon cascades; restored to high"
+  ],
+  [
+    "jump",
+    true,
+    "left the plane"
+  ],
+  [
+    "view_tier_freefall",
+    true,
+    "tier 2 at 265 m above ground, interiors hidden, AO false, local shadows 0"
+  ],
+  [
+    "team_cluster",
+    true,
+    "3 teammates, farthest 37.7 m at canopy"
+  ],
+  [
+    "landed",
+    true,
+    "mode 3, health 85 at (-11.0, 0.0, -235.0)"
+  ],
+  [
+    "view_tier_ground",
+    true,
+    "tier 0 at 1 m above ground, interiors drawn, AO true, local shadows 8"
+  ],
+  [
+    "flashlight_on",
+    true,
+    "charge 0.61"
+  ],
+  [
+    "flashlight_lights_room",
+    true,
+    "centre of view 0.1 -> 47.1 (0-255)"
+  ],
+  [
+    "lit_room",
+    true,
+    "candle light in a kitchen"
+  ],
+  [
+    "flashlight_on",
+    true,
+    "charge 0.58"
+  ],
+  [
+    "flashlight_lights_room",
+    true,
+    "centre of view 0.4 -> 40.0 (0-255)"
+  ],
+  [
+    "smartab_raised",
+    true,
+    "flags 32777, weapon blocked true"
+  ],
+  [
+    "smartab_lowered",
+    true,
+    "flags 32769"
+  ],
+  [
+    "draw_rifle",
+    true,
+    "current 'rifle_556'"
+  ],
+  [
+    "rifle_fired",
+    true,
+    "1 shots"
+  ],
+  [
+    "recoil_moves_view",
+    true,
+    "pitch climbed 0.99 deg"
+  ],
+  [
+    "bullet_flight",
+    true,
+    "310 m in 0.383 s (23 ticks), drop 0.66 m, 702 of 940 m/s left"
+  ],
+  [
+    "low_battery_flag",
+    true,
+    "charge 0.078"
+  ],
+  [
+    "battery_dies",
+    true,
+    "light on false, charge 0.0000"
+  ],
+  [
+    "battery_swap_started",
+    true,
+    "swap timer 2.35"
+  ],
+  [
+    "battery_replaced",
+    true,
+    "charge 1.00, spares 1 -> 0"
+  ],
+  [
+    "corpse_spawned",
+    true,
+    "corpse 1"
+  ],
+  [
+    "corpse_opened",
+    true,
+    "4 entries, 3 batteries on body"
+  ],
+  [
+    "corpse_battery_looted",
+    true,
+    "batteries 0 -> 3"
+  ],
+  [
+    "corpse_persists",
+    true,
+    "after looting"
+  ]
+]

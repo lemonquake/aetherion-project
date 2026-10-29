@@ -1,0 +1,52 @@
+[
+  [
+    "jump",
+    true,
+    "left the plane"
+  ],
+  [
+    "view_tier_freefall",
+    true,
+    "tier 2 at 265 m above ground, interiors hidden, AO false, local shadows 0"
+  ],
+  [
+    "team_cluster",
+    true,
+    "3 teammates, farthest 35.2 m at canopy"
+  ],
+  [
+    "landed",
+    true,
+    "mode 3, health 85 at (103.0, 1.0, -205.0)"
+  ],
+  [
+    "view_tier_ground",
+    true,
+    "tier 0 at 2 m above ground, interiors drawn, AO true, local shadows 8"
+  ],
+  [
+    "holes_wall",
+    false,
+    "3 holes on hollow_block; the spot changed by 0.0 luma once the dust settled"
+  ],
+  [
+    "impact_particles",
+    true,
+    "6 particle bursts; 3.3 luma change while the dust flies vs 0.0 after"
+  ],
+  [
+    "chunks_cut",
+    true,
+    "table_small cut into 6 chunks (grid (3, 2, 1)) in 5.7 ms"
+  ],
+  [
+    "chunks_prop",
+    true,
+    "table_small: chunks left after each of 3 shots [5, 4, 0]; collapsed"
+  ],
+  [
+    "fx_perf",
+    true,
+    "an impact every frame for 60 frames vs quiet: quiet 8.35 ms (p95 12.41, GPU 3.41, call 0.004 ms); all 10.59 ms (p95 13.13, GPU 3.83, call 0.720 ms); particles 9.72 ms (p95 13.16, GPU 3.86, call 0.047 ms); holes 9.15 ms (p95 12.61, GPU 3.89, call 0.064 ms); sound 10.53 ms (p95 15.29, GPU 3.52, call 0.640 ms); quiet2 8.67 ms (p95 13.62, GPU 3.51, call 0.004 ms)"
+  ]
+]

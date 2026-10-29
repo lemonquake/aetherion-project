@@ -1,0 +1,107 @@
+[
+  [
+    "pa_horns",
+    true,
+    "23 loudspeaker poles; the farthest sampled house is 168 m from a horn"
+  ],
+  [
+    "jump",
+    true,
+    "left the plane"
+  ],
+  [
+    "view_tier_freefall",
+    true,
+    "tier 2 at 264 m above ground, interiors hidden, AO false, local shadows 0"
+  ],
+  [
+    "team_cluster",
+    true,
+    "3 teammates, farthest 34.7 m at canopy"
+  ],
+  [
+    "landed",
+    true,
+    "mode 3, health 100 at (-34.0, 2.0, 25.0)"
+  ],
+  [
+    "view_tier_ground",
+    true,
+    "tier 0 at 3 m above ground, interiors drawn, AO true, local shadows 8"
+  ],
+  [
+    "outfits_vary",
+    true,
+    "7 of 7 characters carry a look; 7 different outfits among them"
+  ],
+  [
+    "outfits_draws",
+    false,
+    "at most 4 mesh surfaces per character body (outfit and head; the gun as before); the hooded body had 8"
+  ],
+  [
+    "pa_schedule_ignite",
+    true,
+    "chime@-61.3, 60@-59.9, chime@-31.4, 30@-30.0, n10@-10.0, n9@-9.0, n8@-8.0, n7@-7.0, n6@-6.0, n5@-5.0, n4@-4.0, n3@-3.0, n2@-2.0, n1@-1.0, siren@-0.1; 15 of 15 cues heard from a horn; "
+  ],
+  [
+    "pa_schedule_dusk",
+    true,
+    "chime@-61.4, 60@-60.0, chime@-31.4, 30@-30.0, n10@-10.0, n9@-9.0, n8@-8.0, n7@-7.0, n6@-6.0, n5@-5.0, n4@-4.0, n3@-3.0, n2@-2.0, n1@-1.0, siren@-0.1; 15 of 15 cues heard from a horn; "
+  ],
+  [
+    "holes_wall",
+    false,
+    "3 holes on glass; the spot changed by 0.2 luma once the dust settled"
+  ],
+  [
+    "impact_particles",
+    false,
+    "13 particle bursts; 0.2 luma change while the dust flies vs 0.2 after"
+  ],
+  [
+    "chunks_cut",
+    true,
+    "bench_paint cut into 18 chunks (grid (3, 3, 2)) in 2.3 ms"
+  ],
+  [
+    "chunks_prop",
+    false,
+    "bench_paint: chunks left after each of 16 shots [17, 16, 15, 15, 15, 15, 15, 15, 15, 15, 15, 15, 15, 15, 15, 15]; still standing"
+  ],
+  [
+    "holes_follow_door",
+    false,
+    "0 holes hang on the leaf; a hole moved 0.00 m when the door swung open"
+  ],
+  [
+    "door_panels",
+    false,
+    "panels lost after each row of shots [0, 0, 0, 0, 0]; a ray passes through the first hole: false"
+  ],
+  [
+    "door_destroyed",
+    false,
+    "30 shots; leaf still up; doorway clear: false"
+  ],
+  [
+    "blast_props",
+    true,
+    "monobloc was dormant, now broken with 0 chunks lost; scorch mark laid"
+  ],
+  [
+    "casings",
+    false,
+    "1 casings and 1 muzzle smoke puffs from a burst"
+  ],
+  [
+    "suppression",
+    true,
+    "a supersonic round passing 0.8 m away darkened the view edges to 0.22"
+  ],
+  [
+    "fx_perf",
+    true,
+    "an impact every frame for 60 frames vs quiet: quiet 15.96 ms (p95 26.08, GPU 5.28, call 0.003 ms); all 16.36 ms (p95 24.38, GPU 5.30, call 0.648 ms); particles 14.65 ms (p95 22.50, GPU 5.05, call 0.042 ms); holes 17.12 ms (p95 27.06, GPU 4.67, call 0.060 ms); sound 15.25 ms (p95 22.78, GPU 5.09, call 0.623 ms); quiet2 14.38 ms (p95 18.95, GPU 4.95, call 0.004 ms)"
+  ]
+]

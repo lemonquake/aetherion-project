@@ -1,0 +1,109 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+Vulkan 1.4.329 - Forward+ - Using Device #0: NVIDIA - NVIDIA GeForce RTX 4060
+
+[lagusan] { "segments": 97, "metres": 1510.29132175446, "lights": 210, "dead": 19, "gaps": 94, "shrines": 20, "walks": 19 }
+[looban] { "loobans": 25, "crate_stacks": 88, "low_walls": 291, "sandbags": 18, "kiosks": 25, "barricades": 9, "yard_walls": 99, &"vacant": 80 }
+[dress] { "poles": 1000, "wires": 5503, "laundry": 437, "clutter": 1246, "props": 2925, "tags": 0, "puddles": 163, "plants": 1235, "vehicles": 66, "floating": 5, "loot": 469, "boxes": 67 }
+[vandal] { "wall": 1247, "covered": 355, "stains": 3298, "ground": 844, "spots": 9 }
+[world] map built in 26392 ms
+[map] 2118 buildings, 4494 doors, 9548 containers, 15415 props, #1375a694 on PC
+[match    0.0] start: 12 players, 3 teams, plane (70.67448, 320.0, -580.2419) -> (-110.7144, 320.0, 390.9647)
+[game] autotest tour
+[autotest] PASS master_volume_cap: slider 100 -> 0.750 of full output; with debug unlock -> 1.000
+[autotest] PASS quality_preset: low: no shadows, AO or fog; ultra: 4 moon cascades; restored to high
+[match    0.0] status: { "plane": 12 }; armed 0; shots 0; zone -1 wait r=406; corpses 0
+[match    0.0] bots: { "deploy": 11 }; containers searched by bots 0 (all players 0); plan steps done 0; guns carried 0
+[match    0.0] [lootstats] bots on the ground 0 (in water 0); armed 0; armed with ammo for a gun 0; long guns 0; attachments fitted 0; rounds of unusable ammo carried 0; items on the ground 16316; bot pickups { "detours": 0, "detour_taken": 0, "fetches": 0, "fetch_done": 0, "items_taken": 0 }
+[autotest] shot A:/Python/aetherion-project/work/lemondev/r4/final/tour/01_plane.png
+[match    8.5] team 1 jumps at (0.0, 320.0, -201.0)
+[match    9.5] team 0 jumps at (-9.0, 320.0, -155.0)
+[autotest] PASS jump: left the plane
+[match   11.2] team 2 jumps at (-23.0, 320.0, -79.0)
+[match   11.2] everyone has jumped; zone phase 0 announced
+[autotest] shot A:/Python/aetherion-project/work/lemondev/r4/final/tour/02_freefall.png
+[autotest] PASS view_tier_freefall: tier 2 at 265 m above ground, interiors hidden, AO false, local shadows 0
+[match   15.0] status: { "chute": 8, "freefall": 4 }; armed 0; shots 0; zone 0 wait r=406; corpses 0; server tick avg 0.98 ms, p99 2.17 ms, max 8.12 ms over 900 ticks
+[match   15.0] bots: { "deploy": 11 }; containers searched by bots 0 (all players 0); plan steps done 0; guns carried 0
+[match   15.0] [lootstats] bots on the ground 0 (in water 0); armed 0; armed with ammo for a gun 0; long guns 0; attachments fitted 0; rounds of unusable ammo carried 0; items on the ground 16316; bot pickups { "detours": 0, "detour_taken": 0, "fetches": 0, "fetch_done": 0, "items_taken": 0 }
+[autotest] PASS team_cluster: 3 teammates, farthest 37.7 m at canopy
+[autotest] shot A:/Python/aetherion-project/work/lemondev/r4/final/tour/03_canopy_team.png
+[match   22.6] Lola Basyang Jr (team 2) landed at (-37.0, 4.0, 58.0), 2.3 m/s, health 100; teammates -
+[match   23.3] Mang Tomas (team 1) landed at (70.0, 1.0, -256.0), 1.0 m/s, health 100; teammates -
+[match   23.5] Nanay Kakanin (team 2) landed at (-3.0, -1.0, 74.0), 1.0 m/s, health 100; teammates 41 m
+[match   23.7] Mang Jolo (team 2) landed at (-9.0, -1.0, 71.0), 1.5 m/s, health 100; teammates 8 m, 35 m
+[match   24.0] Hehe (team 0) landed at (-11.0, 0.0, -235.0), 7.6 m/s, health 100; teammates -
+[autotest] PASS landed: mode 3, health 85 at (-11.0, 0.0, -235.0)
+[autotest] PASS view_tier_ground: tier 0 at 1 m above ground, interiors drawn, AO true, local shadows 8
+[autotest] shot A:/Python/aetherion-project/work/lemondev/r4/final/tour/04_landed.png
+[autotest] shot A:/Python/aetherion-project/work/lemondev/r4/final/tour/05_room_dark.png
+[autotest] PASS flashlight_on: charge 0.61
+[autotest] PASS flashlight_lights_room: centre of view 0.1 -> 47.1 (0-255)
+[autotest] shot A:/Python/aetherion-project/work/lemondev/r4/final/tour/06_room_flashlight.png
+[autotest] shot A:/Python/aetherion-project/work/lemondev/r4/final/tour/07_room_flashlight_turn.png
+[match   27.8] Mang Tani (team 1) landed at (93.0, 6.0, -250.0), 1.0 m/s, health 100; teammates 31 m
+[autotest] PASS lit_room: candle light in a kitchen
+[autotest] shot A:/Python/aetherion-project/work/lemondev/r4/final/tour/08_room_lit_candle.png
+[match   29.7] Ate Load Dito (team 1) landed at (69.0, 1.0, -271.0), 1.0 m/s, health 100; teammates 10 m, 32 m
+[match   30.0] status: { "ground": 7, "chute": 5 }; armed 0; shots 0; zone 0 wait r=406; corpses 0; server tick avg 1.41 ms, p99 3.99 ms, max 32.04 ms over 900 ticks
+[match   30.0] bots: { "deploy": 5, "fight": 1, "loot": 5 }; containers searched by bots 0 (all players 0); plan steps done 5; guns carried 0
+[match   30.0] [lootstats] bots on the ground 6 (in water 2); armed 0; armed with ammo for a gun 0; long guns 0; attachments fitted 0; rounds of unusable ammo carried 0; items on the ground 16316; bot pickups { "detours": 1, "detour_taken": 0, "fetches": 0, "fetch_done": 0, "items_taken": 0 }
+[match   30.2] Tito Karaoke King (team 2) landed at (-49.0, 2.0, 108.0), 1.0 m/s, health 100; teammates 54 m, 61 m, 52 m
+[autotest] shot A:/Python/aetherion-project/work/lemondev/r4/final/tour/09_lane_bulb.png
+[autotest] shot A:/Python/aetherion-project/work/lemondev/r4/final/tour/10_gun_pistol_9.png
+[match   32.9] Totoy Bibo (team 1) landed at (94.0, 1.0, -264.0), 1.0 m/s, health 100; teammates 31 m, 15 m, 20 m
+[autotest] shot A:/Python/aetherion-project/work/lemondev/r4/final/tour/11_gun_pistol_9_aim.png
+[match   35.0] Tita Baby (team 0) landed at (-36.0, 1.0, -221.0), 1.0 m/s, health 100; teammates 23 m
+[match   35.1] Inday Rice Cooker (team 0) landed at (-36.0, 1.0, -203.0), 1.0 m/s, health 100; teammates 8 m, 18 m
+[autotest] shot A:/Python/aetherion-project/work/lemondev/r4/final/tour/12_gun_revolver_357.png
+[match   36.6] Manong Guard (team 0) landed at (-22.0, 1.0, -204.0), 1.0 m/s, health 100; teammates 10 m, 26 m, 14 m
+[autotest] shot A:/Python/aetherion-project/work/lemondev/r4/final/tour/13_gun_shotgun_pump.png
+[autotest] shot A:/Python/aetherion-project/work/lemondev/r4/final/tour/14_gun_smg_9.png
+[autotest] shot A:/Python/aetherion-project/work/lemondev/r4/final/tour/15_gun_rifle_762.png
+[autotest] shot A:/Python/aetherion-project/work/lemondev/r4/final/tour/16_gun_rifle_762_aim.png
+[autotest] shot A:/Python/aetherion-project/work/lemondev/r4/final/tour/17_gun_rifle_556.png
+[autotest] shot A:/Python/aetherion-project/work/lemondev/r4/final/tour/18_room_dark.png
+[match   45.0] status: { "ground": 12 }; armed 2; shots 0; zone 0 wait r=406; corpses 0; server tick avg 2.23 ms, p99 7.77 ms, max 29.80 ms over 900 ticks
+[match   45.0] bots: { "loot": 11 }; containers searched by bots 6 (all players 4); plan steps done 17; guns carried 4
+[match   45.0] [lootstats] bots on the ground 11 (in water 0); armed 2; armed with ammo for a gun 2; long guns 3; attachments fitted 3; rounds of unusable ammo carried 0; items on the ground 16308; bot pickups { "detours": 8, "detour_taken": 8, "fetches": 0, "fetch_done": 0, "items_taken": 8 }
+[autotest] PASS flashlight_on: charge 0.58
+[autotest] PASS flashlight_lights_room: centre of view 0.4 -> 40.0 (0-255)
+[autotest] shot A:/Python/aetherion-project/work/lemondev/r4/final/tour/19_room_flashlight.png
+[autotest] shot A:/Python/aetherion-project/work/lemondev/r4/final/tour/20_room_flashlight_turn.png
+[autotest] PASS smartab_raised: flags 32777, weapon blocked true
+[autotest] shot A:/Python/aetherion-project/work/lemondev/r4/final/tour/21_smartab_status.png
+[autotest] shot A:/Python/aetherion-project/work/lemondev/r4/final/tour/22_smartab_page2.png
+[autotest] shot A:/Python/aetherion-project/work/lemondev/r4/final/tour/23_smartab_map.png
+[autotest] PASS smartab_lowered: flags 32769
+[autotest] PASS draw_rifle: current 'rifle_556'
+[autotest] shot A:/Python/aetherion-project/work/lemondev/r4/final/tour/24_rifle_view.png
+[autotest] shot A:/Python/aetherion-project/work/lemondev/r4/final/tour/25_rifle_firing.png
+[autotest] PASS rifle_fired: 1 shots
+[autotest] PASS recoil_moves_view: pitch climbed 0.99 deg
+[autotest] shot A:/Python/aetherion-project/work/lemondev/r4/final/tour/26_rifle_aim.png
+[autotest] PASS bullet_flight: 310 m in 0.383 s (23 ticks), drop 0.66 m, 702 of 940 m/s left
+[autotest] PASS low_battery_flag: charge 0.078
+[autotest] shot A:/Python/aetherion-project/work/lemondev/r4/final/tour/27_battery_low.png
+[autotest] PASS battery_dies: light on false, charge 0.0000
+[autotest] shot A:/Python/aetherion-project/work/lemondev/r4/final/tour/28_battery_dead.png
+[autotest] PASS battery_swap_started: swap timer 2.35
+[autotest] shot A:/Python/aetherion-project/work/lemondev/r4/final/tour/29_battery_swap.png
+[autotest] PASS battery_replaced: charge 1.00, spares 1 -> 0
+[match   56.0] Mang Tomas downed by Hehe
+[match   56.0] Mang Tomas killed by Hehe (test); 3 teams left
+[autotest] PASS corpse_spawned: corpse 1
+[autotest] shot A:/Python/aetherion-project/work/lemondev/r4/final/tour/30_corpse.png
+[autotest] PASS corpse_opened: 4 entries, 3 batteries on body
+[match   60.0] status: { "ground": 11 }; armed 5; shots 1; zone 0 wait r=406; corpses 1; server tick avg 2.35 ms, p99 5.45 ms, max 30.40 ms over 900 ticks
+[match   60.0] bots: { "loot": 9, "fetch": 1 }; containers searched by bots 14 (all players 8); plan steps done 31; guns carried 8
+[match   60.0] [lootstats] bots on the ground 10 (in water 0); armed 5; armed with ammo for a gun 5; long guns 6; attachments fitted 4; rounds of unusable ammo carried 0; items on the ground 16303; bot pickups { "detours": 13, "detour_taken": 13, "fetches": 2, "fetch_done": 0, "items_taken": 13 }
+[autotest] shot A:/Python/aetherion-project/work/lemondev/r4/final/tour/31_corpse_loot.png
+[autotest] PASS corpse_battery_looted: batteries 0 -> 3
+[autotest] PASS corpse_persists: after looting
+[autotest] shot A:/Python/aetherion-project/work/lemondev/r4/final/tour/32_observer_other_player.png
+[autotest] done: 26 checks, 0 failed
+ERROR: 1 RID allocations of type 'N10RendererRD5SkyRD3SkyE' were leaked at exit.
+ERROR: 1 RID allocations of type 'N26RendererEnvironmentStorage11EnvironmentE' were leaked at exit.
+ERROR: 209 RID allocations of type 'N10RendererRD11MeshStorage4MeshE' were leaked at exit.
+ERROR: 1671 RID allocations of type 'N10RendererRD15MaterialStorage8MaterialE' were leaked at exit.
+ERROR: 35 RID allocations of type 'N10RendererRD15MaterialStorage6ShaderE' were leaked at exit.
+ERROR: 723 RID allocations of type 'N10RendererRD14TextureStorage7TextureE' were leaked at exit.

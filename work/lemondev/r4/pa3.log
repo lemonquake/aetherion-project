@@ -1,0 +1,31 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+Vulkan 1.4.329 - Forward+ - Using Device #0: NVIDIA - NVIDIA GeForce RTX 4060
+
+[lagusan] { "segments": 97, "metres": 1510.29132175446, "lights": 210, "dead": 19, "gaps": 94, "shrines": 20, "walks": 19 }
+[looban] { "loobans": 25, "crate_stacks": 88, "low_walls": 291, "sandbags": 18, "kiosks": 25, "barricades": 9, "yard_walls": 99, &"vacant": 80 }
+[dress] { "poles": 1000, "wires": 5503, "laundry": 437, "clutter": 1246, "props": 2925, "tags": 0, "puddles": 163, "plants": 1235, "vehicles": 66, "floating": 5, "loot": 469, "boxes": 67 }
+[vandal] { "wall": 1247, "covered": 355, "stains": 3298, "ground": 844, "spots": 9 }
+[world] map built in 24513 ms
+[map] 2118 buildings, 4494 doors, 9548 containers, 15415 props, #1375a694 on PC
+[game] autotest r4
+[autotest] PASS pa_horns: 23 loudspeaker poles; the farthest sampled house is 168 m from a horn
+[autotest] shot A:/Python/aetherion-project/work/lemondev/r4/pa3/01_plane.png
+[autotest] PASS jump: left the plane
+[autotest] shot A:/Python/aetherion-project/work/lemondev/r4/pa3/02_freefall.png
+[autotest] PASS view_tier_freefall: tier 2 at 265 m above ground, interiors hidden, AO false, local shadows 0
+[autotest] PASS team_cluster: 3 teammates, farthest 29.0 m at canopy
+[autotest] shot A:/Python/aetherion-project/work/lemondev/r4/pa3/03_canopy_team.png
+[autotest] PASS landed: mode 3, health 86 at (-111.0, 4.0, -107.0)
+[autotest] PASS view_tier_ground: tier 0 at 4 m above ground, interiors drawn, AO true, local shadows 8
+[autotest] shot A:/Python/aetherion-project/work/lemondev/r4/pa3/04_landed.png
+[autotest] shot A:/Python/aetherion-project/work/lemondev/r4/pa3/05_pa_horn.png
+[autotest] shot A:/Python/aetherion-project/work/lemondev/r4/pa3/06_pa_countdown.png
+[autotest] PASS pa_schedule_ignite: chime@-61.3, 60@-59.9, chime@-31.4, 30@-30.0, n10@-10.0, n9@-9.0, n8@-8.0, n7@-7.0, n6@-6.0, n5@-5.0, n4@-4.0, n3@-3.0, n2@-2.0, n1@-1.0, siren@-0.1; 15 of 15 cues heard from a horn; 
+[autotest] PASS pa_schedule_dusk: chime@-61.4, 60@-60.0, chime@-31.4, 30@-30.0, n10@-10.0, n9@-9.0, n8@-8.0, n7@-7.0, n6@-6.0, n5@-5.0, n4@-4.0, n3@-3.0, n2@-2.0, n1@-1.0, siren@-0.1; 15 of 15 cues heard from a horn; 
+[autotest] done: 8 checks, 0 failed
+ERROR: 1 RID allocations of type 'N10RendererRD5SkyRD3SkyE' were leaked at exit.
+ERROR: 1 RID allocations of type 'N26RendererEnvironmentStorage11EnvironmentE' were leaked at exit.
+ERROR: 212 RID allocations of type 'N10RendererRD11MeshStorage4MeshE' were leaked at exit.
+ERROR: 1637 RID allocations of type 'N10RendererRD15MaterialStorage8MaterialE' were leaked at exit.
+ERROR: 35 RID allocations of type 'N10RendererRD15MaterialStorage6ShaderE' were leaked at exit.
+ERROR: 734 RID allocations of type 'N10RendererRD14TextureStorage7TextureE' were leaked at exit.

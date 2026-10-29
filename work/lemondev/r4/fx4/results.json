@@ -1,0 +1,67 @@
+[
+  [
+    "jump",
+    true,
+    "left the plane"
+  ],
+  [
+    "view_tier_freefall",
+    true,
+    "tier 2 at 265 m above ground, interiors hidden, AO false, local shadows 0"
+  ],
+  [
+    "team_cluster",
+    true,
+    "3 teammates, farthest 37.1 m at canopy"
+  ],
+  [
+    "landed",
+    true,
+    "mode 3, health 87 at (-180.0, 1.0, -16.0)"
+  ],
+  [
+    "view_tier_ground",
+    true,
+    "tier 0 at 2 m above ground, interiors drawn, AO true, local shadows 8"
+  ],
+  [
+    "holes_wall",
+    false,
+    "3 holes on plywood; the spot changed by 0.2 luma once the dust settled"
+  ],
+  [
+    "impact_particles",
+    true,
+    "6 particle bursts; 1.0 luma change while the dust flies vs 0.2 after"
+  ],
+  [
+    "chunks_cut",
+    true,
+    "table_small cut into 6 chunks (grid (3, 2, 1)) in 6.1 ms"
+  ],
+  [
+    "chunks_prop",
+    true,
+    "table_small: chunks left after each of 3 shots [5, 4, 0]; collapsed"
+  ],
+  [
+    "holes_follow_door",
+    true,
+    "2 holes hang on the leaf; a hole moved 0.83 m when the door swung open"
+  ],
+  [
+    "door_panels",
+    true,
+    "panels lost after each row of shots [1, 2, 3, 4, 5]; a ray passes through the first hole: true"
+  ],
+  [
+    "door_destroyed",
+    true,
+    "10 shots; leaf fell; doorway clear: true"
+  ],
+  [
+    "blast_props",
+    true,
+    "chair_wood was dormant, now broken with 0 chunks lost; scorch mark laid"
+  ]
+]

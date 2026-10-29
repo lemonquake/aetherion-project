@@ -1,0 +1,36 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+Vulkan 1.4.329 - Forward+ - Using Device #0: NVIDIA - NVIDIA GeForce RTX 4060
+
+[lagusan] { "segments": 97, "metres": 1510.29132175446, "lights": 210, "dead": 19, "gaps": 94, "shrines": 20, "walks": 19 }
+[looban] { "loobans": 25, "crate_stacks": 88, "low_walls": 291, "sandbags": 18, "kiosks": 25, "barricades": 9, "yard_walls": 99, &"vacant": 80 }
+[dress] { "poles": 1000, "wires": 5503, "laundry": 437, "clutter": 1246, "props": 2925, "tags": 0, "puddles": 163, "plants": 1235, "vehicles": 66, "floating": 5, "loot": 469, "boxes": 67 }
+[vandal] { "wall": 1247, "covered": 355, "stains": 3298, "ground": 844, "spots": 9 }
+[world] map built in 24809 ms
+[map] 2118 buildings, 4494 doors, 9548 containers, 15415 props, #1375a694 on PC
+[game] autotest r4
+[autotest] shot A:/Python/aetherion-project/work/lemondev/r4/r4_full4/01_plane.png
+[autotest] PASS jump: left the plane
+[autotest] shot A:/Python/aetherion-project/work/lemondev/r4/r4_full4/02_freefall.png
+[autotest] PASS view_tier_freefall: tier 2 at 265 m above ground, interiors hidden, AO false, local shadows 0
+[autotest] PASS team_cluster: 3 teammates, farthest 34.7 m at canopy
+[autotest] shot A:/Python/aetherion-project/work/lemondev/r4/r4_full4/03_canopy_team.png
+[autotest] PASS landed: mode 3, health 85 at (226.0, 1.0, -106.0)
+[autotest] PASS view_tier_ground: tier 0 at 2 m above ground, interiors drawn, AO true, local shadows 8
+[autotest] shot A:/Python/aetherion-project/work/lemondev/r4/r4_full4/04_landed.png
+[autotest] PASS outfits_vary: 7 of 7 characters carry a look; 7 different outfits among them
+[autotest] PASS outfits_draws: at most 2 mesh surfaces per character body (outfit and head; the gun as before; the hooded body had 8): OutfitHead:1, Outfit:1
+[autotest] shot A:/Python/aetherion-project/work/lemondev/r4/r4_full4/05_outfits_lineup.png
+[autotest] shot A:/Python/aetherion-project/work/lemondev/r4/r4_full4/06_holes_impact_plywood.png
+[autotest] FAIL holes_wall: 8 holes on plywood; the spot changed by 0.6 luma once the dust settled
+[autotest] PASS impact_particles: 24 particle bursts; 12.4 luma change while the dust flies vs 0.6 after
+[autotest] shot A:/Python/aetherion-project/work/lemondev/r4/r4_full4/07_holes_after_plywood.png
+[autotest] shot A:/Python/aetherion-project/work/lemondev/r4/r4_full4/08_realism_firing.png
+[autotest] PASS casings: 4 casings and 4 muzzle smoke puffs from a burst
+[autotest] PASS suppression: a supersonic round passing 0.8 m away darkened the view edges to 0.37
+[autotest] done: 11 checks, 1 failed
+ERROR: 1 RID allocations of type 'N10RendererRD5SkyRD3SkyE' were leaked at exit.
+ERROR: 1 RID allocations of type 'N26RendererEnvironmentStorage11EnvironmentE' were leaked at exit.
+ERROR: 208 RID allocations of type 'N10RendererRD11MeshStorage4MeshE' were leaked at exit.
+ERROR: 1692 RID allocations of type 'N10RendererRD15MaterialStorage8MaterialE' were leaked at exit.
+ERROR: 35 RID allocations of type 'N10RendererRD15MaterialStorage6ShaderE' were leaked at exit.
+ERROR: 723 RID allocations of type 'N10RendererRD14TextureStorage7TextureE' were leaked at exit.

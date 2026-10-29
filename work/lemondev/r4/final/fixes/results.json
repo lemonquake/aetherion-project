@@ -1,0 +1,132 @@
+[
+  [
+    "floor_guns_in_houses",
+    true,
+    "5675 guns on the ground; 1755 of 1927 houses/shops/apartments (91%) have one lying on a floor"
+  ],
+  [
+    "balikbayan_has_guns",
+    true,
+    "32% of balikbayan box rolls are a gun"
+  ],
+  [
+    "jump",
+    true,
+    "left the plane"
+  ],
+  [
+    "view_tier_freefall",
+    true,
+    "tier 2 at 265 m above ground, interiors hidden, AO false, local shadows 0"
+  ],
+  [
+    "team_cluster",
+    true,
+    "3 teammates, farthest 32.8 m at canopy"
+  ],
+  [
+    "landed",
+    true,
+    "mode 3, health 85 at (-133.0, 6.0, -162.0)"
+  ],
+  [
+    "view_tier_ground",
+    true,
+    "tier 0 at 3 m above ground, interiors drawn, AO true, local shadows 8"
+  ],
+  [
+    "use_takes_items",
+    false,
+    "[\"ammo_556: T left it true, E took it false\", \"rifle_scar: T left it true, E took it false\"]; carrying 0 5.56 rounds, SCAR-L in a slot false"
+  ],
+  [
+    "stairs_recorded",
+    true,
+    "1642 indoor flights"
+  ],
+  [
+    "stairs_climbable",
+    false,
+    "23 of 24 flights climbed, 23 stepped off on the upper floor; [\"stuck at (-29.9, 2.8, -136.4), top (-29.1, 3.4, -136.6), foot (-30.2, 0.8, -134.0), hits [\\\"@StaticBody3D@6855 n=(-0.06, 0.72, 0.69)\\\"], blocking boxes [\\\"building 153 house/Looban 3.9x5.2, foot at local (1.56, 0.0, -0.74)\\\", \\\"fwd_knee hit at (0.0, 2.37, 2.97) n (0.0, 0.72, -0.69) \\\", \\\"side_out hit at (-0.36, 2.97, 2.41) n (1.0, 0.0, 0.0) \\\"]\"]"
+  ],
+  [
+    "floor_gun_visible",
+    true,
+    "smg_vector at 3.1 m in an unlit room, no flashlight: 1299 pixels show the gun (mean luma 115.8)"
+  ],
+  [
+    "tab_opens_box",
+    true,
+    "beside lootbox_balikbayan: container shown true (id 3084, a loot box true, walked to 3084), page Items, its lid opened true, 1 entries listed (the box holds 1)"
+  ],
+  [
+    "grab_with_t",
+    true,
+    "suitcase: prompt 'T  Pick up', after E held -1, after T held true, after second T dropped true"
+  ],
+  [
+    "ping_minimap",
+    true,
+    "ping shown true, 120 green pixels in the minimap, cleared after 5 s true, minimap visible true at (20.0, 20.0)"
+  ],
+  [
+    "door_opens_forward",
+    true,
+    "door 1423 swung 95 deg, leaf on the far side true (player side +1, leaf side -1)"
+  ],
+  [
+    "door_walk_through",
+    true,
+    "walked from (-267.0, 0.9, 171.6) through the doorway to (-267.1, 0.8, 174.8)"
+  ],
+  [
+    "door_push_swings",
+    true,
+    "leaf at 52 deg, shoved 36 deg by a running player (swinging on its own afterwards true), now 81 deg"
+  ],
+  [
+    "door_latches_shut",
+    true,
+    "angle 0.000, solid true"
+  ],
+  [
+    "vault_through_window",
+    true,
+    "6 of 6 windows vaulted through; []"
+  ],
+  [
+    "vault_hides_weapon",
+    true,
+    "gun lowered while vaulting true, back up after true"
+  ],
+  [
+    "trash_no_block",
+    true,
+    "trashbag: blocks movement false, stops bullets false; 744 garbage heaps placed without collision"
+  ],
+  [
+    "all_weapons_work",
+    true,
+    "24 guns tested; problems: []"
+  ],
+  [
+    "shared_calibres",
+    true,
+    "by calibre: { \"9x19\": [\"P92\", \"MP5K\", \"Micro UZI\", \"Vector\"], \"45acp\": [\"P1911\", \"UMP45\", \"Tommy Gun\"], \"357\": [\"R1895 Revolver\"], \"12buck\": [\"S1897 Pump\", \"S686\", \"Sumpak\", \"S12K\"], \"556\": [\"AR-15\", \"SCAR-L\", \"M416\", \"M249\", \"Mini 14\"], \"762x39\": [\"AKM\", \"Beryl M762\", \"SKS\"], \"308\": [\"M24\", \"SLR\", \"Kar98k\"], \"50ae\": [\"Deagle\"] }"
+  ],
+  [
+    "frag_grenade",
+    true,
+    "thrown true, frags left 1, teammate 2 m away 100 -> 16 health, exploded at (-269.7, 0.9, 156.3)"
+  ],
+  [
+    "work_sounds_used",
+    true,
+    "46 work/sounds files in use; unused []; not loading []"
+  ],
+  [
+    "door_sounds_60",
+    true,
+    "door open -6.4 dB (was -2.0), door close -4.4 dB (was 0.0), ambience default 60%"
+  ]
+]

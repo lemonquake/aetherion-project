@@ -1,0 +1,54 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+Vulkan 1.4.329 - Forward+ - Using Device #0: NVIDIA - NVIDIA GeForce RTX 4060
+
+[lagusan] { "segments": 97, "metres": 1510.29132175446, "lights": 210, "dead": 19, "gaps": 94, "shrines": 20, "walks": 19 }
+[looban] { "loobans": 25, "crate_stacks": 88, "low_walls": 291, "sandbags": 18, "kiosks": 25, "barricades": 9, "yard_walls": 99, &"vacant": 80 }
+[dress] { "poles": 1000, "wires": 5503, "laundry": 437, "clutter": 1246, "props": 2925, "tags": 0, "puddles": 163, "plants": 1235, "vehicles": 66, "floating": 5, "loot": 469, "boxes": 67 }
+[vandal] { "wall": 1247, "covered": 355, "stains": 3298, "ground": 844, "spots": 9 }
+[world] map built in 25984 ms
+[map] 2118 buildings, 4494 doors, 9548 containers, 15415 props, #1375a694 on PC
+[game] autotest fixes
+[autotest] shot A:/Python/aetherion-project/work/lemondev/r4/final/fixes_b/01_plane.png
+[autotest] PASS jump: left the plane
+[autotest] shot A:/Python/aetherion-project/work/lemondev/r4/final/fixes_b/02_freefall.png
+[autotest] PASS view_tier_freefall: tier 2 at 264 m above ground, interiors hidden, AO false, local shadows 0
+[autotest] PASS team_cluster: 3 teammates, farthest 37.3 m at canopy
+[autotest] shot A:/Python/aetherion-project/work/lemondev/r4/final/fixes_b/03_canopy_team.png
+[autotest] PASS landed: mode 3, health 100 at (164.0, 1.0, -169.0)
+[autotest] PASS view_tier_ground: tier 0 at 2 m above ground, interiors drawn, AO true, local shadows 8
+[autotest] shot A:/Python/aetherion-project/work/lemondev/r4/final/fixes_b/04_landed.png
+[autotest] PASS use_takes_items: ["ammo_556: T left it true, E took it true", "rifle_scar: T left it true, E took it true"]; carrying 30 5.56 rounds, SCAR-L in a slot true
+[autotest] PASS stairs_recorded: 1642 indoor flights
+[autotest] shot A:/Python/aetherion-project/work/lemondev/r4/final/fixes_b/05_stair_top_0.png
+[autotest] shot A:/Python/aetherion-project/work/lemondev/r4/final/fixes_b/06_stair_down_view.png
+[autotest] shot A:/Python/aetherion-project/work/lemondev/r4/final/fixes_b/07_stair_top_1.png
+[autotest] shot A:/Python/aetherion-project/work/lemondev/r4/final/fixes_b/08_stair_top_2.png
+[autotest] shot A:/Python/aetherion-project/work/lemondev/r4/final/fixes_b/09_stair_top_3.png
+[autotest] shot A:/Python/aetherion-project/work/lemondev/r4/final/fixes_b/10_stair_top_4.png
+[autotest] shot A:/Python/aetherion-project/work/lemondev/r4/final/fixes_b/11_stair_top_5.png
+[autotest] shot A:/Python/aetherion-project/work/lemondev/r4/final/fixes_b/12_stair_top_6.png
+[autotest] shot A:/Python/aetherion-project/work/lemondev/r4/final/fixes_b/13_stair_top_7.png
+[autotest] shot A:/Python/aetherion-project/work/lemondev/r4/final/fixes_b/14_stair_top_8.png
+[autotest] shot A:/Python/aetherion-project/work/lemondev/r4/final/fixes_b/15_stair_top_9.png
+[autotest] shot A:/Python/aetherion-project/work/lemondev/r4/final/fixes_b/16_stair_top_10.png
+[autotest] shot A:/Python/aetherion-project/work/lemondev/r4/final/fixes_b/17_stair_top_11.png
+[autotest] shot A:/Python/aetherion-project/work/lemondev/r4/final/fixes_b/18_stair_top_12.png
+[autotest] shot A:/Python/aetherion-project/work/lemondev/r4/final/fixes_b/19_stair_top_13.png
+[autotest] shot A:/Python/aetherion-project/work/lemondev/r4/final/fixes_b/20_stair_top_14.png
+[autotest] shot A:/Python/aetherion-project/work/lemondev/r4/final/fixes_b/21_stair_top_15.png
+[autotest] shot A:/Python/aetherion-project/work/lemondev/r4/final/fixes_b/22_stair_top_16.png
+[autotest] shot A:/Python/aetherion-project/work/lemondev/r4/final/fixes_b/23_stair_top_17.png
+[autotest] shot A:/Python/aetherion-project/work/lemondev/r4/final/fixes_b/24_stair_top_18.png
+[autotest] shot A:/Python/aetherion-project/work/lemondev/r4/final/fixes_b/25_stair_top_19.png
+[autotest] shot A:/Python/aetherion-project/work/lemondev/r4/final/fixes_b/26_stair_top_20.png
+[autotest] shot A:/Python/aetherion-project/work/lemondev/r4/final/fixes_b/27_stair_top_21.png
+[autotest] shot A:/Python/aetherion-project/work/lemondev/r4/final/fixes_b/28_stair_top_22.png
+[autotest] shot A:/Python/aetherion-project/work/lemondev/r4/final/fixes_b/29_stair_top_23.png
+[autotest] PASS stairs_climbable: 24 of 24 flights climbed, 24 stepped off on the upper floor; []
+[autotest] done: 8 checks, 0 failed
+ERROR: 1 RID allocations of type 'N10RendererRD5SkyRD3SkyE' were leaked at exit.
+ERROR: 1 RID allocations of type 'N26RendererEnvironmentStorage11EnvironmentE' were leaked at exit.
+ERROR: 211 RID allocations of type 'N10RendererRD11MeshStorage4MeshE' were leaked at exit.
+ERROR: 1694 RID allocations of type 'N10RendererRD15MaterialStorage8MaterialE' were leaked at exit.
+ERROR: 35 RID allocations of type 'N10RendererRD15MaterialStorage6ShaderE' were leaked at exit.
+ERROR: 733 RID allocations of type 'N10RendererRD14TextureStorage7TextureE' were leaked at exit.

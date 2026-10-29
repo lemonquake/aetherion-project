@@ -1,0 +1,2118 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+OpenGL API 3.3.0 NVIDIA 596.36 - Compatibility - Using Device: NVIDIA - NVIDIA GeForce RTX 4060
+
+WARNING: TAA is only available when using the Forward+ renderer.
+   at: viewport_set_use_taa (servers/rendering/renderer_viewport.cpp:1450)
+[lagusan] { "segments": 97, "metres": 1510.29132175446, "lights": 210, "dead": 19, "gaps": 94, "shrines": 20, "walks": 19 }
+[looban] { "loobans": 25, "crate_stacks": 88, "low_walls": 291, "sandbags": 18, "kiosks": 25, "barricades": 9, "yard_walls": 99, &"vacant": 80 }
+[dress] { "poles": 1000, "wires": 5503, "laundry": 437, "clutter": 1246, "props": 2925, "tags": 0, "puddles": 163, "plants": 1235, "vehicles": 66, "floating": 5, "loot": 469, "boxes": 67 }
+[vandal] { "wall": 1247, "covered": 355, "stains": 3298, "ground": 844, "spots": 9 }
+WARNING: Volumetric fog is only available when using the Forward+ renderer.
+   at: environment_set_volumetric_fog (servers/rendering/storage/environment_storage.cpp:458)
+   GDScript backtrace (most recent call first):
+       [0] build (res://src/world/lighting.gd:105)
+       [1] build (res://src/world/map_builder.gd:123)
+       [2] build (res://src/match/world.gd:74)
+       [3] _load_match (res://src/core/game.gd:230)
+       [4] start_match (res://src/core/game.gd:217)
+       [5] _autostart (res://src/core/game.gd:143)
+WARNING: [Physics interpolation] MultiMesh interpolation is being triggered from outside physics process, this might lead to issues (possibly benign).
+   at: multimesh_instance_set_transform (servers/rendering/storage/mesh_storage.cpp:107)
+   GDScript backtrace (most recent call first):
+       [0] set_leaf_transform (res://src/world/dynamics.gd:381)
+       [1] _apply (res://src/world/door.gd:142)
+       [2] reset_state (res://src/world/door.gd:125)
+       [3] randomize_for_match (res://src/world/dynamics.gd:612)
+       [4] build (res://src/world/map_builder.gd:133)
+       [5] build (res://src/match/world.gd:74)
+       [6] _load_match (res://src/core/game.gd:230)
+       [7] start_match (res://src/core/game.gd:217)
+       [8] _autostart (res://src/core/game.gd:143)
+[world] map built in 25322 ms
+[map] 2118 buildings, 4494 doors, 9548 containers, 15415 props, #1375a694 on PC
+1: #version 330
+2: #define USE_GLES_OVER_GL
+3: #define USE_HALF2FLOAT
+4: #define USE_INVERTED_Y
+5: #define APPLY_TONEMAPPING
+6: #define MATERIAL_UNIFORMS_USED
+7: #define SKY_CODE_USED
+8: 
+9: #define MAX_GLOBAL_SHADER_UNIFORMS 256
+10: 
+11: #define MAX_DIRECTIONAL_LIGHT_DATA_STRUCTS 4
+12: 
+13: #define USE_DEBANDING
+14: 
+15: #define samplerExternalOES sampler2D
+16: #ifdef USE_MULTIVIEW
+17: #if defined(GL_OVR_multiview2)
+18: #extension GL_OVR_multiview2 : require
+19: #elif defined(GL_OVR_multiview)
+20: #extension GL_OVR_multiview : require
+21: #endif
+22: #define ViewIndex gl_ViewID_OVR
+23: #define MAX_VIEWS 2
+24: #else
+25: #define ViewIndex uint(0)
+26: #define MAX_VIEWS 1
+27: #endif
+28: precision highp float;
+29: precision highp int;
+30: 
+31: #define M_PI 3.14159265359
+32: 
+33: layout(std140) uniform TonemapData { //ubo:0
+34: 	float exposure;
+35: 	int tonemapper;
+36: 	int pad;
+37: 	int pad2;
+38: 	vec4 tonemapper_params;
+39: 	float brightness;
+40: 	float contrast;
+41: 	float saturation;
+42: 	int pad3;
+43: };
+44: 
+45: // This approximation expects non-negative input; negative input is undefined behavior.
+46: vec3 linear_to_srgb(vec3 color) {
+47: 	//const vec3 a = vec3(0.055f);
+48: 	//return mix((vec3(1.0f) + a) * pow(color.rgb, vec3(1.0f / 2.4f)) - a, 12.92f * color.rgb, lessThan(color.rgb, vec3(0.0031308f)));
+49: 	// Approximation from http://chilliant.blogspot.com/2012/08/srgb-approximations-for-hlsl.html
+50: 	return max(vec3(1.055) * pow(color, vec3(0.416666667)) - vec3(0.055), vec3(0.0));
+51: }
+52: 
+53: // This approximation expects non-negative input; negative input behaves poorly.
+54: vec3 srgb_to_linear(vec3 color) {
+55: 	// Approximation from http://chilliant.blogspot.com/2012/08/srgb-approximations-for-hlsl.html
+56: 	return color * (color * (color * 0.305306011 + 0.682171111) + 0.012522878);
+57: }
+58: 
+59: #ifdef APPLY_TONEMAPPING
+60: 
+61: // Based on Reinhard's extended formula, see equation 4 in https://doi.org/cjbgrt
+62: vec3 tonemap_reinhard(vec3 color) {
+63: 	float white_squared = tonemapper_params.x;
+64: 	vec3 white_squared_color = white_squared * color;
+65: 	// Equivalent to color * (1 + color / white_squared) / (1 + color)
+66: 	return (white_squared_color + color * color) / (white_squared_color + white_squared);
+67: }
+68: 
+69: vec3 tonemap_filmic(vec3 color) {
+70: 	// These constants must match the those in the C++ code that calculates the parameters.
+71: 	// exposure_bias: Input scale (color *= bias, env->white *= bias) to make the brightness consistent with other tonemappers.
+72: 	// Also useful to scale the input to the range that the tonemapper is designed for (some require very high input values).
+73: 	// Has no effect on the curve's general shape or visual properties.
+74: 	const float exposure_bias = 2.0f;
+75: 	const float A = 0.22f * exposure_bias * exposure_bias; // bias baked into constants for performance
+76: 	const float B = 0.30f * exposure_bias;
+77: 	const float C = 0.10f;
+78: 	const float D = 0.20f;
+79: 	const float E = 0.01f;
+80: 	const float F = 0.30f;
+81: 
+82: 	vec3 color_tonemapped = ((color * (A * color + C * B) + D * E) / (color * (A * color + B) + D * F)) - E / F;
+83: 
+84: 	return color_tonemapped / tonemapper_params.x;
+85: }
+86: 
+87: // Adapted from https://github.com/TheRealMJP/BakingLab/blob/master/BakingLab/ACES.hlsl
+88: // (MIT License).
+89: vec3 tonemap_aces(vec3 color) {
+90: 	// These constants must match the those in the C++ code that calculates the parameters.
+91: 	const float exposure_bias = 1.8f;
+92: 	const float A = 0.0245786f;
+93: 	const float B = 0.000090537f;
+94: 	const float C = 0.983729f;
+95: 	const float D = 0.432951f;
+96: 	const float E = 0.238081f;
+97: 
+98: 	// Exposure bias baked into transform to save shader instructions. Equivalent to `color *= exposure_bias`
+99: 	const mat3 rgb_to_rrt = mat3(
+100: 			vec3(0.59719f * exposure_bias, 0.35458f * exposure_bias, 0.04823f * exposure_bias),
+101: 			vec3(0.07600f * exposure_bias, 0.90834f * exposure_bias, 0.01566f * exposure_bias),
+102: 			vec3(0.02840f * exposure_bias, 0.13383f * exposure_bias, 0.83777f * exposure_bias));
+103: 
+104: 	const mat3 odt_to_rgb = mat3(
+105: 			vec3(1.60475f, -0.53108f, -0.07367f),
+106: 			vec3(-0.10208f, 1.10813f, -0.00605f),
+107: 			vec3(-0.00327f, -0.07276f, 1.07602f));
+108: 
+109: 	color *= rgb_to_rrt;
+110: 	vec3 color_tonemapped = (color * (color + A) - B) / (color * (C * color + D) + E);
+111: 	color_tonemapped *= odt_to_rgb;
+112: 
+113: 	return color_tonemapped / tonemapper_params.x;
+114: }
+115: 
+116: // allenwp tonemapping curve; developed for use in the Godot game engine.
+117: // Source and details: https://allenwp.com/blog/2025/05/29/allenwp-tonemapping-curve/
+118: // Input must be a non-negative linear scene value.
+119: vec3 allenwp_curve(vec3 x) {
+120: 	const float output_max_value = 1.0; // SDR always has an output_max_value of 1.0
+121: 
+122: 	// These constants must match the those in the C++ code that calculates the parameters.
+123: 	// 18% "middle gray" is perceptually 50% of the brightness of reference white.
+124: 	const float awp_crossover_point = 0.18;
+125: 	// When output_max_value and/or awp_crossover_point are no longer constant,
+126: 	// awp_shoulder_max can be calculated on the CPU and passed in as tonemap_e.
+127: 	const float awp_shoulder_max = output_max_value - awp_crossover_point;
+128: 
+129: 	float awp_contrast = tonemapper_params.x;
+130: 	float awp_toe_a = tonemapper_params.y;
+131: 	float awp_slope = tonemapper_params.z;
+132: 	float awp_w = tonemapper_params.w;
+133: 
+134: 	// Reinhard-like shoulder:
+135: 	vec3 s = x - awp_crossover_point;
+136: 	vec3 slope_s = awp_slope * s;
+137: 	s = slope_s * (1.0 + s / awp_w) / (1.0 + (slope_s / awp_shoulder_max));
+138: 	s += awp_crossover_point;
+139: 
+140: 	// Sigmoid power function toe:
+141: 	vec3 t = pow(x, vec3(awp_contrast));
+142: 	t = t / (t + awp_toe_a);
+143: 
+144: 	return mix(s, t, lessThan(x, vec3(awp_crossover_point)));
+145: }
+146: 
+147: // This is an approximation and simplification of EaryChow's AgX implementation that is used by Blender.
+148: // This code is based off of the script that generates the AgX_Base_sRGB.cube LUT that Blender uses.
+149: // Source: https://github.com/EaryChow/AgX_LUT_Gen/blob/main/AgXBasesRGB.py
+150: // Colorspace transformation source: https://www.colour-science.org:8010/apps/rgb_colourspace_transformation_matrix
+151: vec3 tonemap_agx(vec3 color) {
+152: 	// Input color should be non-negative!
+153: 	// Large negative values in one channel and large positive values in other
+154: 	// channels can result in a colour that appears darker and more saturated than
+155: 	// desired after passing it through the inset matrix. For this reason, it is
+156: 	// best to prevent negative input values.
+157: 	// This is done before the Rec. 2020 transform to allow the Rec. 2020
+158: 	// transform to be combined with the AgX inset matrix. This results in a loss
+159: 	// of color information that could be correctly interpreted within the
+160: 	// Rec. 2020 color space as positive RGB values, but is often not worth
+161: 	// the performance cost of an additional matrix multiplication.
+162: 	//
+163: 	// Additionally, this AgX configuration was created subjectively based on
+164: 	// output appearance in the Rec. 709 color gamut, so it is possible that these
+165: 	// matrices will not perform well with non-Rec. 709 output (more testing with
+166: 	// future wide-gamut displays is be needed).
+167: 	// See this comment from the author on the decisions made to create the matrices:
+168: 	// https://github.com/godotengine/godot-proposals/issues/12317#issuecomment-2835824250
+169: 
+170: 	// Combined Rec. 709 to Rec. 2020 and Blender AgX inset matrices:
+171: 	const mat3 rec709_to_rec2020_agx_inset_matrix = mat3(
+172: 			0.544814746488245, 0.140416948464053, 0.0888104196149096,
+173: 			0.373787398372697, 0.754137554567394, 0.178871756420858,
+174: 			0.0813978551390581, 0.105445496968552, 0.732317823964232);
+175: 
+176: 	// Combined inverse AgX outset matrix and Rec. 2020 to Rec. 709 matrices.
+177: 	const mat3 agx_outset_rec2020_to_rec709_matrix = mat3(
+178: 			1.96488741169489, -0.299313364904742, -0.164352742528393,
+179: 			-0.855988495690215, 1.32639796461980, -0.238183969428088,
+180: 			-0.108898916004672, -0.0270845997150571, 1.40253671195648);
+181: 
+182: 	const float output_max_value = 1.0; // SDR always has an output_max_value of 1.0
+183: 
+184: 	// Apply inset matrix.
+185: 	color = rec709_to_rec2020_agx_inset_matrix * color;
+186: 
+187: 	// Use the allenwp tonemapping curve to match the Blender AgX curve while
+188: 	// providing stability across all variable dyanimc range (SDR, HDR, EDR).
+189: 	color = allenwp_curve(color);
+190: 
+191: 	// Clipping to output_max_value is required to address a cyan colour that occurs
+192: 	// with very bright inputs.
+193: 	color = min(vec3(output_max_value), color);
+194: 
+195: 	// Apply outset to make the result more chroma-laden and then go back to Rec. 709.
+196: 	color = agx_outset_rec2020_to_rec709_matrix * color;
+197: 
+198: 	// Blender's lusRGB.compensate_low_side is too complex for this shader, so
+199: 	// simply return the color, even if it has negative components. These negative
+200: 	// components may be useful for subsequent color adjustments.
+201: 	return color;
+202: }
+203: 
+204: #define TONEMAPPER_LINEAR 0
+205: #define TONEMAPPER_REINHARD 1
+206: #define TONEMAPPER_FILMIC 2
+207: #define TONEMAPPER_ACES 3
+208: #define TONEMAPPER_AGX 4
+209: 
+210: vec3 apply_tonemapping(vec3 color) { // inputs are LINEAR
+211: 	if (tonemapper == TONEMAPPER_LINEAR) {
+212: 		return color;
+213: 	}
+214: 
+215: 	// Ensure color values passed to tonemappers are positive.
+216: 	// They can be negative in the case of negative lights, which leads to undesired behavior.
+217: 	color = max(vec3(0.0), color);
+218: 
+219: 	if (tonemapper == TONEMAPPER_REINHARD) {
+220: 		return tonemap_reinhard(color);
+221: 	} else if (tonemapper == TONEMAPPER_FILMIC) {
+222: 		return tonemap_filmic(color);
+223: 	} else if (tonemapper == TONEMAPPER_ACES) {
+224: 		return tonemap_aces(color);
+225: 	} else { // TONEMAPPER_AGX
+226: 		return tonemap_agx(color);
+227: 	}
+228: }
+229: 
+230: #endif // APPLY_TONEMAPPING
+231: 
+232: in vec2 uv_interp;
+233: 
+234: /* clang-format on */
+235: 
+236: uniform samplerCube radiance; //texunit:-2
+237: #ifdef USE_CUBEMAP_PASS
+238: uniform samplerCube half_res; //texunit:-2
+239: uniform samplerCube quarter_res; //texunit:-3
+240: #elif defined(USE_MULTIVIEW)
+241: uniform sampler2DArray half_res; //texunit:-2
+242: uniform sampler2DArray quarter_res; //texunit:-3
+243: #else
+244: uniform sampler2D half_res; //texunit:-2
+245: uniform sampler2D quarter_res; //texunit:-3
+246: #endif
+247: 
+248: layout(std140) uniform GlobalShaderUniformData { //ubo:1
+249: 	vec4 global_shader_uniforms[MAX_GLOBAL_SHADER_UNIFORMS];
+250: };
+251: 
+252: struct DirectionalLightData {
+253: 	vec4 direction_energy;
+254: 	vec4 color_size;
+255: 	uint enabled_bake_mode;
+256: 	float shadow_opacity;
+257: 	float specular;
+258: 	uint mask;
+259: };
+260: 
+261: layout(std140) uniform DirectionalLights { //ubo:4
+262: 	DirectionalLightData data[MAX_DIRECTIONAL_LIGHT_DATA_STRUCTS];
+263: }
+264: directional_lights;
+265: 
+266: #define DIRECTIONAL_LIGHT_ENABLED uint(1 << 0)
+267: 
+268: // mat4 is a waste of space, but we don't have an easy way to set a mat3 uniform for now
+269: uniform mat4 orientation;
+270: uniform vec4 projection;
+271: uniform vec3 position;
+272: uniform float time;
+273: uniform float sky_energy_multiplier;
+274: uniform float luminance_multiplier;
+275: 
+276: uniform float fog_aerial_perspective;
+277: uniform vec4 fog_light_color;
+278: uniform float fog_sun_scatter;
+279: uniform bool fog_enabled;
+280: uniform float fog_density;
+281: uniform float fog_sky_affect;
+282: uniform uint directional_light_count;
+283: 
+284: /* clang-format off */
+285: 
+286: #ifdef MATERIAL_UNIFORMS_USED
+287: layout(std140) uniform MaterialUniforms{ //ubo:3
+288: 
+289: highp vec3 m_moon_direction;
+290: highp float m_moon_radius;
+291: highp float m_moon_energy;
+292: highp vec3 m_moon_tint;
+293: highp vec3 m_zenith_color;
+294: highp vec3 m_sky_color;
+295: highp vec3 m_horizon_color;
+296: highp vec3 m_halo_color;
+297: highp vec3 m_city_glow;
+298: highp vec2 m_city_dir;
+299: int m_star_count;
+300: highp float m_star_energy;
+301: highp float m_cloud_cover;
+302: highp float m_cloud_speed;
+303: highp float m_cloud_scale;
+304: highp float m_cloud_softness;
+305: highp vec2 m_cloud_direction;
+306: highp vec3 m_cloud_dark;
+307: highp vec3 m_cloud_lit;
+308: highp float m_day_k;
+309: highp vec3 m_sun_direction;
+310: highp vec3 m_day_zenith;
+311: highp vec3 m_day_horizon;
+312: highp vec3 m_sun_color;
+313: highp float m_day_radiance;
+314: 
+315: };
+316: #endif
+317: /* clang-format on */
+318: uniform highp sampler2D m_cloud_noise;
+319: uniform highp sampler2D m_moon_texture;
+320: 
+321: vec4 m_clouds(vec3 m_d, vec3 m_m, float m_up, out float m_thick)
+322: 	{
+323: 		vec2 m_plane=(m_d.xz / (m_up + 0.11999999731779));
+324: 		vec2 m_drift=((normalize(m_cloud_direction) * time) * m_cloud_speed);
+325: 		vec2 m_uv=((m_plane * m_cloud_scale) + m_drift);
+326: 		vec2 m_evolve=(vec2(sin((time * 0.0109999999404)), cos((time * 0.00899999961257))) * 0.05000000074506);
+327: 		vec2 m_warp=((texture(m_cloud_noise, ((m_uv * 0.5) + m_evolve)).bb - 0.5) * 0.07000000029802);
+328: 		float m_base=texture(m_cloud_noise, (m_uv + m_warp)).r;
+329: 		float m_second=texture(m_cloud_noise, (((m_uv * 0.40999999642372) + vec2(0.23000000417233,0.37000000476837)) - m_evolve)).r;
+330: 		float m_n=((m_base * 0.60000002384186) + (m_second * 0.40000000596046));
+331: 		float m_threshold=(1.0 - m_cloud_cover);
+332: 		float m_cover=smoothstep(m_threshold, (m_threshold + m_cloud_softness), m_n);
+333: 		float m_detail=texture(m_cloud_noise, (((m_uv * 2.29999995231628) + m_warp) + m_evolve)).g;
+334: 		m_cover*=mix(1.0, smoothstep(0.15000000596046, 0.85000002384186, m_detail), (0.44999998807907 * (1.0 - m_cover)));
+335: 		float m_thickness=smoothstep(m_threshold, (m_threshold + (m_cloud_softness * 3.0)), m_n);
+336: 		m_thick=m_thickness;
+337: 		m_cover*=smoothstep(0.03999999910593, 0.30000001192093, m_up);
+338: 		float m_mc=max(dot(m_d, m_m), 0.0);
+339: 		float m_scatter=(((pow(m_mc, 6.0) * 0.44999998807907) + (pow(m_mc, 50.0) * 1.20000004768372)) + (pow(m_mc, 600.0) * 2.0));
+340: 		vec3 m_col=mix(m_cloud_lit, m_cloud_dark, (m_thickness * 0.75));
+341: 		m_col+=((m_halo_color * m_scatter) * mix(1.0, 0.34999999403954, m_thickness));
+342: 		vec2 m_hd=normalize((m_d.xz + vec2(0.00009999999747,0.00009999999747)));
+343: 		m_col+=(((m_city_glow * 0.60000002384186) * pow(max(dot(m_hd, normalize(m_city_dir)), 0.0), 2.0)) * (1.0 - smoothstep(0.05000000074506, 0.5, m_up)));
+344: 		m_col=mix((m_horizon_color * 0.89999997615814), m_col, smoothstep(0.01999999955297, 0.34999999403954, m_up));
+345: return vec4(m_col, (m_cover * 0.9200000166893));	}
+346: 
+347: vec3 m_day_sky(vec3 m_d, float m_up, vec4 m_cl, float m_thick)
+348: 	{
+349: 		vec3 m_s=normalize(m_sun_direction);
+350: 		vec3 m_c=mix(m_day_horizon, m_day_zenith, smoothstep(-0.01999999955297, 0.60000002384186, m_up));
+351: 		float m_sc=max(dot(m_d, m_s), 0.0);
+352: 		m_c+=(m_sun_color * ((pow(m_sc, 6.0) * 0.18000000715256) + (pow(m_sc, 48.0) * 0.44999998807907)));
+353: 		if ((m_up > 0.0))
+354: 		{
+355: 					{
+356: 			vec3 m_cloud=(mix(vec3(0.93999999761581,0.93999999761581,0.94999998807907), vec3(0.5,0.52999997138977,0.5799999833107), (m_thick * 0.80000001192093)) + ((m_sun_color * pow(m_sc, 10.0)) * 0.40000000596046));
+357: 			m_c=mix(m_c, m_cloud, (m_cl.a * 0.85000002384186));
+358: 		}
+359: ;
+360: 		}
+361: 		if (!AT_CUBEMAP_PASS)
+362: 		{
+363: 					{
+364: 			float m_ang=acos(clamp(dot(m_d, m_s), -1.0, 1.0));
+365: 			float m_core=(1.0 - smoothstep(0.01700000092387, 0.01999999955297, m_ang));
+366: 			float m_ring=((1.0 - smoothstep(0.0, 0.00249999994412, abs((m_ang - 0.04699999839067)))) * 0.5);
+367: 			vec3 m_r1=normalize(cross(m_s, vec3(0.0,0.0,1.0)));
+368: 			vec3 m_r2=cross(m_s, m_r1);
+369: 			float m_az=atan(dot(m_d, m_r2), dot(m_d, m_r1));
+370: 			float m_spoke=smoothstep(0.46999999880791, 0.49500000476837, abs((fract(((m_az * 6.0) / 6.28318530717959)) - 0.5)));
+371: 			float m_struts=(((m_spoke * step(0.01999999955297, m_ang)) * step(m_ang, 0.04699999839067)) * 0.34999999403954);
+372: 			m_c+=(m_sun_color * (((m_core * 14.0) + (m_ring * 1.60000002384186)) + m_struts));
+373: 		}
+374: ;
+375: 		}
+376: return mix((m_day_horizon * 0.85000002384186), m_c, smoothstep(-0.05000000074506, 0.0, m_up));	}
+377: 
+378: vec3 m_moon_disc(vec3 m_d, vec3 m_m, out float m_mask)
+379: 	{
+380: 		float m_c=dot(m_d, m_m);
+381: 		float m_ang=acos(clamp(m_c, -1.0, 1.0));
+382: 		m_mask=(1.0 - smoothstep((m_moon_radius * 0.95999997854233), m_moon_radius, m_ang));
+383: 		if ((m_mask <= 0.0))
+384: 		{
+385: 					{
+386: return vec3(0.0,0.0,0.0);		}
+387: ;
+388: 		}
+389: 		vec3 m_right=normalize(cross(vec3(0.0,1.0,0.0), m_m));
+390: 		vec3 m_up=cross(m_m, m_right);
+391: 		vec2 m_q=(vec2(dot(m_d, m_right), dot(m_d, m_up)) / sin(m_moon_radius));
+392: 		float m_r2=dot(m_q, m_q);
+393: 		float m_z=sqrt(max(0.0, (1.0 - m_r2)));
+394: 		float m_lon=atan(m_q.x, m_z);
+395: 		float m_lat=asin(clamp(m_q.y, -1.0, 1.0));
+396: 		vec2 m_uv=vec2((0.5 + (m_lon / 6.28318530717959)), (0.5 - (m_lat / 3.14159265358979)));
+397: 		vec3 m_albedo=texture(m_moon_texture, m_uv).rgb;
+398: 		float m_limb=mix(0.55000001192093, 1.0, pow(m_z, 0.44999998807907));
+399: return ((((m_albedo * m_limb) * m_moon_tint) * m_moon_energy) * 1.60000002384186);	}
+400: 
+401: float m_hash11(float m_x)
+402: 	{
+403: return fract((sin((m_x * 127.099998474121)) * 43758.546875));	}
+404: 
+405: float m_night_stars(vec3 m_d, float m_px)
+406: 	{
+407: 		vec3 m_m=normalize(m_moon_direction);
+408: 		float m_total=0.0;
+409: 		for (int m_i=0;(m_i < m_star_count);m_i++)
+410: 		{
+411: 					{
+412: 			float m_fi=float(m_i);
+413: 			float m_h=m_hash11(((m_fi * 1.37000000476837) + 0.5));
+414: 			float m_az=((m_fi * 2.39996004104614) + ((m_hash11((m_fi + 7.09999990463257)) - 0.5) * 0.89999997615814));
+415: 			float m_el=asin(mix(0.34000000357628, 0.98000001907349, m_hash11(((m_fi * 3.09999990463257) + 2.0))));
+416: 			vec3 m_s=vec3((cos(m_el) * sin(m_az)), sin(m_el), (cos(m_el) * cos(m_az)));
+417: 			if ((dot(m_s, m_m) > 0.93000000715256))
+418: 			{
+419: 							{
+420: 				m_s=vec3(-m_s.x, m_s.y, -m_s.z);
+421: 			}
+422: ;
+423: 			}
+424: 			float m_ang=length((m_d - m_s));
+425: 			if ((m_ang > (m_px * 6.0)))
+426: 			{
+427: 							{
+428: continue;			}
+429: ;
+430: 			}
+431: 			float m_brightness=mix(0.30000001192093, 1.0, pow(m_hash11(((m_fi * 5.30000019073486) + 1.10000002384186)), 2.0));
+432: 			float m_twinkle=(0.86000001430511 + ((0.14000000059605 * sin(((time * (1.10000002384186 + (m_h * 2.29999995231628))) + (m_h * 40.0)))) * sin(((time * (0.37000000476837 + (m_h * 0.60000002384186))) + m_fi))));
+433: 			float m_core=exp(-pow((m_ang / (m_px * 0.85000002384186)), 2.0));
+434: 			float m_glow=((exp(-pow((m_ang / (m_px * 2.59999990463257)), 2.0)) * 0.11999999731779) * m_brightness);
+435: 			m_total+=(((m_core + m_glow) * m_brightness) * m_twinkle);
+436: 		}
+437: ;
+438: 		}
+439: return m_total;	}
+440: 
+441: vec3 m_sky_gradient(vec3 m_d)
+442: 	{
+443: 		vec3 m_m=normalize(m_moon_direction);
+444: 		float m_up=clamp(m_d.y, -1.0, 1.0);
+445: 		vec3 m_c=mix(m_horizon_color, m_sky_color, smoothstep(0.0, 0.28000000119209, m_up));
+446: 		m_c=mix(m_c, m_zenith_color, smoothstep(0.25, 0.94999998807907, m_up));
+447: 		float m_mc=max(dot(m_d, m_m), 0.0);
+448: 		m_c+=(m_halo_color * (((pow(m_mc, 12.0) * 0.07999999821186) + (pow(m_mc, 90.0) * 0.18000000715256)) + (pow(m_mc, 900.0) * 0.60000002384186)));
+449: 		vec2 m_hd=normalize((m_d.xz + vec2(0.00009999999747,0.00009999999747)));
+450: 		m_c+=(((m_halo_color * 0.05000000074506) * pow(max(dot(m_hd, normalize(m_m.xz)), 0.0), 6.0)) * (1.0 - smoothstep(0.0, 0.34999999403954, m_up)));
+451: 		m_c+=((m_city_glow * pow(max(dot(m_hd, normalize(m_city_dir)), 0.0), 3.0)) * (1.0 - smoothstep(-0.01999999955297, 0.21999999880791, m_up)));
+452: return m_c;	}
+453: 
+454: #ifdef USE_CUBEMAP_PASS
+455: #define AT_CUBEMAP_PASS true
+456: #else
+457: #define AT_CUBEMAP_PASS false
+458: #endif
+459: 
+460: #ifdef USE_HALF_RES_PASS
+461: #define AT_HALF_RES_PASS true
+462: #else
+463: #define AT_HALF_RES_PASS false
+464: #endif
+465: 
+466: #ifdef USE_QUARTER_RES_PASS
+467: #define AT_QUARTER_RES_PASS true
+468: #else
+469: #define AT_QUARTER_RES_PASS false
+470: #endif
+471: 
+472: #ifdef USE_MULTIVIEW
+473: layout(std140) uniform MultiviewData { // ubo:12
+474: 	highp mat4 projection_matrix_view[MAX_VIEWS];
+475: 	highp mat4 inv_projection_matrix_view[MAX_VIEWS];
+476: 	highp vec4 eye_offset[MAX_VIEWS];
+477: }
+478: multiview_data;
+479: #endif
+480: 
+481: layout(location = 0) out vec4 frag_color;
+482: 
+483: #ifdef USE_DEBANDING
+484: // https://www.iryoku.com/next-generation-post-processing-in-call-of-duty-advanced-warfare
+485: vec3 interleaved_gradient_noise(vec2 pos) {
+486: 	const vec3 magic = vec3(0.06711056f, 0.00583715f, 52.9829189f);
+487: 	float res = fract(magic.z * fract(dot(pos, magic.xy))) * 2.0 - 1.0;
+488: 	return vec3(res, -res, res) / 255.0;
+489: }
+490: #endif
+491: 
+492: #if !defined(DISABLE_FOG)
+493: vec4 fog_process(vec3 view, vec3 sky_color) {
+494: 	vec3 fog_color = mix(fog_light_color.rgb, sky_color, fog_aerial_perspective);
+495: 
+496: 	if (fog_sun_scatter > 0.001) {
+497: 		vec4 sun_scatter = vec4(0.0);
+498: 		float sun_total = 0.0;
+499: 		for (uint i = 0u; i < directional_light_count; i++) {
+500: 			vec3 light_color = srgb_to_linear(directional_lights.data[i].color_size.xyz) * directional_lights.data[i].direction_energy.w;
+501: 			float light_amount = pow(max(dot(view, directional_lights.data[i].direction_energy.xyz), 0.0), 8.0) * M_PI;
+502: 			fog_color += light_color * light_amount * fog_sun_scatter;
+503: 		}
+504: 	}
+505: 
+506: 	return vec4(fog_color, 1.0);
+507: }
+508: #endif // !DISABLE_FOG
+509: 
+510: // Eberly approximations from https://seblagarde.wordpress.com/2014/12/01/inverse-trigonometric-functions-gpu-optimization-for-amd-gcn-architecture/.
+511: // input [-1, 1] and output [0, PI]
+512: float acos_approx(float p_x) {
+513: 	float x = abs(p_x);
+514: 	float res = -0.156583f * x + (M_PI / 2.0);
+515: 	res *= sqrt(1.0f - x);
+516: 	return (p_x >= 0.0) ? res : M_PI - res;
+517: }
+518: 
+519: // Based on https://math.stackexchange.com/questions/1098487/atan2-faster-approximation
+520: // but using the Eberly coefficients from https://seblagarde.wordpress.com/2014/12/01/inverse-trigonometric-functions-gpu-optimization-for-amd-gcn-architecture/.
+521: float atan2_approx(float y, float x) {
+522: 	float a = min(abs(x), abs(y)) / max(abs(x), abs(y));
+523: 	float s = a * a;
+524: 	float poly = 0.0872929f;
+525: 	poly = -0.301895f + poly * s;
+526: 	poly = 1.0f + poly * s;
+527: 	poly = poly * a;
+528: 
+529: 	float r = abs(y) > abs(x) ? (M_PI / 2.0) - poly : poly;
+530: 	r = x < 0.0 ? M_PI - r : r;
+531: 	r = y < 0.0 ? -r : r;
+532: 
+533: 	return r;
+534: }
+535: 
+536: void main() {
+537: 	vec3 cube_normal;
+538: #ifdef USE_MULTIVIEW
+539: 	// In multiview our projection matrices will contain positional and rotational offsets that we need to properly unproject.
+540: 	vec4 unproject = vec4(uv_interp.xy, -1.0, 1.0); // unproject at the far plane
+541: 	vec4 unprojected = multiview_data.inv_projection_matrix_view[ViewIndex] * unproject;
+542: 	cube_normal = unprojected.xyz / unprojected.w;
+543: 
+544: 	// Unproject will give us the position between the eyes, need to re-offset.
+545: 	cube_normal += multiview_data.eye_offset[ViewIndex].xyz;
+546: #else
+547: 	cube_normal.z = -1.0;
+548: 	cube_normal.x = (uv_interp.x + projection.x) / projection.y;
+549: 	cube_normal.y = (uv_interp.y + projection.z) / projection.w;
+550: #endif
+551: 	cube_normal = mat3(orientation) * cube_normal;
+552: 	cube_normal = normalize(cube_normal);
+553: 
+554: 	vec2 uv = gl_FragCoord.xy; // uv_interp * 0.5 + 0.5;
+555: 
+556: 	vec2 panorama_coords = vec2(atan2_approx(cube_normal.x, -cube_normal.z), acos_approx(cube_normal.y));
+557: 
+558: 	if (panorama_coords.x < 0.0) {
+559: 		panorama_coords.x += M_PI * 2.0;
+560: 	}
+561: 
+562: 	panorama_coords /= vec2(M_PI * 2.0, M_PI);
+563: 
+564: 	vec3 color = vec3(0.0, 0.0, 0.0);
+565: 	float alpha = 1.0; // Only available to subpasses
+566: 	vec4 half_res_color = vec4(1.0);
+567: 	vec4 quarter_res_color = vec4(1.0);
+568: 	vec4 custom_fog = vec4(0.0);
+569: 
+570: #ifdef USE_CUBEMAP_PASS
+571: #ifdef USES_HALF_RES_COLOR
+572: 	half_res_color = texture(half_res, cube_normal);
+573: #endif
+574: #ifdef USES_QUARTER_RES_COLOR
+575: 	quarter_res_color = texture(quarter_res, cube_normal);
+576: #endif
+577: #else
+578: #ifdef USES_HALF_RES_COLOR
+579: #ifdef USE_MULTIVIEW
+580: 	half_res_color = textureLod(half_res, vec3(uv, ViewIndex), 0.0);
+581: #else
+582: 	half_res_color = textureLod(half_res, uv, 0.0);
+583: #endif
+584: #endif
+585: #ifdef USES_QUARTER_RES_COLOR
+586: #ifdef USE_MULTIVIEW
+587: 	quarter_res_color = textureLod(quarter_res, vec3(uv, ViewIndex), 0.0);
+588: #else
+589: 	quarter_res_color = textureLod(quarter_res, uv, 0.0);
+590: #endif
+591: #endif
+592: #endif
+593: 
+594: 	{
+595: 	{
+596: 		vec3 m_d=normalize(cube_normal);
+597: 		vec3 m_m=normalize(m_moon_direction);
+598: 		vec3 m_c=m_sky_gradient(m_d);
+599: 		float m_up=m_d.y;
+600: 		vec4 m_cl=vec4(0.0,0.0,0.0,0.0);
+601: 		float m_thick=0.0;
+602: 		if ((m_up > 0.0))
+603: 		{
+604: 					{
+605: 			m_cl=m_clouds(m_d, m_m, m_up, m_thick);
+606: 			float m_moon_mask=0.0;
+607: 			vec3 m_disc=vec3(0.0,0.0,0.0);
+608: 			float m_star_light=0.0;
+609: 			if (!AT_CUBEMAP_PASS)
+610: 			{
+611: 							{
+612: 				m_disc=m_moon_disc(m_d, m_m, m_moon_mask);
+613: 				float m_moon_wash=(1.0 - (smoothstep(0.80000001192093, 0.99500000476837, dot(m_d, m_m)) * 0.89999997615814));
+614: 				m_star_light=(((m_night_stars(m_d, 0.00109999999404) * m_star_energy) * smoothstep(0.05000000074506, 0.30000001192093, m_up)) * m_moon_wash);
+615: 			}
+616: ;
+617: 			}
+618: 			m_star_light*=(1.0 - m_cl.a);
+619: 			m_c=mix(m_c, m_cl.rgb, m_cl.a);
+620: 			m_moon_mask*=(1.0 - (m_cl.a * mix(0.55000001192093, 0.97000002861023, m_cl.a)));
+621: 			m_c+=(vec3(0.85000002384186,0.89999997615814,1.0) * m_star_light);
+622: 			m_c=mix(m_c, m_disc, m_moon_mask);
+623: 		}
+624: ;
+625: 		}
+626: 		m_c=mix((m_horizon_color * 0.80000001192093), m_c, smoothstep(-0.05000000074506, 0.0, m_up));
+627: 		if ((m_day_k > 0.0))
+628: 		{
+629: 					{
+630: 			vec3 m_dc=m_day_sky(m_d, m_up, m_cl, m_thick);
+631: 			if (AT_CUBEMAP_PASS)
+632: 			{
+633: 							{
+634: 				m_dc*=m_day_radiance;
+635: 			}
+636: ;
+637: 			}
+638: 			m_c=mix(m_c, m_dc, m_day_k);
+639: 		}
+640: ;
+641: 		}
+642: 		color=m_c;
+643: 	}
+644: 	}
+645: 
+646: 	color *= sky_energy_multiplier;
+647: 
+648: 	// Convert to Linear for tonemapping so color matches scene shader better
+649: 	color = srgb_to_linear(color);
+650: 
+651: #if !defined(DISABLE_FOG) && !defined(USE_CUBEMAP_PASS)
+652: 
+653: 	// Draw "fixed" fog before volumetric fog to ensure volumetric fog can appear in front of the sky.
+654: 	if (fog_enabled) {
+655: 		vec4 fog = fog_process(cube_normal, color.rgb);
+656: 		color.rgb = mix(color.rgb, fog.rgb, fog.a * fog_sky_affect);
+657: 	}
+658: 
+659: 	if (custom_fog.a > 0.0) {
+660: 		color.rgb = mix(color.rgb, custom_fog.rgb, custom_fog.a);
+661: 	}
+662: 
+663: #endif // DISABLE_FOG
+664: 
+665: 	color *= exposure;
+666: #ifdef APPLY_TONEMAPPING
+667: 	color = apply_tonemapping(color);
+668: #endif
+669: 	color = linear_to_srgb(color);
+670: 
+671: 	frag_color.rgb = color * luminance_multiplier;
+672: 	frag_color.a = alpha;
+673: 
+674: #ifdef USE_DEBANDING
+675: 	frag_color.rgb += interleaved_gradient_noise(gl_FragCoord.xy) * sky_energy_multiplier * luminance_multiplier;
+676: #endif
+677: }
+678: 
+679: 
+ERROR: SkyShaderGLES3: Fragment shader compilation failed:
+0(361) : error C1503: undefined variable "AT_CUBEMAP_PASS"
+
+   at: _display_error_with_code (drivers/gles3/shader_gles3.cpp:262)
+ERROR: Method/function failed.
+   at: _compile_specialization (drivers/gles3/shader_gles3.cpp:404)
+1: #version 330
+2: #define USE_GLES_OVER_GL
+3: #define USE_HALF2FLOAT
+4: #define USE_INVERTED_Y
+5: #define APPLY_TONEMAPPING
+6: #define MATERIAL_UNIFORMS_USED
+7: #define SKY_CODE_USED
+8: 
+9: #define MAX_GLOBAL_SHADER_UNIFORMS 256
+10: 
+11: #define MAX_DIRECTIONAL_LIGHT_DATA_STRUCTS 4
+12: #define USE_CUBEMAP_PASS
+13: #define USE_DEBANDING
+14: 
+15: #define samplerExternalOES sampler2D
+16: #ifdef USE_MULTIVIEW
+17: #if defined(GL_OVR_multiview2)
+18: #extension GL_OVR_multiview2 : require
+19: #elif defined(GL_OVR_multiview)
+20: #extension GL_OVR_multiview : require
+21: #endif
+22: #define ViewIndex gl_ViewID_OVR
+23: #define MAX_VIEWS 2
+24: #else
+25: #define ViewIndex uint(0)
+26: #define MAX_VIEWS 1
+27: #endif
+28: precision highp float;
+29: precision highp int;
+30: 
+31: #define M_PI 3.14159265359
+32: 
+33: layout(std140) uniform TonemapData { //ubo:0
+34: 	float exposure;
+35: 	int tonemapper;
+36: 	int pad;
+37: 	int pad2;
+38: 	vec4 tonemapper_params;
+39: 	float brightness;
+40: 	float contrast;
+41: 	float saturation;
+42: 	int pad3;
+43: };
+44: 
+45: // This approximation expects non-negative input; negative input is undefined behavior.
+46: vec3 linear_to_srgb(vec3 color) {
+47: 	//const vec3 a = vec3(0.055f);
+48: 	//return mix((vec3(1.0f) + a) * pow(color.rgb, vec3(1.0f / 2.4f)) - a, 12.92f * color.rgb, lessThan(color.rgb, vec3(0.0031308f)));
+49: 	// Approximation from http://chilliant.blogspot.com/2012/08/srgb-approximations-for-hlsl.html
+50: 	return max(vec3(1.055) * pow(color, vec3(0.416666667)) - vec3(0.055), vec3(0.0));
+51: }
+52: 
+53: // This approximation expects non-negative input; negative input behaves poorly.
+54: vec3 srgb_to_linear(vec3 color) {
+55: 	// Approximation from http://chilliant.blogspot.com/2012/08/srgb-approximations-for-hlsl.html
+56: 	return color * (color * (color * 0.305306011 + 0.682171111) + 0.012522878);
+57: }
+58: 
+59: #ifdef APPLY_TONEMAPPING
+60: 
+61: // Based on Reinhard's extended formula, see equation 4 in https://doi.org/cjbgrt
+62: vec3 tonemap_reinhard(vec3 color) {
+63: 	float white_squared = tonemapper_params.x;
+64: 	vec3 white_squared_color = white_squared * color;
+65: 	// Equivalent to color * (1 + color / white_squared) / (1 + color)
+66: 	return (white_squared_color + color * color) / (white_squared_color + white_squared);
+67: }
+68: 
+69: vec3 tonemap_filmic(vec3 color) {
+70: 	// These constants must match the those in the C++ code that calculates the parameters.
+71: 	// exposure_bias: Input scale (color *= bias, env->white *= bias) to make the brightness consistent with other tonemappers.
+72: 	// Also useful to scale the input to the range that the tonemapper is designed for (some require very high input values).
+73: 	// Has no effect on the curve's general shape or visual properties.
+74: 	const float exposure_bias = 2.0f;
+75: 	const float A = 0.22f * exposure_bias * exposure_bias; // bias baked into constants for performance
+76: 	const float B = 0.30f * exposure_bias;
+77: 	const float C = 0.10f;
+78: 	const float D = 0.20f;
+79: 	const float E = 0.01f;
+80: 	const float F = 0.30f;
+81: 
+82: 	vec3 color_tonemapped = ((color * (A * color + C * B) + D * E) / (color * (A * color + B) + D * F)) - E / F;
+83: 
+84: 	return color_tonemapped / tonemapper_params.x;
+85: }
+86: 
+87: // Adapted from https://github.com/TheRealMJP/BakingLab/blob/master/BakingLab/ACES.hlsl
+88: // (MIT License).
+89: vec3 tonemap_aces(vec3 color) {
+90: 	// These constants must match the those in the C++ code that calculates the parameters.
+91: 	const float exposure_bias = 1.8f;
+92: 	const float A = 0.0245786f;
+93: 	const float B = 0.000090537f;
+94: 	const float C = 0.983729f;
+95: 	const float D = 0.432951f;
+96: 	const float E = 0.238081f;
+97: 
+98: 	// Exposure bias baked into transform to save shader instructions. Equivalent to `color *= exposure_bias`
+99: 	const mat3 rgb_to_rrt = mat3(
+100: 			vec3(0.59719f * exposure_bias, 0.35458f * exposure_bias, 0.04823f * exposure_bias),
+101: 			vec3(0.07600f * exposure_bias, 0.90834f * exposure_bias, 0.01566f * exposure_bias),
+102: 			vec3(0.02840f * exposure_bias, 0.13383f * exposure_bias, 0.83777f * exposure_bias));
+103: 
+104: 	const mat3 odt_to_rgb = mat3(
+105: 			vec3(1.60475f, -0.53108f, -0.07367f),
+106: 			vec3(-0.10208f, 1.10813f, -0.00605f),
+107: 			vec3(-0.00327f, -0.07276f, 1.07602f));
+108: 
+109: 	color *= rgb_to_rrt;
+110: 	vec3 color_tonemapped = (color * (color + A) - B) / (color * (C * color + D) + E);
+111: 	color_tonemapped *= odt_to_rgb;
+112: 
+113: 	return color_tonemapped / tonemapper_params.x;
+114: }
+115: 
+116: // allenwp tonemapping curve; developed for use in the Godot game engine.
+117: // Source and details: https://allenwp.com/blog/2025/05/29/allenwp-tonemapping-curve/
+118: // Input must be a non-negative linear scene value.
+119: vec3 allenwp_curve(vec3 x) {
+120: 	const float output_max_value = 1.0; // SDR always has an output_max_value of 1.0
+121: 
+122: 	// These constants must match the those in the C++ code that calculates the parameters.
+123: 	// 18% "middle gray" is perceptually 50% of the brightness of reference white.
+124: 	const float awp_crossover_point = 0.18;
+125: 	// When output_max_value and/or awp_crossover_point are no longer constant,
+126: 	// awp_shoulder_max can be calculated on the CPU and passed in as tonemap_e.
+127: 	const float awp_shoulder_max = output_max_value - awp_crossover_point;
+128: 
+129: 	float awp_contrast = tonemapper_params.x;
+130: 	float awp_toe_a = tonemapper_params.y;
+131: 	float awp_slope = tonemapper_params.z;
+132: 	float awp_w = tonemapper_params.w;
+133: 
+134: 	// Reinhard-like shoulder:
+135: 	vec3 s = x - awp_crossover_point;
+136: 	vec3 slope_s = awp_slope * s;
+137: 	s = slope_s * (1.0 + s / awp_w) / (1.0 + (slope_s / awp_shoulder_max));
+138: 	s += awp_crossover_point;
+139: 
+140: 	// Sigmoid power function toe:
+141: 	vec3 t = pow(x, vec3(awp_contrast));
+142: 	t = t / (t + awp_toe_a);
+143: 
+144: 	return mix(s, t, lessThan(x, vec3(awp_crossover_point)));
+145: }
+146: 
+147: // This is an approximation and simplification of EaryChow's AgX implementation that is used by Blender.
+148: // This code is based off of the script that generates the AgX_Base_sRGB.cube LUT that Blender uses.
+149: // Source: https://github.com/EaryChow/AgX_LUT_Gen/blob/main/AgXBasesRGB.py
+150: // Colorspace transformation source: https://www.colour-science.org:8010/apps/rgb_colourspace_transformation_matrix
+151: vec3 tonemap_agx(vec3 color) {
+152: 	// Input color should be non-negative!
+153: 	// Large negative values in one channel and large positive values in other
+154: 	// channels can result in a colour that appears darker and more saturated than
+155: 	// desired after passing it through the inset matrix. For this reason, it is
+156: 	// best to prevent negative input values.
+157: 	// This is done before the Rec. 2020 transform to allow the Rec. 2020
+158: 	// transform to be combined with the AgX inset matrix. This results in a loss
+159: 	// of color information that could be correctly interpreted within the
+160: 	// Rec. 2020 color space as positive RGB values, but is often not worth
+161: 	// the performance cost of an additional matrix multiplication.
+162: 	//
+163: 	// Additionally, this AgX configuration was created subjectively based on
+164: 	// output appearance in the Rec. 709 color gamut, so it is possible that these
+165: 	// matrices will not perform well with non-Rec. 709 output (more testing with
+166: 	// future wide-gamut displays is be needed).
+167: 	// See this comment from the author on the decisions made to create the matrices:
+168: 	// https://github.com/godotengine/godot-proposals/issues/12317#issuecomment-2835824250
+169: 
+170: 	// Combined Rec. 709 to Rec. 2020 and Blender AgX inset matrices:
+171: 	const mat3 rec709_to_rec2020_agx_inset_matrix = mat3(
+172: 			0.544814746488245, 0.140416948464053, 0.0888104196149096,
+173: 			0.373787398372697, 0.754137554567394, 0.178871756420858,
+174: 			0.0813978551390581, 0.105445496968552, 0.732317823964232);
+175: 
+176: 	// Combined inverse AgX outset matrix and Rec. 2020 to Rec. 709 matrices.
+177: 	const mat3 agx_outset_rec2020_to_rec709_matrix = mat3(
+178: 			1.96488741169489, -0.299313364904742, -0.164352742528393,
+179: 			-0.855988495690215, 1.32639796461980, -0.238183969428088,
+180: 			-0.108898916004672, -0.0270845997150571, 1.40253671195648);
+181: 
+182: 	const float output_max_value = 1.0; // SDR always has an output_max_value of 1.0
+183: 
+184: 	// Apply inset matrix.
+185: 	color = rec709_to_rec2020_agx_inset_matrix * color;
+186: 
+187: 	// Use the allenwp tonemapping curve to match the Blender AgX curve while
+188: 	// providing stability across all variable dyanimc range (SDR, HDR, EDR).
+189: 	color = allenwp_curve(color);
+190: 
+191: 	// Clipping to output_max_value is required to address a cyan colour that occurs
+192: 	// with very bright inputs.
+193: 	color = min(vec3(output_max_value), color);
+194: 
+195: 	// Apply outset to make the result more chroma-laden and then go back to Rec. 709.
+196: 	color = agx_outset_rec2020_to_rec709_matrix * color;
+197: 
+198: 	// Blender's lusRGB.compensate_low_side is too complex for this shader, so
+199: 	// simply return the color, even if it has negative components. These negative
+200: 	// components may be useful for subsequent color adjustments.
+201: 	return color;
+202: }
+203: 
+204: #define TONEMAPPER_LINEAR 0
+205: #define TONEMAPPER_REINHARD 1
+206: #define TONEMAPPER_FILMIC 2
+207: #define TONEMAPPER_ACES 3
+208: #define TONEMAPPER_AGX 4
+209: 
+210: vec3 apply_tonemapping(vec3 color) { // inputs are LINEAR
+211: 	if (tonemapper == TONEMAPPER_LINEAR) {
+212: 		return color;
+213: 	}
+214: 
+215: 	// Ensure color values passed to tonemappers are positive.
+216: 	// They can be negative in the case of negative lights, which leads to undesired behavior.
+217: 	color = max(vec3(0.0), color);
+218: 
+219: 	if (tonemapper == TONEMAPPER_REINHARD) {
+220: 		return tonemap_reinhard(color);
+221: 	} else if (tonemapper == TONEMAPPER_FILMIC) {
+222: 		return tonemap_filmic(color);
+223: 	} else if (tonemapper == TONEMAPPER_ACES) {
+224: 		return tonemap_aces(color);
+225: 	} else { // TONEMAPPER_AGX
+226: 		return tonemap_agx(color);
+227: 	}
+228: }
+229: 
+230: #endif // APPLY_TONEMAPPING
+231: 
+232: in vec2 uv_interp;
+233: 
+234: /* clang-format on */
+235: 
+236: uniform samplerCube radiance; //texunit:-2
+237: #ifdef USE_CUBEMAP_PASS
+238: uniform samplerCube half_res; //texunit:-2
+239: uniform samplerCube quarter_res; //texunit:-3
+240: #elif defined(USE_MULTIVIEW)
+241: uniform sampler2DArray half_res; //texunit:-2
+242: uniform sampler2DArray quarter_res; //texunit:-3
+243: #else
+244: uniform sampler2D half_res; //texunit:-2
+245: uniform sampler2D quarter_res; //texunit:-3
+246: #endif
+247: 
+248: layout(std140) uniform GlobalShaderUniformData { //ubo:1
+249: 	vec4 global_shader_uniforms[MAX_GLOBAL_SHADER_UNIFORMS];
+250: };
+251: 
+252: struct DirectionalLightData {
+253: 	vec4 direction_energy;
+254: 	vec4 color_size;
+255: 	uint enabled_bake_mode;
+256: 	float shadow_opacity;
+257: 	float specular;
+258: 	uint mask;
+259: };
+260: 
+261: layout(std140) uniform DirectionalLights { //ubo:4
+262: 	DirectionalLightData data[MAX_DIRECTIONAL_LIGHT_DATA_STRUCTS];
+263: }
+264: directional_lights;
+265: 
+266: #define DIRECTIONAL_LIGHT_ENABLED uint(1 << 0)
+267: 
+268: // mat4 is a waste of space, but we don't have an easy way to set a mat3 uniform for now
+269: uniform mat4 orientation;
+270: uniform vec4 projection;
+271: uniform vec3 position;
+272: uniform float time;
+273: uniform float sky_energy_multiplier;
+274: uniform float luminance_multiplier;
+275: 
+276: uniform float fog_aerial_perspective;
+277: uniform vec4 fog_light_color;
+278: uniform float fog_sun_scatter;
+279: uniform bool fog_enabled;
+280: uniform float fog_density;
+281: uniform float fog_sky_affect;
+282: uniform uint directional_light_count;
+283: 
+284: /* clang-format off */
+285: 
+286: #ifdef MATERIAL_UNIFORMS_USED
+287: layout(std140) uniform MaterialUniforms{ //ubo:3
+288: 
+289: highp vec3 m_moon_direction;
+290: highp float m_moon_radius;
+291: highp float m_moon_energy;
+292: highp vec3 m_moon_tint;
+293: highp vec3 m_zenith_color;
+294: highp vec3 m_sky_color;
+295: highp vec3 m_horizon_color;
+296: highp vec3 m_halo_color;
+297: highp vec3 m_city_glow;
+298: highp vec2 m_city_dir;
+299: int m_star_count;
+300: highp float m_star_energy;
+301: highp float m_cloud_cover;
+302: highp float m_cloud_speed;
+303: highp float m_cloud_scale;
+304: highp float m_cloud_softness;
+305: highp vec2 m_cloud_direction;
+306: highp vec3 m_cloud_dark;
+307: highp vec3 m_cloud_lit;
+308: highp float m_day_k;
+309: highp vec3 m_sun_direction;
+310: highp vec3 m_day_zenith;
+311: highp vec3 m_day_horizon;
+312: highp vec3 m_sun_color;
+313: highp float m_day_radiance;
+314: 
+315: };
+316: #endif
+317: /* clang-format on */
+318: uniform highp sampler2D m_cloud_noise;
+319: uniform highp sampler2D m_moon_texture;
+320: 
+321: vec4 m_clouds(vec3 m_d, vec3 m_m, float m_up, out float m_thick)
+322: 	{
+323: 		vec2 m_plane=(m_d.xz / (m_up + 0.11999999731779));
+324: 		vec2 m_drift=((normalize(m_cloud_direction) * time) * m_cloud_speed);
+325: 		vec2 m_uv=((m_plane * m_cloud_scale) + m_drift);
+326: 		vec2 m_evolve=(vec2(sin((time * 0.0109999999404)), cos((time * 0.00899999961257))) * 0.05000000074506);
+327: 		vec2 m_warp=((texture(m_cloud_noise, ((m_uv * 0.5) + m_evolve)).bb - 0.5) * 0.07000000029802);
+328: 		float m_base=texture(m_cloud_noise, (m_uv + m_warp)).r;
+329: 		float m_second=texture(m_cloud_noise, (((m_uv * 0.40999999642372) + vec2(0.23000000417233,0.37000000476837)) - m_evolve)).r;
+330: 		float m_n=((m_base * 0.60000002384186) + (m_second * 0.40000000596046));
+331: 		float m_threshold=(1.0 - m_cloud_cover);
+332: 		float m_cover=smoothstep(m_threshold, (m_threshold + m_cloud_softness), m_n);
+333: 		float m_detail=texture(m_cloud_noise, (((m_uv * 2.29999995231628) + m_warp) + m_evolve)).g;
+334: 		m_cover*=mix(1.0, smoothstep(0.15000000596046, 0.85000002384186, m_detail), (0.44999998807907 * (1.0 - m_cover)));
+335: 		float m_thickness=smoothstep(m_threshold, (m_threshold + (m_cloud_softness * 3.0)), m_n);
+336: 		m_thick=m_thickness;
+337: 		m_cover*=smoothstep(0.03999999910593, 0.30000001192093, m_up);
+338: 		float m_mc=max(dot(m_d, m_m), 0.0);
+339: 		float m_scatter=(((pow(m_mc, 6.0) * 0.44999998807907) + (pow(m_mc, 50.0) * 1.20000004768372)) + (pow(m_mc, 600.0) * 2.0));
+340: 		vec3 m_col=mix(m_cloud_lit, m_cloud_dark, (m_thickness * 0.75));
+341: 		m_col+=((m_halo_color * m_scatter) * mix(1.0, 0.34999999403954, m_thickness));
+342: 		vec2 m_hd=normalize((m_d.xz + vec2(0.00009999999747,0.00009999999747)));
+343: 		m_col+=(((m_city_glow * 0.60000002384186) * pow(max(dot(m_hd, normalize(m_city_dir)), 0.0), 2.0)) * (1.0 - smoothstep(0.05000000074506, 0.5, m_up)));
+344: 		m_col=mix((m_horizon_color * 0.89999997615814), m_col, smoothstep(0.01999999955297, 0.34999999403954, m_up));
+345: return vec4(m_col, (m_cover * 0.9200000166893));	}
+346: 
+347: vec3 m_day_sky(vec3 m_d, float m_up, vec4 m_cl, float m_thick)
+348: 	{
+349: 		vec3 m_s=normalize(m_sun_direction);
+350: 		vec3 m_c=mix(m_day_horizon, m_day_zenith, smoothstep(-0.01999999955297, 0.60000002384186, m_up));
+351: 		float m_sc=max(dot(m_d, m_s), 0.0);
+352: 		m_c+=(m_sun_color * ((pow(m_sc, 6.0) * 0.18000000715256) + (pow(m_sc, 48.0) * 0.44999998807907)));
+353: 		if ((m_up > 0.0))
+354: 		{
+355: 					{
+356: 			vec3 m_cloud=(mix(vec3(0.93999999761581,0.93999999761581,0.94999998807907), vec3(0.5,0.52999997138977,0.5799999833107), (m_thick * 0.80000001192093)) + ((m_sun_color * pow(m_sc, 10.0)) * 0.40000000596046));
+357: 			m_c=mix(m_c, m_cloud, (m_cl.a * 0.85000002384186));
+358: 		}
+359: ;
+360: 		}
+361: 		if (!AT_CUBEMAP_PASS)
+362: 		{
+363: 					{
+364: 			float m_ang=acos(clamp(dot(m_d, m_s), -1.0, 1.0));
+365: 			float m_core=(1.0 - smoothstep(0.01700000092387, 0.01999999955297, m_ang));
+366: 			float m_ring=((1.0 - smoothstep(0.0, 0.00249999994412, abs((m_ang - 0.04699999839067)))) * 0.5);
+367: 			vec3 m_r1=normalize(cross(m_s, vec3(0.0,0.0,1.0)));
+368: 			vec3 m_r2=cross(m_s, m_r1);
+369: 			float m_az=atan(dot(m_d, m_r2), dot(m_d, m_r1));
+370: 			float m_spoke=smoothstep(0.46999999880791, 0.49500000476837, abs((fract(((m_az * 6.0) / 6.28318530717959)) - 0.5)));
+371: 			float m_struts=(((m_spoke * step(0.01999999955297, m_ang)) * step(m_ang, 0.04699999839067)) * 0.34999999403954);
+372: 			m_c+=(m_sun_color * (((m_core * 14.0) + (m_ring * 1.60000002384186)) + m_struts));
+373: 		}
+374: ;
+375: 		}
+376: return mix((m_day_horizon * 0.85000002384186), m_c, smoothstep(-0.05000000074506, 0.0, m_up));	}
+377: 
+378: vec3 m_moon_disc(vec3 m_d, vec3 m_m, out float m_mask)
+379: 	{
+380: 		float m_c=dot(m_d, m_m);
+381: 		float m_ang=acos(clamp(m_c, -1.0, 1.0));
+382: 		m_mask=(1.0 - smoothstep((m_moon_radius * 0.95999997854233), m_moon_radius, m_ang));
+383: 		if ((m_mask <= 0.0))
+384: 		{
+385: 					{
+386: return vec3(0.0,0.0,0.0);		}
+387: ;
+388: 		}
+389: 		vec3 m_right=normalize(cross(vec3(0.0,1.0,0.0), m_m));
+390: 		vec3 m_up=cross(m_m, m_right);
+391: 		vec2 m_q=(vec2(dot(m_d, m_right), dot(m_d, m_up)) / sin(m_moon_radius));
+392: 		float m_r2=dot(m_q, m_q);
+393: 		float m_z=sqrt(max(0.0, (1.0 - m_r2)));
+394: 		float m_lon=atan(m_q.x, m_z);
+395: 		float m_lat=asin(clamp(m_q.y, -1.0, 1.0));
+396: 		vec2 m_uv=vec2((0.5 + (m_lon / 6.28318530717959)), (0.5 - (m_lat / 3.14159265358979)));
+397: 		vec3 m_albedo=texture(m_moon_texture, m_uv).rgb;
+398: 		float m_limb=mix(0.55000001192093, 1.0, pow(m_z, 0.44999998807907));
+399: return ((((m_albedo * m_limb) * m_moon_tint) * m_moon_energy) * 1.60000002384186);	}
+400: 
+401: float m_hash11(float m_x)
+402: 	{
+403: return fract((sin((m_x * 127.099998474121)) * 43758.546875));	}
+404: 
+405: float m_night_stars(vec3 m_d, float m_px)
+406: 	{
+407: 		vec3 m_m=normalize(m_moon_direction);
+408: 		float m_total=0.0;
+409: 		for (int m_i=0;(m_i < m_star_count);m_i++)
+410: 		{
+411: 					{
+412: 			float m_fi=float(m_i);
+413: 			float m_h=m_hash11(((m_fi * 1.37000000476837) + 0.5));
+414: 			float m_az=((m_fi * 2.39996004104614) + ((m_hash11((m_fi + 7.09999990463257)) - 0.5) * 0.89999997615814));
+415: 			float m_el=asin(mix(0.34000000357628, 0.98000001907349, m_hash11(((m_fi * 3.09999990463257) + 2.0))));
+416: 			vec3 m_s=vec3((cos(m_el) * sin(m_az)), sin(m_el), (cos(m_el) * cos(m_az)));
+417: 			if ((dot(m_s, m_m) > 0.93000000715256))
+418: 			{
+419: 							{
+420: 				m_s=vec3(-m_s.x, m_s.y, -m_s.z);
+421: 			}
+422: ;
+423: 			}
+424: 			float m_ang=length((m_d - m_s));
+425: 			if ((m_ang > (m_px * 6.0)))
+426: 			{
+427: 							{
+428: continue;			}
+429: ;
+430: 			}
+431: 			float m_brightness=mix(0.30000001192093, 1.0, pow(m_hash11(((m_fi * 5.30000019073486) + 1.10000002384186)), 2.0));
+432: 			float m_twinkle=(0.86000001430511 + ((0.14000000059605 * sin(((time * (1.10000002384186 + (m_h * 2.29999995231628))) + (m_h * 40.0)))) * sin(((time * (0.37000000476837 + (m_h * 0.60000002384186))) + m_fi))));
+433: 			float m_core=exp(-pow((m_ang / (m_px * 0.85000002384186)), 2.0));
+434: 			float m_glow=((exp(-pow((m_ang / (m_px * 2.59999990463257)), 2.0)) * 0.11999999731779) * m_brightness);
+435: 			m_total+=(((m_core + m_glow) * m_brightness) * m_twinkle);
+436: 		}
+437: ;
+438: 		}
+439: return m_total;	}
+440: 
+441: vec3 m_sky_gradient(vec3 m_d)
+442: 	{
+443: 		vec3 m_m=normalize(m_moon_direction);
+444: 		float m_up=clamp(m_d.y, -1.0, 1.0);
+445: 		vec3 m_c=mix(m_horizon_color, m_sky_color, smoothstep(0.0, 0.28000000119209, m_up));
+446: 		m_c=mix(m_c, m_zenith_color, smoothstep(0.25, 0.94999998807907, m_up));
+447: 		float m_mc=max(dot(m_d, m_m), 0.0);
+448: 		m_c+=(m_halo_color * (((pow(m_mc, 12.0) * 0.07999999821186) + (pow(m_mc, 90.0) * 0.18000000715256)) + (pow(m_mc, 900.0) * 0.60000002384186)));
+449: 		vec2 m_hd=normalize((m_d.xz + vec2(0.00009999999747,0.00009999999747)));
+450: 		m_c+=(((m_halo_color * 0.05000000074506) * pow(max(dot(m_hd, normalize(m_m.xz)), 0.0), 6.0)) * (1.0 - smoothstep(0.0, 0.34999999403954, m_up)));
+451: 		m_c+=((m_city_glow * pow(max(dot(m_hd, normalize(m_city_dir)), 0.0), 3.0)) * (1.0 - smoothstep(-0.01999999955297, 0.21999999880791, m_up)));
+452: return m_c;	}
+453: 
+454: #ifdef USE_CUBEMAP_PASS
+455: #define AT_CUBEMAP_PASS true
+456: #else
+457: #define AT_CUBEMAP_PASS false
+458: #endif
+459: 
+460: #ifdef USE_HALF_RES_PASS
+461: #define AT_HALF_RES_PASS true
+462: #else
+463: #define AT_HALF_RES_PASS false
+464: #endif
+465: 
+466: #ifdef USE_QUARTER_RES_PASS
+467: #define AT_QUARTER_RES_PASS true
+468: #else
+469: #define AT_QUARTER_RES_PASS false
+470: #endif
+471: 
+472: #ifdef USE_MULTIVIEW
+473: layout(std140) uniform MultiviewData { // ubo:12
+474: 	highp mat4 projection_matrix_view[MAX_VIEWS];
+475: 	highp mat4 inv_projection_matrix_view[MAX_VIEWS];
+476: 	highp vec4 eye_offset[MAX_VIEWS];
+477: }
+478: multiview_data;
+479: #endif
+480: 
+481: layout(location = 0) out vec4 frag_color;
+482: 
+483: #ifdef USE_DEBANDING
+484: // https://www.iryoku.com/next-generation-post-processing-in-call-of-duty-advanced-warfare
+485: vec3 interleaved_gradient_noise(vec2 pos) {
+486: 	const vec3 magic = vec3(0.06711056f, 0.00583715f, 52.9829189f);
+487: 	float res = fract(magic.z * fract(dot(pos, magic.xy))) * 2.0 - 1.0;
+488: 	return vec3(res, -res, res) / 255.0;
+489: }
+490: #endif
+491: 
+492: #if !defined(DISABLE_FOG)
+493: vec4 fog_process(vec3 view, vec3 sky_color) {
+494: 	vec3 fog_color = mix(fog_light_color.rgb, sky_color, fog_aerial_perspective);
+495: 
+496: 	if (fog_sun_scatter > 0.001) {
+497: 		vec4 sun_scatter = vec4(0.0);
+498: 		float sun_total = 0.0;
+499: 		for (uint i = 0u; i < directional_light_count; i++) {
+500: 			vec3 light_color = srgb_to_linear(directional_lights.data[i].color_size.xyz) * directional_lights.data[i].direction_energy.w;
+501: 			float light_amount = pow(max(dot(view, directional_lights.data[i].direction_energy.xyz), 0.0), 8.0) * M_PI;
+502: 			fog_color += light_color * light_amount * fog_sun_scatter;
+503: 		}
+504: 	}
+505: 
+506: 	return vec4(fog_color, 1.0);
+507: }
+508: #endif // !DISABLE_FOG
+509: 
+510: // Eberly approximations from https://seblagarde.wordpress.com/2014/12/01/inverse-trigonometric-functions-gpu-optimization-for-amd-gcn-architecture/.
+511: // input [-1, 1] and output [0, PI]
+512: float acos_approx(float p_x) {
+513: 	float x = abs(p_x);
+514: 	float res = -0.156583f * x + (M_PI / 2.0);
+515: 	res *= sqrt(1.0f - x);
+516: 	return (p_x >= 0.0) ? res : M_PI - res;
+517: }
+518: 
+519: // Based on https://math.stackexchange.com/questions/1098487/atan2-faster-approximation
+520: // but using the Eberly coefficients from https://seblagarde.wordpress.com/2014/12/01/inverse-trigonometric-functions-gpu-optimization-for-amd-gcn-architecture/.
+521: float atan2_approx(float y, float x) {
+522: 	float a = min(abs(x), abs(y)) / max(abs(x), abs(y));
+523: 	float s = a * a;
+524: 	float poly = 0.0872929f;
+525: 	poly = -0.301895f + poly * s;
+526: 	poly = 1.0f + poly * s;
+527: 	poly = poly * a;
+528: 
+529: 	float r = abs(y) > abs(x) ? (M_PI / 2.0) - poly : poly;
+530: 	r = x < 0.0 ? M_PI - r : r;
+531: 	r = y < 0.0 ? -r : r;
+532: 
+533: 	return r;
+534: }
+535: 
+536: void main() {
+537: 	vec3 cube_normal;
+538: #ifdef USE_MULTIVIEW
+539: 	// In multiview our projection matrices will contain positional and rotational offsets that we need to properly unproject.
+540: 	vec4 unproject = vec4(uv_interp.xy, -1.0, 1.0); // unproject at the far plane
+541: 	vec4 unprojected = multiview_data.inv_projection_matrix_view[ViewIndex] * unproject;
+542: 	cube_normal = unprojected.xyz / unprojected.w;
+543: 
+544: 	// Unproject will give us the position between the eyes, need to re-offset.
+545: 	cube_normal += multiview_data.eye_offset[ViewIndex].xyz;
+546: #else
+547: 	cube_normal.z = -1.0;
+548: 	cube_normal.x = (uv_interp.x + projection.x) / projection.y;
+549: 	cube_normal.y = (uv_interp.y + projection.z) / projection.w;
+550: #endif
+551: 	cube_normal = mat3(orientation) * cube_normal;
+552: 	cube_normal = normalize(cube_normal);
+553: 
+554: 	vec2 uv = gl_FragCoord.xy; // uv_interp * 0.5 + 0.5;
+555: 
+556: 	vec2 panorama_coords = vec2(atan2_approx(cube_normal.x, -cube_normal.z), acos_approx(cube_normal.y));
+557: 
+558: 	if (panorama_coords.x < 0.0) {
+559: 		panorama_coords.x += M_PI * 2.0;
+560: 	}
+561: 
+562: 	panorama_coords /= vec2(M_PI * 2.0, M_PI);
+563: 
+564: 	vec3 color = vec3(0.0, 0.0, 0.0);
+565: 	float alpha = 1.0; // Only available to subpasses
+566: 	vec4 half_res_color = vec4(1.0);
+567: 	vec4 quarter_res_color = vec4(1.0);
+568: 	vec4 custom_fog = vec4(0.0);
+569: 
+570: #ifdef USE_CUBEMAP_PASS
+571: #ifdef USES_HALF_RES_COLOR
+572: 	half_res_color = texture(half_res, cube_normal);
+573: #endif
+574: #ifdef USES_QUARTER_RES_COLOR
+575: 	quarter_res_color = texture(quarter_res, cube_normal);
+576: #endif
+577: #else
+578: #ifdef USES_HALF_RES_COLOR
+579: #ifdef USE_MULTIVIEW
+580: 	half_res_color = textureLod(half_res, vec3(uv, ViewIndex), 0.0);
+581: #else
+582: 	half_res_color = textureLod(half_res, uv, 0.0);
+583: #endif
+584: #endif
+585: #ifdef USES_QUARTER_RES_COLOR
+586: #ifdef USE_MULTIVIEW
+587: 	quarter_res_color = textureLod(quarter_res, vec3(uv, ViewIndex), 0.0);
+588: #else
+589: 	quarter_res_color = textureLod(quarter_res, uv, 0.0);
+590: #endif
+591: #endif
+592: #endif
+593: 
+594: 	{
+595: 	{
+596: 		vec3 m_d=normalize(cube_normal);
+597: 		vec3 m_m=normalize(m_moon_direction);
+598: 		vec3 m_c=m_sky_gradient(m_d);
+599: 		float m_up=m_d.y;
+600: 		vec4 m_cl=vec4(0.0,0.0,0.0,0.0);
+601: 		float m_thick=0.0;
+602: 		if ((m_up > 0.0))
+603: 		{
+604: 					{
+605: 			m_cl=m_clouds(m_d, m_m, m_up, m_thick);
+606: 			float m_moon_mask=0.0;
+607: 			vec3 m_disc=vec3(0.0,0.0,0.0);
+608: 			float m_star_light=0.0;
+609: 			if (!AT_CUBEMAP_PASS)
+610: 			{
+611: 							{
+612: 				m_disc=m_moon_disc(m_d, m_m, m_moon_mask);
+613: 				float m_moon_wash=(1.0 - (smoothstep(0.80000001192093, 0.99500000476837, dot(m_d, m_m)) * 0.89999997615814));
+614: 				m_star_light=(((m_night_stars(m_d, 0.00109999999404) * m_star_energy) * smoothstep(0.05000000074506, 0.30000001192093, m_up)) * m_moon_wash);
+615: 			}
+616: ;
+617: 			}
+618: 			m_star_light*=(1.0 - m_cl.a);
+619: 			m_c=mix(m_c, m_cl.rgb, m_cl.a);
+620: 			m_moon_mask*=(1.0 - (m_cl.a * mix(0.55000001192093, 0.97000002861023, m_cl.a)));
+621: 			m_c+=(vec3(0.85000002384186,0.89999997615814,1.0) * m_star_light);
+622: 			m_c=mix(m_c, m_disc, m_moon_mask);
+623: 		}
+624: ;
+625: 		}
+626: 		m_c=mix((m_horizon_color * 0.80000001192093), m_c, smoothstep(-0.05000000074506, 0.0, m_up));
+627: 		if ((m_day_k > 0.0))
+628: 		{
+629: 					{
+630: 			vec3 m_dc=m_day_sky(m_d, m_up, m_cl, m_thick);
+631: 			if (AT_CUBEMAP_PASS)
+632: 			{
+633: 							{
+634: 				m_dc*=m_day_radiance;
+635: 			}
+636: ;
+637: 			}
+638: 			m_c=mix(m_c, m_dc, m_day_k);
+639: 		}
+640: ;
+641: 		}
+642: 		color=m_c;
+643: 	}
+644: 	}
+645: 
+646: 	color *= sky_energy_multiplier;
+647: 
+648: 	// Convert to Linear for tonemapping so color matches scene shader better
+649: 	color = srgb_to_linear(color);
+650: 
+651: #if !defined(DISABLE_FOG) && !defined(USE_CUBEMAP_PASS)
+652: 
+653: 	// Draw "fixed" fog before volumetric fog to ensure volumetric fog can appear in front of the sky.
+654: 	if (fog_enabled) {
+655: 		vec4 fog = fog_process(cube_normal, color.rgb);
+656: 		color.rgb = mix(color.rgb, fog.rgb, fog.a * fog_sky_affect);
+657: 	}
+658: 
+659: 	if (custom_fog.a > 0.0) {
+660: 		color.rgb = mix(color.rgb, custom_fog.rgb, custom_fog.a);
+661: 	}
+662: 
+663: #endif // DISABLE_FOG
+664: 
+665: 	color *= exposure;
+666: #ifdef APPLY_TONEMAPPING
+667: 	color = apply_tonemapping(color);
+668: #endif
+669: 	color = linear_to_srgb(color);
+670: 
+671: 	frag_color.rgb = color * luminance_multiplier;
+672: 	frag_color.a = alpha;
+673: 
+674: #ifdef USE_DEBANDING
+675: 	frag_color.rgb += interleaved_gradient_noise(gl_FragCoord.xy) * sky_energy_multiplier * luminance_multiplier;
+676: #endif
+677: }
+678: 
+679: 
+ERROR: SkyShaderGLES3: Fragment shader compilation failed:
+0(361) : error C1503: undefined variable "AT_CUBEMAP_PASS"
+
+   at: _display_error_with_code (drivers/gles3/shader_gles3.cpp:262)
+ERROR: Method/function failed.
+   at: _compile_specialization (drivers/gles3/shader_gles3.cpp:404)
+WARNING: shader failed to compile, unable to bind shader.
+   at: _version_bind_shader (./drivers/gles3/shader_gles3.h:215)
+1: #version 330
+2: #define USE_GLES_OVER_GL
+3: #define USE_HALF2FLOAT
+4: #define USE_INVERTED_Y
+5: #define MATERIAL_UNIFORMS_USED
+6: #define SKY_CODE_USED
+7: 
+8: #define MAX_GLOBAL_SHADER_UNIFORMS 256
+9: 
+10: #define MAX_DIRECTIONAL_LIGHT_DATA_STRUCTS 4
+11: 
+12: #define USE_DEBANDING
+13: 
+14: #define samplerExternalOES sampler2D
+15: #ifdef USE_MULTIVIEW
+16: #if defined(GL_OVR_multiview2)
+17: #extension GL_OVR_multiview2 : require
+18: #elif defined(GL_OVR_multiview)
+19: #extension GL_OVR_multiview : require
+20: #endif
+21: #define ViewIndex gl_ViewID_OVR
+22: #define MAX_VIEWS 2
+23: #else
+24: #define ViewIndex uint(0)
+25: #define MAX_VIEWS 1
+26: #endif
+27: precision highp float;
+28: precision highp int;
+29: 
+30: #define M_PI 3.14159265359
+31: 
+32: layout(std140) uniform TonemapData { //ubo:0
+33: 	float exposure;
+34: 	int tonemapper;
+35: 	int pad;
+36: 	int pad2;
+37: 	vec4 tonemapper_params;
+38: 	float brightness;
+39: 	float contrast;
+40: 	float saturation;
+41: 	int pad3;
+42: };
+43: 
+44: // This approximation expects non-negative input; negative input is undefined behavior.
+45: vec3 linear_to_srgb(vec3 color) {
+46: 	//const vec3 a = vec3(0.055f);
+47: 	//return mix((vec3(1.0f) + a) * pow(color.rgb, vec3(1.0f / 2.4f)) - a, 12.92f * color.rgb, lessThan(color.rgb, vec3(0.0031308f)));
+48: 	// Approximation from http://chilliant.blogspot.com/2012/08/srgb-approximations-for-hlsl.html
+49: 	return max(vec3(1.055) * pow(color, vec3(0.416666667)) - vec3(0.055), vec3(0.0));
+50: }
+51: 
+52: // This approximation expects non-negative input; negative input behaves poorly.
+53: vec3 srgb_to_linear(vec3 color) {
+54: 	// Approximation from http://chilliant.blogspot.com/2012/08/srgb-approximations-for-hlsl.html
+55: 	return color * (color * (color * 0.305306011 + 0.682171111) + 0.012522878);
+56: }
+57: 
+58: #ifdef APPLY_TONEMAPPING
+59: 
+60: // Based on Reinhard's extended formula, see equation 4 in https://doi.org/cjbgrt
+61: vec3 tonemap_reinhard(vec3 color) {
+62: 	float white_squared = tonemapper_params.x;
+63: 	vec3 white_squared_color = white_squared * color;
+64: 	// Equivalent to color * (1 + color / white_squared) / (1 + color)
+65: 	return (white_squared_color + color * color) / (white_squared_color + white_squared);
+66: }
+67: 
+68: vec3 tonemap_filmic(vec3 color) {
+69: 	// These constants must match the those in the C++ code that calculates the parameters.
+70: 	// exposure_bias: Input scale (color *= bias, env->white *= bias) to make the brightness consistent with other tonemappers.
+71: 	// Also useful to scale the input to the range that the tonemapper is designed for (some require very high input values).
+72: 	// Has no effect on the curve's general shape or visual properties.
+73: 	const float exposure_bias = 2.0f;
+74: 	const float A = 0.22f * exposure_bias * exposure_bias; // bias baked into constants for performance
+75: 	const float B = 0.30f * exposure_bias;
+76: 	const float C = 0.10f;
+77: 	const float D = 0.20f;
+78: 	const float E = 0.01f;
+79: 	const float F = 0.30f;
+80: 
+81: 	vec3 color_tonemapped = ((color * (A * color + C * B) + D * E) / (color * (A * color + B) + D * F)) - E / F;
+82: 
+83: 	return color_tonemapped / tonemapper_params.x;
+84: }
+85: 
+86: // Adapted from https://github.com/TheRealMJP/BakingLab/blob/master/BakingLab/ACES.hlsl
+87: // (MIT License).
+88: vec3 tonemap_aces(vec3 color) {
+89: 	// These constants must match the those in the C++ code that calculates the parameters.
+90: 	const float exposure_bias = 1.8f;
+91: 	const float A = 0.0245786f;
+92: 	const float B = 0.000090537f;
+93: 	const float C = 0.983729f;
+94: 	const float D = 0.432951f;
+95: 	const float E = 0.238081f;
+96: 
+97: 	// Exposure bias baked into transform to save shader instructions. Equivalent to `color *= exposure_bias`
+98: 	const mat3 rgb_to_rrt = mat3(
+99: 			vec3(0.59719f * exposure_bias, 0.35458f * exposure_bias, 0.04823f * exposure_bias),
+100: 			vec3(0.07600f * exposure_bias, 0.90834f * exposure_bias, 0.01566f * exposure_bias),
+101: 			vec3(0.02840f * exposure_bias, 0.13383f * exposure_bias, 0.83777f * exposure_bias));
+102: 
+103: 	const mat3 odt_to_rgb = mat3(
+104: 			vec3(1.60475f, -0.53108f, -0.07367f),
+105: 			vec3(-0.10208f, 1.10813f, -0.00605f),
+106: 			vec3(-0.00327f, -0.07276f, 1.07602f));
+107: 
+108: 	color *= rgb_to_rrt;
+109: 	vec3 color_tonemapped = (color * (color + A) - B) / (color * (C * color + D) + E);
+110: 	color_tonemapped *= odt_to_rgb;
+111: 
+112: 	return color_tonemapped / tonemapper_params.x;
+113: }
+114: 
+115: // allenwp tonemapping curve; developed for use in the Godot game engine.
+116: // Source and details: https://allenwp.com/blog/2025/05/29/allenwp-tonemapping-curve/
+117: // Input must be a non-negative linear scene value.
+118: vec3 allenwp_curve(vec3 x) {
+119: 	const float output_max_value = 1.0; // SDR always has an output_max_value of 1.0
+120: 
+121: 	// These constants must match the those in the C++ code that calculates the parameters.
+122: 	// 18% "middle gray" is perceptually 50% of the brightness of reference white.
+123: 	const float awp_crossover_point = 0.18;
+124: 	// When output_max_value and/or awp_crossover_point are no longer constant,
+125: 	// awp_shoulder_max can be calculated on the CPU and passed in as tonemap_e.
+126: 	const float awp_shoulder_max = output_max_value - awp_crossover_point;
+127: 
+128: 	float awp_contrast = tonemapper_params.x;
+129: 	float awp_toe_a = tonemapper_params.y;
+130: 	float awp_slope = tonemapper_params.z;
+131: 	float awp_w = tonemapper_params.w;
+132: 
+133: 	// Reinhard-like shoulder:
+134: 	vec3 s = x - awp_crossover_point;
+135: 	vec3 slope_s = awp_slope * s;
+136: 	s = slope_s * (1.0 + s / awp_w) / (1.0 + (slope_s / awp_shoulder_max));
+137: 	s += awp_crossover_point;
+138: 
+139: 	// Sigmoid power function toe:
+140: 	vec3 t = pow(x, vec3(awp_contrast));
+141: 	t = t / (t + awp_toe_a);
+142: 
+143: 	return mix(s, t, lessThan(x, vec3(awp_crossover_point)));
+144: }
+145: 
+146: // This is an approximation and simplification of EaryChow's AgX implementation that is used by Blender.
+147: // This code is based off of the script that generates the AgX_Base_sRGB.cube LUT that Blender uses.
+148: // Source: https://github.com/EaryChow/AgX_LUT_Gen/blob/main/AgXBasesRGB.py
+149: // Colorspace transformation source: https://www.colour-science.org:8010/apps/rgb_colourspace_transformation_matrix
+150: vec3 tonemap_agx(vec3 color) {
+151: 	// Input color should be non-negative!
+152: 	// Large negative values in one channel and large positive values in other
+153: 	// channels can result in a colour that appears darker and more saturated than
+154: 	// desired after passing it through the inset matrix. For this reason, it is
+155: 	// best to prevent negative input values.
+156: 	// This is done before the Rec. 2020 transform to allow the Rec. 2020
+157: 	// transform to be combined with the AgX inset matrix. This results in a loss
+158: 	// of color information that could be correctly interpreted within the
+159: 	// Rec. 2020 color space as positive RGB values, but is often not worth
+160: 	// the performance cost of an additional matrix multiplication.
+161: 	//
+162: 	// Additionally, this AgX configuration was created subjectively based on
+163: 	// output appearance in the Rec. 709 color gamut, so it is possible that these
+164: 	// matrices will not perform well with non-Rec. 709 output (more testing with
+165: 	// future wide-gamut displays is be needed).
+166: 	// See this comment from the author on the decisions made to create the matrices:
+167: 	// https://github.com/godotengine/godot-proposals/issues/12317#issuecomment-2835824250
+168: 
+169: 	// Combined Rec. 709 to Rec. 2020 and Blender AgX inset matrices:
+170: 	const mat3 rec709_to_rec2020_agx_inset_matrix = mat3(
+171: 			0.544814746488245, 0.140416948464053, 0.0888104196149096,
+172: 			0.373787398372697, 0.754137554567394, 0.178871756420858,
+173: 			0.0813978551390581, 0.105445496968552, 0.732317823964232);
+174: 
+175: 	// Combined inverse AgX outset matrix and Rec. 2020 to Rec. 709 matrices.
+176: 	const mat3 agx_outset_rec2020_to_rec709_matrix = mat3(
+177: 			1.96488741169489, -0.299313364904742, -0.164352742528393,
+178: 			-0.855988495690215, 1.32639796461980, -0.238183969428088,
+179: 			-0.108898916004672, -0.0270845997150571, 1.40253671195648);
+180: 
+181: 	const float output_max_value = 1.0; // SDR always has an output_max_value of 1.0
+182: 
+183: 	// Apply inset matrix.
+184: 	color = rec709_to_rec2020_agx_inset_matrix * color;
+185: 
+186: 	// Use the allenwp tonemapping curve to match the Blender AgX curve while
+187: 	// providing stability across all variable dyanimc range (SDR, HDR, EDR).
+188: 	color = allenwp_curve(color);
+189: 
+190: 	// Clipping to output_max_value is required to address a cyan colour that occurs
+191: 	// with very bright inputs.
+192: 	color = min(vec3(output_max_value), color);
+193: 
+194: 	// Apply outset to make the result more chroma-laden and then go back to Rec. 709.
+195: 	color = agx_outset_rec2020_to_rec709_matrix * color;
+196: 
+197: 	// Blender's lusRGB.compensate_low_side is too complex for this shader, so
+198: 	// simply return the color, even if it has negative components. These negative
+199: 	// components may be useful for subsequent color adjustments.
+200: 	return color;
+201: }
+202: 
+203: #define TONEMAPPER_LINEAR 0
+204: #define TONEMAPPER_REINHARD 1
+205: #define TONEMAPPER_FILMIC 2
+206: #define TONEMAPPER_ACES 3
+207: #define TONEMAPPER_AGX 4
+208: 
+209: vec3 apply_tonemapping(vec3 color) { // inputs are LINEAR
+210: 	if (tonemapper == TONEMAPPER_LINEAR) {
+211: 		return color;
+212: 	}
+213: 
+214: 	// Ensure color values passed to tonemappers are positive.
+215: 	// They can be negative in the case of negative lights, which leads to undesired behavior.
+216: 	color = max(vec3(0.0), color);
+217: 
+218: 	if (tonemapper == TONEMAPPER_REINHARD) {
+219: 		return tonemap_reinhard(color);
+220: 	} else if (tonemapper == TONEMAPPER_FILMIC) {
+221: 		return tonemap_filmic(color);
+222: 	} else if (tonemapper == TONEMAPPER_ACES) {
+223: 		return tonemap_aces(color);
+224: 	} else { // TONEMAPPER_AGX
+225: 		return tonemap_agx(color);
+226: 	}
+227: }
+228: 
+229: #endif // APPLY_TONEMAPPING
+230: 
+231: in vec2 uv_interp;
+232: 
+233: /* clang-format on */
+234: 
+235: uniform samplerCube radiance; //texunit:-2
+236: #ifdef USE_CUBEMAP_PASS
+237: uniform samplerCube half_res; //texunit:-2
+238: uniform samplerCube quarter_res; //texunit:-3
+239: #elif defined(USE_MULTIVIEW)
+240: uniform sampler2DArray half_res; //texunit:-2
+241: uniform sampler2DArray quarter_res; //texunit:-3
+242: #else
+243: uniform sampler2D half_res; //texunit:-2
+244: uniform sampler2D quarter_res; //texunit:-3
+245: #endif
+246: 
+247: layout(std140) uniform GlobalShaderUniformData { //ubo:1
+248: 	vec4 global_shader_uniforms[MAX_GLOBAL_SHADER_UNIFORMS];
+249: };
+250: 
+251: struct DirectionalLightData {
+252: 	vec4 direction_energy;
+253: 	vec4 color_size;
+254: 	uint enabled_bake_mode;
+255: 	float shadow_opacity;
+256: 	float specular;
+257: 	uint mask;
+258: };
+259: 
+260: layout(std140) uniform DirectionalLights { //ubo:4
+261: 	DirectionalLightData data[MAX_DIRECTIONAL_LIGHT_DATA_STRUCTS];
+262: }
+263: directional_lights;
+264: 
+265: #define DIRECTIONAL_LIGHT_ENABLED uint(1 << 0)
+266: 
+267: // mat4 is a waste of space, but we don't have an easy way to set a mat3 uniform for now
+268: uniform mat4 orientation;
+269: uniform vec4 projection;
+270: uniform vec3 position;
+271: uniform float time;
+272: uniform float sky_energy_multiplier;
+273: uniform float luminance_multiplier;
+274: 
+275: uniform float fog_aerial_perspective;
+276: uniform vec4 fog_light_color;
+277: uniform float fog_sun_scatter;
+278: uniform bool fog_enabled;
+279: uniform float fog_density;
+280: uniform float fog_sky_affect;
+281: uniform uint directional_light_count;
+282: 
+283: /* clang-format off */
+284: 
+285: #ifdef MATERIAL_UNIFORMS_USED
+286: layout(std140) uniform MaterialUniforms{ //ubo:3
+287: 
+288: highp vec3 m_moon_direction;
+289: highp float m_moon_radius;
+290: highp float m_moon_energy;
+291: highp vec3 m_moon_tint;
+292: highp vec3 m_zenith_color;
+293: highp vec3 m_sky_color;
+294: highp vec3 m_horizon_color;
+295: highp vec3 m_halo_color;
+296: highp vec3 m_city_glow;
+297: highp vec2 m_city_dir;
+298: int m_star_count;
+299: highp float m_star_energy;
+300: highp float m_cloud_cover;
+301: highp float m_cloud_speed;
+302: highp float m_cloud_scale;
+303: highp float m_cloud_softness;
+304: highp vec2 m_cloud_direction;
+305: highp vec3 m_cloud_dark;
+306: highp vec3 m_cloud_lit;
+307: highp float m_day_k;
+308: highp vec3 m_sun_direction;
+309: highp vec3 m_day_zenith;
+310: highp vec3 m_day_horizon;
+311: highp vec3 m_sun_color;
+312: highp float m_day_radiance;
+313: 
+314: };
+315: #endif
+316: /* clang-format on */
+317: uniform highp sampler2D m_cloud_noise;
+318: uniform highp sampler2D m_moon_texture;
+319: 
+320: vec4 m_clouds(vec3 m_d, vec3 m_m, float m_up, out float m_thick)
+321: 	{
+322: 		vec2 m_plane=(m_d.xz / (m_up + 0.11999999731779));
+323: 		vec2 m_drift=((normalize(m_cloud_direction) * time) * m_cloud_speed);
+324: 		vec2 m_uv=((m_plane * m_cloud_scale) + m_drift);
+325: 		vec2 m_evolve=(vec2(sin((time * 0.0109999999404)), cos((time * 0.00899999961257))) * 0.05000000074506);
+326: 		vec2 m_warp=((texture(m_cloud_noise, ((m_uv * 0.5) + m_evolve)).bb - 0.5) * 0.07000000029802);
+327: 		float m_base=texture(m_cloud_noise, (m_uv + m_warp)).r;
+328: 		float m_second=texture(m_cloud_noise, (((m_uv * 0.40999999642372) + vec2(0.23000000417233,0.37000000476837)) - m_evolve)).r;
+329: 		float m_n=((m_base * 0.60000002384186) + (m_second * 0.40000000596046));
+330: 		float m_threshold=(1.0 - m_cloud_cover);
+331: 		float m_cover=smoothstep(m_threshold, (m_threshold + m_cloud_softness), m_n);
+332: 		float m_detail=texture(m_cloud_noise, (((m_uv * 2.29999995231628) + m_warp) + m_evolve)).g;
+333: 		m_cover*=mix(1.0, smoothstep(0.15000000596046, 0.85000002384186, m_detail), (0.44999998807907 * (1.0 - m_cover)));
+334: 		float m_thickness=smoothstep(m_threshold, (m_threshold + (m_cloud_softness * 3.0)), m_n);
+335: 		m_thick=m_thickness;
+336: 		m_cover*=smoothstep(0.03999999910593, 0.30000001192093, m_up);
+337: 		float m_mc=max(dot(m_d, m_m), 0.0);
+338: 		float m_scatter=(((pow(m_mc, 6.0) * 0.44999998807907) + (pow(m_mc, 50.0) * 1.20000004768372)) + (pow(m_mc, 600.0) * 2.0));
+339: 		vec3 m_col=mix(m_cloud_lit, m_cloud_dark, (m_thickness * 0.75));
+340: 		m_col+=((m_halo_color * m_scatter) * mix(1.0, 0.34999999403954, m_thickness));
+341: 		vec2 m_hd=normalize((m_d.xz + vec2(0.00009999999747,0.00009999999747)));
+342: 		m_col+=(((m_city_glow * 0.60000002384186) * pow(max(dot(m_hd, normalize(m_city_dir)), 0.0), 2.0)) * (1.0 - smoothstep(0.05000000074506, 0.5, m_up)));
+343: 		m_col=mix((m_horizon_color * 0.89999997615814), m_col, smoothstep(0.01999999955297, 0.34999999403954, m_up));
+344: return vec4(m_col, (m_cover * 0.9200000166893));	}
+345: 
+346: vec3 m_day_sky(vec3 m_d, float m_up, vec4 m_cl, float m_thick)
+347: 	{
+348: 		vec3 m_s=normalize(m_sun_direction);
+349: 		vec3 m_c=mix(m_day_horizon, m_day_zenith, smoothstep(-0.01999999955297, 0.60000002384186, m_up));
+350: 		float m_sc=max(dot(m_d, m_s), 0.0);
+351: 		m_c+=(m_sun_color * ((pow(m_sc, 6.0) * 0.18000000715256) + (pow(m_sc, 48.0) * 0.44999998807907)));
+352: 		if ((m_up > 0.0))
+353: 		{
+354: 					{
+355: 			vec3 m_cloud=(mix(vec3(0.93999999761581,0.93999999761581,0.94999998807907), vec3(0.5,0.52999997138977,0.5799999833107), (m_thick * 0.80000001192093)) + ((m_sun_color * pow(m_sc, 10.0)) * 0.40000000596046));
+356: 			m_c=mix(m_c, m_cloud, (m_cl.a * 0.85000002384186));
+357: 		}
+358: ;
+359: 		}
+360: 		if (!AT_CUBEMAP_PASS)
+361: 		{
+362: 					{
+363: 			float m_ang=acos(clamp(dot(m_d, m_s), -1.0, 1.0));
+364: 			float m_core=(1.0 - smoothstep(0.01700000092387, 0.01999999955297, m_ang));
+365: 			float m_ring=((1.0 - smoothstep(0.0, 0.00249999994412, abs((m_ang - 0.04699999839067)))) * 0.5);
+366: 			vec3 m_r1=normalize(cross(m_s, vec3(0.0,0.0,1.0)));
+367: 			vec3 m_r2=cross(m_s, m_r1);
+368: 			float m_az=atan(dot(m_d, m_r2), dot(m_d, m_r1));
+369: 			float m_spoke=smoothstep(0.46999999880791, 0.49500000476837, abs((fract(((m_az * 6.0) / 6.28318530717959)) - 0.5)));
+370: 			float m_struts=(((m_spoke * step(0.01999999955297, m_ang)) * step(m_ang, 0.04699999839067)) * 0.34999999403954);
+371: 			m_c+=(m_sun_color * (((m_core * 14.0) + (m_ring * 1.60000002384186)) + m_struts));
+372: 		}
+373: ;
+374: 		}
+375: return mix((m_day_horizon * 0.85000002384186), m_c, smoothstep(-0.05000000074506, 0.0, m_up));	}
+376: 
+377: vec3 m_moon_disc(vec3 m_d, vec3 m_m, out float m_mask)
+378: 	{
+379: 		float m_c=dot(m_d, m_m);
+380: 		float m_ang=acos(clamp(m_c, -1.0, 1.0));
+381: 		m_mask=(1.0 - smoothstep((m_moon_radius * 0.95999997854233), m_moon_radius, m_ang));
+382: 		if ((m_mask <= 0.0))
+383: 		{
+384: 					{
+385: return vec3(0.0,0.0,0.0);		}
+386: ;
+387: 		}
+388: 		vec3 m_right=normalize(cross(vec3(0.0,1.0,0.0), m_m));
+389: 		vec3 m_up=cross(m_m, m_right);
+390: 		vec2 m_q=(vec2(dot(m_d, m_right), dot(m_d, m_up)) / sin(m_moon_radius));
+391: 		float m_r2=dot(m_q, m_q);
+392: 		float m_z=sqrt(max(0.0, (1.0 - m_r2)));
+393: 		float m_lon=atan(m_q.x, m_z);
+394: 		float m_lat=asin(clamp(m_q.y, -1.0, 1.0));
+395: 		vec2 m_uv=vec2((0.5 + (m_lon / 6.28318530717959)), (0.5 - (m_lat / 3.14159265358979)));
+396: 		vec3 m_albedo=texture(m_moon_texture, m_uv).rgb;
+397: 		float m_limb=mix(0.55000001192093, 1.0, pow(m_z, 0.44999998807907));
+398: return ((((m_albedo * m_limb) * m_moon_tint) * m_moon_energy) * 1.60000002384186);	}
+399: 
+400: float m_hash11(float m_x)
+401: 	{
+402: return fract((sin((m_x * 127.099998474121)) * 43758.546875));	}
+403: 
+404: float m_night_stars(vec3 m_d, float m_px)
+405: 	{
+406: 		vec3 m_m=normalize(m_moon_direction);
+407: 		float m_total=0.0;
+408: 		for (int m_i=0;(m_i < m_star_count);m_i++)
+409: 		{
+410: 					{
+411: 			float m_fi=float(m_i);
+412: 			float m_h=m_hash11(((m_fi * 1.37000000476837) + 0.5));
+413: 			float m_az=((m_fi * 2.39996004104614) + ((m_hash11((m_fi + 7.09999990463257)) - 0.5) * 0.89999997615814));
+414: 			float m_el=asin(mix(0.34000000357628, 0.98000001907349, m_hash11(((m_fi * 3.09999990463257) + 2.0))));
+415: 			vec3 m_s=vec3((cos(m_el) * sin(m_az)), sin(m_el), (cos(m_el) * cos(m_az)));
+416: 			if ((dot(m_s, m_m) > 0.93000000715256))
+417: 			{
+418: 							{
+419: 				m_s=vec3(-m_s.x, m_s.y, -m_s.z);
+420: 			}
+421: ;
+422: 			}
+423: 			float m_ang=length((m_d - m_s));
+424: 			if ((m_ang > (m_px * 6.0)))
+425: 			{
+426: 							{
+427: continue;			}
+428: ;
+429: 			}
+430: 			float m_brightness=mix(0.30000001192093, 1.0, pow(m_hash11(((m_fi * 5.30000019073486) + 1.10000002384186)), 2.0));
+431: 			float m_twinkle=(0.86000001430511 + ((0.14000000059605 * sin(((time * (1.10000002384186 + (m_h * 2.29999995231628))) + (m_h * 40.0)))) * sin(((time * (0.37000000476837 + (m_h * 0.60000002384186))) + m_fi))));
+432: 			float m_core=exp(-pow((m_ang / (m_px * 0.85000002384186)), 2.0));
+433: 			float m_glow=((exp(-pow((m_ang / (m_px * 2.59999990463257)), 2.0)) * 0.11999999731779) * m_brightness);
+434: 			m_total+=(((m_core + m_glow) * m_brightness) * m_twinkle);
+435: 		}
+436: ;
+437: 		}
+438: return m_total;	}
+439: 
+440: vec3 m_sky_gradient(vec3 m_d)
+441: 	{
+442: 		vec3 m_m=normalize(m_moon_direction);
+443: 		float m_up=clamp(m_d.y, -1.0, 1.0);
+444: 		vec3 m_c=mix(m_horizon_color, m_sky_color, smoothstep(0.0, 0.28000000119209, m_up));
+445: 		m_c=mix(m_c, m_zenith_color, smoothstep(0.25, 0.94999998807907, m_up));
+446: 		float m_mc=max(dot(m_d, m_m), 0.0);
+447: 		m_c+=(m_halo_color * (((pow(m_mc, 12.0) * 0.07999999821186) + (pow(m_mc, 90.0) * 0.18000000715256)) + (pow(m_mc, 900.0) * 0.60000002384186)));
+448: 		vec2 m_hd=normalize((m_d.xz + vec2(0.00009999999747,0.00009999999747)));
+449: 		m_c+=(((m_halo_color * 0.05000000074506) * pow(max(dot(m_hd, normalize(m_m.xz)), 0.0), 6.0)) * (1.0 - smoothstep(0.0, 0.34999999403954, m_up)));
+450: 		m_c+=((m_city_glow * pow(max(dot(m_hd, normalize(m_city_dir)), 0.0), 3.0)) * (1.0 - smoothstep(-0.01999999955297, 0.21999999880791, m_up)));
+451: return m_c;	}
+452: 
+453: #ifdef USE_CUBEMAP_PASS
+454: #define AT_CUBEMAP_PASS true
+455: #else
+456: #define AT_CUBEMAP_PASS false
+457: #endif
+458: 
+459: #ifdef USE_HALF_RES_PASS
+460: #define AT_HALF_RES_PASS true
+461: #else
+462: #define AT_HALF_RES_PASS false
+463: #endif
+464: 
+465: #ifdef USE_QUARTER_RES_PASS
+466: #define AT_QUARTER_RES_PASS true
+467: #else
+468: #define AT_QUARTER_RES_PASS false
+469: #endif
+470: 
+471: #ifdef USE_MULTIVIEW
+472: layout(std140) uniform MultiviewData { // ubo:12
+473: 	highp mat4 projection_matrix_view[MAX_VIEWS];
+474: 	highp mat4 inv_projection_matrix_view[MAX_VIEWS];
+475: 	highp vec4 eye_offset[MAX_VIEWS];
+476: }
+477: multiview_data;
+478: #endif
+479: 
+480: layout(location = 0) out vec4 frag_color;
+481: 
+482: #ifdef USE_DEBANDING
+483: // https://www.iryoku.com/next-generation-post-processing-in-call-of-duty-advanced-warfare
+484: vec3 interleaved_gradient_noise(vec2 pos) {
+485: 	const vec3 magic = vec3(0.06711056f, 0.00583715f, 52.9829189f);
+486: 	float res = fract(magic.z * fract(dot(pos, magic.xy))) * 2.0 - 1.0;
+487: 	return vec3(res, -res, res) / 255.0;
+488: }
+489: #endif
+490: 
+491: #if !defined(DISABLE_FOG)
+492: vec4 fog_process(vec3 view, vec3 sky_color) {
+493: 	vec3 fog_color = mix(fog_light_color.rgb, sky_color, fog_aerial_perspective);
+494: 
+495: 	if (fog_sun_scatter > 0.001) {
+496: 		vec4 sun_scatter = vec4(0.0);
+497: 		float sun_total = 0.0;
+498: 		for (uint i = 0u; i < directional_light_count; i++) {
+499: 			vec3 light_color = srgb_to_linear(directional_lights.data[i].color_size.xyz) * directional_lights.data[i].direction_energy.w;
+500: 			float light_amount = pow(max(dot(view, directional_lights.data[i].direction_energy.xyz), 0.0), 8.0) * M_PI;
+501: 			fog_color += light_color * light_amount * fog_sun_scatter;
+502: 		}
+503: 	}
+504: 
+505: 	return vec4(fog_color, 1.0);
+506: }
+507: #endif // !DISABLE_FOG
+508: 
+509: // Eberly approximations from https://seblagarde.wordpress.com/2014/12/01/inverse-trigonometric-functions-gpu-optimization-for-amd-gcn-architecture/.
+510: // input [-1, 1] and output [0, PI]
+511: float acos_approx(float p_x) {
+512: 	float x = abs(p_x);
+513: 	float res = -0.156583f * x + (M_PI / 2.0);
+514: 	res *= sqrt(1.0f - x);
+515: 	return (p_x >= 0.0) ? res : M_PI - res;
+516: }
+517: 
+518: // Based on https://math.stackexchange.com/questions/1098487/atan2-faster-approximation
+519: // but using the Eberly coefficients from https://seblagarde.wordpress.com/2014/12/01/inverse-trigonometric-functions-gpu-optimization-for-amd-gcn-architecture/.
+520: float atan2_approx(float y, float x) {
+521: 	float a = min(abs(x), abs(y)) / max(abs(x), abs(y));
+522: 	float s = a * a;
+523: 	float poly = 0.0872929f;
+524: 	poly = -0.301895f + poly * s;
+525: 	poly = 1.0f + poly * s;
+526: 	poly = poly * a;
+527: 
+528: 	float r = abs(y) > abs(x) ? (M_PI / 2.0) - poly : poly;
+529: 	r = x < 0.0 ? M_PI - r : r;
+530: 	r = y < 0.0 ? -r : r;
+531: 
+532: 	return r;
+533: }
+534: 
+535: void main() {
+536: 	vec3 cube_normal;
+537: #ifdef USE_MULTIVIEW
+538: 	// In multiview our projection matrices will contain positional and rotational offsets that we need to properly unproject.
+539: 	vec4 unproject = vec4(uv_interp.xy, -1.0, 1.0); // unproject at the far plane
+540: 	vec4 unprojected = multiview_data.inv_projection_matrix_view[ViewIndex] * unproject;
+541: 	cube_normal = unprojected.xyz / unprojected.w;
+542: 
+543: 	// Unproject will give us the position between the eyes, need to re-offset.
+544: 	cube_normal += multiview_data.eye_offset[ViewIndex].xyz;
+545: #else
+546: 	cube_normal.z = -1.0;
+547: 	cube_normal.x = (uv_interp.x + projection.x) / projection.y;
+548: 	cube_normal.y = (uv_interp.y + projection.z) / projection.w;
+549: #endif
+550: 	cube_normal = mat3(orientation) * cube_normal;
+551: 	cube_normal = normalize(cube_normal);
+552: 
+553: 	vec2 uv = gl_FragCoord.xy; // uv_interp * 0.5 + 0.5;
+554: 
+555: 	vec2 panorama_coords = vec2(atan2_approx(cube_normal.x, -cube_normal.z), acos_approx(cube_normal.y));
+556: 
+557: 	if (panorama_coords.x < 0.0) {
+558: 		panorama_coords.x += M_PI * 2.0;
+559: 	}
+560: 
+561: 	panorama_coords /= vec2(M_PI * 2.0, M_PI);
+562: 
+563: 	vec3 color = vec3(0.0, 0.0, 0.0);
+564: 	float alpha = 1.0; // Only available to subpasses
+565: 	vec4 half_res_color = vec4(1.0);
+566: 	vec4 quarter_res_color = vec4(1.0);
+567: 	vec4 custom_fog = vec4(0.0);
+568: 
+569: #ifdef USE_CUBEMAP_PASS
+570: #ifdef USES_HALF_RES_COLOR
+571: 	half_res_color = texture(half_res, cube_normal);
+572: #endif
+573: #ifdef USES_QUARTER_RES_COLOR
+574: 	quarter_res_color = texture(quarter_res, cube_normal);
+575: #endif
+576: #else
+577: #ifdef USES_HALF_RES_COLOR
+578: #ifdef USE_MULTIVIEW
+579: 	half_res_color = textureLod(half_res, vec3(uv, ViewIndex), 0.0);
+580: #else
+581: 	half_res_color = textureLod(half_res, uv, 0.0);
+582: #endif
+583: #endif
+584: #ifdef USES_QUARTER_RES_COLOR
+585: #ifdef USE_MULTIVIEW
+586: 	quarter_res_color = textureLod(quarter_res, vec3(uv, ViewIndex), 0.0);
+587: #else
+588: 	quarter_res_color = textureLod(quarter_res, uv, 0.0);
+589: #endif
+590: #endif
+591: #endif
+592: 
+593: 	{
+594: 	{
+595: 		vec3 m_d=normalize(cube_normal);
+596: 		vec3 m_m=normalize(m_moon_direction);
+597: 		vec3 m_c=m_sky_gradient(m_d);
+598: 		float m_up=m_d.y;
+599: 		vec4 m_cl=vec4(0.0,0.0,0.0,0.0);
+600: 		float m_thick=0.0;
+601: 		if ((m_up > 0.0))
+602: 		{
+603: 					{
+604: 			m_cl=m_clouds(m_d, m_m, m_up, m_thick);
+605: 			float m_moon_mask=0.0;
+606: 			vec3 m_disc=vec3(0.0,0.0,0.0);
+607: 			float m_star_light=0.0;
+608: 			if (!AT_CUBEMAP_PASS)
+609: 			{
+610: 							{
+611: 				m_disc=m_moon_disc(m_d, m_m, m_moon_mask);
+612: 				float m_moon_wash=(1.0 - (smoothstep(0.80000001192093, 0.99500000476837, dot(m_d, m_m)) * 0.89999997615814));
+613: 				m_star_light=(((m_night_stars(m_d, 0.00109999999404) * m_star_energy) * smoothstep(0.05000000074506, 0.30000001192093, m_up)) * m_moon_wash);
+614: 			}
+615: ;
+616: 			}
+617: 			m_star_light*=(1.0 - m_cl.a);
+618: 			m_c=mix(m_c, m_cl.rgb, m_cl.a);
+619: 			m_moon_mask*=(1.0 - (m_cl.a * mix(0.55000001192093, 0.97000002861023, m_cl.a)));
+620: 			m_c+=(vec3(0.85000002384186,0.89999997615814,1.0) * m_star_light);
+621: 			m_c=mix(m_c, m_disc, m_moon_mask);
+622: 		}
+623: ;
+624: 		}
+625: 		m_c=mix((m_horizon_color * 0.80000001192093), m_c, smoothstep(-0.05000000074506, 0.0, m_up));
+626: 		if ((m_day_k > 0.0))
+627: 		{
+628: 					{
+629: 			vec3 m_dc=m_day_sky(m_d, m_up, m_cl, m_thick);
+630: 			if (AT_CUBEMAP_PASS)
+631: 			{
+632: 							{
+633: 				m_dc*=m_day_radiance;
+634: 			}
+635: ;
+636: 			}
+637: 			m_c=mix(m_c, m_dc, m_day_k);
+638: 		}
+639: ;
+640: 		}
+641: 		color=m_c;
+642: 	}
+643: 	}
+644: 
+645: 	color *= sky_energy_multiplier;
+646: 
+647: 	// Convert to Linear for tonemapping so color matches scene shader better
+648: 	color = srgb_to_linear(color);
+649: 
+650: #if !defined(DISABLE_FOG) && !defined(USE_CUBEMAP_PASS)
+651: 
+652: 	// Draw "fixed" fog before volumetric fog to ensure volumetric fog can appear in front of the sky.
+653: 	if (fog_enabled) {
+654: 		vec4 fog = fog_process(cube_normal, color.rgb);
+655: 		color.rgb = mix(color.rgb, fog.rgb, fog.a * fog_sky_affect);
+656: 	}
+657: 
+658: 	if (custom_fog.a > 0.0) {
+659: 		color.rgb = mix(color.rgb, custom_fog.rgb, custom_fog.a);
+660: 	}
+661: 
+662: #endif // DISABLE_FOG
+663: 
+664: 	color *= exposure;
+665: #ifdef APPLY_TONEMAPPING
+666: 	color = apply_tonemapping(color);
+667: #endif
+668: 	color = linear_to_srgb(color);
+669: 
+670: 	frag_color.rgb = color * luminance_multiplier;
+671: 	frag_color.a = alpha;
+672: 
+673: #ifdef USE_DEBANDING
+674: 	frag_color.rgb += interleaved_gradient_noise(gl_FragCoord.xy) * sky_energy_multiplier * luminance_multiplier;
+675: #endif
+676: }
+677: 
+678: 
+ERROR: SkyShaderGLES3: Fragment shader compilation failed:
+0(360) : error C1503: undefined variable "AT_CUBEMAP_PASS"
+
+   at: _display_error_with_code (drivers/gles3/shader_gles3.cpp:262)
+ERROR: Method/function failed.
+   at: _compile_specialization (drivers/gles3/shader_gles3.cpp:404)
+[world] rescued Ate Load back onto land at (106.0, 2.0, -305.0)
+[world] rescued Hehe back onto land at (110.0, 2.0, -305.0)
+[world] rescued Mang Kanor back onto land at (119.0, 2.0, -305.0)
+[world] rescued Lolo Kalesa back onto land at (102.0, 2.0, -305.0)
+ERROR: BUG: Unreferenced static string to 0: RaycastOcclusionCullRaycast
+   at: unref (core/string/string_name.cpp:118)
+ERROR: BUG: Unreferenced static string to 0: RenderCullInstances
+   at: unref (core/string/string_name.cpp:118)
+ERROR: BUG: Unreferenced static string to 0: RaycastOcclusionCullUpdateCamera
+   at: unref (core/string/string_name.cpp:118)
+ERROR: BUG: Unreferenced static string to 0: RaycastOcclusionCull
+   at: unref (core/string/string_name.cpp:118)
+ERROR: BUG: Unreferenced static string to 0: _request_gizmo_for_id
+   at: unref (core/string/string_name.cpp:118)
+ERROR: BUG: Unreferenced static string to 0: .
+   at: unref (core/string/string_name.cpp:118)
+ERROR: BUG: Unreferenced static string to 0: markers
+   at: unref (core/string/string_name.cpp:118)
+ERROR: BUG: Unreferenced static string to 0: _compression
+   at: unref (core/string/string_name.cpp:118)
+ERROR: BUG: Unreferenced static string to 0: _enter_world
+   at: unref (core/string/string_name.cpp:118)
+ERROR: BUG: Unreferenced static string to 0: Physics2DConstraintSolveIslands
+   at: unref (core/string/string_name.cpp:118)
+ERROR: BUG: Unreferenced static string to 0: Physics2DConstraintSetup
+   at: unref (core/string/string_name.cpp:118)
+ERROR: BUG: Unreferenced static string to 0: servers
+   at: unref (core/string/string_name.cpp:118)
+ERROR: BUG: Unreferenced static string to 0: Variant
+   at: unref (core/string/string_name.cpp:118)

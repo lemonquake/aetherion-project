@@ -1,0 +1,46 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+Vulkan 1.4.329 - Forward+ - Using Device #0: NVIDIA - NVIDIA GeForce RTX 4060
+
+[lagusan] { "segments": 97, "metres": 1510.29132175446, "lights": 210, "dead": 19, "gaps": 94, "shrines": 20, "walks": 19 }
+[looban] { "loobans": 25, "crate_stacks": 88, "low_walls": 291, "sandbags": 18, "kiosks": 25, "barricades": 9, "yard_walls": 99, &"vacant": 80 }
+[dress] { "poles": 1000, "wires": 5503, "laundry": 437, "clutter": 1246, "props": 2925, "tags": 0, "puddles": 163, "plants": 1235, "vehicles": 66, "floating": 5, "loot": 469, "boxes": 67 }
+[vandal] { "wall": 1247, "covered": 355, "stains": 3298, "ground": 844, "spots": 9 }
+[world] map built in 24874 ms
+[map] 2118 buildings, 4494 doors, 9548 containers, 15415 props, #1375a694 on PC
+[game] autotest r4
+[autotest] shot A:/Python/aetherion-project/work/lemondev/r4/fx4/01_plane.png
+[autotest] PASS jump: left the plane
+[autotest] shot A:/Python/aetherion-project/work/lemondev/r4/fx4/02_freefall.png
+[autotest] PASS view_tier_freefall: tier 2 at 265 m above ground, interiors hidden, AO false, local shadows 0
+[autotest] PASS team_cluster: 3 teammates, farthest 37.1 m at canopy
+[autotest] shot A:/Python/aetherion-project/work/lemondev/r4/fx4/03_canopy_team.png
+[autotest] PASS landed: mode 3, health 87 at (-180.0, 1.0, -16.0)
+[autotest] PASS view_tier_ground: tier 0 at 2 m above ground, interiors drawn, AO true, local shadows 8
+[autotest] shot A:/Python/aetherion-project/work/lemondev/r4/fx4/04_landed.png
+[autotest] shot A:/Python/aetherion-project/work/lemondev/r4/fx4/05_holes_impact_plywood.png
+[autotest] FAIL holes_wall: 3 holes on plywood; the spot changed by 0.2 luma once the dust settled
+[autotest] PASS impact_particles: 6 particle bursts; 1.0 luma change while the dust flies vs 0.2 after
+[autotest] shot A:/Python/aetherion-project/work/lemondev/r4/fx4/06_holes_after_plywood.png
+[autotest] shot A:/Python/aetherion-project/work/lemondev/r4/fx4/07_chunks_table_small_0.png
+[autotest] shot A:/Python/aetherion-project/work/lemondev/r4/fx4/08_chunks_table_small_3.png
+[autotest] PASS chunks_cut: table_small cut into 6 chunks (grid (3, 2, 1)) in 6.1 ms
+[autotest] PASS chunks_prop: table_small: chunks left after each of 3 shots [5, 4, 0]; collapsed
+[autotest] shot A:/Python/aetherion-project/work/lemondev/r4/fx4/09_chunks_table_small_end.png
+[autotest] shot A:/Python/aetherion-project/work/lemondev/r4/fx4/10_door_0.png
+[autotest] shot A:/Python/aetherion-project/work/lemondev/r4/fx4/11_door_holes.png
+[autotest] PASS holes_follow_door: 2 holes hang on the leaf; a hole moved 0.83 m when the door swung open
+[autotest] shot A:/Python/aetherion-project/work/lemondev/r4/fx4/12_door_holes_open.png
+[autotest] shot A:/Python/aetherion-project/work/lemondev/r4/fx4/13_door_panel_out.png
+[autotest] PASS door_panels: panels lost after each row of shots [1, 2, 3, 4, 5]; a ray passes through the first hole: true
+[autotest] PASS door_destroyed: 10 shots; leaf fell; doorway clear: true
+[autotest] shot A:/Python/aetherion-project/work/lemondev/r4/fx4/14_door_destroyed.png
+[autotest] shot A:/Python/aetherion-project/work/lemondev/r4/fx4/15_blast.png
+[autotest] PASS blast_props: chair_wood was dormant, now broken with 0 chunks lost; scorch mark laid
+[autotest] done: 13 checks, 1 failed
+[autotest] shot A:/Python/aetherion-project/work/lemondev/r4/fx4/16_blast_after.png
+ERROR: 1 RID allocations of type 'N10RendererRD5SkyRD3SkyE' were leaked at exit.
+ERROR: 1 RID allocations of type 'N26RendererEnvironmentStorage11EnvironmentE' were leaked at exit.
+ERROR: 210 RID allocations of type 'N10RendererRD11MeshStorage4MeshE' were leaked at exit.
+ERROR: 1672 RID allocations of type 'N10RendererRD15MaterialStorage8MaterialE' were leaked at exit.
+ERROR: 35 RID allocations of type 'N10RendererRD15MaterialStorage6ShaderE' were leaked at exit.
+ERROR: 725 RID allocations of type 'N10RendererRD14TextureStorage7TextureE' were leaked at exit.

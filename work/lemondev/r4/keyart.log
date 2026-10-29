@@ -1,0 +1,30 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+Vulkan 1.4.329 - Forward+ - Using Device #0: NVIDIA - NVIDIA GeForce RTX 4060
+
+[lagusan] { "segments": 97, "metres": 1510.29132175446, "lights": 210, "dead": 19, "gaps": 94, "shrines": 20, "walks": 19 }
+[looban] { "loobans": 25, "crate_stacks": 88, "low_walls": 291, "sandbags": 18, "kiosks": 25, "barricades": 9, "yard_walls": 99, &"vacant": 80 }
+[dress] { "poles": 1000, "wires": 5503, "laundry": 437, "clutter": 1246, "props": 2925, "tags": 0, "puddles": 163, "plants": 1235, "vehicles": 66, "floating": 5, "loot": 469, "boxes": 67 }
+[vandal] { "wall": 1247, "covered": 355, "stains": 3298, "ground": 844, "spots": 9 }
+[preview] map built in 41760 ms: {"buildings":2118,"containers":9548,"decals":{"covered":355,"ground":844,"spots":9,"stains":3298,"wall":1247},"doors":4494,"entrances":{"doors":2777,"flights":67,"steps":377,"unreachable":85},"finish_ms":8728,"ladders":85,"layout_ms":208,"lights":{"dead":170,"house_dark":1143,"house_lit":975,"pole":466,"porch":579,"rooms":1245},"looban":{"barricades":9,"crate_stacks":88,"kiosks":25,"loobans":25,"low_walls":291,"sandbags":18,"vacant":80,"yard_walls":99},"props":15415,"sink":{"boxes":336180,"colliders":1662,"far_tris":21180,"meshes":5427,"tris":3503682},"terrain_ms":2279,"towns_ms":23800,"tunnels":{"dead":19,"gaps":94,"lights":210,"metres":1510.29132175446,"segments":97,"shrines":20,"walks":19},"windows":10180,"zones":6222}
+[preview] saved A:/Python/aetherion-project/work/lemondev/r4/keyart/looban_alley_t120.png fps 51.0 luma 15.312302031886
+[preview] saved A:/Python/aetherion-project/work/lemondev/r4/keyart/looban_alley_t590.png fps 34.0 luma 27.1947385195637
+[preview] saved A:/Python/aetherion-project/work/lemondev/r4/keyart/river_boardwalk_t120.png fps 55.0 luma 14.9059564408149
+[preview] saved A:/Python/aetherion-project/work/lemondev/r4/keyart/river_boardwalk_t590.png fps 59.0 luma 40.732128162086
+[preview] saved A:/Python/aetherion-project/work/lemondev/r4/keyart/bridge_t120.png fps 57.0 luma 11.2910365716649
+[preview] saved A:/Python/aetherion-project/work/lemondev/r4/keyart/bridge_t590.png fps 34.0 luma 58.775852117785
+[preview] saved A:/Python/aetherion-project/work/lemondev/r4/keyart/market_t120.png fps 52.0 luma 6.49199659702769
+[preview] saved A:/Python/aetherion-project/work/lemondev/r4/keyart/market_t590.png fps 58.0 luma 24.5361300348971
+[preview] saved A:/Python/aetherion-project/work/lemondev/r4/keyart/overview_t120.png fps 45.0 luma 3.12766378501936
+[preview] saved A:/Python/aetherion-project/work/lemondev/r4/keyart/overview_t590.png fps 58.0 luma 43.6795110166657
+[preview] saved A:/Python/aetherion-project/work/lemondev/r4/keyart/looban2_t120.png fps 55.0 luma 15.0677452873537
+[preview] saved A:/Python/aetherion-project/work/lemondev/r4/keyart/looban2_t590.png fps 20.0 luma 53.3212142659454
+[preview] saved A:/Python/aetherion-project/work/lemondev/r4/keyart/river_east_t120.png fps 36.0 luma 23.9039143209079
+[preview] saved A:/Python/aetherion-project/work/lemondev/r4/keyart/river_east_t590.png fps 27.0 luma 45.1052403035918
+[preview] saved A:/Python/aetherion-project/work/lemondev/r4/keyart/west_bank_t120.png fps 60.0 luma 7.80820234790626
+[preview] saved A:/Python/aetherion-project/work/lemondev/r4/keyart/west_bank_t590.png fps 60.0 luma 40.3412257569005
+ERROR: 1 RID allocations of type 'N10RendererRD5SkyRD3SkyE' were leaked at exit.
+ERROR: 1 RID allocations of type 'N26RendererEnvironmentStorage11EnvironmentE' were leaked at exit.
+ERROR: 209 RID allocations of type 'N10RendererRD11MeshStorage4MeshE' were leaked at exit.
+ERROR: 1651 RID allocations of type 'N10RendererRD15MaterialStorage8MaterialE' were leaked at exit.
+ERROR: 35 RID allocations of type 'N10RendererRD15MaterialStorage6ShaderE' were leaked at exit.
+ERROR: 728 RID allocations of type 'N10RendererRD14TextureStorage7TextureE' were leaked at exit.

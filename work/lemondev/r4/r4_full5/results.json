@@ -1,0 +1,42 @@
+[
+  [
+    "jump",
+    true,
+    "left the plane"
+  ],
+  [
+    "view_tier_freefall",
+    true,
+    "tier 2 at 265 m above ground, interiors hidden, AO false, local shadows 0"
+  ],
+  [
+    "team_cluster",
+    true,
+    "3 teammates, farthest 34.8 m at canopy"
+  ],
+  [
+    "landed",
+    true,
+    "mode 3, health 85 at (2.0, -1.0, -281.0)"
+  ],
+  [
+    "view_tier_ground",
+    true,
+    "tier 0 at 0 m above ground, interiors drawn, AO true, local shadows 6"
+  ],
+  [
+    "holes_wall",
+    false,
+    "25 holes on sheet_metal; the spot changed by 0.3 luma once the dust settled"
+  ],
+  [
+    "impact_particles",
+    true,
+    "30 particle bursts; 0.5 luma change while the dust flies vs 0.3 after"
+  ],
+  [
+    "door_panels",
+    false,
+    "no closed door with a clear line of fire in the 40 nearest"
+  ]
+]

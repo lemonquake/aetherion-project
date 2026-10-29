@@ -1,0 +1,10 @@
+ERROR: Condition "slot >= slot_max" is true. Returning: nullptr
+   at: get_instance (./core/object/object.h:912)
+   GDScript backtrace (most recent call first):
+       [0] <anonymous lambda> (res://src/online/online.gd:160)
+       [1] <anonymous lambda> (res://src/online/online.gd:186)
+SCRIPT ERROR: Attempt to call function '<anonymous lambda>(self lambda) (Callable)' on a null instance.
+   at: <anonymous lambda> (res://src/online/online.gd:160)
+   GDScript backtrace (most recent call first):
+       [0] <anonymous lambda> (res://src/online/online.gd:160)
+       [1] <anonymous lambda> (res://src/online/online.gd:186)

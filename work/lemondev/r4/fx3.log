@@ -1,0 +1,36 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+Vulkan 1.4.329 - Forward+ - Using Device #0: NVIDIA - NVIDIA GeForce RTX 4060
+
+[lagusan] { "segments": 97, "metres": 1510.29132175446, "lights": 210, "dead": 19, "gaps": 94, "shrines": 20, "walks": 19 }
+[looban] { "loobans": 25, "crate_stacks": 88, "low_walls": 291, "sandbags": 18, "kiosks": 25, "barricades": 9, "yard_walls": 99, &"vacant": 80 }
+[dress] { "poles": 1000, "wires": 5503, "laundry": 437, "clutter": 1246, "props": 2925, "tags": 0, "puddles": 163, "plants": 1235, "vehicles": 66, "floating": 5, "loot": 469, "boxes": 67 }
+[vandal] { "wall": 1247, "covered": 355, "stains": 3298, "ground": 844, "spots": 9 }
+[world] map built in 24722 ms
+[map] 2118 buildings, 4494 doors, 9548 containers, 15415 props, #1375a694 on PC
+[game] autotest r4
+[autotest] shot A:/Python/aetherion-project/work/lemondev/r4/fx3/01_plane.png
+[autotest] PASS jump: left the plane
+[autotest] shot A:/Python/aetherion-project/work/lemondev/r4/fx3/02_freefall.png
+[autotest] PASS view_tier_freefall: tier 2 at 265 m above ground, interiors hidden, AO false, local shadows 0
+[autotest] PASS team_cluster: 3 teammates, farthest 35.2 m at canopy
+[autotest] shot A:/Python/aetherion-project/work/lemondev/r4/fx3/03_canopy_team.png
+[autotest] PASS landed: mode 3, health 85 at (103.0, 1.0, -205.0)
+[autotest] PASS view_tier_ground: tier 0 at 2 m above ground, interiors drawn, AO true, local shadows 8
+[autotest] shot A:/Python/aetherion-project/work/lemondev/r4/fx3/04_landed.png
+[autotest] shot A:/Python/aetherion-project/work/lemondev/r4/fx3/05_holes_impact_hollow_block.png
+[autotest] FAIL holes_wall: 3 holes on hollow_block; the spot changed by 0.0 luma once the dust settled
+[autotest] PASS impact_particles: 6 particle bursts; 3.3 luma change while the dust flies vs 0.0 after
+[autotest] shot A:/Python/aetherion-project/work/lemondev/r4/fx3/06_holes_after_hollow_block.png
+[autotest] shot A:/Python/aetherion-project/work/lemondev/r4/fx3/07_chunks_table_small_0.png
+[autotest] shot A:/Python/aetherion-project/work/lemondev/r4/fx3/08_chunks_table_small_3.png
+[autotest] PASS chunks_cut: table_small cut into 6 chunks (grid (3, 2, 1)) in 5.7 ms
+[autotest] PASS chunks_prop: table_small: chunks left after each of 3 shots [5, 4, 0]; collapsed
+[autotest] shot A:/Python/aetherion-project/work/lemondev/r4/fx3/09_chunks_table_small_end.png
+[autotest] PASS fx_perf: an impact every frame for 60 frames vs quiet: quiet 8.35 ms (p95 12.41, GPU 3.41, call 0.004 ms); all 10.59 ms (p95 13.13, GPU 3.83, call 0.720 ms); particles 9.72 ms (p95 13.16, GPU 3.86, call 0.047 ms); holes 9.15 ms (p95 12.61, GPU 3.89, call 0.064 ms); sound 10.53 ms (p95 15.29, GPU 3.52, call 0.640 ms); quiet2 8.67 ms (p95 13.62, GPU 3.51, call 0.004 ms)
+[autotest] done: 10 checks, 1 failed
+ERROR: 1 RID allocations of type 'N10RendererRD5SkyRD3SkyE' were leaked at exit.
+ERROR: 1 RID allocations of type 'N26RendererEnvironmentStorage11EnvironmentE' were leaked at exit.
+ERROR: 210 RID allocations of type 'N10RendererRD11MeshStorage4MeshE' were leaked at exit.
+ERROR: 1634 RID allocations of type 'N10RendererRD15MaterialStorage8MaterialE' were leaked at exit.
+ERROR: 35 RID allocations of type 'N10RendererRD15MaterialStorage6ShaderE' were leaked at exit.
+ERROR: 728 RID allocations of type 'N10RendererRD14TextureStorage7TextureE' were leaked at exit.

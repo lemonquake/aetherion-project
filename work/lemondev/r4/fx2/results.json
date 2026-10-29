@@ -1,0 +1,57 @@
+[
+  [
+    "jump",
+    true,
+    "left the plane"
+  ],
+  [
+    "view_tier_freefall",
+    true,
+    "tier 2 at 265 m above ground, interiors hidden, AO false, local shadows 0"
+  ],
+  [
+    "team_cluster",
+    true,
+    "3 teammates, farthest 41.4 m at canopy"
+  ],
+  [
+    "landed",
+    true,
+    "mode 3, health 85 at (-74.0, 1.0, 27.0)"
+  ],
+  [
+    "view_tier_ground",
+    true,
+    "tier 0 at 2 m above ground, interiors drawn, AO true, local shadows 8"
+  ],
+  [
+    "holes_wall",
+    false,
+    "3 holes on plaster; the spot changed by 0.1 luma once the dust settled"
+  ],
+  [
+    "impact_particles",
+    false,
+    "6 particle bursts; 0.0 luma change while the dust flies vs 0.1 after"
+  ],
+  [
+    "chunks_cut",
+    true,
+    "monobloc cut into 12 chunks (grid (2, 3, 2)) in 10.1 ms"
+  ],
+  [
+    "chunks_prop",
+    false,
+    "monobloc: chunks left after each of 2 shots [10, 0]; collapsed"
+  ],
+  [
+    "blast_props",
+    true,
+    "bench_paint was dormant, now broken with 1 chunks lost; scorch mark laid"
+  ],
+  [
+    "fx_perf",
+    false,
+    "median frame with an impact every frame vs quiet: quiet 10.52 ms (p95 15.58, call 0.004 ms); all 12.34 ms (p95 20.23, call 0.645 ms); particles 16.98 ms (p95 21.48, call 0.041 ms); holes 12.18 ms (p95 20.70, call 0.060 ms); sound 12.86 ms (p95 18.89, call 0.549 ms); quiet2 10.74 ms (p95 17.09, call 0.004 ms)"
+  ]
+]

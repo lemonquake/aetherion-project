@@ -1,0 +1,67 @@
+[
+  [
+    "jump",
+    true,
+    "left the plane"
+  ],
+  [
+    "view_tier_freefall",
+    true,
+    "tier 2 at 264 m above ground, interiors hidden, AO false, local shadows 0"
+  ],
+  [
+    "team_cluster",
+    true,
+    "3 teammates, farthest 30.8 m at canopy"
+  ],
+  [
+    "landed",
+    true,
+    "mode 3, health 85 at (-83.0, 1.0, -103.0)"
+  ],
+  [
+    "view_tier_ground",
+    true,
+    "tier 0 at 2 m above ground, interiors drawn, AO true, local shadows 8"
+  ],
+  [
+    "outfits_vary",
+    true,
+    "7 of 7 characters carry a look; 7 different outfits among them"
+  ],
+  [
+    "outfits_draws",
+    false,
+    "at most 4 mesh surfaces per character body (outfit and head; the gun as before; the hooded body had 8): OutfitHead:1, Outfit:1, @MeshInstance3D@15632:1, @MeshInstance3D@15633:1"
+  ],
+  [
+    "holes_wall",
+    false,
+    "11 holes on plaster; the spot changed by 0.2 luma once the dust settled"
+  ],
+  [
+    "impact_particles",
+    true,
+    "21 particle bursts; 14.7 luma change while the dust flies vs 0.2 after"
+  ],
+  [
+    "chunks_cut",
+    true,
+    "bench_paint cut into 18 chunks (grid (3, 3, 2)) in 2.1 ms"
+  ],
+  [
+    "chunks_prop",
+    true,
+    "bench_paint: chunks left after each of 5 shots [17, 16, 15, 14, 0]; collapsed"
+  ],
+  [
+    "casings",
+    true,
+    "4 casings and 4 muzzle smoke puffs from a burst"
+  ],
+  [
+    "suppression",
+    false,
+    "a supersonic round passing 0.8 m away darkened the view edges to 0.00"
+  ]
+]

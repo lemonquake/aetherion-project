@@ -1,0 +1,67 @@
+[
+  [
+    "jump",
+    true,
+    "left the plane"
+  ],
+  [
+    "view_tier_freefall",
+    true,
+    "tier 2 at 265 m above ground, interiors hidden, AO false, local shadows 0"
+  ],
+  [
+    "team_cluster",
+    true,
+    "3 teammates, farthest 35.0 m at canopy"
+  ],
+  [
+    "landed",
+    true,
+    "mode 3, health 85 at (89.0, 1.0, -17.0)"
+  ],
+  [
+    "view_tier_ground",
+    true,
+    "tier 0 at 2 m above ground, interiors drawn, AO true, local shadows 8"
+  ],
+  [
+    "holes_wall",
+    false,
+    "no wall within 7 m of the landing spot"
+  ],
+  [
+    "chunks_cut",
+    true,
+    "stool_fold cut into 4 chunks (grid (2, 1, 2)) in 4.2 ms"
+  ],
+  [
+    "chunks_prop",
+    false,
+    "stool_fold: chunks left after each of 2 shots [3, 0]; collapsed"
+  ],
+  [
+    "holes_follow_door",
+    true,
+    "2 holes hang on the leaf; a hole moved 0.83 m when the door swung open"
+  ],
+  [
+    "door_panels",
+    true,
+    "panels lost after each row of shots [1, 2, 3, 4, 5]; a ray passes through the first hole: true"
+  ],
+  [
+    "door_destroyed",
+    true,
+    "10 shots; leaf fell; doorway clear: true"
+  ],
+  [
+    "blast_props",
+    false,
+    "stool was dormant, now dormant with 0 chunks lost; scorch mark laid"
+  ],
+  [
+    "fx_perf",
+    false,
+    "median frame 6.30 ms quiet, 9.69 ms with an impact every frame (60 impacts, 60 surfaces); p95 8.58 vs 13.85 ms"
+  ]
+]

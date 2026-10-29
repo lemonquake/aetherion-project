@@ -1,0 +1,8 @@
+[online] PASS open_game: {"games":[{"address":"127.0.0.1","bots":true,"game":"238f96b96778","host":"Alpha","max":8.0,"name":"Alpha's game","platform":"PC","players":1.0,"port":24641.0,"state":"lobby","team_size":4.0,"teams":2.0,"version":"aetherion-0.6.0"}],"ok":true}
+[online] PASS presence: {"ok":true,"online":[{"game":"238f96b96778","id":"60b6346e4622c540","level":1,"name":"Alpha","platform":"PC","status":"In a lobby"},{"game":"","id":"e21ab8549a761ccb","level":1,"name":"Bravo","platform":"PC","status":"In the menu"}]}
+[online] PASS leaderboard: {"by":"xp","ok":true,"rows":[{"damage":0,"id":"60b6346e4622c540","kd":0.0,"kills":0,"level":2,"matches":1,"name":"Alpha","platform":"PC","rank":1,"wins":1,"xp":508},{"damage":0,"id":"e21ab8549a761ccb","kd":0.0,"kills":0,"level":2,"matches":1,"name":"Bravo","platform":"PC","rank":2,"wins":1,"xp":508}]}
+[online] PASS profiles_xp: Alpha 508 XP, Bravo 508 XP
+[game] results: {"bot":false,"damage":0,"downs":0,"kills":0,"name":"Alpha","pid":1,"place":1,"platform":"PC","profile":"60b6346e4622c540","team":0,"teams":1,"time":24,"winner":true,"xp":508}
+[game] results: {"bot":false,"damage":0,"downs":0,"kills":0,"name":"Bravo","pid":414640613,"place":1,"platform":"PC","profile":"e21ab8549a761ccb","team":0,"teams":1,"time":24,"winner":true,"xp":508}
+[online] PASS saved: stats.json on disk
+[online] 5 passed, 0 failed (alpha exit 0, bravo exit 0)

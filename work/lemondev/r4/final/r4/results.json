@@ -1,0 +1,97 @@
+[
+  [
+    "pa_horns",
+    true,
+    "23 loudspeaker poles; the farthest sampled house is 168 m from a horn"
+  ],
+  [
+    "jump",
+    true,
+    "left the plane"
+  ],
+  [
+    "view_tier_freefall",
+    true,
+    "tier 2 at 265 m above ground, interiors hidden, AO false, local shadows 0"
+  ],
+  [
+    "team_cluster",
+    true,
+    "3 teammates, farthest 34.9 m at canopy"
+  ],
+  [
+    "landed",
+    true,
+    "mode 3, health 85 at (164.0, 1.0, -167.0)"
+  ],
+  [
+    "view_tier_ground",
+    true,
+    "tier 0 at 2 m above ground, interiors drawn, AO true, local shadows 8"
+  ],
+  [
+    "outfits_vary",
+    true,
+    "7 of 7 characters carry a look; 7 different outfits among them"
+  ],
+  [
+    "outfits_draws",
+    true,
+    "at most 2 mesh surfaces per character body (outfit and head; the gun as before; the hooded body had 8): OutfitHead:1, Outfit:1"
+  ],
+  [
+    "pa_schedule_ignite",
+    true,
+    "chime@-61.3, 60@-59.9, chime@-31.4, 30@-30.0, n10@-10.0, n9@-9.0, n8@-8.0, n7@-7.0, n6@-6.0, n5@-5.0, n4@-4.0, n3@-3.0, n2@-2.0, n1@-1.0, siren@-0.1; 15 of 15 cues heard from a horn; "
+  ],
+  [
+    "pa_schedule_dusk",
+    true,
+    "chime@-61.4, 60@-60.0, chime@-31.4, 30@-30.0, n10@-10.0, n9@-9.0, n8@-8.0, n7@-7.0, n6@-6.0, n5@-5.0, n4@-4.0, n3@-3.0, n2@-2.0, n1@-1.0, siren@-0.1; 15 of 15 cues heard from a horn; "
+  ],
+  [
+    "holes_wall",
+    false,
+    "3 holes on plaster; the spot changed by 0.3 luma once the dust settled"
+  ],
+  [
+    "impact_particles",
+    true,
+    "6 particle bursts; 2.7 luma change while the dust flies vs 0.3 after"
+  ],
+  [
+    "chunks_cut",
+    true,
+    "bench_paint cut into 18 chunks (grid (3, 3, 2)) in 2.0 ms"
+  ],
+  [
+    "chunks_prop",
+    true,
+    "bench_paint: chunks left after each of 5 shots [17, 16, 15, 14, 0]; collapsed"
+  ],
+  [
+    "door_panels",
+    false,
+    "no closed door with a clear line of fire in the 90 nearest"
+  ],
+  [
+    "blast_props",
+    true,
+    "bench_paint was dormant, now broken with 1 chunks lost; scorch mark laid"
+  ],
+  [
+    "casings",
+    true,
+    "4 casings and 4 muzzle smoke puffs from a burst"
+  ],
+  [
+    "suppression",
+    true,
+    "a supersonic round passing 0.8 m away darkened the view edges to 0.37"
+  ],
+  [
+    "fx_perf",
+    true,
+    "an impact every frame for 60 frames vs quiet: quiet 11.65 ms (p95 16.93, GPU 3.95, call 0.003 ms); all 12.56 ms (p95 17.19, GPU 3.76, call 0.680 ms); particles 11.96 ms (p95 15.54, GPU 3.72, call 0.045 ms); holes 12.20 ms (p95 18.27, GPU 3.70, call 0.060 ms); sound 15.95 ms (p95 22.37, GPU 3.70, call 0.667 ms); quiet2 13.75 ms (p95 18.24, GPU 3.88, call 0.003 ms)"
+  ]
+]
