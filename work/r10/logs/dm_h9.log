@@ -1,0 +1,257 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+[server] dedicated server listening on 27744
+[world] map built in 9491 ms
+[map] 256 buildings, 1970 doors, 2518 containers, 2480 props, #f9b648fc on PC
+[match    0.0] deathmatch start on lawless_sub: 20 players, 2 teams; spawns (-170.0, 1.0, -150.0) and (130.0, 1.0, 150.0) (424 m apart, layout); day offset 300 s; zone centre (-63.0, -19.0) r=384
+[match    0.0] status: { "ground": 20 }; armed 20; shots 0; zone 0 wait r=384; corpses 0
+[match    0.0] dm teams: West Team 10 at (-171.0, -150.0) spread 4 m; East Team 10 at (129.0, 150.0) spread 4 m; gap 424 m; zone centre (-63.0, -19.0)
+[match    0.0] bots: { "roam": 20 }; containers searched by bots 0 (all players 0); plan steps done 0; guns carried 40
+[match    0.0] roles: { "looter": { "roam": 5 }, "stalker": { "roam": 2 }, "rusher": { "roam": 9 }, "sniper": { "roam": 4 } }; stuck now 0; waypoints 0; team { "lines": 0, "pings": 0, "laser_follow": 0, "learned_cells": 0, "blocked_cells": 0, "squads": 0, "following_humans": 0 }
+[match    0.0] [lootstats] bots on the ground 20 (in water 0); armed 20; armed with ammo for a gun 20; long guns 20; attachments fitted 0; rounds of unusable ammo carried 0; items on the ground 5988; bot pickups { "detours": 0, "detour_taken": 0, "fetches": 0, "fetch_done": 0, "items_taken": 0 }
+[match    4.6] [radio] Ate Load (rusher): hunting
+[match    5.4] [radio] Boy Pickup (rusher): hunting
+[match   12.0] Ate Load (team 1) landed at (101.0, 1.0, 129.0), 2.5 m/s, health 100; teammates -
+[match   13.4] Aling Puring (team 1) landed at (101.0, 1.0, 129.0), 2.5 m/s, health 100; teammates 2 m
+[match   14.1] Ising Batingaw (team 1) landed at (101.0, 1.0, 128.0), 2.5 m/s, health 100; teammates 1 m, 5 m
+[match   14.4] [radio] Kumareng Marites (sniper): sniping
+[match   14.7] [radio] Aling Puring (rusher): hunting
+[match   15.0] status: { "ground": 20 }; armed 20; shots 0; zone 0 wait r=384; corpses 0; server tick avg 1.50 ms, p99 2.96 ms, max 10.61 ms over 900 ticks
+[match   15.0] dm teams: West Team 10 at (-142.0, -109.0) spread 8 m; East Team 10 at (95.0, 141.0) spread 16 m; gap 344 m; zone centre (-63.0, -19.0)
+[match   15.0] bots: { "loot": 2, "hunt": 10, "roam": 2, "follow": 6 }; containers searched by bots 3 (all players 2); plan steps done 9; guns carried 40
+[match   15.0] roles: { "looter": { "loot": 2, "follow": 3 }, "stalker": { "hunt": 2 }, "rusher": { "hunt": 8, "follow": 1 }, "sniper": { "roam": 2, "follow": 2 } }; stuck now 1; waypoints 2028; team { "lines": 4, "pings": 0, "laser_follow": 0, "learned_cells": 0, "blocked_cells": 0, "squads": 5, "following_humans": 0 }
+[match   15.0] [lootstats] bots on the ground 20 (in water 0); armed 20; armed with ammo for a gun 20; long guns 20; attachments fitted 0; rounds of unusable ammo carried 0; items on the ground 5988; bot pickups { "detours": 0, "detour_taken": 0, "fetches": 0, "fetch_done": 0, "items_taken": 0 }
+[match   15.9] Utoy Kalabaw (team 0) landed at (-150.0, 1.0, -117.0), 4.9 m/s, health 100; teammates -
+[match   17.9] [radio] Bayaw Erning (rusher): hunting
+[match   18.7] Pareng Jun (team 1) landed at (97.0, 1.0, 151.0), 2.5 m/s, health 100; teammates 26 m, 31 m, 37 m
+[match   25.4] [radio] Kuya Wifi (stalker): sneaking
+[match   26.7] Bunso Badong (team 1) landed at (23.0, 1.0, 129.0), 2.5 m/s, health 100; teammates 76 m, 17 m, 10 m, 3 m
+[match   30.0] status: { "ground": 20 }; armed 20; shots 0; zone 0 wait r=384; corpses 0; server tick avg 1.63 ms, p99 2.40 ms, max 6.50 ms over 900 ticks
+[match   30.0] dm teams: West Team 10 at (-98.0, -33.0) spread 9 m; East Team 10 at (43.0, 138.0) spread 36 m; gap 221 m; zone centre (-63.0, -19.0)
+[match   30.0] bots: { "loot": 2, "hunt": 10, "roam": 1, "follow": 6, "overwatch": 1 }; containers searched by bots 6 (all players 3); plan steps done 15; guns carried 40
+[match   30.0] roles: { "looter": { "loot": 2, "follow": 3 }, "stalker": { "hunt": 2 }, "rusher": { "hunt": 8, "follow": 1 }, "sniper": { "roam": 1, "follow": 2, "overwatch": 1 } }; stuck now 0; waypoints 2028; team { "lines": 6, "pings": 0, "laser_follow": 0, "learned_cells": 0, "blocked_cells": 0, "squads": 5, "following_humans": 0 }
+[match   30.0] [lootstats] bots on the ground 20 (in water 0); armed 20; armed with ammo for a gun 20; long guns 20; attachments fitted 0; rounds of unusable ammo carried 0; items on the ground 5988; bot pickups { "detours": 0, "detour_taken": 0, "fetches": 0, "fetch_done": 0, "items_taken": 0 }
+[match   38.6] Tita Baby (team 1) landed at (101.0, -1.0, 123.0), 4.9 m/s, health 100; teammates 30 m, 101 m, 101 m, 101 m, 101 m
+[match   40.5] [radio] Mang Tomas (rusher): hunting
+[match   45.0] status: { "ground": 20 }; armed 20; shots 0; zone 0 wait r=384; corpses 0; server tick avg 1.69 ms, p99 2.51 ms, max 7.19 ms over 900 ticks
+[match   45.0] dm teams: West Team 10 at (-53.0, 18.0) spread 23 m; East Team 10 at (32.0, 132.0) spread 41 m; gap 143 m; zone centre (-63.0, -19.0)
+[match   45.0] bots: { "loot": 2, "hunt": 10, "overwatch": 2, "follow": 6 }; containers searched by bots 6 (all players 3); plan steps done 23; guns carried 40
+[match   45.0] roles: { "looter": { "loot": 2, "follow": 3 }, "stalker": { "hunt": 2 }, "rusher": { "hunt": 8, "follow": 1 }, "sniper": { "overwatch": 2, "follow": 2 } }; stuck now 0; waypoints 2028; team { "lines": 7, "pings": 0, "laser_follow": 0, "learned_cells": 0, "blocked_cells": 1, "squads": 5, "following_humans": 0 }
+[match   45.0] [lootstats] bots on the ground 20 (in water 2); armed 20; armed with ammo for a gun 20; long guns 20; attachments fitted 0; rounds of unusable ammo carried 0; items on the ground 5988; bot pickups { "detours": 0, "detour_taken": 0, "fetches": 0, "fetch_done": 0, "items_taken": 0 } wet at [(1.0, 116.0), (4.0, 118.0)]
+[match   46.1] Kulot Sabaw (team 0) landed at (-61.0, 1.0, 13.0), 2.5 m/s, health 100; teammates 6 m
+[match   46.8] Kumpare Ambo (team 0) landed at (-90.0, 1.0, 12.0), 2.5 m/s, health 100; teammates 29 m, 34 m
+[match   48.5] [canal] Kulot Sabaw (rusher) fell in at (-62.5, -1.4, 18.5) from [(-61.0, 0.9, 12.7), (-60.8, 0.9, 13.4), (-60.8, 0.9, 15.0), (-61.4, 0.9, 16.4), (-61.8, 0.7, 17.2), (-62.2, -0.2, 17.9)], state follow goal - path 1/1, last move [(-61.50218, 0.98642, 15.73887)]
+[match   56.3] [radio] Bunso Badong (rusher): contact
+[match   57.6] [radio] Boy Pickup (rusher): contact
+[match   58.7] [radio] Pareng Jun (looter): haze
+[match   59.2] [radio] Mang Tomas (rusher): taking_fire
+[match   59.4] [radio] Ate Load (rusher): taking_fire
+[match   59.4] Ate Load killed by Ising Batingaw (gunshot); 2 teams left
+[match   59.4] alive: West Team 10, East Team 9
+[match   59.4] Aling Puring killed by Bunso Badong (gunshot); 2 teams left
+[match   59.4] alive: West Team 10, East Team 8
+[match   60.0] zone 0 shrinking to r=194 at (-125.0, 154.0)
+[match   60.0] status: { "ground": 18 }; armed 18; shots 30; zone 0 shrink r=384; corpses 2; server tick avg 2.05 ms, p99 5.54 ms, max 33.86 ms over 900 ticks
+[match   60.0] dm teams: West Team 10 at (-23.0, 52.0) spread 57 m; East Team 8 at (35.0, 135.0) spread 38 m; gap 102 m; zone centre (-63.0, -19.0)
+[match   60.0] bots: { "zone": 1, "hunt": 3, "fight": 4, "overwatch": 2, "follow": 5, "investigate": 2, "loot": 1 }; containers searched by bots 6 (all players 3); plan steps done 13; guns carried 37
+[match   60.0] roles: { "looter": { "zone": 1, "follow": 3, "loot": 1 }, "stalker": { "hunt": 2 }, "rusher": { "fight": 3, "investigate": 2, "follow": 1, "hunt": 1 }, "sniper": { "overwatch": 2, "fight": 1, "follow": 1 } }; stuck now 0; waypoints 2028; team { "lines": 12, "pings": 0, "laser_follow": 0, "learned_cells": 4, "blocked_cells": 1, "squads": 5, "following_humans": 0 }
+[match   60.0] [lootstats] bots on the ground 18 (in water 1); armed 18; armed with ammo for a gun 18; long guns 19; attachments fitted 0; rounds of unusable ammo carried 0; items on the ground 5986; bot pickups { "detours": 2, "detour_taken": 2, "fetches": 0, "fetch_done": 0, "items_taken": 2 } wet at [(4.0, 116.0)]
+[match   60.1] Totoy Bibo (team 0) landed at (22.0, 1.0, 26.0), 4.4 m/s, health 100; teammates 83 m, 70 m, 118 m
+[match   60.8] [radio] Bunso Badong (rusher): taking_fire
+[match   61.2] [radio] Boy Pickup (rusher): taking_fire
+[match   61.3] Boy Pickup killed by Ising Batingaw (gunshot); 2 teams left
+[match   61.3] alive: West Team 9, East Team 8
+[match   61.4] Ising Batingaw killed by Bunso Badong (gunshot); 2 teams left
+[match   61.4] alive: West Team 9, East Team 7
+[match   61.8] Tsong Ramil (team 1) landed at (99.0, 1.0, 152.0), 2.5 m/s, health 100; teammates 9 m, 100 m, 77 m
+[match   62.3] [radio] Mang Tomas (rusher): taking_fire
+[match   62.3] Mang Tomas killed by Bayaw Erning (gunshot); 2 teams left
+[match   62.3] alive: West Team 8, East Team 7
+[match   62.7] [radio] Inday Rice Cooker (looter): down
+[match   62.7] Bunso Badong killed by Bayaw Erning (gunshot); 2 teams left
+[match   62.7] alive: West Team 8, East Team 6
+[match   63.2] [radio] Bayaw Erning (rusher): taking_fire
+[match   65.4] [radio] Totoy Bibo (stalker): contact
+[match   65.6] [radio] Tita Baby (sniper): clear
+[match   67.5] [radio] Utoy Kalabaw (rusher): hunting
+[match   67.7] [radio] Kuya Tricycle (sniper): sniping
+[match   68.7] [radio] Aling Nena (looter): taking_fire
+[match   69.6] [radio] Pareng Pandesal (sniper): contact
+[match   70.9] [radio] Totoy Bibo (stalker): taking_fire
+[match   71.1] [radio] Tita Baby (sniper): taking_fire
+[match   71.2] Totoy Bibo killed by Tita Baby (gunshot); 2 teams left
+[match   71.2] alive: West Team 7, East Team 6
+[match   72.2] [radio] Kuya Wifi (stalker): taking_fire
+[match   74.1] Aling Nena (team 1) landed at (24.0, 1.0, 129.0), 2.5 m/s, health 69; teammates 79 m, 6 m, 78 m
+[match   75.0] status: { "ground": 13 }; armed 13; shots 222; zone 0 shrink r=337; corpses 7; server tick avg 5.83 ms, p99 10.41 ms, max 22.89 ms over 900 ticks
+[match   75.0] dm teams: West Team 7 at (-28.0, 60.0) spread 64 m; East Team 6 at (47.0, 147.0) spread 36 m; gap 115 m; zone centre (-78.0, 25.0)
+[match   75.0] bots: { "zone": 2, "overwatch": 2, "follow": 3, "hunt": 2, "fight": 4 }; containers searched by bots 6 (all players 3); plan steps done 0; guns carried 27
+[match   75.0] roles: { "looter": { "zone": 2, "follow": 2, "fight": 1 }, "sniper": { "overwatch": 2, "fight": 2 }, "rusher": { "hunt": 2, "follow": 1 }, "stalker": { "fight": 1 } }; stuck now 3; waypoints 2028; team { "lines": 26, "pings": 0, "laser_follow": 0, "learned_cells": 10, "blocked_cells": 1, "squads": 5, "following_humans": 0 }
+[match   75.0] [lootstats] bots on the ground 13 (in water 1); armed 13; armed with ammo for a gun 13; long guns 14; attachments fitted 0; rounds of unusable ammo carried 0; items on the ground 5986; bot pickups { "detours": 2, "detour_taken": 2, "fetches": 0, "fetch_done": 0, "items_taken": 2 } wet at [(-1.0, 118.0)]
+[match   76.9] [radio] Kuya Wifi (stalker): taking_fire
+[match   79.4] [radio] Kuya Wifi (stalker): taking_fire
+[match   79.8] [radio] Tita Baby (sniper): taking_fire
+[match   80.9] [radio] Aling Nena (looter): taking_fire
+[match   81.4] [radio] Bayaw Erning (rusher): contact
+[match   82.7] [radio] Kulot Sabaw (rusher): lost_you
+[match   82.9] [radio] Inday Rice Cooker (looter): contact
+[match   83.9] [radio] Utoy Kalabaw (rusher): taking_fire
+[match   84.3] [radio] Tita Baby (sniper): taking_fire
+[match   84.4] Tita Baby killed by Utoy Kalabaw (gunshot); 2 teams left
+[match   84.4] alive: West Team 7, East Team 5
+[match   85.1] [radio] Kuya Wifi (stalker): taking_fire
+[match   85.1] Kuya Wifi killed by Inday Rice Cooker (gunshot); 2 teams left
+[match   85.1] alive: West Team 6, East Team 5
+[match   85.2] [canal] Kulot Sabaw (rusher) fell in at (-60.0, -1.5, 18.4) from [(-60.0, -1.5, 19.9), (-60.0, -0.6, 19.9), (-60.0, -0.4, 19.9), (-60.0, -0.9, 19.9), (-59.9, -1.5, 19.9), (-59.8, -1.5, 18.9)], state hunt goal (19.0, -1.6, 117.0) path 0/14, last move [(-53.0, 0.92, 21.0), (-47.0, 0.92, 27.0)]
+[match   85.3] [radio] Aling Nena (looter): taking_fire
+[match   86.1] [canal] Kulot Sabaw (rusher) fell in at (-58.3, -1.5, 20.2) from [(-59.9, -1.5, 19.9), (-59.8, -1.5, 18.9), (-60.1, -1.5, 18.4), (-60.0, -1.5, 18.4), (-59.5, -1.5, 19.0), (-58.5, -1.5, 19.9)], state hunt goal (19.0, -1.6, 117.0) path 0/14, last move [(-53.0, 0.92, 21.0), (-47.0, 0.92, 27.0)]
+[match   86.2] [radio] Bayaw Erning (rusher): down
+[match   86.2] Utoy Kalabaw killed by Inday Rice Cooker (gunshot); 2 teams left
+[match   86.2] alive: West Team 5, East Team 5
+[match   87.2] [canal] Kulot Sabaw (rusher) fell in at (-58.0, -1.5, 20.4) from [(-59.5, -1.5, 19.0), (-58.5, -1.5, 19.9), (-57.8, -1.5, 20.7), (-57.3, -1.5, 21.1), (-57.5, -1.5, 20.9), (-58.0, -1.5, 20.5)], state hunt goal (19.0, -1.6, 117.0) path 0/14, last move [(-53.0, 0.92, 21.0), (-47.0, 0.92, 27.0)]
+[match   88.0] [canal] Kulot Sabaw (rusher) fell in at (-56.4, -1.5, 22.0) from [(-57.3, -1.5, 21.1), (-57.5, -1.5, 20.9), (-58.0, -1.5, 20.5), (-57.8, -1.5, 20.6), (-57.2, -1.5, 21.2), (-56.6, -1.5, 21.9)], state hunt goal (19.0, -1.6, 117.0) path 0/14, last move [(-53.0, 0.92, 21.0), (-47.0, 0.92, 27.0)]
+[match   88.3] [radio] Pareng Pandesal (sniper): clear
+[match   89.6] [canal] Kulot Sabaw (rusher) fell in at (-54.4, -1.5, 24.1) from [(-56.2, -1.5, 22.2), (-56.1, -1.5, 22.4), (-55.9, -1.5, 22.6), (-55.6, -1.5, 22.8), (-55.2, -1.5, 23.2), (-54.5, -1.5, 23.9)], state hunt goal (19.0, -1.6, 117.0) path 0/8, last move [(-49.0, 0.92, 25.0), (-43.0, 0.92, 31.0)]
+[match   90.0] status: { "ground": 10 }; armed 10; shots 365; zone 0 shrink r=289; corpses 10; server tick avg 4.82 ms, p99 7.98 ms, max 19.77 ms over 900 ticks
+[match   90.0] dm teams: West Team 5 at (-44.0, 47.0) spread 59 m; East Team 5 at (53.0, 152.0) spread 36 m; gap 143 m; zone centre (-94.0, 68.0)
+[match   90.0] bots: { "zone": 2, "overwatch": 2, "follow": 2, "hunt": 2, "fight": 2 }; containers searched by bots 6 (all players 3); plan steps done 0; guns carried 21
+[match   90.0] roles: { "looter": { "zone": 2, "follow": 2, "fight": 1 }, "sniper": { "overwatch": 2, "fight": 1 }, "rusher": { "hunt": 2 } }; stuck now 1; waypoints 2028; team { "lines": 39, "pings": 0, "laser_follow": 0, "learned_cells": 12, "blocked_cells": 3, "squads": 5, "following_humans": 0 }
+[match   90.0] [lootstats] bots on the ground 10 (in water 0); armed 10; armed with ammo for a gun 10; long guns 11; attachments fitted 0; rounds of unusable ammo carried 0; items on the ground 5986; bot pickups { "detours": 2, "detour_taken": 2, "fetches": 0, "fetch_done": 0, "items_taken": 2 }
+[match   90.2] [radio] Aling Nena (looter): taking_fire
+[match   90.5] [canal] Kulot Sabaw (rusher) fell in at (-52.4, -1.5, 26.0) from [(-55.6, -1.5, 22.8), (-55.2, -1.5, 23.2), (-54.5, -1.5, 23.9), (-54.1, -1.5, 24.4), (-53.7, -1.5, 24.7), (-53.0, -1.5, 25.5)], state hunt goal (19.0, -1.6, 117.0) path 0/8, last move [(-49.0, 0.92, 25.0), (-43.0, 0.92, 31.0)]
+[match   93.2] Bayaw Erning (team 0) landed at (-1.0, -1.0, 120.0), 6.2 m/s, health 60; teammates 105 m, 143 m
+[match   94.7] [canal] Kulot Sabaw (rusher) fell in at (-50.4, -1.5, 28.0) from [(-51.1, -1.5, 27.3), (-51.1, -1.5, 27.3), (-51.1, -1.5, 27.3), (-51.1, -1.5, 27.3), (-51.1, -1.5, 27.4), (-50.6, -1.5, 27.8)], state hunt goal (19.0, -1.6, 117.0) path 0/9, last move [(-45.0, 0.92, 31.0), (-45.0, 0.92, 37.0)]
+[match   95.5] [canal] Kulot Sabaw (rusher) fell in at (-48.4, -1.5, 30.0) from [(-51.1, -1.5, 27.3), (-51.1, -1.5, 27.4), (-50.6, -1.5, 27.8), (-50.2, -1.5, 28.3), (-49.8, -1.5, 28.6), (-48.9, -1.5, 29.5)], state hunt goal (19.0, -1.6, 117.0) path 0/9, last move [(-45.0, 0.92, 31.0), (-45.0, 0.92, 37.0)]
+[match   95.9] [radio] Aling Nena (looter): taking_fire
+[match   98.6] [radio] Aling Nena (looter): taking_fire
+[match  104.6] [radio] Bayaw Erning (rusher): contact
+[match  105.0] status: { "ground": 10 }; armed 10; shots 376; zone 0 shrink r=241; corpses 10; server tick avg 2.28 ms, p99 3.58 ms, max 8.68 ms over 900 ticks
+[match  105.0] dm teams: West Team 5 at (-40.0, 52.0) spread 60 m; East Team 5 at (53.0, 152.0) spread 36 m; gap 136 m; zone centre (-109.0, 111.0)
+[match  105.0] bots: { "zone": 2, "overwatch": 2, "follow": 2, "fight": 3, "hunt": 1 }; containers searched by bots 6 (all players 3); plan steps done 0; guns carried 21
+[match  105.0] roles: { "looter": { "zone": 2, "follow": 2, "fight": 1 }, "sniper": { "overwatch": 2, "fight": 1 }, "rusher": { "fight": 1, "hunt": 1 } }; stuck now 1; waypoints 2028; team { "lines": 43, "pings": 0, "laser_follow": 0, "learned_cells": 12, "blocked_cells": 3, "squads": 5, "following_humans": 0 }
+[match  105.0] [lootstats] bots on the ground 10 (in water 1); armed 10; armed with ammo for a gun 10; long guns 11; attachments fitted 0; rounds of unusable ammo carried 0; items on the ground 5986; bot pickups { "detours": 2, "detour_taken": 2, "fetches": 0, "fetch_done": 0, "items_taken": 2 } wet at [(-49.0, 44.0)]
+[match  106.2] [radio] Aling Nena (looter): taking_fire
+[match  106.3] Aling Nena killed by Bayaw Erning (gunshot); 2 teams left
+[match  106.3] alive: West Team 5, East Team 4
+[match  112.0] [radio] Kuya Tricycle (sniper): contact
+[match  112.0] [radio] Pareng Pandesal (sniper): haze
+[match  112.7] [radio] Bayaw Erning (rusher): taking_fire
+[match  114.3] Bayaw Erning killed by Inday Rice Cooker (gunshot); 2 teams left
+[match  114.3] alive: West Team 4, East Team 4
+[match  114.4] [radio] Inday Rice Cooker (looter): contact
+[match  115.2] [radio] Pareng Pandesal (sniper): taking_fire
+[match  117.7] [radio] Inday Rice Cooker (looter): taking_fire
+[match  120.0] [radio] Pareng Jun (looter): haze
+[match  120.0] status: { "ground": 8 }; armed 8; shots 413; zone 1 wait r=194; corpses 12; server tick avg 2.22 ms, p99 4.11 ms, max 10.63 ms over 900 ticks
+[match  120.0] dm teams: West Team 4 at (-44.0, 58.0) spread 66 m; East Team 4 at (59.0, 159.0) spread 37 m; gap 144 m; zone centre (-125.0, 154.0)
+[match  120.0] bots: { "zone": 2, "overwatch": 1, "fight": 3, "hunt": 1, "follow": 1 }; containers searched by bots 6 (all players 3); plan steps done 0; guns carried 17
+[match  120.0] roles: { "looter": { "zone": 2, "fight": 1, "follow": 1 }, "sniper": { "overwatch": 1, "fight": 2 }, "rusher": { "hunt": 1 } }; stuck now 0; waypoints 2028; team { "lines": 51, "pings": 0, "laser_follow": 0, "learned_cells": 14, "blocked_cells": 3, "squads": 5, "following_humans": 0 }
+[match  120.0] [lootstats] bots on the ground 8 (in water 0); armed 8; armed with ammo for a gun 8; long guns 9; attachments fitted 0; rounds of unusable ammo carried 0; items on the ground 5986; bot pickups { "detours": 2, "detour_taken": 2, "fetches": 0, "fetch_done": 0, "items_taken": 2 }
+[match  121.5] [radio] Pareng Pandesal (sniper): taking_fire
+[match  125.4] [radio] Pareng Pandesal (sniper): taking_fire
+[match  126.3] [radio] Kuya Tricycle (sniper): reloading
+[match  130.7] [radio] Inday Rice Cooker (looter): reloading
+[match  130.8] [radio] Pareng Pandesal (sniper): taking_fire
+[match  135.0] status: { "ground": 8 }; armed 8; shots 475; zone 1 wait r=194; corpses 12; server tick avg 2.59 ms, p99 4.42 ms, max 10.28 ms over 900 ticks
+[match  135.0] dm teams: West Team 4 at (-57.0, 66.0) spread 72 m; East Team 4 at (60.0, 159.0) spread 39 m; gap 150 m; zone centre (-125.0, 154.0)
+[match  135.0] bots: { "zone": 2, "overwatch": 1, "fight": 3, "hunt": 1, "follow": 1 }; containers searched by bots 6 (all players 3); plan steps done 0; guns carried 18
+[match  135.0] roles: { "looter": { "zone": 2, "fight": 1, "follow": 1 }, "sniper": { "overwatch": 1, "fight": 2 }, "rusher": { "hunt": 1 } }; stuck now 0; waypoints 2028; team { "lines": 56, "pings": 0, "laser_follow": 0, "learned_cells": 14, "blocked_cells": 3, "squads": 5, "following_humans": 0 }
+[match  135.0] [lootstats] bots on the ground 8 (in water 0); armed 8; armed with ammo for a gun 7; long guns 10; attachments fitted 0; rounds of unusable ammo carried 0; items on the ground 5984; bot pickups { "detours": 4, "detour_taken": 4, "fetches": 0, "fetch_done": 0, "items_taken": 4 }
+[match  136.0] [radio] Kumareng Marites (sniper): sniping
+[match  136.6] [radio] Kuya Tricycle (sniper): reloading
+[match  139.8] [radio] Pareng Pandesal (sniper): reloading
+[match  143.1] [radio] Pareng Pandesal (sniper): taking_fire
+[match  143.3] [radio] Inday Rice Cooker (looter): reloading
+[match  145.6] [radio] Kuya Tricycle (sniper): reloading
+[match  150.0] status: { "ground": 8 }; armed 8; shots 507; zone 1 wait r=194; corpses 12; server tick avg 1.57 ms, p99 2.52 ms, max 6.23 ms over 900 ticks
+[match  150.0] dm teams: West Team 4 at (-79.0, 87.0) spread 69 m; East Team 4 at (59.0, 158.0) spread 37 m; gap 155 m; zone centre (-125.0, 154.0)
+[match  150.0] bots: { "zone": 2, "roam": 1, "fight": 3, "hunt": 1, "follow": 1 }; containers searched by bots 6 (all players 3); plan steps done 0; guns carried 18
+[match  150.0] roles: { "looter": { "zone": 2, "fight": 1, "follow": 1 }, "sniper": { "roam": 1, "fight": 2 }, "rusher": { "hunt": 1 } }; stuck now 0; waypoints 2028; team { "lines": 62, "pings": 0, "laser_follow": 0, "learned_cells": 14, "blocked_cells": 3, "squads": 5, "following_humans": 0 }
+[match  150.0] [lootstats] bots on the ground 8 (in water 0); armed 8; armed with ammo for a gun 5; long guns 10; attachments fitted 0; rounds of unusable ammo carried 0; items on the ground 5984; bot pickups { "detours": 4, "detour_taken": 4, "fetches": 0, "fetch_done": 0, "items_taken": 4 }
+[match  152.1] [radio] Pareng Pandesal (sniper): reloading
+[match  152.3] [radio] Inday Rice Cooker (looter): reloading
+[match  154.6] [radio] Kuya Tricycle (sniper): reloading
+[match  159.7] [radio] Kuya Tricycle (sniper): down
+[match  159.7] Inday Rice Cooker killed by Kuya Tricycle (bleeding); 2 teams left
+[match  159.7] alive: West Team 4, East Team 3
+[match  161.1] [radio] Pareng Pandesal (sniper): reloading
+[match  165.0] zone 1 shrinking to r=113 at (-170.0, 116.0)
+[match  165.0] status: { "ground": 7 }; armed 7; shots 507; zone 1 shrink r=194; corpses 13; server tick avg 1.26 ms, p99 2.05 ms, max 11.54 ms over 900 ticks
+[match  165.0] dm teams: West Team 4 at (-93.0, 106.0) spread 72 m; East Team 3 at (71.0, 160.0) spread 33 m; gap 173 m; zone centre (-125.0, 154.0)
+[match  165.0] bots: { "zone": 2, "overwatch": 1, "hunt": 1, "follow": 1, "fight": 2 }; containers searched by bots 6 (all players 3); plan steps done 0; guns carried 16
+[match  165.0] roles: { "looter": { "zone": 2, "follow": 1 }, "sniper": { "overwatch": 1, "fight": 2 }, "rusher": { "hunt": 1 } }; stuck now 0; waypoints 2028; team { "lines": 67, "pings": 0, "laser_follow": 0, "learned_cells": 15, "blocked_cells": 3, "squads": 5, "following_humans": 0 }
+[match  165.0] [lootstats] bots on the ground 7 (in water 0); armed 7; armed with ammo for a gun 5; long guns 9; attachments fitted 0; rounds of unusable ammo carried 0; items on the ground 5984; bot pickups { "detours": 4, "detour_taken": 4, "fetches": 0, "fetch_done": 0, "items_taken": 4 }
+[match  166.6] [haze death] Tsong Ramil (looter) state zone at (95.0, 1.0, 161.0) goal (-113.0, 1.0, 117.0) path 0/13 no_prog 1.4 pending false
+[match  166.6] [radio] Pareng Jun (looter): down
+[match  166.6] Tsong Ramil killed by the world (haze); 2 teams left
+[match  166.6] alive: West Team 4, East Team 2
+[match  166.7] [haze death] Pareng Jun (looter) state zone at (96.0, 1.0, 161.0) goal (-113.0, 1.0, 117.0) path 0/13 no_prog 2.2 pending false
+[match  166.7] Pareng Jun killed by the world (haze); 2 teams left
+[match  166.7] alive: West Team 4, East Team 1
+[match  168.7] [radio] Kuya Tricycle (sniper): reloading
+[match  170.1] [radio] Pareng Pandesal (sniper): reloading
+[match  177.7] [radio] Kuya Tricycle (sniper): reloading
+[match  179.1] [radio] Pareng Pandesal (sniper): reloading
+[match  180.0] status: { "ground": 5 }; armed 5; shots 507; zone 1 shrink r=167; corpses 15; server tick avg 0.91 ms, p99 1.87 ms, max 13.23 ms over 900 ticks
+[match  180.0] dm teams: West Team 4 at (-95.0, 107.0) spread 74 m; East Team 1 at (22.0, 160.0) spread 0 m; gap 129 m; zone centre (-140.0, 141.0)
+[match  180.0] bots: { "overwatch": 1, "hunt": 1, "follow": 1, "fight": 2 }; containers searched by bots 0 (all players 3); plan steps done 0; guns carried 10
+[match  180.0] roles: { "sniper": { "overwatch": 1, "fight": 2 }, "rusher": { "hunt": 1 }, "looter": { "follow": 1 } }; stuck now 0; waypoints 2028; team { "lines": 72, "pings": 0, "laser_follow": 0, "learned_cells": 17, "blocked_cells": 3, "squads": 5, "following_humans": 0 }
+[match  180.0] [lootstats] bots on the ground 5 (in water 0); armed 5; armed with ammo for a gun 3; long guns 5; attachments fitted 0; rounds of unusable ammo carried 0; items on the ground 5984; bot pickups { "detours": 4, "detour_taken": 4, "fetches": 0, "fetch_done": 0, "items_taken": 4 }
+[match  186.7] [radio] Kuya Tricycle (sniper): reloading
+[match  187.5] Pareng Pandesal killed by Inday Rice Cooker (bleeding); 2 teams left
+[match  187.5] alive: West Team 3, East Team 1
+[match  193.1] [radio] Kulot Sabaw (rusher): haze
+[match  195.0] status: { "ground": 4 }; armed 4; shots 507; zone 1 shrink r=140; corpses 16; server tick avg 0.69 ms, p99 1.48 ms, max 7.14 ms over 900 ticks
+[match  195.0] dm teams: West Team 3 at (-136.0, 106.0) spread 43 m; East Team 1 at (-9.0, 160.0) spread 0 m; gap 138 m; zone centre (-155.0, 129.0)
+[match  195.0] bots: { "overwatch": 1, "zone": 2, "follow": 1 }; containers searched by bots 0 (all players 3); plan steps done 0; guns carried 8
+[match  195.0] roles: { "sniper": { "overwatch": 1, "zone": 1 }, "rusher": { "zone": 1 }, "looter": { "follow": 1 } }; stuck now 0; waypoints 2028; team { "lines": 74, "pings": 0, "laser_follow": 0, "learned_cells": 19, "blocked_cells": 3, "squads": 5, "following_humans": 0 }
+[match  195.0] [lootstats] bots on the ground 4 (in water 0); armed 4; armed with ammo for a gun 3; long guns 4; attachments fitted 0; rounds of unusable ammo carried 0; items on the ground 5984; bot pickups { "detours": 4, "detour_taken": 4, "fetches": 0, "fetch_done": 0, "items_taken": 4 }
+[match  198.4] [radio] Kuya Tricycle (sniper): contact
+[match  203.0] [radio] Kulot Sabaw (rusher): contact
+[match  210.0] status: { "ground": 4 }; armed 4; shots 513; zone 2 wait r=113; corpses 16; server tick avg 0.63 ms, p99 1.40 ms, max 6.87 ms over 900 ticks
+[match  210.0] dm teams: West Team 3 at (-136.0, 105.0) spread 42 m; East Team 1 at (-51.0, 138.0) spread 0 m; gap 92 m; zone centre (-170.0, 116.0)
+[match  210.0] bots: { "overwatch": 1, "zone": 2, "follow": 1 }; containers searched by bots 0 (all players 3); plan steps done 0; guns carried 8
+[match  210.0] roles: { "sniper": { "overwatch": 1, "zone": 1 }, "rusher": { "zone": 1 }, "looter": { "follow": 1 } }; stuck now 1; waypoints 2028; team { "lines": 76, "pings": 0, "laser_follow": 0, "learned_cells": 19, "blocked_cells": 3, "squads": 5, "following_humans": 0 }
+[match  210.0] [lootstats] bots on the ground 4 (in water 0); armed 4; armed with ammo for a gun 3; long guns 4; attachments fitted 0; rounds of unusable ammo carried 0; items on the ground 5984; bot pickups { "detours": 4, "detour_taken": 4, "fetches": 0, "fetch_done": 0, "items_taken": 4 }
+[match  210.1] [radio] Kuya Tricycle (sniper): haze
+[match  213.5] Kuya Tricycle (team 1) landed at (-49.0, 1.0, 142.0), 4.9 m/s, health 19; teammates -
+[match  225.0] status: { "ground": 4 }; armed 4; shots 513; zone 2 wait r=113; corpses 16; server tick avg 0.52 ms, p99 1.34 ms, max 7.07 ms over 900 ticks
+[match  225.0] dm teams: West Team 3 at (-148.0, 110.0) spread 32 m; East Team 1 at (-72.0, 142.0) spread 0 m; gap 83 m; zone centre (-170.0, 116.0)
+[match  225.0] bots: { "overwatch": 1, "hunt": 1, "follow": 1, "zone": 1 }; containers searched by bots 0 (all players 3); plan steps done 0; guns carried 8
+[match  225.0] roles: { "sniper": { "overwatch": 1, "zone": 1 }, "rusher": { "hunt": 1 }, "looter": { "follow": 1 } }; stuck now 0; waypoints 2028; team { "lines": 77, "pings": 0, "laser_follow": 0, "learned_cells": 19, "blocked_cells": 3, "squads": 5, "following_humans": 0 }
+[match  225.0] [lootstats] bots on the ground 4 (in water 0); armed 4; armed with ammo for a gun 3; long guns 4; attachments fitted 0; rounds of unusable ammo carried 0; items on the ground 5984; bot pickups { "detours": 4, "detour_taken": 4, "fetches": 0, "fetch_done": 0, "items_taken": 4 }
+[match  240.0] status: { "ground": 4 }; armed 4; shots 513; zone 2 wait r=113; corpses 16; server tick avg 0.51 ms, p99 1.27 ms, max 6.66 ms over 900 ticks
+[match  240.0] dm teams: West Team 3 at (-158.0, 116.0) spread 33 m; East Team 1 at (-90.0, 142.0) spread 0 m; gap 73 m; zone centre (-170.0, 116.0)
+[match  240.0] bots: { "overwatch": 1, "hunt": 1, "follow": 1, "investigate": 1 }; containers searched by bots 0 (all players 3); plan steps done 0; guns carried 8
+[match  240.0] roles: { "sniper": { "overwatch": 1, "investigate": 1 }, "rusher": { "hunt": 1 }, "looter": { "follow": 1 } }; stuck now 0; waypoints 2028; team { "lines": 77, "pings": 0, "laser_follow": 0, "learned_cells": 19, "blocked_cells": 3, "squads": 5, "following_humans": 0 }
+[match  240.0] [lootstats] bots on the ground 4 (in water 0); armed 4; armed with ammo for a gun 3; long guns 4; attachments fitted 0; rounds of unusable ammo carried 0; items on the ground 5984; bot pickups { "detours": 4, "detour_taken": 4, "fetches": 0, "fetch_done": 0, "items_taken": 4 }
+[match  249.1] [radio] Kuya Tricycle (sniper): contact
+[match  250.0] zone 2 shrinking to r=63 at (-167.0, 146.0)
+[match  255.0] status: { "ground": 4 }; armed 4; shots 513; zone 2 shrink r=106; corpses 16; server tick avg 0.54 ms, p99 1.38 ms, max 5.94 ms over 900 ticks
+[match  255.0] dm teams: West Team 3 at (-164.0, 103.0) spread 14 m; East Team 1 at (-89.0, 142.0) spread 0 m; gap 84 m; zone centre (-170.0, 120.0)
+[match  255.0] bots: { "overwatch": 1, "hunt": 1, "follow": 1, "zone": 1 }; containers searched by bots 0 (all players 3); plan steps done 0; guns carried 8
+[match  255.0] roles: { "sniper": { "overwatch": 1, "zone": 1 }, "rusher": { "hunt": 1 }, "looter": { "follow": 1 } }; stuck now 1; waypoints 2028; team { "lines": 78, "pings": 0, "laser_follow": 0, "learned_cells": 19, "blocked_cells": 3, "squads": 5, "following_humans": 0 }
+[match  255.0] [lootstats] bots on the ground 4 (in water 0); armed 4; armed with ammo for a gun 3; long guns 4; attachments fitted 0; rounds of unusable ammo carried 0; items on the ground 5984; bot pickups { "detours": 4, "detour_taken": 4, "fetches": 0, "fetch_done": 0, "items_taken": 4 }
+[match  267.5] [radio] Kumareng Marites (sniper): sniping
+[match  269.1] [radio] Kuya Tricycle (sniper): contact
+[match  270.0] status: { "ground": 4 }; armed 4; shots 513; zone 2 shrink r=88; corpses 16; server tick avg 0.55 ms, p99 1.46 ms, max 5.75 ms over 900 ticks
+[match  270.0] dm teams: West Team 3 at (-171.0, 100.0) spread 12 m; East Team 1 at (-105.0, 137.0) spread 0 m; gap 76 m; zone centre (-168.0, 131.0)
+[match  270.0] bots: { "overwatch": 1, "hunt": 1, "follow": 1, "fight": 1 }; containers searched by bots 0 (all players 3); plan steps done 0; guns carried 8
+[match  270.0] roles: { "sniper": { "overwatch": 1, "fight": 1 }, "rusher": { "hunt": 1 }, "looter": { "follow": 1 } }; stuck now 0; waypoints 2028; team { "lines": 80, "pings": 0, "laser_follow": 0, "learned_cells": 19, "blocked_cells": 3, "squads": 5, "following_humans": 0 }
+[match  270.0] [lootstats] bots on the ground 4 (in water 0); armed 4; armed with ammo for a gun 3; long guns 4; attachments fitted 0; rounds of unusable ammo carried 0; items on the ground 5984; bot pickups { "detours": 4, "detour_taken": 4, "fetches": 0, "fetch_done": 0, "items_taken": 4 }
+[match  274.2] [radio] Kulot Sabaw (rusher): hunting
+[match  278.1] [radio] Kuya Tricycle (sniper): reloading
+[match  281.9] [radio] Kumareng Marites (sniper): haze
+[match  285.0] status: { "ground": 4 }; armed 4; shots 548; zone 2 shrink r=69; corpses 16; server tick avg 0.99 ms, p99 2.10 ms, max 6.07 ms over 900 ticks
+[match  285.0] dm teams: West Team 3 at (-155.0, 106.0) spread 22 m; East Team 1 at (-105.0, 137.0) spread 0 m; gap 59 m; zone centre (-167.0, 142.0)
+[match  285.0] bots: { "zone": 2, "fight": 2 }; containers searched by bots 0 (all players 3); plan steps done 0; guns carried 9
+[match  285.0] roles: { "sniper": { "zone": 1, "fight": 1 }, "rusher": { "fight": 1 }, "looter": { "zone": 1 } }; stuck now 1; waypoints 2028; team { "lines": 83, "pings": 0, "laser_follow": 0, "learned_cells": 19, "blocked_cells": 3, "squads": 5, "following_humans": 0 }
+[match  285.0] [lootstats] bots on the ground 4 (in water 0); armed 4; armed with ammo for a gun 3; long guns 5; attachments fitted 0; rounds of unusable ammo carried 0; items on the ground 5982; bot pickups { "detours": 6, "detour_taken": 6, "fetches": 0, "fetch_done": 0, "items_taken": 6 }
+[match  287.1] [radio] Kuya Tricycle (sniper): reloading
+[match  287.5] [radio] Kulot Sabaw (rusher): reloading
+[match  290.6] [haze death] Kuya Tricycle (sniper) state fight at (-100.0, 1.0, 138.0) goal (-129.0, 1.0, 139.0) path 0/1 no_prog 0.0 pending false
+[match  290.6] Kuya Tricycle killed by the world (haze); 1 teams left
+[match  290.6] alive: West Team 3, East Team 0
+[match  290.6] match over: winner team 0 (West Team) after 291 s, 567 shots fired
+[bots] saved 20 learned cells to user://bot_memory_lawless_sub.json
+[game] results: {}

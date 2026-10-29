@@ -1,0 +1,132 @@
+[
+  [
+    "floor_guns_in_houses",
+    true,
+    "5939 guns on the ground; 1869 of 2025 houses/shops/apartments (92%) have one lying on a floor"
+  ],
+  [
+    "balikbayan_has_guns",
+    true,
+    "32% of balikbayan box rolls are a gun"
+  ],
+  [
+    "jump",
+    true,
+    "left the plane"
+  ],
+  [
+    "view_tier_freefall",
+    true,
+    "tier 2 at 269 m above ground, interiors hidden, AO false, local shadows 0"
+  ],
+  [
+    "team_cluster",
+    true,
+    "3 teammates, farthest 32.7 m at canopy"
+  ],
+  [
+    "landed",
+    true,
+    "mode 3, health 85 at (-106.0, 8.0, -162.0)"
+  ],
+  [
+    "view_tier_ground",
+    true,
+    "tier 0 at 9 m above ground, interiors drawn, AO true, local shadows 8"
+  ],
+  [
+    "use_takes_items",
+    false,
+    "[\"ammo_556: T left it true, E took it false\", \"rifle_scar: T left it true, E took it false\"]; carrying 0 5.56 rounds, SCAR-L in a slot false"
+  ],
+  [
+    "stairs_recorded",
+    true,
+    "1798 indoor flights"
+  ],
+  [
+    "stairs_climbable",
+    false,
+    "24 of 24 flights climbed, 23 stepped off on the upper floor; [\"no landing at (52.2, 3.8, -163.7) (got (51.4, 4.2, -163.8); at the top of the flight was (52.9, 3.7, -163.4))\"]"
+  ],
+  [
+    "floor_gun_visible",
+    true,
+    "smg_ump45 at 2.1 m in an unlit room, no flashlight: 4416 pixels show the gun (mean luma 90.0)"
+  ],
+  [
+    "tab_opens_box",
+    true,
+    "beside lootbox_balikbayan: container shown true (id 9995, a loot box true, walked to 9995), page Items, its lid opened true, 1 entries listed (the box holds 1)"
+  ],
+  [
+    "grab_with_t",
+    true,
+    "suitcase: prompt 'T  Pick up', after E held -1, after T held true, after second T dropped true"
+  ],
+  [
+    "ping_minimap",
+    true,
+    "ping shown true, 18 green pixels in the minimap, cleared after 8 s true, minimap visible true at (20.0, 20.0)"
+  ],
+  [
+    "door_opens_forward",
+    true,
+    "door 3980 swung 95 deg, leaf on the far side true (player side +1, leaf side -1)"
+  ],
+  [
+    "door_walk_through",
+    true,
+    "walked from (112.4, 1.2, -186.1) through the doorway to (115.1, 1.3, -192.4)"
+  ],
+  [
+    "door_push_swings",
+    true,
+    "leaf at 52 deg, shoved 39 deg by a running player (swinging on its own afterwards true), now 77 deg"
+  ],
+  [
+    "door_latches_shut",
+    true,
+    "angle 0.000, solid true"
+  ],
+  [
+    "vault_through_window",
+    true,
+    "6 of 6 windows vaulted through; []"
+  ],
+  [
+    "vault_hides_weapon",
+    true,
+    "gun lowered while vaulting true, back up after true"
+  ],
+  [
+    "trash_no_block",
+    true,
+    "trashbag: blocks movement false, stops bullets false; 562 garbage heaps placed without collision"
+  ],
+  [
+    "all_weapons_work",
+    true,
+    "24 guns tested; problems: []"
+  ],
+  [
+    "shared_calibres",
+    true,
+    "by calibre: { \"9x19\": [\"P92\", \"MP5K\", \"Micro UZI\", \"Vector\"], \"45acp\": [\"P1911\", \"UMP45\", \"Tommy Gun\"], \"357\": [\"R1895 Revolver\"], \"12buck\": [\"S1897 Pump\", \"S686\", \"Sumpak\", \"S12K\"], \"556\": [\"AR-15\", \"SCAR-L\", \"M416\", \"M249\", \"Mini 14\"], \"762x39\": [\"AKM\", \"Beryl M762\", \"SKS\"], \"308\": [\"M24\", \"SLR\", \"Kar98k\"], \"50ae\": [\"Deagle\"] }"
+  ],
+  [
+    "frag_grenade",
+    true,
+    "thrown true, frags left 1, teammate 2 m away 88 -> 6 health, exploded at (122.6, 1.0, -171.7)"
+  ],
+  [
+    "work_sounds_used",
+    true,
+    "46 work/sounds files in use; unused []; not loading []"
+  ],
+  [
+    "door_sounds_60",
+    true,
+    "door open -6.4 dB (was -2.0), door close -4.4 dB (was 0.0), ambience default 60%"
+  ]
+]

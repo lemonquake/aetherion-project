@@ -1,0 +1,25 @@
+[autotest-a] PASS connected_as_client: pid 1822412755, rtt 10 ms
+[autotest-a] PASS landed: mode 3 at (-78.0, 1.0, -23.0)
+[autotest-a] PASS floor_items_synced: 17111 floor items known to this client
+[autotest-a] PASS prediction: max error 0.000 m, 0 corrections, 2 replayed
+[autotest-a] at door: me (-58.65, 0.89, -45.48) (wanted (-58.65, 0.99, -45.48)), door centre (-58.65, 2.0, -44.38), use ray sees door
+[autotest-a] PASS door_open_local: door 791 target -1.65
+[autotest-a] PASS window_broken_local: window 2170
+[autotest-a] PASS vault_predicted: vaulted true, now 0.68 m outside the window, max prediction error 0.000 m, 0 corrections
+[autotest-a] PASS ladder_predicted: climbed 5.1 m to the roof true (y 6.10 / 6.07), max prediction error 0.000 m, 0 corrections
+[autotest-a] race: item 17050 at (-39.41, 0.92, 20.71) (node none), me (-38.65, 0.91, 21.05), eye-to-item 1.85 m, use ray sees item 17050; full ray hits nothing layer - at (0.0, 0.0, 0.0)
+[autotest-a] race: commands carrying Use: [2609, 2610, 2611] (tab false, paused false, mode 3)
+[autotest-a] PASS item_race_single_owner: Alpha got it: false, Bravo got it: true
+[autotest-a] done: 9 checks, 0 failed
+[autotest-b] PASS connected_as_client: pid 359451769, rtt 8 ms
+[autotest-b] PASS landed: mode 3 at (-85.0, 1.0, -18.0)
+[autotest-b] PASS sees_teammate: Alpha found
+[autotest-b] PASS door_open_seen_by_other: door 791 target -1.65
+[autotest-b] PASS window_broken_seen_by_other: window 2170
+[autotest-b] PASS ping_seen_by_teammate: Alpha's ping (eid 1) on Bravo's minimap: true
+[autotest-b] PASS flashlight_seen_by_other: Alpha flags 1
+[autotest-b] PASS radio_cue_seen_by_teammate: radio flag seen true, 25 voice packets
+[autotest-b] race: item 17050 at (-39.41, 0.92, 20.71) (node none), me (-39.79, 0.92, 21.03), eye-to-item 1.73 m, use ray sees item 17050; full ray hits nothing layer - at (0.0, 0.0, 0.0)
+[autotest-b] race: commands carrying Use: [2618, 2619, 2620] (tab false, paused false, mode 3)
+[autotest-b] done: 8 checks, 0 failed
+alpha exit 0, bravo exit 0

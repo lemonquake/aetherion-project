@@ -1,0 +1,2653 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+[server] dedicated server listening on 27711
+[world] map built in 15644 ms
+[map] 256 buildings, 1970 doors, 2518 containers, 2480 props, #f9b648fc on PC
+[match    0.0] deathmatch start on lawless_sub: 20 players, 2 teams; spawns (-170.0, 1.0, -150.0) and (130.0, 1.0, 150.0) (424 m apart, layout); day offset 300 s; zone centre (-44.0, -45.0) r=382
+[match    0.0] status: { "ground": 20 }; armed 20; shots 0; zone 0 wait r=382; corpses 0
+[match    0.0] dm teams: West Team 10 at (-171.0, -150.0) spread 4 m; East Team 10 at (129.0, 150.0) spread 4 m; gap 424 m; zone centre (-44.0, -45.0)
+[match    0.0] bots: { "roam": 20 }; containers searched by bots 0 (all players 0); plan steps done 0; guns carried 40
+[match    0.0] [lootstats] bots on the ground 20 (in water 0); armed 20; armed with ammo for a gun 20; long guns 20; attachments fitted 0; rounds of unusable ammo carried 0; items on the ground 5934; bot pickups { "detours": 0, "detour_taken": 0, "fetches": 0, "fetch_done": 0, "items_taken": 0 }
+[match   12.5] Ate Bebang (team 1) landed at (100.0, 1.0, 127.0), 2.5 m/s, health 100; teammates -
+[match   12.6] Lola Basyang Jr (team 1) landed at (101.0, 1.0, 129.0), 2.5 m/s, health 100; teammates 2 m
+[match   12.8] Lolo Kalesa (team 1) landed at (100.0, 1.0, 128.0), 2.5 m/s, health 100; teammates 1 m, 1 m
+[match   13.5] Utoy Kalabaw (team 1) landed at (101.0, 1.0, 128.0), 2.5 m/s, health 100; teammates 3 m, 2 m, 1 m
+[match   13.7] Bayaw Erning (team 1) landed at (101.0, 1.0, 127.0), 2.5 m/s, health 100; teammates 2 m, 1 m, 2 m, 2 m
+[match   14.2] Tatay Kulas (team 1) landed at (101.0, 1.0, 127.0), 2.5 m/s, health 100; teammates 2 m, 1 m, 1 m, 2 m, 2 m
+[match   15.0] status: { "ground": 20 }; armed 20; shots 0; zone 0 wait r=382; corpses 0; server tick avg 1.46 ms, p99 2.33 ms, max 9.79 ms over 900 ticks
+[match   15.0] dm teams: West Team 10 at (-139.0, -106.0) spread 6 m; East Team 10 at (100.0, 130.0) spread 7 m; gap 336 m; zone centre (-44.0, -45.0)
+[match   15.0] bots: { "hunt": 13, "follow": 6, "loot": 1 }; containers searched by bots 2 (all players 3); plan steps done 5; guns carried 40
+[match   15.0] [lootstats] bots on the ground 20 (in water 0); armed 20; armed with ammo for a gun 20; long guns 20; attachments fitted 0; rounds of unusable ammo carried 0; items on the ground 5934; bot pickups { "detours": 0, "detour_taken": 0, "fetches": 0, "fetch_done": 0, "items_taken": 0 }
+[match   17.1] [radio] Ate Bebang (stalker): sneaking
+[match   19.5] Inday Tsismis (team 1) landed at (95.0, 1.0, 153.0), 4.9 m/s, health 100; teammates 40 m, 36 m, 36 m, 40 m, 37 m, 42 m
+[match   19.5] [radio] Kulot Sabaw (rusher): hunting
+[match   21.1] Pinsan Gardo (team 1) landed at (101.0, 1.0, 126.0), 2.5 m/s, health 100; teammates 33 m, 32 m, 26 m, 34 m, 28 m, 36 m, 38 m
+[match   21.7] Nanay Kakanin (team 1) landed at (101.0, 1.0, 126.0), 2.5 m/s, health 100; teammates 34 m, 1 m, 33 m, 28 m, 35 m, 28 m, 37 m, 39 m
+[match   22.0] Dodong Lechon (team 1) landed at (101.0, 0.0, 124.0), 5.5 m/s, health 100; teammates 35 m, 3 m, 3 m, 35 m, 29 m, 36 m, 31 m, 38 m, 40 m
+[match   25.3] [radio] Ka Pedring (rusher): hunting
+[match   27.0] [radio] Lola Basyang Jr (stalker): sneaking
+[match   29.9] [radio] Mang Kanor (rusher): hunting
+[match   30.0] status: { "ground": 20 }; armed 20; shots 0; zone 0 wait r=382; corpses 0; server tick avg 1.54 ms, p99 2.61 ms, max 6.26 ms over 900 ticks
+[match   30.0] dm teams: West Team 10 at (-93.0, -28.0) spread 5 m; East Team 10 at (62.0, 119.0) spread 15 m; gap 214 m; zone centre (-44.0, -45.0)
+[match   30.0] bots: { "hunt": 13, "follow": 6, "loot": 1 }; containers searched by bots 3 (all players 3); plan steps done 8; guns carried 40
+[match   30.0] [lootstats] bots on the ground 20 (in water 6); armed 20; armed with ammo for a gun 20; long guns 20; attachments fitted 0; rounds of unusable ammo carried 0; items on the ground 5934; bot pickups { "detours": 0, "detour_taken": 0, "fetches": 0, "fetch_done": 0, "items_taken": 0 } wet at [(62.0, 121.0), (64.0, 120.0), (54.0, 118.0), (50.0, 118.0), (86.0, 120.0), (49.0, 117.0)]
+[match   31.5] [radio] Utoy Kalabaw (rusher): hunting
+[match   33.2] Totoy Kulot (team 0) landed at (-83.0, 1.0, -10.0), 2.5 m/s, health 100; teammates -
+[match   34.4] Kapitan Tikoy (team 0) landed at (-85.0, 1.0, -10.0), 2.5 m/s, health 100; teammates 7 m
+[match   35.5] Ka Pedring (team 0) landed at (-84.0, 1.0, -10.0), 2.5 m/s, health 100; teammates 5 m, 13 m
+[match   35.7] Ising Batingaw (team 0) landed at (-79.0, -1.0, -11.0), 7.0 m/s, health 100; teammates 6 m, 7 m, 13 m
+[match   35.9] Mang Tomas (team 0) landed at (-84.0, 1.0, -10.0), 2.5 m/s, health 100; teammates 2 m, 8 m, 16 m, 6 m
+[match   36.2] Mang Kanor (team 0) landed at (-84.0, 1.0, -10.0), 2.5 m/s, health 100; teammates 3 m, 9 m, 2 m, 18 m, 7 m
+[match   36.2] Kulot Sabaw (team 0) landed at (-85.0, 1.0, -10.0), 2.5 m/s, health 100; teammates 4 m, 10 m, 2 m, 1 m, 18 m, 7 m
+[match   39.8] [radio] Tatay Kulas (stalker): sneaking
+[match   42.5] Kuya Wifi (team 0) landed at (-83.0, 1.0, -10.0), 2.5 m/s, health 100; teammates 37 m, 45 m, 37 m, 37 m, 36 m, 54 m, 12 m
+[match   43.2] [radio] Mang Kanor (rusher): hunting
+[match   45.0] status: { "ground": 20 }; armed 20; shots 0; zone 0 wait r=382; corpses 0; server tick avg 1.67 ms, p99 2.68 ms, max 6.28 ms over 900 ticks
+[match   45.0] dm teams: West Team 10 at (-58.0, 11.0) spread 24 m; East Team 10 at (39.0, 107.0) spread 25 m; gap 137 m; zone centre (-44.0, -45.0)
+[match   45.0] bots: { "hunt": 13, "follow": 6, "loot": 1 }; containers searched by bots 3 (all players 3); plan steps done 12; guns carried 40
+[match   45.0] [lootstats] bots on the ground 20 (in water 4); armed 20; armed with ammo for a gun 20; long guns 20; attachments fitted 0; rounds of unusable ammo carried 0; items on the ground 5934; bot pickups { "detours": 0, "detour_taken": 0, "fetches": 0, "fetch_done": 0, "items_taken": 0 } wet at [(38.0, 115.0), (43.0, 115.0), (61.0, 116.0), (-76.0, -23.0)]
+[match   45.6] [radio] Bayaw Erning (stalker): sneaking
+[match   47.0] [radio] Kapitan Tikoy (rusher): hunting
+[match   48.0] [radio] Lolo Kalesa (stalker): contact
+[match   48.8] [radio] Ka Pedring (rusher): contact
+[match   50.2] Lolo Pepe (team 0) landed at (-83.0, 1.0, -10.0), 2.5 m/s, health 100; teammates 74 m, 91 m, 79 m, 44 m, 79 m, 70 m, 98 m, 24 m
+[match   50.4] [radio] Tatay Kulas (stalker): sneaking
+[match   50.8] Aling Puring (team 0) landed at (-83.0, 1.0, -10.0), 2.5 m/s, health 100; teammates 78 m, 94 m, 80 m, 47 m, 80 m, 3 m, 74 m, 98 m, 25 m
+[match   53.9] [radio] Ate Bebang (stalker): contact
+[match   53.9] [radio] Mang Kanor (rusher): hunting
+[match   55.1] [radio] Lolo Kalesa (stalker): taking_fire
+[match   55.7] [radio] Ka Pedring (rusher): down
+[match   55.7] Mang Kanor killed by Lolo Kalesa (gunshot); 2 teams left
+[match   55.7] alive: West Team 9, East Team 10
+[match   58.7] [radio] Kulot Sabaw (rusher): contact
+[match   60.0] zone 0 shrinking to r=194 at (-29.0, 65.0)
+[match   60.0] status: { "ground": 19 }; armed 19; shots 29; zone 0 shrink r=382; corpses 1; server tick avg 2.18 ms, p99 3.87 ms, max 56.62 ms over 900 ticks
+[match   60.0] dm teams: West Team 9 at (-27.0, 35.0) spread 38 m; East Team 10 at (35.0, 102.0) spread 33 m; gap 90 m; zone centre (-44.0, -45.0)
+[match   60.0] bots: { "hunt": 10, "follow": 5, "investigate": 2, "loot": 2 }; containers searched by bots 3 (all players 3); plan steps done 14; guns carried 38
+[match   60.0] [lootstats] bots on the ground 19 (in water 5); armed 19; armed with ammo for a gun 19; long guns 19; attachments fitted 0; rounds of unusable ammo carried 0; items on the ground 5934; bot pickups { "detours": 1, "detour_taken": 0, "fetches": 0, "fetch_done": 0, "items_taken": 0 } wet at [(40.0, 115.0), (36.0, 116.0), (41.0, 116.0), (36.0, 115.0), (-73.0, -49.0)]
+[match   60.3] [radio] Tatay Kulas (stalker): sneaking
+[match   60.6] [radio] Totoy Kulot (stalker): contact
+[match   62.7] [radio] Utoy Kalabaw (rusher): hunting
+[match   63.0] [radio] Kuya Wifi (looter): contact
+[match   64.6] [radio] Lola Basyang Jr (stalker): sneaking
+[match   65.6] [radio] Ka Pedring (rusher): contact
+[match   66.4] [radio] Lolo Kalesa (stalker): clear
+[match   67.7] [radio] Mang Tomas (stalker): sneaking
+[match   69.7] [radio] Ising Batingaw (rusher): hunting
+[match   70.4] [radio] Ate Bebang (stalker): sneaking
+[match   71.8] [radio] Kapitan Tikoy (rusher): contact
+[match   72.4] [radio] Tatay Kulas (stalker): taking_fire
+[match   74.1] [radio] Kulot Sabaw (rusher): contact
+[match   75.0] status: { "ground": 19 }; armed 19; shots 46; zone 0 shrink r=335; corpses 1; server tick avg 2.31 ms, p99 3.81 ms, max 6.63 ms over 900 ticks
+[match   75.0] dm teams: West Team 9 at (-15.0, 52.0) spread 22 m; East Team 10 at (32.0, 100.0) spread 37 m; gap 67 m; zone centre (-40.0, -18.0)
+[match   75.0] bots: { "hunt": 7, "follow": 5, "investigate": 3, "heal": 1, "loot": 1, "camp": 1, "fight": 1 }; containers searched by bots 3 (all players 3); plan steps done 15; guns carried 39
+[match   75.0] [lootstats] bots on the ground 19 (in water 5); armed 19; armed with ammo for a gun 19; long guns 20; attachments fitted 1; rounds of unusable ammo carried 0; items on the ground 5932; bot pickups { "detours": 2, "detour_taken": 2, "fetches": 0, "fetch_done": 0, "items_taken": 2 } wet at [(39.0, 115.0), (39.0, 114.0), (37.0, 117.0), (39.0, 116.0), (36.0, 116.0)]
+[match   76.6] [radio] Lolo Kalesa (stalker): sneaking
+[match   79.2] [radio] Mang Tomas (stalker): sneaking
+[match   81.4] [radio] Kapitan Tikoy (rusher): contact
+[match   83.2] [radio] Tatay Kulas (stalker): taking_fire
+[match   83.2] Tatay Kulas killed by Kapitan Tikoy (gunshot); 2 teams left
+[match   83.2] alive: West Team 9, East Team 9
+[match   83.3] [radio] Ising Batingaw (rusher): hunting
+[match   87.0] [radio] Totoy Kulot (stalker): sneaking
+[match   89.3] [radio] Mang Tomas (stalker): sneaking
+[match   90.0] status: { "ground": 18 }; armed 18; shots 49; zone 0 shrink r=288; corpses 2; server tick avg 1.82 ms, p99 3.09 ms, max 27.87 ms over 900 ticks
+[match   90.0] dm teams: West Team 9 at (-15.0, 53.0) spread 20 m; East Team 9 at (35.0, 104.0) spread 31 m; gap 72 m; zone centre (-37.0, 10.0)
+[match   90.0] bots: { "hunt": 11, "follow": 5, "loot": 1, "camp": 1 }; containers searched by bots 3 (all players 3); plan steps done 15; guns carried 37
+[match   90.0] [lootstats] bots on the ground 18 (in water 2); armed 18; armed with ammo for a gun 18; long guns 19; attachments fitted 1; rounds of unusable ammo carried 0; items on the ground 5932; bot pickups { "detours": 2, "detour_taken": 2, "fetches": 0, "fetch_done": 0, "items_taken": 2 } wet at [(37.0, 114.0), (39.0, 115.0)]
+[match   93.1] [radio] Lola Basyang Jr (stalker): sneaking
+[match   94.4] [radio] Kuya Wifi (looter): contact
+[match   94.9] [radio] Ate Bebang (stalker): contact
+[match   95.3] Lolo Kalesa killed by Ate Bebang (gunshot); 2 teams left
+[match   95.3] alive: West Team 9, East Team 8
+[match   96.0] Ate Bebang killed by Kuya Wifi (gunshot); 2 teams left
+[match   96.0] alive: West Team 9, East Team 7
+[match   96.3] [radio] Ka Pedring (rusher): clear
+[match  100.0] [radio] Kulot Sabaw (rusher): hunting
+[match  103.2] [radio] Pinsan Gardo (stalker): contact
+[match  104.0] [radio] Kuya Wifi (looter): clear
+[match  105.0] status: { "ground": 16 }; armed 16; shots 78; zone 0 shrink r=241; corpses 4; server tick avg 1.76 ms, p99 3.17 ms, max 17.25 ms over 900 ticks
+[match  105.0] dm teams: West Team 9 at (-12.0, 48.0) spread 21 m; East Team 7 at (46.0, 121.0) spread 20 m; gap 93 m; zone centre (-33.0, 37.0)
+[match  105.0] bots: { "follow": 5, "hunt": 9, "loot": 1, "zone": 1 }; containers searched by bots 3 (all players 3); plan steps done 0; guns carried 33
+[match  105.0] [lootstats] bots on the ground 16 (in water 2); armed 16; armed with ammo for a gun 16; long guns 17; attachments fitted 1; rounds of unusable ammo carried 0; items on the ground 5932; bot pickups { "detours": 2, "detour_taken": 2, "fetches": 0, "fetch_done": 0, "items_taken": 2 } wet at [(37.0, 116.0), (38.0, 116.0)]
+[match  105.6] [radio] Utoy Kalabaw (rusher): contact
+[match  106.9] [radio] Mang Tomas (stalker): sneaking
+[match  108.3] [radio] Inday Tsismis (looter): haze
+[match  109.6] [radio] Kulot Sabaw (rusher): hunting
+[match  110.3] [radio] Utoy Kalabaw (rusher): taking_fire
+[match  113.3] [radio] Pinsan Gardo (stalker): contact
+[match  115.2] [radio] Kuya Wifi (looter): contact
+[match  119.7] [radio] Inday Tsismis (looter): haze
+[match  120.0] status: { "ground": 16 }; armed 16; shots 137; zone 1 wait r=194; corpses 4; server tick avg 2.30 ms, p99 3.92 ms, max 5.61 ms over 900 ticks
+[match  120.0] dm teams: West Team 9 at (-9.0, 52.0) spread 22 m; East Team 7 at (44.0, 121.0) spread 19 m; gap 87 m; zone centre (-29.0, 65.0)
+[match  120.0] bots: { "follow": 5, "hunt": 8, "investigate": 1, "roam": 1, "fight": 1 }; containers searched by bots 3 (all players 3); plan steps done 0; guns carried 33
+[match  120.0] [lootstats] bots on the ground 16 (in water 2); armed 16; armed with ammo for a gun 16; long guns 17; attachments fitted 1; rounds of unusable ammo carried 0; items on the ground 5932; bot pickups { "detours": 2, "detour_taken": 2, "fetches": 0, "fetch_done": 0, "items_taken": 2 } wet at [(38.0, 115.0), (38.0, 116.0)]
+[match  121.9] [radio] Mang Tomas (stalker): sneaking
+[match  130.9] [radio] Mang Tomas (stalker): sneaking
+[match  131.2] [radio] Bayaw Erning (stalker): sneaking
+[match  133.3] [radio] Kulot Sabaw (rusher): contact
+[match  133.9] [radio] Pinsan Gardo (stalker): contact
+[match  134.7] [radio] Bayaw Erning (stalker): taking_fire
+[match  135.0] status: { "ground": 16 }; armed 16; shots 144; zone 1 wait r=194; corpses 4; server tick avg 1.74 ms, p99 3.66 ms, max 7.44 ms over 900 ticks
+[match  135.0] dm teams: West Team 9 at (-3.0, 63.0) spread 34 m; East Team 7 at (42.0, 123.0) spread 19 m; gap 75 m; zone centre (-29.0, 65.0)
+[match  135.0] bots: { "follow": 5, "hunt": 5, "investigate": 2, "loot": 1, "roam": 1, "fight": 2 }; containers searched by bots 3 (all players 3); plan steps done 0; guns carried 33
+[match  135.0] [lootstats] bots on the ground 16 (in water 1); armed 16; armed with ammo for a gun 16; long guns 17; attachments fitted 1; rounds of unusable ammo carried 0; items on the ground 5932; bot pickups { "detours": 2, "detour_taken": 2, "fetches": 0, "fetch_done": 0, "items_taken": 2 } wet at [(-72.0, -14.0)]
+[match  136.7] [radio] Utoy Kalabaw (rusher): reloading
+[match  138.1] [radio] Kulot Sabaw (rusher): taking_fire
+[match  138.4] [radio] Bayaw Erning (stalker): taking_fire
+[match  139.2] [radio] Utoy Kalabaw (rusher): taking_fire
+[match  139.2] Utoy Kalabaw killed by Kulot Sabaw (gunshot); 2 teams left
+[match  139.2] alive: West Team 9, East Team 6
+[match  139.6] [radio] Aling Puring (looter): down
+[match  139.6] Kulot Sabaw killed by Bayaw Erning (gunshot); 2 teams left
+[match  139.6] alive: West Team 8, East Team 6
+[match  140.7] [radio] Lola Basyang Jr (stalker): taking_fire
+[match  141.6] [radio] Ka Pedring (rusher): taking_fire
+[match  147.3] [radio] Kuya Wifi (looter): haze
+[match  148.7] [radio] Lola Basyang Jr (stalker): taking_fire
+[match  149.9] [radio] Bayaw Erning (stalker): taking_fire
+[match  150.0] status: { "ground": 14 }; armed 14; shots 214; zone 1 wait r=194; corpses 6; server tick avg 3.16 ms, p99 6.13 ms, max 17.84 ms over 900 ticks
+[match  150.0] dm teams: West Team 8 at (1.0, 70.0) spread 49 m; East Team 6 at (42.0, 123.0) spread 22 m; gap 66 m; zone centre (-29.0, 65.0)
+[match  150.0] bots: { "follow": 4, "hunt": 6, "fight": 1, "investigate": 1, "loot": 1, "roam": 1 }; containers searched by bots 4 (all players 4); plan steps done 0; guns carried 30
+[match  150.0] [lootstats] bots on the ground 14 (in water 2); armed 14; armed with ammo for a gun 14; long guns 16; attachments fitted 1; rounds of unusable ammo carried 0; items on the ground 5930; bot pickups { "detours": 4, "detour_taken": 4, "fetches": 0, "fetch_done": 0, "items_taken": 4 } wet at [(-1.0, 120.0), (36.0, 118.0)]
+[match  150.5] [radio] Lolo Pepe (stalker): contact
+[match  151.2] [radio] Pinsan Gardo (stalker): taking_fire
+[match  152.3] [radio] Mang Tomas (stalker): sneaking
+[match  152.8] [radio] Bayaw Erning (stalker): taking_fire
+[match  153.8] [radio] Kapitan Tikoy (rusher): taking_fire
+[match  154.8] [radio] Nanay Kakanin (stalker): down
+[match  154.8] Bayaw Erning killed by Pinsan Gardo (gunshot); 2 teams left
+[match  154.8] alive: West Team 8, East Team 5
+[match  155.0] [radio] Aling Puring (looter): down
+[match  155.0] Kapitan Tikoy killed by Bayaw Erning (bleeding); 2 teams left
+[match  155.0] alive: West Team 7, East Team 5
+[match  156.0] [radio] Lola Basyang Jr (stalker): taking_fire
+[match  157.5] [radio] Lolo Pepe (stalker): taking_fire
+[match  159.8] [radio] Ka Pedring (rusher): contact
+[match  160.2] [radio] Lola Basyang Jr (stalker): taking_fire
+[match  161.0] [radio] Dodong Lechon (sniper): taking_fire
+[match  162.5] [radio] Kuya Wifi (looter): haze
+[match  163.5] [radio] Pinsan Gardo (stalker): contact
+[match  165.0] zone 1 shrinking to r=113 at (-44.0, 143.0)
+[match  165.0] status: { "ground": 12 }; armed 12; shots 316; zone 1 shrink r=194; corpses 8; server tick avg 4.12 ms, p99 7.12 ms, max 18.12 ms over 900 ticks
+[match  165.0] dm teams: West Team 7 at (0.0, 67.0) spread 47 m; East Team 5 at (45.0, 125.0) spread 25 m; gap 74 m; zone centre (-29.0, 65.0)
+[match  165.0] bots: { "follow": 2, "hunt": 4, "fight": 3, "zone": 2, "heal": 1 }; containers searched by bots 4 (all players 4); plan steps done 0; guns carried 26
+[match  165.0] [lootstats] bots on the ground 12 (in water 1); armed 12; armed with ammo for a gun 12; long guns 14; attachments fitted 1; rounds of unusable ammo carried 0; items on the ground 5930; bot pickups { "detours": 4, "detour_taken": 4, "fetches": 0, "fetch_done": 0, "items_taken": 4 } wet at [(36.0, 119.0)]
+[match  165.9] [radio] Nanay Kakanin (stalker): clear
+[match  168.3] [radio] Mang Tomas (stalker): sneaking
+[match  170.6] [radio] Lola Basyang Jr (stalker): taking_fire
+[match  171.0] [radio] Ka Pedring (rusher): contact
+[match  171.2] Lola Basyang Jr killed by Lolo Pepe (gunshot); 2 teams left
+[match  171.2] alive: West Team 7, East Team 4
+WARNING: corpse 9 fell through the ground at (24.89182, -0.594887, 117.917); restored
+   at: push_warning (core/variant/variant_utility.cpp:1033)
+   GDScript backtrace (most recent call first):
+       [0] _guard (res://src/props/corpse.gd:715)
+       [1] _physics_process (res://src/props/corpse.gd:678)
+WARNING: corpse 9 fell through the ground at (24.87329, -0.594927, 117.8885); restored
+   at: push_warning (core/variant/variant_utility.cpp:1033)
+   GDScript backtrace (most recent call first):
+       [0] _guard (res://src/props/corpse.gd:715)
+       [1] _physics_process (res://src/props/corpse.gd:678)
+WARNING: corpse 9 fell through the ground at (24.87349, -0.595044, 117.8886); restored
+   at: push_warning (core/variant/variant_utility.cpp:1033)
+   GDScript backtrace (most recent call first):
+       [0] _guard (res://src/props/corpse.gd:715)
+       [1] _physics_process (res://src/props/corpse.gd:678)
+WARNING: corpse 9 fell through the ground at (24.87349, -0.595033, 117.8886); restored
+   at: push_warning (core/variant/variant_utility.cpp:1033)
+   GDScript backtrace (most recent call first):
+       [0] _guard (res://src/props/corpse.gd:715)
+       [1] _physics_process (res://src/props/corpse.gd:678)
+WARNING: corpse 9 fell through the ground at (24.87349, -0.595033, 117.8886); restored
+   at: push_warning (core/variant/variant_utility.cpp:1033)
+   GDScript backtrace (most recent call first):
+       [0] _guard (res://src/props/corpse.gd:715)
+       [1] _physics_process (res://src/props/corpse.gd:678)
+WARNING: corpse 9 fell through the ground at (24.87349, -0.595033, 117.8886); restored
+   at: push_warning (core/variant/variant_utility.cpp:1033)
+   GDScript backtrace (most recent call first):
+       [0] _guard (res://src/props/corpse.gd:715)
+       [1] _physics_process (res://src/props/corpse.gd:678)
+WARNING: corpse 9 fell through the ground at (24.87349, -0.595033, 117.8886); restored
+   at: push_warning (core/variant/variant_utility.cpp:1033)
+   GDScript backtrace (most recent call first):
+       [0] _guard (res://src/props/corpse.gd:715)
+       [1] _physics_process (res://src/props/corpse.gd:678)
+WARNING: corpse 9 fell through the ground at (24.87349, -0.595033, 117.8886); restored
+   at: push_warning (core/variant/variant_utility.cpp:1033)
+   GDScript backtrace (most recent call first):
+       [0] _guard (res://src/props/corpse.gd:715)
+       [1] _physics_process (res://src/props/corpse.gd:678)
+WARNING: corpse 9 fell through the ground at (24.87349, -0.595033, 117.8886); restored
+   at: push_warning (core/variant/variant_utility.cpp:1033)
+   GDScript backtrace (most recent call first):
+       [0] _guard (res://src/props/corpse.gd:715)
+       [1] _physics_process (res://src/props/corpse.gd:678)
+WARNING: corpse 9 fell through the ground at (24.87349, -0.595033, 117.8886); restored
+   at: push_warning (core/variant/variant_utility.cpp:1033)
+   GDScript backtrace (most recent call first):
+       [0] _guard (res://src/props/corpse.gd:715)
+       [1] _physics_process (res://src/props/corpse.gd:678)
+WARNING: corpse 9 fell through the ground at (24.87349, -0.595033, 117.8886); restored
+   at: push_warning (core/variant/variant_utility.cpp:1033)
+   GDScript backtrace (most recent call first):
+       [0] _guard (res://src/props/corpse.gd:715)
+       [1] _physics_process (res://src/props/corpse.gd:678)
+WARNING: corpse 9 fell through the ground at (24.87349, -0.595033, 117.8886); restored
+   at: push_warning (core/variant/variant_utility.cpp:1033)
+   GDScript backtrace (most recent call first):
+       [0] _guard (res://src/props/corpse.gd:715)
+       [1] _physics_process (res://src/props/corpse.gd:678)
+WARNING: corpse 9 fell through the ground at (24.87349, -0.595033, 117.8886); restored
+   at: push_warning (core/variant/variant_utility.cpp:1033)
+   GDScript backtrace (most recent call first):
+       [0] _guard (res://src/props/corpse.gd:715)
+       [1] _physics_process (res://src/props/corpse.gd:678)
+WARNING: corpse 9 fell through the ground at (24.87349, -0.595033, 117.8886); restored
+   at: push_warning (core/variant/variant_utility.cpp:1033)
+   GDScript backtrace (most recent call first):
+       [0] _guard (res://src/props/corpse.gd:715)
+       [1] _physics_process (res://src/props/corpse.gd:678)
+WARNING: corpse 9 fell through the ground at (24.87349, -0.595033, 117.8886); restored
+   at: push_warning (core/variant/variant_utility.cpp:1033)
+   GDScript backtrace (most recent call first):
+       [0] _guard (res://src/props/corpse.gd:715)
+       [1] _physics_process (res://src/props/corpse.gd:678)
+WARNING: corpse 9 fell through the ground at (24.87349, -0.595033, 117.8886); restored
+   at: push_warning (core/variant/variant_utility.cpp:1033)
+   GDScript backtrace (most recent call first):
+       [0] _guard (res://src/props/corpse.gd:715)
+       [1] _physics_process (res://src/props/corpse.gd:678)
+WARNING: corpse 9 fell through the ground at (24.87349, -0.595033, 117.8886); restored
+   at: push_warning (core/variant/variant_utility.cpp:1033)
+   GDScript backtrace (most recent call first):
+       [0] _guard (res://src/props/corpse.gd:715)
+       [1] _physics_process (res://src/props/corpse.gd:678)
+WARNING: corpse 9 fell through the ground at (24.87349, -0.595033, 117.8886); restored
+   at: push_warning (core/variant/variant_utility.cpp:1033)
+   GDScript backtrace (most recent call first):
+       [0] _guard (res://src/props/corpse.gd:715)
+       [1] _physics_process (res://src/props/corpse.gd:678)
+WARNING: corpse 9 fell through the ground at (24.87349, -0.595033, 117.8886); restored
+   at: push_warning (core/variant/variant_utility.cpp:1033)
+   GDScript backtrace (most recent call first):
+       [0] _guard (res://src/props/corpse.gd:715)
+       [1] _physics_process (res://src/props/corpse.gd:678)
+WARNING: corpse 9 fell through the ground at (24.87349, -0.595034, 117.8886); restored
+   at: push_warning (core/variant/variant_utility.cpp:1033)
+   GDScript backtrace (most recent call first):
+       [0] _guard (res://src/props/corpse.gd:715)
+       [1] _physics_process (res://src/props/corpse.gd:678)
+WARNING: corpse 9 fell through the ground at (24.87349, -0.595034, 117.8886); restored
+   at: push_warning (core/variant/variant_utility.cpp:1033)
+   GDScript backtrace (most recent call first):
+       [0] _guard (res://src/props/corpse.gd:715)
+       [1] _physics_process (res://src/props/corpse.gd:678)
+WARNING: corpse 9 fell through the ground at (24.87349, -0.595034, 117.8886); restored
+   at: push_warning (core/variant/variant_utility.cpp:1033)
+   GDScript backtrace (most recent call first):
+       [0] _guard (res://src/props/corpse.gd:715)
+       [1] _physics_process (res://src/props/corpse.gd:678)
+WARNING: corpse 9 fell through the ground at (24.87349, -0.595034, 117.8886); restored
+   at: push_warning (core/variant/variant_utility.cpp:1033)
+   GDScript backtrace (most recent call first):
+       [0] _guard (res://src/props/corpse.gd:715)
+       [1] _physics_process (res://src/props/corpse.gd:678)
+WARNING: corpse 9 fell through the ground at (24.87349, -0.595034, 117.8886); restored
+   at: push_warning (core/variant/variant_utility.cpp:1033)
+   GDScript backtrace (most recent call first):
+       [0] _guard (res://src/props/corpse.gd:715)
+       [1] _physics_process (res://src/props/corpse.gd:678)
+WARNING: corpse 9 fell through the ground at (24.87349, -0.595034, 117.8886); restored
+   at: push_warning (core/variant/variant_utility.cpp:1033)
+   GDScript backtrace (most recent call first):
+       [0] _guard (res://src/props/corpse.gd:715)
+       [1] _physics_process (res://src/props/corpse.gd:678)
+WARNING: corpse 9 fell through the ground at (24.87349, -0.595034, 117.8886); restored
+   at: push_warning (core/variant/variant_utility.cpp:1033)
+   GDScript backtrace (most recent call first):
+       [0] _guard (res://src/props/corpse.gd:715)
+       [1] _physics_process (res://src/props/corpse.gd:678)
+WARNING: corpse 9 fell through the ground at (24.87349, -0.595034, 117.8886); restored
+   at: push_warning (core/variant/variant_utility.cpp:1033)
+   GDScript backtrace (most recent call first):
+       [0] _guard (res://src/props/corpse.gd:715)
+       [1] _physics_process (res://src/props/corpse.gd:678)
+WARNING: corpse 9 fell through the ground at (24.87349, -0.595034, 117.8886); restored
+   at: push_warning (core/variant/variant_utility.cpp:1033)
+   GDScript backtrace (most recent call first):
+       [0] _guard (res://src/props/corpse.gd:715)
+       [1] _physics_process (res://src/props/corpse.gd:678)
+WARNING: corpse 9 fell through the ground at (24.87349, -0.595034, 117.8886); restored
+   at: push_warning (core/variant/variant_utility.cpp:1033)
+   GDScript backtrace (most recent call first):
+       [0] _guard (res://src/props/corpse.gd:715)
+       [1] _physics_process (res://src/props/corpse.gd:678)
+WARNING: corpse 9 fell through the ground at (24.87349, -0.595034, 117.8886); restored
+   at: push_warning (core/variant/variant_utility.cpp:1033)
+   GDScript backtrace (most recent call first):
+       [0] _guard (res://src/props/corpse.gd:715)
+       [1] _physics_process (res://src/props/corpse.gd:678)
+WARNING: corpse 9 fell through the ground at (24.87349, -0.595034, 117.8886); restored
+   at: push_warning (core/variant/variant_utility.cpp:1033)
+   GDScript backtrace (most recent call first):
+       [0] _guard (res://src/props/corpse.gd:715)
+       [1] _physics_process (res://src/props/corpse.gd:678)
+WARNING: corpse 9 fell through the ground at (24.87349, -0.595034, 117.8886); restored
+   at: push_warning (core/variant/variant_utility.cpp:1033)
+   GDScript backtrace (most recent call first):
+       [0] _guard (res://src/props/corpse.gd:715)
+       [1] _physics_process (res://src/props/corpse.gd:678)
+WARNING: corpse 9 fell through the ground at (24.87349, -0.595034, 117.8886); restored
+   at: push_warning (core/variant/variant_utility.cpp:1033)
+   GDScript backtrace (most recent call first):
+       [0] _guard (res://src/props/corpse.gd:715)
+       [1] _physics_process (res://src/props/corpse.gd:678)
+WARNING: corpse 9 fell through the ground at (24.87349, -0.595034, 117.8886); restored
+   at: push_warning (core/variant/variant_utility.cpp:1033)
+   GDScript backtrace (most recent call first):
+       [0] _guard (res://src/props/corpse.gd:715)
+       [1] _physics_process (res://src/props/corpse.gd:678)
+WARNING: corpse 9 fell through the ground at (24.87349, -0.595034, 117.8886); restored
+   at: push_warning (core/variant/variant_utility.cpp:1033)
+   GDScript backtrace (most recent call first):
+       [0] _guard (res://src/props/corpse.gd:715)
+       [1] _physics_process (res://src/props/corpse.gd:678)
+WARNING: corpse 9 fell through the ground at (24.87349, -0.595034, 117.8886); restored
+   at: push_warning (core/variant/variant_utility.cpp:1033)
+   GDScript backtrace (most recent call first):
+       [0] _guard (res://src/props/corpse.gd:715)
+       [1] _physics_process (res://src/props/corpse.gd:678)
+WARNING: corpse 9 fell through the ground at (24.87349, -0.595034, 117.8886); restored
+   at: push_warning (core/variant/variant_utility.cpp:1033)
+   GDScript backtrace (most recent call first):
+       [0] _guard (res://src/props/corpse.gd:715)
+       [1] _physics_process (res://src/props/corpse.gd:678)
+WARNING: corpse 9 fell through the ground at (24.87349, -0.595034, 117.8886); restored
+   at: push_warning (core/variant/variant_utility.cpp:1033)
+   GDScript backtrace (most recent call first):
+       [0] _guard (res://src/props/corpse.gd:715)
+       [1] _physics_process (res://src/props/corpse.gd:678)
+WARNING: corpse 9 fell through the ground at (24.87349, -0.595034, 117.8886); restored
+   at: push_warning (core/variant/variant_utility.cpp:1033)
+   GDScript backtrace (most recent call first):
+       [0] _guard (res://src/props/corpse.gd:715)
+       [1] _physics_process (res://src/props/corpse.gd:678)
+WARNING: corpse 9 fell through the ground at (24.87349, -0.595034, 117.8886); restored
+   at: push_warning (core/variant/variant_utility.cpp:1033)
+   GDScript backtrace (most recent call first):
+       [0] _guard (res://src/props/corpse.gd:715)
+       [1] _physics_process (res://src/props/corpse.gd:678)
+WARNING: corpse 9 fell through the ground at (24.87349, -0.595034, 117.8886); restored
+   at: push_warning (core/variant/variant_utility.cpp:1033)
+   GDScript backtrace (most recent call first):
+       [0] _guard (res://src/props/corpse.gd:715)
+       [1] _physics_process (res://src/props/corpse.gd:678)
+WARNING: corpse 9 fell through the ground at (24.87349, -0.595034, 117.8886); restored
+   at: push_warning (core/variant/variant_utility.cpp:1033)
+   GDScript backtrace (most recent call first):
+       [0] _guard (res://src/props/corpse.gd:715)
+       [1] _physics_process (res://src/props/corpse.gd:678)
+WARNING: corpse 9 fell through the ground at (24.87349, -0.595034, 117.8886); restored
+   at: push_warning (core/variant/variant_utility.cpp:1033)
+   GDScript backtrace (most recent call first):
+       [0] _guard (res://src/props/corpse.gd:715)
+       [1] _physics_process (res://src/props/corpse.gd:678)
+WARNING: corpse 9 fell through the ground at (24.87349, -0.595034, 117.8886); restored
+   at: push_warning (core/variant/variant_utility.cpp:1033)
+   GDScript backtrace (most recent call first):
+       [0] _guard (res://src/props/corpse.gd:715)
+       [1] _physics_process (res://src/props/corpse.gd:678)
+WARNING: corpse 9 fell through the ground at (24.87349, -0.595034, 117.8886); restored
+   at: push_warning (core/variant/variant_utility.cpp:1033)
+   GDScript backtrace (most recent call first):
+       [0] _guard (res://src/props/corpse.gd:715)
+       [1] _physics_process (res://src/props/corpse.gd:678)
+WARNING: corpse 9 fell through the ground at (24.87349, -0.595034, 117.8886); restored
+   at: push_warning (core/variant/variant_utility.cpp:1033)
+   GDScript backtrace (most recent call first):
+       [0] _guard (res://src/props/corpse.gd:715)
+       [1] _physics_process (res://src/props/corpse.gd:678)
+WARNING: corpse 9 fell through the ground at (24.87349, -0.595034, 117.8886); restored
+   at: push_warning (core/variant/variant_utility.cpp:1033)
+   GDScript backtrace (most recent call first):
+       [0] _guard (res://src/props/corpse.gd:715)
+       [1] _physics_process (res://src/props/corpse.gd:678)
+WARNING: corpse 9 fell through the ground at (24.87349, -0.595034, 117.8886); restored
+   at: push_warning (core/variant/variant_utility.cpp:1033)
+   GDScript backtrace (most recent call first):
+       [0] _guard (res://src/props/corpse.gd:715)
+       [1] _physics_process (res://src/props/corpse.gd:678)
+WARNING: corpse 9 fell through the ground at (24.87349, -0.595034, 117.8886); restored
+   at: push_warning (core/variant/variant_utility.cpp:1033)
+   GDScript backtrace (most recent call first):
+       [0] _guard (res://src/props/corpse.gd:715)
+       [1] _physics_process (res://src/props/corpse.gd:678)
+WARNING: corpse 9 fell through the ground at (24.87349, -0.595034, 117.8886); restored
+   at: push_warning (core/variant/variant_utility.cpp:1033)
+   GDScript backtrace (most recent call first):
+       [0] _guard (res://src/props/corpse.gd:715)
+       [1] _physics_process (res://src/props/corpse.gd:678)
+WARNING: corpse 9 fell through the ground at (24.87349, -0.595034, 117.8886); restored
+   at: push_warning (core/variant/variant_utility.cpp:1033)
+   GDScript backtrace (most recent call first):
+       [0] _guard (res://src/props/corpse.gd:715)
+       [1] _physics_process (res://src/props/corpse.gd:678)
+WARNING: corpse 9 fell through the ground at (24.87349, -0.595034, 117.8886); restored
+   at: push_warning (core/variant/variant_utility.cpp:1033)
+   GDScript backtrace (most recent call first):
+       [0] _guard (res://src/props/corpse.gd:715)
+       [1] _physics_process (res://src/props/corpse.gd:678)
+WARNING: corpse 9 fell through the ground at (24.87349, -0.595034, 117.8886); restored
+   at: push_warning (core/variant/variant_utility.cpp:1033)
+   GDScript backtrace (most recent call first):
+       [0] _guard (res://src/props/corpse.gd:715)
+       [1] _physics_process (res://src/props/corpse.gd:678)
+WARNING: corpse 9 fell through the ground at (24.87349, -0.595034, 117.8886); restored
+   at: push_warning (core/variant/variant_utility.cpp:1033)
+   GDScript backtrace (most recent call first):
+       [0] _guard (res://src/props/corpse.gd:715)
+       [1] _physics_process (res://src/props/corpse.gd:678)
+WARNING: corpse 9 fell through the ground at (24.87349, -0.595034, 117.8886); restored
+   at: push_warning (core/variant/variant_utility.cpp:1033)
+   GDScript backtrace (most recent call first):
+       [0] _guard (res://src/props/corpse.gd:715)
+       [1] _physics_process (res://src/props/corpse.gd:678)
+WARNING: corpse 9 fell through the ground at (24.87349, -0.595034, 117.8886); restored
+   at: push_warning (core/variant/variant_utility.cpp:1033)
+   GDScript backtrace (most recent call first):
+       [0] _guard (res://src/props/corpse.gd:715)
+       [1] _physics_process (res://src/props/corpse.gd:678)
+WARNING: corpse 9 fell through the ground at (24.87349, -0.595034, 117.8886); restored
+   at: push_warning (core/variant/variant_utility.cpp:1033)
+   GDScript backtrace (most recent call first):
+       [0] _guard (res://src/props/corpse.gd:715)
+       [1] _physics_process (res://src/props/corpse.gd:678)
+WARNING: corpse 9 fell through the ground at (24.87349, -0.595034, 117.8886); restored
+   at: push_warning (core/variant/variant_utility.cpp:1033)
+   GDScript backtrace (most recent call first):
+       [0] _guard (res://src/props/corpse.gd:715)
+       [1] _physics_process (res://src/props/corpse.gd:678)
+WARNING: corpse 9 fell through the ground at (24.87349, -0.595034, 117.8886); restored
+   at: push_warning (core/variant/variant_utility.cpp:1033)
+   GDScript backtrace (most recent call first):
+       [0] _guard (res://src/props/corpse.gd:715)
+       [1] _physics_process (res://src/props/corpse.gd:678)
+WARNING: corpse 9 fell through the ground at (24.87349, -0.595034, 117.8886); restored
+   at: push_warning (core/variant/variant_utility.cpp:1033)
+   GDScript backtrace (most recent call first):
+       [0] _guard (res://src/props/corpse.gd:715)
+       [1] _physics_process (res://src/props/corpse.gd:678)
+WARNING: corpse 9 fell through the ground at (24.87349, -0.595034, 117.8886); restored
+   at: push_warning (core/variant/variant_utility.cpp:1033)
+   GDScript backtrace (most recent call first):
+       [0] _guard (res://src/props/corpse.gd:715)
+       [1] _physics_process (res://src/props/corpse.gd:678)
+WARNING: corpse 9 fell through the ground at (24.87349, -0.595034, 117.8886); restored
+   at: push_warning (core/variant/variant_utility.cpp:1033)
+   GDScript backtrace (most recent call first):
+       [0] _guard (res://src/props/corpse.gd:715)
+       [1] _physics_process (res://src/props/corpse.gd:678)
+WARNING: corpse 9 fell through the ground at (24.87349, -0.595034, 117.8886); restored
+   at: push_warning (core/variant/variant_utility.cpp:1033)
+   GDScript backtrace (most recent call first):
+       [0] _guard (res://src/props/corpse.gd:715)
+       [1] _physics_process (res://src/props/corpse.gd:678)
+WARNING: corpse 9 fell through the ground at (24.87349, -0.595034, 117.8886); restored
+   at: push_warning (core/variant/variant_utility.cpp:1033)
+   GDScript backtrace (most recent call first):
+       [0] _guard (res://src/props/corpse.gd:715)
+       [1] _physics_process (res://src/props/corpse.gd:678)
+WARNING: corpse 9 fell through the ground at (24.87349, -0.595034, 117.8886); restored
+   at: push_warning (core/variant/variant_utility.cpp:1033)
+   GDScript backtrace (most recent call first):
+       [0] _guard (res://src/props/corpse.gd:715)
+       [1] _physics_process (res://src/props/corpse.gd:678)
+WARNING: corpse 9 fell through the ground at (24.87349, -0.595034, 117.8886); restored
+   at: push_warning (core/variant/variant_utility.cpp:1033)
+   GDScript backtrace (most recent call first):
+       [0] _guard (res://src/props/corpse.gd:715)
+       [1] _physics_process (res://src/props/corpse.gd:678)
+WARNING: corpse 9 fell through the ground at (24.87349, -0.595034, 117.8886); restored
+   at: push_warning (core/variant/variant_utility.cpp:1033)
+   GDScript backtrace (most recent call first):
+       [0] _guard (res://src/props/corpse.gd:715)
+       [1] _physics_process (res://src/props/corpse.gd:678)
+WARNING: corpse 9 fell through the ground at (24.87349, -0.595034, 117.8886); restored
+   at: push_warning (core/variant/variant_utility.cpp:1033)
+   GDScript backtrace (most recent call first):
+       [0] _guard (res://src/props/corpse.gd:715)
+       [1] _physics_process (res://src/props/corpse.gd:678)
+WARNING: corpse 9 fell through the ground at (24.87349, -0.595034, 117.8886); restored
+   at: push_warning (core/variant/variant_utility.cpp:1033)
+   GDScript backtrace (most recent call first):
+       [0] _guard (res://src/props/corpse.gd:715)
+       [1] _physics_process (res://src/props/corpse.gd:678)
+WARNING: corpse 9 fell through the ground at (24.87349, -0.595034, 117.8886); restored
+   at: push_warning (core/variant/variant_utility.cpp:1033)
+   GDScript backtrace (most recent call first):
+       [0] _guard (res://src/props/corpse.gd:715)
+       [1] _physics_process (res://src/props/corpse.gd:678)
+WARNING: corpse 9 fell through the ground at (24.87349, -0.595034, 117.8886); restored
+   at: push_warning (core/variant/variant_utility.cpp:1033)
+   GDScript backtrace (most recent call first):
+       [0] _guard (res://src/props/corpse.gd:715)
+       [1] _physics_process (res://src/props/corpse.gd:678)
+WARNING: corpse 9 fell through the ground at (24.87349, -0.595034, 117.8886); restored
+   at: push_warning (core/variant/variant_utility.cpp:1033)
+   GDScript backtrace (most recent call first):
+       [0] _guard (res://src/props/corpse.gd:715)
+       [1] _physics_process (res://src/props/corpse.gd:678)
+WARNING: corpse 9 fell through the ground at (24.87349, -0.595034, 117.8886); restored
+   at: push_warning (core/variant/variant_utility.cpp:1033)
+   GDScript backtrace (most recent call first):
+       [0] _guard (res://src/props/corpse.gd:715)
+       [1] _physics_process (res://src/props/corpse.gd:678)
+WARNING: corpse 9 fell through the ground at (24.87349, -0.595034, 117.8886); restored
+   at: push_warning (core/variant/variant_utility.cpp:1033)
+   GDScript backtrace (most recent call first):
+       [0] _guard (res://src/props/corpse.gd:715)
+       [1] _physics_process (res://src/props/corpse.gd:678)
+WARNING: corpse 9 fell through the ground at (24.87349, -0.595034, 117.8886); restored
+   at: push_warning (core/variant/variant_utility.cpp:1033)
+   GDScript backtrace (most recent call first):
+       [0] _guard (res://src/props/corpse.gd:715)
+       [1] _physics_process (res://src/props/corpse.gd:678)
+WARNING: corpse 9 fell through the ground at (24.87349, -0.595034, 117.8886); restored
+   at: push_warning (core/variant/variant_utility.cpp:1033)
+   GDScript backtrace (most recent call first):
+       [0] _guard (res://src/props/corpse.gd:715)
+       [1] _physics_process (res://src/props/corpse.gd:678)
+WARNING: corpse 9 fell through the ground at (24.87349, -0.595034, 117.8886); restored
+   at: push_warning (core/variant/variant_utility.cpp:1033)
+   GDScript backtrace (most recent call first):
+       [0] _guard (res://src/props/corpse.gd:715)
+       [1] _physics_process (res://src/props/corpse.gd:678)
+WARNING: corpse 9 fell through the ground at (24.87349, -0.595034, 117.8886); restored
+   at: push_warning (core/variant/variant_utility.cpp:1033)
+   GDScript backtrace (most recent call first):
+       [0] _guard (res://src/props/corpse.gd:715)
+       [1] _physics_process (res://src/props/corpse.gd:678)
+WARNING: corpse 9 fell through the ground at (24.87349, -0.595034, 117.8886); restored
+   at: push_warning (core/variant/variant_utility.cpp:1033)
+   GDScript backtrace (most recent call first):
+       [0] _guard (res://src/props/corpse.gd:715)
+       [1] _physics_process (res://src/props/corpse.gd:678)
+WARNING: corpse 9 fell through the ground at (24.87349, -0.595034, 117.8886); restored
+   at: push_warning (core/variant/variant_utility.cpp:1033)
+   GDScript backtrace (most recent call first):
+       [0] _guard (res://src/props/corpse.gd:715)
+       [1] _physics_process (res://src/props/corpse.gd:678)
+WARNING: corpse 9 fell through the ground at (24.87349, -0.595034, 117.8886); restored
+   at: push_warning (core/variant/variant_utility.cpp:1033)
+   GDScript backtrace (most recent call first):
+       [0] _guard (res://src/props/corpse.gd:715)
+       [1] _physics_process (res://src/props/corpse.gd:678)
+WARNING: corpse 9 fell through the ground at (24.87349, -0.595034, 117.8886); restored
+   at: push_warning (core/variant/variant_utility.cpp:1033)
+   GDScript backtrace (most recent call first):
+       [0] _guard (res://src/props/corpse.gd:715)
+       [1] _physics_process (res://src/props/corpse.gd:678)
+WARNING: corpse 9 fell through the ground at (24.87349, -0.595034, 117.8886); restored
+   at: push_warning (core/variant/variant_utility.cpp:1033)
+   GDScript backtrace (most recent call first):
+       [0] _guard (res://src/props/corpse.gd:715)
+       [1] _physics_process (res://src/props/corpse.gd:678)
+WARNING: corpse 9 fell through the ground at (24.87349, -0.595034, 117.8886); restored
+   at: push_warning (core/variant/variant_utility.cpp:1033)
+   GDScript backtrace (most recent call first):
+       [0] _guard (res://src/props/corpse.gd:715)
+       [1] _physics_process (res://src/props/corpse.gd:678)
+WARNING: corpse 9 fell through the ground at (24.87349, -0.595034, 117.8886); restored
+   at: push_warning (core/variant/variant_utility.cpp:1033)
+   GDScript backtrace (most recent call first):
+       [0] _guard (res://src/props/corpse.gd:715)
+       [1] _physics_process (res://src/props/corpse.gd:678)
+WARNING: corpse 9 fell through the ground at (24.87349, -0.595034, 117.8886); restored
+   at: push_warning (core/variant/variant_utility.cpp:1033)
+   GDScript backtrace (most recent call first):
+       [0] _guard (res://src/props/corpse.gd:715)
+       [1] _physics_process (res://src/props/corpse.gd:678)
+WARNING: corpse 9 fell through the ground at (24.87349, -0.595034, 117.8886); restored
+   at: push_warning (core/variant/variant_utility.cpp:1033)
+   GDScript backtrace (most recent call first):
+       [0] _guard (res://src/props/corpse.gd:715)
+       [1] _physics_process (res://src/props/corpse.gd:678)
+WARNING: corpse 9 fell through the ground at (24.87349, -0.595034, 117.8886); restored
+   at: push_warning (core/variant/variant_utility.cpp:1033)
+   GDScript backtrace (most recent call first):
+       [0] _guard (res://src/props/corpse.gd:715)
+       [1] _physics_process (res://src/props/corpse.gd:678)
+WARNING: corpse 9 fell through the ground at (24.87349, -0.595034, 117.8886); restored
+   at: push_warning (core/variant/variant_utility.cpp:1033)
+   GDScript backtrace (most recent call first):
+       [0] _guard (res://src/props/corpse.gd:715)
+       [1] _physics_process (res://src/props/corpse.gd:678)
+WARNING: corpse 9 fell through the ground at (24.87349, -0.595034, 117.8886); restored
+   at: push_warning (core/variant/variant_utility.cpp:1033)
+   GDScript backtrace (most recent call first):
+       [0] _guard (res://src/props/corpse.gd:715)
+       [1] _physics_process (res://src/props/corpse.gd:678)
+WARNING: corpse 9 fell through the ground at (24.87349, -0.595034, 117.8886); restored
+   at: push_warning (core/variant/variant_utility.cpp:1033)
+   GDScript backtrace (most recent call first):
+       [0] _guard (res://src/props/corpse.gd:715)
+       [1] _physics_process (res://src/props/corpse.gd:678)
+WARNING: corpse 9 fell through the ground at (24.87349, -0.595034, 117.8886); restored
+   at: push_warning (core/variant/variant_utility.cpp:1033)
+   GDScript backtrace (most recent call first):
+       [0] _guard (res://src/props/corpse.gd:715)
+       [1] _physics_process (res://src/props/corpse.gd:678)
+WARNING: corpse 9 fell through the ground at (24.87349, -0.595034, 117.8886); restored
+   at: push_warning (core/variant/variant_utility.cpp:1033)
+   GDScript backtrace (most recent call first):
+       [0] _guard (res://src/props/corpse.gd:715)
+       [1] _physics_process (res://src/props/corpse.gd:678)
+WARNING: corpse 9 fell through the ground at (24.87349, -0.595034, 117.8886); restored
+   at: push_warning (core/variant/variant_utility.cpp:1033)
+   GDScript backtrace (most recent call first):
+       [0] _guard (res://src/props/corpse.gd:715)
+       [1] _physics_process (res://src/props/corpse.gd:678)
+WARNING: corpse 9 fell through the ground at (24.87349, -0.595034, 117.8886); restored
+   at: push_warning (core/variant/variant_utility.cpp:1033)
+   GDScript backtrace (most recent call first):
+       [0] _guard (res://src/props/corpse.gd:715)
+       [1] _physics_process (res://src/props/corpse.gd:678)
+WARNING: corpse 9 fell through the ground at (24.87349, -0.595034, 117.8886); restored
+   at: push_warning (core/variant/variant_utility.cpp:1033)
+   GDScript backtrace (most recent call first):
+       [0] _guard (res://src/props/corpse.gd:715)
+       [1] _physics_process (res://src/props/corpse.gd:678)
+WARNING: corpse 9 fell through the ground at (24.87349, -0.595034, 117.8886); restored
+   at: push_warning (core/variant/variant_utility.cpp:1033)
+   GDScript backtrace (most recent call first):
+       [0] _guard (res://src/props/corpse.gd:715)
+       [1] _physics_process (res://src/props/corpse.gd:678)
+WARNING: corpse 9 fell through the ground at (24.87349, -0.595034, 117.8886); restored
+   at: push_warning (core/variant/variant_utility.cpp:1033)
+   GDScript backtrace (most recent call first):
+       [0] _guard (res://src/props/corpse.gd:715)
+       [1] _physics_process (res://src/props/corpse.gd:678)
+WARNING: corpse 9 fell through the ground at (24.87349, -0.595034, 117.8886); restored
+   at: push_warning (core/variant/variant_utility.cpp:1033)
+   GDScript backtrace (most recent call first):
+       [0] _guard (res://src/props/corpse.gd:715)
+       [1] _physics_process (res://src/props/corpse.gd:678)
+WARNING: corpse 9 fell through the ground at (24.87349, -0.595034, 117.8886); restored
+   at: push_warning (core/variant/variant_utility.cpp:1033)
+   GDScript backtrace (most recent call first):
+       [0] _guard (res://src/props/corpse.gd:715)
+       [1] _physics_process (res://src/props/corpse.gd:678)
+WARNING: corpse 9 fell through the ground at (24.87349, -0.595034, 117.8886); restored
+   at: push_warning (core/variant/variant_utility.cpp:1033)
+   GDScript backtrace (most recent call first):
+       [0] _guard (res://src/props/corpse.gd:715)
+       [1] _physics_process (res://src/props/corpse.gd:678)
+WARNING: corpse 9 fell through the ground at (24.87349, -0.595034, 117.8886); restored
+   at: push_warning (core/variant/variant_utility.cpp:1033)
+   GDScript backtrace (most recent call first):
+       [0] _guard (res://src/props/corpse.gd:715)
+       [1] _physics_process (res://src/props/corpse.gd:678)
+WARNING: corpse 9 fell through the ground at (24.87349, -0.595034, 117.8886); restored
+   at: push_warning (core/variant/variant_utility.cpp:1033)
+   GDScript backtrace (most recent call first):
+       [0] _guard (res://src/props/corpse.gd:715)
+       [1] _physics_process (res://src/props/corpse.gd:678)
+WARNING: corpse 9 fell through the ground at (24.87349, -0.595034, 117.8886); restored
+   at: push_warning (core/variant/variant_utility.cpp:1033)
+   GDScript backtrace (most recent call first):
+       [0] _guard (res://src/props/corpse.gd:715)
+       [1] _physics_process (res://src/props/corpse.gd:678)
+WARNING: corpse 9 fell through the ground at (24.87349, -0.595034, 117.8886); restored
+   at: push_warning (core/variant/variant_utility.cpp:1033)
+   GDScript backtrace (most recent call first):
+       [0] _guard (res://src/props/corpse.gd:715)
+       [1] _physics_process (res://src/props/corpse.gd:678)
+WARNING: corpse 9 fell through the ground at (24.87349, -0.595034, 117.8886); restored
+   at: push_warning (core/variant/variant_utility.cpp:1033)
+   GDScript backtrace (most recent call first):
+       [0] _guard (res://src/props/corpse.gd:715)
+       [1] _physics_process (res://src/props/corpse.gd:678)
+WARNING: corpse 9 fell through the ground at (24.87349, -0.595034, 117.8886); restored
+   at: push_warning (core/variant/variant_utility.cpp:1033)
+   GDScript backtrace (most recent call first):
+       [0] _guard (res://src/props/corpse.gd:715)
+       [1] _physics_process (res://src/props/corpse.gd:678)
+WARNING: corpse 9 fell through the ground at (24.87349, -0.595034, 117.8886); restored
+   at: push_warning (core/variant/variant_utility.cpp:1033)
+   GDScript backtrace (most recent call first):
+       [0] _guard (res://src/props/corpse.gd:715)
+       [1] _physics_process (res://src/props/corpse.gd:678)
+WARNING: corpse 9 fell through the ground at (24.87349, -0.595034, 117.8886); restored
+   at: push_warning (core/variant/variant_utility.cpp:1033)
+   GDScript backtrace (most recent call first):
+       [0] _guard (res://src/props/corpse.gd:715)
+       [1] _physics_process (res://src/props/corpse.gd:678)
+WARNING: corpse 9 fell through the ground at (24.87349, -0.595034, 117.8886); restored
+   at: push_warning (core/variant/variant_utility.cpp:1033)
+   GDScript backtrace (most recent call first):
+       [0] _guard (res://src/props/corpse.gd:715)
+       [1] _physics_process (res://src/props/corpse.gd:678)
+WARNING: corpse 9 fell through the ground at (24.87349, -0.595034, 117.8886); restored
+   at: push_warning (core/variant/variant_utility.cpp:1033)
+   GDScript backtrace (most recent call first):
+       [0] _guard (res://src/props/corpse.gd:715)
+       [1] _physics_process (res://src/props/corpse.gd:678)
+WARNING: corpse 9 fell through the ground at (24.87349, -0.595034, 117.8886); restored
+   at: push_warning (core/variant/variant_utility.cpp:1033)
+   GDScript backtrace (most recent call first):
+       [0] _guard (res://src/props/corpse.gd:715)
+       [1] _physics_process (res://src/props/corpse.gd:678)
+[match  173.1] [radio] Ising Batingaw (rusher): haze
+WARNING: corpse 9 fell through the ground at (24.87349, -0.595034, 117.8886); restored
+   at: push_warning (core/variant/variant_utility.cpp:1033)
+   GDScript backtrace (most recent call first):
+       [0] _guard (res://src/props/corpse.gd:715)
+       [1] _physics_process (res://src/props/corpse.gd:678)
+WARNING: corpse 9 fell through the ground at (24.87349, -0.595034, 117.8886); restored
+   at: push_warning (core/variant/variant_utility.cpp:1033)
+   GDScript backtrace (most recent call first):
+       [0] _guard (res://src/props/corpse.gd:715)
+       [1] _physics_process (res://src/props/corpse.gd:678)
+WARNING: corpse 9 fell through the ground at (24.87349, -0.595034, 117.8886); restored
+   at: push_warning (core/variant/variant_utility.cpp:1033)
+   GDScript backtrace (most recent call first):
+       [0] _guard (res://src/props/corpse.gd:715)
+       [1] _physics_process (res://src/props/corpse.gd:678)
+WARNING: corpse 9 fell through the ground at (24.87349, -0.595034, 117.8886); restored
+   at: push_warning (core/variant/variant_utility.cpp:1033)
+   GDScript backtrace (most recent call first):
+       [0] _guard (res://src/props/corpse.gd:715)
+       [1] _physics_process (res://src/props/corpse.gd:678)
+WARNING: corpse 9 fell through the ground at (24.87349, -0.595034, 117.8886); restored
+   at: push_warning (core/variant/variant_utility.cpp:1033)
+   GDScript backtrace (most recent call first):
+       [0] _guard (res://src/props/corpse.gd:715)
+       [1] _physics_process (res://src/props/corpse.gd:678)
+WARNING: corpse 9 fell through the ground at (24.87349, -0.595034, 117.8886); restored
+   at: push_warning (core/variant/variant_utility.cpp:1033)
+   GDScript backtrace (most recent call first):
+       [0] _guard (res://src/props/corpse.gd:715)
+       [1] _physics_process (res://src/props/corpse.gd:678)
+WARNING: corpse 9 fell through the ground at (24.87349, -0.595034, 117.8886); restored
+   at: push_warning (core/variant/variant_utility.cpp:1033)
+   GDScript backtrace (most recent call first):
+       [0] _guard (res://src/props/corpse.gd:715)
+       [1] _physics_process (res://src/props/corpse.gd:678)
+WARNING: corpse 9 fell through the ground at (24.87349, -0.595034, 117.8886); restored
+   at: push_warning (core/variant/variant_utility.cpp:1033)
+   GDScript backtrace (most recent call first):
+       [0] _guard (res://src/props/corpse.gd:715)
+       [1] _physics_process (res://src/props/corpse.gd:678)
+WARNING: corpse 9 fell through the ground at (24.87349, -0.595034, 117.8886); restored
+   at: push_warning (core/variant/variant_utility.cpp:1033)
+   GDScript backtrace (most recent call first):
+       [0] _guard (res://src/props/corpse.gd:715)
+       [1] _physics_process (res://src/props/corpse.gd:678)
+WARNING: corpse 9 fell through the ground at (24.87349, -0.595034, 117.8886); restored
+   at: push_warning (core/variant/variant_utility.cpp:1033)
+   GDScript backtrace (most recent call first):
+       [0] _guard (res://src/props/corpse.gd:715)
+       [1] _physics_process (res://src/props/corpse.gd:678)
+WARNING: corpse 9 fell through the ground at (24.87349, -0.595034, 117.8886); restored
+   at: push_warning (core/variant/variant_utility.cpp:1033)
+   GDScript backtrace (most recent call first):
+       [0] _guard (res://src/props/corpse.gd:715)
+       [1] _physics_process (res://src/props/corpse.gd:678)
+WARNING: corpse 9 fell through the ground at (24.87349, -0.595034, 117.8886); restored
+   at: push_warning (core/variant/variant_utility.cpp:1033)
+   GDScript backtrace (most recent call first):
+       [0] _guard (res://src/props/corpse.gd:715)
+       [1] _physics_process (res://src/props/corpse.gd:678)
+WARNING: corpse 9 fell through the ground at (24.87349, -0.595034, 117.8886); restored
+   at: push_warning (core/variant/variant_utility.cpp:1033)
+   GDScript backtrace (most recent call first):
+       [0] _guard (res://src/props/corpse.gd:715)
+       [1] _physics_process (res://src/props/corpse.gd:678)
+WARNING: corpse 9 fell through the ground at (24.87349, -0.595034, 117.8886); restored
+   at: push_warning (core/variant/variant_utility.cpp:1033)
+   GDScript backtrace (most recent call first):
+       [0] _guard (res://src/props/corpse.gd:715)
+       [1] _physics_process (res://src/props/corpse.gd:678)
+WARNING: corpse 9 fell through the ground at (24.87349, -0.595034, 117.8886); restored
+   at: push_warning (core/variant/variant_utility.cpp:1033)
+   GDScript backtrace (most recent call first):
+       [0] _guard (res://src/props/corpse.gd:715)
+       [1] _physics_process (res://src/props/corpse.gd:678)
+WARNING: corpse 9 fell through the ground at (24.87349, -0.595034, 117.8886); restored
+   at: push_warning (core/variant/variant_utility.cpp:1033)
+   GDScript backtrace (most recent call first):
+       [0] _guard (res://src/props/corpse.gd:715)
+       [1] _physics_process (res://src/props/corpse.gd:678)
+WARNING: corpse 9 fell through the ground at (24.87349, -0.595034, 117.8886); restored
+   at: push_warning (core/variant/variant_utility.cpp:1033)
+   GDScript backtrace (most recent call first):
+       [0] _guard (res://src/props/corpse.gd:715)
+       [1] _physics_process (res://src/props/corpse.gd:678)
+WARNING: corpse 9 fell through the ground at (24.87349, -0.595034, 117.8886); restored
+   at: push_warning (core/variant/variant_utility.cpp:1033)
+   GDScript backtrace (most recent call first):
+       [0] _guard (res://src/props/corpse.gd:715)
+       [1] _physics_process (res://src/props/corpse.gd:678)
+WARNING: corpse 9 fell through the ground at (24.87349, -0.595034, 117.8886); restored
+   at: push_warning (core/variant/variant_utility.cpp:1033)
+   GDScript backtrace (most recent call first):
+       [0] _guard (res://src/props/corpse.gd:715)
+       [1] _physics_process (res://src/props/corpse.gd:678)
+WARNING: corpse 9 fell through the ground at (24.87349, -0.595034, 117.8886); restored
+   at: push_warning (core/variant/variant_utility.cpp:1033)
+   GDScript backtrace (most recent call first):
+       [0] _guard (res://src/props/corpse.gd:715)
+       [1] _physics_process (res://src/props/corpse.gd:678)
+WARNING: corpse 9 fell through the ground at (24.87349, -0.595034, 117.8886); restored
+   at: push_warning (core/variant/variant_utility.cpp:1033)
+   GDScript backtrace (most recent call first):
+       [0] _guard (res://src/props/corpse.gd:715)
+       [1] _physics_process (res://src/props/corpse.gd:678)
+WARNING: corpse 9 fell through the ground at (24.87349, -0.595034, 117.8886); restored
+   at: push_warning (core/variant/variant_utility.cpp:1033)
+   GDScript backtrace (most recent call first):
+       [0] _guard (res://src/props/corpse.gd:715)
+       [1] _physics_process (res://src/props/corpse.gd:678)
+WARNING: corpse 9 fell through the ground at (24.87349, -0.595034, 117.8886); restored
+   at: push_warning (core/variant/variant_utility.cpp:1033)
+   GDScript backtrace (most recent call first):
+       [0] _guard (res://src/props/corpse.gd:715)
+       [1] _physics_process (res://src/props/corpse.gd:678)
+WARNING: corpse 9 fell through the ground at (24.87349, -0.595034, 117.8886); restored
+   at: push_warning (core/variant/variant_utility.cpp:1033)
+   GDScript backtrace (most recent call first):
+       [0] _guard (res://src/props/corpse.gd:715)
+       [1] _physics_process (res://src/props/corpse.gd:678)
+WARNING: corpse 9 fell through the ground at (24.87349, -0.595034, 117.8886); restored
+   at: push_warning (core/variant/variant_utility.cpp:1033)
+   GDScript backtrace (most recent call first):
+       [0] _guard (res://src/props/corpse.gd:715)
+       [1] _physics_process (res://src/props/corpse.gd:678)
+WARNING: corpse 9 fell through the ground at (24.87349, -0.595034, 117.8886); restored
+   at: push_warning (core/variant/variant_utility.cpp:1033)
+   GDScript backtrace (most recent call first):
+       [0] _guard (res://src/props/corpse.gd:715)
+       [1] _physics_process (res://src/props/corpse.gd:678)
+WARNING: corpse 9 fell through the ground at (24.87349, -0.595034, 117.8886); restored
+   at: push_warning (core/variant/variant_utility.cpp:1033)
+   GDScript backtrace (most recent call first):
+       [0] _guard (res://src/props/corpse.gd:715)
+       [1] _physics_process (res://src/props/corpse.gd:678)
+WARNING: corpse 9 fell through the ground at (24.87349, -0.595034, 117.8886); restored
+   at: push_warning (core/variant/variant_utility.cpp:1033)
+   GDScript backtrace (most recent call first):
+       [0] _guard (res://src/props/corpse.gd:715)
+       [1] _physics_process (res://src/props/corpse.gd:678)
+WARNING: corpse 9 fell through the ground at (24.87349, -0.595034, 117.8886); restored
+   at: push_warning (core/variant/variant_utility.cpp:1033)
+   GDScript backtrace (most recent call first):
+       [0] _guard (res://src/props/corpse.gd:715)
+       [1] _physics_process (res://src/props/corpse.gd:678)
+WARNING: corpse 9 fell through the ground at (24.87349, -0.595034, 117.8886); restored
+   at: push_warning (core/variant/variant_utility.cpp:1033)
+   GDScript backtrace (most recent call first):
+       [0] _guard (res://src/props/corpse.gd:715)
+       [1] _physics_process (res://src/props/corpse.gd:678)
+WARNING: corpse 9 fell through the ground at (24.87349, -0.595034, 117.8886); restored
+   at: push_warning (core/variant/variant_utility.cpp:1033)
+   GDScript backtrace (most recent call first):
+       [0] _guard (res://src/props/corpse.gd:715)
+       [1] _physics_process (res://src/props/corpse.gd:678)
+WARNING: corpse 9 fell through the ground at (24.87349, -0.595034, 117.8886); restored
+   at: push_warning (core/variant/variant_utility.cpp:1033)
+   GDScript backtrace (most recent call first):
+       [0] _guard (res://src/props/corpse.gd:715)
+       [1] _physics_process (res://src/props/corpse.gd:678)
+WARNING: corpse 9 fell through the ground at (24.87349, -0.595034, 117.8886); restored
+   at: push_warning (core/variant/variant_utility.cpp:1033)
+   GDScript backtrace (most recent call first):
+       [0] _guard (res://src/props/corpse.gd:715)
+       [1] _physics_process (res://src/props/corpse.gd:678)
+WARNING: corpse 9 fell through the ground at (24.87349, -0.595034, 117.8886); restored
+   at: push_warning (core/variant/variant_utility.cpp:1033)
+   GDScript backtrace (most recent call first):
+       [0] _guard (res://src/props/corpse.gd:715)
+       [1] _physics_process (res://src/props/corpse.gd:678)
+WARNING: corpse 9 fell through the ground at (24.87349, -0.595034, 117.8886); restored
+   at: push_warning (core/variant/variant_utility.cpp:1033)
+   GDScript backtrace (most recent call first):
+       [0] _guard (res://src/props/corpse.gd:715)
+       [1] _physics_process (res://src/props/corpse.gd:678)
+WARNING: corpse 9 fell through the ground at (24.87349, -0.595034, 117.8886); restored
+   at: push_warning (core/variant/variant_utility.cpp:1033)
+   GDScript backtrace (most recent call first):
+       [0] _guard (res://src/props/corpse.gd:715)
+       [1] _physics_process (res://src/props/corpse.gd:678)
+WARNING: corpse 9 fell through the ground at (24.87349, -0.595034, 117.8886); restored
+   at: push_warning (core/variant/variant_utility.cpp:1033)
+   GDScript backtrace (most recent call first):
+       [0] _guard (res://src/props/corpse.gd:715)
+       [1] _physics_process (res://src/props/corpse.gd:678)
+WARNING: corpse 9 fell through the ground at (24.87349, -0.595034, 117.8886); restored
+   at: push_warning (core/variant/variant_utility.cpp:1033)
+   GDScript backtrace (most recent call first):
+       [0] _guard (res://src/props/corpse.gd:715)
+       [1] _physics_process (res://src/props/corpse.gd:678)
+WARNING: corpse 9 fell through the ground at (24.87349, -0.595034, 117.8886); restored
+   at: push_warning (core/variant/variant_utility.cpp:1033)
+   GDScript backtrace (most recent call first):
+       [0] _guard (res://src/props/corpse.gd:715)
+       [1] _physics_process (res://src/props/corpse.gd:678)
+WARNING: corpse 9 fell through the ground at (24.87349, -0.595034, 117.8886); restored
+   at: push_warning (core/variant/variant_utility.cpp:1033)
+   GDScript backtrace (most recent call first):
+       [0] _guard (res://src/props/corpse.gd:715)
+       [1] _physics_process (res://src/props/corpse.gd:678)
+WARNING: corpse 9 fell through the ground at (24.87349, -0.595034, 117.8886); restored
+   at: push_warning (core/variant/variant_utility.cpp:1033)
+   GDScript backtrace (most recent call first):
+       [0] _guard (res://src/props/corpse.gd:715)
+       [1] _physics_process (res://src/props/corpse.gd:678)
+WARNING: corpse 9 fell through the ground at (24.87349, -0.595034, 117.8886); restored
+   at: push_warning (core/variant/variant_utility.cpp:1033)
+   GDScript backtrace (most recent call first):
+       [0] _guard (res://src/props/corpse.gd:715)
+       [1] _physics_process (res://src/props/corpse.gd:678)
+WARNING: corpse 9 fell through the ground at (24.87349, -0.595034, 117.8886); restored
+   at: push_warning (core/variant/variant_utility.cpp:1033)
+   GDScript backtrace (most recent call first):
+       [0] _guard (res://src/props/corpse.gd:715)
+       [1] _physics_process (res://src/props/corpse.gd:678)
+WARNING: corpse 9 fell through the ground at (24.87349, -0.595034, 117.8886); restored
+   at: push_warning (core/variant/variant_utility.cpp:1033)
+   GDScript backtrace (most recent call first):
+       [0] _guard (res://src/props/corpse.gd:715)
+       [1] _physics_process (res://src/props/corpse.gd:678)
+WARNING: corpse 9 fell through the ground at (24.87349, -0.595034, 117.8886); restored
+   at: push_warning (core/variant/variant_utility.cpp:1033)
+   GDScript backtrace (most recent call first):
+       [0] _guard (res://src/props/corpse.gd:715)
+       [1] _physics_process (res://src/props/corpse.gd:678)
+WARNING: corpse 9 fell through the ground at (24.87349, -0.595034, 117.8886); restored
+   at: push_warning (core/variant/variant_utility.cpp:1033)
+   GDScript backtrace (most recent call first):
+       [0] _guard (res://src/props/corpse.gd:715)
+       [1] _physics_process (res://src/props/corpse.gd:678)
+WARNING: corpse 9 fell through the ground at (24.87349, -0.595034, 117.8886); restored
+   at: push_warning (core/variant/variant_utility.cpp:1033)
+   GDScript backtrace (most recent call first):
+       [0] _guard (res://src/props/corpse.gd:715)
+       [1] _physics_process (res://src/props/corpse.gd:678)
+WARNING: corpse 9 fell through the ground at (24.87349, -0.595034, 117.8886); restored
+   at: push_warning (core/variant/variant_utility.cpp:1033)
+   GDScript backtrace (most recent call first):
+       [0] _guard (res://src/props/corpse.gd:715)
+       [1] _physics_process (res://src/props/corpse.gd:678)
+WARNING: corpse 9 fell through the ground at (24.87349, -0.595034, 117.8886); restored
+   at: push_warning (core/variant/variant_utility.cpp:1033)
+   GDScript backtrace (most recent call first):
+       [0] _guard (res://src/props/corpse.gd:715)
+       [1] _physics_process (res://src/props/corpse.gd:678)
+WARNING: corpse 9 fell through the ground at (24.87349, -0.595034, 117.8886); restored
+   at: push_warning (core/variant/variant_utility.cpp:1033)
+   GDScript backtrace (most recent call first):
+       [0] _guard (res://src/props/corpse.gd:715)
+       [1] _physics_process (res://src/props/corpse.gd:678)
+WARNING: corpse 9 fell through the ground at (24.87349, -0.595034, 117.8886); restored
+   at: push_warning (core/variant/variant_utility.cpp:1033)
+   GDScript backtrace (most recent call first):
+       [0] _guard (res://src/props/corpse.gd:715)
+       [1] _physics_process (res://src/props/corpse.gd:678)
+WARNING: corpse 9 fell through the ground at (24.87349, -0.595034, 117.8886); restored
+   at: push_warning (core/variant/variant_utility.cpp:1033)
+   GDScript backtrace (most recent call first):
+       [0] _guard (res://src/props/corpse.gd:715)
+       [1] _physics_process (res://src/props/corpse.gd:678)
+WARNING: corpse 9 fell through the ground at (24.87349, -0.595034, 117.8886); restored
+   at: push_warning (core/variant/variant_utility.cpp:1033)
+   GDScript backtrace (most recent call first):
+       [0] _guard (res://src/props/corpse.gd:715)
+       [1] _physics_process (res://src/props/corpse.gd:678)
+WARNING: corpse 9 fell through the ground at (24.87349, -0.595034, 117.8886); restored
+   at: push_warning (core/variant/variant_utility.cpp:1033)
+   GDScript backtrace (most recent call first):
+       [0] _guard (res://src/props/corpse.gd:715)
+       [1] _physics_process (res://src/props/corpse.gd:678)
+WARNING: corpse 9 fell through the ground at (24.87349, -0.595034, 117.8886); restored
+   at: push_warning (core/variant/variant_utility.cpp:1033)
+   GDScript backtrace (most recent call first):
+       [0] _guard (res://src/props/corpse.gd:715)
+       [1] _physics_process (res://src/props/corpse.gd:678)
+WARNING: corpse 9 fell through the ground at (24.87349, -0.595034, 117.8886); restored
+   at: push_warning (core/variant/variant_utility.cpp:1033)
+   GDScript backtrace (most recent call first):
+       [0] _guard (res://src/props/corpse.gd:715)
+       [1] _physics_process (res://src/props/corpse.gd:678)
+WARNING: corpse 9 fell through the ground at (24.87349, -0.595034, 117.8886); restored
+   at: push_warning (core/variant/variant_utility.cpp:1033)
+   GDScript backtrace (most recent call first):
+       [0] _guard (res://src/props/corpse.gd:715)
+       [1] _physics_process (res://src/props/corpse.gd:678)
+WARNING: corpse 9 fell through the ground at (24.87349, -0.595034, 117.8886); restored
+   at: push_warning (core/variant/variant_utility.cpp:1033)
+   GDScript backtrace (most recent call first):
+       [0] _guard (res://src/props/corpse.gd:715)
+       [1] _physics_process (res://src/props/corpse.gd:678)
+WARNING: corpse 9 fell through the ground at (24.87349, -0.595034, 117.8886); restored
+   at: push_warning (core/variant/variant_utility.cpp:1033)
+   GDScript backtrace (most recent call first):
+       [0] _guard (res://src/props/corpse.gd:715)
+       [1] _physics_process (res://src/props/corpse.gd:678)
+WARNING: corpse 9 fell through the ground at (24.87349, -0.595034, 117.8886); restored
+   at: push_warning (core/variant/variant_utility.cpp:1033)
+   GDScript backtrace (most recent call first):
+       [0] _guard (res://src/props/corpse.gd:715)
+       [1] _physics_process (res://src/props/corpse.gd:678)
+WARNING: corpse 9 fell through the ground at (24.87349, -0.595034, 117.8886); restored
+   at: push_warning (core/variant/variant_utility.cpp:1033)
+   GDScript backtrace (most recent call first):
+       [0] _guard (res://src/props/corpse.gd:715)
+       [1] _physics_process (res://src/props/corpse.gd:678)
+WARNING: corpse 9 fell through the ground at (24.87349, -0.595034, 117.8886); restored
+   at: push_warning (core/variant/variant_utility.cpp:1033)
+   GDScript backtrace (most recent call first):
+       [0] _guard (res://src/props/corpse.gd:715)
+       [1] _physics_process (res://src/props/corpse.gd:678)
+WARNING: corpse 9 fell through the ground at (24.87349, -0.595034, 117.8886); restored
+   at: push_warning (core/variant/variant_utility.cpp:1033)
+   GDScript backtrace (most recent call first):
+       [0] _guard (res://src/props/corpse.gd:715)
+       [1] _physics_process (res://src/props/corpse.gd:678)
+WARNING: corpse 9 fell through the ground at (24.87349, -0.595034, 117.8886); restored
+   at: push_warning (core/variant/variant_utility.cpp:1033)
+   GDScript backtrace (most recent call first):
+       [0] _guard (res://src/props/corpse.gd:715)
+       [1] _physics_process (res://src/props/corpse.gd:678)
+WARNING: corpse 9 fell through the ground at (24.87349, -0.595034, 117.8886); restored
+   at: push_warning (core/variant/variant_utility.cpp:1033)
+   GDScript backtrace (most recent call first):
+       [0] _guard (res://src/props/corpse.gd:715)
+       [1] _physics_process (res://src/props/corpse.gd:678)
+WARNING: corpse 9 fell through the ground at (24.87349, -0.595034, 117.8886); restored
+   at: push_warning (core/variant/variant_utility.cpp:1033)
+   GDScript backtrace (most recent call first):
+       [0] _guard (res://src/props/corpse.gd:715)
+       [1] _physics_process (res://src/props/corpse.gd:678)
+WARNING: corpse 9 fell through the ground at (24.87349, -0.595034, 117.8886); restored
+   at: push_warning (core/variant/variant_utility.cpp:1033)
+   GDScript backtrace (most recent call first):
+       [0] _guard (res://src/props/corpse.gd:715)
+       [1] _physics_process (res://src/props/corpse.gd:678)
+WARNING: corpse 9 fell through the ground at (24.87349, -0.595034, 117.8886); restored
+   at: push_warning (core/variant/variant_utility.cpp:1033)
+   GDScript backtrace (most recent call first):
+       [0] _guard (res://src/props/corpse.gd:715)
+       [1] _physics_process (res://src/props/corpse.gd:678)
+WARNING: corpse 9 fell through the ground at (24.87349, -0.595034, 117.8886); restored
+   at: push_warning (core/variant/variant_utility.cpp:1033)
+   GDScript backtrace (most recent call first):
+       [0] _guard (res://src/props/corpse.gd:715)
+       [1] _physics_process (res://src/props/corpse.gd:678)
+WARNING: corpse 9 fell through the ground at (24.87349, -0.595034, 117.8886); restored
+   at: push_warning (core/variant/variant_utility.cpp:1033)
+   GDScript backtrace (most recent call first):
+       [0] _guard (res://src/props/corpse.gd:715)
+       [1] _physics_process (res://src/props/corpse.gd:678)
+WARNING: corpse 9 fell through the ground at (24.87349, -0.595034, 117.8886); restored
+   at: push_warning (core/variant/variant_utility.cpp:1033)
+   GDScript backtrace (most recent call first):
+       [0] _guard (res://src/props/corpse.gd:715)
+       [1] _physics_process (res://src/props/corpse.gd:678)
+WARNING: corpse 9 fell through the ground at (24.87349, -0.595034, 117.8886); restored
+   at: push_warning (core/variant/variant_utility.cpp:1033)
+   GDScript backtrace (most recent call first):
+       [0] _guard (res://src/props/corpse.gd:715)
+       [1] _physics_process (res://src/props/corpse.gd:678)
+WARNING: corpse 9 fell through the ground at (24.87349, -0.595034, 117.8886); restored
+   at: push_warning (core/variant/variant_utility.cpp:1033)
+   GDScript backtrace (most recent call first):
+       [0] _guard (res://src/props/corpse.gd:715)
+       [1] _physics_process (res://src/props/corpse.gd:678)
+WARNING: corpse 9 fell through the ground at (24.87349, -0.595034, 117.8886); restored
+   at: push_warning (core/variant/variant_utility.cpp:1033)
+   GDScript backtrace (most recent call first):
+       [0] _guard (res://src/props/corpse.gd:715)
+       [1] _physics_process (res://src/props/corpse.gd:678)
+WARNING: corpse 9 fell through the ground at (24.87349, -0.595034, 117.8886); restored
+   at: push_warning (core/variant/variant_utility.cpp:1033)
+   GDScript backtrace (most recent call first):
+       [0] _guard (res://src/props/corpse.gd:715)
+       [1] _physics_process (res://src/props/corpse.gd:678)
+WARNING: corpse 9 fell through the ground at (24.87349, -0.595034, 117.8886); restored
+   at: push_warning (core/variant/variant_utility.cpp:1033)
+   GDScript backtrace (most recent call first):
+       [0] _guard (res://src/props/corpse.gd:715)
+       [1] _physics_process (res://src/props/corpse.gd:678)
+WARNING: corpse 9 fell through the ground at (24.87349, -0.595034, 117.8886); restored
+   at: push_warning (core/variant/variant_utility.cpp:1033)
+   GDScript backtrace (most recent call first):
+       [0] _guard (res://src/props/corpse.gd:715)
+       [1] _physics_process (res://src/props/corpse.gd:678)
+WARNING: corpse 9 fell through the ground at (24.87349, -0.595034, 117.8886); restored
+   at: push_warning (core/variant/variant_utility.cpp:1033)
+   GDScript backtrace (most recent call first):
+       [0] _guard (res://src/props/corpse.gd:715)
+       [1] _physics_process (res://src/props/corpse.gd:678)
+WARNING: corpse 9 fell through the ground at (24.87349, -0.595034, 117.8886); restored
+   at: push_warning (core/variant/variant_utility.cpp:1033)
+   GDScript backtrace (most recent call first):
+       [0] _guard (res://src/props/corpse.gd:715)
+       [1] _physics_process (res://src/props/corpse.gd:678)
+WARNING: corpse 9 fell through the ground at (24.87349, -0.595034, 117.8886); restored
+   at: push_warning (core/variant/variant_utility.cpp:1033)
+   GDScript backtrace (most recent call first):
+       [0] _guard (res://src/props/corpse.gd:715)
+       [1] _physics_process (res://src/props/corpse.gd:678)
+WARNING: corpse 9 fell through the ground at (24.87349, -0.595034, 117.8886); restored
+   at: push_warning (core/variant/variant_utility.cpp:1033)
+   GDScript backtrace (most recent call first):
+       [0] _guard (res://src/props/corpse.gd:715)
+       [1] _physics_process (res://src/props/corpse.gd:678)
+WARNING: corpse 9 fell through the ground at (24.87349, -0.595034, 117.8886); restored
+   at: push_warning (core/variant/variant_utility.cpp:1033)
+   GDScript backtrace (most recent call first):
+       [0] _guard (res://src/props/corpse.gd:715)
+       [1] _physics_process (res://src/props/corpse.gd:678)
+WARNING: corpse 9 fell through the ground at (24.87349, -0.595034, 117.8886); restored
+   at: push_warning (core/variant/variant_utility.cpp:1033)
+   GDScript backtrace (most recent call first):
+       [0] _guard (res://src/props/corpse.gd:715)
+       [1] _physics_process (res://src/props/corpse.gd:678)
+WARNING: corpse 9 fell through the ground at (24.87349, -0.595034, 117.8886); restored
+   at: push_warning (core/variant/variant_utility.cpp:1033)
+   GDScript backtrace (most recent call first):
+       [0] _guard (res://src/props/corpse.gd:715)
+       [1] _physics_process (res://src/props/corpse.gd:678)
+WARNING: corpse 9 fell through the ground at (24.87349, -0.595034, 117.8886); restored
+   at: push_warning (core/variant/variant_utility.cpp:1033)
+   GDScript backtrace (most recent call first):
+       [0] _guard (res://src/props/corpse.gd:715)
+       [1] _physics_process (res://src/props/corpse.gd:678)
+WARNING: corpse 9 fell through the ground at (24.87349, -0.595034, 117.8886); restored
+   at: push_warning (core/variant/variant_utility.cpp:1033)
+   GDScript backtrace (most recent call first):
+       [0] _guard (res://src/props/corpse.gd:715)
+       [1] _physics_process (res://src/props/corpse.gd:678)
+WARNING: corpse 9 fell through the ground at (24.87349, -0.595034, 117.8886); restored
+   at: push_warning (core/variant/variant_utility.cpp:1033)
+   GDScript backtrace (most recent call first):
+       [0] _guard (res://src/props/corpse.gd:715)
+       [1] _physics_process (res://src/props/corpse.gd:678)
+WARNING: corpse 9 fell through the ground at (24.87349, -0.595034, 117.8886); restored
+   at: push_warning (core/variant/variant_utility.cpp:1033)
+   GDScript backtrace (most recent call first):
+       [0] _guard (res://src/props/corpse.gd:715)
+       [1] _physics_process (res://src/props/corpse.gd:678)
+WARNING: corpse 9 fell through the ground at (24.87349, -0.595034, 117.8886); restored
+   at: push_warning (core/variant/variant_utility.cpp:1033)
+   GDScript backtrace (most recent call first):
+       [0] _guard (res://src/props/corpse.gd:715)
+       [1] _physics_process (res://src/props/corpse.gd:678)
+WARNING: corpse 9 fell through the ground at (24.87349, -0.595034, 117.8886); restored
+   at: push_warning (core/variant/variant_utility.cpp:1033)
+   GDScript backtrace (most recent call first):
+       [0] _guard (res://src/props/corpse.gd:715)
+       [1] _physics_process (res://src/props/corpse.gd:678)
+WARNING: corpse 9 fell through the ground at (24.87349, -0.595034, 117.8886); restored
+   at: push_warning (core/variant/variant_utility.cpp:1033)
+   GDScript backtrace (most recent call first):
+       [0] _guard (res://src/props/corpse.gd:715)
+       [1] _physics_process (res://src/props/corpse.gd:678)
+WARNING: corpse 9 fell through the ground at (24.87349, -0.595034, 117.8886); restored
+   at: push_warning (core/variant/variant_utility.cpp:1033)
+   GDScript backtrace (most recent call first):
+       [0] _guard (res://src/props/corpse.gd:715)
+       [1] _physics_process (res://src/props/corpse.gd:678)
+WARNING: corpse 9 fell through the ground at (24.87349, -0.595034, 117.8886); restored
+   at: push_warning (core/variant/variant_utility.cpp:1033)
+   GDScript backtrace (most recent call first):
+       [0] _guard (res://src/props/corpse.gd:715)
+       [1] _physics_process (res://src/props/corpse.gd:678)
+WARNING: corpse 9 fell through the ground at (24.87349, -0.595034, 117.8886); restored
+   at: push_warning (core/variant/variant_utility.cpp:1033)
+   GDScript backtrace (most recent call first):
+       [0] _guard (res://src/props/corpse.gd:715)
+       [1] _physics_process (res://src/props/corpse.gd:678)
+WARNING: corpse 9 fell through the ground at (24.87349, -0.595034, 117.8886); restored
+   at: push_warning (core/variant/variant_utility.cpp:1033)
+   GDScript backtrace (most recent call first):
+       [0] _guard (res://src/props/corpse.gd:715)
+       [1] _physics_process (res://src/props/corpse.gd:678)
+WARNING: corpse 9 fell through the ground at (24.87349, -0.595034, 117.8886); restored
+   at: push_warning (core/variant/variant_utility.cpp:1033)
+   GDScript backtrace (most recent call first):
+       [0] _guard (res://src/props/corpse.gd:715)
+       [1] _physics_process (res://src/props/corpse.gd:678)
+WARNING: corpse 9 fell through the ground at (24.87349, -0.595034, 117.8886); restored
+   at: push_warning (core/variant/variant_utility.cpp:1033)
+   GDScript backtrace (most recent call first):
+       [0] _guard (res://src/props/corpse.gd:715)
+       [1] _physics_process (res://src/props/corpse.gd:678)
+WARNING: corpse 9 fell through the ground at (24.87349, -0.595034, 117.8886); restored
+   at: push_warning (core/variant/variant_utility.cpp:1033)
+   GDScript backtrace (most recent call first):
+       [0] _guard (res://src/props/corpse.gd:715)
+       [1] _physics_process (res://src/props/corpse.gd:678)
+WARNING: corpse 9 fell through the ground at (24.87349, -0.595034, 117.8886); restored
+   at: push_warning (core/variant/variant_utility.cpp:1033)
+   GDScript backtrace (most recent call first):
+       [0] _guard (res://src/props/corpse.gd:715)
+       [1] _physics_process (res://src/props/corpse.gd:678)
+WARNING: corpse 9 fell through the ground at (24.87349, -0.595034, 117.8886); restored
+   at: push_warning (core/variant/variant_utility.cpp:1033)
+   GDScript backtrace (most recent call first):
+       [0] _guard (res://src/props/corpse.gd:715)
+       [1] _physics_process (res://src/props/corpse.gd:678)
+WARNING: corpse 9 fell through the ground at (24.87349, -0.595034, 117.8886); restored
+   at: push_warning (core/variant/variant_utility.cpp:1033)
+   GDScript backtrace (most recent call first):
+       [0] _guard (res://src/props/corpse.gd:715)
+       [1] _physics_process (res://src/props/corpse.gd:678)
+WARNING: corpse 9 fell through the ground at (24.87349, -0.595034, 117.8886); restored
+   at: push_warning (core/variant/variant_utility.cpp:1033)
+   GDScript backtrace (most recent call first):
+       [0] _guard (res://src/props/corpse.gd:715)
+       [1] _physics_process (res://src/props/corpse.gd:678)
+WARNING: corpse 9 fell through the ground at (24.87349, -0.595034, 117.8886); restored
+   at: push_warning (core/variant/variant_utility.cpp:1033)
+   GDScript backtrace (most recent call first):
+       [0] _guard (res://src/props/corpse.gd:715)
+       [1] _physics_process (res://src/props/corpse.gd:678)
+WARNING: corpse 9 fell through the ground at (24.87349, -0.595034, 117.8886); restored
+   at: push_warning (core/variant/variant_utility.cpp:1033)
+   GDScript backtrace (most recent call first):
+       [0] _guard (res://src/props/corpse.gd:715)
+       [1] _physics_process (res://src/props/corpse.gd:678)
+WARNING: corpse 9 fell through the ground at (24.87349, -0.595034, 117.8886); restored
+   at: push_warning (core/variant/variant_utility.cpp:1033)
+   GDScript backtrace (most recent call first):
+       [0] _guard (res://src/props/corpse.gd:715)
+       [1] _physics_process (res://src/props/corpse.gd:678)
+WARNING: corpse 9 fell through the ground at (24.87349, -0.595034, 117.8886); restored
+   at: push_warning (core/variant/variant_utility.cpp:1033)
+   GDScript backtrace (most recent call first):
+       [0] _guard (res://src/props/corpse.gd:715)
+       [1] _physics_process (res://src/props/corpse.gd:678)
+WARNING: corpse 9 fell through the ground at (24.87349, -0.595034, 117.8886); restored
+   at: push_warning (core/variant/variant_utility.cpp:1033)
+   GDScript backtrace (most recent call first):
+       [0] _guard (res://src/props/corpse.gd:715)
+       [1] _physics_process (res://src/props/corpse.gd:678)
+WARNING: corpse 9 fell through the ground at (24.87349, -0.595034, 117.8886); restored
+   at: push_warning (core/variant/variant_utility.cpp:1033)
+   GDScript backtrace (most recent call first):
+       [0] _guard (res://src/props/corpse.gd:715)
+       [1] _physics_process (res://src/props/corpse.gd:678)
+WARNING: corpse 9 fell through the ground at (24.87349, -0.595034, 117.8886); restored
+   at: push_warning (core/variant/variant_utility.cpp:1033)
+   GDScript backtrace (most recent call first):
+       [0] _guard (res://src/props/corpse.gd:715)
+       [1] _physics_process (res://src/props/corpse.gd:678)
+WARNING: corpse 9 fell through the ground at (24.87349, -0.595034, 117.8886); restored
+   at: push_warning (core/variant/variant_utility.cpp:1033)
+   GDScript backtrace (most recent call first):
+       [0] _guard (res://src/props/corpse.gd:715)
+       [1] _physics_process (res://src/props/corpse.gd:678)
+WARNING: corpse 9 fell through the ground at (24.87349, -0.595034, 117.8886); restored
+   at: push_warning (core/variant/variant_utility.cpp:1033)
+   GDScript backtrace (most recent call first):
+       [0] _guard (res://src/props/corpse.gd:715)
+       [1] _physics_process (res://src/props/corpse.gd:678)
+WARNING: corpse 9 fell through the ground at (24.87349, -0.595034, 117.8886); restored
+   at: push_warning (core/variant/variant_utility.cpp:1033)
+   GDScript backtrace (most recent call first):
+       [0] _guard (res://src/props/corpse.gd:715)
+       [1] _physics_process (res://src/props/corpse.gd:678)
+WARNING: corpse 9 fell through the ground at (24.87349, -0.595034, 117.8886); restored
+   at: push_warning (core/variant/variant_utility.cpp:1033)
+   GDScript backtrace (most recent call first):
+       [0] _guard (res://src/props/corpse.gd:715)
+       [1] _physics_process (res://src/props/corpse.gd:678)
+WARNING: corpse 9 fell through the ground at (24.87349, -0.595034, 117.8886); restored
+   at: push_warning (core/variant/variant_utility.cpp:1033)
+   GDScript backtrace (most recent call first):
+       [0] _guard (res://src/props/corpse.gd:715)
+       [1] _physics_process (res://src/props/corpse.gd:678)
+[match  175.0] [radio] Lolo Pepe (stalker): contact
+WARNING: corpse 9 fell through the ground at (24.87349, -0.595034, 117.8886); restored
+   at: push_warning (core/variant/variant_utility.cpp:1033)
+   GDScript backtrace (most recent call first):
+       [0] _guard (res://src/props/corpse.gd:715)
+       [1] _physics_process (res://src/props/corpse.gd:678)
+WARNING: corpse 9 fell through the ground at (24.87349, -0.595034, 117.8886); restored
+   at: push_warning (core/variant/variant_utility.cpp:1033)
+   GDScript backtrace (most recent call first):
+       [0] _guard (res://src/props/corpse.gd:715)
+       [1] _physics_process (res://src/props/corpse.gd:678)
+WARNING: corpse 9 fell through the ground at (24.87349, -0.595034, 117.8886); restored
+   at: push_warning (core/variant/variant_utility.cpp:1033)
+   GDScript backtrace (most recent call first):
+       [0] _guard (res://src/props/corpse.gd:715)
+       [1] _physics_process (res://src/props/corpse.gd:678)
+WARNING: corpse 9 fell through the ground at (24.87349, -0.595034, 117.8886); restored
+   at: push_warning (core/variant/variant_utility.cpp:1033)
+   GDScript backtrace (most recent call first):
+       [0] _guard (res://src/props/corpse.gd:715)
+       [1] _physics_process (res://src/props/corpse.gd:678)
+WARNING: corpse 9 fell through the ground at (24.87349, -0.595034, 117.8886); restored
+   at: push_warning (core/variant/variant_utility.cpp:1033)
+   GDScript backtrace (most recent call first):
+       [0] _guard (res://src/props/corpse.gd:715)
+       [1] _physics_process (res://src/props/corpse.gd:678)
+WARNING: corpse 9 fell through the ground at (24.87349, -0.595034, 117.8886); restored
+   at: push_warning (core/variant/variant_utility.cpp:1033)
+   GDScript backtrace (most recent call first):
+       [0] _guard (res://src/props/corpse.gd:715)
+       [1] _physics_process (res://src/props/corpse.gd:678)
+WARNING: corpse 9 fell through the ground at (24.87349, -0.595034, 117.8886); restored
+   at: push_warning (core/variant/variant_utility.cpp:1033)
+   GDScript backtrace (most recent call first):
+       [0] _guard (res://src/props/corpse.gd:715)
+       [1] _physics_process (res://src/props/corpse.gd:678)
+WARNING: corpse 9 fell through the ground at (24.87349, -0.595034, 117.8886); restored
+   at: push_warning (core/variant/variant_utility.cpp:1033)
+   GDScript backtrace (most recent call first):
+       [0] _guard (res://src/props/corpse.gd:715)
+       [1] _physics_process (res://src/props/corpse.gd:678)
+WARNING: corpse 9 fell through the ground at (24.87349, -0.595034, 117.8886); restored
+   at: push_warning (core/variant/variant_utility.cpp:1033)
+   GDScript backtrace (most recent call first):
+       [0] _guard (res://src/props/corpse.gd:715)
+       [1] _physics_process (res://src/props/corpse.gd:678)
+WARNING: corpse 9 fell through the ground at (24.87349, -0.595034, 117.8886); restored
+   at: push_warning (core/variant/variant_utility.cpp:1033)
+   GDScript backtrace (most recent call first):
+       [0] _guard (res://src/props/corpse.gd:715)
+       [1] _physics_process (res://src/props/corpse.gd:678)
+WARNING: corpse 9 fell through the ground at (24.87349, -0.595034, 117.8886); restored
+   at: push_warning (core/variant/variant_utility.cpp:1033)
+   GDScript backtrace (most recent call first):
+       [0] _guard (res://src/props/corpse.gd:715)
+       [1] _physics_process (res://src/props/corpse.gd:678)
+WARNING: corpse 9 fell through the ground at (24.87349, -0.595034, 117.8886); restored
+   at: push_warning (core/variant/variant_utility.cpp:1033)
+   GDScript backtrace (most recent call first):
+       [0] _guard (res://src/props/corpse.gd:715)
+       [1] _physics_process (res://src/props/corpse.gd:678)
+WARNING: corpse 9 fell through the ground at (24.87349, -0.595034, 117.8886); restored
+   at: push_warning (core/variant/variant_utility.cpp:1033)
+   GDScript backtrace (most recent call first):
+       [0] _guard (res://src/props/corpse.gd:715)
+       [1] _physics_process (res://src/props/corpse.gd:678)
+WARNING: corpse 9 fell through the ground at (24.87349, -0.595034, 117.8886); restored
+   at: push_warning (core/variant/variant_utility.cpp:1033)
+   GDScript backtrace (most recent call first):
+       [0] _guard (res://src/props/corpse.gd:715)
+       [1] _physics_process (res://src/props/corpse.gd:678)
+WARNING: corpse 9 fell through the ground at (24.87349, -0.595034, 117.8886); restored
+   at: push_warning (core/variant/variant_utility.cpp:1033)
+   GDScript backtrace (most recent call first):
+       [0] _guard (res://src/props/corpse.gd:715)
+       [1] _physics_process (res://src/props/corpse.gd:678)
+[match  176.8] [radio] Pinsan Gardo (stalker): contact
+[match  179.0] [radio] Nanay Kakanin (stalker): clear
+[match  179.6] [radio] Ka Pedring (rusher): taking_fire
+[match  180.0] status: { "ground": 11 }; armed 11; shots 379; zone 1 shrink r=167; corpses 9; server tick avg 2.38 ms, p99 5.07 ms, max 16.48 ms over 900 ticks
+[match  180.0] dm teams: West Team 7 at (-9.0, 67.0) spread 38 m; East Team 4 at (48.0, 126.0) spread 29 m; gap 82 m; zone centre (-34.0, 91.0)
+[match  180.0] bots: { "follow": 2, "fight": 3, "hunt": 3, "loot": 1, "zone": 2 }; containers searched by bots 4 (all players 4); plan steps done 0; guns carried 24
+[match  180.0] [lootstats] bots on the ground 11 (in water 0); armed 11; armed with ammo for a gun 11; long guns 13; attachments fitted 1; rounds of unusable ammo carried 0; items on the ground 5930; bot pickups { "detours": 4, "detour_taken": 4, "fetches": 0, "fetch_done": 0, "items_taken": 4 }
+[match  180.6] [radio] Lolo Pepe (stalker): taking_fire
+[match  181.3] Lolo Pepe killed by Nanay Kakanin (gunshot); 2 teams left
+[match  181.3] alive: West Team 6, East Team 4
+[match  182.8] [radio] Nanay Kakanin (stalker): taking_fire
+[match  184.0] [radio] Mang Tomas (stalker): sneaking
+[match  184.8] [radio] Ka Pedring (rusher): taking_fire
+[match  185.5] [radio] Nanay Kakanin (stalker): taking_fire
+[match  185.5] Nanay Kakanin killed by Ka Pedring (gunshot); 2 teams left
+[match  185.5] alive: West Team 6, East Team 3
+WARNING: corpse 11 fell through the ground at (26.31404, -0.551456, 117.8563); restored
+   at: push_warning (core/variant/variant_utility.cpp:1033)
+   GDScript backtrace (most recent call first):
+       [0] _guard (res://src/props/corpse.gd:715)
+       [1] _physics_process (res://src/props/corpse.gd:678)
+WARNING: corpse 11 fell through the ground at (26.29839, -0.552104, 117.8416); restored
+   at: push_warning (core/variant/variant_utility.cpp:1033)
+   GDScript backtrace (most recent call first):
+       [0] _guard (res://src/props/corpse.gd:715)
+       [1] _physics_process (res://src/props/corpse.gd:678)
+WARNING: corpse 11 fell through the ground at (26.29839, -0.552109, 117.8416); restored
+   at: push_warning (core/variant/variant_utility.cpp:1033)
+   GDScript backtrace (most recent call first):
+       [0] _guard (res://src/props/corpse.gd:715)
+       [1] _physics_process (res://src/props/corpse.gd:678)
+WARNING: corpse 11 fell through the ground at (26.29839, -0.552109, 117.8416); restored
+   at: push_warning (core/variant/variant_utility.cpp:1033)
+   GDScript backtrace (most recent call first):
+       [0] _guard (res://src/props/corpse.gd:715)
+       [1] _physics_process (res://src/props/corpse.gd:678)
+WARNING: corpse 11 fell through the ground at (26.29839, -0.552109, 117.8416); restored
+   at: push_warning (core/variant/variant_utility.cpp:1033)
+   GDScript backtrace (most recent call first):
+       [0] _guard (res://src/props/corpse.gd:715)
+       [1] _physics_process (res://src/props/corpse.gd:678)
+WARNING: corpse 11 fell through the ground at (26.29839, -0.552109, 117.8416); restored
+   at: push_warning (core/variant/variant_utility.cpp:1033)
+   GDScript backtrace (most recent call first):
+       [0] _guard (res://src/props/corpse.gd:715)
+       [1] _physics_process (res://src/props/corpse.gd:678)
+WARNING: corpse 11 fell through the ground at (26.29839, -0.552109, 117.8416); restored
+   at: push_warning (core/variant/variant_utility.cpp:1033)
+   GDScript backtrace (most recent call first):
+       [0] _guard (res://src/props/corpse.gd:715)
+       [1] _physics_process (res://src/props/corpse.gd:678)
+WARNING: corpse 11 fell through the ground at (26.29839, -0.552109, 117.8416); restored
+   at: push_warning (core/variant/variant_utility.cpp:1033)
+   GDScript backtrace (most recent call first):
+       [0] _guard (res://src/props/corpse.gd:715)
+       [1] _physics_process (res://src/props/corpse.gd:678)
+WARNING: corpse 11 fell through the ground at (26.29839, -0.552109, 117.8416); restored
+   at: push_warning (core/variant/variant_utility.cpp:1033)
+   GDScript backtrace (most recent call first):
+       [0] _guard (res://src/props/corpse.gd:715)
+       [1] _physics_process (res://src/props/corpse.gd:678)
+WARNING: corpse 11 fell through the ground at (26.29839, -0.552109, 117.8416); restored
+   at: push_warning (core/variant/variant_utility.cpp:1033)
+   GDScript backtrace (most recent call first):
+       [0] _guard (res://src/props/corpse.gd:715)
+       [1] _physics_process (res://src/props/corpse.gd:678)
+[match  185.7] [radio] Aling Puring (looter): down
+[match  185.7] Ka Pedring killed by Dodong Lechon (gunshot); 2 teams left
+[match  185.7] alive: West Team 5, East Team 3
+WARNING: corpse 11 fell through the ground at (26.29839, -0.552109, 117.8416); restored
+   at: push_warning (core/variant/variant_utility.cpp:1033)
+   GDScript backtrace (most recent call first):
+       [0] _guard (res://src/props/corpse.gd:715)
+       [1] _physics_process (res://src/props/corpse.gd:678)
+WARNING: corpse 11 fell through the ground at (26.29839, -0.552109, 117.8416); restored
+   at: push_warning (core/variant/variant_utility.cpp:1033)
+   GDScript backtrace (most recent call first):
+       [0] _guard (res://src/props/corpse.gd:715)
+       [1] _physics_process (res://src/props/corpse.gd:678)
+WARNING: corpse 11 fell through the ground at (26.29839, -0.552109, 117.8416); restored
+   at: push_warning (core/variant/variant_utility.cpp:1033)
+   GDScript backtrace (most recent call first):
+       [0] _guard (res://src/props/corpse.gd:715)
+       [1] _physics_process (res://src/props/corpse.gd:678)
+WARNING: corpse 11 fell through the ground at (26.29839, -0.552109, 117.8416); restored
+   at: push_warning (core/variant/variant_utility.cpp:1033)
+   GDScript backtrace (most recent call first):
+       [0] _guard (res://src/props/corpse.gd:715)
+       [1] _physics_process (res://src/props/corpse.gd:678)
+WARNING: corpse 11 fell through the ground at (26.29839, -0.552109, 117.8416); restored
+   at: push_warning (core/variant/variant_utility.cpp:1033)
+   GDScript backtrace (most recent call first):
+       [0] _guard (res://src/props/corpse.gd:715)
+       [1] _physics_process (res://src/props/corpse.gd:678)
+WARNING: corpse 11 fell through the ground at (26.29839, -0.552109, 117.8416); restored
+   at: push_warning (core/variant/variant_utility.cpp:1033)
+   GDScript backtrace (most recent call first):
+       [0] _guard (res://src/props/corpse.gd:715)
+       [1] _physics_process (res://src/props/corpse.gd:678)
+WARNING: corpse 11 fell through the ground at (26.29839, -0.552109, 117.8416); restored
+   at: push_warning (core/variant/variant_utility.cpp:1033)
+   GDScript backtrace (most recent call first):
+       [0] _guard (res://src/props/corpse.gd:715)
+       [1] _physics_process (res://src/props/corpse.gd:678)
+WARNING: corpse 11 fell through the ground at (26.29839, -0.552109, 117.8416); restored
+   at: push_warning (core/variant/variant_utility.cpp:1033)
+   GDScript backtrace (most recent call first):
+       [0] _guard (res://src/props/corpse.gd:715)
+       [1] _physics_process (res://src/props/corpse.gd:678)
+WARNING: corpse 11 fell through the ground at (26.29839, -0.552109, 117.8416); restored
+   at: push_warning (core/variant/variant_utility.cpp:1033)
+   GDScript backtrace (most recent call first):
+       [0] _guard (res://src/props/corpse.gd:715)
+       [1] _physics_process (res://src/props/corpse.gd:678)
+WARNING: corpse 11 fell through the ground at (26.29839, -0.552109, 117.8416); restored
+   at: push_warning (core/variant/variant_utility.cpp:1033)
+   GDScript backtrace (most recent call first):
+       [0] _guard (res://src/props/corpse.gd:715)
+       [1] _physics_process (res://src/props/corpse.gd:678)
+WARNING: corpse 11 fell through the ground at (26.29839, -0.552109, 117.8416); restored
+   at: push_warning (core/variant/variant_utility.cpp:1033)
+   GDScript backtrace (most recent call first):
+       [0] _guard (res://src/props/corpse.gd:715)
+       [1] _physics_process (res://src/props/corpse.gd:678)
+WARNING: corpse 11 fell through the ground at (26.29839, -0.552109, 117.8416); restored
+   at: push_warning (core/variant/variant_utility.cpp:1033)
+   GDScript backtrace (most recent call first):
+       [0] _guard (res://src/props/corpse.gd:715)
+       [1] _physics_process (res://src/props/corpse.gd:678)
+WARNING: corpse 11 fell through the ground at (26.29839, -0.552109, 117.8416); restored
+   at: push_warning (core/variant/variant_utility.cpp:1033)
+   GDScript backtrace (most recent call first):
+       [0] _guard (res://src/props/corpse.gd:715)
+       [1] _physics_process (res://src/props/corpse.gd:678)
+WARNING: corpse 11 fell through the ground at (26.29839, -0.552109, 117.8416); restored
+   at: push_warning (core/variant/variant_utility.cpp:1033)
+   GDScript backtrace (most recent call first):
+       [0] _guard (res://src/props/corpse.gd:715)
+       [1] _physics_process (res://src/props/corpse.gd:678)
+WARNING: corpse 11 fell through the ground at (26.29839, -0.552109, 117.8416); restored
+   at: push_warning (core/variant/variant_utility.cpp:1033)
+   GDScript backtrace (most recent call first):
+       [0] _guard (res://src/props/corpse.gd:715)
+       [1] _physics_process (res://src/props/corpse.gd:678)
+WARNING: corpse 11 fell through the ground at (26.29839, -0.552109, 117.8416); restored
+   at: push_warning (core/variant/variant_utility.cpp:1033)
+   GDScript backtrace (most recent call first):
+       [0] _guard (res://src/props/corpse.gd:715)
+       [1] _physics_process (res://src/props/corpse.gd:678)
+WARNING: corpse 11 fell through the ground at (26.29839, -0.552109, 117.8416); restored
+   at: push_warning (core/variant/variant_utility.cpp:1033)
+   GDScript backtrace (most recent call first):
+       [0] _guard (res://src/props/corpse.gd:715)
+       [1] _physics_process (res://src/props/corpse.gd:678)
+WARNING: corpse 11 fell through the ground at (26.29839, -0.552109, 117.8416); restored
+   at: push_warning (core/variant/variant_utility.cpp:1033)
+   GDScript backtrace (most recent call first):
+       [0] _guard (res://src/props/corpse.gd:715)
+       [1] _physics_process (res://src/props/corpse.gd:678)
+WARNING: corpse 11 fell through the ground at (26.29839, -0.552109, 117.8416); restored
+   at: push_warning (core/variant/variant_utility.cpp:1033)
+   GDScript backtrace (most recent call first):
+       [0] _guard (res://src/props/corpse.gd:715)
+       [1] _physics_process (res://src/props/corpse.gd:678)
+WARNING: corpse 11 fell through the ground at (26.29839, -0.552109, 117.8416); restored
+   at: push_warning (core/variant/variant_utility.cpp:1033)
+   GDScript backtrace (most recent call first):
+       [0] _guard (res://src/props/corpse.gd:715)
+       [1] _physics_process (res://src/props/corpse.gd:678)
+WARNING: corpse 11 fell through the ground at (26.29839, -0.552109, 117.8416); restored
+   at: push_warning (core/variant/variant_utility.cpp:1033)
+   GDScript backtrace (most recent call first):
+       [0] _guard (res://src/props/corpse.gd:715)
+       [1] _physics_process (res://src/props/corpse.gd:678)
+WARNING: corpse 11 fell through the ground at (26.29839, -0.552109, 117.8416); restored
+   at: push_warning (core/variant/variant_utility.cpp:1033)
+   GDScript backtrace (most recent call first):
+       [0] _guard (res://src/props/corpse.gd:715)
+       [1] _physics_process (res://src/props/corpse.gd:678)
+WARNING: corpse 11 fell through the ground at (26.29839, -0.552109, 117.8416); restored
+   at: push_warning (core/variant/variant_utility.cpp:1033)
+   GDScript backtrace (most recent call first):
+       [0] _guard (res://src/props/corpse.gd:715)
+       [1] _physics_process (res://src/props/corpse.gd:678)
+WARNING: corpse 11 fell through the ground at (26.29839, -0.552109, 117.8416); restored
+   at: push_warning (core/variant/variant_utility.cpp:1033)
+   GDScript backtrace (most recent call first):
+       [0] _guard (res://src/props/corpse.gd:715)
+       [1] _physics_process (res://src/props/corpse.gd:678)
+WARNING: corpse 11 fell through the ground at (26.29839, -0.552109, 117.8416); restored
+   at: push_warning (core/variant/variant_utility.cpp:1033)
+   GDScript backtrace (most recent call first):
+       [0] _guard (res://src/props/corpse.gd:715)
+       [1] _physics_process (res://src/props/corpse.gd:678)
+WARNING: corpse 11 fell through the ground at (26.29839, -0.552109, 117.8416); restored
+   at: push_warning (core/variant/variant_utility.cpp:1033)
+   GDScript backtrace (most recent call first):
+       [0] _guard (res://src/props/corpse.gd:715)
+       [1] _physics_process (res://src/props/corpse.gd:678)
+WARNING: corpse 11 fell through the ground at (26.29839, -0.552109, 117.8416); restored
+   at: push_warning (core/variant/variant_utility.cpp:1033)
+   GDScript backtrace (most recent call first):
+       [0] _guard (res://src/props/corpse.gd:715)
+       [1] _physics_process (res://src/props/corpse.gd:678)
+WARNING: corpse 11 fell through the ground at (26.29839, -0.552109, 117.8416); restored
+   at: push_warning (core/variant/variant_utility.cpp:1033)
+   GDScript backtrace (most recent call first):
+       [0] _guard (res://src/props/corpse.gd:715)
+       [1] _physics_process (res://src/props/corpse.gd:678)
+WARNING: corpse 11 fell through the ground at (26.29839, -0.552109, 117.8416); restored
+   at: push_warning (core/variant/variant_utility.cpp:1033)
+   GDScript backtrace (most recent call first):
+       [0] _guard (res://src/props/corpse.gd:715)
+       [1] _physics_process (res://src/props/corpse.gd:678)
+WARNING: corpse 11 fell through the ground at (26.29839, -0.552109, 117.8416); restored
+   at: push_warning (core/variant/variant_utility.cpp:1033)
+   GDScript backtrace (most recent call first):
+       [0] _guard (res://src/props/corpse.gd:715)
+       [1] _physics_process (res://src/props/corpse.gd:678)
+WARNING: corpse 11 fell through the ground at (26.29839, -0.552109, 117.8416); restored
+   at: push_warning (core/variant/variant_utility.cpp:1033)
+   GDScript backtrace (most recent call first):
+       [0] _guard (res://src/props/corpse.gd:715)
+       [1] _physics_process (res://src/props/corpse.gd:678)
+WARNING: corpse 11 fell through the ground at (26.29839, -0.552109, 117.8416); restored
+   at: push_warning (core/variant/variant_utility.cpp:1033)
+   GDScript backtrace (most recent call first):
+       [0] _guard (res://src/props/corpse.gd:715)
+       [1] _physics_process (res://src/props/corpse.gd:678)
+WARNING: corpse 11 fell through the ground at (26.29839, -0.552109, 117.8416); restored
+   at: push_warning (core/variant/variant_utility.cpp:1033)
+   GDScript backtrace (most recent call first):
+       [0] _guard (res://src/props/corpse.gd:715)
+       [1] _physics_process (res://src/props/corpse.gd:678)
+WARNING: corpse 11 fell through the ground at (26.29839, -0.552109, 117.8416); restored
+   at: push_warning (core/variant/variant_utility.cpp:1033)
+   GDScript backtrace (most recent call first):
+       [0] _guard (res://src/props/corpse.gd:715)
+       [1] _physics_process (res://src/props/corpse.gd:678)
+WARNING: corpse 11 fell through the ground at (26.29839, -0.552109, 117.8416); restored
+   at: push_warning (core/variant/variant_utility.cpp:1033)
+   GDScript backtrace (most recent call first):
+       [0] _guard (res://src/props/corpse.gd:715)
+       [1] _physics_process (res://src/props/corpse.gd:678)
+WARNING: corpse 11 fell through the ground at (26.29839, -0.552109, 117.8416); restored
+   at: push_warning (core/variant/variant_utility.cpp:1033)
+   GDScript backtrace (most recent call first):
+       [0] _guard (res://src/props/corpse.gd:715)
+       [1] _physics_process (res://src/props/corpse.gd:678)
+WARNING: corpse 11 fell through the ground at (26.29839, -0.552109, 117.8416); restored
+   at: push_warning (core/variant/variant_utility.cpp:1033)
+   GDScript backtrace (most recent call first):
+       [0] _guard (res://src/props/corpse.gd:715)
+       [1] _physics_process (res://src/props/corpse.gd:678)
+WARNING: corpse 11 fell through the ground at (26.29839, -0.552109, 117.8416); restored
+   at: push_warning (core/variant/variant_utility.cpp:1033)
+   GDScript backtrace (most recent call first):
+       [0] _guard (res://src/props/corpse.gd:715)
+       [1] _physics_process (res://src/props/corpse.gd:678)
+WARNING: corpse 11 fell through the ground at (26.29839, -0.552109, 117.8416); restored
+   at: push_warning (core/variant/variant_utility.cpp:1033)
+   GDScript backtrace (most recent call first):
+       [0] _guard (res://src/props/corpse.gd:715)
+       [1] _physics_process (res://src/props/corpse.gd:678)
+WARNING: corpse 11 fell through the ground at (26.29839, -0.552109, 117.8416); restored
+   at: push_warning (core/variant/variant_utility.cpp:1033)
+   GDScript backtrace (most recent call first):
+       [0] _guard (res://src/props/corpse.gd:715)
+       [1] _physics_process (res://src/props/corpse.gd:678)
+WARNING: corpse 11 fell through the ground at (26.29839, -0.552109, 117.8416); restored
+   at: push_warning (core/variant/variant_utility.cpp:1033)
+   GDScript backtrace (most recent call first):
+       [0] _guard (res://src/props/corpse.gd:715)
+       [1] _physics_process (res://src/props/corpse.gd:678)
+WARNING: corpse 11 fell through the ground at (26.29839, -0.552109, 117.8416); restored
+   at: push_warning (core/variant/variant_utility.cpp:1033)
+   GDScript backtrace (most recent call first):
+       [0] _guard (res://src/props/corpse.gd:715)
+       [1] _physics_process (res://src/props/corpse.gd:678)
+WARNING: corpse 11 fell through the ground at (26.29839, -0.552109, 117.8416); restored
+   at: push_warning (core/variant/variant_utility.cpp:1033)
+   GDScript backtrace (most recent call first):
+       [0] _guard (res://src/props/corpse.gd:715)
+       [1] _physics_process (res://src/props/corpse.gd:678)
+WARNING: corpse 11 fell through the ground at (26.29839, -0.552109, 117.8416); restored
+   at: push_warning (core/variant/variant_utility.cpp:1033)
+   GDScript backtrace (most recent call first):
+       [0] _guard (res://src/props/corpse.gd:715)
+       [1] _physics_process (res://src/props/corpse.gd:678)
+WARNING: corpse 11 fell through the ground at (26.29839, -0.552109, 117.8416); restored
+   at: push_warning (core/variant/variant_utility.cpp:1033)
+   GDScript backtrace (most recent call first):
+       [0] _guard (res://src/props/corpse.gd:715)
+       [1] _physics_process (res://src/props/corpse.gd:678)
+WARNING: corpse 11 fell through the ground at (26.29839, -0.552109, 117.8416); restored
+   at: push_warning (core/variant/variant_utility.cpp:1033)
+   GDScript backtrace (most recent call first):
+       [0] _guard (res://src/props/corpse.gd:715)
+       [1] _physics_process (res://src/props/corpse.gd:678)
+WARNING: corpse 11 fell through the ground at (26.29839, -0.552109, 117.8416); restored
+   at: push_warning (core/variant/variant_utility.cpp:1033)
+   GDScript backtrace (most recent call first):
+       [0] _guard (res://src/props/corpse.gd:715)
+       [1] _physics_process (res://src/props/corpse.gd:678)
+WARNING: corpse 11 fell through the ground at (26.29839, -0.552109, 117.8416); restored
+   at: push_warning (core/variant/variant_utility.cpp:1033)
+   GDScript backtrace (most recent call first):
+       [0] _guard (res://src/props/corpse.gd:715)
+       [1] _physics_process (res://src/props/corpse.gd:678)
+WARNING: corpse 11 fell through the ground at (26.29839, -0.552109, 117.8416); restored
+   at: push_warning (core/variant/variant_utility.cpp:1033)
+   GDScript backtrace (most recent call first):
+       [0] _guard (res://src/props/corpse.gd:715)
+       [1] _physics_process (res://src/props/corpse.gd:678)
+WARNING: corpse 11 fell through the ground at (26.29839, -0.552109, 117.8416); restored
+   at: push_warning (core/variant/variant_utility.cpp:1033)
+   GDScript backtrace (most recent call first):
+       [0] _guard (res://src/props/corpse.gd:715)
+       [1] _physics_process (res://src/props/corpse.gd:678)
+WARNING: corpse 11 fell through the ground at (26.29839, -0.552109, 117.8416); restored
+   at: push_warning (core/variant/variant_utility.cpp:1033)
+   GDScript backtrace (most recent call first):
+       [0] _guard (res://src/props/corpse.gd:715)
+       [1] _physics_process (res://src/props/corpse.gd:678)
+WARNING: corpse 11 fell through the ground at (26.29839, -0.552109, 117.8416); restored
+   at: push_warning (core/variant/variant_utility.cpp:1033)
+   GDScript backtrace (most recent call first):
+       [0] _guard (res://src/props/corpse.gd:715)
+       [1] _physics_process (res://src/props/corpse.gd:678)
+WARNING: corpse 11 fell through the ground at (26.29839, -0.552109, 117.8416); restored
+   at: push_warning (core/variant/variant_utility.cpp:1033)
+   GDScript backtrace (most recent call first):
+       [0] _guard (res://src/props/corpse.gd:715)
+       [1] _physics_process (res://src/props/corpse.gd:678)
+WARNING: corpse 11 fell through the ground at (26.29839, -0.552109, 117.8416); restored
+   at: push_warning (core/variant/variant_utility.cpp:1033)
+   GDScript backtrace (most recent call first):
+       [0] _guard (res://src/props/corpse.gd:715)
+       [1] _physics_process (res://src/props/corpse.gd:678)
+WARNING: corpse 11 fell through the ground at (26.29839, -0.552109, 117.8416); restored
+   at: push_warning (core/variant/variant_utility.cpp:1033)
+   GDScript backtrace (most recent call first):
+       [0] _guard (res://src/props/corpse.gd:715)
+       [1] _physics_process (res://src/props/corpse.gd:678)
+WARNING: corpse 11 fell through the ground at (26.29839, -0.552109, 117.8416); restored
+   at: push_warning (core/variant/variant_utility.cpp:1033)
+   GDScript backtrace (most recent call first):
+       [0] _guard (res://src/props/corpse.gd:715)
+       [1] _physics_process (res://src/props/corpse.gd:678)
+WARNING: corpse 11 fell through the ground at (26.29839, -0.552109, 117.8416); restored
+   at: push_warning (core/variant/variant_utility.cpp:1033)
+   GDScript backtrace (most recent call first):
+       [0] _guard (res://src/props/corpse.gd:715)
+       [1] _physics_process (res://src/props/corpse.gd:678)
+WARNING: corpse 11 fell through the ground at (26.29839, -0.552109, 117.8416); restored
+   at: push_warning (core/variant/variant_utility.cpp:1033)
+   GDScript backtrace (most recent call first):
+       [0] _guard (res://src/props/corpse.gd:715)
+       [1] _physics_process (res://src/props/corpse.gd:678)
+WARNING: corpse 11 fell through the ground at (26.29839, -0.552109, 117.8416); restored
+   at: push_warning (core/variant/variant_utility.cpp:1033)
+   GDScript backtrace (most recent call first):
+       [0] _guard (res://src/props/corpse.gd:715)
+       [1] _physics_process (res://src/props/corpse.gd:678)
+WARNING: corpse 11 fell through the ground at (26.29839, -0.552109, 117.8416); restored
+   at: push_warning (core/variant/variant_utility.cpp:1033)
+   GDScript backtrace (most recent call first):
+       [0] _guard (res://src/props/corpse.gd:715)
+       [1] _physics_process (res://src/props/corpse.gd:678)
+WARNING: corpse 11 fell through the ground at (26.29839, -0.552109, 117.8416); restored
+   at: push_warning (core/variant/variant_utility.cpp:1033)
+   GDScript backtrace (most recent call first):
+       [0] _guard (res://src/props/corpse.gd:715)
+       [1] _physics_process (res://src/props/corpse.gd:678)
+WARNING: corpse 11 fell through the ground at (26.29839, -0.552109, 117.8416); restored
+   at: push_warning (core/variant/variant_utility.cpp:1033)
+   GDScript backtrace (most recent call first):
+       [0] _guard (res://src/props/corpse.gd:715)
+       [1] _physics_process (res://src/props/corpse.gd:678)
+WARNING: corpse 11 fell through the ground at (26.29839, -0.552109, 117.8416); restored
+   at: push_warning (core/variant/variant_utility.cpp:1033)
+   GDScript backtrace (most recent call first):
+       [0] _guard (res://src/props/corpse.gd:715)
+       [1] _physics_process (res://src/props/corpse.gd:678)
+WARNING: corpse 11 fell through the ground at (26.29839, -0.552109, 117.8416); restored
+   at: push_warning (core/variant/variant_utility.cpp:1033)
+   GDScript backtrace (most recent call first):
+       [0] _guard (res://src/props/corpse.gd:715)
+       [1] _physics_process (res://src/props/corpse.gd:678)
+WARNING: corpse 11 fell through the ground at (26.29839, -0.552109, 117.8416); restored
+   at: push_warning (core/variant/variant_utility.cpp:1033)
+   GDScript backtrace (most recent call first):
+       [0] _guard (res://src/props/corpse.gd:715)
+       [1] _physics_process (res://src/props/corpse.gd:678)
+WARNING: corpse 11 fell through the ground at (26.29839, -0.552109, 117.8416); restored
+   at: push_warning (core/variant/variant_utility.cpp:1033)
+   GDScript backtrace (most recent call first):
+       [0] _guard (res://src/props/corpse.gd:715)
+       [1] _physics_process (res://src/props/corpse.gd:678)
+WARNING: corpse 11 fell through the ground at (26.29839, -0.552109, 117.8416); restored
+   at: push_warning (core/variant/variant_utility.cpp:1033)
+   GDScript backtrace (most recent call first):
+       [0] _guard (res://src/props/corpse.gd:715)
+       [1] _physics_process (res://src/props/corpse.gd:678)
+WARNING: corpse 11 fell through the ground at (26.29839, -0.552109, 117.8416); restored
+   at: push_warning (core/variant/variant_utility.cpp:1033)
+   GDScript backtrace (most recent call first):
+       [0] _guard (res://src/props/corpse.gd:715)
+       [1] _physics_process (res://src/props/corpse.gd:678)
+WARNING: corpse 11 fell through the ground at (26.29839, -0.552109, 117.8416); restored
+   at: push_warning (core/variant/variant_utility.cpp:1033)
+   GDScript backtrace (most recent call first):
+       [0] _guard (res://src/props/corpse.gd:715)
+       [1] _physics_process (res://src/props/corpse.gd:678)
+WARNING: corpse 11 fell through the ground at (26.29839, -0.552109, 117.8416); restored
+   at: push_warning (core/variant/variant_utility.cpp:1033)
+   GDScript backtrace (most recent call first):
+       [0] _guard (res://src/props/corpse.gd:715)
+       [1] _physics_process (res://src/props/corpse.gd:678)
+WARNING: corpse 11 fell through the ground at (26.29839, -0.552109, 117.8416); restored
+   at: push_warning (core/variant/variant_utility.cpp:1033)
+   GDScript backtrace (most recent call first):
+       [0] _guard (res://src/props/corpse.gd:715)
+       [1] _physics_process (res://src/props/corpse.gd:678)
+WARNING: corpse 11 fell through the ground at (26.29839, -0.552109, 117.8416); restored
+   at: push_warning (core/variant/variant_utility.cpp:1033)
+   GDScript backtrace (most recent call first):
+       [0] _guard (res://src/props/corpse.gd:715)
+       [1] _physics_process (res://src/props/corpse.gd:678)
+WARNING: corpse 11 fell through the ground at (26.29839, -0.552109, 117.8416); restored
+   at: push_warning (core/variant/variant_utility.cpp:1033)
+   GDScript backtrace (most recent call first):
+       [0] _guard (res://src/props/corpse.gd:715)
+       [1] _physics_process (res://src/props/corpse.gd:678)
+WARNING: corpse 11 fell through the ground at (26.29839, -0.552109, 117.8416); restored
+   at: push_warning (core/variant/variant_utility.cpp:1033)
+   GDScript backtrace (most recent call first):
+       [0] _guard (res://src/props/corpse.gd:715)
+       [1] _physics_process (res://src/props/corpse.gd:678)
+WARNING: corpse 11 fell through the ground at (26.29839, -0.552109, 117.8416); restored
+   at: push_warning (core/variant/variant_utility.cpp:1033)
+   GDScript backtrace (most recent call first):
+       [0] _guard (res://src/props/corpse.gd:715)
+       [1] _physics_process (res://src/props/corpse.gd:678)
+WARNING: corpse 11 fell through the ground at (26.29839, -0.552109, 117.8416); restored
+   at: push_warning (core/variant/variant_utility.cpp:1033)
+   GDScript backtrace (most recent call first):
+       [0] _guard (res://src/props/corpse.gd:715)
+       [1] _physics_process (res://src/props/corpse.gd:678)
+WARNING: corpse 11 fell through the ground at (26.29839, -0.552109, 117.8416); restored
+   at: push_warning (core/variant/variant_utility.cpp:1033)
+   GDScript backtrace (most recent call first):
+       [0] _guard (res://src/props/corpse.gd:715)
+       [1] _physics_process (res://src/props/corpse.gd:678)
+WARNING: corpse 11 fell through the ground at (26.29839, -0.552109, 117.8416); restored
+   at: push_warning (core/variant/variant_utility.cpp:1033)
+   GDScript backtrace (most recent call first):
+       [0] _guard (res://src/props/corpse.gd:715)
+       [1] _physics_process (res://src/props/corpse.gd:678)
+WARNING: corpse 11 fell through the ground at (26.29839, -0.552109, 117.8416); restored
+   at: push_warning (core/variant/variant_utility.cpp:1033)
+   GDScript backtrace (most recent call first):
+       [0] _guard (res://src/props/corpse.gd:715)
+       [1] _physics_process (res://src/props/corpse.gd:678)
+WARNING: corpse 11 fell through the ground at (26.29839, -0.552109, 117.8416); restored
+   at: push_warning (core/variant/variant_utility.cpp:1033)
+   GDScript backtrace (most recent call first):
+       [0] _guard (res://src/props/corpse.gd:715)
+       [1] _physics_process (res://src/props/corpse.gd:678)
+WARNING: corpse 11 fell through the ground at (26.29839, -0.552109, 117.8416); restored
+   at: push_warning (core/variant/variant_utility.cpp:1033)
+   GDScript backtrace (most recent call first):
+       [0] _guard (res://src/props/corpse.gd:715)
+       [1] _physics_process (res://src/props/corpse.gd:678)
+WARNING: corpse 11 fell through the ground at (26.29839, -0.552109, 117.8416); restored
+   at: push_warning (core/variant/variant_utility.cpp:1033)
+   GDScript backtrace (most recent call first):
+       [0] _guard (res://src/props/corpse.gd:715)
+       [1] _physics_process (res://src/props/corpse.gd:678)
+WARNING: corpse 11 fell through the ground at (26.29839, -0.552109, 117.8416); restored
+   at: push_warning (core/variant/variant_utility.cpp:1033)
+   GDScript backtrace (most recent call first):
+       [0] _guard (res://src/props/corpse.gd:715)
+       [1] _physics_process (res://src/props/corpse.gd:678)
+WARNING: corpse 11 fell through the ground at (26.29839, -0.552109, 117.8416); restored
+   at: push_warning (core/variant/variant_utility.cpp:1033)
+   GDScript backtrace (most recent call first):
+       [0] _guard (res://src/props/corpse.gd:715)
+       [1] _physics_process (res://src/props/corpse.gd:678)
+WARNING: corpse 11 fell through the ground at (26.29839, -0.552109, 117.8416); restored
+   at: push_warning (core/variant/variant_utility.cpp:1033)
+   GDScript backtrace (most recent call first):
+       [0] _guard (res://src/props/corpse.gd:715)
+       [1] _physics_process (res://src/props/corpse.gd:678)
+WARNING: corpse 11 fell through the ground at (26.29839, -0.552109, 117.8416); restored
+   at: push_warning (core/variant/variant_utility.cpp:1033)
+   GDScript backtrace (most recent call first):
+       [0] _guard (res://src/props/corpse.gd:715)
+       [1] _physics_process (res://src/props/corpse.gd:678)
+WARNING: corpse 11 fell through the ground at (26.29839, -0.552109, 117.8416); restored
+   at: push_warning (core/variant/variant_utility.cpp:1033)
+   GDScript backtrace (most recent call first):
+       [0] _guard (res://src/props/corpse.gd:715)
+       [1] _physics_process (res://src/props/corpse.gd:678)
+WARNING: corpse 11 fell through the ground at (26.29839, -0.552109, 117.8416); restored
+   at: push_warning (core/variant/variant_utility.cpp:1033)
+   GDScript backtrace (most recent call first):
+       [0] _guard (res://src/props/corpse.gd:715)
+       [1] _physics_process (res://src/props/corpse.gd:678)
+WARNING: corpse 11 fell through the ground at (26.29839, -0.552109, 117.8416); restored
+   at: push_warning (core/variant/variant_utility.cpp:1033)
+   GDScript backtrace (most recent call first):
+       [0] _guard (res://src/props/corpse.gd:715)
+       [1] _physics_process (res://src/props/corpse.gd:678)
+WARNING: corpse 11 fell through the ground at (26.29839, -0.552109, 117.8416); restored
+   at: push_warning (core/variant/variant_utility.cpp:1033)
+   GDScript backtrace (most recent call first):
+       [0] _guard (res://src/props/corpse.gd:715)
+       [1] _physics_process (res://src/props/corpse.gd:678)
+WARNING: corpse 11 fell through the ground at (26.29839, -0.552109, 117.8416); restored
+   at: push_warning (core/variant/variant_utility.cpp:1033)
+   GDScript backtrace (most recent call first):
+       [0] _guard (res://src/props/corpse.gd:715)
+       [1] _physics_process (res://src/props/corpse.gd:678)
+WARNING: corpse 11 fell through the ground at (26.29839, -0.552109, 117.8416); restored
+   at: push_warning (core/variant/variant_utility.cpp:1033)
+   GDScript backtrace (most recent call first):
+       [0] _guard (res://src/props/corpse.gd:715)
+       [1] _physics_process (res://src/props/corpse.gd:678)
+WARNING: corpse 11 fell through the ground at (26.29839, -0.552109, 117.8416); restored
+   at: push_warning (core/variant/variant_utility.cpp:1033)
+   GDScript backtrace (most recent call first):
+       [0] _guard (res://src/props/corpse.gd:715)
+       [1] _physics_process (res://src/props/corpse.gd:678)
+WARNING: corpse 11 fell through the ground at (26.29839, -0.552109, 117.8416); restored
+   at: push_warning (core/variant/variant_utility.cpp:1033)
+   GDScript backtrace (most recent call first):
+       [0] _guard (res://src/props/corpse.gd:715)
+       [1] _physics_process (res://src/props/corpse.gd:678)
+WARNING: corpse 11 fell through the ground at (26.29839, -0.552109, 117.8416); restored
+   at: push_warning (core/variant/variant_utility.cpp:1033)
+   GDScript backtrace (most recent call first):
+       [0] _guard (res://src/props/corpse.gd:715)
+       [1] _physics_process (res://src/props/corpse.gd:678)
+WARNING: corpse 11 fell through the ground at (26.29839, -0.552109, 117.8416); restored
+   at: push_warning (core/variant/variant_utility.cpp:1033)
+   GDScript backtrace (most recent call first):
+       [0] _guard (res://src/props/corpse.gd:715)
+       [1] _physics_process (res://src/props/corpse.gd:678)
+WARNING: corpse 11 fell through the ground at (26.29839, -0.552109, 117.8416); restored
+   at: push_warning (core/variant/variant_utility.cpp:1033)
+   GDScript backtrace (most recent call first):
+       [0] _guard (res://src/props/corpse.gd:715)
+       [1] _physics_process (res://src/props/corpse.gd:678)
+WARNING: corpse 11 fell through the ground at (26.29839, -0.552109, 117.8416); restored
+   at: push_warning (core/variant/variant_utility.cpp:1033)
+   GDScript backtrace (most recent call first):
+       [0] _guard (res://src/props/corpse.gd:715)
+       [1] _physics_process (res://src/props/corpse.gd:678)
+WARNING: corpse 11 fell through the ground at (26.29839, -0.552109, 117.8416); restored
+   at: push_warning (core/variant/variant_utility.cpp:1033)
+   GDScript backtrace (most recent call first):
+       [0] _guard (res://src/props/corpse.gd:715)
+       [1] _physics_process (res://src/props/corpse.gd:678)
+WARNING: corpse 11 fell through the ground at (26.29839, -0.552109, 117.8416); restored
+   at: push_warning (core/variant/variant_utility.cpp:1033)
+   GDScript backtrace (most recent call first):
+       [0] _guard (res://src/props/corpse.gd:715)
+       [1] _physics_process (res://src/props/corpse.gd:678)
+WARNING: corpse 11 fell through the ground at (26.29839, -0.552109, 117.8416); restored
+   at: push_warning (core/variant/variant_utility.cpp:1033)
+   GDScript backtrace (most recent call first):
+       [0] _guard (res://src/props/corpse.gd:715)
+       [1] _physics_process (res://src/props/corpse.gd:678)
+WARNING: corpse 11 fell through the ground at (26.29839, -0.552109, 117.8416); restored
+   at: push_warning (core/variant/variant_utility.cpp:1033)
+   GDScript backtrace (most recent call first):
+       [0] _guard (res://src/props/corpse.gd:715)
+       [1] _physics_process (res://src/props/corpse.gd:678)
+WARNING: corpse 11 fell through the ground at (26.29839, -0.552109, 117.8416); restored
+   at: push_warning (core/variant/variant_utility.cpp:1033)
+   GDScript backtrace (most recent call first):
+       [0] _guard (res://src/props/corpse.gd:715)
+       [1] _physics_process (res://src/props/corpse.gd:678)
+WARNING: corpse 11 fell through the ground at (26.29839, -0.552109, 117.8416); restored
+   at: push_warning (core/variant/variant_utility.cpp:1033)
+   GDScript backtrace (most recent call first):
+       [0] _guard (res://src/props/corpse.gd:715)
+       [1] _physics_process (res://src/props/corpse.gd:678)
+WARNING: corpse 11 fell through the ground at (26.29839, -0.552109, 117.8416); restored
+   at: push_warning (core/variant/variant_utility.cpp:1033)
+   GDScript backtrace (most recent call first):
+       [0] _guard (res://src/props/corpse.gd:715)
+       [1] _physics_process (res://src/props/corpse.gd:678)
+WARNING: corpse 11 fell through the ground at (26.29839, -0.552109, 117.8416); restored
+   at: push_warning (core/variant/variant_utility.cpp:1033)
+   GDScript backtrace (most recent call first):
+       [0] _guard (res://src/props/corpse.gd:715)
+       [1] _physics_process (res://src/props/corpse.gd:678)
+WARNING: corpse 11 fell through the ground at (26.29839, -0.552109, 117.8416); restored
+   at: push_warning (core/variant/variant_utility.cpp:1033)
+   GDScript backtrace (most recent call first):
+       [0] _guard (res://src/props/corpse.gd:715)
+       [1] _physics_process (res://src/props/corpse.gd:678)
+WARNING: corpse 11 fell through the ground at (26.29839, -0.552109, 117.8416); restored
+   at: push_warning (core/variant/variant_utility.cpp:1033)
+   GDScript backtrace (most recent call first):
+       [0] _guard (res://src/props/corpse.gd:715)
+       [1] _physics_process (res://src/props/corpse.gd:678)
+WARNING: corpse 11 fell through the ground at (26.29839, -0.552109, 117.8416); restored
+   at: push_warning (core/variant/variant_utility.cpp:1033)
+   GDScript backtrace (most recent call first):
+       [0] _guard (res://src/props/corpse.gd:715)
+       [1] _physics_process (res://src/props/corpse.gd:678)
+WARNING: corpse 11 fell through the ground at (26.29839, -0.552109, 117.8416); restored
+   at: push_warning (core/variant/variant_utility.cpp:1033)
+   GDScript backtrace (most recent call first):
+       [0] _guard (res://src/props/corpse.gd:715)
+       [1] _physics_process (res://src/props/corpse.gd:678)
+WARNING: corpse 11 fell through the ground at (26.29839, -0.552109, 117.8416); restored
+   at: push_warning (core/variant/variant_utility.cpp:1033)
+   GDScript backtrace (most recent call first):
+       [0] _guard (res://src/props/corpse.gd:715)
+       [1] _physics_process (res://src/props/corpse.gd:678)
+WARNING: corpse 11 fell through the ground at (26.29839, -0.552109, 117.8416); restored
+   at: push_warning (core/variant/variant_utility.cpp:1033)
+   GDScript backtrace (most recent call first):
+       [0] _guard (res://src/props/corpse.gd:715)
+       [1] _physics_process (res://src/props/corpse.gd:678)
+WARNING: corpse 11 fell through the ground at (26.29839, -0.552109, 117.8416); restored
+   at: push_warning (core/variant/variant_utility.cpp:1033)
+   GDScript backtrace (most recent call first):
+       [0] _guard (res://src/props/corpse.gd:715)
+       [1] _physics_process (res://src/props/corpse.gd:678)
+WARNING: corpse 11 fell through the ground at (26.29839, -0.552109, 117.8416); restored
+   at: push_warning (core/variant/variant_utility.cpp:1033)
+   GDScript backtrace (most recent call first):
+       [0] _guard (res://src/props/corpse.gd:715)
+       [1] _physics_process (res://src/props/corpse.gd:678)
+WARNING: corpse 11 fell through the ground at (26.29839, -0.552109, 117.8416); restored
+   at: push_warning (core/variant/variant_utility.cpp:1033)
+   GDScript backtrace (most recent call first):
+       [0] _guard (res://src/props/corpse.gd:715)
+       [1] _physics_process (res://src/props/corpse.gd:678)
+WARNING: corpse 11 fell through the ground at (26.29839, -0.552109, 117.8416); restored
+   at: push_warning (core/variant/variant_utility.cpp:1033)
+   GDScript backtrace (most recent call first):
+       [0] _guard (res://src/props/corpse.gd:715)
+       [1] _physics_process (res://src/props/corpse.gd:678)
+WARNING: corpse 11 fell through the ground at (26.29839, -0.552109, 117.8416); restored
+   at: push_warning (core/variant/variant_utility.cpp:1033)
+   GDScript backtrace (most recent call first):
+       [0] _guard (res://src/props/corpse.gd:715)
+       [1] _physics_process (res://src/props/corpse.gd:678)
+WARNING: corpse 11 fell through the ground at (26.29839, -0.552109, 117.8416); restored
+   at: push_warning (core/variant/variant_utility.cpp:1033)
+   GDScript backtrace (most recent call first):
+       [0] _guard (res://src/props/corpse.gd:715)
+       [1] _physics_process (res://src/props/corpse.gd:678)
+WARNING: corpse 11 fell through the ground at (26.29839, -0.552109, 117.8416); restored
+   at: push_warning (core/variant/variant_utility.cpp:1033)
+   GDScript backtrace (most recent call first):
+       [0] _guard (res://src/props/corpse.gd:715)
+       [1] _physics_process (res://src/props/corpse.gd:678)
+WARNING: corpse 11 fell through the ground at (26.29839, -0.552109, 117.8416); restored
+   at: push_warning (core/variant/variant_utility.cpp:1033)
+   GDScript backtrace (most recent call first):
+       [0] _guard (res://src/props/corpse.gd:715)
+       [1] _physics_process (res://src/props/corpse.gd:678)
+WARNING: corpse 11 fell through the ground at (26.29839, -0.552109, 117.8416); restored
+   at: push_warning (core/variant/variant_utility.cpp:1033)
+   GDScript backtrace (most recent call first):
+       [0] _guard (res://src/props/corpse.gd:715)
+       [1] _physics_process (res://src/props/corpse.gd:678)
+WARNING: corpse 11 fell through the ground at (26.29839, -0.552109, 117.8416); restored
+   at: push_warning (core/variant/variant_utility.cpp:1033)
+   GDScript backtrace (most recent call first):
+       [0] _guard (res://src/props/corpse.gd:715)
+       [1] _physics_process (res://src/props/corpse.gd:678)
+WARNING: corpse 11 fell through the ground at (26.29839, -0.552109, 117.8416); restored
+   at: push_warning (core/variant/variant_utility.cpp:1033)
+   GDScript backtrace (most recent call first):
+       [0] _guard (res://src/props/corpse.gd:715)
+       [1] _physics_process (res://src/props/corpse.gd:678)
+WARNING: corpse 11 fell through the ground at (26.29839, -0.552109, 117.8416); restored
+   at: push_warning (core/variant/variant_utility.cpp:1033)
+   GDScript backtrace (most recent call first):
+       [0] _guard (res://src/props/corpse.gd:715)
+       [1] _physics_process (res://src/props/corpse.gd:678)
+WARNING: corpse 11 fell through the ground at (26.29839, -0.552109, 117.8416); restored
+   at: push_warning (core/variant/variant_utility.cpp:1033)
+   GDScript backtrace (most recent call first):
+       [0] _guard (res://src/props/corpse.gd:715)
+       [1] _physics_process (res://src/props/corpse.gd:678)
+WARNING: corpse 11 fell through the ground at (26.29839, -0.552109, 117.8416); restored
+   at: push_warning (core/variant/variant_utility.cpp:1033)
+   GDScript backtrace (most recent call first):
+       [0] _guard (res://src/props/corpse.gd:715)
+       [1] _physics_process (res://src/props/corpse.gd:678)
+WARNING: corpse 11 fell through the ground at (26.29839, -0.552109, 117.8416); restored
+   at: push_warning (core/variant/variant_utility.cpp:1033)
+   GDScript backtrace (most recent call first):
+       [0] _guard (res://src/props/corpse.gd:715)
+       [1] _physics_process (res://src/props/corpse.gd:678)
+WARNING: corpse 11 fell through the ground at (26.29839, -0.552109, 117.8416); restored
+   at: push_warning (core/variant/variant_utility.cpp:1033)
+   GDScript backtrace (most recent call first):
+       [0] _guard (res://src/props/corpse.gd:715)
+       [1] _physics_process (res://src/props/corpse.gd:678)
+WARNING: corpse 11 fell through the ground at (26.29839, -0.552109, 117.8416); restored
+   at: push_warning (core/variant/variant_utility.cpp:1033)
+   GDScript backtrace (most recent call first):
+       [0] _guard (res://src/props/corpse.gd:715)
+       [1] _physics_process (res://src/props/corpse.gd:678)
+WARNING: corpse 11 fell through the ground at (26.29839, -0.552109, 117.8416); restored
+   at: push_warning (core/variant/variant_utility.cpp:1033)
+   GDScript backtrace (most recent call first):
+       [0] _guard (res://src/props/corpse.gd:715)
+       [1] _physics_process (res://src/props/corpse.gd:678)
+WARNING: corpse 11 fell through the ground at (26.29839, -0.552109, 117.8416); restored
+   at: push_warning (core/variant/variant_utility.cpp:1033)
+   GDScript backtrace (most recent call first):
+       [0] _guard (res://src/props/corpse.gd:715)
+       [1] _physics_process (res://src/props/corpse.gd:678)
+WARNING: corpse 11 fell through the ground at (26.29839, -0.552109, 117.8416); restored
+   at: push_warning (core/variant/variant_utility.cpp:1033)
+   GDScript backtrace (most recent call first):
+       [0] _guard (res://src/props/corpse.gd:715)
+       [1] _physics_process (res://src/props/corpse.gd:678)
+WARNING: corpse 11 fell through the ground at (26.29839, -0.552109, 117.8416); restored
+   at: push_warning (core/variant/variant_utility.cpp:1033)
+   GDScript backtrace (most recent call first):
+       [0] _guard (res://src/props/corpse.gd:715)
+       [1] _physics_process (res://src/props/corpse.gd:678)
+WARNING: corpse 11 fell through the ground at (26.29839, -0.552109, 117.8416); restored
+   at: push_warning (core/variant/variant_utility.cpp:1033)
+   GDScript backtrace (most recent call first):
+       [0] _guard (res://src/props/corpse.gd:715)
+       [1] _physics_process (res://src/props/corpse.gd:678)
+WARNING: corpse 11 fell through the ground at (26.29839, -0.552109, 117.8416); restored
+   at: push_warning (core/variant/variant_utility.cpp:1033)
+   GDScript backtrace (most recent call first):
+       [0] _guard (res://src/props/corpse.gd:715)
+       [1] _physics_process (res://src/props/corpse.gd:678)
+WARNING: corpse 11 fell through the ground at (26.29839, -0.552109, 117.8416); restored
+   at: push_warning (core/variant/variant_utility.cpp:1033)
+   GDScript backtrace (most recent call first):
+       [0] _guard (res://src/props/corpse.gd:715)
+       [1] _physics_process (res://src/props/corpse.gd:678)
+WARNING: corpse 11 fell through the ground at (26.29839, -0.552109, 117.8416); restored
+   at: push_warning (core/variant/variant_utility.cpp:1033)
+   GDScript backtrace (most recent call first):
+       [0] _guard (res://src/props/corpse.gd:715)
+       [1] _physics_process (res://src/props/corpse.gd:678)
+WARNING: corpse 11 fell through the ground at (26.29839, -0.552109, 117.8416); restored
+   at: push_warning (core/variant/variant_utility.cpp:1033)
+   GDScript backtrace (most recent call first):
+       [0] _guard (res://src/props/corpse.gd:715)
+       [1] _physics_process (res://src/props/corpse.gd:678)
+WARNING: corpse 11 fell through the ground at (26.29839, -0.552109, 117.8416); restored
+   at: push_warning (core/variant/variant_utility.cpp:1033)
+   GDScript backtrace (most recent call first):
+       [0] _guard (res://src/props/corpse.gd:715)
+       [1] _physics_process (res://src/props/corpse.gd:678)
+WARNING: corpse 11 fell through the ground at (26.29839, -0.552109, 117.8416); restored
+   at: push_warning (core/variant/variant_utility.cpp:1033)
+   GDScript backtrace (most recent call first):
+       [0] _guard (res://src/props/corpse.gd:715)
+       [1] _physics_process (res://src/props/corpse.gd:678)
+WARNING: corpse 11 fell through the ground at (26.29839, -0.552109, 117.8416); restored
+   at: push_warning (core/variant/variant_utility.cpp:1033)
+   GDScript backtrace (most recent call first):
+       [0] _guard (res://src/props/corpse.gd:715)
+       [1] _physics_process (res://src/props/corpse.gd:678)
+WARNING: corpse 11 fell through the ground at (26.29839, -0.552109, 117.8416); restored
+   at: push_warning (core/variant/variant_utility.cpp:1033)
+   GDScript backtrace (most recent call first):
+       [0] _guard (res://src/props/corpse.gd:715)
+       [1] _physics_process (res://src/props/corpse.gd:678)
+WARNING: corpse 11 fell through the ground at (26.29839, -0.552109, 117.8416); restored
+   at: push_warning (core/variant/variant_utility.cpp:1033)
+   GDScript backtrace (most recent call first):
+       [0] _guard (res://src/props/corpse.gd:715)
+       [1] _physics_process (res://src/props/corpse.gd:678)
+WARNING: corpse 11 fell through the ground at (26.29839, -0.552109, 117.8416); restored
+   at: push_warning (core/variant/variant_utility.cpp:1033)
+   GDScript backtrace (most recent call first):
+       [0] _guard (res://src/props/corpse.gd:715)
+       [1] _physics_process (res://src/props/corpse.gd:678)
+WARNING: corpse 11 fell through the ground at (26.29839, -0.552109, 117.8416); restored
+   at: push_warning (core/variant/variant_utility.cpp:1033)
+   GDScript backtrace (most recent call first):
+       [0] _guard (res://src/props/corpse.gd:715)
+       [1] _physics_process (res://src/props/corpse.gd:678)
+WARNING: corpse 11 fell through the ground at (26.29839, -0.552109, 117.8416); restored
+   at: push_warning (core/variant/variant_utility.cpp:1033)
+   GDScript backtrace (most recent call first):
+       [0] _guard (res://src/props/corpse.gd:715)
+       [1] _physics_process (res://src/props/corpse.gd:678)
+WARNING: corpse 11 fell through the ground at (26.29839, -0.552109, 117.8416); restored
+   at: push_warning (core/variant/variant_utility.cpp:1033)
+   GDScript backtrace (most recent call first):
+       [0] _guard (res://src/props/corpse.gd:715)
+       [1] _physics_process (res://src/props/corpse.gd:678)
+WARNING: corpse 11 fell through the ground at (26.29839, -0.552109, 117.8416); restored
+   at: push_warning (core/variant/variant_utility.cpp:1033)
+   GDScript backtrace (most recent call first):
+       [0] _guard (res://src/props/corpse.gd:715)
+       [1] _physics_process (res://src/props/corpse.gd:678)
+WARNING: corpse 11 fell through the ground at (26.29839, -0.552109, 117.8416); restored
+   at: push_warning (core/variant/variant_utility.cpp:1033)
+   GDScript backtrace (most recent call first):
+       [0] _guard (res://src/props/corpse.gd:715)
+       [1] _physics_process (res://src/props/corpse.gd:678)
+WARNING: corpse 11 fell through the ground at (26.29839, -0.552109, 117.8416); restored
+   at: push_warning (core/variant/variant_utility.cpp:1033)
+   GDScript backtrace (most recent call first):
+       [0] _guard (res://src/props/corpse.gd:715)
+       [1] _physics_process (res://src/props/corpse.gd:678)
+WARNING: corpse 11 fell through the ground at (26.29839, -0.552109, 117.8416); restored
+   at: push_warning (core/variant/variant_utility.cpp:1033)
+   GDScript backtrace (most recent call first):
+       [0] _guard (res://src/props/corpse.gd:715)
+       [1] _physics_process (res://src/props/corpse.gd:678)
+WARNING: corpse 11 fell through the ground at (26.29839, -0.552109, 117.8416); restored
+   at: push_warning (core/variant/variant_utility.cpp:1033)
+   GDScript backtrace (most recent call first):
+       [0] _guard (res://src/props/corpse.gd:715)
+       [1] _physics_process (res://src/props/corpse.gd:678)
+WARNING: corpse 11 fell through the ground at (26.29839, -0.552109, 117.8416); restored
+   at: push_warning (core/variant/variant_utility.cpp:1033)
+   GDScript backtrace (most recent call first):
+       [0] _guard (res://src/props/corpse.gd:715)
+       [1] _physics_process (res://src/props/corpse.gd:678)
+WARNING: corpse 11 fell through the ground at (26.29839, -0.552109, 117.8416); restored
+   at: push_warning (core/variant/variant_utility.cpp:1033)
+   GDScript backtrace (most recent call first):
+       [0] _guard (res://src/props/corpse.gd:715)
+       [1] _physics_process (res://src/props/corpse.gd:678)
+WARNING: corpse 11 fell through the ground at (26.29839, -0.552109, 117.8416); restored
+   at: push_warning (core/variant/variant_utility.cpp:1033)
+   GDScript backtrace (most recent call first):
+       [0] _guard (res://src/props/corpse.gd:715)
+       [1] _physics_process (res://src/props/corpse.gd:678)
+WARNING: corpse 11 fell through the ground at (26.29839, -0.552109, 117.8416); restored
+   at: push_warning (core/variant/variant_utility.cpp:1033)
+   GDScript backtrace (most recent call first):
+       [0] _guard (res://src/props/corpse.gd:715)
+       [1] _physics_process (res://src/props/corpse.gd:678)
+WARNING: corpse 11 fell through the ground at (26.29839, -0.552109, 117.8416); restored
+   at: push_warning (core/variant/variant_utility.cpp:1033)
+   GDScript backtrace (most recent call first):
+       [0] _guard (res://src/props/corpse.gd:715)
+       [1] _physics_process (res://src/props/corpse.gd:678)
+WARNING: corpse 11 fell through the ground at (26.29839, -0.552109, 117.8416); restored
+   at: push_warning (core/variant/variant_utility.cpp:1033)
+   GDScript backtrace (most recent call first):
+       [0] _guard (res://src/props/corpse.gd:715)
+       [1] _physics_process (res://src/props/corpse.gd:678)
+WARNING: corpse 11 fell through the ground at (26.29839, -0.552109, 117.8416); restored
+   at: push_warning (core/variant/variant_utility.cpp:1033)
+   GDScript backtrace (most recent call first):
+       [0] _guard (res://src/props/corpse.gd:715)
+       [1] _physics_process (res://src/props/corpse.gd:678)
+WARNING: corpse 11 fell through the ground at (26.29839, -0.552109, 117.8416); restored
+   at: push_warning (core/variant/variant_utility.cpp:1033)
+   GDScript backtrace (most recent call first):
+       [0] _guard (res://src/props/corpse.gd:715)
+       [1] _physics_process (res://src/props/corpse.gd:678)
+WARNING: corpse 11 fell through the ground at (26.29839, -0.552109, 117.8416); restored
+   at: push_warning (core/variant/variant_utility.cpp:1033)
+   GDScript backtrace (most recent call first):
+       [0] _guard (res://src/props/corpse.gd:715)
+       [1] _physics_process (res://src/props/corpse.gd:678)
+WARNING: corpse 11 fell through the ground at (26.29839, -0.552109, 117.8416); restored
+   at: push_warning (core/variant/variant_utility.cpp:1033)
+   GDScript backtrace (most recent call first):
+       [0] _guard (res://src/props/corpse.gd:715)
+       [1] _physics_process (res://src/props/corpse.gd:678)
+WARNING: corpse 11 fell through the ground at (26.29839, -0.552109, 117.8416); restored
+   at: push_warning (core/variant/variant_utility.cpp:1033)
+   GDScript backtrace (most recent call first):
+       [0] _guard (res://src/props/corpse.gd:715)
+       [1] _physics_process (res://src/props/corpse.gd:678)
+WARNING: corpse 11 fell through the ground at (26.29839, -0.552109, 117.8416); restored
+   at: push_warning (core/variant/variant_utility.cpp:1033)
+   GDScript backtrace (most recent call first):
+       [0] _guard (res://src/props/corpse.gd:715)
+       [1] _physics_process (res://src/props/corpse.gd:678)
+WARNING: corpse 11 fell through the ground at (26.29839, -0.552109, 117.8416); restored
+   at: push_warning (core/variant/variant_utility.cpp:1033)
+   GDScript backtrace (most recent call first):
+       [0] _guard (res://src/props/corpse.gd:715)
+       [1] _physics_process (res://src/props/corpse.gd:678)
+WARNING: corpse 11 fell through the ground at (26.29839, -0.552109, 117.8416); restored
+   at: push_warning (core/variant/variant_utility.cpp:1033)
+   GDScript backtrace (most recent call first):
+       [0] _guard (res://src/props/corpse.gd:715)
+       [1] _physics_process (res://src/props/corpse.gd:678)
+WARNING: corpse 11 fell through the ground at (26.29839, -0.552109, 117.8416); restored
+   at: push_warning (core/variant/variant_utility.cpp:1033)
+   GDScript backtrace (most recent call first):
+       [0] _guard (res://src/props/corpse.gd:715)
+       [1] _physics_process (res://src/props/corpse.gd:678)
+WARNING: corpse 11 fell through the ground at (26.29839, -0.552109, 117.8416); restored
+   at: push_warning (core/variant/variant_utility.cpp:1033)
+   GDScript backtrace (most recent call first):
+       [0] _guard (res://src/props/corpse.gd:715)
+       [1] _physics_process (res://src/props/corpse.gd:678)
+WARNING: corpse 11 fell through the ground at (26.29839, -0.552109, 117.8416); restored
+   at: push_warning (core/variant/variant_utility.cpp:1033)
+   GDScript backtrace (most recent call first):
+       [0] _guard (res://src/props/corpse.gd:715)
+       [1] _physics_process (res://src/props/corpse.gd:678)
+WARNING: corpse 11 fell through the ground at (26.29839, -0.552109, 117.8416); restored
+   at: push_warning (core/variant/variant_utility.cpp:1033)
+   GDScript backtrace (most recent call first):
+       [0] _guard (res://src/props/corpse.gd:715)
+       [1] _physics_process (res://src/props/corpse.gd:678)
+WARNING: corpse 11 fell through the ground at (26.29839, -0.552109, 117.8416); restored
+   at: push_warning (core/variant/variant_utility.cpp:1033)
+   GDScript backtrace (most recent call first):
+       [0] _guard (res://src/props/corpse.gd:715)
+       [1] _physics_process (res://src/props/corpse.gd:678)
+WARNING: corpse 11 fell through the ground at (26.29839, -0.552109, 117.8416); restored
+   at: push_warning (core/variant/variant_utility.cpp:1033)
+   GDScript backtrace (most recent call first):
+       [0] _guard (res://src/props/corpse.gd:715)
+       [1] _physics_process (res://src/props/corpse.gd:678)
+WARNING: corpse 11 fell through the ground at (26.29839, -0.552109, 117.8416); restored
+   at: push_warning (core/variant/variant_utility.cpp:1033)
+   GDScript backtrace (most recent call first):
+       [0] _guard (res://src/props/corpse.gd:715)
+       [1] _physics_process (res://src/props/corpse.gd:678)
+WARNING: corpse 11 fell through the ground at (26.29839, -0.552109, 117.8416); restored
+   at: push_warning (core/variant/variant_utility.cpp:1033)
+   GDScript backtrace (most recent call first):
+       [0] _guard (res://src/props/corpse.gd:715)
+       [1] _physics_process (res://src/props/corpse.gd:678)
+WARNING: corpse 11 fell through the ground at (26.29839, -0.552109, 117.8416); restored
+   at: push_warning (core/variant/variant_utility.cpp:1033)
+   GDScript backtrace (most recent call first):
+       [0] _guard (res://src/props/corpse.gd:715)
+       [1] _physics_process (res://src/props/corpse.gd:678)
+WARNING: corpse 11 fell through the ground at (26.29839, -0.552109, 117.8416); restored
+   at: push_warning (core/variant/variant_utility.cpp:1033)
+   GDScript backtrace (most recent call first):
+       [0] _guard (res://src/props/corpse.gd:715)
+       [1] _physics_process (res://src/props/corpse.gd:678)
+WARNING: corpse 11 fell through the ground at (26.29839, -0.552109, 117.8416); restored
+   at: push_warning (core/variant/variant_utility.cpp:1033)
+   GDScript backtrace (most recent call first):
+       [0] _guard (res://src/props/corpse.gd:715)
+       [1] _physics_process (res://src/props/corpse.gd:678)
+WARNING: corpse 11 fell through the ground at (26.29839, -0.552109, 117.8416); restored
+   at: push_warning (core/variant/variant_utility.cpp:1033)
+   GDScript backtrace (most recent call first):
+       [0] _guard (res://src/props/corpse.gd:715)
+       [1] _physics_process (res://src/props/corpse.gd:678)
+WARNING: corpse 11 fell through the ground at (26.29839, -0.552109, 117.8416); restored
+   at: push_warning (core/variant/variant_utility.cpp:1033)
+   GDScript backtrace (most recent call first):
+       [0] _guard (res://src/props/corpse.gd:715)
+       [1] _physics_process (res://src/props/corpse.gd:678)
+WARNING: corpse 11 fell through the ground at (26.29839, -0.552109, 117.8416); restored
+   at: push_warning (core/variant/variant_utility.cpp:1033)
+   GDScript backtrace (most recent call first):
+       [0] _guard (res://src/props/corpse.gd:715)
+       [1] _physics_process (res://src/props/corpse.gd:678)
+WARNING: corpse 11 fell through the ground at (26.29839, -0.552109, 117.8416); restored
+   at: push_warning (core/variant/variant_utility.cpp:1033)
+   GDScript backtrace (most recent call first):
+       [0] _guard (res://src/props/corpse.gd:715)
+       [1] _physics_process (res://src/props/corpse.gd:678)
+WARNING: corpse 11 fell through the ground at (26.29839, -0.552109, 117.8416); restored
+   at: push_warning (core/variant/variant_utility.cpp:1033)
+   GDScript backtrace (most recent call first):
+       [0] _guard (res://src/props/corpse.gd:715)
+       [1] _physics_process (res://src/props/corpse.gd:678)
+WARNING: corpse 11 fell through the ground at (26.29839, -0.552109, 117.8416); restored
+   at: push_warning (core/variant/variant_utility.cpp:1033)
+   GDScript backtrace (most recent call first):
+       [0] _guard (res://src/props/corpse.gd:715)
+       [1] _physics_process (res://src/props/corpse.gd:678)
+WARNING: corpse 11 fell through the ground at (26.29839, -0.552109, 117.8416); restored
+   at: push_warning (core/variant/variant_utility.cpp:1033)
+   GDScript backtrace (most recent call first):
+       [0] _guard (res://src/props/corpse.gd:715)
+       [1] _physics_process (res://src/props/corpse.gd:678)
+WARNING: corpse 11 fell through the ground at (26.29839, -0.552109, 117.8416); restored
+   at: push_warning (core/variant/variant_utility.cpp:1033)
+   GDScript backtrace (most recent call first):
+       [0] _guard (res://src/props/corpse.gd:715)
+       [1] _physics_process (res://src/props/corpse.gd:678)
+WARNING: corpse 11 fell through the ground at (26.29839, -0.552109, 117.8416); restored
+   at: push_warning (core/variant/variant_utility.cpp:1033)
+   GDScript backtrace (most recent call first):
+       [0] _guard (res://src/props/corpse.gd:715)
+       [1] _physics_process (res://src/props/corpse.gd:678)
+WARNING: corpse 11 fell through the ground at (26.29839, -0.552109, 117.8416); restored
+   at: push_warning (core/variant/variant_utility.cpp:1033)
+   GDScript backtrace (most recent call first):
+       [0] _guard (res://src/props/corpse.gd:715)
+       [1] _physics_process (res://src/props/corpse.gd:678)
+WARNING: corpse 11 fell through the ground at (26.29839, -0.552109, 117.8416); restored
+   at: push_warning (core/variant/variant_utility.cpp:1033)
+   GDScript backtrace (most recent call first):
+       [0] _guard (res://src/props/corpse.gd:715)
+       [1] _physics_process (res://src/props/corpse.gd:678)
+WARNING: corpse 11 fell through the ground at (26.29839, -0.552109, 117.8416); restored
+   at: push_warning (core/variant/variant_utility.cpp:1033)
+   GDScript backtrace (most recent call first):
+       [0] _guard (res://src/props/corpse.gd:715)
+       [1] _physics_process (res://src/props/corpse.gd:678)
+WARNING: corpse 11 fell through the ground at (26.29839, -0.552109, 117.8416); restored
+   at: push_warning (core/variant/variant_utility.cpp:1033)
+   GDScript backtrace (most recent call first):
+       [0] _guard (res://src/props/corpse.gd:715)
+       [1] _physics_process (res://src/props/corpse.gd:678)
+WARNING: corpse 11 fell through the ground at (26.29839, -0.552109, 117.8416); restored
+   at: push_warning (core/variant/variant_utility.cpp:1033)
+   GDScript backtrace (most recent call first):
+       [0] _guard (res://src/props/corpse.gd:715)
+       [1] _physics_process (res://src/props/corpse.gd:678)
+WARNING: corpse 11 fell through the ground at (26.29839, -0.552109, 117.8416); restored
+   at: push_warning (core/variant/variant_utility.cpp:1033)
+   GDScript backtrace (most recent call first):
+       [0] _guard (res://src/props/corpse.gd:715)
+       [1] _physics_process (res://src/props/corpse.gd:678)
+WARNING: corpse 11 fell through the ground at (26.29839, -0.552109, 117.8416); restored
+   at: push_warning (core/variant/variant_utility.cpp:1033)
+   GDScript backtrace (most recent call first):
+       [0] _guard (res://src/props/corpse.gd:715)
+       [1] _physics_process (res://src/props/corpse.gd:678)
+WARNING: corpse 11 fell through the ground at (26.29839, -0.552109, 117.8416); restored
+   at: push_warning (core/variant/variant_utility.cpp:1033)
+   GDScript backtrace (most recent call first):
+       [0] _guard (res://src/props/corpse.gd:715)
+       [1] _physics_process (res://src/props/corpse.gd:678)
+WARNING: corpse 11 fell through the ground at (26.29839, -0.552109, 117.8416); restored
+   at: push_warning (core/variant/variant_utility.cpp:1033)
+   GDScript backtrace (most recent call first):
+       [0] _guard (res://src/props/corpse.gd:715)
+       [1] _physics_process (res://src/props/corpse.gd:678)
+WARNING: corpse 11 fell through the ground at (26.29839, -0.552109, 117.8416); restored
+   at: push_warning (core/variant/variant_utility.cpp:1033)
+   GDScript backtrace (most recent call first):
+       [0] _guard (res://src/props/corpse.gd:715)
+       [1] _physics_process (res://src/props/corpse.gd:678)
+WARNING: corpse 11 fell through the ground at (26.29839, -0.552109, 117.8416); restored
+   at: push_warning (core/variant/variant_utility.cpp:1033)
+   GDScript backtrace (most recent call first):
+       [0] _guard (res://src/props/corpse.gd:715)
+       [1] _physics_process (res://src/props/corpse.gd:678)
+WARNING: corpse 11 fell through the ground at (26.29839, -0.552109, 117.8416); restored
+   at: push_warning (core/variant/variant_utility.cpp:1033)
+   GDScript backtrace (most recent call first):
+       [0] _guard (res://src/props/corpse.gd:715)
+       [1] _physics_process (res://src/props/corpse.gd:678)
+WARNING: corpse 11 fell through the ground at (26.29839, -0.552109, 117.8416); restored
+   at: push_warning (core/variant/variant_utility.cpp:1033)
+   GDScript backtrace (most recent call first):
+       [0] _guard (res://src/props/corpse.gd:715)
+       [1] _physics_process (res://src/props/corpse.gd:678)
+WARNING: corpse 11 fell through the ground at (26.29839, -0.552109, 117.8416); restored
+   at: push_warning (core/variant/variant_utility.cpp:1033)
+   GDScript backtrace (most recent call first):
+       [0] _guard (res://src/props/corpse.gd:715)
+       [1] _physics_process (res://src/props/corpse.gd:678)
+WARNING: corpse 11 fell through the ground at (26.29839, -0.552109, 117.8416); restored
+   at: push_warning (core/variant/variant_utility.cpp:1033)
+   GDScript backtrace (most recent call first):
+       [0] _guard (res://src/props/corpse.gd:715)
+       [1] _physics_process (res://src/props/corpse.gd:678)
+WARNING: corpse 11 fell through the ground at (26.29839, -0.552109, 117.8416); restored
+   at: push_warning (core/variant/variant_utility.cpp:1033)
+   GDScript backtrace (most recent call first):
+       [0] _guard (res://src/props/corpse.gd:715)
+       [1] _physics_process (res://src/props/corpse.gd:678)
+WARNING: corpse 11 fell through the ground at (26.29839, -0.552109, 117.8416); restored
+   at: push_warning (core/variant/variant_utility.cpp:1033)
+   GDScript backtrace (most recent call first):
+       [0] _guard (res://src/props/corpse.gd:715)
+       [1] _physics_process (res://src/props/corpse.gd:678)
+WARNING: corpse 11 fell through the ground at (26.29839, -0.552109, 117.8416); restored
+   at: push_warning (core/variant/variant_utility.cpp:1033)
+   GDScript backtrace (most recent call first):
+       [0] _guard (res://src/props/corpse.gd:715)
+       [1] _physics_process (res://src/props/corpse.gd:678)
+WARNING: corpse 11 fell through the ground at (26.29839, -0.552109, 117.8416); restored
+   at: push_warning (core/variant/variant_utility.cpp:1033)
+   GDScript backtrace (most recent call first):
+       [0] _guard (res://src/props/corpse.gd:715)
+       [1] _physics_process (res://src/props/corpse.gd:678)
+WARNING: corpse 11 fell through the ground at (26.29839, -0.552109, 117.8416); restored
+   at: push_warning (core/variant/variant_utility.cpp:1033)
+   GDScript backtrace (most recent call first):
+       [0] _guard (res://src/props/corpse.gd:715)
+       [1] _physics_process (res://src/props/corpse.gd:678)
+[match  189.1] [radio] Kuya Wifi (looter): haze
+WARNING: corpse 11 fell through the ground at (26.29839, -0.552109, 117.8416); restored
+   at: push_warning (core/variant/variant_utility.cpp:1033)
+   GDScript backtrace (most recent call first):
+       [0] _guard (res://src/props/corpse.gd:715)
+       [1] _physics_process (res://src/props/corpse.gd:678)
+WARNING: corpse 11 fell through the ground at (26.29839, -0.552109, 117.8416); restored
+   at: push_warning (core/variant/variant_utility.cpp:1033)
+   GDScript backtrace (most recent call first):
+       [0] _guard (res://src/props/corpse.gd:715)
+       [1] _physics_process (res://src/props/corpse.gd:678)
+WARNING: corpse 11 fell through the ground at (26.29839, -0.552109, 117.8416); restored
+   at: push_warning (core/variant/variant_utility.cpp:1033)
+   GDScript backtrace (most recent call first):
+       [0] _guard (res://src/props/corpse.gd:715)
+       [1] _physics_process (res://src/props/corpse.gd:678)
+WARNING: corpse 11 fell through the ground at (26.29839, -0.552109, 117.8416); restored
+   at: push_warning (core/variant/variant_utility.cpp:1033)
+   GDScript backtrace (most recent call first):
+       [0] _guard (res://src/props/corpse.gd:715)
+       [1] _physics_process (res://src/props/corpse.gd:678)
+WARNING: corpse 11 fell through the ground at (26.29839, -0.552109, 117.8416); restored
+   at: push_warning (core/variant/variant_utility.cpp:1033)
+   GDScript backtrace (most recent call first):
+       [0] _guard (res://src/props/corpse.gd:715)
+       [1] _physics_process (res://src/props/corpse.gd:678)
+WARNING: corpse 11 fell through the ground at (26.29839, -0.552109, 117.8416); restored
+   at: push_warning (core/variant/variant_utility.cpp:1033)
+   GDScript backtrace (most recent call first):
+       [0] _guard (res://src/props/corpse.gd:715)
+       [1] _physics_process (res://src/props/corpse.gd:678)
+WARNING: corpse 11 fell through the ground at (26.29839, -0.552109, 117.8416); restored
+   at: push_warning (core/variant/variant_utility.cpp:1033)
+   GDScript backtrace (most recent call first):
+       [0] _guard (res://src/props/corpse.gd:715)
+       [1] _physics_process (res://src/props/corpse.gd:678)
+WARNING: corpse 11 fell through the ground at (26.29839, -0.552109, 117.8416); restored
+   at: push_warning (core/variant/variant_utility.cpp:1033)
+   GDScript backtrace (most recent call first):
+       [0] _guard (res://src/props/corpse.gd:715)
+       [1] _physics_process (res://src/props/corpse.gd:678)
+WARNING: corpse 11 fell through the ground at (26.29839, -0.552109, 117.8416); restored
+   at: push_warning (core/variant/variant_utility.cpp:1033)
+   GDScript backtrace (most recent call first):
+       [0] _guard (res://src/props/corpse.gd:715)
+       [1] _physics_process (res://src/props/corpse.gd:678)
+WARNING: corpse 11 fell through the ground at (26.29839, -0.552109, 117.8416); restored
+   at: push_warning (core/variant/variant_utility.cpp:1033)
+   GDScript backtrace (most recent call first):
+       [0] _guard (res://src/props/corpse.gd:715)
+       [1] _physics_process (res://src/props/corpse.gd:678)
+WARNING: corpse 11 fell through the ground at (26.29839, -0.552109, 117.8416); restored
+   at: push_warning (core/variant/variant_utility.cpp:1033)
+   GDScript backtrace (most recent call first):
+       [0] _guard (res://src/props/corpse.gd:715)
+       [1] _physics_process (res://src/props/corpse.gd:678)
+WARNING: corpse 11 fell through the ground at (26.29839, -0.552109, 117.8416); restored
+   at: push_warning (core/variant/variant_utility.cpp:1033)
+   GDScript backtrace (most recent call first):
+       [0] _guard (res://src/props/corpse.gd:715)
+       [1] _physics_process (res://src/props/corpse.gd:678)
+WARNING: corpse 11 fell through the ground at (26.29839, -0.552109, 117.8416); restored
+   at: push_warning (core/variant/variant_utility.cpp:1033)
+   GDScript backtrace (most recent call first):
+       [0] _guard (res://src/props/corpse.gd:715)
+       [1] _physics_process (res://src/props/corpse.gd:678)
+WARNING: corpse 11 fell through the ground at (26.29839, -0.552109, 117.8416); restored
+   at: push_warning (core/variant/variant_utility.cpp:1033)
+   GDScript backtrace (most recent call first):
+       [0] _guard (res://src/props/corpse.gd:715)
+       [1] _physics_process (res://src/props/corpse.gd:678)
+WARNING: corpse 11 fell through the ground at (26.29839, -0.552109, 117.8416); restored
+   at: push_warning (core/variant/variant_utility.cpp:1033)
+   GDScript backtrace (most recent call first):
+       [0] _guard (res://src/props/corpse.gd:715)
+       [1] _physics_process (res://src/props/corpse.gd:678)
+WARNING: corpse 11 fell through the ground at (26.29839, -0.552109, 117.8416); restored
+   at: push_warning (core/variant/variant_utility.cpp:1033)
+   GDScript backtrace (most recent call first):
+       [0] _guard (res://src/props/corpse.gd:715)
+       [1] _physics_process (res://src/props/corpse.gd:678)
+WARNING: corpse 11 fell through the ground at (26.29839, -0.552109, 117.8416); restored
+   at: push_warning (core/variant/variant_utility.cpp:1033)
+   GDScript backtrace (most recent call first):
+       [0] _guard (res://src/props/corpse.gd:715)
+       [1] _physics_process (res://src/props/corpse.gd:678)
+WARNING: corpse 11 fell through the ground at (26.29839, -0.552109, 117.8416); restored
+   at: push_warning (core/variant/variant_utility.cpp:1033)
+   GDScript backtrace (most recent call first):
+       [0] _guard (res://src/props/corpse.gd:715)
+       [1] _physics_process (res://src/props/corpse.gd:678)
+WARNING: corpse 11 fell through the ground at (26.29839, -0.552109, 117.8416); restored
+   at: push_warning (core/variant/variant_utility.cpp:1033)
+   GDScript backtrace (most recent call first):
+       [0] _guard (res://src/props/corpse.gd:715)
+       [1] _physics_process (res://src/props/corpse.gd:678)
+WARNING: corpse 11 fell through the ground at (26.29839, -0.552109, 117.8416); restored
+   at: push_warning (core/variant/variant_utility.cpp:1033)
+   GDScript backtrace (most recent call first):
+       [0] _guard (res://src/props/corpse.gd:715)
+       [1] _physics_process (res://src/props/corpse.gd:678)
+WARNING: corpse 11 fell through the ground at (26.29839, -0.552109, 117.8416); restored
+   at: push_warning (core/variant/variant_utility.cpp:1033)
+   GDScript backtrace (most recent call first):
+       [0] _guard (res://src/props/corpse.gd:715)
+       [1] _physics_process (res://src/props/corpse.gd:678)
+WARNING: corpse 11 fell through the ground at (26.29839, -0.552109, 117.8416); restored
+   at: push_warning (core/variant/variant_utility.cpp:1033)
+   GDScript backtrace (most recent call first):
+       [0] _guard (res://src/props/corpse.gd:715)
+       [1] _physics_process (res://src/props/corpse.gd:678)
+WARNING: corpse 11 fell through the ground at (26.29839, -0.552109, 117.8416); restored
+   at: push_warning (core/variant/variant_utility.cpp:1033)
+   GDScript backtrace (most recent call first):
+       [0] _guard (res://src/props/corpse.gd:715)
+       [1] _physics_process (res://src/props/corpse.gd:678)
+WARNING: corpse 11 fell through the ground at (26.29839, -0.552109, 117.8416); restored
+   at: push_warning (core/variant/variant_utility.cpp:1033)
+   GDScript backtrace (most recent call first):
+       [0] _guard (res://src/props/corpse.gd:715)
+       [1] _physics_process (res://src/props/corpse.gd:678)
+WARNING: corpse 11 fell through the ground at (26.29839, -0.552109, 117.8416); restored
+   at: push_warning (core/variant/variant_utility.cpp:1033)
+   GDScript backtrace (most recent call first):
+       [0] _guard (res://src/props/corpse.gd:715)
+       [1] _physics_process (res://src/props/corpse.gd:678)
+[match  191.4] [radio] Ising Batingaw (rusher): haze
+[match  193.6] [radio] Pinsan Gardo (stalker): contact
+[match  195.0] status: { "ground": 8 }; armed 8; shots 424; zone 1 shrink r=140; corpses 12; server tick avg 1.53 ms, p99 3.14 ms, max 20.93 ms over 900 ticks
+[match  195.0] dm teams: West Team 5 at (-15.0, 44.0) spread 37 m; East Team 3 at (56.0, 128.0) spread 34 m; gap 110 m; zone centre (-39.0, 117.0)
+[match  195.0] bots: { "follow": 1, "fight": 2, "hunt": 2, "zone": 2, "roam": 1 }; containers searched by bots 4 (all players 4); plan steps done 0; guns carried 18
+[match  195.0] [lootstats] bots on the ground 8 (in water 0); armed 8; armed with ammo for a gun 8; long guns 10; attachments fitted 1; rounds of unusable ammo carried 0; items on the ground 5930; bot pickups { "detours": 4, "detour_taken": 4, "fetches": 0, "fetch_done": 0, "items_taken": 4 }
+[match  196.0] [radio] Dodong Lechon (sniper): sniping
+[match  197.1] [radio] Inday Tsismis (looter): haze
+[match  203.4] [radio] Ising Batingaw (rusher): haze
+[match  210.0] status: { "ground": 8 }; armed 8; shots 425; zone 2 wait r=113; corpses 12; server tick avg 0.92 ms, p99 1.67 ms, max 6.93 ms over 900 ticks
+[match  210.0] dm teams: West Team 5 at (-21.0, 49.0) spread 33 m; East Team 3 at (64.0, 130.0) spread 31 m; gap 118 m; zone centre (-44.0, 143.0)
+[match  210.0] bots: { "follow": 1, "hunt": 3, "loot": 1, "zone": 3 }; containers searched by bots 4 (all players 4); plan steps done 0; guns carried 18
+[match  210.0] [lootstats] bots on the ground 8 (in water 0); armed 8; armed with ammo for a gun 8; long guns 10; attachments fitted 1; rounds of unusable ammo carried 0; items on the ground 5930; bot pickups { "detours": 4, "detour_taken": 4, "fetches": 0, "fetch_done": 0, "items_taken": 4 }
+[match  210.2] [radio] Ising Batingaw (rusher): haze
+[match  210.4] [radio] Dodong Lechon (sniper): sniping
+[match  214.4] [radio] Dodong Lechon (sniper): haze
+[match  217.9] [radio] Dodong Lechon (sniper): haze
+[match  218.0] [radio] Ising Batingaw (rusher): haze
+[match  220.5] [radio] Inday Tsismis (looter): haze
+[match  221.3] [radio] Dodong Lechon (sniper): haze
+[match  223.2] [radio] Mang Tomas (stalker): sneaking
+[match  225.0] status: { "ground": 8 }; armed 8; shots 425; zone 2 wait r=113; corpses 12; server tick avg 0.91 ms, p99 2.44 ms, max 6.75 ms over 900 ticks
+[match  225.0] dm teams: West Team 5 at (-14.0, 58.0) spread 38 m; East Team 3 at (58.0, 130.0) spread 33 m; gap 102 m; zone centre (-44.0, 143.0)
+[match  225.0] bots: { "follow": 1, "hunt": 3, "loot": 1, "zone": 2, "roam": 1 }; containers searched by bots 4 (all players 4); plan steps done 6; guns carried 18
+[match  225.0] [lootstats] bots on the ground 8 (in water 1); armed 8; armed with ammo for a gun 8; long guns 10; attachments fitted 1; rounds of unusable ammo carried 0; items on the ground 5930; bot pickups { "detours": 4, "detour_taken": 4, "fetches": 0, "fetch_done": 0, "items_taken": 4 } wet at [(-73.0, -14.0)]
+[match  227.0] Inday Tsismis killed by the world (haze); 2 teams left
+[match  227.0] alive: West Team 5, East Team 2
+[match  228.2] Ising Batingaw killed by the world (haze); 2 teams left
+[match  228.2] alive: West Team 4, East Team 2
+[match  228.3] [radio] Totoy Kulot (stalker): sneaking
+[match  232.0] [radio] Pinsan Gardo (stalker): sneaking
+[match  233.7] [radio] Kuya Wifi (looter): contact
+[match  234.4] [radio] Dodong Lechon (sniper): clear
+[match  238.0] [radio] Kuya Wifi (looter): taking_fire
+[match  239.8] [radio] Aling Puring (looter): down
+[match  239.8] Kuya Wifi killed by Dodong Lechon (gunshot); 2 teams left
+[match  239.8] alive: West Team 3, East Team 2
+[match  240.0] match ended early (test): winner team 0 after 240 s
+[bots] saved 18 learned cells to user://bot_memory_lawless_sub.json
+[game] results: {}

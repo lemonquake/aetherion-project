@@ -1,0 +1,150 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+[server] dedicated server listening on 27751
+[world] map built in 9663 ms
+[map] 256 buildings, 1970 doors, 2518 containers, 2480 props, #f9b648fc on PC
+[match    0.0] deathmatch start on lawless_sub: 20 players, 2 teams; spawns (-170.0, 1.0, -150.0) and (130.0, 1.0, 150.0) (424 m apart, layout); day offset 0 s; zone centre (-50.0, 24.0) r=375
+[match    0.0] status: { "ground": 20 }; armed 20; shots 0; zone 0 wait r=375; corpses 0
+[match    0.0] dm teams: West Team 10 at (-171.0, -150.0) spread 4 m; East Team 10 at (129.0, 150.0) spread 4 m; gap 424 m; zone centre (-50.0, 24.0)
+[match    0.0] bots: { "roam": 20 }; containers searched by bots 0 (all players 0); plan steps done 0; guns carried 40
+[match    0.0] roles: { "looter": { "roam": 4 }, "stalker": { "roam": 7 }, "rusher": { "roam": 3 }, "sniper": { "roam": 6 } }; stuck now 0; waypoints 0; team { "lines": 0, "pings": 0, "laser_follow": 0, "learned_cells": 0, "blocked_cells": 0, "squads": 0, "following_humans": 0 }
+[match    0.0] [lootstats] bots on the ground 20 (in water 0); armed 20; armed with ammo for a gun 20; long guns 20; attachments fitted 0; rounds of unusable ammo carried 0; items on the ground 5976; bot pickups { "detours": 0, "detour_taken": 0, "fetches": 0, "fetch_done": 0, "items_taken": 0 }
+[match    0.0] [radio] Ate Load Dito (rusher): haze
+[match    2.1] [radio] Tito Karaoke King (rusher): haze
+[match    4.8] [radio] Mang Tomas (sniper): sniping
+[match    5.6] [radio] Totoy Bibo (sniper): sneaking
+[match   15.0] status: { "ground": 20 }; armed 20; shots 0; zone 0 wait r=375; corpses 0; server tick avg 1.47 ms, p99 2.70 ms, max 9.23 ms over 900 ticks
+[match   15.0] dm teams: West Team 10 at (-144.0, -107.0) spread 11 m; East Team 10 at (99.0, 124.0) spread 11 m; gap 336 m; zone centre (-50.0, 24.0)
+[match   15.0] bots: { "loot": 3, "hunt": 10, "roam": 1, "follow": 6 }; containers searched by bots 2 (all players 2); plan steps done 6; guns carried 40
+[match   15.0] roles: { "looter": { "loot": 3, "follow": 1 }, "stalker": { "hunt": 5, "follow": 2 }, "rusher": { "hunt": 3 }, "sniper": { "roam": 1, "follow": 3, "hunt": 2 } }; stuck now 0; waypoints 2028; team { "lines": 4, "pings": 0, "laser_follow": 0, "learned_cells": 0, "blocked_cells": 0, "squads": 5, "following_humans": 0 }
+[match   15.0] [lootstats] bots on the ground 20 (in water 7); armed 20; armed with ammo for a gun 20; long guns 20; attachments fitted 0; rounds of unusable ammo carried 0; items on the ground 5976; bot pickups { "detours": 0, "detour_taken": 0, "fetches": 0, "fetch_done": 0, "items_taken": 0 } wet at [(103.0, 118.0), (104.0, 122.0), (104.0, 117.0), (102.0, 116.0), (105.0, 122.0), (104.0, 119.0), (101.0, 115.0)]
+[match   17.4] [radio] Tito Videoke (sniper): sniping
+[match   17.6] Bunso Badong (team 1) landed at (97.0, 1.0, 151.0), 2.5 m/s, health 100; teammates -
+[match   18.9] [radio] Kuya Fishball (stalker): sneaking
+[match   19.5] Lolo Pepe (team 1) landed at (101.0, 1.0, 109.0), 2.5 m/s, health 100; teammates 44 m
+[match   21.9] [radio] Mang Isko (looter): haze
+[match   22.3] Tsong Ramil (team 1) landed at (98.0, -1.0, 114.0), 4.2 m/s, health 100; teammates 38 m, 18 m
+[match   22.4] Kuya Fishball (team 1) landed at (101.0, 1.0, 109.0), 2.5 m/s, health 100; teammates 44 m, 14 m, 6 m
+[match   22.9] Mang Tomas (team 1) landed at (97.0, 1.0, 109.0), 3.5 m/s, health 100; teammates 43 m, 16 m, 2 m, 2 m
+[match   23.8] Mang Isko (team 0) landed at (-166.0, 1.0, -109.0), 4.9 m/s, health 100; teammates -
+[match   26.4] [radio] Lolo Pepe (stalker): sneaking
+[match   26.5] Kulot Sabaw (team 0) landed at (-169.0, 1.0, -111.0), 4.2 m/s, health 100; teammates 5 m
+[match   30.0] status: { "ground": 20 }; armed 20; shots 0; zone 0 wait r=375; corpses 0; server tick avg 1.74 ms, p99 3.16 ms, max 6.55 ms over 900 ticks
+[match   30.0] dm teams: West Team 10 at (-110.0, -43.0) spread 34 m; East Team 10 at (77.0, 95.0) spread 33 m; gap 233 m; zone centre (-50.0, 24.0)
+[match   30.0] bots: { "loot": 1, "hunt": 8, "overwatch": 1, "follow": 6, "zone": 2, "roam": 2 }; containers searched by bots 5 (all players 4); plan steps done 16; guns carried 41
+[match   30.0] roles: { "looter": { "loot": 1, "follow": 1, "zone": 2 }, "stalker": { "hunt": 5, "follow": 2 }, "rusher": { "hunt": 3 }, "sniper": { "overwatch": 1, "follow": 3, "roam": 2 } }; stuck now 2; waypoints 2028; team { "lines": 8, "pings": 0, "laser_follow": 0, "learned_cells": 0, "blocked_cells": 0, "squads": 5, "following_humans": 0 }
+[match   30.0] [lootstats] bots on the ground 20 (in water 0); armed 20; armed with ammo for a gun 20; long guns 21; attachments fitted 1; rounds of unusable ammo carried 0; items on the ground 5974; bot pickups { "detours": 2, "detour_taken": 2, "fetches": 0, "fetch_done": 0, "items_taken": 2 }
+[match   32.6] Pinsan Gardo (team 1) landed at (31.0, 1.0, 106.0), 4.2 m/s, health 100; teammates 80 m, 54 m, 66 m, 67 m, 71 m
+[match   35.5] Totoy Bibo (team 0) landed at (-82.0, 1.0, -9.0), 4.9 m/s, health 100; teammates 131 m, 133 m
+[match   35.9] Tito Karaoke King (team 0) landed at (-83.0, 1.0, -2.0), 4.9 m/s, health 100; teammates 136 m, 8 m, 138 m
+[match   37.4] Ate Load Dito (team 0) landed at (-84.0, 1.0, -1.0), 4.9 m/s, health 100; teammates 5 m, 134 m, 8 m, 132 m
+[match   37.4] Tito Videoke (team 0) landed at (-84.0, 1.0, -7.0), 4.9 m/s, health 100; teammates 5 m, 1 m, 130 m, 3 m, 128 m
+[match   37.7] Ising Batingaw (team 0) landed at (-82.0, 1.0, -7.0), 4.9 m/s, health 100; teammates 5 m, 1 m, 130 m, 2 m, 3 m, 128 m
+[match   45.0] status: { "ground": 20 }; armed 20; shots 0; zone 0 wait r=375; corpses 0; server tick avg 1.69 ms, p99 2.44 ms, max 11.72 ms over 900 ticks
+[match   45.0] dm teams: West Team 10 at (-97.0, -22.0) spread 37 m; East Team 10 at (46.0, 54.0) spread 37 m; gap 162 m; zone centre (-50.0, 24.0)
+[match   45.0] bots: { "loot": 2, "hunt": 8, "overwatch": 1, "follow": 6, "zone": 1, "roam": 2 }; containers searched by bots 5 (all players 4); plan steps done 16; guns carried 41
+[match   45.0] roles: { "looter": { "loot": 2, "follow": 1, "zone": 1 }, "stalker": { "hunt": 5, "follow": 2 }, "rusher": { "hunt": 3 }, "sniper": { "overwatch": 1, "follow": 3, "roam": 2 } }; stuck now 1; waypoints 2028; team { "lines": 8, "pings": 0, "laser_follow": 0, "learned_cells": 0, "blocked_cells": 0, "squads": 5, "following_humans": 0 }
+[match   45.0] [lootstats] bots on the ground 20 (in water 0); armed 20; armed with ammo for a gun 20; long guns 21; attachments fitted 1; rounds of unusable ammo carried 0; items on the ground 5974; bot pickups { "detours": 2, "detour_taken": 2, "fetches": 0, "fetch_done": 0, "items_taken": 2 }
+[match   49.6] Pareng Jun (team 0) landed at (-88.0, 1.0, -10.0), 4.9 m/s, health 100; teammates 7 m, 11 m, 8 m, 126 m, 10 m, 14 m, 83 m
+[match   51.8] [radio] Pinsan Gardo (rusher): hunting
+[match   54.4] [radio] Tsong Ramil (stalker): sneaking
+[match   60.0] zone 0 shrinking to r=194 at (126.0, 15.0)
+[match   60.0] status: { "ground": 20 }; armed 20; shots 0; zone 0 shrink r=375; corpses 0; server tick avg 1.70 ms, p99 2.90 ms, max 13.35 ms over 900 ticks
+[match   60.0] dm teams: West Team 10 at (-95.0, -17.0) spread 30 m; East Team 10 at (28.0, -2.0) spread 63 m; gap 124 m; zone centre (-50.0, 24.0)
+[match   60.0] bots: { "loot": 2, "hunt": 8, "overwatch": 1, "follow": 6, "zone": 1, "roam": 2 }; containers searched by bots 5 (all players 4); plan steps done 18; guns carried 41
+[match   60.0] roles: { "looter": { "loot": 2, "follow": 1, "zone": 1 }, "stalker": { "hunt": 5, "follow": 2 }, "rusher": { "hunt": 3 }, "sniper": { "overwatch": 1, "follow": 3, "roam": 2 } }; stuck now 2; waypoints 2028; team { "lines": 10, "pings": 0, "laser_follow": 0, "learned_cells": 1, "blocked_cells": 0, "squads": 5, "following_humans": 0 }
+[match   60.0] [lootstats] bots on the ground 20 (in water 0); armed 20; armed with ammo for a gun 20; long guns 21; attachments fitted 1; rounds of unusable ammo carried 0; items on the ground 5974; bot pickups { "detours": 3, "detour_taken": 2, "fetches": 0, "fetch_done": 0, "items_taken": 2 }
+[match   62.9] [radio] Bunso Badong (looter): inside
+[match   69.4] [radio] Totoy Bibo (sniper): sniping
+[match   73.1] [radio] Ising Batingaw (stalker): sneaking
+[match   75.0] status: { "ground": 20 }; armed 20; shots 0; zone 0 shrink r=329; corpses 0; server tick avg 1.68 ms, p99 2.46 ms, max 8.85 ms over 900 ticks
+[match   75.0] dm teams: West Team 10 at (-93.0, -9.0) spread 24 m; East Team 10 at (22.0, -17.0) spread 67 m; gap 116 m; zone centre (-6.0, 22.0)
+[match   75.0] bots: { "camp": 1, "zone": 5, "hunt": 5, "overwatch": 1, "follow": 6, "roam": 2 }; containers searched by bots 5 (all players 4); plan steps done 19; guns carried 42
+[match   75.0] roles: { "looter": { "camp": 1, "follow": 1, "zone": 2 }, "stalker": { "zone": 1, "follow": 2, "hunt": 4 }, "rusher": { "hunt": 1, "zone": 2 }, "sniper": { "overwatch": 1, "follow": 3, "roam": 2 } }; stuck now 3; waypoints 2028; team { "lines": 13, "pings": 0, "laser_follow": 0, "learned_cells": 1, "blocked_cells": 0, "squads": 5, "following_humans": 0 }
+[match   75.0] [lootstats] bots on the ground 20 (in water 0); armed 20; armed with ammo for a gun 20; long guns 22; attachments fitted 2; rounds of unusable ammo carried 0; items on the ground 5971; bot pickups { "detours": 5, "detour_taken": 5, "fetches": 0, "fetch_done": 0, "items_taken": 5 }
+[match   76.6] [canal] Tito Karaoke King (rusher) fell in at (-83.6, -1.1, 17.7) from [(-83.2, 0.9, 12.6), (-83.3, 1.5, 13.6), (-83.3, 2.0, 14.6), (-83.4, 1.8, 15.6), (-83.5, 1.0, 16.5), (-83.6, -0.6, 17.5)], state zone goal (13.4, 1.0, 11.7) path 0/12, last move [(-93.0, 0.92, 13.0), (-95.0, 0.92, 11.0)]
+[match   78.5] Kapitbahay Lito (team 0) landed at (-84.0, 1.0, 5.0), 4.9 m/s, health 100; teammates 13 m, 6 m, 13 m, 12 m, 133 m, 4 m, 1 m, 2 m
+[match   78.9] [radio] Tito Videoke (sniper): haze
+[match   79.1] Junjun Tisoy (team 0) landed at (-83.0, 1.0, 1.0), 4.9 m/s, health 100; teammates 10 m, 2 m, 6 m, 17 m, 9 m, 131 m, 4 m, 4 m, 3 m
+[match   81.3] [radio] Tito Boy (stalker): sneaking
+[match   90.0] status: { "ground": 20 }; armed 20; shots 0; zone 0 shrink r=284; corpses 0; server tick avg 1.77 ms, p99 2.94 ms, max 47.13 ms over 900 ticks
+[match   90.0] dm teams: West Team 10 at (-93.0, -7.0) spread 26 m; East Team 10 at (27.0, -17.0) spread 67 m; gap 120 m; zone centre (38.0, 20.0)
+[match   90.0] bots: { "camp": 1, "zone": 10, "hunt": 5, "overwatch": 1, "follow": 3 }; containers searched by bots 5 (all players 5); plan steps done 19; guns carried 42
+[match   90.0] roles: { "looter": { "camp": 1, "zone": 3 }, "stalker": { "zone": 1, "follow": 2, "hunt": 4 }, "rusher": { "hunt": 1, "zone": 2 }, "sniper": { "overwatch": 1, "zone": 4, "follow": 1 } }; stuck now 5; waypoints 2028; team { "lines": 15, "pings": 0, "laser_follow": 0, "learned_cells": 2, "blocked_cells": 0, "squads": 5, "following_humans": 0 }
+[match   90.0] [lootstats] bots on the ground 20 (in water 1); armed 20; armed with ammo for a gun 20; long guns 22; attachments fitted 2; rounds of unusable ammo carried 0; items on the ground 5971; bot pickups { "detours": 5, "detour_taken": 5, "fetches": 0, "fetch_done": 0, "items_taken": 5 } wet at [(-100.0, 31.0)]
+[match   91.0] Tito Boy (team 1) landed at (14.0, 1.0, -51.0), 4.9 m/s, health 100; teammates 228 m, 19 m, 175 m, 2 m, 6 m, 3 m
+[match   97.6] [radio] Lolo Pepe (stalker): sneaking
+[match  101.9] Mang Kanor (team 1) landed at (5.0, 1.0, -50.0), 4.9 m/s, health 100; teammates 232 m, 28 m, 178 m, 2 m, 27 m, 1 m, 7 m
+[match  105.0] status: { "ground": 20 }; armed 20; shots 0; zone 0 shrink r=239; corpses 0; server tick avg 1.75 ms, p99 2.94 ms, max 8.90 ms over 900 ticks
+[match  105.0] dm teams: West Team 10 at (-95.0, -5.0) spread 28 m; East Team 10 at (24.0, -21.0) spread 69 m; gap 120 m; zone centre (82.0, 18.0)
+[match  105.0] bots: { "camp": 1, "zone": 10, "hunt": 5, "overwatch": 1, "follow": 3 }; containers searched by bots 5 (all players 5); plan steps done 19; guns carried 42
+[match  105.0] roles: { "looter": { "camp": 1, "zone": 3 }, "stalker": { "zone": 1, "follow": 2, "hunt": 4 }, "rusher": { "hunt": 1, "zone": 2 }, "sniper": { "overwatch": 1, "zone": 4, "follow": 1 } }; stuck now 6; waypoints 2028; team { "lines": 16, "pings": 0, "laser_follow": 0, "learned_cells": 2, "blocked_cells": 0, "squads": 5, "following_humans": 0 }
+[match  105.0] [lootstats] bots on the ground 20 (in water 0); armed 20; armed with ammo for a gun 20; long guns 22; attachments fitted 2; rounds of unusable ammo carried 0; items on the ground 5971; bot pickups { "detours": 5, "detour_taken": 5, "fetches": 0, "fetch_done": 0, "items_taken": 5 }
+[match  105.6] [radio] Kuya Fishball (stalker): sneaking
+[match  105.7] [canal] Tito Karaoke King (rusher) fell in at (-113.5, -1.1, 35.0) from [(-117.5, 0.9, 44.0), (-117.4, 0.9, 42.4), (-116.6, 1.7, 40.9), (-115.8, 2.0, 39.5), (-115.0, 1.7, 38.0), (-114.2, 0.7, 36.5)], state zone goal (13.4, 1.0, 11.7) path 0/12, last move [(-93.0, 0.92, 13.0), (-95.0, 0.92, 11.0)]
+[match  111.8] [radio] Pinsan Gardo (rusher): hunting
+[match  114.4] [radio] Tsong Ramil (stalker): sneaking
+[match  120.0] status: { "ground": 20 }; armed 20; shots 0; zone 1 wait r=194; corpses 0; server tick avg 1.82 ms, p99 2.98 ms, max 8.43 ms over 900 ticks
+[match  120.0] dm teams: West Team 10 at (-95.0, -7.0) spread 28 m; East Team 10 at (26.0, -26.0) spread 70 m; gap 122 m; zone centre (126.0, 15.0)
+[match  120.0] bots: { "camp": 1, "zone": 10, "hunt": 5, "overwatch": 1, "follow": 3 }; containers searched by bots 5 (all players 6); plan steps done 19; guns carried 43
+[match  120.0] roles: { "looter": { "camp": 1, "zone": 3 }, "stalker": { "zone": 1, "follow": 2, "hunt": 4 }, "rusher": { "hunt": 1, "zone": 2 }, "sniper": { "overwatch": 1, "zone": 4, "follow": 1 } }; stuck now 3; waypoints 2028; team { "lines": 19, "pings": 0, "laser_follow": 0, "learned_cells": 2, "blocked_cells": 0, "squads": 5, "following_humans": 0 }
+[match  120.0] [lootstats] bots on the ground 20 (in water 0); armed 20; armed with ammo for a gun 20; long guns 23; attachments fitted 2; rounds of unusable ammo carried 0; items on the ground 5969; bot pickups { "detours": 7, "detour_taken": 7, "fetches": 0, "fetch_done": 0, "items_taken": 7 }
+[match  120.0] [radio] Tito Videoke (sniper): haze
+[match  121.1] [radio] Totoy Bibo (sniper): haze
+[match  122.7] [radio] Kulot Sabaw (looter): haze
+[match  124.3] [radio] Ate Load Dito (rusher): haze
+[match  131.2] [radio] Bunso Badong (looter): haze
+[match  135.0] status: { "ground": 20 }; armed 20; shots 0; zone 1 wait r=194; corpses 0; server tick avg 1.80 ms, p99 3.19 ms, max 9.30 ms over 900 ticks
+[match  135.0] dm teams: West Team 10 at (-91.0, -11.0) spread 24 m; East Team 10 at (27.0, -25.0) spread 70 m; gap 118 m; zone centre (126.0, 15.0)
+[match  135.0] bots: { "zone": 11, "hunt": 5, "roam": 1, "follow": 3 }; containers searched by bots 5 (all players 6); plan steps done 19; guns carried 43
+[match  135.0] roles: { "looter": { "zone": 4 }, "stalker": { "zone": 1, "follow": 2, "hunt": 4 }, "rusher": { "hunt": 1, "zone": 2 }, "sniper": { "roam": 1, "zone": 4, "follow": 1 } }; stuck now 5; waypoints 2028; team { "lines": 24, "pings": 0, "laser_follow": 0, "learned_cells": 2, "blocked_cells": 0, "squads": 5, "following_humans": 0 }
+[match  135.0] [lootstats] bots on the ground 20 (in water 0); armed 20; armed with ammo for a gun 20; long guns 23; attachments fitted 2; rounds of unusable ammo carried 0; items on the ground 5969; bot pickups { "detours": 7, "detour_taken": 7, "fetches": 0, "fetch_done": 0, "items_taken": 7 }
+[match  135.3] Kuya Wifi (team 1) landed at (-4.0, 1.0, -61.0), 4.9 m/s, health 100; teammates 245 m, 10 m, 191 m, 23 m, 26 m, 42 m, 12 m, 16 m
+[match  136.4] Totoy Kulot (team 1) landed at (19.0, 1.0, -51.0), 4.9 m/s, health 100; teammates 229 m, 31 m, 167 m, 5 m, 2 m, 48 m, 27 m, 31 m, 12 m
+[match  150.0] status: { "ground": 20 }; armed 20; shots 0; zone 1 wait r=194; corpses 0; server tick avg 1.81 ms, p99 2.75 ms, max 8.62 ms over 900 ticks
+[match  150.0] dm teams: West Team 10 at (-90.0, -10.0) spread 24 m; East Team 10 at (22.0, -31.0) spread 62 m; gap 114 m; zone centre (126.0, 15.0)
+[match  150.0] bots: { "zone": 11, "hunt": 5, "overwatch": 1, "follow": 3 }; containers searched by bots 5 (all players 6); plan steps done 19; guns carried 43
+[match  150.0] roles: { "looter": { "zone": 4 }, "stalker": { "zone": 1, "follow": 2, "hunt": 4 }, "rusher": { "hunt": 1, "zone": 2 }, "sniper": { "overwatch": 1, "zone": 4, "follow": 1 } }; stuck now 6; waypoints 2028; team { "lines": 24, "pings": 0, "laser_follow": 0, "learned_cells": 2, "blocked_cells": 0, "squads": 5, "following_humans": 0 }
+[match  150.0] [lootstats] bots on the ground 20 (in water 0); armed 20; armed with ammo for a gun 20; long guns 23; attachments fitted 2; rounds of unusable ammo carried 0; items on the ground 5969; bot pickups { "detours": 7, "detour_taken": 7, "fetches": 0, "fetch_done": 0, "items_taken": 7 }
+[match  159.6] [haze death] Mang Isko (looter) state zone at (-161.0, 1.0, -104.0) goal (21.0, 1.0, -55.0) path 0/16 no_prog 1.9 pending false
+[match  159.6] Mang Isko killed by the world (haze); 2 teams left
+[match  159.6] alive: West Team 9, East Team 10
+[match  164.9] [haze death] Tito Karaoke King (rusher) state zone at (-83.0, 1.0, -1.0) goal (15.0, 1.0, -25.0) path 0/9 no_prog 1.6 pending false
+[match  164.9] [radio] Ising Batingaw (stalker): down
+[match  164.9] Tito Karaoke King killed by the world (haze); 2 teams left
+[match  164.9] alive: West Team 8, East Team 10
+[match  165.0] zone 1 shrinking to r=113 at (81.0, -28.0)
+[match  165.0] status: { "ground": 18 }; armed 18; shots 0; zone 1 shrink r=194; corpses 2; server tick avg 1.83 ms, p99 2.90 ms, max 29.14 ms over 900 ticks
+[match  165.0] dm teams: West Team 8 at (-83.0, 1.0) spread 7 m; East Team 10 at (23.0, -29.0) spread 62 m; gap 109 m; zone centre (126.0, 15.0)
+[match  165.0] bots: { "zone": 9, "hunt": 5, "overwatch": 1, "follow": 3 }; containers searched by bots 4 (all players 6); plan steps done 15; guns carried 38
+[match  165.0] roles: { "looter": { "zone": 3 }, "stalker": { "zone": 1, "follow": 2, "hunt": 4 }, "rusher": { "hunt": 1, "zone": 1 }, "sniper": { "overwatch": 1, "zone": 4, "follow": 1 } }; stuck now 5; waypoints 2028; team { "lines": 25, "pings": 0, "laser_follow": 0, "learned_cells": 4, "blocked_cells": 0, "squads": 5, "following_humans": 0 }
+[match  165.0] [lootstats] bots on the ground 18 (in water 0); armed 18; armed with ammo for a gun 18; long guns 20; attachments fitted 1; rounds of unusable ammo carried 0; items on the ground 5969; bot pickups { "detours": 7, "detour_taken": 7, "fetches": 0, "fetch_done": 0, "items_taken": 7 }
+[match  166.1] [radio] Kuya Fishball (stalker): sneaking
+[match  168.5] [haze death] Junjun Tisoy (sniper) state zone at (-84.0, 2.0, 4.0) goal (19.0, 1.0, -4.0) path 0/1 no_prog 1.0 pending false
+[match  168.5] [radio] Ising Batingaw (stalker): down
+[match  168.5] Junjun Tisoy killed by the world (haze); 2 teams left
+[match  168.5] alive: West Team 7, East Team 10
+[match  168.6] [haze death] Ising Batingaw (stalker) state zone at (-81.0, 2.0, -3.0) goal (18.0, 2.0, -26.0) path 0/9 no_prog 0.9 pending false
+[match  168.6] Ising Batingaw killed by the world (haze); 2 teams left
+[match  168.6] alive: West Team 6, East Team 10
+[match  168.6] [haze death] Kapitbahay Lito (looter) state zone at (-85.0, 2.0, -10.0) goal (24.0, 1.0, -31.0) path 0/12 no_prog 3.1 pending false
+[match  168.6] Kapitbahay Lito killed by the world (haze); 2 teams left
+[match  168.6] alive: West Team 5, East Team 10
+[match  168.6] [haze death] Kulot Sabaw (looter) state zone at (-85.0, 2.0, 10.0) goal (12.0, 2.0, -7.0) path 0/1 no_prog 2.9 pending false
+[match  168.6] Kulot Sabaw killed by the world (haze); 2 teams left
+[match  168.6] alive: West Team 4, East Team 10
+[match  168.6] [haze death] Totoy Bibo (sniper) state zone at (-84.0, 1.0, -10.0) goal (21.0, 1.0, -31.0) path 0/11 no_prog 2.3 pending false
+[match  168.6] Totoy Bibo killed by the world (haze); 2 teams left
+[match  168.6] alive: West Team 3, East Team 10
+[match  168.7] [haze death] Pareng Jun (sniper) state zone at (-79.0, 1.0, 6.0) goal (19.0, 1.0, -25.0) path 0/9 no_prog 2.3 pending false
+[match  168.7] Pareng Jun killed by the world (haze); 2 teams left
+[match  168.7] alive: West Team 2, East Team 10
+[match  168.7] [haze death] Tito Videoke (sniper) state zone at (-83.0, 1.0, 10.0) goal (18.0, 1.0, -2.0) path 0/2 no_prog 0.7 pending false
+[match  168.7] Tito Videoke killed by the world (haze); 2 teams left
+[match  168.7] alive: West Team 1, East Team 10
+[match  168.8] [haze death] Ate Load Dito (rusher) state zone at (-82.0, 2.0, 0.0) goal (25.0, 1.0, -13.0) path 0/8 no_prog 1.7 pending false
+[match  168.8] Ate Load Dito killed by the world (haze); 1 teams left
+[match  168.8] alive: West Team 0, East Team 10
+[match  168.8] match over: winner team 1 (East Team) after 169 s, 0 shots fired
+[bots] saved 8 learned cells to user://bot_memory_lawless_sub.json
+[game] results: {}

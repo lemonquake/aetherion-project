@@ -1,0 +1,57 @@
+[
+  [
+    "r10_loading_screen",
+    false,
+    "no capture at A:/Python/aetherion-project/work/r10/final/loading.png"
+  ],
+  [
+    "r10_bridge_no_dirt",
+    true,
+    "4764 of 71600 deck pixels olive (dirt through the asphalt)"
+  ],
+  [
+    "r10_laser_visible",
+    true,
+    "laser-red pixels 7405 with the laser, 7372 without; server laser_on true (colour (1.0, 0.12, 0.1, 1.0))"
+  ],
+  [
+    "r10_laser_alerts_enemy",
+    true,
+    "enemy bot Toto Pancit near the dot followed the beam back: true"
+  ],
+  [
+    "r10_ally_names",
+    true,
+    "197 pixels change above Pareng Pandesal's head when names are on"
+  ],
+  [
+    "r10_minimap_allies",
+    true,
+    "55 team-coloured pixels on the minimap"
+  ],
+  [
+    "r10_ping_point",
+    true,
+    "marker at (-171.1, 1.2, -150.0) (looked-at spot (-171.1, 1.2, -150.0)), minimap ping true"
+  ],
+  [
+    "r10_ping_reaches_bots",
+    true,
+    "9 teammate bots received the ping"
+  ],
+  [
+    "r10_hit_kick",
+    true,
+    "view punched 3.6 deg on a 30-damage hit, 0.00 deg left after 0.6 s"
+  ],
+  [
+    "r10_kerb_shallow",
+    true,
+    "from z 5.6 to 9.36, height 0.88 -> 1.06 (sidewalk is 0.12 m above the road)"
+  ],
+  [
+    "r10_bot_roles",
+    true,
+    "roles { \"stalker\": 6, \"sniper\": 3, \"looter\": 7, \"rusher\": 3 }; squads formed 0; waypoints 2028"
+  ]
+]

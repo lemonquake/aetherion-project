@@ -1,0 +1,27 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+Vulkan 1.4.329 - Forward+ - Using Device #0: NVIDIA - NVIDIA GeForce RTX 4060
+
+[ui] loadout_received pid=1 Hehe {"primary":"bolt_308","secondary":"pistol_9"}
+[ui] lobby shows my loadout (pid 1): {"primary":"bolt_308","secondary":"pistol_9"}
+[ui] request_loadout {"primary":"bolt_308","secondary":"pistol_9"}
+[loading] shot A:/Python/aetherion-project/work/r10/exe/loading.png at 50% after 28 redraws: Building houses (139 of 256) (frames drawn 51, in tree true, ci true, layer 60, visible true, viewport (1920.0, 1080.0))
+[world] map built in 11197 ms
+[map] 256 buildings, 1970 doors, 2518 containers, 2480 props, #f9b648fc on PC
+[bots] learned from 27 cells, 16 stuck spots (user://bot_memory_lawless_sub.json)
+[game] autotest r10
+[autotest] PASS r10_loading_screen: bar pixels 1416, text pixels 1028 in A:/Python/aetherion-project/work/r10/exe/loading.png
+[autotest] shot A:/Python/aetherion-project/work/r10/exe/01_bridge_deck.png
+[autotest] PASS r10_bridge_no_dirt: 4740 of 71600 deck pixels olive (dirt through the asphalt)
+[autotest] shot A:/Python/aetherion-project/work/r10/exe/02_laser_on.png
+[autotest] FAIL r10_laser_visible: laser-red pixels 7395 with the laser, 7407 without; server laser_on true (colour (1.0, 0.12, 0.1, 1.0))
+[autotest] PASS r10_laser_alerts_enemy: enemy bot Utoy Kalabaw near the dot followed the beam back: true
+[autotest] shot A:/Python/aetherion-project/work/r10/exe/03_ally_name.png
+[autotest] PASS r10_ally_names: 193 pixels change above Kumareng Marites's head when names are on
+[autotest] PASS r10_minimap_allies: 55 team-coloured pixels on the minimap
+[autotest] shot A:/Python/aetherion-project/work/r10/exe/04_ping_marker.png
+[autotest] PASS r10_ping_point: marker at (-171.1, 1.2, -150.0) (looked-at spot (-171.1, 1.2, -150.0)), minimap ping true
+[autotest] PASS r10_ping_reaches_bots: 9 teammate bots received the ping
+[autotest] PASS r10_hit_kick: view punched 3.4 deg on a 30-damage hit, 0.00 deg left after 0.6 s
+[autotest] PASS r10_kerb_shallow: from z 5.6 to 9.45, height 0.88 -> 1.06 (sidewalk is 0.12 m above the road)
+[autotest] PASS r10_bot_roles: roles { "sniper": 2, "looter": 7, "rusher": 5, "stalker": 5 }; squads formed 0; waypoints 2028
+[autotest] done: 11 checks, 1 failed
