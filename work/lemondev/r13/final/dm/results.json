@@ -1,0 +1,37 @@
+[
+  [
+    "dm_map",
+    true,
+    "map lawless_sub, mode deathmatch, 243 buildings, 1951 doors, 2617 containers, 2745 props, #b1fba961"
+  ],
+  [
+    "dm_teams",
+    true,
+    "alive per team [7, 7, 7] (team size 7)"
+  ],
+  [
+    "dm_kit",
+    true,
+    "guns [\"rifle_m416\", \"pistol_9\"], vest vest_heavy, helmet helmet_heavy"
+  ],
+  [
+    "dm_spawn_place",
+    true,
+    "0.0 m from the nearest spawn point of team 0"
+  ],
+  [
+    "dm_no_own_body",
+    false,
+    "93 sampled pixels change when your own body is hidden (looking straight down; shadows and HUD off) in [P: (0, 12), S: (1088, 632)]"
+  ],
+  [
+    "dm_arms_clear",
+    true,
+    "178 frames of an empty reload; closest joint on screen R wrist at (0.16, -0.24, -0.22) (needs z < -0.15 m)"
+  ],
+  [
+    "dm_haze",
+    true,
+    "5 Deathmatch phases; zone { \"i\": 0, \"state\": \"wait\", \"t0\": 54, \"t1\": 3654, \"c0\": (29.05138, -4.178353), \"r0\": 348.350317001343, \"c1\": (-46.05633, "
+  ]
+]

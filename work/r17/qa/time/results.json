@@ -1,0 +1,32 @@
+[
+  [
+    "r17_starts_at_night",
+    true,
+    "match time 0.0 s, daylight 0.00, day offset 0.0"
+  ],
+  [
+    "r17_day_length",
+    true,
+    "host chose 120 s: night 120 s, daylight at 150 s = 1.00"
+  ],
+  [
+    "r17_respawn",
+    true,
+    "Tatay Kulas back after 4.9 s at (-72.0, 1.0, 199.0) (team floor Level 0), health 100, holding bolt_308; scores { 0: 0, 1: 0, 2: 0 } -> { 0: 0, 1: 0, 2: 0 }"
+  ],
+  [
+    "r17_score",
+    true,
+    "team 0: 0 -> 1 on the server, HUD team bar 1, under it \"9:54 left  ·  most kills wins\""
+  ],
+  [
+    "r17_local_respawn",
+    true,
+    "countdown \"Respawning in 4\"; back true, controlled true, at (-125.0, 1.0, -144.0) (team floor Level 0), spawn protection true; the killer's team 0 -> 1"
+  ],
+  [
+    "r17_end_time",
+    true,
+    "ended true on the time rule; scores { 0: 6, 1: 0, 2: 1 }; results say \"North Team wins the round  ·  North Team 6  ·  East Team 0  ·  South Team 1\""
+  ]
+]

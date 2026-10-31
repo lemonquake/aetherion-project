@@ -1,0 +1,87 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+[server] dedicated server listening on 27499
+[world] map built in 2055 ms
+[map] 0 buildings, 217 doors, 168 containers, 795 props, #2749db39 on PC
+[nav] levels: 57027 points, 32 links, 184 ms
+[bots] learned from 29 cells, 1 stuck spots (user://bot_memory_malasugue_mall.json)
+[match    3.6] deathmatch start on malasugue_mall: 5 players, 3 teams; spawns (0.0, 0.0, -41.0), (64.0, 0.0, 0.0), (0.0, 0.0, 40.0) (76/76/81 m apart, layout); day offset 300 s; zone centre (-7.0, 2.0) r=123
+[match    3.6] status: { "ground": 5 }; armed 5; shots 0; zone 0 wait r=123; corpses 0; levels { "L1": 5 }; server tick avg 0.08 ms, p99 0.19 ms, max 0.20 ms over 214 ticks
+[match    3.6] dm teams: North Team 2 at (-1.0, -41.0) spread 1 m; East Team 2 at (64.0, 0.0) spread 1 m; South Team 1 at (0.0, 41.0) spread 0 m; gap 76 m; zone centre (-7.0, 2.0)
+[match    3.6] bots: { "roam": 4 }; containers searched by bots 0 (all players 0); plan steps done 0; guns carried 8
+[match    3.6] roles: { "rusher": { "roam": 1 }, "sniper": { "roam": 1 }, "stalker": { "roam": 2 } }; stuck now 0; waypoints 0; team { "lines": 0, "pings": 0, "laser_follow": 0, "learned_cells": 29, "blocked_cells": 0, "squads": 0, "following_humans": 0 }
+[match    3.6] [lootstats] bots on the ground 4 (in water 0); armed 4; armed with ammo for a gun 4; long guns 4; attachments fitted 0; rounds of unusable ammo carried 0; items on the ground 429; bot pickups { "detours": 0, "detour_taken": 0, "fetches": 0, "fetch_done": 0, "items_taken": 0 }
+[match   18.6] status: { "ground": 5 }; armed 5; shots 24; zone 0 wait r=123; corpses 0; levels { "L1": 5 }; server tick avg 1.76 ms, p99 3.92 ms, max 26.99 ms over 900 ticks
+[match   18.6] dm teams: North Team 2 at (4.0, -28.0) spread 13 m; East Team 2 at (30.0, -23.0) spread 3 m; South Team 1 at (5.0, 17.0) spread 0 m; gap 27 m; zone centre (-7.0, 2.0)
+[match   18.6] bots: { "hunt": 1, "fight": 3 }; containers searched by bots 0 (all players 0); plan steps done 0; guns carried 8
+[match   18.6] roles: { "rusher": { "hunt": 1 }, "sniper": { "fight": 1 }, "stalker": { "fight": 2 } }; stuck now 1; waypoints 0; team { "lines": 7, "pings": 0, "laser_follow": 0, "learned_cells": 29, "blocked_cells": 0, "squads": 0, "following_humans": 0 }
+[match   18.6] [lootstats] bots on the ground 4 (in water 0); armed 4; armed with ammo for a gun 4; long guns 4; attachments fitted 0; rounds of unusable ammo carried 0; items on the ground 429; bot pickups { "detours": 0, "detour_taken": 0, "fetches": 0, "fetch_done": 0, "items_taken": 0 }
+[match   19.6] Aling Nena (team 1) landed at (31.0, 0.0, -24.0), 4.4 m/s, health 100; teammates -
+[match   26.9] Aling Nena killed by Check (bleeding); 3 teams left
+[match   26.9] alive: North Team 2, East Team 1
+[match   31.8] Dodong Lechon killed by Kumpare Ambo (bleeding); 3 teams left
+[match   31.8] alive: North Team 1, East Team 1
+[match   33.6] status: { "ground": 3 }; armed 3; shots 96; zone 0 wait r=123; corpses 2; levels { "L1": 2, "between": 1 }; server tick avg 2.38 ms, p99 4.65 ms, max 53.97 ms over 900 ticks
+[match   33.6] dm teams: North Team 1 at (4.0, -35.0) spread 0 m; East Team 1 at (25.0, -23.0) spread 0 m; South Team 1 at (3.0, 9.0) spread 0 m; gap 25 m; zone centre (-7.0, 2.0)
+[match   33.6] bots: { "investigate": 1, "heal": 1 }; containers searched by bots 0 (all players 0); plan steps done 0; guns carried 4
+[match   33.6] roles: { "stalker": { "investigate": 1, "heal": 1 } }; stuck now 1; waypoints 0; team { "lines": 17, "pings": 0, "laser_follow": 0, "learned_cells": 30, "blocked_cells": 0, "squads": 0, "following_humans": 0 }
+[match   33.6] [lootstats] bots on the ground 2 (in water 0); armed 2; armed with ammo for a gun 2; long guns 2; attachments fitted 0; rounds of unusable ammo carried 0; items on the ground 429; bot pickups { "detours": 0, "detour_taken": 0, "fetches": 0, "fetch_done": 0, "items_taken": 0 }
+[match   36.3] Kumpare Ambo (team 1) landed at (20.0, 0.0, -28.0), 4.4 m/s, health 48; teammates -
+[match   37.9] Kumpare Ambo killed by Check (gunshot); 2 teams left
+[match   37.9] alive: North Team 1, East Team 0
+[match   41.1] zone 0 shrinking to r=70 at (-38.0, -16.0)
+[match   48.6] status: { "ground": 2 }; armed 2; shots 103; zone 0 shrink r=113; corpses 3; levels { "L1": 1, "between": 1 }; server tick avg 1.17 ms, p99 2.04 ms, max 11.98 ms over 900 ticks
+[match   48.6] dm teams: North Team 1 at (33.0, -24.0) spread 0 m; South Team 1 at (2.0, 9.0) spread 0 m; gap -1 m; zone centre (-13.0, -1.0)
+[match   48.6] bots: { "hunt": 1 }; containers searched by bots 0 (all players 0); plan steps done 0; guns carried 2
+[match   48.6] roles: { "stalker": { "hunt": 1 } }; stuck now 1; waypoints 0; team { "lines": 19, "pings": 0, "laser_follow": 0, "learned_cells": 30, "blocked_cells": 0, "squads": 0, "following_humans": 0 }
+[match   48.6] [lootstats] bots on the ground 1 (in water 0); armed 1; armed with ammo for a gun 1; long guns 1; attachments fitted 0; rounds of unusable ammo carried 0; items on the ground 429; bot pickups { "detours": 0, "detour_taken": 0, "fetches": 0, "fetch_done": 0, "items_taken": 0 }
+[match   59.0] Check (team 0) landed at (44.0, 0.0, -2.0), 3.7 m/s, health 71; teammates -
+[match   63.6] status: { "ground": 2 }; armed 2; shots 103; zone 0 shrink r=91; corpses 3; levels { "between": 2 }; server tick avg 1.04 ms, p99 1.70 ms, max 4.23 ms over 900 ticks
+[match   63.6] dm teams: North Team 1 at (48.0, 5.0) spread 0 m; South Team 1 at (1.0, 9.0) spread 0 m; gap -1 m; zone centre (-26.0, -9.0)
+[match   63.6] bots: { "hunt": 1 }; containers searched by bots 0 (all players 0); plan steps done 0; guns carried 2
+[match   63.6] roles: { "stalker": { "hunt": 1 } }; stuck now 0; waypoints 0; team { "lines": 19, "pings": 0, "laser_follow": 0, "learned_cells": 30, "blocked_cells": 0, "squads": 0, "following_humans": 0 }
+[match   63.6] [lootstats] bots on the ground 1 (in water 0); armed 1; armed with ammo for a gun 1; long guns 1; attachments fitted 0; rounds of unusable ammo carried 0; items on the ground 429; bot pickups { "detours": 0, "detour_taken": 0, "fetches": 0, "fetch_done": 0, "items_taken": 0 }
+[match   78.6] [field watch] zone 0: 0 bots indoors in the field's path when it started closing: 0 out before the edge reached them, 0 out after it, 0 never out (); 0 of them dead by the end
+[match   78.6] status: { "ground": 2 }; armed 2; shots 103; zone 1 wait r=70; corpses 3; levels { "L1": 1, "between": 1 }; server tick avg 1.04 ms, p99 1.57 ms, max 4.25 ms over 900 ticks
+[match   78.6] dm teams: North Team 1 at (31.0, -4.0) spread 0 m; South Team 1 at (-2.0, 10.0) spread 0 m; gap -1 m; zone centre (-38.0, -16.0)
+[match   78.6] bots: { "hunt": 1 }; containers searched by bots 0 (all players 0); plan steps done 0; guns carried 2
+[match   78.6] roles: { "stalker": { "hunt": 1 } }; stuck now 1; waypoints 0; team { "lines": 19, "pings": 0, "laser_follow": 0, "learned_cells": 30, "blocked_cells": 0, "squads": 0, "following_humans": 0 }
+[match   78.6] [lootstats] bots on the ground 1 (in water 0); armed 1; armed with ammo for a gun 1; long guns 1; attachments fitted 0; rounds of unusable ammo carried 0; items on the ground 429; bot pickups { "detours": 0, "detour_taken": 0, "fetches": 0, "fetch_done": 0, "items_taken": 0 }
+[match   86.9] Tsong Ramil (team 2) landed at (-6.0, 0.0, 9.0), 7.5 m/s, health 100; teammates -
+[match   93.2] Check killed by Tsong Ramil (gunshot); 1 teams left
+[match   93.2] alive: North Team 0, East Team 0
+[match   93.2] match over: winner team 2 (South Team) after 93 s, 119 shots fired
+[bots] saved 31 learned cells to user://bot_memory_malasugue_mall.json
+ERROR: BUG: Unreferenced static string to 0: _exit_world
+   at: unref (core/string/string_name.cpp:118)
+ERROR: BUG: Unreferenced static string to 0: markers
+   at: unref (core/string/string_name.cpp:118)
+ERROR: BUG: Unreferenced static string to 0: _compression
+   at: unref (core/string/string_name.cpp:118)
+ERROR: BUG: Unreferenced static string to 0: _request_gizmo_for_id
+   at: unref (core/string/string_name.cpp:118)
+ERROR: BUG: Unreferenced static string to 0: _enter_world
+   at: unref (core/string/string_name.cpp:118)
+ERROR: BUG: Unreferenced static string to 0: .
+   at: unref (core/string/string_name.cpp:118)
+ERROR: BUG: Unreferenced static string to 0: _net_id
+   at: unref (core/string/string_name.cpp:118)
+ERROR: BUG: Unreferenced static string to 0: servers
+   at: unref (core/string/string_name.cpp:118)
+ERROR: BUG: Unreferenced static string to 0: Variant
+   at: unref (core/string/string_name.cpp:118)
+ERROR: BUG: Unreferenced static string to 0: @warning_ignore_restore
+   at: unref (core/string/string_name.cpp:118)
+ERROR: BUG: Unreferenced static string to 0: @warning_ignore_start
+   at: unref (core/string/string_name.cpp:118)
+ERROR: BUG: Unreferenced static string to 0: @warning_ignore
+   at: unref (core/string/string_name.cpp:118)
+ERROR: BUG: Unreferenced static string to 0: @icon
+   at: unref (core/string/string_name.cpp:118)
+WARNING: A Thread object is being destroyed without its completion having been realized.
+Please call wait_to_finish() on it to ensure correct cleanup.
+   at: ~Thread (core/os/thread.cpp:116)
+ERROR: 7 RID allocations of type '23NavMeshGeometryParser2D' were leaked at exit.
+ERROR: 6 RID allocations of type '23NavMeshGeometryParser3D' were leaked at exit.
+ERROR: Pages in use exist at exit in PagedAllocator: N12VariantPools11BucketLargeE
+   at: ~PagedAllocator (./core/templates/paged_allocator.h:170)

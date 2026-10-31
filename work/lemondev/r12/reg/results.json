@@ -1,0 +1,22 @@
+[
+  [
+    "r11_three_teams",
+    true,
+    "players per team { 0: 7, 2: 7, 1: 7 }, spawns [(-119.0, 1.0, -144.0), (190.0, 1.0, -40.0), (-72.0, 1.0, 196.0)], closest spawns 326 m apart"
+  ],
+  [
+    "r11_cage_holds",
+    true,
+    "walked into the north cage from z -218.0: stopped at z -223.31 (wall line -224.0); chest ray stops at z -223.63"
+  ],
+  [
+    "r11_kerbs_step_up",
+    true,
+    "24 kerb approaches walking (no jump); 0 failed []"
+  ],
+  [
+    "r11_upper_stairs_climb",
+    true,
+    "14 upper flights tried (5 ending above 8.5 m: roofs, top floors); 0 failed []"
+  ]
+]

@@ -1,0 +1,16 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+Vulkan 1.4.329 - Forward+ - Using Device #0: NVIDIA - NVIDIA GeForce RTX 4060
+
+[preview] map built in 4451 ms: {"buildings":0,"containers":193,"doors":216,"finish_ms":783,"ladders":0,"layout_ms":111,"lights":{"dead":0,"house_dark":0,"house_lit":0,"pole":0,"porch":0,"rooms":0},"mall":{"build_ms":1485,"decor":{"discs":432,"icicle_lights":4644,"lights":1,"props":305},"downlights_L1":1361,"downlights_L2":1334,"downlights_L3":1334,"downlights_L4":1357,"downlights_L5":1369,"escalators":{"escalators":16,"steps":432},"floors_ms":132,"shell_ms":347,"shops":{"doors":180,"fixtures":20156,"panes":839,"units":114},"shops_ms":1301},"props":670,"sink":{"boxes":31688,"colliders":65,"far_tris":0,"meshes":1006,"tris":404402},"terrain_ms":41,"towns_ms":1526,"windows":1815,"zones":1}
+[preview] saved ../work/r16/before/atrium_l1_t450.png fps 42.0 luma 176.436689334215
+[preview] saved ../work/r16/before/north_walk_l2_t450.png fps 60.0 luma 154.434384311588
+[preview] saved ../work/r16/before/east_court_l3_t450.png fps 34.0 luma 173.839301801198
+[preview] saved ../work/r16/before/west_court_l1_t450.png fps 36.0 luma 142.064148182623
+[preview] saved ../work/r16/before/food_l5_t450.png fps 55.0 luma 147.777922329183
+[preview] saved ../work/r16/before/plaza_south_t450.png fps 60.0 luma 126.457356987249
+[preview] saved ../work/r16/before/walk_l4_t450.png fps 27.0 luma 160.343095989354
+[preview] saved ../work/r16/before/dept_l2_t450.png fps 39.0 luma 134.773227289639
+[preview] saved ../work/r16/before/dept_l1_t450.png fps 55.0 luma 138.212121873699
+[preview] saved ../work/r16/before/restroom_l3_t450.png fps 60.0 luma 116.661906681165
+WARNING: 7 RIDs of type "Texture" were leaked.
+   at: finalize (servers/rendering/rendering_device.cpp:8900)

@@ -1,0 +1,14 @@
+r13 exit 1: 8 pass, 3 fail
+[autotest] FAIL r13_voice_go: Let's go!: bot near the player moved toward where the player looks 26.5 -> 37.7 m, affirmative true
+[autotest] FAIL r13_voice_fall_back: Fall back!: bot 30 m off said affirmative true and pulled back to 33.8 m
+[autotest] FAIL r13_voice_negative: Need help! with the only bot in reach in a close fight: it said negative false and took no order ({  })
+r12 exit 1: 16 pass, 2 fail
+[autotest] FAIL r12_field_bot_escapes: bot behind the middle of a 10 m wall: alive false, ended at (0.0, 0.0, 0.0)
+[autotest] FAIL r12_fieldhouse: bot in the middle of a house, no door remembered, field coming: house 2, field from behind: out after 2.7 s (17.4 m from the edge), alive; house 4, field on the door side: out after never s (-0.0 m from the edge), crushed; house 5, field from behind: out after 3.0 s (25.9 m from the edge), alive; house 23, field on the door side: out after 4.1 s (23.2 m from the edge), alive
+dm exit 1: 6 pass, 1 fail
+[autotest] FAIL dm_no_own_body: 93 sampled pixels change when your own body is hidden (looking straight down; shadows and HUD off) in [P: (0, 12), S: (1088, 632)]
+r11 exit 0: 6 pass, 0 fail
+alpha exit 1, bravo exit 1
+[autotest-a] FAIL item_race_single_owner: Alpha got it: false, Bravo got it: false
+[autotest-b] FAIL radio_static_from_enemy: an enemy bot's callout 7 m away: its radio static heard true, its voice heard false
+regression done

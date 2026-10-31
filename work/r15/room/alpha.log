@@ -1,0 +1,11 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+[roomtest] alpha PASS host: room host 690508355, me 690508355
+[roomtest] alpha PASS bravo_joined: 2 humans
+[roomtest] alpha PASS waits_for_ready: not ready: Bravo
+[roomtest] alpha PASS start_refused: state lobby after Start with Bravo not ready
+[world] map built in 9556 ms
+[map] 243 buildings, 1951 doors, 2617 containers, 2745 props, #b1fba961 on PC
+[game] match started (client)
+[roomtest] alpha PASS starts_when_ready: state match
+[roomtest] alpha done: 0 failed

@@ -1,0 +1,12 @@
+[
+  [
+    "r14_dm_zone_fixed",
+    true,
+    "lobby speed -> first wait/shrink (s): [[1.0, 37.5, 37.5], [2.5, 37.5, 37.5]]; the whole DM field closes in 250 s at x1.6"
+  ],
+  [
+    "r14_spectate_smooth",
+    false,
+    "not spectating anyone"
+  ]
+]

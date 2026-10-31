@@ -1,0 +1,27 @@
+[
+  [
+    "r12_fall",
+    true,
+    "damage by drop height: { \"2.5\": 0.0, \"3.5\": 0.0, \"6.0\": 9.64699329033246, \"4.5\": 2.1662494810232, \"4.5_roll\": 0.0, \"8.0\": 27.2805956750622, \"8.0_roll\": 4.41259331554444 }"
+  ],
+  [
+    "r12_ledge_2_2m",
+    false,
+    "2.2 m wall, run and jump: grabbed false at -1.00 s, on top after 0.00 s more, feet at (-15.0, 0.0, -4.08)"
+  ],
+  [
+    "r12_over_2m",
+    true,
+    "2.0 m garden wall: grabbed true, ended at (0.0, 0.02, -10.85) (past z -10.25, on the ground)"
+  ],
+  [
+    "r12_ledge_3m",
+    true,
+    "3.0 m wall: plain jump at 4.4 m/s grabbed false; sprint run-up at 6.3 m/s grabbed true, ended at (15.0, 3.02, -10.64)"
+  ],
+  [
+    "r12_ledge_4_5m",
+    true,
+    "4.5 m wall, sprint run-up at 6.3 m/s: grabbed false"
+  ]
+]

@@ -1,0 +1,9 @@
+(res://src/match/field.gd:0)	   at: GDScript::reload (res://src/player/motor.gd:0)
+(res://src/match/world.gd:0)	   at: GDScript::reload (res://src/core/game.gd:0)
+(res://src/online/profile.gd:0)	   at: GDScript::reload (res://src/net/net.gd:0)
+(res://src/player/character.gd:0)	   at: GDScript::reload (res://src/world/door.gd:0)
+(res://src/ui/ui_theme.gd:0)	   at: GDScript::reload (res://src/match/match_server.gd:0)
+(res://src/world/dynamics.gd:0)	   at: GDScript::reload (res://src/world/map_builder.gd:0)
+Parse Error: Function "play_ui" has the same name as a previously declared function.	(res://src/audio/sound_system.gd:320)
+FAIL res://src/audio/sound_system.gd
+checked 145 scripts, 1 failed

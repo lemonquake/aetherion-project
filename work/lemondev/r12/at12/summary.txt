@@ -1,0 +1,10 @@
+[autotest] PASS r12_ab_captured: before/after strips in A:/Python/aetherion-project/work/lemondev/r12/at12/ab
+[autotest] done: 1 checks, 0 failed
+[autotest] PASS dm_map: map lawless_sub, mode deathmatch, 243 buildings, 1951 doors, 2617 containers, 2745 props, #b1fba961
+[autotest] PASS dm_teams: alive per team [7, 7, 7] (team size 7)
+[autotest] PASS dm_kit: guns ["rifle_m416", "pistol_9"], vest vest_heavy, helmet helmet_heavy
+[autotest] PASS dm_spawn_place: 0.0 m from the nearest spawn point of team 0
+[autotest] PASS dm_no_own_body: 21 sampled pixels change when your own body is hidden (looking straight down; shadows and HUD off) in [P: (0, 464), S: (1168, 358)]
+[autotest] PASS dm_arms_clear: 178 frames of an empty reload; closest joint on screen R wrist at (0.16, -0.24, -0.22) (needs z < -0.15 m)
+[autotest] PASS dm_haze: 5 Deathmatch phases; zone { "i": 0, "state": "wait", "t0": 54, "t1": 3654, "c0": (33.55406, -6.402319), "r0": 353.159397125244, "c1": (103.1711, -
+[autotest] done: 7 checks, 0 failed

@@ -1,0 +1,27 @@
+[
+  [
+    "r11_three_teams",
+    true,
+    "players per team { 0: 7, 2: 7, 1: 7 }, spawns [(-119.0, 1.0, -144.0), (190.0, 1.0, -40.0), (-72.0, 1.0, 196.0)], closest spawns 326 m apart"
+  ],
+  [
+    "r11_cage_pa",
+    false,
+    "speakers { \"cage\": 28, \"tower\": 4 }; start line played: false; the 3 nearest stacks are on the cage: true ([(-128.0, 16.0, -222.0), (-64.0, 16.0, -222.0), (-222.0, 16.0, -128.0)])"
+  ],
+  [
+    "r11_cage_holds",
+    true,
+    "walked into the north cage from z -218.0: stopped at z -223.56 (wall line -224.0); chest ray stops at z -223.63"
+  ],
+  [
+    "r11_impact_haze",
+    true,
+    "centre change against the view before the hit: 6.99 at 0.15 s, 4.12 at 1.5 s, 3.74 at 4 s"
+  ],
+  [
+    "r11_kerbs_step_up",
+    false,
+    "24 kerb approaches walking (no jump); 1 failed [\"Gumamela St @140 side -1 35 deg: -0.1 m across, height 1.74 -> top 2.00\"]"
+  ]
+]

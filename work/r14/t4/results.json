@@ -1,0 +1,57 @@
+[
+  [
+    "r14_smartab_up",
+    true,
+    "watch on the wrist true; hologram 83% of the view's height, 78% of its width"
+  ],
+  [
+    "r14_smartab_useless_red",
+    true,
+    ".308 rounds with a 5.56 rifle and a 9 mm SMG: marked 'bad', red edge in the picture true"
+  ],
+  [
+    "r14_smartab_drag_attachment",
+    true,
+    "thumb grip dragged from the bag (row true) onto the rifle's grip mount (true): fitted true, left in the bag 0"
+  ],
+  [
+    "r14_smartab_swap_guns",
+    true,
+    "after the drag: slot 1 smg_9, slot 2 rifle_556, in hand rifle_556 (controller slot 2)"
+  ],
+  [
+    "r14_smartab_take_ground",
+    true,
+    "9 mm box on the ground (row true) dragged into the bag: carrying 60 (was 30), still on the ground false"
+  ],
+  [
+    "r14_loot_highlight",
+    true,
+    "outlined: [6302, 6303] of { \"ammo_9x19\": 6302, \"grip_thumb\": 6303, \"ammo_308\": 6304, \"scope_15x\": 6305 }; off -> 0 outlined; green pixels on 139 / off 0"
+  ],
+  [
+    "r14_grenade_cook_throw",
+    true,
+    "held 1 s: cooking true, fuse ring 1.00 s, in hand true; thrown with 2.47 s left, went off 2.82 s after release; grenades 3 -> 2"
+  ],
+  [
+    "r14_grenade_door",
+    true,
+    "door 37 blown apart true; 2 of 2 props near it thrown or broken; view brightness 37 -> 141 at the blast"
+  ],
+  [
+    "r14_grenade_lethal",
+    true,
+    "enemy 2.5 m away (100 HP): killed outright true, the body thrown 21.9 m and 3.2 m up; enemy 8.8 m away 100 -> 71 HP"
+  ],
+  [
+    "r14_grenade_muffle",
+    true,
+    "player 8 m from the blast: hearing strength 0.75, world sound low-passed at 535 Hz (filter on true), ears ringing true"
+  ],
+  [
+    "r14_grenade_in_hand",
+    true,
+    "enemy kept the key down: went off 4.10 s after the pin came out, never thrown true, 71 -> 0 HP (killed)"
+  ]
+]

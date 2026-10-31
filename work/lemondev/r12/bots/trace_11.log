@@ -1,0 +1,260 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+[server] dedicated server listening on 27631
+[world] map built in 11464 ms
+[map] 243 buildings, 1951 doors, 2617 containers, 2745 props, #b1fba961 on PC
+[bots] learned from 183 cells, 12 stuck spots (user://bot_memory_lawless_sub.json)
+[match    0.0] deathmatch start on lawless_sub: 21 players, 3 teams; spawns (-119.0, 1.0, -144.0), (190.0, 1.0, -40.0), (-72.0, 1.0, 196.0) (326/353/343 m apart, layout); day offset 300 s; zone centre (-8.0, -51.0) r=370
+[match    0.0] status: { "ground": 21 }; armed 21; shots 0; zone 0 wait r=370; corpses 0
+[match    0.0] dm teams: North Team 7 at (-120.0, -144.0) spread 3 m; East Team 7 at (189.0, -40.0) spread 3 m; South Team 7 at (-73.0, 196.0) spread 3 m; gap 326 m; zone centre (-8.0, -51.0)
+[match    0.0] bots: { "zone": 4, "roam": 17 }; containers searched by bots 0 (all players 0); plan steps done 0; guns carried 42
+[match    0.0] roles: { "sniper": { "zone": 2, "roam": 6 }, "looter": { "roam": 5, "zone": 1 }, "rusher": { "roam": 3 }, "stalker": { "roam": 3, "zone": 1 } }; stuck now 0; waypoints 0; team { "lines": 2, "pings": 0, "laser_follow": 0, "learned_cells": 183, "blocked_cells": 2, "squads": 0, "following_humans": 0 }
+[match    0.0] [lootstats] bots on the ground 21 (in water 0); armed 21; armed with ammo for a gun 21; long guns 21; attachments fitted 0; rounds of unusable ammo carried 0; items on the ground 6282; bot pickups { "detours": 0, "detour_taken": 0, "fetches": 0, "fetch_done": 0, "items_taken": 0 }
+[bot Ate Load Dito] zone step 0/0 walk at (-122.2, 1.1, -144.0) -> (7.1, 1.1, -24.5) (176.0 m) path 0/0 stuck 0.0 btn 0 guns smg_ump45(24+75),pistol_deagle(6+14) scan { "near": 0, "skip": 0, "height": 0, "zone": 0, "value": 0 } indoors false exit 0 field -inf m
+[bot Ate Load] zone step 0/0 walk at (-122.2, 1.1, -147.2) -> (9.0, 0.9, -13.0) (187.7 m) path 0/0 stuck 0.0 btn 0 guns rifle_scar(29+90),pistol_deagle(6+14) scan { "near": 0, "skip": 0, "height": 0, "zone": 0, "value": 0 } indoors false exit 0 field -inf m
+[bot Ate Load Dito] zone step 0/0 walk at (-119.7, 1.0, -141.8) -> (7.1, 1.1, -24.5) (172.7 m) path 0/19 stuck 0.0 btn 4 guns smg_ump45(24+75),pistol_deagle(6+14) scan { "near": 0, "skip": 0, "height": 0, "zone": 0, "value": 0 } indoors false exit 0 field -inf m
+[bot Ate Load] zone step 0/0 walk at (-119.8, 1.0, -144.9) -> (9.0, 0.9, -13.0) (184.4 m) path 0/18 stuck 0.0 btn 4 guns rifle_scar(29+90),pistol_deagle(6+14) scan { "near": 0, "skip": 0, "height": 0, "zone": 0, "value": 0 } indoors false exit 0 field -inf m
+[bot Ate Load Dito] zone step 0/0 walk at (-116.0, 1.0, -136.2) -> (7.1, 1.1, -24.5) (166.2 m) path 0/19 stuck 0.0 btn 4 guns smg_ump45(24+75),pistol_deagle(6+14) scan { "near": 0, "skip": 0, "height": 0, "zone": 0, "value": 0 } indoors false exit 0 field -inf m
+[bot Ate Load] zone step 0/0 walk at (-116.4, 1.0, -139.2) -> (9.0, 0.9, -13.0) (177.9 m) path 0/18 stuck 0.0 btn 4 guns rifle_scar(29+90),pistol_deagle(6+14) scan { "near": 0, "skip": 0, "height": 0, "zone": 0, "value": 0 } indoors false exit 0 field -inf m
+[bot Ate Load Dito] zone step 0/0 walk at (-112.4, 0.9, -130.5) -> (7.1, 1.1, -24.5) (159.7 m) path 0/19 stuck 0.0 btn 4 guns smg_ump45(24+75),pistol_deagle(6+14) scan { "near": 0, "skip": 0, "height": 0, "zone": 0, "value": 0 } indoors false exit 0 field -inf m
+[bot Ate Load] zone step 0/0 walk at (-113.1, 0.9, -133.3) -> (9.0, 0.9, -13.0) (171.4 m) path 0/18 stuck 0.0 btn 4 guns rifle_scar(29+90),pistol_deagle(6+14) scan { "near": 0, "skip": 0, "height": 0, "zone": 0, "value": 0 } indoors false exit 0 field -inf m
+[bot Ate Load Dito] zone step 0/0 walk at (-108.8, 0.9, -124.9) -> (7.1, 1.1, -24.5) (153.3 m) path 0/19 stuck 0.0 btn 4 guns smg_ump45(24+75),pistol_deagle(6+14) scan { "near": 0, "skip": 0, "height": 0, "zone": 0, "value": 0 } indoors false exit 0 field -inf m
+[bot Ate Load] zone step 0/0 walk at (-109.8, 0.9, -127.4) -> (9.0, 0.9, -13.0) (165.0 m) path 0/18 stuck 0.0 btn 4 guns rifle_scar(29+90),pistol_deagle(6+14) scan { "near": 0, "skip": 0, "height": 0, "zone": 0, "value": 0 } indoors false exit 0 field -inf m
+[bot Ate Load Dito] zone step 0/0 walk at (-105.3, 0.8, -119.3) -> (7.1, 1.1, -24.5) (147.0 m) path 0/19 stuck 0.0 btn 4 guns smg_ump45(24+75),pistol_deagle(6+14) scan { "near": 0, "skip": 0, "height": 0, "zone": 0, "value": 0 } indoors false exit 0 field -inf m
+[bot Ate Load] zone step 0/0 walk at (-106.4, 0.8, -121.4) -> (9.0, 0.9, -13.0) (158.3 m) path 0/18 stuck 0.0 btn 4 guns rifle_scar(29+90),pistol_deagle(6+14) scan { "near": 0, "skip": 0, "height": 0, "zone": 0, "value": 0 } indoors false exit 0 field -inf m
+[bot Ate Load Dito] zone step 0/0 walk at (-101.9, 0.9, -113.5) -> (7.1, 1.1, -24.5) (140.7 m) path 0/18 stuck 0.0 btn 4 guns smg_ump45(24+75),pistol_deagle(6+14) scan { "near": 2, "skip": 0, "height": 0, "zone": 2, "value": 0 } indoors false exit 0 field -inf m
+[bot Ate Load] zone step 0/0 walk at (-103.8, 0.8, -116.0) -> (9.0, 0.9, -13.0) (152.8 m) path 0/18 stuck 0.0 btn 4 guns rifle_scar(29+90),pistol_deagle(6+14) scan { "near": 2, "skip": 0, "height": 0, "zone": 2, "value": 0 } indoors false exit 0 field -inf m
+[bot Ate Load Dito] zone step 0/0 walk at (-101.0, 0.9, -106.9) -> (7.1, 1.1, -24.5) (135.9 m) path 0/18 stuck 0.0 btn 4 guns smg_ump45(24+75),pistol_deagle(6+14) scan { "near": 0, "skip": 0, "height": 0, "zone": 0, "value": 0 } indoors false exit 0 field -inf m
+[bot Ate Load] zone step 0/0 walk at (-102.2, 0.8, -109.7) -> (9.0, 0.9, -13.0) (147.3 m) path 0/18 stuck 0.0 btn 4 guns rifle_scar(29+90),pistol_deagle(6+14) scan { "near": 2, "skip": 0, "height": 0, "zone": 2, "value": 0 } indoors false exit 0 field -inf m
+[match    7.9] Pinsan Gardo (team 1) landed at (187.0, 1.0, -41.0), 4.9 m/s, health 100; teammates -
+[bot Ate Load Dito] zone step 0/0 walk at (-100.6, 0.9, -100.1) -> (7.1, 1.1, -24.5) (131.6 m) path 0/18 stuck 0.0 btn 4 guns smg_ump45(24+75),pistol_deagle(6+14) scan { "near": 0, "skip": 0, "height": 0, "zone": 0, "value": 0 } indoors false exit 0 field -inf m
+[bot Ate Load] zone step 0/0 walk at (-100.8, 0.9, -103.1) -> (9.0, 0.9, -13.0) (142.0 m) path 0/18 stuck 0.0 btn 4 guns rifle_scar(29+90),pistol_deagle(6+14) scan { "near": 0, "skip": 0, "height": 0, "zone": 0, "value": 0 } indoors false exit 0 field -inf m
+[bot Ate Load Dito] zone step 0/0 walk at (-100.2, 0.9, -93.4) -> (7.1, 1.1, -24.5) (127.5 m) path 0/18 stuck 0.0 btn 4 guns smg_ump45(24+75),pistol_deagle(6+14) scan { "near": 0, "skip": 0, "height": 0, "zone": 0, "value": 0 } indoors false exit 0 field -inf m
+[bot Ate Load] zone step 0/0 walk at (-99.4, 0.9, -96.5) -> (9.0, 0.9, -13.0) (136.9 m) path 0/18 stuck 0.0 btn 4 guns rifle_scar(29+90),pistol_deagle(6+14) scan { "near": 0, "skip": 0, "height": 0, "zone": 0, "value": 0 } indoors false exit 0 field -inf m
+[bot Ate Load Dito] zone step 0/0 walk at (-99.8, 0.9, -86.7) -> (7.1, 1.1, -24.5) (123.7 m) path 0/18 stuck 0.0 btn 4 guns smg_ump45(24+75),pistol_deagle(6+14) scan { "near": 0, "skip": 0, "height": 0, "zone": 0, "value": 0 } indoors false exit 0 field -inf m
+[bot Ate Load] zone step 0/0 walk at (-98.0, 0.9, -90.0) -> (9.0, 0.9, -13.0) (131.8 m) path 0/18 stuck 0.0 btn 4 guns rifle_scar(29+90),pistol_deagle(6+14) scan { "near": 0, "skip": 0, "height": 0, "zone": 0, "value": 0 } indoors false exit 0 field -inf m
+[bot Ate Load Dito] zone step 0/0 walk at (-99.4, 0.9, -80.0) -> (7.1, 1.1, -24.5) (120.0 m) path 0/18 stuck 0.0 btn 4 guns smg_ump45(24+75),pistol_deagle(6+14) scan { "near": 0, "skip": 0, "height": 0, "zone": 0, "value": 0 } indoors false exit 0 field -inf m
+[bot Ate Load] zone step 0/0 walk at (-96.8, 0.9, -83.4) -> (9.0, 0.9, -13.0) (127.1 m) path 1/18 stuck 0.0 btn 4 guns rifle_scar(29+90),pistol_deagle(6+14) scan { "near": 0, "skip": 0, "height": 0, "zone": 0, "value": 0 } indoors false exit 0 field -inf m
+[bot Ate Load Dito] zone step 0/0 walk at (-98.9, 0.9, -73.3) -> (7.1, 1.1, -24.5) (116.7 m) path 0/18 stuck 0.0 btn 4 guns smg_ump45(24+75),pistol_deagle(6+14) scan { "near": 0, "skip": 0, "height": 0, "zone": 0, "value": 0 } indoors false exit 0 field -inf m
+[bot Ate Load] zone step 0/0 walk at (-96.6, 0.9, -76.6) -> (9.0, 0.9, -13.0) (123.3 m) path 0/17 stuck 0.0 btn 4 guns rifle_scar(29+90),pistol_deagle(6+14) scan { "near": 0, "skip": 0, "height": 0, "zone": 0, "value": 0 } indoors false exit 0 field -inf m
+[bot Ate Load Dito] zone step 0/0 walk at (-98.5, 0.9, -66.6) -> (7.1, 1.1, -24.5) (113.7 m) path 0/18 stuck 0.0 btn 4 guns smg_ump45(24+75),pistol_deagle(6+14) scan { "near": 0, "skip": 0, "height": 0, "zone": 0, "value": 0 } indoors false exit 0 field -inf m
+[bot Ate Load] zone step 0/0 walk at (-96.4, 0.9, -69.9) -> (9.0, 0.9, -13.0) (119.8 m) path 0/17 stuck 0.0 btn 4 guns rifle_scar(29+90),pistol_deagle(6+14) scan { "near": 0, "skip": 0, "height": 0, "zone": 0, "value": 0 } indoors false exit 0 field -inf m
+[bot Ate Load Dito] zone step 0/0 walk at (-98.1, 0.9, -59.9) -> (7.1, 1.1, -24.5) (111.0 m) path 0/18 stuck 0.0 btn 4 guns smg_ump45(24+75),pistol_deagle(6+14) scan { "near": 0, "skip": 0, "height": 0, "zone": 0, "value": 0 } indoors false exit 0 field -inf m
+[bot Ate Load] zone step 0/0 walk at (-96.3, 0.9, -63.2) -> (9.0, 0.9, -13.0) (116.6 m) path 0/17 stuck 0.0 btn 4 guns rifle_scar(29+90),pistol_deagle(6+14) scan { "near": 0, "skip": 0, "height": 0, "zone": 0, "value": 0 } indoors false exit 0 field -inf m
+[match   15.0] status: { "ground": 21 }; armed 21; shots 0; zone 0 wait r=370; corpses 0; server tick avg 1.88 ms, p99 3.98 ms, max 11.41 ms over 900 ticks
+[match   15.0] dm teams: North Team 7 at (-98.0, -59.0) spread 2 m; East Team 7 at (161.0, -38.0) spread 32 m; South Team 7 at (-37.0, 165.0) spread 7 m; gap 259 m; zone centre (-8.0, -51.0)
+[match   15.0] bots: { "roam": 3, "follow": 4, "zone": 7, "hunt": 4, "loot": 3 }; containers searched by bots 0 (all players 0); plan steps done 0; guns carried 42
+[match   15.0] roles: { "sniper": { "roam": 3, "follow": 2, "zone": 3 }, "looter": { "zone": 1, "follow": 2, "loot": 3 }, "rusher": { "hunt": 3 }, "stalker": { "zone": 3, "hunt": 1 } }; stuck now 0; waypoints 2075; team { "lines": 5, "pings": 0, "laser_follow": 0, "learned_cells": 183, "blocked_cells": 2, "squads": 4, "following_humans": 0 }
+[match   15.0] [lootstats] bots on the ground 21 (in water 0); armed 21; armed with ammo for a gun 21; long guns 21; attachments fitted 0; rounds of unusable ammo carried 0; items on the ground 6282; bot pickups { "detours": 0, "detour_taken": 0, "fetches": 0, "fetch_done": 0, "items_taken": 0 }
+[bot Ate Load Dito] zone step 0/0 walk at (-97.5, 0.9, -53.3) -> (-7.0, 0.9, -3.8) (103.2 m) path 0/3 stuck 0.0 btn 4 guns smg_ump45(24+75),pistol_deagle(6+14) scan { "near": 0, "skip": 0, "height": 0, "zone": 0, "value": 0 } indoors false exit 0 field -inf m
+[bot Ate Load] zone step 0/0 walk at (-96.1, 0.9, -56.5) -> (9.0, 0.9, -13.0) (113.7 m) path 0/17 stuck 0.0 btn 4 guns rifle_scar(29+90),pistol_deagle(6+14) scan { "near": 0, "skip": 0, "height": 0, "zone": 0, "value": 0 } indoors false exit 0 field -inf m
+[bot Ate Load Dito] zone step 0/0 walk at (-97.0, 0.9, -46.6) -> (-7.0, 0.9, -3.8) (99.7 m) path 0/3 stuck 0.0 btn 4 guns smg_ump45(24+75),pistol_deagle(6+14) scan { "near": 0, "skip": 0, "height": 0, "zone": 0, "value": 0 } indoors false exit 0 field -inf m
+[bot Ate Load] zone step 0/0 walk at (-95.9, 0.9, -49.8) -> (9.0, 0.9, -13.0) (111.2 m) path 0/17 stuck 0.0 btn 4 guns rifle_scar(29+90),pistol_deagle(6+14) scan { "near": 0, "skip": 0, "height": 0, "zone": 0, "value": 0 } indoors false exit 0 field -inf m
+[bot Ate Load Dito] zone step 0/0 walk at (-96.6, 0.9, -39.9) -> (-7.0, 0.9, -3.8) (96.6 m) path 0/3 stuck 0.0 btn 4 guns smg_ump45(24+75),pistol_deagle(6+14) scan { "near": 0, "skip": 0, "height": 0, "zone": 0, "value": 0 } indoors false exit 0 field -inf m
+[bot Ate Load] zone step 0/0 walk at (-95.5, 0.9, -43.2) -> (-7.3, 0.9, 6.6) (101.3 m) path 0/3 stuck 0.0 btn 4 guns rifle_scar(29+90),pistol_deagle(6+14) scan { "near": 0, "skip": 0, "height": 0, "zone": 0, "value": 0 } indoors false exit 0 field -inf m
+[match   18.5] Tito Videoke (team 2) landed at (-20.0, 1.0, 145.0), 2.5 m/s, health 100; teammates -
+[match   18.7] Manong Guard (team 2) landed at (-18.0, 1.0, 143.0), 3.1 m/s, health 100; teammates 3 m
+[match   19.1] Mang Tomas (team 1) landed at (187.0, 1.0, -80.0), 3.1 m/s, health 100; teammates 81 m
+[bot Ate Load Dito] zone step 0/0 walk at (-96.2, 0.9, -33.2) -> (-7.0, 0.9, -3.8) (94.0 m) path 0/3 stuck 0.0 btn 4 guns smg_ump45(24+75),pistol_deagle(6+14) scan { "near": 0, "skip": 0, "height": 0, "zone": 0, "value": 0 } indoors false exit 0 field -inf m
+[bot Ate Load] zone step 0/0 walk at (-95.3, 0.9, -36.4) -> (-7.3, 0.9, 6.6) (98.1 m) path 0/3 stuck 0.0 btn 4 guns rifle_scar(29+90),pistol_deagle(6+14) scan { "near": 0, "skip": 0, "height": 0, "zone": 0, "value": 0 } indoors false exit 0 field -inf m
+[bot Ate Load Dito] zone step 0/0 walk at (-95.9, 0.9, -26.5) -> (-7.0, 0.9, -3.8) (91.7 m) path 0/3 stuck 0.0 btn 4 guns smg_ump45(24+75),pistol_deagle(6+14) scan { "near": 0, "skip": 0, "height": 0, "zone": 0, "value": 0 } indoors false exit 0 field -inf m
+[bot Ate Load] zone step 0/0 walk at (-95.3, 0.9, -29.7) -> (-7.3, 0.9, 6.6) (95.2 m) path 0/3 stuck 0.0 btn 4 guns rifle_scar(29+90),pistol_deagle(6+14) scan { "near": 0, "skip": 0, "height": 0, "zone": 0, "value": 0 } indoors false exit 0 field -inf m
+[bot Ate Load Dito] zone step 0/0 walk at (-95.5, 0.9, -19.8) -> (-7.0, 0.9, -3.8) (90.0 m) path 0/3 stuck 0.0 btn 4 guns smg_ump45(24+75),pistol_deagle(6+14) scan { "near": 0, "skip": 0, "height": 0, "zone": 0, "value": 0 } indoors false exit 0 field -inf m
+[bot Ate Load] zone step 0/0 walk at (-95.2, 0.9, -23.0) -> (-7.3, 0.9, 6.6) (92.8 m) path 0/3 stuck 0.0 btn 4 guns rifle_scar(29+90),pistol_deagle(6+14) scan { "near": 0, "skip": 0, "height": 0, "zone": 0, "value": 0 } indoors false exit 0 field -inf m
+[bot Ate Load Dito] zone step 0/0 walk at (-95.1, 0.9, -13.1) -> (-7.0, 0.9, -3.8) (88.6 m) path 0/3 stuck 0.0 btn 4 guns smg_ump45(24+75),pistol_deagle(6+14) scan { "near": 0, "skip": 0, "height": 0, "zone": 0, "value": 0 } indoors false exit 0 field -inf m
+[bot Ate Load] zone step 0/0 walk at (-95.1, 0.9, -16.3) -> (-7.3, 0.9, 6.6) (90.8 m) path 0/3 stuck 0.0 btn 4 guns rifle_scar(29+90),pistol_deagle(6+14) scan { "near": 0, "skip": 0, "height": 0, "zone": 0, "value": 0 } indoors false exit 0 field -inf m
+[bot Ate Load Dito] zone step 0/0 walk at (-93.1, 1.1, -9.6) -> (-7.0, 0.9, -3.8) (86.3 m) path 1/3 stuck 0.0 btn 4 guns smg_ump45(24+75),pistol_deagle(6+14) scan { "near": 0, "skip": 0, "height": 0, "zone": 0, "value": 0 } indoors false exit 0 field -inf m
+[bot Ate Load] zone step 0/0 walk at (-94.8, 0.9, -11.4) -> (-7.3, 0.9, 6.6) (89.4 m) path 1/3 stuck 0.0 btn 4 guns rifle_scar(29+90),pistol_deagle(6+14) scan { "near": 0, "skip": 0, "height": 0, "zone": 0, "value": 0 } indoors false exit 0 field -inf m
+[match   23.7] Aling Puring (team 2) landed at (-43.0, 1.0, 148.0), 4.9 m/s, health 100; teammates 49 m, 44 m
+[bot Ate Load Dito] zone step 0/0 walk at (-89.8, 1.1, -7.3) -> (-7.0, 0.9, -3.8) (82.9 m) path 1/3 stuck 0.0 btn 4 guns smg_ump45(24+75),pistol_deagle(6+14) scan { "near": 0, "skip": 0, "height": 0, "zone": 0, "value": 0 } indoors false exit 0 field -inf m
+[bot Ate Load] zone step 0/0 walk at (-91.9, 1.1, -8.400001) -> (-7.3, 0.9, 6.6) (85.9 m) path 0/2 stuck 0.0 btn 4 guns rifle_scar(29+90),pistol_deagle(6+14) scan { "near": 0, "skip": 0, "height": 0, "zone": 0, "value": 0 } indoors false exit 0 field -inf m
+[match   25.2] Totoy Kulot (team 2) landed at (5.0, 1.0, 188.0), 4.9 m/s, health 100; teammates 59 m, 59 m, 63 m
+[bot Ate Load Dito] roam step 0/0 walk at (-86.7, 1.0, -4.4) -> (inf, inf, inf) (inf m) path 1/3 stuck 0.0 btn 0 guns smg_ump45(24+75),pistol_deagle(6+14) scan { "near": 0, "skip": 0, "height": 0, "zone": 0, "value": 0 } indoors false exit 0 field -inf m
+[bot Ate Load] roam step 0/0 walk at (-87.8, 1.0, -4.6) -> (inf, inf, inf) (inf m) path 0/2 stuck 0.0 btn 0 guns rifle_scar(29+90),pistol_deagle(6+14) scan { "near": 0, "skip": 0, "height": 0, "zone": 0, "value": 0 } indoors false exit 0 field -inf m
+[bot Ate Load Dito] roam step 0/0 walk at (-86.7, 1.0, -4.4) -> (inf, inf, inf) (inf m) path 1/3 stuck 0.0 btn 0 guns smg_ump45(24+75),pistol_deagle(6+14) scan { "near": 0, "skip": 0, "height": 0, "zone": 0, "value": 0 } indoors false exit 0 field -inf m
+[bot Ate Load] roam step 0/0 walk at (-87.8, 1.0, -4.5) -> (inf, inf, inf) (inf m) path 0/2 stuck 0.0 btn 0 guns rifle_scar(29+90),pistol_deagle(6+14) scan { "near": 0, "skip": 0, "height": 0, "zone": 0, "value": 0 } indoors false exit 0 field -inf m
+[bot Totoy Kulot] gave up on a house at (8.5, 1.8, 187.1) step approach: 2.4 m from (7.7, 1.1, 185.1), door -, eye-to-door -1.00
+[match   27.2] Mang Tani (team 1) landed at (93.0, 1.0, -62.0), 2.5 m/s, health 100; teammates 56 m, 92 m
+[bot Ate Load Dito] roam step 0/0 walk at (-86.7, 1.0, -4.4) -> (inf, inf, inf) (inf m) path 1/3 stuck 0.0 btn 0 guns smg_ump45(24+75),pistol_deagle(6+14) scan { "near": 0, "skip": 0, "height": 0, "zone": 0, "value": 0 } indoors false exit 0 field -inf m
+[bot Ate Load] roam step 0/0 walk at (-87.8, 1.0, -4.5) -> (inf, inf, inf) (inf m) path 0/2 stuck 0.0 btn 0 guns rifle_scar(29+90),pistol_deagle(6+14) scan { "near": 0, "skip": 0, "height": 0, "zone": 0, "value": 0 } indoors false exit 0 field -inf m
+[bot Aling Puring] gave up on a house at (-42.9, 1.1, 147.2) step approach: 30.5 m from (-45.3, 1.2, 105.4), door -, eye-to-door -1.00
+[bot Ate Load Dito] roam step 0/0 walk at (-86.7, 1.0, -4.4) -> (inf, inf, inf) (inf m) path 1/3 stuck 0.0 btn 0 guns smg_ump45(24+75),pistol_deagle(6+14) scan { "near": 0, "skip": 0, "height": 0, "zone": 0, "value": 0 } indoors false exit 0 field -inf m
+[bot Ate Load] roam step 0/0 walk at (-87.8, 1.0, -4.5) -> (inf, inf, inf) (inf m) path 0/2 stuck 0.0 btn 0 guns rifle_scar(29+90),pistol_deagle(6+14) scan { "near": 0, "skip": 0, "height": 0, "zone": 0, "value": 0 } indoors false exit 0 field -inf m
+[bot Ate Load Dito] roam step 0/0 walk at (-86.7, 1.0, -4.4) -> (inf, inf, inf) (inf m) path 1/3 stuck 0.0 btn 0 guns smg_ump45(24+75),pistol_deagle(6+14) scan { "near": 0, "skip": 0, "height": 0, "zone": 0, "value": 0 } indoors false exit 0 field -inf m
+[bot Ate Load] roam step 0/0 walk at (-87.8, 1.0, -4.5) -> (inf, inf, inf) (inf m) path 0/2 stuck 0.0 btn 0 guns rifle_scar(29+90),pistol_deagle(6+14) scan { "near": 0, "skip": 0, "height": 0, "zone": 0, "value": 0 } indoors false exit 0 field -inf m
+[match   30.0] zone 0 shrinking to r=194 at (98.0, 46.0)
+[match   30.0] status: { "ground": 21 }; armed 21; shots 0; zone 0 shrink r=370; corpses 0; server tick avg 1.95 ms, p99 4.10 ms, max 8.68 ms over 900 ticks
+[match   30.0] dm teams: North Team 7 at (-86.0, -6.0) spread 2 m; East Team 7 at (108.0, -47.0) spread 40 m; South Team 7 at (1.0, 132.0) spread 31 m; gap 198 m; zone centre (-7.0, -51.0)
+[match   30.0] bots: { "roam": 9, "follow": 4, "hunt": 4, "overwatch": 1, "loot": 3 }; containers searched by bots 3 (all players 3); plan steps done 6; guns carried 43
+[match   30.0] roles: { "sniper": { "roam": 5, "follow": 2, "overwatch": 1 }, "looter": { "roam": 1, "follow": 2, "loot": 3 }, "rusher": { "hunt": 3 }, "stalker": { "roam": 3, "hunt": 1 } }; stuck now 0; waypoints 2075; team { "lines": 7, "pings": 0, "laser_follow": 0, "learned_cells": 183, "blocked_cells": 2, "squads": 4, "following_humans": 0 }
+[match   30.0] [lootstats] bots on the ground 21 (in water 0); armed 21; armed with ammo for a gun 21; long guns 22; attachments fitted 1; rounds of unusable ammo carried 0; items on the ground 6280; bot pickups { "detours": 2, "detour_taken": 2, "fetches": 0, "fetch_done": 0, "items_taken": 2 }
+[match   30.2] Totoy Bibo (team 2) landed at (-6.0, 1.0, 110.0), 4.9 m/s, health 100; teammates 31 m, 30 m, 52 m, 81 m
+[bot Ate Load Dito] hunt step 0/0 walk at (-86.5, 1.0, -4.2) -> (-15.1, 0.7, 137.5) (158.7 m) path 0/3 stuck 0.0 btn 4 guns smg_ump45(24+75),pistol_deagle(6+14) scan { "near": 0, "skip": 0, "height": 0, "zone": 0, "value": 0 } indoors false exit 0 field -271.2 m
+[bot Ate Load] roam step 0/0 walk at (-87.5, 1.0, -4.4) -> (21.0, 0.8, -59.0) (121.4 m) path 0/8 stuck 0.0 btn 4 guns rifle_scar(29+90),pistol_deagle(6+14) scan { "near": 0, "skip": 0, "height": 0, "zone": 0, "value": 0 } indoors false exit 0 field -270.4 m
+[match   31.4] Bossing Dodong (team 1) landed at (94.0, 1.0, -64.0), 4.9 m/s, health 100; teammates 19 m, 61 m, 95 m
+[match   31.7] Tsong Balut (team 1) landed at (93.0, 1.0, -24.0), 2.5 m/s, health 100; teammates 40 m, 45 m, 23 m, 109 m
+[bot Ate Load Dito] hunt step 0/0 walk at (-81.7, 1.0, -1.6) -> (-15.1, 0.7, 137.5) (154.2 m) path 0/3 stuck 0.0 btn 4 guns smg_ump45(24+75),pistol_deagle(6+14) scan { "near": 0, "skip": 0, "height": 0, "zone": 0, "value": 0 } indoors false exit 0 field -266.2 m
+[bot Ate Load] roam step 0/0 walk at (-85.3, 1.0, -4.8) -> (21.0, 0.8, -59.0) (119.3 m) path 0/8 stuck 0.1 btn 4 guns rifle_scar(29+90),pistol_deagle(6+14) scan { "near": 0, "skip": 0, "height": 0, "zone": 0, "value": 0 } indoors false exit 0 field -264.4 m
+[bot Totoy Kulot] gave up on a house at (20.5, 0.8, 189.9) step approach: 3.2 m from (8.1, 1.0, 196.6), door -, eye-to-door -1.00
+[bot Ate Load Dito] hunt step 0/0 walk at (-75.9, 1.0, 1.4) -> (-15.1, 0.7, 137.5) (149.0 m) path 0/3 stuck 0.0 btn 4 guns smg_ump45(24+75),pistol_deagle(6+14) scan { "near": 0, "skip": 0, "height": 0, "zone": 0, "value": 0 } indoors false exit 0 field -261.9 m
+[bot Ate Load] roam step 0/0 walk at (-79.5, 1.0, -6.5) -> (21.0, 0.8, -59.0) (113.4 m) path 0/8 stuck 0.0 btn 4 guns rifle_scar(29+90),pistol_deagle(6+14) scan { "near": 0, "skip": 0, "height": 0, "zone": 0, "value": 0 } indoors false exit 0 field -262.0 m
+[bot Ate Load Dito] hunt step 0/0 walk at (-70.0, 1.0, 4.4) -> (-15.1, 0.7, 137.5) (143.9 m) path 0/3 stuck 0.0 btn 0 guns smg_ump45(24+75),pistol_deagle(6+14) scan { "near": 0, "skip": 0, "height": 0, "zone": 0, "value": 0 } indoors false exit 0 field -257.8 m
+[bot Ate Load] roam step 0/0 walk at (-74.6, 1.1, -7.8) -> (21.0, 0.8, -59.0) (108.5 m) path 0/8 stuck 0.0 btn 4 guns rifle_scar(29+90),pistol_deagle(6+14) scan { "near": 0, "skip": 0, "height": 0, "zone": 0, "value": 0 } indoors false exit 0 field -258.5 m
+[bot Ate Load Dito] hunt step 0/0 walk at (-64.2, 1.1, 7.0) -> (-15.1, 0.7, 137.5) (139.4 m) path 0/3 stuck 0.0 btn 0 guns smg_ump45(24+75),pistol_deagle(6+14) scan { "near": 0, "skip": 0, "height": 0, "zone": 0, "value": 0 } indoors false exit 0 field -253.7 m
+[bot Ate Load] roam step 0/0 walk at (-68.1, 1.1, -9.3) -> (21.0, 0.8, -59.0) (102.1 m) path 1/8 stuck 0.0 btn 4 guns rifle_scar(29+90),pistol_deagle(6+14) scan { "near": 0, "skip": 0, "height": 0, "zone": 0, "value": 0 } indoors false exit 0 field -256.4 m
+[match   36.0] Kuya Fishball (team 2) landed at (24.0, 1.0, 131.0), 2.5 m/s, health 100; teammates 14 m, 60 m, 9 m, 46 m, 72 m
+[bot Ate Load Dito] fight step 0/0 walk at (-60.7, 1.1, 9.8) -> (-15.1, 0.7, 137.5) (135.6 m) path 1/3 stuck 0.0 btn 0 guns smg_ump45(24+75),pistol_deagle(6+14) scan { "near": 0, "skip": 0, "height": 0, "zone": 0, "value": 0 } indoors false exit 0 field -247.9 m
+[bot Ate Load] roam step 0/0 walk at (-61.5, 1.1, -9.900001) -> (21.0, 0.8, -59.0) (96.0 m) path 2/8 stuck 0.0 btn 4 guns rifle_scar(29+90),pistol_deagle(6+14) scan { "near": 0, "skip": 0, "height": 0, "zone": 0, "value": 0 } indoors false exit 0 field -254.0 m
+[bot Ate Load Dito] fight step 0/0 walk at (-57.7, 0.9, 10.3) -> (-15.1, 0.7, 137.5) (134.1 m) path 1/3 stuck 0.0 btn 16 guns smg_ump45(19+75),pistol_deagle(6+14) scan { "near": 0, "skip": 0, "height": 0, "zone": 0, "value": 0 } indoors false exit 0 field -242.8 m
+[bot Ate Load] roam step 0/0 walk at (-55.7, 0.9, -13.1) -> (21.0, 0.8, -59.0) (89.4 m) path 0/7 stuck 0.0 btn 4 guns rifle_scar(29+90),pistol_deagle(6+14) scan { "near": 0, "skip": 0, "height": 0, "zone": 0, "value": 0 } indoors false exit 0 field -251.2 m
+[bot Ate Load Dito] fight step 0/0 walk at (-54.7, 0.9, 11.2) -> (-15.1, 0.7, 137.5) (132.4 m) path 1/3 stuck 0.0 btn 0 guns smg_ump45(11+75),pistol_deagle(6+14) scan { "near": 0, "skip": 0, "height": 0, "zone": 0, "value": 0 } indoors false exit 0 field -237.4 m
+[bot Ate Load] roam step 0/0 walk at (-50.2, 1.0, -17.0) -> (21.0, 0.8, -59.0) (82.7 m) path 0/7 stuck 0.0 btn 4 guns rifle_scar(29+90),pistol_deagle(6+14) scan { "near": 0, "skip": 0, "height": 0, "zone": 0, "value": 0 } indoors false exit 0 field -247.6 m
+[bot Ate Load Dito] fight step 0/0 walk at (-54.7, 1.0, 15.3) -> (-15.1, 0.7, 137.5) (128.4 m) path 1/3 stuck 0.0 btn 0 guns smg_ump45(4+75),pistol_deagle(6+14) scan { "near": 0, "skip": 0, "height": 0, "zone": 0, "value": 0 } indoors false exit 0 field -228.0 m
+[bot Ate Load] roam step 0/0 walk at (-44.8, 1.0, -21.0) -> (21.0, 0.8, -59.0) (76.0 m) path 0/7 stuck 0.0 btn 4 guns rifle_scar(29+90),pistol_deagle(6+14) scan { "near": 0, "skip": 0, "height": 0, "zone": 0, "value": 0 } indoors false exit 0 field -243.3 m
+[bot Ate Load Dito] fight step 0/0 walk at (-52.1, 0.9, 16.4) -> (-15.1, 0.7, 137.5) (126.6 m) path 1/3 stuck 0.0 btn 64 guns smg_ump45(0+75),pistol_deagle(6+14) scan { "near": 0, "skip": 0, "height": 0, "zone": 0, "value": 0 } indoors false exit 0 field -222.1 m
+[bot Ate Load] roam step 0/0 walk at (-39.3, 0.9, -24.9) -> (21.0, 0.8, -59.0) (69.3 m) path 0/7 stuck 0.0 btn 4 guns rifle_scar(29+90),pistol_deagle(6+14) scan { "near": 0, "skip": 0, "height": 0, "zone": 0, "value": 0 } indoors false exit 0 field -238.1 m
+[bot Ate Load Dito] fight step 0/0 walk at (-48.7, 0.9, 16.5) -> (-15.1, 0.7, 137.5) (125.5 m) path 1/3 stuck 0.0 btn 64 guns smg_ump45(0+75),pistol_deagle(6+14) scan { "near": 0, "skip": 0, "height": 0, "zone": 0, "value": 0 } indoors false exit 0 field -217.3 m
+[bot Ate Load] roam step 0/0 walk at (-33.9, 0.9, -28.9) -> (21.0, 0.8, -59.0) (62.6 m) path 0/7 stuck 0.0 btn 4 guns rifle_scar(29+90),pistol_deagle(6+14) scan { "near": 4, "skip": 0, "height": 4, "zone": 0, "value": 0 } indoors false exit 0 field -232.2 m
+[bot Ate Load Dito] fight step 0/0 walk at (-48.6, 1.0, 20.5) -> (-15.1, 0.7, 137.5) (121.7 m) path 1/3 stuck 0.0 btn 64 guns smg_ump45(0+75),pistol_deagle(6+14) scan { "near": 0, "skip": 0, "height": 0, "zone": 0, "value": 0 } indoors false exit 0 field -207.9 m
+[bot Ate Load] roam step 0/0 walk at (-29.7, 1.1, -32.7) -> (21.0, 0.8, -59.0) (57.1 m) path 1/7 stuck 0.0 btn 0 guns rifle_scar(29+90),pistol_deagle(6+14) scan { "near": 4, "skip": 0, "height": 4, "zone": 0, "value": 0 } indoors false exit 0 field -224.3 m
+[bot Ate Load Dito] fight step 0/0 walk at (-46.9, 1.0, 21.8) -> (-15.1, 0.7, 137.5) (120.0 m) path 1/3 stuck 0.0 btn 0 guns smg_ump45(18+50),pistol_deagle(6+14) scan { "near": 0, "skip": 0, "height": 0, "zone": 0, "value": 0 } indoors false exit 0 field -201.0 m
+[bot Ate Load] roam step 0/0 walk at (-26.9, 1.0, -36.5) -> (21.0, 0.8, -59.0) (53.0 m) path 0/7 stuck 0.0 btn 0 guns rifle_scar(29+90),pistol_deagle(6+14) scan { "near": 0, "skip": 0, "height": 0, "zone": 0, "value": 0 } indoors false exit 0 field -214.4 m
+[bot Ate Load Dito] fight step 0/0 walk at (-45.1, 0.9, 19.8) -> (-15.1, 0.7, 137.5) (121.4 m) path 1/3 stuck 0.0 btn 16 guns smg_ump45(10+50),pistol_deagle(6+14) scan { "near": 0, "skip": 0, "height": 0, "zone": 0, "value": 0 } indoors false exit 0 field -195.0 m
+[bot Aling Puring] gave up on a house at (6.8, 1.9, 127.2) step approach: 4.2 m from (7.8, 1.2, 131.5), door -, eye-to-door -1.00
+[bot Ate Load] roam step 0/0 walk at (-24.2, 1.0, -40.4) -> (21.0, 0.8, -59.0) (48.9 m) path 0/7 stuck 0.0 btn 0 guns rifle_scar(29+90),pistol_deagle(6+14) scan { "near": 0, "skip": 0, "height": 0, "zone": 0, "value": 0 } indoors false exit 0 field -203.9 m
+[match   45.0] status: { "ground": 21 }; armed 21; shots 124; zone 0 shrink r=282; corpses 0; server tick avg 4.66 ms, p99 11.90 ms, max 14.65 ms over 900 ticks
+[match   45.0] dm teams: North Team 7 at (-31.0, -19.0) spread 32 m; East Team 7 at (72.0, -41.0) spread 63 m; South Team 7 at (16.0, 111.0) spread 48 m; gap 105 m; zone centre (45.0, -2.0)
+[match   45.0] bots: { "investigate": 1, "follow": 4, "fight": 5, "hunt": 3, "roam": 4, "overwatch": 1, "loot": 2, "camp": 1 }; containers searched by bots 4 (all players 5); plan steps done 11; guns carried 44
+[match   45.0] roles: { "sniper": { "investigate": 1, "follow": 1, "fight": 1, "roam": 4, "overwatch": 1 }, "looter": { "follow": 3, "loot": 2, "camp": 1 }, "rusher": { "fight": 1, "hunt": 2 }, "stalker": { "fight": 3, "hunt": 1 } }; stuck now 0; waypoints 2075; team { "lines": 16, "pings": 0, "laser_follow": 0, "learned_cells": 183, "blocked_cells": 2, "squads": 6, "following_humans": 0 }
+[match   45.0] [lootstats] bots on the ground 21 (in water 0); armed 21; armed with ammo for a gun 21; long guns 23; attachments fitted 1; rounds of unusable ammo carried 0; items on the ground 6280; bot pickups { "detours": 2, "detour_taken": 2, "fetches": 0, "fetch_done": 0, "items_taken": 2 }
+[bot Ate Load Dito] fight step 0/0 walk at (-46.1, 0.9, 20.9) -> (-15.1, 0.7, 137.5) (120.6 m) path 1/3 stuck 0.0 btn 48 guns smg_ump45(2+50),pistol_deagle(6+14) scan { "near": 0, "skip": 0, "height": 0, "zone": 0, "value": 0 } indoors false exit 0 field -185.3 m
+[bot Ate Load] roam step 0/0 walk at (-21.6, 1.0, -44.2) -> (21.0, 0.8, -59.0) (45.1 m) path 0/7 stuck 0.0 btn 0 guns rifle_scar(29+90),pistol_deagle(6+14) scan { "near": 0, "skip": 0, "height": 0, "zone": 0, "value": 0 } indoors false exit 0 field -193.0 m
+[bot Ate Load Dito] fight step 0/0 walk at (-47.3, 0.9, 20.5) -> (-15.1, 0.7, 137.5) (121.3 m) path 1/3 stuck 0.0 btn 96 guns smg_ump45(0+50),pistol_deagle(6+14) scan { "near": 0, "skip": 0, "height": 0, "zone": 0, "value": 0 } indoors false exit 0 field -175.5 m
+[match   46.8] Ate Load Dito killed by Utoy Kalabaw (gunshot); 3 teams left
+[match   46.8] alive: North Team 6, East Team 7
+[bot Ate Load] roam step 0/0 walk at (-19.0, 0.9, -48.2) -> (21.0, 0.8, -59.0) (41.5 m) path 0/7 stuck 0.0 btn 0 guns rifle_scar(29+90),pistol_deagle(6+14) scan { "near": 0, "skip": 0, "height": 0, "zone": 0, "value": 0 } indoors false exit 0 field -181.5 m
+[bot Ate Load] roam step 0/0 walk at (-16.3, 0.9, -52.0) -> (21.0, 0.8, -59.0) (37.9 m) path 0/7 stuck 0.0 btn 0 guns rifle_scar(29+90),pistol_deagle(6+14) scan { "near": 0, "skip": 0, "height": 0, "zone": 0, "value": 0 } indoors false exit 0 field -169.9 m
+[match   48.1] Utoy Kalabaw killed by Lola Basyang Jr (gunshot); 3 teams left
+[match   48.1] alive: North Team 6, East Team 7
+[bot Ate Load] roam step 0/0 walk at (-13.6, 0.9, -55.8) -> (21.0, 0.8, -59.0) (34.7 m) path 0/6 stuck 0.0 btn 0 guns rifle_scar(29+90),pistol_deagle(6+14) scan { "near": 0, "skip": 0, "height": 0, "zone": 0, "value": 0 } indoors false exit 0 field -158.1 m
+[bot Ate Load] roam step 0/0 walk at (-10.5, 1.0, -59.4) -> (21.0, 0.8, -59.0) (31.5 m) path 0/6 stuck 0.0 btn 0 guns rifle_scar(29+90),pistol_deagle(6+14) scan { "near": 0, "skip": 0, "height": 0, "zone": 0, "value": 0 } indoors false exit 0 field -146.5 m
+[bot Ate Load] roam step 0/0 walk at (-7.2, 0.8, -62.8) -> (21.0, 0.8, -59.0) (28.5 m) path 0/6 stuck 0.0 btn 0 guns rifle_scar(29+90),pistol_deagle(6+14) scan { "near": 0, "skip": 0, "height": 0, "zone": 0, "value": 0 } indoors false exit 0 field -135.0 m
+[bot Aling Puring] gave up on a house at (-7.7, 1.0, 135.6) step approach: 2.8 m from (7.9, 1.1, 143.0), door -, eye-to-door -1.00
+[match   52.1] Ate Siomai (team 0) landed at (-8.0, 1.0, -66.0), 4.2 m/s, health 100; teammates -
+[bot Ate Load] roam step 0/0 walk at (-6.7, 0.8, -63.3) -> (21.0, 0.8, -59.0) (28.0 m) path 0/6 stuck 0.9 btn 0 guns rifle_scar(29+90),pistol_deagle(6+14) scan { "near": 0, "skip": 0, "height": 0, "zone": 0, "value": 0 } indoors false exit 0 field -123.6 m
+[bot Ate Load] roam step 0/0 walk at (-6.6, 0.8, -63.0) -> (21.0, 0.8, -59.0) (27.9 m) path 0/6 stuck 1.9 btn 0 guns rifle_scar(29+90),pistol_deagle(6+14) scan { "near": 0, "skip": 0, "height": 0, "zone": 0, "value": 0 } indoors false exit 0 field -112.5 m
+[match   53.6] Aling Taho killed by Totoy Bibo (gunshot); 3 teams left
+[match   53.6] alive: North Team 5, East Team 7
+[match   54.3] Pinsan Gardo killed by Manong Guard (gunshot); 3 teams left
+[match   54.3] alive: North Team 5, East Team 6
+[bot Ate Load] roam step 0/0 walk at (-6.4, 0.8, -61.7) -> (21.0, 0.8, -59.0) (27.6 m) path 0/6 stuck 3.0 btn 0 guns rifle_scar(29+90),pistol_deagle(6+14) scan { "near": 0, "skip": 0, "height": 0, "zone": 0, "value": 0 } indoors false exit 0 field -102.2 m
+[bot Ate Load] roam step 0/0 walk at (-6.5, 0.8, -63.3) -> (21.0, 0.8, -59.0) (27.8 m) path 0/6 stuck 0.5 btn 0 guns rifle_scar(29+90),pistol_deagle(6+14) scan { "near": 0, "skip": 0, "height": 0, "zone": 0, "value": 0 } indoors false exit 0 field -89.7 m
+[bot Ate Load] roam step 0/0 walk at (-6.5, 0.8, -63.3) -> (21.0, 0.8, -59.0) (27.8 m) path 0/6 stuck 1.5 btn 0 guns rifle_scar(29+90),pistol_deagle(6+14) scan { "near": 0, "skip": 0, "height": 0, "zone": 0, "value": 0 } indoors false exit 0 field -78.3 m
+[match   57.0] Junjun Tisoy (team 0) landed at (-6.0, 1.0, -61.0), 4.9 m/s, health 100; teammates 19 m
+[bot Ate Load] roam step 0/0 walk at (-8.5, 0.9, -64.4) -> (21.0, 0.8, -59.0) (30.0 m) path 0/4 stuck 0.2 btn 0 guns rifle_scar(29+90),pistol_deagle(6+14) scan { "near": 0, "skip": 0, "height": 0, "zone": 0, "value": 0 } indoors false exit 0 field -64.7 m
+[bot Ate Load] roam step 0/0 walk at (-4.1, 1.0, -65.0) -> (21.0, 0.8, -59.0) (25.8 m) path 1/4 stuck 0.0 btn 0 guns rifle_scar(29+90),pistol_deagle(6+14) scan { "near": 0, "skip": 0, "height": 0, "zone": 0, "value": 0 } indoors false exit 0 field -55.9 m
+[bot Aling Puring] gave up on a house at (11.7, 1.7, 128.5) step approach: 3.3 m from (7.4, 1.2, 98.2), door -, eye-to-door -1.00
+[bot Ate Load] roam step 0/0 walk at (0.6, 1.0, -65.0) -> (21.0, 0.8, -59.0) (21.3 m) path 1/4 stuck 0.0 btn 0 guns rifle_scar(29+90),pistol_deagle(6+14) scan { "near": 0, "skip": 0, "height": 0, "zone": 0, "value": 0 } indoors false exit 0 field -47.7 m
+[match   60.0] [field watch] zone 0: 0 bots indoors in the field's path when it started closing: 0 out before the edge reached them, 0 out after it, 0 never out (); 0 of them dead by the end
+[match   60.0] status: { "ground": 17 }; armed 17; shots 333; zone 1 wait r=194; corpses 4; server tick avg 6.40 ms, p99 13.66 ms, max 39.66 ms over 900 ticks
+[match   60.0] dm teams: North Team 5 at (0.0, -45.0) spread 35 m; East Team 6 at (65.0, -34.0) spread 65 m; South Team 6 at (26.0, 121.0) spread 40 m; gap 66 m; zone centre (98.0, 46.0)
+[match   60.0] bots: { "overwatch": 3, "fight": 7, "follow": 2, "loot": 2, "roam": 1, "camp": 1, "zone": 1 }; containers searched by bots 5 (all players 6); plan steps done 13; guns carried 36
+[match   60.0] roles: { "sniper": { "overwatch": 3, "fight": 3, "roam": 1, "zone": 1 }, "looter": { "follow": 2, "fight": 1, "loot": 2, "camp": 1 }, "rusher": { "fight": 1 }, "stalker": { "fight": 2 } }; stuck now 0; waypoints 2075; team { "lines": 31, "pings": 0, "laser_follow": 0, "learned_cells": 185, "blocked_cells": 2, "squads": 6, "following_humans": 0 }
+[match   60.0] [lootstats] bots on the ground 17 (in water 0); armed 17; armed with ammo for a gun 17; long guns 19; attachments fitted 1; rounds of unusable ammo carried 0; items on the ground 6280; bot pickups { "detours": 2, "detour_taken": 2, "fetches": 0, "fetch_done": 0, "items_taken": 2 }
+[match   60.6] Lola Basyang Jr killed by Totoy Bibo (gunshot); 3 teams left
+[match   60.6] alive: North Team 4, East Team 6
+[bot Ate Load] zone step 0/0 walk at (5.7, 0.8, -63.6) -> (47.0, 0.8, 11.0) (85.3 m) path 0/6 stuck 0.0 btn 4 guns rifle_scar(29+90),pistol_deagle(6+14) scan { "near": 0, "skip": 0, "height": 0, "zone": 0, "value": 0 } indoors false exit 0 field -50.0 m
+[bot Ate Load] zone step 0/0 walk at (12.3, 0.8, -62.8) -> (47.0, 0.8, 11.0) (81.6 m) path 2/6 stuck 0.0 btn 4 guns rifle_scar(29+90),pistol_deagle(6+14) scan { "near": 18, "skip": 0, "height": 10, "zone": 8, "value": 0 } indoors false exit 0 field -54.8 m
+[bot Ate Load] zone step 0/0 walk at (18.2, 0.8, -62.5) -> (47.0, 0.8, 11.0) (79.0 m) path 3/6 stuck 0.0 btn 4 guns rifle_scar(29+90),pistol_deagle(6+14) scan { "near": 23, "skip": 0, "height": 12, "zone": 11, "value": 0 } indoors false exit 0 field -58.5 m
+[match   63.8] Nanay Kakanin killed by Mang Tani (gunshot); 3 teams left
+[match   63.8] alive: North Team 3, East Team 6
+[bot Ate Load] fight step 0/0 walk at (19.8, 0.9, -62.3) -> (47.0, 0.8, 11.0) (78.1 m) path 3/6 stuck 0.0 btn 2 guns rifle_scar(24+90),pistol_deagle(6+14) scan { "near": 23, "skip": 0, "height": 12, "zone": 11, "value": 0 } indoors false exit 0 field -59.7 m
+[match   64.8] Mang Tani killed by Ate Siomai (gunshot); 3 teams left
+[match   64.8] alive: North Team 3, East Team 5
+[bot Ate Load] fight step 0/0 walk at (19.8, 0.9, -62.3) -> (47.0, 0.8, 11.0) (78.1 m) path 3/6 stuck 0.0 btn 2 guns rifle_scar(17+90),pistol_deagle(6+14) scan { "near": 23, "skip": 0, "height": 12, "zone": 11, "value": 0 } indoors false exit 0 field -59.7 m
+[bot Ate Load] fight step 0/0 walk at (20.2, 0.9, -61.3) -> (53.0, 0.8, 11.0) (79.5 m) path 0/3 stuck 0.0 btn 2 guns rifle_scar(16+90),pistol_deagle(6+14) scan { "near": 12, "skip": 0, "height": 4, "zone": 8, "value": 0 } indoors false exit 0 field -60.7 m
+[bot Ate Load] zone step 0/0 walk at (20.3, 0.9, -60.8) -> (53.0, 0.8, 11.0) (78.9 m) path 0/0 stuck 0.0 btn 0 guns rifle_scar(11+90),pistol_deagle(6+14) scan { "near": 12, "skip": 0, "height": 4, "zone": 8, "value": 0 } indoors false exit 0 field -61.2 m
+[bot Ate Load] zone step 0/0 walk at (20.4, 0.9, -60.2) -> (53.0, 0.8, 11.0) (78.3 m) path 0/3 stuck 0.0 btn 4 guns rifle_scar(11+90),pistol_deagle(6+14) scan { "near": 12, "skip": 0, "height": 4, "zone": 8, "value": 0 } indoors false exit 0 field -61.8 m
+[bot Ate Load] zone step 0/0 walk at (20.7, 0.8, -59.3) -> (53.0, 0.8, 11.0) (77.4 m) path 0/2 stuck 0.1 btn 4 guns rifle_scar(11+90),pistol_deagle(6+14) scan { "near": 12, "skip": 0, "height": 4, "zone": 8, "value": 0 } indoors false exit 0 field -62.6 m
+[bot Ate Load] fight step 0/0 walk at (20.9, 0.9, -58.4) -> (53.0, 0.8, 11.0) (76.5 m) path 0/2 stuck 0.0 btn 18 guns rifle_scar(11+90),pistol_deagle(6+14) scan { "near": 12, "skip": 0, "height": 4, "zone": 8, "value": 0 } indoors false exit 0 field -63.5 m
+[match   70.5] Ate Load killed by Ate Siomai (gunshot); 3 teams left
+[match   70.5] alive: North Team 2, East Team 5
+[match   75.0] status: { "ground": 13 }; armed 13; shots 548; zone 1 wait r=194; corpses 8; server tick avg 5.17 ms, p99 14.47 ms, max 35.14 ms over 900 ticks
+[match   75.0] dm teams: North Team 2 at (8.0, -55.0) spread 13 m; East Team 5 at (73.0, -13.0) spread 51 m; South Team 6 at (38.0, 125.0) spread 32 m; gap 78 m; zone centre (98.0, 46.0)
+[match   75.0] bots: { "overwatch": 2, "fight": 3, "roam": 2, "follow": 1, "loot": 1, "hunt": 1, "zone": 3 }; containers searched by bots 5 (all players 7); plan steps done 4; guns carried 28
+[match   75.0] roles: { "sniper": { "overwatch": 2, "fight": 2, "roam": 2, "zone": 1 }, "looter": { "fight": 1, "follow": 1, "loot": 1, "zone": 2 }, "stalker": { "hunt": 1 } }; stuck now 0; waypoints 2075; team { "lines": 44, "pings": 0, "laser_follow": 0, "learned_cells": 185, "blocked_cells": 2, "squads": 6, "following_humans": 0 }
+[match   75.0] [lootstats] bots on the ground 13 (in water 0); armed 13; armed with ammo for a gun 13; long guns 15; attachments fitted 1; rounds of unusable ammo carried 0; items on the ground 6280; bot pickups { "detours": 2, "detour_taken": 2, "fetches": 0, "fetch_done": 0, "items_taken": 2 }
+[bot Aling Puring] gave up on a house at (33.4, 1.1, 113.7) step approach: 4.7 m from (39.4, 1.2, 85.8), door -, eye-to-door -1.00
+[match   81.9] Ate Siomai killed by Bossing Dodong (bleeding); 3 teams left
+[match   81.9] alive: North Team 1, East Team 5
+[match   82.5] zone 1 shrinking to r=113 at (93.0, 61.0)
+[bot Aling Puring] gave up on a house at (28.8, 1.1, 95.7) step approach: 10.5 m from (20.6, 1.2, 89.2), door -, eye-to-door -1.00
+[match   89.4] Totoy Kulot crushed by the field at (19.0, 1.0, 202.0) (r=168.8, indoors, 1.1 m into it)
+[match   89.4] [field death] Totoy Kulot (looter) state zone at (19.0, 1.0, 202.0) goal (70.0, 1.0, 115.0) path 0/6 no_prog 0.1 pending false
+[match   89.4] Totoy Kulot killed by the world (field); 3 teams left
+[match   89.4] alive: North Team 1, East Team 5
+[match   90.0] status: { "ground": 11 }; armed 11; shots 633; zone 1 shrink r=167; corpses 10; server tick avg 2.58 ms, p99 6.16 ms, max 17.74 ms over 900 ticks
+[match   90.0] dm teams: North Team 1 at (-6.0, -40.0) spread 0 m; East Team 5 at (73.0, 9.0) spread 51 m; South Team 5 at (41.0, 104.0) spread 14 m; gap 92 m; zone centre (96.0, 51.0)
+[match   90.0] bots: { "roam": 1, "fight": 3, "overwatch": 1, "investigate": 2, "follow": 2, "loot": 1, "zone": 1 }; containers searched by bots 3 (all players 9); plan steps done 3; guns carried 23
+[match   90.0] roles: { "sniper": { "roam": 1, "fight": 2, "overwatch": 1, "investigate": 1, "zone": 1 }, "looter": { "follow": 2, "fight": 1, "loot": 1 }, "stalker": { "investigate": 1 } }; stuck now 0; waypoints 2075; team { "lines": 52, "pings": 0, "laser_follow": 0, "learned_cells": 185, "blocked_cells": 2, "squads": 6, "following_humans": 0 }
+[match   90.0] [lootstats] bots on the ground 11 (in water 0); armed 11; armed with ammo for a gun 11; long guns 12; attachments fitted 1; rounds of unusable ammo carried 0; items on the ground 6280; bot pickups { "detours": 3, "detour_taken": 2, "fetches": 0, "fetch_done": 0, "items_taken": 2 }
+[match  105.0] [field watch] zone 1: 1 bots indoors in the field's path when it started closing: 0 out before the edge reached them, 0 out after it, 1 never out (Totoy Kulot); 1 of them dead by the end
+[match  105.0] status: { "ground": 11 }; armed 11; shots 757; zone 2 wait r=113; corpses 10; server tick avg 4.69 ms, p99 8.74 ms, max 12.59 ms over 900 ticks
+[match  105.0] dm teams: North Team 1 at (19.0, -17.0) spread 0 m; East Team 5 at (71.0, 17.0) spread 50 m; South Team 5 at (45.0, 105.0) spread 12 m; gap 62 m; zone centre (93.0, 61.0)
+[match  105.0] bots: { "overwatch": 2, "fight": 3, "investigate": 1, "follow": 2, "hunt": 1, "loot": 1, "zone": 1 }; containers searched by bots 5 (all players 10); plan steps done 5; guns carried 23
+[match  105.0] roles: { "sniper": { "overwatch": 2, "fight": 2, "investigate": 1, "zone": 1 }, "looter": { "follow": 2, "fight": 1, "loot": 1 }, "stalker": { "hunt": 1 } }; stuck now 0; waypoints 2075; team { "lines": 59, "pings": 0, "laser_follow": 0, "learned_cells": 185, "blocked_cells": 2, "squads": 6, "following_humans": 0 }
+[match  105.0] [lootstats] bots on the ground 11 (in water 0); armed 11; armed with ammo for a gun 11; long guns 12; attachments fitted 1; rounds of unusable ammo carried 0; items on the ground 6279; bot pickups { "detours": 4, "detour_taken": 3, "fetches": 0, "fetch_done": 0, "items_taken": 3 }
+[match  112.3] Mang Isko (team 1) landed at (32.0, 1.0, 2.0), 4.9 m/s, health 100; teammates 16 m, 25 m, 148 m
+[match  114.1] Bossing Barbecue killed by Kuya Fishball (gunshot); 3 teams left
+[match  114.1] alive: North Team 1, East Team 4
+[match  115.6] Tsong Balut killed by Totoy Bibo (gunshot); 3 teams left
+[match  115.6] alive: North Team 1, East Team 3
+[match  120.0] status: { "ground": 9 }; armed 9; shots 966; zone 2 wait r=113; corpses 12; server tick avg 5.24 ms, p99 10.76 ms, max 13.17 ms over 900 ticks
+[match  120.0] dm teams: North Team 1 at (18.0, -17.0) spread 0 m; East Team 3 at (77.0, 19.0) spread 55 m; South Team 5 at (53.0, 85.0) spread 15 m; gap 69 m; zone centre (93.0, 61.0)
+[match  120.0] bots: { "investigate": 2, "fight": 4, "follow": 1, "zone": 2 }; containers searched by bots 5 (all players 10); plan steps done 2; guns carried 20
+[match  120.0] roles: { "sniper": { "investigate": 2, "fight": 2, "zone": 1 }, "looter": { "fight": 2, "follow": 1, "zone": 1 } }; stuck now 1; waypoints 2075; team { "lines": 75, "pings": 0, "laser_follow": 0, "learned_cells": 188, "blocked_cells": 2, "squads": 6, "following_humans": 0 }
+[match  120.0] [lootstats] bots on the ground 9 (in water 0); armed 9; armed with ammo for a gun 7; long guns 11; attachments fitted 1; rounds of unusable ammo carried 0; items on the ground 6277; bot pickups { "detours": 5, "detour_taken": 5, "fetches": 0, "fetch_done": 0, "items_taken": 5 }
+[match  125.0] zone 2 shrinking to r=63 at (94.0, 42.0)
+[match  128.2] Junjun Tisoy crushed by the field at (19.0, 1.0, -17.0) (r=104.7, indoors, 0.8 m into it)
+[match  128.2] [field death] Junjun Tisoy (sniper) state zone at (19.0, 1.0, -17.0) goal (75.0, 1.0, 27.0) path 0/9 no_prog 1.1 pending false
+[match  128.2] Junjun Tisoy killed by the world (field); 2 teams left
+[match  128.2] alive: North Team 0, East Team 3
+[match  135.0] status: { "ground": 8 }; armed 8; shots 992; zone 2 shrink r=88; corpses 13; server tick avg 2.23 ms, p99 4.55 ms, max 8.03 ms over 900 ticks
+[match  135.0] dm teams: East Team 3 at (73.0, 20.0) spread 51 m; South Team 5 at (48.0, 67.0) spread 19 m; gap -1 m; zone centre (94.0, 52.0)
+[match  135.0] bots: { "overwatch": 2, "fight": 4, "follow": 1, "loot": 1 }; containers searched by bots 5 (all players 10); plan steps done 0; guns carried 17
+[match  135.0] roles: { "sniper": { "overwatch": 2, "fight": 2 }, "looter": { "fight": 2, "follow": 1, "loot": 1 } }; stuck now 0; waypoints 2075; team { "lines": 80, "pings": 0, "laser_follow": 0, "learned_cells": 189, "blocked_cells": 2, "squads": 6, "following_humans": 0 }
+[match  135.0] [lootstats] bots on the ground 8 (in water 0); armed 8; armed with ammo for a gun 4; long guns 9; attachments fitted 1; rounds of unusable ammo carried 0; items on the ground 6277; bot pickups { "detours": 5, "detour_taken": 5, "fetches": 0, "fetch_done": 0, "items_taken": 5 }
+[bot Mang Tomas] gave up on a house at (139.6, 1.3, 27.5) step approach: 3.4 m from (122.4, 1.1, 35.7), door -, eye-to-door -1.00
+[match  145.0] [field watch] zone 2: 1 bots indoors in the field's path when it started closing: 0 out before the edge reached them, 0 out after it, 1 never out (Junjun Tisoy); 1 of them dead by the end
+[match  150.0] status: { "ground": 8 }; armed 8; shots 992; zone 3 wait r=63; corpses 13; server tick avg 1.49 ms, p99 2.74 ms, max 6.88 ms over 900 ticks
+[match  150.0] dm teams: East Team 3 at (76.0, 27.0) spread 33 m; South Team 5 at (77.0, 55.0) spread 11 m; gap -1 m; zone centre (94.0, 42.0)
+[match  150.0] bots: { "zone": 3, "fight": 3, "roam": 1, "loot": 1 }; containers searched by bots 5 (all players 10); plan steps done 0; guns carried 17
+[match  150.0] roles: { "sniper": { "zone": 2, "fight": 1, "roam": 1 }, "looter": { "fight": 2, "zone": 1, "loot": 1 } }; stuck now 0; waypoints 2075; team { "lines": 88, "pings": 0, "laser_follow": 0, "learned_cells": 189, "blocked_cells": 2, "squads": 6, "following_humans": 0 }
+[match  150.0] [lootstats] bots on the ground 8 (in water 0); armed 8; armed with ammo for a gun 4; long guns 9; attachments fitted 1; rounds of unusable ammo carried 0; items on the ground 6277; bot pickups { "detours": 5, "detour_taken": 5, "fetches": 0, "fetch_done": 0, "items_taken": 5 }
+[match  156.3] Totoy Bibo killed by Manong Guard (gunshot); 2 teams left
+[match  156.3] alive: North Team 0, East Team 3
+[match  160.0] zone 3 shrinking to r=28 at (105.0, 37.0)
+[match  160.3] Tito Videoke killed by Mang Tomas (gunshot); 2 teams left
+[match  160.3] alive: North Team 0, East Team 3
+[match  161.4] Bossing Dodong killed by Manong Guard (gunshot); 2 teams left
+[match  161.4] alive: North Team 0, East Team 2
+[match  165.0] status: { "ground": 5 }; armed 5; shots 1100; zone 3 shrink r=52; corpses 16; server tick avg 1.97 ms, p99 4.29 ms, max 14.34 ms over 900 ticks
+[match  165.0] dm teams: East Team 2 at (85.0, 27.0) spread 20 m; South Team 3 at (83.0, 54.0) spread 15 m; gap -1 m; zone centre (98.0, 40.0)
+[match  165.0] bots: { "fight": 3, "zone": 2 }; containers searched by bots 5 (all players 10); plan steps done 0; guns carried 11
+[match  165.0] roles: { "sniper": { "fight": 1 }, "looter": { "zone": 2, "fight": 2 } }; stuck now 0; waypoints 2075; team { "lines": 98, "pings": 0, "laser_follow": 0, "learned_cells": 191, "blocked_cells": 2, "squads": 6, "following_humans": 0 }
+[match  165.0] [lootstats] bots on the ground 5 (in water 0); armed 5; armed with ammo for a gun 3; long guns 6; attachments fitted 1; rounds of unusable ammo carried 0; items on the ground 6277; bot pickups { "detours": 5, "detour_taken": 5, "fetches": 0, "fetch_done": 0, "items_taken": 5 }
+[match  166.4] Manong Guard killed by Mang Tomas (bleeding); 2 teams left
+[match  166.4] alive: North Team 0, East Team 2
+[match  175.0] [field watch] zone 3: 0 bots indoors in the field's path when it started closing: 0 out before the edge reached them, 0 out after it, 0 never out (); 0 of them dead by the end
+[match  176.7] Aling Puring killed by Mang Tomas (gunshot); 2 teams left
+[match  176.7] alive: North Team 0, East Team 2
+[match  180.0] status: { "ground": 3 }; armed 3; shots 1162; zone 4 wait r=28; corpses 18; server tick avg 1.39 ms, p99 2.37 ms, max 10.98 ms over 900 ticks
+[match  180.0] dm teams: East Team 2 at (98.0, 27.0) spread 8 m; South Team 1 at (95.0, 53.0) spread 0 m; gap -1 m; zone centre (105.0, 37.0)
+[match  180.0] bots: { "fight": 3 }; containers searched by bots 5 (all players 10); plan steps done 0; guns carried 7
+[match  180.0] roles: { "looter": { "fight": 3 } }; stuck now 0; waypoints 2075; team { "lines": 105, "pings": 0, "laser_follow": 0, "learned_cells": 191, "blocked_cells": 2, "squads": 6, "following_humans": 0 }
+[match  180.0] [lootstats] bots on the ground 3 (in water 0); armed 3; armed with ammo for a gun 2; long guns 4; attachments fitted 1; rounds of unusable ammo carried 0; items on the ground 6277; bot pickups { "detours": 5, "detour_taken": 5, "fetches": 0, "fetch_done": 0, "items_taken": 5 }
+[match  181.1] Kuya Fishball killed by Mang Tomas (gunshot); 1 teams left
+[match  181.1] alive: North Team 0, East Team 2
+[match  181.1] match over: winner team 1 (East Team) after 181 s, 1169 shots fired
+[bots] saved 191 learned cells to user://bot_memory_lawless_sub.json
+[game] results: {}

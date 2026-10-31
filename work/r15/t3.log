@@ -1,0 +1,42 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+Vulkan 1.4.329 - Forward+ - Using Device #0: NVIDIA - NVIDIA GeForce RTX 4060
+
+[ui] loadout_received pid=1 Hehe {"primary":"rifle_m416","secondary":"pistol_9"}
+[ui] lobby shows my loadout (pid 1): {"primary":"rifle_m416","secondary":"pistol_9"}
+[ui] request_loadout {"primary":"rifle_m416","secondary":"pistol_9"}
+[world] map built in 3303 ms
+[map] 0 buildings, 216 doors, 193 containers, 670 props, #64ec4447 on PC
+[nav] levels: 56793 points, 32 links, 109 ms
+[bots] learned from 29 cells, 1 stuck spots (user://bot_memory_malasugue_mall.json)
+[game] autotest mall
+[mall] ride ride_up: at (-4.592504, 0.001335, -2.7) on_floor true belt (0.75, 0.0, 0.0) vel (0.0, 0.0, 0.0) cols ["(-4.61, 0.0, -2.7) n(0.0, 1.0, 0.0) concrete"]
+[mall] ride ride_up: at (-4.442506, 0.001335, -2.7) on_floor true belt (0.75, 0.0, 0.0) vel (0.0, 0.0, 0.0) cols ["(-4.46, 0.0, -2.7) n(0.0, 1.0, 0.0) concrete"]
+[mall] ride ride_up: at (-4.292508, 0.06792, -2.7) on_floor true belt (0.75, 0.0, 0.0) vel (0.0, 0.0, 0.0) cols ["(-4.16, 0.11, -2.7) n(-0.5, 0.87, 0.0) steel"]
+[mall] ride ride_up: at (-4.159257, 0.15206, -2.7) on_floor true belt (0.649514, 0.375008, 0.0) vel (0.0, 0.0, 0.0) cols ["(-4.03, 0.19, -2.7) n(-0.5, 0.87, 0.0) steel"]
+[mall] ride ride_up: at (-4.029355, 0.227061, -2.7) on_floor true belt (0.649514, 0.375008, 0.0) vel (0.0, 0.0, 0.0) cols ["(-3.9, 0.27, -2.7) n(-0.5, 0.87, 0.0) steel"]
+[mall] ride ride_up: at (-3.888628, 0.308313, -2.7) on_floor true belt (0.649514, 0.375008, 0.0) vel (0.0, 0.0, 0.0) cols ["(-3.76, 0.35, -2.7) n(-0.5, 0.87, 0.0) steel"]
+[mall] probe x-0.1: hit y 0.288 normal (-0.5, 0.87, 0.0) on steel (@StaticBody3D@3637)
+[mall] probe x+0.0: hit y 0.345 normal (-0.5, 0.87, 0.0) on steel (@StaticBody3D@3637)
+[mall] probe x+0.1: hit y 0.403 normal (-0.5, 0.87, 0.0) on steel (@StaticBody3D@3637)
+[mall] probe x+0.2: hit y 0.461 normal (-0.5, 0.87, 0.0) on steel (@StaticBody3D@3637)
+[mall] probe x+0.3: hit y 0.519 normal (-0.5, 0.87, 0.0) on steel (@StaticBody3D@3637)
+[mall] probe x+0.5: hit y 0.634 normal (-0.5, 0.87, 0.0) on steel (@StaticBody3D@3637)
+[autotest] PASS mall_ride_up: Grand Atrium escalator up: y 0.38 -> 5.01 in 12.7 s standing still (want 5.0)
+[autotest] shot ../work/r15/t2/01_ride_up.png
+[mall] ride ride_down: at (-48.60499, 10.00134, 0.9) on_floor true belt (0.75, 0.0, 0.0) vel (0.0, 0.0, 0.0) cols ["(-48.62, 10.0, 0.9) n(0.0, 1.0, 0.0) concrete"]
+[mall] ride ride_down: at (-48.44248, 10.00134, 0.9) on_floor true belt (0.75, 0.0, 0.0) vel (0.0, 0.0, 0.0) cols ["(-48.45, 10.0, 0.9) n(0.0, 1.0, 0.0) concrete"]
+[mall] ride ride_down: at (-48.27997, 10.00134, 0.9) on_floor true belt (0.649514, -0.375008, 0.0) vel (0.0, 0.0, 0.0) cols ["(-48.33, 10.0, 0.9) n(0.13, 0.99, 0.0) concrete"]
+[mall] ride ride_down: at (-48.13923, 9.941073, 0.9) on_floor true belt (0.649514, -0.375008, 0.0) vel (0.0, 0.0, 0.0) cols ["(-48.28, 9.99, 0.9) n(0.46, 0.89, 0.0) steel"]
+[mall] ride ride_down: at (-48.00932, 9.866069, 0.9) on_floor true belt (0.649514, -0.375008, 0.0) vel (0.0, 0.0, 0.0) cols ["(-48.16, 9.92, 0.9) n(0.5, 0.87, 0.0) steel"]
+[mall] ride ride_down: at (-47.8794, 9.791064, 0.9) on_floor true belt (0.649514, -0.375008, 0.0) vel (0.0, 0.0, 0.0) cols ["(-48.03, 9.84, 0.9) n(0.5, 0.87, 0.0) steel"]
+[mall] probe x-0.1: hit y 9.732 normal (0.5, 0.87, 0.0) on steel (@StaticBody3D@3617)
+[mall] probe x+0.0: hit y 9.674 normal (0.5, 0.87, 0.0) on steel (@StaticBody3D@3617)
+[mall] probe x+0.1: hit y 9.616 normal (0.5, 0.87, 0.0) on steel (@StaticBody3D@3617)
+[mall] probe x+0.2: hit y 9.559 normal (0.5, 0.87, 0.0) on steel (@StaticBody3D@3617)
+[mall] probe x+0.3: hit y 9.501 normal (0.5, 0.87, 0.0) on steel (@StaticBody3D@3617)
+[mall] probe x+0.5: hit y 9.385 normal (0.5, 0.87, 0.0) on steel (@StaticBody3D@3617)
+[autotest] PASS mall_ride_down: West Court escalator down: y 9.71 -> 5.02 in 12.7 s standing still (want 5.0)
+[autotest] shot ../work/r15/t2/02_ride_down.png
+[autotest] done: 2 checks, 0 failed
+WARNING: 7 RIDs of type "Texture" were leaked.
+   at: finalize (servers/rendering/rendering_device.cpp:8900)

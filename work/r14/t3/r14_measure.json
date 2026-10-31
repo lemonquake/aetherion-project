@@ -1,0 +1,117 @@
+{
+  "grenade_door": {
+    "cutoff_hz": 534.548746410169,
+    "deaf": 0.746078666887785,
+    "destroyed": true,
+    "door": 37,
+    "lowpass_on": true,
+    "luma": [
+      37.4402791052105,
+      140.176138443834
+    ],
+    "props_moved": 2,
+    "props_near": 2,
+    "tinnitus": true,
+    "victim_hp": [
+      100.0,
+      2.76110756456228
+    ]
+  },
+  "highlight": {
+    "green_off": 0,
+    "green_on": 7,
+    "ids": {
+      "ammo_308": 6341,
+      "ammo_9x19": 6339,
+      "grip_thumb": 6340,
+      "scope_15x": 6342
+    },
+    "lit": [
+      6339,
+      6340
+    ]
+  },
+  "scope_filters": {
+    "scope_night": {
+      "body_luma": 0.0,
+      "heat_bodies": 0,
+      "mean": [
+        0.11,
+        0.56,
+        0.19
+      ],
+      "mode": "night",
+      "on": true
+    },
+    "scope_thermal": {
+      "body_luma": 1.0,
+      "heat_bodies": 1,
+      "mean": [
+        0.32,
+        0.32,
+        0.32
+      ],
+      "mode": "thermal",
+      "on": true,
+      "probe": {
+        "behind": false,
+        "blocked_by": "",
+        "chars": 21,
+        "dist": 22.0,
+        "from_centre_px": 6.1,
+        "mode": 3,
+        "radius": 496.8,
+        "world_set": true
+      }
+    }
+  },
+  "scopes": {
+    "most_alike": [
+      "sight_reddot",
+      "sight_reflex",
+      0.37765143232014
+    ],
+    "pixels": {
+      "scope_15x": 691,
+      "scope_2x": 5140,
+      "scope_3x": 4455,
+      "scope_4x": 2886,
+      "scope_6x": 3061,
+      "scope_8x": 2138,
+      "scope_lpvo": 3601,
+      "scope_night": 1516,
+      "scope_thermal": 413,
+      "sight_holo": 7588,
+      "sight_reddot": 8584,
+      "sight_reflex": 10316
+    },
+    "sight_error_px_up_level": {
+      "sight_holo": [
+        0.5,
+        0.4
+      ],
+      "sight_reddot": [
+        0.3,
+        2.1
+      ],
+      "sight_reflex": [
+        0.4,
+        0.5
+      ]
+    },
+    "styles": [
+      "dot",
+      "holo",
+      "reflex",
+      "circle_dot",
+      "chevron",
+      "acog",
+      "horseshoe",
+      "mildot",
+      "duplex",
+      "stadia",
+      "thermal",
+      "tree"
+    ]
+  }
+}

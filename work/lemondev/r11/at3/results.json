@@ -1,0 +1,12 @@
+[
+  [
+    "r11_kerbs_step_up",
+    true,
+    "24 kerb approaches walking (no jump); 0 failed []"
+  ],
+  [
+    "r11_sidewalks_walkable",
+    false,
+    "24 legs of 30 m walked (661 m in all); 2 stalled: [{ \"road\": \"Lawless Avenue\", \"side\": -1.0, \"from\": (-30.0, -38.0), \"along\": 0.0, \"drift\": 0.0, \"stuck_at\": (-29.0, -39.0), \"y\": 1.09, \"first_off\": {  } }, { \"road\": \"Lawless Avenue\", \"side\": 1.0, \"from\": (-11.0, -38.0), \"along\": 0.0, \"drift\": 0.0, \"stuck_at\": (-11.0, -39.0), \"y\": 1.08, \"first_off\": {  } }]"
+  ]
+]

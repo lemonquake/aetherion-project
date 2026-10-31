@@ -1,0 +1,51 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+Vulkan 1.4.329 - Forward+ - Using Device #0: NVIDIA - NVIDIA GeForce RTX 4060
+
+[ui] loadout_received pid=1 Hehe {"primary":"marksman_308","secondary":"pistol_9"}
+[ui] lobby shows my loadout (pid 1): {"primary":"marksman_308","secondary":"pistol_9"}
+[ui] request_loadout {"primary":"marksman_308","secondary":"pistol_9"}
+[world] map built in 12297 ms
+[map] 243 buildings, 1951 doors, 2617 containers, 2745 props, #b1fba961 on PC
+[bots] learned from 262 cells, 4 stuck spots (user://bot_memory_lawless_sub.json)
+[match    0.0] deathmatch start on lawless_sub: 21 players, 3 teams; spawns (-119.0, 1.0, -144.0), (190.0, 1.0, -40.0), (-72.0, 1.0, 196.0) (326/353/343 m apart, layout); day offset 0 s; zone centre (30.0, 5.0) r=350; win by time 10 min, field holds at r=232
+[game] autotest r17
+[autotest] PASS r17_starts_at_night: match time 0.0 s, daylight 0.00, day offset 0.0
+[autotest] PASS r17_day_length: host chose 120 s: night 120 s, daylight at 150 s = 1.00
+[match    0.0] status: { "ground": 21 }; armed 21; shots 0; zone 0 wait r=9000; corpses 0
+[match    0.0] dm teams: North Team 7 at (-120.0, -144.0) spread 3 m; East Team 7 at (189.0, -40.0) spread 3 m; South Team 7 at (-73.0, 196.0) spread 3 m; gap 326 m; zone centre (0.0, 0.0)
+[match    0.0] bots: { "roam": 20 }; containers searched by bots 0 (all players 0); plan steps done 0; guns carried 40
+[match    0.0] roles: { "looter": { "roam": 6 }, "stalker": { "roam": 7 }, "sniper": { "roam": 5 }, "rusher": { "roam": 2 } }; stuck now 0; waypoints 2075; team { "lines": 0, "pings": 0, "laser_follow": 0, "learned_cells": 262, "blocked_cells": 0, "squads": 0, "following_humans": 0 }
+[match    0.0] [lootstats] bots on the ground 20 (in water 0); armed 20; armed with ammo for a gun 20; long guns 20; attachments fitted 0; rounds of unusable ammo carried 0; items on the ground 6315; bot pickups { "detours": 0, "detour_taken": 0, "fetches": 0, "fetch_done": 0, "items_taken": 0 }
+[autotest] shot A:/Python/aetherion-project/work/r17/qa/time/01_r17_start_hud.png
+[match    1.0] [field death] Tatay Kulas (looter) state roam at (-72.0, 1.0, 196.0) goal - path 0/0 no_prog 0.0 pending false
+[match    1.0] [field death]   0 roam (-72.0, 1.0, 196.0) step 0/0 - path 0/0 stuck 0.0 in false exit 0 field -inf btn 0 esc 0.0
+[match    1.0] Tatay Kulas killed by the world (field); 3 teams left
+[match    1.0] alive: North Team 7, East Team 7; score { 0: 0, 1: 0, 2: 0 }
+[match    6.0] Tatay Kulas respawned at (-72.0, 1.0, 199.0) (nearest enemy 342 m)
+[autotest] PASS r17_respawn: Tatay Kulas back after 4.9 s at (-72.0, 1.0, 199.0) (team floor Level 0), health 100, holding bolt_308; scores { 0: 0, 1: 0, 2: 0 } -> { 0: 0, 1: 0, 2: 0 }
+[match    6.0] Ate Load Dito killed by Hehe (gunshot); 3 teams left
+[match    6.0] alive: North Team 7, East Team 6; score { 0: 1, 1: 0, 2: 0 }
+[autotest] PASS r17_score: team 0: 0 -> 1 on the server, HUD team bar 1, under it "9:54 left  ·  most kills wins"
+[autotest] shot A:/Python/aetherion-project/work/r17/qa/time/02_r17_score_hud.png
+[match    6.5] Hehe killed by Boy Pickup (gunshot); 3 teams left
+[match    6.5] alive: North Team 6, East Team 6; score { 0: 1, 1: 0, 2: 1 }
+[match    7.3] Lolo Kalesa (team 1) landed at (192.0, 1.0, -40.0), 4.9 m/s, health 100; teammates -
+[autotest] shot A:/Python/aetherion-project/work/r17/qa/time/03_r17_respawn_countdown.png
+[match    9.0] Mang Kanor (team 2) landed at (-79.0, 1.0, 188.0), 4.9 m/s, health 100; teammates -
+[match   10.9] Pareng Jun (team 0) landed at (-104.0, 1.0, -116.0), 4.7 m/s, health 100; teammates -
+[match   11.0] Ate Load Dito respawned at (193.0, 1.0, -37.0) (nearest enemy 308 m)
+[match   11.5] Hehe respawned at (-125.0, 1.0, -144.0) (nearest enemy 309 m)
+[autotest] PASS r17_local_respawn: countdown "Respawning in 4"; back true, controlled true, at (-125.0, 1.0, -144.0) (team floor Level 0), spawn protection true; the killer's team 0 -> 1
+[match   12.6] Bossing Barbecue (team 0) landed at (-129.0, 1.0, -118.0), 4.9 m/s, health 100; teammates 28 m
+[autotest] shot A:/Python/aetherion-project/work/r17/qa/time/04_r17_back_in.png
+[match   13.5] Kuya Bert (team 0) landed at (-104.0, 1.0, -116.0), 4.7 m/s, health 100; teammates 16 m, 25 m
+[match   15.0] status: { "ground": 21 }; armed 21; shots 0; zone 0 wait r=9000; corpses 3; server tick avg 2.52 ms, p99 4.69 ms, max 12.38 ms over 900 ticks
+[match   15.0] dm teams: North Team 7 at (-119.0, -112.0) spread 19 m; East Team 7 at (169.0, -35.0) spread 34 m; South Team 7 at (-71.0, 170.0) spread 24 m; gap 298 m; zone centre (0.0, 0.0)
+[match   15.0] bots: { "overwatch": 2, "roam": 3, "hunt": 9, "follow": 3, "loot": 3 }; containers searched by bots 0 (all players 0); plan steps done 0; guns carried 40
+[match   15.0] roles: { "sniper": { "overwatch": 2, "roam": 2, "follow": 1 }, "stalker": { "hunt": 6 }, "looter": { "follow": 2, "loot": 3 }, "rusher": { "hunt": 3, "roam": 1 } }; stuck now 0; waypoints 2075; team { "lines": 11, "pings": 0, "laser_follow": 0, "learned_cells": 266, "blocked_cells": 0, "squads": 4, "following_humans": 1 }
+[match   15.0] [lootstats] bots on the ground 20 (in water 0); armed 20; armed with ammo for a gun 20; long guns 20; attachments fitted 0; rounds of unusable ammo carried 0; items on the ground 6315; bot pickups { "detours": 0, "detour_taken": 0, "fetches": 0, "fetch_done": 0, "items_taken": 0 }
+[match   15.1] match over (time): winner team 0 (North Team) with 6 after 15 s, scores { 0: 6, 1: 0, 2: 1 }, 0 shots fired
+[bots] saved 252 learned cells to user://bot_memory_lawless_sub.json
+[autotest] PASS r17_end_time: ended true on the time rule; scores { 0: 6, 1: 0, 2: 1 }; results say "North Team wins the round  ·  North Team 6  ·  East Team 0  ·  South Team 1"
+[autotest] shot A:/Python/aetherion-project/work/r17/qa/time/05_r17_results_time.png
+[autotest] done: 6 checks, 0 failed

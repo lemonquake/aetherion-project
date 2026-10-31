@@ -1,0 +1,17 @@
+[
+  [
+    "chute_jumped",
+    true,
+    "mode 1"
+  ],
+  [
+    "chute_landing_safe",
+    true,
+    "a 14 m drop at 20 m/s right after the jump: health 100 -> 100"
+  ],
+  [
+    "later_fall_hurts",
+    true,
+    "the same drop 6 s after landing: health 100 -> 1"
+  ]
+]

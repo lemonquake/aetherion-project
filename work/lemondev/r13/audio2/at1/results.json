@@ -1,0 +1,22 @@
+[
+  [
+    "r13_sounds_load",
+    true,
+    "22 of 22 sound ids load"
+  ],
+  [
+    "r13_awp",
+    true,
+    "AWP defined with a model (res://assets/models/items/bolt_308.glb); the sumpak shoots its own sound"
+  ],
+  [
+    "r13_static_bots",
+    true,
+    "voice command: enemy 9 m off turned to the player's radio true, enemy next to a teammate 60 m off turned to that radio true, enemy 30 m off heard nothing true, the player heard none true; voice chat: key down true, still while held true (2 bursts in 2.4 s), stops after key up true"
+  ],
+  [
+    "r13_static_player",
+    true,
+    "the player hears an enemy bot's radio static 9 m off (1) and not a teammate's 6 m off (0)"
+  ]
+]

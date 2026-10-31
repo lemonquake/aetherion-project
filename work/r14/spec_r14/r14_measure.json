@@ -1,0 +1,56 @@
+{
+  "spectate": {
+    "alive_fps": 22.1044996035732,
+    "alive_p99": 116.332,
+    "fps": 143.700789376274,
+    "frames": 1148,
+    "near": 5,
+    "over_16ms": 58,
+    "p99_ms": 27.963,
+    "per_bot": [
+      [
+        "Ate Load",
+        1132,
+        0.0
+      ],
+      [
+        "Tito Karaoke King",
+        1104,
+        0.0
+      ],
+      [
+        "Junjun Tisoy",
+        1121,
+        0.01
+      ],
+      [
+        "Ka Pedring",
+        1130,
+        0.0
+      ],
+      [
+        "Lola Basyang",
+        944,
+        0.0
+      ]
+    ],
+    "still_share": 0.00239366599153011,
+    "watched": "Lola Basyang"
+  },
+  "zone": {
+    "dm_total_s": 250.0,
+    "fast": 1.6,
+    "lobby_speed_vs_phase0": [
+      [
+        1.0,
+        37.5,
+        37.5
+      ],
+      [
+        2.5,
+        37.5,
+        37.5
+      ]
+    ]
+  }
+}

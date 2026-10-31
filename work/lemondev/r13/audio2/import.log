@@ -1,0 +1,2 @@
+tools/import.sh: line 6:   267 Segmentation fault         "$GODOT" --headless --path . --import > ../tools/cache/import.log 2>&1
+import ok

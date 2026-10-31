@@ -1,0 +1,87 @@
+[
+  [
+    "r14_dm_zone_fixed",
+    true,
+    "lobby speed -> first wait/shrink (s): [[1.0, 37.5, 37.5], [2.5, 37.5, 37.5]]; the whole DM field closes in 250 s at x1.6"
+  ],
+  [
+    "r14_sights_on_line",
+    true,
+    "sight window vs where the bullets go, px (looking up 62 deg, level): { \"sight_reddot\": [0.4, 0.4], \"sight_holo\": [0.6, 0.4], \"sight_reflex\": [0.4, 0.5] }"
+  ],
+  [
+    "r14_scopes_unique",
+    true,
+    "12 sights, 12 reticle styles; most alike: sight_reddot / sight_reflex overlap 56%; reticle pixels { \"sight_reddot\": 9355, \"sight_holo\": 7478, \"sight_reflex\": 10184, \"scope_2x\": 5405, \"scope_3x\": 4631, \"scope_4x\": 3079, \"scope_lpvo\": 3588, \"scope_6x\": 3127, \"scope_8x\": 1339, \"scope_night\": 1585, \"scope_thermal\": 423, \"scope_15x\": 811 }"
+  ],
+  [
+    "r14_attach_numbers",
+    true,
+    "15 attachments measured: sight_reflex (rifle_m416): ads_time x0.95, zoom 1.1x; scope_lpvo (rifle_m416): ads_time x1.18, zoom 4.0x; scope_night (rifle_m416): ads_time x1.20, zoom 3.0x; scope_thermal (rifle_m416): ads_time x1.25, zoom 4.0x; scope_15x (marksman_308): ads_time x1.55, zoom 15.0x; muzzle_brake (rifle_m416): recoil_up x0.74, recoil_side x0.88, loudness x1.25, flash x1.30; duckbill (shotgun_pump): recoil_up x0.95, pellet_spread x0.80; grip_thumb (rifle_m416): recoil_up x0.94, ads_time x0.85; grip_light (rifle_m416): recoil_up x1.03, recovery x1.28, sway x0.92; grip_ergonomic (rifle_m416): recoil_side x0.92, recovery x1.15, ads_time x0.90; stock_heavy (rifle_m416): recoil_side x0.84, ads_time x1.08, sway x0.70; mag_extquick_light (smg_9): reload x0.78, mag 30->40; mag_extquick_rifle (rifle_m416): reload x0.78, mag 30->40; mag_quick_light (smg_9): reload x0.70; mag_quick_rifle (rifle_m416): reload x0.70"
+  ],
+  [
+    "r14_smartab_up",
+    true,
+    "watch on the wrist true; hologram 83% of the view's height, 78% of its width"
+  ],
+  [
+    "r14_smartab_useless_red",
+    true,
+    ".308 rounds with a 5.56 rifle and a 9 mm SMG: marked 'bad', red edge in the picture true"
+  ],
+  [
+    "r14_smartab_drag_attachment",
+    true,
+    "thumb grip dragged from the bag (row true) onto the rifle's grip mount (true): fitted true, left in the bag 0"
+  ],
+  [
+    "r14_smartab_swap_guns",
+    true,
+    "after the drag: slot 1 smg_9, slot 2 rifle_556, in hand rifle_556 (controller slot 2)"
+  ],
+  [
+    "r14_smartab_take_ground",
+    true,
+    "9 mm box on the ground (row true) dragged into the bag: carrying 60 (was 30), still on the ground false"
+  ],
+  [
+    "r14_loot_highlight",
+    true,
+    "outlined: [6318, 6319] of { \"ammo_9x19\": 6318, \"grip_thumb\": 6319, \"ammo_308\": 6320, \"scope_15x\": 6321 }; off -> 0 outlined; green pixels on 300 / off 0"
+  ],
+  [
+    "r14_grenade_cook_throw",
+    true,
+    "held 1 s: cooking true, fuse ring 1.01 s, in hand true; thrown with 2.47 s left, went off 2.74 s after release; grenades 3 -> 2"
+  ],
+  [
+    "r14_grenade_door",
+    true,
+    "door 37 blown apart true; 2 of 2 props near it thrown or broken; view brightness 38 -> 156 at the blast"
+  ],
+  [
+    "r14_grenade_lethal",
+    true,
+    "enemy 2.5 m away (100 HP): killed outright true, the body thrown 22.3 m and 3.6 m up; enemy 8.8 m away 100 -> 71 HP"
+  ],
+  [
+    "r14_grenade_muffle",
+    true,
+    "player 8 m from the blast: hearing strength 0.75, world sound low-passed at 535 Hz (filter on true), ears ringing true"
+  ],
+  [
+    "r14_grenade_in_hand",
+    true,
+    "enemy kept the key down: went off 4.09 s after the pin came out, never thrown true, 71 -> 0 HP (killed)"
+  ],
+  [
+    "r14_spectate_fps",
+    true,
+    "watching Pinsan Gardo: 229 fps, p99 7.4 ms, 3 frames over 16.7 ms (alive, first person at the same spot: 65 fps, p99 32.2 ms)"
+  ],
+  [
+    "r14_spectate_smooth",
+    true,
+    "moving bots near the one watched stood still in 0% of frames ([[\"Nanay Kakanin\", 1818, 0.0], [\"Inday Tsismis\", 239, 0.0], [\"Pareng Jun\", 335, 0.0], [\"Bossing Barbecue\", 1798, 0.0]])"
+  ]
+]

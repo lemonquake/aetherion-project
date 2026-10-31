@@ -1,0 +1,40 @@
+{
+  "grenade_door": {
+    "body_flew_m": [
+      21.9,
+      3.2
+    ],
+    "cutoff_hz": 534.548746410169,
+    "deaf": 0.746078666887785,
+    "destroyed": true,
+    "door": 37,
+    "far_hp": [
+      100.0,
+      70.5188331214433
+    ],
+    "far_m": 8.8,
+    "lowpass_on": true,
+    "luma": [
+      36.8624894851045,
+      140.828604358636
+    ],
+    "near_killed": true,
+    "props_moved": 2,
+    "props_near": 2,
+    "tinnitus": true
+  },
+  "highlight": {
+    "green_off": 0,
+    "green_on": 139,
+    "ids": {
+      "ammo_308": 6304,
+      "ammo_9x19": 6302,
+      "grip_thumb": 6303,
+      "scope_15x": 6305
+    },
+    "lit": [
+      6302,
+      6303
+    ]
+  }
+}

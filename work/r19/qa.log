@@ -1,0 +1,46 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+Vulkan 1.4.329 - Forward+ - Using Device #0: NVIDIA - NVIDIA GeForce RTX 4060
+
+[ui] loadout_received pid=1 Hehe {"primary":"marksman_308","secondary":"pistol_9"}
+[ui] lobby shows my loadout (pid 1): {"primary":"marksman_308","secondary":"pistol_9"}
+[ui] request_loadout {"primary":"marksman_308","secondary":"pistol_9"}
+[world] map built in 3977 ms
+[map] 0 buildings, 215 doors, 167 containers, 792 props, #3128ccbb on PC
+[nav] levels: 57001 points, 32 links, 157 ms
+[bots] learned from 52 cells, 1 stuck spots (user://bot_memory_malasugue_mall.json)
+[game] autotest horror
+[autotest] PASS horror_no_fog: depth fog and volumetric fog remain disabled through daylight/settings updates
+[autotest] PASS horror_profile: mall material profile and exactly two open lift cabins
+[autotest] PASS lift_9_walk_in: walked through threshold to (8.960896, 0.246666, -42.24586)
+[autotest] shot A:/Python/aetherion-project/work/r19/qa/01_elevator_9.png
+[autotest] PASS lift_9_walk_out: returned to lobby without jumping
+[autotest] PASS lift_16_walk_in: walked through threshold to (15.96094, 0.244974, -42.24223)
+[autotest] shot A:/Python/aetherion-project/work/r19/qa/02_elevator_16.png
+[autotest] PASS lift_16_walk_out: returned to lobby without jumping
+[autotest] PASS surface_tile: expected tile, got tile at (-18.0, 0.001081, 28.00361)
+[autotest] PASS surface_tile: expected tile, got tile at (12.5, 0.013132, -42.0)
+[autotest] PASS surface_metal: expected metal, got metal at (9.65, 0.035182, -41.3)
+[autotest] PASS surface_dirt: expected dirt, got dirt at (7.1, 0.021335, -35.8)
+[autotest] PASS surface_escalator: expected escalator, got escalator at (-43.90257, 2.626251, -2.7)
+[autotest] PASS recorded_steps_tile: 5 imported recorded variants
+[autotest] PASS recorded_steps_rubber: 5 imported recorded variants
+[autotest] PASS recorded_steps_escalator: 6 imported recorded variants
+[autotest] shot A:/Python/aetherion-project/work/r19/qa/03_dark_lobby.png
+[autotest] shot A:/Python/aetherion-project/work/r19/qa/04_muzzle_lights_room.png
+[autotest] FAIL muzzle_world_light: view luminance 7.15 -> 7.12; world surfaces receive warm light
+[autotest] PASS muzzle_pool_decay: all pooled flashes extinguish after the shot
+[autotest] PASS gallery_cover: six authored cover/recess positions on four upper floors
+[autotest] shot A:/Python/aetherion-project/work/r19/qa/05_gallery_level_3.png
+[autotest] PASS gallery_floor_2: gallery stance rests on existing walkable floor
+[autotest] shot A:/Python/aetherion-project/work/r19/qa/06_gallery_level_5.png
+[autotest] PASS gallery_floor_4: gallery stance rests on existing walkable floor
+[autotest] PASS mall_ride_up: Grand Atrium escalator up: y 0.00 -> 5.01 in 14.0 s standing still (want 5.0)
+[autotest] shot A:/Python/aetherion-project/work/r19/qa/07_ride_up.png
+[autotest] PASS mall_ride_down: West Court escalator down: y 10.00 -> 5.02 in 14.0 s standing still (want 5.0)
+[autotest] shot A:/Python/aetherion-project/work/r19/qa/08_ride_down.png
+[autotest] shot A:/Python/aetherion-project/work/r19/qa/09_glass_before.png
+[autotest] PASS mall_glass: shopfront pane 1063 (2.3 x 3.1 m): shattered
+[autotest] shot A:/Python/aetherion-project/work/r19/qa/10_glass_after.png
+[autotest] done: 22 checks, 1 failed
+WARNING: 7 RIDs of type "Texture" were leaked.
+   at: finalize (servers/rendering/rendering_device.cpp:8900)

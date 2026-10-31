@@ -1,0 +1,20 @@
+{
+  "static": {
+    "chat": {
+      "bursts_in_2.4s": 2,
+      "held": true,
+      "key_down": true,
+      "stops": true
+    },
+    "command": {
+      "far": false,
+      "me": 0,
+      "near": true,
+      "near_mate_radio": true
+    },
+    "player": {
+      "enemy_static_heard": 1,
+      "teammate_static_heard": 0
+    }
+  }
+}

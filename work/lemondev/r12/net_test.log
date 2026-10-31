@@ -1,0 +1,26 @@
+[autotest-a] PASS connected_as_client: pid 169596823, rtt 8120 ms
+[autotest-a] PASS landed: mode 3 at (-84.0, 1.0, -13.0)
+[autotest-a] PASS floor_items_synced: 17111 floor items known to this client
+[autotest-a] PASS prediction: max error 0.000 m, 0 corrections, 2 replayed
+[autotest-a] at door: me (-103.66, 0.82, -41.8) (wanted (-103.66, 0.92, -41.8)), door centre (-103.66, 1.92, -40.7), use ray sees door
+[autotest-a] PASS door_open_local: door 779 target -1.65
+[autotest-a] FAIL window_broken_local: window 2134
+[autotest-a] PASS vault_predicted: vaulted true, now 0.72 m outside the window, max prediction error 0.000 m, 0 corrections
+[autotest-a] PASS ladder_predicted: climbed 2.6 m to the roof true (y 3.48 / 3.45), max prediction error 0.000 m, 0 corrections
+[autotest-a] race: item 17052 at (-108.66, 0.85, 15.34) (node none), me (-107.8, 0.84, 15.56), eye-to-item 1.88 m, use ray sees item 17052; full ray hits nothing layer - at (0.0, 0.0, 0.0)
+[autotest-a] race: commands carrying Use: [2381, 2382, 2383] (tab false, paused false, mode 3)
+[autotest-a] PASS item_race_single_owner: Alpha got it: true, Bravo got it: false
+[autotest-a] FAIL field_predicted: no open ground 22 m long around (-108.0, 1.0, 16.0)
+[autotest-a] done: 10 checks, 2 failed
+[autotest-b] PASS connected_as_client: pid 2014639370, rtt 10 ms
+[autotest-b] PASS landed: mode 3 at (-91.0, 1.0, -8.0)
+[autotest-b] PASS sees_teammate: Alpha found
+[autotest-b] PASS door_open_seen_by_other: door 779 target -1.65
+[autotest-b] FAIL window_broken_seen_by_other: window 2134
+[autotest-b] PASS ping_seen_by_teammate: Alpha's ping (eid 1) on Bravo's minimap: true
+[autotest-b] PASS flashlight_seen_by_other: Alpha flags 1
+[autotest-b] PASS radio_cue_seen_by_teammate: radio flag seen true, 25 voice packets
+[autotest-b] race: item 17052 at (-108.66, 0.85, 15.34) (node none), me (-109.53, 0.84, 15.6), eye-to-item 1.88 m, use ray sees item 17052; full ray hits nothing layer - at (0.0, 0.0, 0.0)
+[autotest-b] race: commands carrying Use: [2385, 2386, 2387] (tab false, paused false, mode 3)
+[autotest-b] done: 8 checks, 1 failed
+alpha exit 1, bravo exit 1

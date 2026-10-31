@@ -1,0 +1,19 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+Vulkan 1.4.329 - Forward+ - Using Device #0: NVIDIA - NVIDIA GeForce RTX 4060
+
+ERROR: UVs are required to generate tangents.
+   at: generate_tangents (scene/resources/surface_tool.cpp:1157)
+   GDScript backtrace (most recent call first):
+       [0] _make_step_mesh (res://src/world/maps/malasugue_mall/mall_escalators.gd:155)
+       [1] build (res://src/world/maps/malasugue_mall/mall_escalators.gd:28)
+       [2] build (res://src/world/maps/malasugue_mall/mall_builder.gd:154)
+       [3] _build_mall (res://src/world/map_builder.gd:190)
+       [4] build (res://src/world/map_builder.gd:79)
+       [5] _ready (res://tools/map_preview.gd:90)
+[preview] map built in 7330 ms: {"buildings":0,"containers":193,"doors":216,"finish_ms":1239,"ladders":0,"layout_ms":112,"lights":{"dead":0,"house_dark":0,"house_lit":0,"pole":0,"porch":0,"rooms":0},"mall":{"build_ms":1620,"decor":{"discs":432,"icicle_lights":4644,"lights":1,"props":305},"downlights_L1":1317,"downlights_L2":1334,"downlights_L3":1334,"downlights_L4":1357,"downlights_L5":1369,"escalators":{"escalators":16,"steps":432},"floors_ms":120,"shell_ms":366,"shops":{"doors":180,"fixtures":20156,"panes":839,"units":114},"shops_ms":1332},"props":670,"sink":{"boxes":31136,"colliders":65,"far_tris":0,"meshes":1104,"tris":397834},"terrain_ms":592,"towns_ms":2212,"windows":1815,"zones":1}
+[preview] saved ../work/r15/shots1/outside.png fps 25.0 luma 91.7432499666458
+[preview] saved ../work/r15/shots1/atrium_l1.png fps 34.0 luma 149.984465846507
+[preview] saved ../work/r15/shots1/atrium_l3.png fps 38.0 luma 137.74965133353
+[preview] saved ../work/r15/shots1/east_court.png fps 43.0 luma 145.239549753075
+[preview] saved ../work/r15/shots1/shops_l1.png fps 46.0 luma 145.475968069651
+[preview] saved ../work/r15/shots1/west_court.png fps 58.0 luma 139.202720447403

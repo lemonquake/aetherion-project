@@ -1,0 +1,505 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+[official] deathmatch on port 27493, listed as 127.0.0.1
+[server] dedicated server listening on 27493
+[net] Picker started the match
+[world] map built in 1661 ms
+[map] 0 buildings, 217 doors, 168 containers, 795 props, #2749db39 on PC
+[nav] levels: 57027 points, 32 links, 151 ms
+[bots] learned from 33 cells, 0 stuck spots (user://bot_memory_malasugue_mall.json)
+[match    3.8] deathmatch start on malasugue_mall: 5 players, 3 teams; spawns (0.0, 0.0, -41.0), (64.0, 0.0, 0.0), (0.0, 0.0, 40.0) (76/76/81 m apart, layout); day offset 300 s; zone centre (14.0, -3.0) r=131
+[match    3.8] status: { "ground": 5 }; armed 5; shots 0; zone 0 wait r=131; corpses 0; levels { "L1": 5 }; server tick avg 0.13 ms, p99 0.29 ms, max 0.33 ms over 230 ticks
+[match    3.8] dm teams: North Team 2 at (-1.0, -41.0) spread 1 m; East Team 2 at (64.0, 0.0) spread 1 m; South Team 1 at (0.0, 41.0) spread 0 m; gap 76 m; zone centre (14.0, -3.0)
+[match    3.8] bots: { "roam": 4 }; containers searched by bots 0 (all players 0); plan steps done 0; guns carried 8
+[match    3.8] roles: { "rusher": { "roam": 1 }, "sniper": { "roam": 1 }, "stalker": { "roam": 1 }, "looter": { "roam": 1 } }; stuck now 0; waypoints 0; team { "lines": 0, "pings": 0, "laser_follow": 0, "learned_cells": 33, "blocked_cells": 0, "squads": 0, "following_humans": 0 }
+[match    3.8] [lootstats] bots on the ground 4 (in water 0); armed 4; armed with ammo for a gun 4; long guns 4; attachments fitted 0; rounds of unusable ammo carried 0; items on the ground 438; bot pickups { "detours": 0, "detour_taken": 0, "fetches": 0, "fetch_done": 0, "items_taken": 0 }
+ERROR: Attempt to call RPC with unknown peer ID: 1411837320.
+   at: _send_rpc (modules/multiplayer/scene_rpc_interface.cpp:318)
+   GDScript backtrace (most recent call first):
+       [0] server_flyby (res://src/match/world.gd:1454)
+       [1] _flybys (res://src/weapons/projectile_server.gd:243)
+       [2] _advance (res://src/weapons/projectile_server.gd:114)
+       [3] step (res://src/weapons/projectile_server.gd:68)
+       [4] _physics_process (res://src/match/world.gd:516)
+ERROR: Attempt to call RPC with unknown peer ID: 1411837320.
+   at: _send_rpc (modules/multiplayer/scene_rpc_interface.cpp:318)
+   GDScript backtrace (most recent call first):
+       [0] server_flyby (res://src/match/world.gd:1454)
+       [1] _flybys (res://src/weapons/projectile_server.gd:243)
+       [2] _advance (res://src/weapons/projectile_server.gd:114)
+       [3] step (res://src/weapons/projectile_server.gd:68)
+       [4] _physics_process (res://src/match/world.gd:516)
+ERROR: Attempt to call RPC with unknown peer ID: 1411837320.
+   at: _send_rpc (modules/multiplayer/scene_rpc_interface.cpp:318)
+   GDScript backtrace (most recent call first):
+       [0] server_flyby (res://src/match/world.gd:1454)
+       [1] _flybys (res://src/weapons/projectile_server.gd:243)
+       [2] _advance (res://src/weapons/projectile_server.gd:114)
+       [3] step (res://src/weapons/projectile_server.gd:68)
+       [4] _physics_process (res://src/match/world.gd:516)
+ERROR: Attempt to call RPC with unknown peer ID: 1411837320.
+   at: _send_rpc (modules/multiplayer/scene_rpc_interface.cpp:318)
+   GDScript backtrace (most recent call first):
+       [0] server_flyby (res://src/match/world.gd:1454)
+       [1] _flybys (res://src/weapons/projectile_server.gd:243)
+       [2] _advance (res://src/weapons/projectile_server.gd:114)
+       [3] step (res://src/weapons/projectile_server.gd:68)
+       [4] _physics_process (res://src/match/world.gd:516)
+ERROR: Attempt to call RPC with unknown peer ID: 1411837320.
+   at: _send_rpc (modules/multiplayer/scene_rpc_interface.cpp:318)
+   GDScript backtrace (most recent call first):
+       [0] server_flyby (res://src/match/world.gd:1454)
+       [1] _flybys (res://src/weapons/projectile_server.gd:243)
+       [2] _advance (res://src/weapons/projectile_server.gd:119)
+       [3] step (res://src/weapons/projectile_server.gd:68)
+       [4] _physics_process (res://src/match/world.gd:516)
+[match   18.9] status: { "ground": 5 }; armed 5; shots 12; zone 0 wait r=131; corpses 0; levels { "L1": 5 }; server tick avg 1.06 ms, p99 2.94 ms, max 9.79 ms over 900 ticks
+[match   18.9] dm teams: North Team 2 at (4.0, -20.0) spread 21 m; East Team 2 at (52.0, 9.0) spread 35 m; South Team 1 at (-8.0, 7.0) spread 0 m; gap 57 m; zone centre (14.0, -3.0)
+[match   18.9] bots: { "hunt": 2, "fight": 1, "roam": 1 }; containers searched by bots 0 (all players 0); plan steps done 0; guns carried 8
+[match   18.9] roles: { "rusher": { "hunt": 1 }, "sniper": { "hunt": 1 }, "stalker": { "fight": 1 }, "looter": { "roam": 1 } }; stuck now 0; waypoints 0; team { "lines": 3, "pings": 0, "laser_follow": 0, "learned_cells": 33, "blocked_cells": 0, "squads": 0, "following_humans": 0 }
+[match   18.9] [lootstats] bots on the ground 4 (in water 0); armed 4; armed with ammo for a gun 4; long guns 4; attachments fitted 0; rounds of unusable ammo carried 0; items on the ground 438; bot pickups { "detours": 0, "detour_taken": 0, "fetches": 0, "fetch_done": 0, "items_taken": 0 }
+[match   21.0] Dodong Lechon (team 1) landed at (30.0, 0.0, -21.0), 4.9 m/s, health 100; teammates -
+[match   25.1] Utoy Kalabaw killed by Dodong Lechon (gunshot); 3 teams left
+[match   25.1] alive: North Team 1, East Team 2
+ERROR: Attempt to call RPC with unknown peer ID: 1411837320.
+   at: _send_rpc (modules/multiplayer/scene_rpc_interface.cpp:318)
+   GDScript backtrace (most recent call first):
+       [0] server_flyby (res://src/match/world.gd:1454)
+       [1] _flybys (res://src/weapons/projectile_server.gd:243)
+       [2] _advance (res://src/weapons/projectile_server.gd:114)
+       [3] step (res://src/weapons/projectile_server.gd:68)
+       [4] _physics_process (res://src/match/world.gd:516)
+ERROR: Attempt to call RPC with unknown peer ID: 1411837320.
+   at: _send_rpc (modules/multiplayer/scene_rpc_interface.cpp:318)
+   GDScript backtrace (most recent call first):
+       [0] server_flyby (res://src/match/world.gd:1454)
+       [1] _flybys (res://src/weapons/projectile_server.gd:243)
+       [2] _advance (res://src/weapons/projectile_server.gd:114)
+       [3] step (res://src/weapons/projectile_server.gd:68)
+       [4] _physics_process (res://src/match/world.gd:516)
+ERROR: Attempt to call RPC with unknown peer ID: 1411837320.
+   at: _send_rpc (modules/multiplayer/scene_rpc_interface.cpp:318)
+   GDScript backtrace (most recent call first):
+       [0] server_flyby (res://src/match/world.gd:1454)
+       [1] _flybys (res://src/weapons/projectile_server.gd:243)
+       [2] _advance (res://src/weapons/projectile_server.gd:114)
+       [3] step (res://src/weapons/projectile_server.gd:68)
+       [4] _physics_process (res://src/match/world.gd:516)
+ERROR: Attempt to call RPC with unknown peer ID: 1411837320.
+   at: _send_rpc (modules/multiplayer/scene_rpc_interface.cpp:318)
+   GDScript backtrace (most recent call first):
+       [0] server_flyby (res://src/match/world.gd:1454)
+       [1] _flybys (res://src/weapons/projectile_server.gd:243)
+       [2] _advance (res://src/weapons/projectile_server.gd:114)
+       [3] step (res://src/weapons/projectile_server.gd:68)
+       [4] _physics_process (res://src/match/world.gd:516)
+ERROR: Attempt to call RPC with unknown peer ID: 1411837320.
+   at: _send_rpc (modules/multiplayer/scene_rpc_interface.cpp:318)
+   GDScript backtrace (most recent call first):
+       [0] server_flyby (res://src/match/world.gd:1454)
+       [1] _flybys (res://src/weapons/projectile_server.gd:243)
+       [2] _advance (res://src/weapons/projectile_server.gd:114)
+       [3] step (res://src/weapons/projectile_server.gd:68)
+       [4] _physics_process (res://src/match/world.gd:516)
+ERROR: Attempt to call RPC with unknown peer ID: 1411837320.
+   at: _send_rpc (modules/multiplayer/scene_rpc_interface.cpp:318)
+   GDScript backtrace (most recent call first):
+       [0] server_flyby (res://src/match/world.gd:1454)
+       [1] _flybys (res://src/weapons/projectile_server.gd:243)
+       [2] _advance (res://src/weapons/projectile_server.gd:114)
+       [3] step (res://src/weapons/projectile_server.gd:68)
+       [4] _physics_process (res://src/match/world.gd:516)
+ERROR: Attempt to call RPC with unknown peer ID: 1411837320.
+   at: _send_rpc (modules/multiplayer/scene_rpc_interface.cpp:318)
+   GDScript backtrace (most recent call first):
+       [0] server_flyby (res://src/match/world.gd:1454)
+       [1] _flybys (res://src/weapons/projectile_server.gd:243)
+       [2] _advance (res://src/weapons/projectile_server.gd:114)
+       [3] step (res://src/weapons/projectile_server.gd:68)
+       [4] _physics_process (res://src/match/world.gd:516)
+ERROR: Attempt to call RPC with unknown peer ID: 1411837320.
+   at: _send_rpc (modules/multiplayer/scene_rpc_interface.cpp:318)
+   GDScript backtrace (most recent call first):
+       [0] server_flyby (res://src/match/world.gd:1454)
+       [1] _flybys (res://src/weapons/projectile_server.gd:243)
+       [2] _advance (res://src/weapons/projectile_server.gd:114)
+       [3] step (res://src/weapons/projectile_server.gd:68)
+       [4] _physics_process (res://src/match/world.gd:516)
+ERROR: Attempt to call RPC with unknown peer ID: 1411837320.
+   at: _send_rpc (modules/multiplayer/scene_rpc_interface.cpp:318)
+   GDScript backtrace (most recent call first):
+       [0] server_flyby (res://src/match/world.gd:1454)
+       [1] _flybys (res://src/weapons/projectile_server.gd:243)
+       [2] _advance (res://src/weapons/projectile_server.gd:114)
+       [3] step (res://src/weapons/projectile_server.gd:68)
+       [4] _physics_process (res://src/match/world.gd:516)
+ERROR: Attempt to call RPC with unknown peer ID: 1411837320.
+   at: _send_rpc (modules/multiplayer/scene_rpc_interface.cpp:318)
+   GDScript backtrace (most recent call first):
+       [0] server_flyby (res://src/match/world.gd:1454)
+       [1] _flybys (res://src/weapons/projectile_server.gd:243)
+       [2] _advance (res://src/weapons/projectile_server.gd:114)
+       [3] step (res://src/weapons/projectile_server.gd:68)
+       [4] _physics_process (res://src/match/world.gd:516)
+ERROR: Attempt to call RPC with unknown peer ID: 1411837320.
+   at: _send_rpc (modules/multiplayer/scene_rpc_interface.cpp:318)
+   GDScript backtrace (most recent call first):
+       [0] server_flyby (res://src/match/world.gd:1454)
+       [1] _flybys (res://src/weapons/projectile_server.gd:243)
+       [2] _advance (res://src/weapons/projectile_server.gd:114)
+       [3] step (res://src/weapons/projectile_server.gd:68)
+       [4] _physics_process (res://src/match/world.gd:516)
+ERROR: Attempt to call RPC with unknown peer ID: 1411837320.
+   at: _send_rpc (modules/multiplayer/scene_rpc_interface.cpp:318)
+   GDScript backtrace (most recent call first):
+       [0] server_flyby (res://src/match/world.gd:1454)
+       [1] _flybys (res://src/weapons/projectile_server.gd:243)
+       [2] _advance (res://src/weapons/projectile_server.gd:114)
+       [3] step (res://src/weapons/projectile_server.gd:68)
+       [4] _physics_process (res://src/match/world.gd:516)
+ERROR: Attempt to call RPC with unknown peer ID: 1411837320.
+   at: _send_rpc (modules/multiplayer/scene_rpc_interface.cpp:318)
+   GDScript backtrace (most recent call first):
+       [0] server_flyby (res://src/match/world.gd:1454)
+       [1] _flybys (res://src/weapons/projectile_server.gd:243)
+       [2] _advance (res://src/weapons/projectile_server.gd:114)
+       [3] step (res://src/weapons/projectile_server.gd:68)
+       [4] _physics_process (res://src/match/world.gd:516)
+ERROR: Attempt to call RPC with unknown peer ID: 1411837320.
+   at: _send_rpc (modules/multiplayer/scene_rpc_interface.cpp:318)
+   GDScript backtrace (most recent call first):
+       [0] server_flyby (res://src/match/world.gd:1454)
+       [1] _flybys (res://src/weapons/projectile_server.gd:243)
+       [2] _advance (res://src/weapons/projectile_server.gd:114)
+       [3] step (res://src/weapons/projectile_server.gd:68)
+       [4] _physics_process (res://src/match/world.gd:516)
+ERROR: Attempt to call RPC with unknown peer ID: 1411837320.
+   at: _send_rpc (modules/multiplayer/scene_rpc_interface.cpp:318)
+   GDScript backtrace (most recent call first):
+       [0] server_flyby (res://src/match/world.gd:1454)
+       [1] _flybys (res://src/weapons/projectile_server.gd:243)
+       [2] _advance (res://src/weapons/projectile_server.gd:114)
+       [3] step (res://src/weapons/projectile_server.gd:68)
+       [4] _physics_process (res://src/match/world.gd:516)
+ERROR: Attempt to call RPC with unknown peer ID: 1411837320.
+   at: _send_rpc (modules/multiplayer/scene_rpc_interface.cpp:318)
+   GDScript backtrace (most recent call first):
+       [0] server_flyby (res://src/match/world.gd:1454)
+       [1] _flybys (res://src/weapons/projectile_server.gd:243)
+       [2] _advance (res://src/weapons/projectile_server.gd:114)
+       [3] step (res://src/weapons/projectile_server.gd:68)
+       [4] _physics_process (res://src/match/world.gd:516)
+ERROR: Attempt to call RPC with unknown peer ID: 1411837320.
+   at: _send_rpc (modules/multiplayer/scene_rpc_interface.cpp:318)
+   GDScript backtrace (most recent call first):
+       [0] server_flyby (res://src/match/world.gd:1454)
+       [1] _flybys (res://src/weapons/projectile_server.gd:243)
+       [2] _advance (res://src/weapons/projectile_server.gd:114)
+       [3] step (res://src/weapons/projectile_server.gd:68)
+       [4] _physics_process (res://src/match/world.gd:516)
+ERROR: Attempt to call RPC with unknown peer ID: 1411837320.
+   at: _send_rpc (modules/multiplayer/scene_rpc_interface.cpp:318)
+   GDScript backtrace (most recent call first):
+       [0] server_flyby (res://src/match/world.gd:1454)
+       [1] _flybys (res://src/weapons/projectile_server.gd:243)
+       [2] _advance (res://src/weapons/projectile_server.gd:114)
+       [3] step (res://src/weapons/projectile_server.gd:68)
+       [4] _physics_process (res://src/match/world.gd:516)
+ERROR: Attempt to call RPC with unknown peer ID: 1411837320.
+   at: _send_rpc (modules/multiplayer/scene_rpc_interface.cpp:318)
+   GDScript backtrace (most recent call first):
+       [0] server_flyby (res://src/match/world.gd:1454)
+       [1] _flybys (res://src/weapons/projectile_server.gd:243)
+       [2] _advance (res://src/weapons/projectile_server.gd:114)
+       [3] step (res://src/weapons/projectile_server.gd:68)
+       [4] _physics_process (res://src/match/world.gd:516)
+ERROR: Attempt to call RPC with unknown peer ID: 1411837320.
+   at: _send_rpc (modules/multiplayer/scene_rpc_interface.cpp:318)
+   GDScript backtrace (most recent call first):
+       [0] server_flyby (res://src/match/world.gd:1454)
+       [1] _flybys (res://src/weapons/projectile_server.gd:243)
+       [2] _advance (res://src/weapons/projectile_server.gd:114)
+       [3] step (res://src/weapons/projectile_server.gd:68)
+       [4] _physics_process (res://src/match/world.gd:516)
+ERROR: Attempt to call RPC with unknown peer ID: 1411837320.
+   at: _send_rpc (modules/multiplayer/scene_rpc_interface.cpp:318)
+   GDScript backtrace (most recent call first):
+       [0] server_flyby (res://src/match/world.gd:1454)
+       [1] _flybys (res://src/weapons/projectile_server.gd:243)
+       [2] _advance (res://src/weapons/projectile_server.gd:114)
+       [3] step (res://src/weapons/projectile_server.gd:68)
+       [4] _physics_process (res://src/match/world.gd:516)
+ERROR: Attempt to call RPC with unknown peer ID: 1411837320.
+   at: _send_rpc (modules/multiplayer/scene_rpc_interface.cpp:318)
+   GDScript backtrace (most recent call first):
+       [0] server_flyby (res://src/match/world.gd:1454)
+       [1] _flybys (res://src/weapons/projectile_server.gd:243)
+       [2] _advance (res://src/weapons/projectile_server.gd:114)
+       [3] step (res://src/weapons/projectile_server.gd:68)
+       [4] _physics_process (res://src/match/world.gd:516)
+ERROR: Attempt to call RPC with unknown peer ID: 1411837320.
+   at: _send_rpc (modules/multiplayer/scene_rpc_interface.cpp:318)
+   GDScript backtrace (most recent call first):
+       [0] server_flyby (res://src/match/world.gd:1454)
+       [1] _flybys (res://src/weapons/projectile_server.gd:243)
+       [2] _advance (res://src/weapons/projectile_server.gd:114)
+       [3] step (res://src/weapons/projectile_server.gd:68)
+       [4] _physics_process (res://src/match/world.gd:516)
+ERROR: Attempt to call RPC with unknown peer ID: 1411837320.
+   at: _send_rpc (modules/multiplayer/scene_rpc_interface.cpp:318)
+   GDScript backtrace (most recent call first):
+       [0] server_flyby (res://src/match/world.gd:1454)
+       [1] _flybys (res://src/weapons/projectile_server.gd:243)
+       [2] _advance (res://src/weapons/projectile_server.gd:114)
+       [3] step (res://src/weapons/projectile_server.gd:68)
+       [4] _physics_process (res://src/match/world.gd:516)
+ERROR: Attempt to call RPC with unknown peer ID: 1411837320.
+   at: _send_rpc (modules/multiplayer/scene_rpc_interface.cpp:318)
+   GDScript backtrace (most recent call first):
+       [0] server_flyby (res://src/match/world.gd:1454)
+       [1] _flybys (res://src/weapons/projectile_server.gd:243)
+       [2] _advance (res://src/weapons/projectile_server.gd:114)
+       [3] step (res://src/weapons/projectile_server.gd:68)
+       [4] _physics_process (res://src/match/world.gd:516)
+ERROR: Attempt to call RPC with unknown peer ID: 1411837320.
+   at: _send_rpc (modules/multiplayer/scene_rpc_interface.cpp:318)
+   GDScript backtrace (most recent call first):
+       [0] server_flyby (res://src/match/world.gd:1454)
+       [1] _flybys (res://src/weapons/projectile_server.gd:243)
+       [2] _advance (res://src/weapons/projectile_server.gd:114)
+       [3] step (res://src/weapons/projectile_server.gd:68)
+       [4] _physics_process (res://src/match/world.gd:516)
+[official] everyone left; ending the match
+[match   31.5] match ended early (test): winner team 1 after 32 s
+[bots] saved 34 learned cells to user://bot_memory_malasugue_mall.json
+[match   32.1] Nanay Kakanin (team 1) landed at (56.0, 0.0, -4.0), 4.9 m/s, health 100; teammates 51 m
+ERROR: Attempt to call RPC with unknown peer ID: 1411837320.
+   at: _send_rpc (modules/multiplayer/scene_rpc_interface.cpp:318)
+   GDScript backtrace (most recent call first):
+       [0] server_flyby (res://src/match/world.gd:1454)
+       [1] _flybys (res://src/weapons/projectile_server.gd:243)
+       [2] _advance (res://src/weapons/projectile_server.gd:114)
+       [3] step (res://src/weapons/projectile_server.gd:68)
+       [4] _physics_process (res://src/match/world.gd:516)
+ERROR: Attempt to call RPC with unknown peer ID: 1411837320.
+   at: _send_rpc (modules/multiplayer/scene_rpc_interface.cpp:318)
+   GDScript backtrace (most recent call first):
+       [0] server_flyby (res://src/match/world.gd:1454)
+       [1] _flybys (res://src/weapons/projectile_server.gd:243)
+       [2] _advance (res://src/weapons/projectile_server.gd:114)
+       [3] step (res://src/weapons/projectile_server.gd:68)
+       [4] _physics_process (res://src/match/world.gd:516)
+ERROR: Attempt to call RPC with unknown peer ID: 1411837320.
+   at: _send_rpc (modules/multiplayer/scene_rpc_interface.cpp:318)
+   GDScript backtrace (most recent call first):
+       [0] server_flyby (res://src/match/world.gd:1454)
+       [1] _flybys (res://src/weapons/projectile_server.gd:243)
+       [2] _advance (res://src/weapons/projectile_server.gd:114)
+       [3] step (res://src/weapons/projectile_server.gd:68)
+       [4] _physics_process (res://src/match/world.gd:516)
+ERROR: Attempt to call RPC with unknown peer ID: 1411837320.
+   at: _send_rpc (modules/multiplayer/scene_rpc_interface.cpp:318)
+   GDScript backtrace (most recent call first):
+       [0] server_flyby (res://src/match/world.gd:1454)
+       [1] _flybys (res://src/weapons/projectile_server.gd:243)
+       [2] _advance (res://src/weapons/projectile_server.gd:114)
+       [3] step (res://src/weapons/projectile_server.gd:68)
+       [4] _physics_process (res://src/match/world.gd:516)
+ERROR: Attempt to call RPC with unknown peer ID: 1411837320.
+   at: _send_rpc (modules/multiplayer/scene_rpc_interface.cpp:318)
+   GDScript backtrace (most recent call first):
+       [0] server_flyby (res://src/match/world.gd:1454)
+       [1] _flybys (res://src/weapons/projectile_server.gd:243)
+       [2] _advance (res://src/weapons/projectile_server.gd:114)
+       [3] step (res://src/weapons/projectile_server.gd:68)
+       [4] _physics_process (res://src/match/world.gd:516)
+ERROR: Attempt to call RPC with unknown peer ID: 1411837320.
+   at: _send_rpc (modules/multiplayer/scene_rpc_interface.cpp:318)
+   GDScript backtrace (most recent call first):
+       [0] server_flyby (res://src/match/world.gd:1454)
+       [1] _flybys (res://src/weapons/projectile_server.gd:243)
+       [2] _advance (res://src/weapons/projectile_server.gd:114)
+       [3] step (res://src/weapons/projectile_server.gd:68)
+       [4] _physics_process (res://src/match/world.gd:516)
+ERROR: Attempt to call RPC with unknown peer ID: 1411837320.
+   at: _send_rpc (modules/multiplayer/scene_rpc_interface.cpp:318)
+   GDScript backtrace (most recent call first):
+       [0] server_flyby (res://src/match/world.gd:1454)
+       [1] _flybys (res://src/weapons/projectile_server.gd:243)
+       [2] _advance (res://src/weapons/projectile_server.gd:114)
+       [3] step (res://src/weapons/projectile_server.gd:68)
+       [4] _physics_process (res://src/match/world.gd:516)
+ERROR: Attempt to call RPC with unknown peer ID: 1411837320.
+   at: _send_rpc (modules/multiplayer/scene_rpc_interface.cpp:318)
+   GDScript backtrace (most recent call first):
+       [0] server_flyby (res://src/match/world.gd:1454)
+       [1] _flybys (res://src/weapons/projectile_server.gd:243)
+       [2] _advance (res://src/weapons/projectile_server.gd:114)
+       [3] step (res://src/weapons/projectile_server.gd:68)
+       [4] _physics_process (res://src/match/world.gd:516)
+ERROR: Attempt to call RPC with unknown peer ID: 1411837320.
+   at: _send_rpc (modules/multiplayer/scene_rpc_interface.cpp:318)
+   GDScript backtrace (most recent call first):
+       [0] server_flyby (res://src/match/world.gd:1454)
+       [1] _flybys (res://src/weapons/projectile_server.gd:243)
+       [2] _advance (res://src/weapons/projectile_server.gd:114)
+       [3] step (res://src/weapons/projectile_server.gd:68)
+       [4] _physics_process (res://src/match/world.gd:516)
+ERROR: Attempt to call RPC with unknown peer ID: 1411837320.
+   at: _send_rpc (modules/multiplayer/scene_rpc_interface.cpp:318)
+   GDScript backtrace (most recent call first):
+       [0] server_flyby (res://src/match/world.gd:1454)
+       [1] _flybys (res://src/weapons/projectile_server.gd:243)
+       [2] _advance (res://src/weapons/projectile_server.gd:114)
+       [3] step (res://src/weapons/projectile_server.gd:68)
+       [4] _physics_process (res://src/match/world.gd:516)
+ERROR: Attempt to call RPC with unknown peer ID: 1411837320.
+   at: _send_rpc (modules/multiplayer/scene_rpc_interface.cpp:318)
+   GDScript backtrace (most recent call first):
+       [0] server_flyby (res://src/match/world.gd:1454)
+       [1] _flybys (res://src/weapons/projectile_server.gd:243)
+       [2] _advance (res://src/weapons/projectile_server.gd:114)
+       [3] step (res://src/weapons/projectile_server.gd:68)
+       [4] _physics_process (res://src/match/world.gd:516)
+ERROR: Attempt to call RPC with unknown peer ID: 1411837320.
+   at: _send_rpc (modules/multiplayer/scene_rpc_interface.cpp:318)
+   GDScript backtrace (most recent call first):
+       [0] server_flyby (res://src/match/world.gd:1454)
+       [1] _flybys (res://src/weapons/projectile_server.gd:243)
+       [2] _advance (res://src/weapons/projectile_server.gd:114)
+       [3] step (res://src/weapons/projectile_server.gd:68)
+       [4] _physics_process (res://src/match/world.gd:516)
+ERROR: Attempt to call RPC with unknown peer ID: 1411837320.
+   at: _send_rpc (modules/multiplayer/scene_rpc_interface.cpp:318)
+   GDScript backtrace (most recent call first):
+       [0] server_flyby (res://src/match/world.gd:1454)
+       [1] _flybys (res://src/weapons/projectile_server.gd:243)
+       [2] _advance (res://src/weapons/projectile_server.gd:114)
+       [3] step (res://src/weapons/projectile_server.gd:68)
+       [4] _physics_process (res://src/match/world.gd:516)
+ERROR: Attempt to call RPC with unknown peer ID: 1411837320.
+   at: _send_rpc (modules/multiplayer/scene_rpc_interface.cpp:318)
+   GDScript backtrace (most recent call first):
+       [0] server_flyby (res://src/match/world.gd:1454)
+       [1] _flybys (res://src/weapons/projectile_server.gd:243)
+       [2] _advance (res://src/weapons/projectile_server.gd:114)
+       [3] step (res://src/weapons/projectile_server.gd:68)
+       [4] _physics_process (res://src/match/world.gd:516)
+ERROR: Attempt to call RPC with unknown peer ID: 1411837320.
+   at: _send_rpc (modules/multiplayer/scene_rpc_interface.cpp:318)
+   GDScript backtrace (most recent call first):
+       [0] server_flyby (res://src/match/world.gd:1454)
+       [1] _flybys (res://src/weapons/projectile_server.gd:243)
+       [2] _advance (res://src/weapons/projectile_server.gd:114)
+       [3] step (res://src/weapons/projectile_server.gd:68)
+       [4] _physics_process (res://src/match/world.gd:516)
+ERROR: Attempt to call RPC with unknown peer ID: 1411837320.
+   at: _send_rpc (modules/multiplayer/scene_rpc_interface.cpp:318)
+   GDScript backtrace (most recent call first):
+       [0] server_flyby (res://src/match/world.gd:1454)
+       [1] _flybys (res://src/weapons/projectile_server.gd:243)
+       [2] _advance (res://src/weapons/projectile_server.gd:114)
+       [3] step (res://src/weapons/projectile_server.gd:68)
+       [4] _physics_process (res://src/match/world.gd:516)
+ERROR: Attempt to call RPC with unknown peer ID: 1411837320.
+   at: _send_rpc (modules/multiplayer/scene_rpc_interface.cpp:318)
+   GDScript backtrace (most recent call first):
+       [0] server_flyby (res://src/match/world.gd:1454)
+       [1] _flybys (res://src/weapons/projectile_server.gd:243)
+       [2] _advance (res://src/weapons/projectile_server.gd:114)
+       [3] step (res://src/weapons/projectile_server.gd:68)
+       [4] _physics_process (res://src/match/world.gd:516)
+ERROR: Attempt to call RPC with unknown peer ID: 1411837320.
+   at: _send_rpc (modules/multiplayer/scene_rpc_interface.cpp:318)
+   GDScript backtrace (most recent call first):
+       [0] server_flyby (res://src/match/world.gd:1454)
+       [1] _flybys (res://src/weapons/projectile_server.gd:243)
+       [2] _advance (res://src/weapons/projectile_server.gd:114)
+       [3] step (res://src/weapons/projectile_server.gd:68)
+       [4] _physics_process (res://src/match/world.gd:516)
+ERROR: Attempt to call RPC with unknown peer ID: 1411837320.
+   at: _send_rpc (modules/multiplayer/scene_rpc_interface.cpp:318)
+   GDScript backtrace (most recent call first):
+       [0] server_flyby (res://src/match/world.gd:1454)
+       [1] _flybys (res://src/weapons/projectile_server.gd:243)
+       [2] _advance (res://src/weapons/projectile_server.gd:114)
+       [3] step (res://src/weapons/projectile_server.gd:68)
+       [4] _physics_process (res://src/match/world.gd:516)
+ERROR: Attempt to call RPC with unknown peer ID: 1411837320.
+   at: _send_rpc (modules/multiplayer/scene_rpc_interface.cpp:318)
+   GDScript backtrace (most recent call first):
+       [0] server_flyby (res://src/match/world.gd:1454)
+       [1] _flybys (res://src/weapons/projectile_server.gd:243)
+       [2] _advance (res://src/weapons/projectile_server.gd:114)
+       [3] step (res://src/weapons/projectile_server.gd:68)
+       [4] _physics_process (res://src/match/world.gd:516)
+ERROR: Attempt to call RPC with unknown peer ID: 1411837320.
+   at: _send_rpc (modules/multiplayer/scene_rpc_interface.cpp:318)
+   GDScript backtrace (most recent call first):
+       [0] server_flyby (res://src/match/world.gd:1454)
+       [1] _flybys (res://src/weapons/projectile_server.gd:243)
+       [2] _advance (res://src/weapons/projectile_server.gd:102)
+       [3] step (res://src/weapons/projectile_server.gd:68)
+       [4] _physics_process (res://src/match/world.gd:516)
+ERROR: Attempt to call RPC with unknown peer ID: 1411837320.
+   at: _send_rpc (modules/multiplayer/scene_rpc_interface.cpp:318)
+   GDScript backtrace (most recent call first):
+       [0] server_flyby (res://src/match/world.gd:1454)
+       [1] _flybys (res://src/weapons/projectile_server.gd:243)
+       [2] _advance (res://src/weapons/projectile_server.gd:102)
+       [3] step (res://src/weapons/projectile_server.gd:68)
+       [4] _physics_process (res://src/match/world.gd:516)
+ERROR: Attempt to call RPC with unknown peer ID: 1411837320.
+   at: _send_rpc (modules/multiplayer/scene_rpc_interface.cpp:318)
+   GDScript backtrace (most recent call first):
+       [0] server_flyby (res://src/match/world.gd:1454)
+       [1] _flybys (res://src/weapons/projectile_server.gd:243)
+       [2] _advance (res://src/weapons/projectile_server.gd:102)
+       [3] step (res://src/weapons/projectile_server.gd:68)
+       [4] _physics_process (res://src/match/world.gd:516)
+ERROR: Attempt to call RPC with unknown peer ID: 1411837320.
+   at: _send_rpc (modules/multiplayer/scene_rpc_interface.cpp:318)
+   GDScript backtrace (most recent call first):
+       [0] server_flyby (res://src/match/world.gd:1454)
+       [1] _flybys (res://src/weapons/projectile_server.gd:243)
+       [2] _advance (res://src/weapons/projectile_server.gd:102)
+       [3] step (res://src/weapons/projectile_server.gd:68)
+       [4] _physics_process (res://src/match/world.gd:516)
+[match   37.3] Picker killed by Dodong Lechon (gunshot); 2 teams left
+[match   37.3] alive: North Team 0, East Team 2
+[match   40.1] Aling Puring killed by Nanay Kakanin (gunshot); 1 teams left
+[match   40.1] alive: North Team 0, East Team 2
+[official] next map: lawless_sub
+ERROR: BUG: Unreferenced static string to 0: markers
+   at: unref (core/string/string_name.cpp:118)
+ERROR: BUG: Unreferenced static string to 0: _compression
+   at: unref (core/string/string_name.cpp:118)
+ERROR: BUG: Unreferenced static string to 0: _exit_world
+   at: unref (core/string/string_name.cpp:118)
+ERROR: BUG: Unreferenced static string to 0: _request_gizmo_for_id
+   at: unref (core/string/string_name.cpp:118)
+ERROR: BUG: Unreferenced static string to 0: _enter_world
+   at: unref (core/string/string_name.cpp:118)
+ERROR: BUG: Unreferenced static string to 0: .
+   at: unref (core/string/string_name.cpp:118)
+ERROR: BUG: Unreferenced static string to 0: _net_id
+   at: unref (core/string/string_name.cpp:118)
+ERROR: BUG: Unreferenced static string to 0: servers
+   at: unref (core/string/string_name.cpp:118)
+ERROR: BUG: Unreferenced static string to 0: Variant
+   at: unref (core/string/string_name.cpp:118)
+ERROR: BUG: Unreferenced static string to 0: @warning_ignore_restore
+   at: unref (core/string/string_name.cpp:118)
+ERROR: BUG: Unreferenced static string to 0: @warning_ignore_start
+   at: unref (core/string/string_name.cpp:118)
+ERROR: BUG: Unreferenced static string to 0: @warning_ignore
+   at: unref (core/string/string_name.cpp:118)
+ERROR: BUG: Unreferenced static string to 0: @icon
+   at: unref (core/string/string_name.cpp:118)
+WARNING: A Thread object is being destroyed without its completion having been realized.
+Please call wait_to_finish() on it to ensure correct cleanup.
+   at: ~Thread (core/os/thread.cpp:116)
+ERROR: 7 RID allocations of type '23NavMeshGeometryParser2D' were leaked at exit.
+ERROR: 6 RID allocations of type '23NavMeshGeometryParser3D' were leaked at exit.
+ERROR: Pages in use exist at exit in PagedAllocator: N12VariantPools11BucketLargeE
+   at: ~PagedAllocator (./core/templates/paged_allocator.h:170)

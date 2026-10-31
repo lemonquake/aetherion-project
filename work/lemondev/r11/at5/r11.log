@@ -1,0 +1,14 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+Vulkan 1.4.329 - Forward+ - Using Device #0: NVIDIA - NVIDIA GeForce RTX 4060
+
+[ui] loadout_received pid=1 Hehe {"primary":"bolt_308","secondary":"pistol_9"}
+[ui] lobby shows my loadout (pid 1): {"primary":"bolt_308","secondary":"pistol_9"}
+[ui] request_loadout {"primary":"bolt_308","secondary":"pistol_9"}
+[world] map built in 13035 ms
+[map] 243 buildings, 1951 doors, 2617 containers, 2745 props, #b1fba961 on PC
+[bots] learned from 61 cells, 12 stuck spots (user://bot_memory_lawless_sub.json)
+[game] autotest r11
+[autotest] PASS r11_cage_pa: speakers { "cage": 28, "tower": 4 }; start line played: true; the 3 nearest stacks are on the cage: true ([(-128.0, 16.0, -222.0), (-64.0, 16.0, -222.0), (-222.0, 16.0, -128.0)])
+[autotest] shot A:/Python/aetherion-project/work/lemondev/r11/at5/01_haze_1_5s.png
+[autotest] PASS r11_impact_haze: centre change against the view before the hit: 2.92 at 0.15 s, 2.29 at 1.5 s, 0.32 at 4 s (no-hit control over 1.5 s: 0.35)
+[autotest] done: 2 checks, 0 failed

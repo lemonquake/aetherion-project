@@ -1,0 +1,17 @@
+[
+  [
+    "r14_dm_zone_fixed",
+    false,
+    "lobby speed -> first wait/shrink (s): [[1.0, 60.0, 60.0], [2.5, 24.0, 24.0]]; the whole DM field closes in 250 s at x1.6"
+  ],
+  [
+    "r14_spectate_fps",
+    true,
+    "watching Bossing Barbecue: 60 fps, p99 18.7 ms, 220 frames over 16.7 ms"
+  ],
+  [
+    "r14_spectate_smooth",
+    false,
+    "moving bots near the one watched stood still in 65% of frames ([[\"5\", 61, 0.0], [\"Kapitan Tikoy\", 481, 0.58], [\"Manong Guard\", 481, 0.63], [\"13\", 50, 0.0], [\"Ate Load Dito\", 481, 0.89]])"
+  ]
+]

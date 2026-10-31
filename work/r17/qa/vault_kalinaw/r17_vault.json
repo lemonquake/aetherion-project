@@ -1,0 +1,134 @@
+{
+  "vault_survey": {
+    "map": "kalinaw",
+    "window_types": {
+      "open": 3829,
+      "glass": 2453,
+      "bars": 1452,
+      "plastic": 1247,
+      "shutter": 2051,
+      "store": 161
+    },
+    "found": {
+      "window_ground": 2716,
+      "window_upper": 937
+    },
+    "result": {
+      "window_ground": [
+        91,
+        100
+      ],
+      "window_upper": [
+        97,
+        100
+      ]
+    },
+    "refused": {
+      "window_upper: top 0.16 m out of range": 1,
+      "window_ground: opening 0.52 m too low": 3,
+      "window_ground: no top within 1.5 m": 2,
+      "window_ground: no room to land": 2,
+      "window_ground: top 0.37 m out of range": 2,
+      "window_upper: opening 0.52 m too low": 1,
+      "window_upper: no room to land": 1
+    },
+    "fails": [
+      [
+        "window_upper",
+        "(-319.75, 3.51, 39.07)",
+        "(0.03, 0.0, 1.0)",
+        "top 0.16 m out of range",
+        "open",
+        ""
+      ],
+      [
+        "window_ground",
+        "(29.6, 1.0, 93.42)",
+        "(0.0, 0.0, 1.0)",
+        "opening 0.52 m too low (face 1.04, clear 0.86, top 0.77)",
+        "open",
+        ""
+      ],
+      [
+        "window_ground",
+        "(97.62, 3.64, -205.85)",
+        "(-1.0, 0.0, -0.09)",
+        "no top within 1.5 m (face 0.72)",
+        "plastic",
+        ""
+      ],
+      [
+        "window_ground",
+        "(-226.73, 1.01, -65.98)",
+        "(1.0, 0.0, -0.03)",
+        "no room to land (face 0.30, top 0.85, depth 0.52, climb false)",
+        "open",
+        ""
+      ],
+      [
+        "window_ground",
+        "(41.05, 1.1, -221.28)",
+        "(-0.99, 0.0, -0.13)",
+        "opening 0.52 m too low (face 1.04, clear 0.94, top 0.87)",
+        "open",
+        ""
+      ],
+      [
+        "window_ground",
+        "(225.25, 0.9, 39.55)",
+        "(1.0, 0.0, 0.1)",
+        "opening 0.52 m too low (face 1.00, clear 0.94, top 0.90)",
+        "plastic",
+        ""
+      ],
+      [
+        "window_ground",
+        "(99.7, 3.43, 74.2)",
+        "(-0.12, 0.0, -0.99)",
+        "top 0.37 m out of range",
+        "plastic",
+        ""
+      ],
+      [
+        "window_ground",
+        "(-267.05, 1.13, -59.6)",
+        "(1.0, 0.0, -0.02)",
+        "no top within 1.5 m (face 0.64)",
+        "plastic",
+        ""
+      ],
+      [
+        "window_ground",
+        "(-28.88, 0.87, -249.15)",
+        "(-1.0, 0.0, 0.06)",
+        "no room to land (face 0.72, top 0.47, depth 0.42, climb false)",
+        "open",
+        ""
+      ],
+      [
+        "window_upper",
+        "(-301.88, 5.69, -82.92)",
+        "(-1.0, 0.0, 0.07)",
+        "opening 0.52 m too low (face 0.59, clear 1.26, top 1.22)",
+        "open",
+        ""
+      ],
+      [
+        "window_ground",
+        "(-42.93, 0.91, -141.02)",
+        "(0.99, 0.0, 0.12)",
+        "top 0.37 m out of range",
+        "open",
+        ""
+      ],
+      [
+        "window_upper",
+        "(-250.49, 4.32, -269.6)",
+        "(-1.0, 0.0, 0.0)",
+        "no room to land (face 0.30, top 1.22, depth 0.12, climb false)",
+        "plastic",
+        ""
+      ]
+    ]
+  }
+}

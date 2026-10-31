@@ -1,0 +1,14 @@
+{
+ "view1": {
+  "name": "boundary_x_day",
+  "A": "candidate"
+ },
+ "view2": {
+  "name": "boundary_x_night",
+  "A": "candidate"
+ },
+ "view3": {
+  "name": "boundary_inside_x",
+  "A": "candidate"
+ }
+}

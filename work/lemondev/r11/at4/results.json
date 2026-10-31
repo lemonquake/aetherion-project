@@ -1,0 +1,32 @@
+[
+  [
+    "r11_three_teams",
+    true,
+    "players per team { 0: 7, 2: 7, 1: 7 }, spawns [(-119.0, 1.0, -144.0), (190.0, 1.0, -40.0), (-72.0, 1.0, 196.0)], closest spawns 326 m apart"
+  ],
+  [
+    "r11_cage_pa",
+    true,
+    "speakers { \"cage\": 28, \"tower\": 4 }; start line played: true; the 3 nearest stacks are on the cage: true ([(-128.0, 16.0, -222.0), (-64.0, 16.0, -222.0), (-222.0, 16.0, -128.0)])"
+  ],
+  [
+    "r11_cage_holds",
+    true,
+    "walked into the north cage from z -218.0: stopped at z -223.31 (wall line -224.0); chest ray stops at z -223.63"
+  ],
+  [
+    "r11_impact_haze",
+    false,
+    "centre change against the view before the hit: 1.98 at 0.15 s, 0.99 at 1.5 s, 0.35 at 4 s"
+  ],
+  [
+    "r11_kerbs_step_up",
+    true,
+    "24 kerb approaches walking (no jump); 0 failed []"
+  ],
+  [
+    "r11_sidewalks_walkable",
+    false,
+    "182 legs of 30 m walked (5429 m in all); 4 stalled: [{ \"road\": \"Acacia St\", \"side\": 1.0, \"from\": (35.0, -2.0), \"along\": 4.4, \"drift\": 0.0, \"stuck_at\": (35.0, 2.0), \"y\": 0.93, \"first_off\": { \"at\": (34.5, 2.4), \"lat\": 0.0, \"y\": 0.93, \"ahead\": \"StaticBody3D @StaticBody3D@3697 at (34.5, 1.4, 2.7)\" } }, { \"road\": \"Molave St\", \"side\": -1.0, \"from\": (166.0, 32.0), \"along\": 30.1, \"drift\": 2.2, \"stuck_at\": (163.0, 62.0), \"y\": 0.99, \"first_off\": { \"at\": (166.0, 53.1), \"lat\": -0.5, \"y\": 1.14, \"ahead\": \"nothing ahead on the line\" } }, { \"road\": \"Molave St\", \"side\": -1.0, \"from\": (166.0, 66.0), \"along\": 30.0, \"drift\": 5.6, \"stuck_at\": (171.0, 96.0), \"y\": 0.94, \"first_off\": { \"at\": (166.0, 66.3), \"lat\": -0.5, \"y\": 1.11, \"ahead\": \"nothing ahead on the line\" } }, { \"road\": \"Molave St\", \"side\": 1.0, \"from\": (175.0, -138.0), \"along\": 18.5, \"drift\": 0.0, \"stuck_at\": (175.0, -120.0), \"y\": 1.04, \"first_off\": { \"at\": (174.5, -119.5), \"lat\": 0.0, \"y\": 1.04, \"ahead\": \"nothing ahead on the line\" } }]"
+  ]
+]

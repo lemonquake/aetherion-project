@@ -1,0 +1,25 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+Vulkan 1.4.329 - Forward+ - Using Device #0: NVIDIA - NVIDIA GeForce RTX 4060
+
+[ui] loadout_received pid=1 Hehe {"primary":"rifle_m416","secondary":"pistol_9"}
+[ui] lobby shows my loadout (pid 1): {"primary":"rifle_m416","secondary":"pistol_9"}
+[ui] request_loadout {"primary":"rifle_m416","secondary":"pistol_9"}
+[world] map built in 14759 ms
+[map] 243 buildings, 1951 doors, 2617 containers, 2745 props, #b1fba961 on PC
+[bots] learned from 163 cells, 15 stuck spots (user://bot_memory_lawless_sub.json)
+[game] autotest r12
+[r12dbg] start x -15.0 pos (-15.0, 0.001312, -4.0) mode 3 vt -1.00 lt -1.00 rt -1.00 st -1.00 cr false land 0.00 held -1 flags 0
+[r12dbg] at jump pos (-15.0, 0.018738, -8.662979) vel (0.0, 0.0, -4.4) mode 3 vt -1.00 lt -1.00 cr false
+[autotest] PASS r12_ledge_2_2m: 2.2 m wall, run and jump: grabbed true at 0.10 s, on top after 1.33 s more, feet at (-15.0, 2.22, -10.64)
+[r12dbg] start x 0.0 pos (0.0, 0.001312, -4.0) mode 3 vt -1.00 lt -1.00 rt -1.00 st -1.00 cr false land 0.00 held -1 flags 0
+[r12dbg] at jump pos (0.0, 0.018738, -8.662979) vel (0.0, 0.0, -4.4) mode 3 vt -1.00 lt -1.00 cr false
+[autotest] PASS r12_over_2m: 2.0 m garden wall: grabbed true, ended at (0.0, 0.02, -10.85) (past z -10.25, on the ground)
+[r12dbg] start x 15.0 pos (15.0, 0.001312, -4.0) mode 3 vt -1.00 lt -1.00 rt -1.00 st -1.00 cr false land 0.00 held -1 flags 0
+[r12dbg] at jump pos (15.0, 0.018738, -8.736313) vel (0.0, 0.0, -4.4) mode 3 vt -1.00 lt -1.00 cr false
+[r12dbg] start x 15.0 pos (15.0, 0.009216, 2.314636) mode 3 vt -1.00 lt -1.00 rt -1.00 st -1.00 cr false land 0.00 held -1 flags 0
+[r12dbg] at jump pos (15.0, 0.009216, 2.314636) vel (0.0, 0.0, 0.0) mode 3 vt -1.00 lt -1.00 cr false
+[autotest] FAIL r12_ledge_3m: 3.0 m wall: plain jump at 4.4 m/s grabbed false; sprint run-up at 0.0 m/s grabbed false, ended at (15.0, 0.0, 2.32)
+[r12dbg] start x 30.0 pos (30.0, 0.001312, 2.0) mode 3 vt -1.00 lt -1.00 rt -1.00 st -1.00 cr false land 0.00 held -1 flags 0
+[r12dbg] at jump pos (30.0, 0.018738, -9.252502) vel (0.0, 0.0, -6.3) mode 3 vt -1.00 lt -1.00 cr false
+[autotest] PASS r12_ledge_4_5m: 4.5 m wall, sprint run-up at 6.3 m/s: grabbed false
+[autotest] done: 4 checks, 1 failed

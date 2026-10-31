@@ -1,0 +1,67 @@
+[
+  [
+    "r13_sounds_load",
+    true,
+    "22 of 22 sound ids load"
+  ],
+  [
+    "r13_awp",
+    true,
+    "AWP defined with a model (res://assets/models/items/bolt_308.glb); the sumpak shoots its own sound"
+  ],
+  [
+    "r13_voice_follow",
+    true,
+    "Follow me: 2 bots follow, 2 said affirmative, nearest bot 14.0 -> 2.5 m, state follow"
+  ],
+  [
+    "r13_voice_help",
+    true,
+    "Need help!: bot 55 m off said affirmative true and came 55.0 -> 3.9 m (in position said true)"
+  ],
+  [
+    "r13_voice_go",
+    true,
+    "Let's go!: bot near the player moved toward where the player looks 26.5 -> 3.2 m, affirmative true"
+  ],
+  [
+    "r13_voice_fall_back",
+    true,
+    "Fall back!: bot 30 m off said affirmative true and pulled back to 5.4 m"
+  ],
+  [
+    "r13_voice_negative",
+    true,
+    "Need help! with the only bot in reach in a close fight: it said negative true and took no order ({  })"
+  ],
+  [
+    "r13_laser_check",
+    true,
+    "teammate laser on a spot 14 m from a roaming bot: it got there in 2.3 s and said clear true; the camping bot took the check: false (it is now camp)"
+  ],
+  [
+    "r13_kill_radio",
+    true,
+    "player's headshot kill confirmed on the radio by a teammate bot true; a bot's own kill said true; a teammate's death called (man down) true"
+  ],
+  [
+    "r13_static_bots",
+    true,
+    "voice command: enemy 9 m off turned to the player's radio true, enemy next to a teammate 60 m off turned to that radio true, enemy 30 m off heard nothing true, the player heard none true; voice chat: key down true, still while held true (2 bursts in 2.4 s), stops after key up true"
+  ],
+  [
+    "r13_static_player",
+    true,
+    "the player hears an enemy bot's radio static 9 m off (1) and not a teammate's 6 m off (0)"
+  ],
+  [
+    "r13_death_camera",
+    true,
+    "camera on the body in third person (distance, height): [[0.35, 3.79, 2.87], [1.0, 5.0, 2.76], [2.5, 5.19, 2.75], [4.5, 5.19, 2.75]]; spectating after 6 s: true"
+  ],
+  [
+    "r13_death_card",
+    true,
+    "card: killed by Mang Jolo (killer Mang Jolo), \"Micro UZI  ·  22 m  ·  shot through the head\", headshot badge true"
+  ]
+]

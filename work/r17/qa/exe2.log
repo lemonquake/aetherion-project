@@ -1,0 +1,29 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+Vulkan 1.4.329 - Forward+ - Using Device #0: NVIDIA - NVIDIA GeForce RTX 4060
+
+[ui] loadout_received pid=1 Hehe {"primary":"marksman_308","secondary":"pistol_9"}
+[ui] lobby shows my loadout (pid 1): {"primary":"marksman_308","secondary":"pistol_9"}
+[ui] request_loadout {"primary":"marksman_308","secondary":"pistol_9"}
+[world] map built in 3548 ms
+[map] 0 buildings, 217 doors, 168 containers, 795 props, #2749db39 on PC
+[nav] levels: 57027 points, 32 links, 119 ms
+[bots] learned from 52 cells, 1 stuck spots (user://bot_memory_malasugue_mall.json)
+[game] autotest r17
+[autotest] PASS r17_starts_at_night: match time 0.0 s, daylight 0.00, day offset 0.0
+[autotest] PASS r17_mall_night_only: night_only true, brightest daylight over 25 min 0.00, next sun change inf
+[autotest] PASS r17_floor_spawns: teams on Level 3, Level 1, Level 5; 21 characters, off their floor: none
+[autotest] shot A:/Python/aetherion-project/work/r17/qa/exe2/01_r17_start_hud.png
+[autotest] shot A:/Python/aetherion-project/work/r17/qa/exe2/02_r17_squeeze_outside.png
+[autotest] PASS r17_squeeze: two bots pinned against the outer wall: hurt from 0.73 s, dead at 2.48 s (1.75 s of squeezing), cause field; the one beside it dead true (field); health trace [[0.75, 99.0, 0.23], [1.0, 90.2, 0.5], [1.25, 79.5, 0.73], [1.5, 66.9, 1.0], [1.75, 52.5, 1.23], [2.0, 36.2, 1.5], [2.25, 18.0, 1.73]]
+[autotest] PASS r17_respawn: Inday Rice Cooker back after 5.0 s at (0.0, 20.0, 32.0) (team floor Level 5), health 100, holding shotgun_pump; scores { 0: 0, 1: 0, 2: 0 } -> { 0: 0, 1: 0, 2: 0 }
+[autotest] PASS r17_score: team 0: 0 -> 1 on the server, HUD team bar 1, under it "First to 30 kills"
+[autotest] shot A:/Python/aetherion-project/work/r17/qa/exe2/03_r17_score_hud.png
+[autotest] shot A:/Python/aetherion-project/work/r17/qa/exe2/04_r17_respawn_countdown.png
+[autotest] PASS r17_local_respawn: countdown "Respawning in 4"; back true, controlled true, at (45.0, 10.0, -26.0) (team floor Level 3), spawn protection true; the killer's team 0 -> 1
+[autotest] shot A:/Python/aetherion-project/work/r17/qa/exe2/05_r17_back_in.png
+[bots] saved 52 learned cells to user://bot_memory_malasugue_mall.json
+[autotest] PASS r17_end_score: ended true on the score rule; scores { 0: 2, 1: 1, 2: 0 }; results say "North Team wins the round  ·  North Team 2  ·  East Team 1  ·  South Team 0"
+[autotest] shot A:/Python/aetherion-project/work/r17/qa/exe2/06_r17_results_score.png
+[autotest] done: 8 checks, 0 failed
+WARNING: 7 RIDs of type "Texture" were leaked.
+   at: finalize (servers/rendering/rendering_device.cpp:8900)

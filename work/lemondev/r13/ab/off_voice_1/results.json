@@ -1,0 +1,27 @@
+[
+  [
+    "r13_voice_follow",
+    true,
+    "Follow me: 2 bots follow, 2 said affirmative, nearest bot 14.0 -> 4.6 m, state follow"
+  ],
+  [
+    "r13_voice_help",
+    true,
+    "Need help!: bot 55 m off said affirmative true and came 55.0 -> 4.0 m (in position said true)"
+  ],
+  [
+    "r13_voice_go",
+    true,
+    "Let's go!: bot near the player moved toward where the player looks 26.5 -> 3.2 m, affirmative true"
+  ],
+  [
+    "r13_voice_fall_back",
+    true,
+    "Fall back!: bot 30 m off said affirmative true and pulled back to 5.4 m"
+  ],
+  [
+    "r13_voice_negative",
+    true,
+    "Need help! with the only bot in reach in a close fight: it said negative true and took no order ({  })"
+  ]
+]

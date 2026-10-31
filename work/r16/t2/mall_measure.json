@@ -1,0 +1,84 @@
+{
+  "build": {
+    "escalators": 16,
+    "fingerprint": "0 buildings, 217 doors, 168 containers, 795 props, #2749db39",
+    "glass_doors": 196,
+    "levels": 5,
+    "plates": 1701,
+    "stats": {
+      "build_ms": 2046,
+      "decor": {
+        "discs": 432,
+        "icicle_lights": 2358,
+        "lights": 1,
+        "props": 302
+      },
+      "dept": {
+        "escalators": 2,
+        "fixtures": 0,
+        "lights": 0,
+        "zones": 0
+      },
+      "dept_rooms": {
+        "escalators": 0,
+        "fixtures": 69,
+        "lights": 20,
+        "zones": 17
+      },
+      "downlights_L1": "609 lit / 735 dead",
+      "downlights_L2": "624 lit / 693 dead",
+      "downlights_L3": "414 lit / 928 dead",
+      "downlights_L4": "475 lit / 868 dead",
+      "downlights_L5": "620 lit / 738 dead",
+      "escalators": {
+        "escalators": 16,
+        "steps": 432
+      },
+      "floors_ms": 179,
+      "lights": {
+        "beams": 4,
+        "down": 220,
+        "emergency": 57,
+        "faulty": 57,
+        "shafts": 3
+      },
+      "shell_ms": 524,
+      "shops": {
+        "doors": 180,
+        "fixtures": 18050,
+        "panes": 707,
+        "shutters": 29,
+        "smashed": 112,
+        "units": 114
+      },
+      "shops_ms": 1497,
+      "wreck": {
+        "barricades": 4,
+        "blood": 104,
+        "burnt": "Bisikleta Bikes",
+        "carts": 18,
+        "ceiling": 20,
+        "decals": 1262,
+        "litter": 200,
+        "props": 285,
+        "sparks": 6,
+        "writing": 80,
+        "writing_L1": 8,
+        "writing_L2": 9,
+        "writing_L3": 9,
+        "writing_L4": 11,
+        "writing_L5": 11
+      }
+    },
+    "units": 114
+  },
+  "dept_bot": {
+    "max_y": 1.03385305404663,
+    "seconds": 120.288,
+    "to": [
+      57.4516372680664,
+      0.0176532380282879,
+      39.952995300293
+    ]
+  }
+}

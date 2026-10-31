@@ -1,0 +1,168 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+Vulkan 1.4.329 - Forward+ - Using Device #0: NVIDIA - NVIDIA GeForce RTX 4060
+
+[ui] loadout_received pid=1 Hehe {"primary":"rifle_m416","secondary":"pistol_9"}
+[ui] lobby shows my loadout (pid 1): {"primary":"rifle_m416","secondary":"pistol_9"}
+[ui] request_loadout {"primary":"rifle_m416","secondary":"pistol_9"}
+[world] map built in 12673 ms
+[map] 243 buildings, 1951 doors, 2617 containers, 2745 props, #b1fba961 on PC
+[bots] learned from 275 cells, 4 stuck spots (user://bot_memory_lawless_sub.json)
+[match    0.0] deathmatch start on lawless_sub: 21 players, 3 teams; spawns (-119.0, 1.0, -144.0), (190.0, 1.0, -40.0), (-72.0, 1.0, 196.0) (326/353/343 m apart, layout); day offset 0 s; zone centre (-22.0, 33.0) r=359
+[game] autotest r12
+[match    0.0] status: { "ground": 21 }; armed 21; shots 0; zone 0 wait r=359; corpses 0
+[match    0.0] dm teams: North Team 7 at (-120.0, -144.0) spread 3 m; East Team 7 at (189.0, -40.0) spread 3 m; South Team 7 at (-73.0, 196.0) spread 3 m; gap 326 m; zone centre (-22.0, 33.0)
+[match    0.0] bots: { "roam": 20 }; containers searched by bots 0 (all players 0); plan steps done 0; guns carried 40
+[match    0.0] roles: { "stalker": { "roam": 7 }, "sniper": { "roam": 7 }, "looter": { "roam": 5 }, "rusher": { "roam": 1 } }; stuck now 0; waypoints 2075; team { "lines": 0, "pings": 0, "laser_follow": 0, "learned_cells": 275, "blocked_cells": 0, "squads": 0, "following_humans": 0 }
+[match    0.0] [lootstats] bots on the ground 20 (in water 0); armed 20; armed with ammo for a gun 20; long guns 20; attachments fitted 0; rounds of unusable ammo carried 0; items on the ground 6320; bot pickups { "detours": 0, "detour_taken": 0, "fetches": 0, "fetch_done": 0, "items_taken": 0 }
+[match    1.9] [radio] Manong Guard (looter): haze
+[match    1.9] [radio] Mang Tomas Ketchup (sniper): haze
+[match    3.0] Ate Load crushed by the field at (-25.0, 400.0, 252.0) (r=252.3, outdoors, 1.2 m into it)
+[match    3.0] [field death] Ate Load (stalker) state roam at (-25.0, 400.0, 252.0) goal - path 0/0 no_prog 0.0 pending false
+[match    3.0] [field death]   0 roam (-122.0, 1.0, -144.0) step 0/0 - path 0/0 stuck 0.0 in false exit 0 field -inf btn 0 esc 0.0
+[match    3.0] [field death]   1 roam (-122.0, 1.0, -144.0) step 0/0 - path 0/0 stuck 0.0 in false exit 0 field -inf btn 0 esc 0.0
+[match    3.0] Ate Load killed by the world (field); 3 teams left
+[match    3.0] alive: North Team 6, East Team 7
+[match    3.6] [radio] Totoy Bibo (looter): down
+[match    3.6] Totoy Bibo (team 0) landed at (5.0, 400.0, 250.0), 4.4 m/s, health 100; teammates -
+[autotest] strip A:/Python/aetherion-project/work/lemondev/r13/ab/on_field_2/ab/field_push_fp.png
+[autotest] PASS r12_field_push: open ground, edge closing at 3 m/s for 5 s: alive true, health 100 -> 100, deepest -0.00 m inside it, carried 13.1 m in (edge 15.0 m minus the 2 m start gap)
+[autotest] PASS r12_field_crush: dummy behind a 6 m wall: dead after 1.22 s, cause field
+[autotest] FAIL r12_field_bot_escapes: bot behind the middle of a 10 m wall: alive true, ended at (9.5, 0.0, -18.9)
+[match    6.9] [radio] Aling Taho (sniper): haze
+[match    6.9] [radio] Mang Jolo (stalker): haze
+[match   14.8] zone 1 shrinking to r=30 at (-275.0, -195.0)
+[match   15.0] status: { "ground": 20 }; armed 20; shots 0; zone 1 shrink r=107; corpses 1; server tick avg 2.14 ms, p99 5.65 ms, max 31.55 ms over 900 ticks
+[match   15.0] dm teams: North Team 6 at (-136.0, -98.0) spread 166 m; East Team 7 at (149.0, -22.0) spread 2 m; South Team 7 at (-89.0, 153.0) spread 3 m; gap 303 m; zone centre (-275.0, -195.0)
+[match   15.0] bots: { "zone": 18, "loot": 1 }; containers searched by bots 0 (all players 0); plan steps done 2; guns carried 39
+[match   15.0] roles: { "stalker": { "zone": 6 }, "sniper": { "zone": 7 }, "looter": { "zone": 4, "loot": 1 }, "rusher": { "zone": 1 } }; stuck now 0; waypoints 2075; team { "lines": 5, "pings": 0, "laser_follow": 0, "learned_cells": 276, "blocked_cells": 0, "squads": 1, "following_humans": 0 }
+[match   15.0] [lootstats] bots on the ground 19 (in water 0); armed 19; armed with ammo for a gun 19; long guns 20; attachments fitted 0; rounds of unusable ammo carried 0; items on the ground 6319; bot pickups { "detours": 1, "detour_taken": 1, "fetches": 0, "fetch_done": 0, "items_taken": 1 }
+[match   17.3] Kapitan Tikoy (team 1) landed at (134.0, 1.0, -15.0), 2.5 m/s, health 100; teammates -
+[match   18.6] Bebot Karaoke (team 2) landed at (-95.0, 1.0, 146.0), 4.9 m/s, health 100; teammates -
+[match   18.8] Bossing Dodong (team 1) landed at (132.0, 1.0, -15.0), 2.5 m/s, health 100; teammates 7 m
+[match   20.9] Tita Baby (team 2) landed at (-96.0, 1.0, 149.0), 4.9 m/s, health 100; teammates 6 m
+[match   22.5] Manong Guard (team 2) landed at (-92.0, 1.0, 139.0), 4.9 m/s, health 100; teammates 8 m, 4 m
+[match   23.0] Kuya Wifi (team 0) landed at (-186.0, 1.0, -166.0), 4.9 m/s, health 100; teammates 46 m
+[match   23.8] Mang Tomas (team 0) landed at (-189.0, 1.0, -157.0), 4.9 m/s, health 100; teammates 55 m, 10 m
+[match   24.9] Bayaw Erning (team 2) landed at (-95.0, 1.0, 142.0), 4.9 m/s, health 100; teammates 4 m, 14 m, 4 m
+[match   27.1] Tito Videoke (team 1) landed at (93.0, 1.0, -14.0), 2.5 m/s, health 100; teammates 1 m, 7 m
+[match   28.2] Ate Bebang (team 1) landed at (93.0, 1.0, -15.0), 2.5 m/s, health 100; teammates 2 m, 14 m, 6 m
+[match   30.0] status: { "ground": 20 }; armed 20; shots 0; zone 1 wait r=108; corpses 1; server tick avg 2.39 ms, p99 4.80 ms, max 9.58 ms over 900 ticks
+[match   30.0] dm teams: North Team 6 at (-156.0, -104.0) spread 174 m; East Team 7 at (86.0, -13.0) spread 7 m; South Team 7 at (-100.0, 136.0) spread 10 m; gap 267 m; zone centre (-118.0, -92.0)
+[match   30.0] bots: { "zone": 18, "loot": 1 }; containers searched by bots 0 (all players 0); plan steps done 0; guns carried 39
+[match   30.0] roles: { "stalker": { "zone": 6 }, "sniper": { "zone": 7 }, "looter": { "zone": 4, "loot": 1 }, "rusher": { "zone": 1 } }; stuck now 0; waypoints 2075; team { "lines": 5, "pings": 0, "laser_follow": 0, "learned_cells": 276, "blocked_cells": 0, "squads": 1, "following_humans": 0 }
+[match   30.0] [lootstats] bots on the ground 19 (in water 0); armed 19; armed with ammo for a gun 19; long guns 20; attachments fitted 0; rounds of unusable ammo carried 0; items on the ground 6319; bot pickups { "detours": 1, "detour_taken": 1, "fetches": 0, "fetch_done": 0, "items_taken": 1 }
+[match   30.8] Mang Tomas Ketchup (team 1) landed at (93.0, 1.0, -13.0), 2.5 m/s, health 100; teammates 13 m, 26 m, 10 m, 20 m
+[match   31.1] Aling Taho (team 1) landed at (94.0, 1.0, -12.0), 4.9 m/s, health 100; teammates 17 m, 29 m, 14 m, 3 m, 24 m
+[match   31.2] Tsong Balut (team 1) landed at (93.0, 1.0, -14.0), 2.5 m/s, health 100; teammates 16 m, 29 m, 2 m, 13 m, 2 m, 23 m
+[match   32.7] Nanay Kakanin (team 2) landed at (-92.0, 1.0, 139.0), 4.9 m/s, health 100; teammates 5 m, 47 m, 31 m, 15 m
+[match   36.8] Inday Rice Cooker (team 2) landed at (-92.0, 1.0, 139.0), 4.9 m/s, health 100; teammates 4 m, 71 m, 56 m, 37 m, 15 m
+[match   37.3] zone 1 shrinking to r=30 at (-118.0, -92.0)
+[match   39.2] Mang Jolo (team 0) landed at (-202.0, 1.0, -154.0), 4.9 m/s, health 100; teammates 88 m, 55 m, 19 m
+[match   45.0] status: { "ground": 20 }; armed 20; shots 0; zone 1 shrink r=84; corpses 1; server tick avg 2.12 ms, p99 3.44 ms, max 7.02 ms over 900 ticks
+[match   45.0] dm teams: North Team 6 at (-126.0, -59.0) spread 157 m; East Team 7 at (9.0, -9.0) spread 16 m; South Team 7 at (-113.0, 89.0) spread 40 m; gap 159 m; zone centre (-118.0, -92.0)
+[match   45.0] bots: { "zone": 16, "follow": 1, "roam": 2 }; containers searched by bots 0 (all players 0); plan steps done 2; guns carried 39
+[match   45.0] [stuck] Tita Baby (stalker, zone) at (-92.8, 2.0, 141.3) -> (-113.0, 1.0, 119.0), ahead , no_prog 2.7
+[match   45.0] roles: { "stalker": { "zone": 6 }, "sniper": { "zone": 6, "roam": 1 }, "looter": { "zone": 3, "follow": 1, "roam": 1 }, "rusher": { "zone": 1 } }; stuck now 1; waypoints 2075; team { "lines": 5, "pings": 0, "laser_follow": 0, "learned_cells": 276, "blocked_cells": 1, "squads": 1, "following_humans": 0 }
+[match   45.0] [lootstats] bots on the ground 19 (in water 0); armed 19; armed with ammo for a gun 19; long guns 20; attachments fitted 0; rounds of unusable ammo carried 0; items on the ground 6319; bot pickups { "detours": 1, "detour_taken": 1, "fetches": 0, "fetch_done": 0, "items_taken": 1 }
+[match   51.2] [radio] Bayaw Erning (stalker): contact
+[match   51.2] [radio] Kapitan Tikoy (sniper): contact
+[match   54.7] [radio] Bossing Dodong (sniper): contact
+[match   55.7] [radio] Inday Rice Cooker (stalker): contact
+[match   57.1] [radio] Aling Taho (sniper): contact
+[match   59.8] zone 1 shrinking to r=30 at (-118.0, -196.0)
+[match   60.0] status: { "ground": 20 }; armed 20; shots 1; zone 1 shrink r=107; corpses 1; server tick avg 2.71 ms, p99 5.83 ms, max 8.51 ms over 900 ticks
+[match   60.0] dm teams: North Team 6 at (-108.0, -82.0) spread 160 m; East Team 7 at (-76.0, -10.0) spread 15 m; South Team 7 at (-117.0, 38.0) spread 45 m; gap 103 m; zone centre (-118.0, -196.0)
+[match   60.0] bots: { "zone": 19 }; containers searched by bots 0 (all players 0); plan steps done 2; guns carried 39
+[match   60.0] [stuck] Bayaw Erning (stalker, zone) at (-116.7, 1.5, 22.8) -> (-103.0, 0.9, -33.0), ahead , no_prog 2.5
+[match   60.0] [stuck] Nanay Kakanin (stalker, zone) at (-116.9, 0.9, 34.2) -> (-103.0, 0.9, -27.0), ahead , no_prog 2.4
+[match   60.0] roles: { "stalker": { "zone": 6 }, "sniper": { "zone": 7 }, "looter": { "zone": 5 }, "rusher": { "zone": 1 } }; stuck now 2; waypoints 2075; team { "lines": 10, "pings": 0, "laser_follow": 0, "learned_cells": 276, "blocked_cells": 1, "squads": 1, "following_humans": 0 }
+[match   60.0] [lootstats] bots on the ground 19 (in water 0); armed 19; armed with ammo for a gun 19; long guns 20; attachments fitted 0; rounds of unusable ammo carried 0; items on the ground 6318; bot pickups { "detours": 3, "detour_taken": 3, "fetches": 0, "fetch_done": 0, "items_taken": 3 }
+[match   60.3] [radio] Kapitan Tikoy (sniper): contact
+[match   62.1] [radio] Tito Videoke (rusher): taking_fire
+[match   62.2] [radio] Manong Guard (looter): taking_fire
+[match   63.1] Manong Guard killed by Tito Videoke (gunshot); 3 teams left
+[match   63.1] alive: North Team 6, East Team 7
+[match   63.2] [radio] Nanay Kakanin (stalker): affirmative
+[match   63.7] [radio] Tito Videoke (rusher): kill
+[match   64.2] [radio] Bebot Karaoke (looter): affirmative
+[match   65.2] [radio] Bebot Karaoke (looter): down
+[match   65.5] Ising Batingaw (team 2) landed at (-93.0, 3.0, 144.0), 2.5 m/s, health 100; teammates 97 m, 218 m, 140 m, 152 m, 117 m
+[match   65.9] [radio] Bossing Dodong (sniper): contact
+[match   67.2] [radio] Tsong Balut (sniper): taking_fire
+[match   69.6] [radio] Totoy Bibo (looter): contact
+[match   72.6] [radio] Kapitan Tikoy (sniper): contact
+[match   74.4] [radio] Aling Taho (sniper): contact
+[match   74.4] [radio] Mang Jolo (stalker): contact
+[match   75.0] status: { "ground": 19 }; armed 19; shots 63; zone 1 wait r=108; corpses 2; server tick avg 4.36 ms, p99 9.48 ms, max 23.95 ms over 900 ticks
+[match   75.0] dm teams: North Team 6 at (-87.0, -107.0) spread 168 m; East Team 7 at (-105.0, -71.0) spread 16 m; South Team 6 at (-119.0, -15.0) spread 57 m; gap 78 m; zone centre (-128.0, -202.0)
+[match   75.0] bots: { "zone": 11, "fight": 6, "loot": 1 }; containers searched by bots 0 (all players 0); plan steps done 0; guns carried 37
+[match   75.0] roles: { "stalker": { "zone": 5, "fight": 1 }, "sniper": { "zone": 5, "fight": 2 }, "looter": { "loot": 1, "fight": 3 }, "rusher": { "zone": 1 } }; stuck now 0; waypoints 2075; team { "lines": 23, "pings": 0, "laser_follow": 0, "learned_cells": 278, "blocked_cells": 1, "squads": 1, "following_humans": 0 }
+[match   75.0] [lootstats] bots on the ground 18 (in water 0); armed 18; armed with ammo for a gun 18; long guns 19; attachments fitted 0; rounds of unusable ammo carried 0; items on the ground 6318; bot pickups { "detours": 4, "detour_taken": 3, "fetches": 0, "fetch_done": 0, "items_taken": 3 }
+[match   75.6] [radio] Bebot Karaoke (looter): taking_fire
+[match   77.1] [radio] Kuya Wifi (looter): taking_fire
+[match   77.6] [radio] Tito Videoke (rusher): contact
+[match   77.9] [radio] Bebot Karaoke (looter): need_help
+[match   78.8] [radio] Nanay Kakanin (stalker): affirmative
+[match   79.4] [radio] Kapitan Tikoy (sniper): taking_fire
+[match   79.8] [radio] Mang Jolo (stalker): taking_fire
+[match   79.8] Kapitan Tikoy killed by Bossing Dodong (gunshot); 3 teams left
+[match   79.8] alive: North Team 6, East Team 6
+[match   79.9] [radio] Tita Baby (stalker): affirmative
+[match   80.2] [radio] Tito Videoke (rusher): need_help
+[match   81.0] [radio] Bossing Dodong (sniper): affirmative
+[match   81.0] [radio] Inday Rice Cooker (stalker): taking_fire
+[match   81.1] Tito Videoke killed by Bossing Dodong (gunshot); 3 teams left
+[match   81.1] alive: North Team 6, East Team 5
+[match   81.7] [radio] Aling Taho (sniper): affirmative
+[match   82.0] [radio] Inday Rice Cooker (stalker): need_help
+[match   82.1] [radio] Tatay Kulas (sniper): good_spot
+[match   82.1] Bebot Karaoke killed by Tatay Kulas (gunshot); 3 teams left
+[match   82.1] alive: North Team 6, East Team 5
+[match   82.3] zone 1 shrinking to r=30 at (-128.0, -202.0)
+[match   82.4] [radio] Tsong Balut (sniper): taking_fire
+[match   82.9] [radio] Bayaw Erning (stalker): down
+[match   82.9] [radio] Tatay Kulas (sniper): kill
+[match   83.0] Inday Rice Cooker killed by Mang Tomas Ketchup (bleeding); 3 teams left
+[match   83.0] alive: North Team 6, East Team 5
+[match   83.2] [radio] Bossing Dodong (sniper): down
+[match   84.0] [radio] Mang Tomas Ketchup (sniper): kill
+[match   84.0] [radio] Nanay Kakanin (stalker): affirmative
+[match   84.8] [radio] Ate Bebang (sniper): affirmative
+[match   85.0] [radio] Tita Baby (stalker): down
+[match   85.5] [radio] Bossing Dodong (sniper): kill
+[match   85.6] [radio] Mang Jolo (stalker): need_help
+[match   86.5] [radio] Bossing Dodong (sniper): down
+[match   86.6] [radio] Tatay Kulas (sniper): affirmative
+[match   87.4] [radio] Kuya Wifi (looter): affirmative
+[match   88.7] [radio] Bossing Dodong (sniper): need_help
+[match   89.5] [radio] Tsong Balut (sniper): taking_fire
+[match   89.7] Mang Jolo killed by Bossing Dodong (gunshot); 3 teams left
+[match   89.7] alive: North Team 5, East Team 5
+[match   90.0] status: { "ground": 14 }; armed 14; shots 402; zone 1 shrink r=84; corpses 7; server tick avg 7.90 ms, p99 15.34 ms, max 38.24 ms over 900 ticks
+[match   90.0] dm teams: North Team 5 at (-83.0, -91.0) spread 190 m; East Team 5 at (-118.0, -119.0) spread 17 m; South Team 4 at (-122.0, -48.0) spread 47 m; gap 91 m; zone centre (-128.0, -202.0)
+[match   90.0] bots: { "zone": 9, "fight": 3, "heal": 1 }; containers searched by bots 0 (all players 0); plan steps done 4; guns carried 27
+[match   90.0] roles: { "stalker": { "zone": 4 }, "sniper": { "zone": 4, "fight": 1, "heal": 1 }, "looter": { "zone": 1, "fight": 2 } }; stuck now 0; waypoints 2075; team { "lines": 52, "pings": 0, "laser_follow": 0, "learned_cells": 286, "blocked_cells": 1, "squads": 1, "following_humans": 0 }
+[match   90.0] [lootstats] bots on the ground 13 (in water 0); armed 13; armed with ammo for a gun 13; long guns 14; attachments fitted 0; rounds of unusable ammo carried 0; items on the ground 6317; bot pickups { "detours": 4, "detour_taken": 4, "fetches": 0, "fetch_done": 0, "items_taken": 4 }
+[match   90.2] [radio] Totoy Bibo (looter): contact
+[match   90.2] [radio] Ate Bebang (sniper): affirmative
+[match   90.9] [radio] Aling Taho (sniper): affirmative
+[match   91.1] [radio] Totoy Bibo (looter): down
+[match   91.9] [radio] Bossing Dodong (sniper): kill
+[match   92.3] Bossing Dodong killed by Totoy Bibo (gunshot); 3 teams left
+[match   92.3] alive: North Team 5, East Team 4
+[match   92.7] [radio] Aling Taho (sniper): down
+[match   92.7] Tsong Balut killed by Nanay Kakanin (gunshot); 3 teams left
+[match   92.7] alive: North Team 5, East Team 3
+[match   92.8] [radio] Totoy Bibo (looter): kill
+[match   93.1] [radio] Nanay Kakanin (stalker): kill
+[match   93.6] [radio] Aling Taho (sniper): down
+[match   93.8] Mang Tomas killed by Kuya Wifi (gunshot); 3 teams left
+[match   93.8] alive: North Team 4, East Team 3
+[match   94.2] [radio] Totoy Bibo (looter): down
+[match   94.3] [canal] Totoy Bibo (looter) fell in at (-72.6, -1.1, -184.9) from [(-66.2, 1.0, -183.5), (-67.2, 1.1, -183.8), (-68.5, 1.9, -184.1), (-69.7, 1.9, -184.4), (-70.9, 1.2, -184.7), (-72.1, -0.1, -184.8)], state fight goal (-111.5, 1.0, -206.8) path 0/10, last move [(-61.0, 0.9, -11.0), (-65.0, 0.96, -9.0)]
+[match   94.7] [radio] Mang Tomas Ketchup (sniper): taking_fire
+[match   95.2] [radio] Kuya Wifi (looter): headshot_kill
+[match   96.5] [radio] Tita Baby (stalker): reloading
+[match   96.8] [radio] Ate Bebang (sniper): taking_fire
+[autotest] PASS r12_fieldhouse: bot in the middle of a house, no door remembered, field coming: house 2, field from behind: out after 0.6 s (18.2 m from the edge), alive; house 4, field on the door side: out after 2.5 s (25.8 m from the edge), alive; house 5, field from behind: out after 4.2 s (25.8 m from the edge), alive; house 23, field on the door side: out after 6.1 s (20.3 m from the edge), alive
+[autotest] done: 4 checks, 1 failed

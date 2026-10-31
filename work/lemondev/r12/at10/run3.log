@@ -1,0 +1,44 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+Vulkan 1.4.329 - Forward+ - Using Device #0: NVIDIA - NVIDIA GeForce RTX 4060
+
+[ui] loadout_received pid=1 Hehe {"primary":"rifle_m416","secondary":"pistol_9"}
+[ui] lobby shows my loadout (pid 1): {"primary":"rifle_m416","secondary":"pistol_9"}
+[ui] request_loadout {"primary":"rifle_m416","secondary":"pistol_9"}
+[world] map built in 15643 ms
+[map] 243 buildings, 1951 doors, 2617 containers, 2745 props, #b1fba961 on PC
+[bots] learned from 241 cells, 6 stuck spots (user://bot_memory_lawless_sub.json)
+[game] autotest r12
+[r12] fieldhouse failed in house 23 at (-38.0, 1.0, -202.0), door facing (1.0, 0.0, 0.0):
+  0.5 loot step 0/2 -> (-34.0, 1.0, -205.0) at (-38.0, 1.0, -201.0) in true exit 0 stuck 0.0 field -18.5
+  1.0 loot step 0/2 -> (-34.0, 1.0, -205.0) at (-37.0, 1.0, -202.0) in true exit 0 stuck 0.0 field -19.7
+  1.5 loot step 0/2 -> (-34.0, 1.0, -205.0) at (-36.0, 1.0, -202.0) in true exit 0 stuck 0.2 field -20.1
+  2.0 loot step 0/2 -> (-34.0, 1.0, -205.0) at (-36.0, 1.0, -202.0) in true exit 0 stuck 0.7 field -20.1
+  2.5 loot step 0/2 -> (-34.0, 1.0, -205.0) at (-36.0, 1.0, -202.0) in true exit 0 stuck 1.2 field -20.1
+  3.0 loot step 0/2 -> (-34.0, 1.0, -205.0) at (-36.0, 1.0, -202.0) in true exit 0 stuck 0.0 field -20.6
+  3.5 loot step 0/2 -> (-34.0, 1.0, -205.0) at (-35.0, 1.0, -203.0) in true exit 0 stuck 0.0 field -21.2
+  4.0 loot step 0/2 -> (-34.0, 1.0, -205.0) at (-35.0, 1.0, -203.0) in true exit 0 stuck 0.4 field -21.5
+  4.5 loot step 0/2 -> (-34.0, 1.0, -205.0) at (-35.0, 1.0, -203.0) in true exit 0 stuck 0.9 field -21.5
+  5.0 loot step 0/2 -> (-34.0, 1.0, -205.0) at (-35.0, 1.0, -203.0) in true exit 0 stuck 1.4 field -21.4
+  5.5 loot step 0/2 -> (-34.0, 1.0, -205.0) at (-34.0, 1.0, -204.0) in true exit 0 stuck 0.0 field -22.0
+  6.0 loot step 1/2 -> (-32.0, 1.0, -205.0) at (-34.0, 1.0, -204.0) in true exit 0 stuck 0.2 field -22.4
+  6.5 loot step 1/2 -> (-32.0, 1.0, -205.0) at (-33.0, 1.0, -204.0) in true exit 0 stuck 0.2 field -22.9
+  7.0 loot step 1/2 -> (-32.0, 1.0, -205.0) at (-33.0, 1.0, -204.0) in true exit 0 stuck 0.7 field -22.9
+  7.5 loot step 1/2 -> (-32.0, 1.0, -205.0) at (-33.0, 1.0, -204.0) in true exit 0 stuck 1.2 field -22.9
+  8.0 loot step 1/2 -> (-32.0, 1.0, -205.0) at (-34.0, 2.0, -204.0) in true exit 0 stuck 1.7 field -22.8
+  8.5 loot step 1/2 -> (-32.0, 1.0, -205.0) at (-33.0, 1.0, -204.0) in true exit 0 stuck 2.2 field -21.3
+  9.0 loot step 1/2 -> (-32.0, 1.0, -205.0) at (-33.0, 2.0, -204.0) in true exit 0 stuck 2.7 field -19.8
+  9.5 loot step 1/2 -> (-32.0, 1.0, -205.0) at (-33.0, 2.0, -204.0) in true exit 0 stuck 3.2 field -18.2
+  10.0 loot step 1/2 -> (-32.0, 1.0, -205.0) at (-33.0, 1.0, -204.0) in true exit 0 stuck 3.7 field -16.7
+  10.5 loot step 0/2 -> (-43.0, 1.0, -199.0) at (-34.0, 2.0, -204.0) in true exit 0 stuck 0.0 field -15.1
+  11.0 loot step 0/2 -> (-43.0, 1.0, -199.0) at (-34.0, 1.0, -204.0) in true exit 0 stuck 0.0 field -13.3
+  11.5 loot step 0/2 -> (-43.0, 1.0, -199.0) at (-35.0, 1.0, -204.0) in false exit 0 stuck 0.0 field -10.9
+  12.0 loot step 0/2 -> (-43.0, 1.0, -199.0) at (-34.0, 1.0, -204.0) in true exit 0 stuck 0.5 field -9.9
+  12.5 loot step 0/2 -> (-43.0, 1.0, -199.0) at (-35.0, 1.0, -204.0) in true exit 0 stuck 1.0 field -7.8
+  13.0 loot step 0/2 -> (-43.0, 1.0, -199.0) at (-34.0, 1.0, -204.0) in true exit 0 stuck 1.5 field -6.4
+  13.5 loot step 0/2 -> (-43.0, 1.0, -199.0) at (-35.0, 1.0, -204.0) in true exit 0 stuck 2.0 field -4.5
+  14.0 loot step 0/2 -> (-43.0, 1.0, -199.0) at (-35.0, 2.0, -204.0) in true exit 0 stuck 0.1 field -2.3
+  14.5 loot step 0/2 -> (-43.0, 1.0, -199.0) at (-36.0, 1.0, -204.0) in true exit 0 stuck 0.1 field -0.1
+  15.0 loot step 0/2 -> (-43.0, 1.0, -199.0) at (-34.0, 1.0, -204.0) in true exit 0 stuck 0.6 field -0.2
+  15.5 loot step 0/2 -> (-43.0, 1.0, -199.0) at (-34.0, 1.0, -204.0) in true exit 0 stuck 1.1 field 0.6
+[autotest] FAIL r12_fieldhouse: bot in the middle of a house, no door remembered, field coming: house 23, field from behind: out after 5.4 s (21.8 m from the edge), crushed
+[autotest] done: 1 checks, 1 failed

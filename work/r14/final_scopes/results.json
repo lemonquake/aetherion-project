@@ -1,0 +1,27 @@
+[
+  [
+    "r14_sights_on_line",
+    true,
+    "sight window vs where the bullets go, px (looking up 62 deg, level): { \"sight_reddot\": [0.4, 0.4], \"sight_holo\": [0.5, 0.4], \"sight_reflex\": [0.4, 0.5] }"
+  ],
+  [
+    "r14_scopes_unique",
+    true,
+    "12 sights, 12 reticle styles; most alike: sight_reddot / sight_reflex overlap 54%; reticle pixels { \"sight_reddot\": 9500, \"sight_holo\": 7483, \"sight_reflex\": 10071, \"scope_2x\": 4793, \"scope_3x\": 4609, \"scope_4x\": 3321, \"scope_lpvo\": 3044, \"scope_6x\": 2817, \"scope_8x\": 2526, \"scope_night\": 1636, \"scope_thermal\": 421, \"scope_15x\": 691 }"
+  ],
+  [
+    "r14_scope_night",
+    true,
+    "night vision filter true, eyepiece mean colour [0.11, 0.56, 0.19]"
+  ],
+  [
+    "r14_scope_thermal",
+    true,
+    "thermal filter true, 1 warm bodies in the lens, brightest pixel on the enemy 1.00"
+  ],
+  [
+    "r14_scope_variable",
+    true,
+    "1-4x scope: 4.00x -> 2.05x after three wheel steps, field of view 20.0 -> 39.0, gun in hand rifle_556"
+  ]
+]

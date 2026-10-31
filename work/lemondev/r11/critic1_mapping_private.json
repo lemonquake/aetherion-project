@@ -1,0 +1,30 @@
+{
+ "view1": {
+  "name": "air",
+  "A": "baseline"
+ },
+ "view2": {
+  "name": "intersection",
+  "A": "candidate"
+ },
+ "view3": {
+  "name": "street",
+  "A": "baseline"
+ },
+ "view4": {
+  "name": "houses",
+  "A": "baseline"
+ },
+ "view5": {
+  "name": "tower",
+  "A": "baseline"
+ },
+ "view6": {
+  "name": "interior_living",
+  "A": "candidate"
+ },
+ "view7": {
+  "name": "interior_hall",
+  "A": "candidate"
+ }
+}

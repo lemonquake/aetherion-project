@@ -1,0 +1,109 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+Vulkan 1.4.329 - Forward+ - Using Device #0: NVIDIA - NVIDIA GeForce RTX 4060
+
+[ui] loadout_received pid=1 Hehe {"primary":"rifle_m416","secondary":"pistol_9"}
+[ui] lobby shows my loadout (pid 1): {"primary":"rifle_m416","secondary":"pistol_9"}
+[ui] request_loadout {"primary":"rifle_m416","secondary":"pistol_9"}
+[world] map built in 14004 ms
+[map] 243 buildings, 1951 doors, 2617 containers, 2745 props, #b1fba961 on PC
+[bots] learned from 283 cells, 2 stuck spots (user://bot_memory_lawless_sub.json)
+[match    0.0] deathmatch start on lawless_sub: 21 players, 3 teams; spawns (-119.0, 1.0, -144.0), (190.0, 1.0, -40.0), (-72.0, 1.0, 196.0) (326/353/343 m apart, layout); day offset 150 s; zone centre (-14.0, -21.0) r=345
+[game] autotest r13
+[match    0.0] [radio] Kapitbahay Lito (stalker): haze
+[match    0.0] status: { "ground": 21 }; armed 21; shots 0; zone 0 wait r=345; corpses 0
+[match    0.0] dm teams: North Team 7 at (-120.0, -144.0) spread 3 m; East Team 7 at (189.0, -40.0) spread 3 m; South Team 7 at (-73.0, 196.0) spread 3 m; gap 326 m; zone centre (-14.0, -21.0)
+[match    0.0] bots: { "roam": 18, "zone": 2 }; containers searched by bots 0 (all players 0); plan steps done 0; guns carried 40
+[match    0.0] roles: { "sniper": { "roam": 4 }, "rusher": { "roam": 3, "zone": 1 }, "stalker": { "zone": 1, "roam": 6 }, "looter": { "roam": 5 } }; stuck now 0; waypoints 2075; team { "lines": 1, "pings": 0, "laser_follow": 0, "learned_cells": 283, "blocked_cells": 0, "squads": 0, "following_humans": 0 }
+[match    0.0] [lootstats] bots on the ground 20 (in water 0); armed 20; armed with ammo for a gun 20; long guns 20; attachments fitted 0; rounds of unusable ammo carried 0; items on the ground 6326; bot pickups { "detours": 0, "detour_taken": 0, "fetches": 0, "fetch_done": 0, "items_taken": 0 }
+[autotest] PASS r13_sounds_load: 18 of 18 sound ids load
+[autotest] PASS r13_awp: AWP defined with a model (res://assets/models/items/bolt_308.glb); the sumpak shoots its own sound
+[match    2.0] [radio] Hehe (?): follow_me
+[match    2.0] [voice] Hehe: follow_me; took [4, 7], refused -1
+[match    2.5] [radio] Ate Siomai (rusher): affirmative
+[match    3.5] [radio] Bebot Karaoke (stalker): affirmative
+[autotest] PASS r13_voice_follow: Follow me: 2 bots follow, 2 said affirmative, nearest bot 14.0 -> 3.4 m, state follow
+[match    7.5] [radio] Hehe (?): need_help
+[match    7.5] [voice] Hehe: need_help; took [4, 10], refused -1
+[match    8.1] [radio] Ate Siomai (rusher): affirmative
+[match    9.1] [radio] Pinsan Gardo (looter): affirmative
+[match   15.0] status: { "ground": 21 }; armed 21; shots 0; zone 0 wait r=9000; corpses 0; server tick avg 1.99 ms, p99 3.82 ms, max 15.52 ms over 900 ticks
+[match   15.0] dm teams: North Team 7 at (-189.0, -102.0) spread 87 m; East Team 7 at (189.0, -40.0) spread 3 m; South Team 7 at (-69.0, 188.0) spread 3 m; gap 383 m; zone centre (0.0, 0.0)
+[match   15.0] bots: { "roam": 18, "order": 2 }; containers searched by bots 0 (all players 0); plan steps done 0; guns carried 40
+[match   15.0] roles: { "sniper": { "roam": 4 }, "rusher": { "order": 1, "roam": 3 }, "stalker": { "roam": 7 }, "looter": { "roam": 4, "order": 1 } }; stuck now 0; waypoints 2075; team { "lines": 5, "pings": 0, "laser_follow": 0, "learned_cells": 283, "blocked_cells": 0, "squads": 0, "following_humans": 2 }
+[match   15.0] [lootstats] bots on the ground 20 (in water 0); armed 20; armed with ammo for a gun 20; long guns 20; attachments fitted 0; rounds of unusable ammo carried 0; items on the ground 6326; bot pickups { "detours": 0, "detour_taken": 0, "fetches": 0, "fetch_done": 0, "items_taken": 0 }
+[match   15.9] [radio] Ate Siomai (rusher): in_position
+[autotest] PASS r13_voice_help: Need help!: bot 55 m off said affirmative true and came 55.0 -> 4.0 m (in position said true)
+[match   22.2] [radio] Hehe (?): lets_go
+[match   22.2] [voice] Hehe: lets_go; took [7, 4, 10], refused -1
+[match   22.7] [radio] Bebot Karaoke (stalker): affirmative
+[match   23.6] [radio] Ate Siomai (rusher): affirmative
+[match   25.8] [radio] Bebot Karaoke (stalker): in_position
+[match   30.0] status: { "ground": 21 }; armed 21; shots 0; zone 0 wait r=9000; corpses 0; server tick avg 1.97 ms, p99 3.61 ms, max 7.43 ms over 900 ticks
+[match   30.0] dm teams: North Team 7 at (-170.0, -131.0) spread 81 m; East Team 7 at (189.0, -40.0) spread 3 m; South Team 7 at (-69.0, 188.0) spread 3 m; gap 370 m; zone centre (0.0, 0.0)
+[match   30.0] bots: { "roam": 17, "order": 3 }; containers searched by bots 0 (all players 0); plan steps done 0; guns carried 40
+[match   30.0] roles: { "sniper": { "roam": 4 }, "rusher": { "order": 1, "roam": 3 }, "stalker": { "roam": 6, "order": 1 }, "looter": { "roam": 4, "order": 1 } }; stuck now 0; waypoints 2075; team { "lines": 9, "pings": 0, "laser_follow": 0, "learned_cells": 283, "blocked_cells": 0, "squads": 0, "following_humans": 2 }
+[match   30.0] [lootstats] bots on the ground 20 (in water 0); armed 20; armed with ammo for a gun 20; long guns 20; attachments fitted 0; rounds of unusable ammo carried 0; items on the ground 6326; bot pickups { "detours": 0, "detour_taken": 0, "fetches": 0, "fetch_done": 0, "items_taken": 0 }
+[autotest] PASS r13_voice_go: Let's go!: bot near the player moved toward where the player looks 26.5 -> 3.1 m, affirmative true
+[match   31.7] [radio] Hehe (?): fall_back
+[match   31.7] [voice] Hehe: fall_back; took [10, 4, 7], refused -1
+[match   31.7] [radio] Pinsan Gardo (looter): in_position
+[match   32.5] [radio] Pinsan Gardo (looter): affirmative
+[match   33.5] [radio] Ate Siomai (rusher): affirmative
+[match   36.4] Bebot Karaoke (team 0) landed at (-99.0, 1.0, -134.0), 4.7 m/s, health 100; teammates -
+[match   36.6] [radio] Ate Siomai (rusher): in_position
+[autotest] PASS r13_voice_fall_back: Fall back!: bot 30 m off said affirmative true and pulled back to 5.4 m
+[match   42.0] [radio] Hehe (?): need_help
+[match   42.0] [voice] Hehe: need_help; took [], refused 4
+[match   42.5] [radio] Ate Siomai (rusher): negative
+[match   45.0] status: { "ground": 21 }; armed 21; shots 0; zone 0 wait r=9000; corpses 0; server tick avg 2.03 ms, p99 3.47 ms, max 10.15 ms over 900 ticks
+[match   45.0] dm teams: North Team 7 at (-99.0, -126.0) spread 117 m; East Team 7 at (189.0, -40.0) spread 3 m; South Team 7 at (-73.0, 144.0) spread 76 m; gap 300 m; zone centre (0.0, 0.0)
+[match   45.0] bots: { "roam": 20 }; containers searched by bots 0 (all players 0); plan steps done 0; guns carried 40
+[match   45.0] [stuck] Bebot Karaoke (stalker, roam) at (3.1, 0.9, -37.6) -> -, ahead , no_prog 1.6
+[match   45.0] roles: { "sniper": { "roam": 4 }, "rusher": { "roam": 4 }, "stalker": { "roam": 7 }, "looter": { "roam": 5 } }; stuck now 1; waypoints 2075; team { "lines": 14, "pings": 0, "laser_follow": 0, "learned_cells": 283, "blocked_cells": 0, "squads": 0, "following_humans": 2 }
+[match   45.0] [lootstats] bots on the ground 20 (in water 0); armed 20; armed with ammo for a gun 20; long guns 20; attachments fitted 0; rounds of unusable ammo carried 0; items on the ground 6326; bot pickups { "detours": 0, "detour_taken": 0, "fetches": 0, "fetch_done": 0, "items_taken": 0 }
+[autotest] PASS r13_voice_negative: Need help! with the only bot in reach in a close fight: it said negative true and took no order ({  })
+[match   47.6] [radio] Ate Siomai (rusher): affirmative
+[match   49.3] [radio] Ate Siomai (rusher): clear
+[match   60.0] status: { "ground": 21 }; armed 21; shots 0; zone 0 wait r=9000; corpses 0; server tick avg 1.86 ms, p99 2.95 ms, max 9.22 ms over 900 ticks
+[match   60.0] dm teams: North Team 7 at (-117.0, -140.0) spread 97 m; East Team 7 at (189.0, -40.0) spread 3 m; South Team 7 at (-89.0, 167.0) spread 49 m; gap 322 m; zone centre (0.0, 0.0)
+[match   60.0] bots: { "roam": 18, "camp": 1, "follow": 1 }; containers searched by bots 0 (all players 0); plan steps done 0; guns carried 40
+[match   60.0] [stuck] Bebot Karaoke (stalker, camp) at (-130.8, 1.0, -133.2) -> -, ahead , no_prog 1.6
+[match   60.0] [stuck] Pinsan Gardo (looter, follow) at (-248.7, 0.8, -230.3) -> (-201.0, 0.9, -181.0), ahead wall, no_prog 1.8
+[match   60.0] roles: { "sniper": { "roam": 4 }, "rusher": { "roam": 4 }, "stalker": { "roam": 6, "camp": 1 }, "looter": { "roam": 4, "follow": 1 } }; stuck now 2; waypoints 2075; team { "lines": 16, "pings": 0, "laser_follow": 0, "learned_cells": 283, "blocked_cells": 0, "squads": 1, "following_humans": 2 }
+[match   60.0] [lootstats] bots on the ground 20 (in water 0); armed 20; armed with ammo for a gun 20; long guns 20; attachments fitted 0; rounds of unusable ammo carried 0; items on the ground 6326; bot pickups { "detours": 0, "detour_taken": 0, "fetches": 0, "fetch_done": 0, "items_taken": 0 }
+[autotest] PASS r13_laser_check: teammate laser on a spot 14 m from a roaming bot: it got there in 2.3 s and said clear true; the camping bot took the check: false (it is now camp)
+[match   63.3] [radio] Ate Siomai (rusher): contact
+[match   63.7] [radio] Kumareng Marites (sniper): taking_fire
+[match   63.7] Kumareng Marites killed by Hehe (gunshot); 3 teams left
+[match   63.7] alive: North Team 7, East Team 7
+[match   64.1] [radio] Ate Siomai (rusher): headshot_kill
+[match   66.4] [radio] Bebot Karaoke (stalker): sneaking
+[match   66.5] [radio] Pareng Jun (sniper): taking_fire
+[match   66.5] Pareng Jun killed by Bebot Karaoke (gunshot); 3 teams left
+[match   66.5] alive: North Team 7, East Team 6
+[match   69.5] [radio] Bebot Karaoke (stalker): taking_fire
+[match   69.5] [radio] Kapitbahay Lito (stalker): kill
+[match   69.5] Bebot Karaoke killed by Kapitbahay Lito (gunshot); 3 teams left
+[match   69.5] alive: North Team 6, East Team 6
+[match   70.4] [radio] Ate Siomai (rusher): down
+[autotest] FAIL r13_kill_radio: player's headshot kill confirmed on the radio by a teammate bot true; a bot's own kill said false; a teammate's death called (man down) true
+[match   72.5] [radio] Kapitbahay Lito (stalker): headshot_kill
+[match   72.5] Hehe killed by Kapitbahay Lito (gunshot); 3 teams left
+[match   72.5] alive: North Team 5, East Team 6
+[autotest] shot A:/Python/aetherion-project/work/lemondev/r13/at2/01_death_0.3.png
+[match   72.9] [radio] Ate Siomai (rusher): down
+[autotest] shot A:/Python/aetherion-project/work/lemondev/r13/at2/02_death_1.0.png
+[match   75.0] status: { "ground": 17 }; armed 17; shots 19; zone 0 wait r=9000; corpses 4; server tick avg 1.89 ms, p99 3.46 ms, max 9.46 ms over 900 ticks
+[match   75.0] dm teams: North Team 5 at (-88.0, -128.0) spread 104 m; East Team 6 at (189.0, -40.0) spread 3 m; South Team 6 at (-76.0, 136.0) spread 88 m; gap 290 m; zone centre (0.0, 0.0)
+[match   75.0] bots: { "roam": 16, "fight": 1 }; containers searched by bots 0 (all players 0); plan steps done 0; guns carried 34
+[match   75.0] roles: { "rusher": { "roam": 4 }, "stalker": { "roam": 6 }, "looter": { "roam": 4, "fight": 1 }, "sniper": { "roam": 2 } }; stuck now 0; waypoints 2075; team { "lines": 26, "pings": 0, "laser_follow": 0, "learned_cells": 289, "blocked_cells": 0, "squads": 1, "following_humans": 2 }
+[match   75.0] [lootstats] bots on the ground 17 (in water 0); armed 17; armed with ammo for a gun 17; long guns 17; attachments fitted 0; rounds of unusable ammo carried 0; items on the ground 6326; bot pickups { "detours": 0, "detour_taken": 0, "fetches": 0, "fetch_done": 0, "items_taken": 0 }
+[autotest] shot A:/Python/aetherion-project/work/lemondev/r13/at2/03_death_2.5.png
+[match   76.2] [radio] Pinsan Gardo (looter): reloading
+[autotest] shot A:/Python/aetherion-project/work/lemondev/r13/at2/04_death_4.5.png
+[autotest] PASS r13_death_camera: camera on the body in third person (distance, height): [[0.35, 3.8, 2.87], [1.0, 5.04, 2.76], [2.5, 5.19, 2.75], [4.5, 5.19, 2.75]]; spectating after 6 s: true
+[autotest] PASS r13_death_card: card: killed by Kapitbahay Lito (killer Kapitbahay Lito), "S1897 Pump  ·  22 m  ·  shot through the head", headshot badge true
+[match   79.7] [radio] Kapitbahay Lito (stalker): taking_fire
+[autotest] shot A:/Python/aetherion-project/work/lemondev/r13/at2/05_death_card_body.png
+[autotest] shot A:/Python/aetherion-project/work/lemondev/r13/at2/06_death_card_field.png
+[autotest] done: 11 checks, 1 failed

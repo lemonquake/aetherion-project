@@ -1,0 +1,54 @@
+{
+  "spectate": {
+    "fps": 60.2449484296966,
+    "frames": 482,
+    "near": 6,
+    "over_16ms": 220,
+    "p99_ms": 18.651,
+    "per_bot": [
+      [
+        "5",
+        61,
+        0.0
+      ],
+      [
+        "Kapitan Tikoy",
+        481,
+        0.58
+      ],
+      [
+        "Manong Guard",
+        481,
+        0.63
+      ],
+      [
+        "13",
+        50,
+        0.0
+      ],
+      [
+        "Ate Load Dito",
+        481,
+        0.89
+      ]
+    ],
+    "still_share": 0.648648648648649,
+    "watched": "Bossing Barbecue"
+  },
+  "zone": {
+    "dm_total_s": 250.0,
+    "fast": 1.6,
+    "lobby_speed_vs_phase0": [
+      [
+        1.0,
+        60.0,
+        60.0
+      ],
+      [
+        2.5,
+        24.0,
+        24.0
+      ]
+    ]
+  }
+}

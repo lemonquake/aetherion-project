@@ -1,0 +1,32 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+Vulkan 1.4.329 - Forward+ - Using Device #0: NVIDIA - NVIDIA GeForce RTX 4060
+
+[ui] loadout_received pid=1 Hehe {"primary":"rifle_m416","secondary":"pistol_9"}
+[ui] lobby shows my loadout (pid 1): {"primary":"rifle_m416","secondary":"pistol_9"}
+[ui] request_loadout {"primary":"rifle_m416","secondary":"pistol_9"}
+[world] map built in 13340 ms
+[map] 243 buildings, 1951 doors, 2617 containers, 2745 props, #b1fba961 on PC
+[bots] learned from 275 cells, 4 stuck spots (user://bot_memory_lawless_sub.json)
+[game] autotest r14
+[autotest] shot A:/Python/aetherion-project/work/r14/final_scopes/01_sight_sight_reddot.png
+[autotest] shot A:/Python/aetherion-project/work/r14/final_scopes/02_sight_sight_holo.png
+[autotest] shot A:/Python/aetherion-project/work/r14/final_scopes/03_sight_sight_reflex.png
+[autotest] shot A:/Python/aetherion-project/work/r14/final_scopes/04_sight_scope_2x.png
+[autotest] shot A:/Python/aetherion-project/work/r14/final_scopes/05_sight_scope_3x.png
+[autotest] shot A:/Python/aetherion-project/work/r14/final_scopes/06_sight_scope_4x.png
+[autotest] shot A:/Python/aetherion-project/work/r14/final_scopes/07_sight_scope_lpvo.png
+[autotest] shot A:/Python/aetherion-project/work/r14/final_scopes/08_sight_scope_6x.png
+[autotest] shot A:/Python/aetherion-project/work/r14/final_scopes/09_sight_scope_8x.png
+[autotest] shot A:/Python/aetherion-project/work/r14/final_scopes/10_sight_scope_night.png
+[autotest] shot A:/Python/aetherion-project/work/r14/final_scopes/11_sight_scope_thermal.png
+[autotest] shot A:/Python/aetherion-project/work/r14/final_scopes/12_sight_scope_15x.png
+[autotest] PASS r14_sights_on_line: sight window vs where the bullets go, px (looking up 62 deg, level): { "sight_reddot": [0.4, 0.4], "sight_holo": [0.5, 0.4], "sight_reflex": [0.4, 0.5] }
+[autotest] PASS r14_scopes_unique: 12 sights, 12 reticle styles; most alike: sight_reddot / sight_reflex overlap 54%; reticle pixels { "sight_reddot": 9500, "sight_holo": 7483, "sight_reflex": 10071, "scope_2x": 4793, "scope_3x": 4609, "scope_4x": 3321, "scope_lpvo": 3044, "scope_6x": 2817, "scope_8x": 2526, "scope_night": 1636, "scope_thermal": 421, "scope_15x": 691 }
+[autotest] shot A:/Python/aetherion-project/work/r14/final_scopes/13_sight_scope_night_body.png
+[autotest] shot A:/Python/aetherion-project/work/r14/final_scopes/14_sight_scope_thermal_body.png
+[r14] thermal probe { "mode": 3, "dist": 22.0, "behind": false, "from_centre_px": 5.9, "radius": 496.8, "blocked_by": "", "world_set": true, "chars": 21 }
+[autotest] PASS r14_scope_night: night vision filter true, eyepiece mean colour [0.11, 0.56, 0.19]
+[autotest] PASS r14_scope_thermal: thermal filter true, 1 warm bodies in the lens, brightest pixel on the enemy 1.00
+[autotest] shot A:/Python/aetherion-project/work/r14/final_scopes/15_sight_scope_lpvo_turned_down.png
+[autotest] PASS r14_scope_variable: 1-4x scope: 4.00x -> 2.05x after three wheel steps, field of view 20.0 -> 39.0, gun in hand rifle_556
+[autotest] done: 5 checks, 0 failed

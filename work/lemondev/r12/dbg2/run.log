@@ -1,0 +1,66 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+Vulkan 1.4.329 - Forward+ - Using Device #0: NVIDIA - NVIDIA GeForce RTX 4060
+
+[ui] loadout_received pid=1 Hehe {"primary":"rifle_m416","secondary":"pistol_9"}
+[ui] lobby shows my loadout (pid 1): {"primary":"rifle_m416","secondary":"pistol_9"}
+[ui] request_loadout {"primary":"rifle_m416","secondary":"pistol_9"}
+[world] map built in 12992 ms
+[map] 243 buildings, 1951 doors, 2617 containers, 2745 props, #b1fba961 on PC
+[bots] learned from 163 cells, 15 stuck spots (user://bot_memory_lawless_sub.json)
+[game] autotest r12
+[autotest] PASS r12_fall: damage by drop height: { "2.5": 0.0, "3.5": 0.0, "6.0": 9.64699329033246, "4.5": 2.1662494810232, "4.5_roll": 0.0, "8.0": 27.2805956750622, "8.0_roll": 4.41259331554444 }
+[r12dbg] x -15 p (-15.0, 0.0, -4.0) v (0.0, 0.0, 0.0) mode 3 floor true cr false inj 1.00 st 1.00 fl 0 vt -1.00 lt -1.00 rt -1.00 sl -1.00 land 0.00 pin 0.00 fwd true
+[r12dbg] x -15 p (-15.0, 0.02, -4.04) v (0.0, 0.0, -0.83) mode 3 floor true cr false inj 1.00 st 1.00 fl 0 vt -1.00 lt -1.00 rt -1.00 sl -1.00 land 0.00 pin 0.00 fwd true
+[r12dbg] x -15 p (-15.0, 0.02, -4.12) v (0.0, 0.0, -1.57) mode 3 floor true cr false inj 1.00 st 1.00 fl 0 vt -1.00 lt -1.00 rt -1.00 sl -1.00 land 0.00 pin 0.00 fwd true
+[r12dbg] x -15 p (-15.0, 0.02, -4.25) v (0.0, 0.0, -2.22) mode 3 floor true cr false inj 1.00 st 1.00 fl 0 vt -1.00 lt -1.00 rt -1.00 sl -1.00 land 0.00 pin 0.00 fwd true
+[r12dbg] x -15 p (-15.0, 0.02, -4.43) v (0.0, 0.0, -2.8) mode 3 floor true cr false inj 1.00 st 1.00 fl 0 vt -1.00 lt -1.00 rt -1.00 sl -1.00 land 0.00 pin 0.00 fwd true
+[r12dbg] x -15 p (-15.0, 0.02, -4.64) v (0.0, 0.0, -3.32) mode 3 floor true cr false inj 1.00 st 1.00 fl 0 vt -1.00 lt -1.00 rt -1.00 sl -1.00 land 0.00 pin 0.00 fwd true
+[r12dbg] x -15 p (-15.0, 0.02, -4.88) v (0.0, 0.0, -3.78) mode 3 floor true cr false inj 1.00 st 1.00 fl 0 vt -1.00 lt -1.00 rt -1.00 sl -1.00 land 0.00 pin 0.00 fwd true
+[r12dbg] x -15 p (-15.0, 0.02, -5.15) v (0.0, 0.0, -4.19) mode 3 floor true cr false inj 1.00 st 1.00 fl 0 vt -1.00 lt -1.00 rt -1.00 sl -1.00 land 0.00 pin 0.00 fwd true
+[r12dbg] x -15 p (-15.0, 0.02, -5.44) v (0.0, 0.0, -4.4) mode 3 floor true cr false inj 1.00 st 1.00 fl 0 vt -1.00 lt -1.00 rt -1.00 sl -1.00 land 0.00 pin 0.00 fwd true
+[r12dbg] x -15 p (-15.0, 0.02, -5.73) v (0.0, 0.0, -4.4) mode 3 floor true cr false inj 1.00 st 1.00 fl 0 vt -1.00 lt -1.00 rt -1.00 sl -1.00 land 0.00 pin 0.00 fwd true
+[autotest] PASS r12_ledge_2_2m: 2.2 m wall, run and jump: grabbed true at 0.10 s, on top after 1.33 s more, feet at (-15.0, 2.22, -10.64)
+[r12dbg] x 0 p (0.0, 0.0, -4.0) v (0.0, 0.0, 0.0) mode 3 floor true cr false inj 1.00 st 1.00 fl 0 vt -1.00 lt -1.00 rt -1.00 sl -1.00 land 0.00 pin 0.00 fwd true
+[r12dbg] x 0 p (0.0, 0.02, -4.04) v (0.0, 0.0, -0.83) mode 3 floor true cr false inj 1.00 st 1.00 fl 0 vt -1.00 lt -1.00 rt -1.00 sl -1.00 land 0.00 pin 0.00 fwd true
+[r12dbg] x 0 p (0.0, 0.02, -4.12) v (0.0, 0.0, -1.57) mode 3 floor true cr false inj 1.00 st 1.00 fl 0 vt -1.00 lt -1.00 rt -1.00 sl -1.00 land 0.00 pin 0.00 fwd true
+[r12dbg] x 0 p (0.0, 0.02, -4.25) v (0.0, 0.0, -2.22) mode 3 floor true cr false inj 1.00 st 1.00 fl 0 vt -1.00 lt -1.00 rt -1.00 sl -1.00 land 0.00 pin 0.00 fwd true
+[r12dbg] x 0 p (0.0, 0.02, -4.43) v (0.0, 0.0, -2.8) mode 3 floor true cr false inj 1.00 st 1.00 fl 0 vt -1.00 lt -1.00 rt -1.00 sl -1.00 land 0.00 pin 0.00 fwd true
+[r12dbg] x 0 p (0.0, 0.02, -4.64) v (0.0, 0.0, -3.32) mode 3 floor true cr false inj 1.00 st 1.00 fl 0 vt -1.00 lt -1.00 rt -1.00 sl -1.00 land 0.00 pin 0.00 fwd true
+[r12dbg] x 0 p (0.0, 0.02, -4.88) v (0.0, 0.0, -3.78) mode 3 floor true cr false inj 1.00 st 1.00 fl 0 vt -1.00 lt -1.00 rt -1.00 sl -1.00 land 0.00 pin 0.00 fwd true
+[r12dbg] x 0 p (0.0, 0.02, -5.15) v (0.0, 0.0, -4.19) mode 3 floor true cr false inj 1.00 st 1.00 fl 0 vt -1.00 lt -1.00 rt -1.00 sl -1.00 land 0.00 pin 0.00 fwd true
+[r12dbg] x 0 p (0.0, 0.02, -5.44) v (0.0, 0.0, -4.4) mode 3 floor true cr false inj 1.00 st 1.00 fl 0 vt -1.00 lt -1.00 rt -1.00 sl -1.00 land 0.00 pin 0.00 fwd true
+[r12dbg] x 0 p (0.0, 0.02, -5.73) v (0.0, 0.0, -4.4) mode 3 floor true cr false inj 1.00 st 1.00 fl 0 vt -1.00 lt -1.00 rt -1.00 sl -1.00 land 0.00 pin 0.00 fwd true
+[autotest] PASS r12_over_2m: 2.0 m garden wall: grabbed true, ended at (0.0, 0.02, -10.85) (past z -10.25, on the ground)
+[r12dbg] x 15 p (15.0, 0.0, -4.0) v (0.0, 0.0, 0.0) mode 3 floor true cr false inj 1.00 st 1.00 fl 0 vt -1.00 lt -1.00 rt -1.00 sl -1.00 land 0.00 pin 0.00 fwd true
+[r12dbg] x 15 p (15.0, 0.02, -4.04) v (0.0, 0.0, -0.83) mode 3 floor true cr false inj 1.00 st 1.00 fl 0 vt -1.00 lt -1.00 rt -1.00 sl -1.00 land 0.00 pin 0.00 fwd true
+[r12dbg] x 15 p (15.0, 0.02, -4.12) v (0.0, 0.0, -1.57) mode 3 floor true cr false inj 1.00 st 1.00 fl 0 vt -1.00 lt -1.00 rt -1.00 sl -1.00 land 0.00 pin 0.00 fwd true
+[r12dbg] x 15 p (15.0, 0.02, -4.25) v (0.0, 0.0, -2.22) mode 3 floor true cr false inj 1.00 st 1.00 fl 0 vt -1.00 lt -1.00 rt -1.00 sl -1.00 land 0.00 pin 0.00 fwd true
+[r12dbg] x 15 p (15.0, 0.02, -4.43) v (0.0, 0.0, -2.8) mode 3 floor true cr false inj 1.00 st 1.00 fl 0 vt -1.00 lt -1.00 rt -1.00 sl -1.00 land 0.00 pin 0.00 fwd true
+[r12dbg] x 15 p (15.0, 0.02, -4.64) v (0.0, 0.0, -3.32) mode 3 floor true cr false inj 1.00 st 1.00 fl 0 vt -1.00 lt -1.00 rt -1.00 sl -1.00 land 0.00 pin 0.00 fwd true
+[r12dbg] x 15 p (15.0, 0.02, -4.88) v (0.0, 0.0, -3.78) mode 3 floor true cr false inj 1.00 st 1.00 fl 0 vt -1.00 lt -1.00 rt -1.00 sl -1.00 land 0.00 pin 0.00 fwd true
+[r12dbg] x 15 p (15.0, 0.02, -5.15) v (0.0, 0.0, -4.19) mode 3 floor true cr false inj 1.00 st 1.00 fl 0 vt -1.00 lt -1.00 rt -1.00 sl -1.00 land 0.00 pin 0.00 fwd true
+[r12dbg] x 15 p (15.0, 0.02, -5.44) v (0.0, 0.0, -4.4) mode 3 floor true cr false inj 1.00 st 1.00 fl 0 vt -1.00 lt -1.00 rt -1.00 sl -1.00 land 0.00 pin 0.00 fwd true
+[r12dbg] x 15 p (15.0, 0.02, -5.73) v (0.0, 0.0, -4.4) mode 3 floor true cr false inj 1.00 st 1.00 fl 0 vt -1.00 lt -1.00 rt -1.00 sl -1.00 land 0.00 pin 0.00 fwd true
+[r12dbg] x 15 p (15.0, 0.0, -0.5) v (0.0, 0.0, 0.0) mode 3 floor true cr false inj 1.00 st 1.00 fl 0 vt -1.00 lt -1.00 rt -1.00 sl -1.00 land 0.00 pin 0.00 fwd true
+[r12dbg] x 15 p (15.0, 0.02, -0.54) v (0.0, 0.0, -0.83) mode 3 floor true cr false inj 1.00 st 1.00 fl 4 vt -1.00 lt -1.00 rt -1.00 sl -1.00 land 0.00 pin 0.00 fwd true
+[r12dbg] x 15 p (15.0, 0.02, -0.62) v (0.0, 0.0, -1.57) mode 3 floor true cr false inj 1.00 st 1.00 fl 4 vt -1.00 lt -1.00 rt -1.00 sl -1.00 land 0.00 pin 0.00 fwd true
+[r12dbg] x 15 p (15.0, 0.02, -0.75) v (0.0, 0.0, -2.22) mode 3 floor true cr false inj 1.00 st 1.00 fl 4 vt -1.00 lt -1.00 rt -1.00 sl -1.00 land 0.00 pin 0.00 fwd true
+[r12dbg] x 15 p (15.0, 0.02, -0.93) v (0.0, 0.0, -2.8) mode 3 floor true cr false inj 1.00 st 1.00 fl 4 vt -1.00 lt -1.00 rt -1.00 sl -1.00 land 0.00 pin 0.00 fwd true
+[r12dbg] x 15 p (15.0, 0.02, -1.14) v (0.0, 0.0, -3.32) mode 3 floor true cr false inj 1.00 st 1.00 fl 4 vt -1.00 lt -1.00 rt -1.00 sl -1.00 land 0.00 pin 0.00 fwd true
+[r12dbg] x 15 p (15.0, 0.02, -1.38) v (0.0, 0.0, -3.78) mode 3 floor true cr false inj 1.00 st 1.00 fl 4 vt -1.00 lt -1.00 rt -1.00 sl -1.00 land 0.00 pin 0.00 fwd true
+[r12dbg] x 15 p (15.0, 0.02, -1.65) v (0.0, 0.0, -4.19) mode 3 floor true cr false inj 1.00 st 1.00 fl 4 vt -1.00 lt -1.00 rt -1.00 sl -1.00 land 0.00 pin 0.00 fwd true
+[r12dbg] x 15 p (15.0, 0.02, -1.94) v (0.0, 0.0, -4.55) mode 3 floor true cr false inj 1.00 st 1.00 fl 4 vt -1.00 lt -1.00 rt -1.00 sl -1.00 land 0.00 pin 0.00 fwd true
+[r12dbg] x 15 p (15.0, 0.02, -2.26) v (0.0, 0.0, -4.87) mode 3 floor true cr false inj 1.00 st 1.00 fl 4 vt -1.00 lt -1.00 rt -1.00 sl -1.00 land 0.00 pin 0.00 fwd true
+[autotest] PASS r12_ledge_3m: 3.0 m wall: plain jump at 4.4 m/s grabbed false; sprint run-up at 6.3 m/s grabbed true, ended at (15.0, 3.02, -10.64)
+[r12dbg] x 30 p (30.0, 0.0, 2.0) v (0.0, 0.0, 0.0) mode 3 floor true cr false inj 1.00 st 1.00 fl 0 vt -1.00 lt -1.00 rt -1.00 sl -1.00 land 0.00 pin 0.00 fwd true
+[r12dbg] x 30 p (30.0, 0.02, 1.96) v (0.0, 0.0, -0.83) mode 3 floor true cr false inj 1.00 st 1.00 fl 4 vt -1.00 lt -1.00 rt -1.00 sl -1.00 land 0.00 pin 0.00 fwd true
+[r12dbg] x 30 p (30.0, 0.02, 1.88) v (0.0, 0.0, -1.57) mode 3 floor true cr false inj 1.00 st 1.00 fl 4 vt -1.00 lt -1.00 rt -1.00 sl -1.00 land 0.00 pin 0.00 fwd true
+[r12dbg] x 30 p (30.0, 0.02, 1.75) v (0.0, 0.0, -2.22) mode 3 floor true cr false inj 1.00 st 1.00 fl 4 vt -1.00 lt -1.00 rt -1.00 sl -1.00 land 0.00 pin 0.00 fwd true
+[r12dbg] x 30 p (30.0, 0.02, 1.57) v (0.0, 0.0, -2.8) mode 3 floor true cr false inj 1.00 st 1.00 fl 4 vt -1.00 lt -1.00 rt -1.00 sl -1.00 land 0.00 pin 0.00 fwd true
+[r12dbg] x 30 p (30.0, 0.02, 1.36) v (0.0, 0.0, -3.32) mode 3 floor true cr false inj 1.00 st 1.00 fl 4 vt -1.00 lt -1.00 rt -1.00 sl -1.00 land 0.00 pin 0.00 fwd true
+[r12dbg] x 30 p (30.0, 0.02, 1.12) v (0.0, 0.0, -3.78) mode 3 floor true cr false inj 1.00 st 1.00 fl 4 vt -1.00 lt -1.00 rt -1.00 sl -1.00 land 0.00 pin 0.00 fwd true
+[r12dbg] x 30 p (30.0, 0.02, 0.85) v (0.0, 0.0, -4.19) mode 3 floor true cr false inj 1.00 st 1.00 fl 4 vt -1.00 lt -1.00 rt -1.00 sl -1.00 land 0.00 pin 0.00 fwd true
+[r12dbg] x 30 p (30.0, 0.02, 0.56) v (0.0, 0.0, -4.55) mode 3 floor true cr false inj 1.00 st 1.00 fl 4 vt -1.00 lt -1.00 rt -1.00 sl -1.00 land 0.00 pin 0.00 fwd true
+[r12dbg] x 30 p (30.0, 0.02, 0.24) v (0.0, 0.0, -4.87) mode 3 floor true cr false inj 1.00 st 1.00 fl 4 vt -1.00 lt -1.00 rt -1.00 sl -1.00 land 0.00 pin 0.00 fwd true
+[autotest] PASS r12_ledge_4_5m: 4.5 m wall, sprint run-up at 6.3 m/s: grabbed false
+[autotest] done: 5 checks, 0 failed

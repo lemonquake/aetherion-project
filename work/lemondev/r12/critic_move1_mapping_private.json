@@ -1,0 +1,22 @@
+{
+ "view1": {
+  "name": "start_stop",
+  "A": "baseline"
+ },
+ "view2": {
+  "name": "hard_turn",
+  "A": "baseline"
+ },
+ "view3": {
+  "name": "wall_side",
+  "A": "candidate"
+ },
+ "view4": {
+  "name": "wall_fp",
+  "A": "baseline"
+ },
+ "view5": {
+  "name": "drop_roll",
+  "A": "baseline"
+ }
+}

@@ -1,0 +1,18 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+Vulkan 1.4.329 - Forward+ - Using Device #0: NVIDIA - NVIDIA GeForce RTX 4060
+
+[ui] request_loadout {"primary":"rifle_m416","secondary":"pistol_9"}
+[ui] loadout_received pid=1 Hehe {"primary":"rifle_m416","secondary":"pistol_9"}
+[ui] lobby shows my loadout (pid 1): {"primary":"rifle_m416","secondary":"pistol_9"}
+[ui] request_loadout {"primary":"rifle_m416","secondary":"pistol_9"}
+[mappick] practice PASS in_lobby_as_host: state lobby, host true, mode deathmatch, map lawless_sub
+[mappick] practice PASS map_button_shown: visible buttons: Game Setup, Outfit, , Leave, , , Classic, Deathmatch, Lawless Sub, Malasugue Mall, –, +, –, +, Fill empty slots with bots, Change guns, START MATCH
+[mappick] practice PASS map_set: lobby map now malasugue_mall
+[world] map built in 6668 ms
+[map] 0 buildings, 217 doors, 168 containers, 795 props, #2749db39 on PC
+[nav] levels: 57027 points, 32 links, 213 ms
+[bots] learned from 31 cells, 0 stuck spots (user://bot_memory_malasugue_mall.json)
+[mappick] practice PASS match_on_mall: match state match, map built: malasugue_mall
+[mappick] practice done: 0 failed
+WARNING: 7 RIDs of type "Texture" were leaked.
+   at: finalize (servers/rendering/rendering_device.cpp:8900)

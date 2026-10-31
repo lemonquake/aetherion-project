@@ -1,0 +1,19 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+Vulkan 1.4.329 - Forward+ - Using Device #0: NVIDIA - NVIDIA GeForce RTX 4060
+
+[ui] loadout_received pid=1 Hehe {"primary":"rifle_m416","secondary":"pistol_9"}
+[ui] lobby shows my loadout (pid 1): {"primary":"rifle_m416","secondary":"pistol_9"}
+[ui] request_loadout {"primary":"rifle_m416","secondary":"pistol_9"}
+[world] map built in 12852 ms
+[map] 243 buildings, 1951 doors, 2617 containers, 2745 props, #b1fba961 on PC
+[bots] learned from 283 cells, 2 stuck spots (user://bot_memory_lawless_sub.json)
+[game] autotest r13
+[autotest] shot A:/Python/aetherion-project/work/lemondev/r13/at3/01_death_0.3.png
+[autotest] shot A:/Python/aetherion-project/work/lemondev/r13/at3/02_death_1.0.png
+[autotest] shot A:/Python/aetherion-project/work/lemondev/r13/at3/03_death_2.5.png
+[autotest] shot A:/Python/aetherion-project/work/lemondev/r13/at3/04_death_4.5.png
+[autotest] PASS r13_death_camera: camera on the body in third person (distance, height): [[0.35, 3.76, 2.87], [1.0, 5.01, 2.76], [2.5, 5.19, 2.75], [4.5, 5.19, 2.75]]; spectating after 6 s: true
+[autotest] PASS r13_death_card: card: killed by Pareng Jun (killer Pareng Jun), "S686  ·  22 m  ·  shot through the head", headshot badge true
+[autotest] shot A:/Python/aetherion-project/work/lemondev/r13/at3/05_death_card_body.png
+[autotest] shot A:/Python/aetherion-project/work/lemondev/r13/at3/06_death_card_field.png
+[autotest] done: 2 checks, 0 failed

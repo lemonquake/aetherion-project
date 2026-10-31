@@ -1,0 +1,20 @@
+[
+  {
+    "file": "Aetherion.apk",
+    "version": "0.20.0",
+    "renderer": "mobile (engine default)",
+    "rules_match_source": true,
+    "compiled_results_ui": true,
+    "signature_verified": true,
+    "signer_sha256": "749565e2270b8527f6102eb068fdf97ef1d6891da4838c7a8786a80255376ff8"
+  },
+  {
+    "file": "Aetherion-opengl.apk",
+    "version": "0.20.0",
+    "renderer": "gl_compatibility",
+    "rules_match_source": true,
+    "compiled_results_ui": true,
+    "signature_verified": true,
+    "signer_sha256": "749565e2270b8527f6102eb068fdf97ef1d6891da4838c7a8786a80255376ff8"
+  }
+]

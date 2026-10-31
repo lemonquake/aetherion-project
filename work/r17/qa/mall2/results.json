@@ -1,0 +1,32 @@
+[
+  [
+    "mall_ride_up",
+    true,
+    "Grand Atrium escalator up: y 0.00 -> 5.01 in 13.9 s standing still (want 5.0)"
+  ],
+  [
+    "mall_ride_down",
+    true,
+    "West Court escalator down: y 10.00 -> 5.02 in 13.9 s standing still (want 5.0)"
+  ],
+  [
+    "mall_stairs",
+    true,
+    "fire stair: walked up to y 2.52 (half landing 2.50)"
+  ],
+  [
+    "mall_dept_stairs_L2",
+    true,
+    "stopped escalator Level 1 -> 2: y 5.02 (want 5.0) in 3.8 s"
+  ],
+  [
+    "mall_dept_stairs_L3",
+    true,
+    "stopped escalator Level 2 -> 3: y 10.02 (want 10.0) in 3.8 s"
+  ],
+  [
+    "mall_bot_climb",
+    true,
+    "bot from L1 (-50, 0) to the L5 food hall: reached (-11.0, 20.0, -25.0) in 38 s (highest y 20.0)"
+  ]
+]

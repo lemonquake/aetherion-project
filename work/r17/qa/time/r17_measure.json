@@ -1,0 +1,54 @@
+{
+  "night": {
+    "match_time": 0.0,
+    "daylight": 0.0,
+    "night_only": false,
+    "night_s": 120.0,
+    "day_offset": 0.0,
+    "lit_at_450": 1.0
+  },
+  "respawn": {
+    "back": true,
+    "wait_s": 4.924,
+    "pos": "(-72.0, 0.957726, 199.2)",
+    "level": -1,
+    "health": 100.0,
+    "score_before": {
+      "0": 0,
+      "1": 0,
+      "2": 0
+    },
+    "score_after": {
+      "0": 0,
+      "1": 0,
+      "2": 0
+    }
+  },
+  "score": {
+    "before": 0,
+    "after": 1,
+    "hud": 1,
+    "goal": "9:54 left  ·  most kills wins"
+  },
+  "local_respawn": {
+    "countdown": "Respawning in 4",
+    "back": true,
+    "controller": true,
+    "pos": "(-125.4, 1.020049, -144.0)",
+    "shielded": true,
+    "enemy_score": [
+      0,
+      1
+    ]
+  },
+  "end": {
+    "mode": "time",
+    "ended": true,
+    "scores": {
+      "0": 6,
+      "1": 0,
+      "2": 1
+    },
+    "results": "North Team wins the round  ·  North Team 6  ·  East Team 0  ·  South Team 1"
+  }
+}

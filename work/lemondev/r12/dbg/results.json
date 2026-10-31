@@ -1,0 +1,22 @@
+[
+  [
+    "r12_ledge_2_2m",
+    true,
+    "2.2 m wall, run and jump: grabbed true at 0.10 s, on top after 1.33 s more, feet at (-15.0, 2.22, -10.64)"
+  ],
+  [
+    "r12_over_2m",
+    true,
+    "2.0 m garden wall: grabbed true, ended at (0.0, 0.02, -10.85) (past z -10.25, on the ground)"
+  ],
+  [
+    "r12_ledge_3m",
+    false,
+    "3.0 m wall: plain jump at 4.4 m/s grabbed false; sprint run-up at 0.0 m/s grabbed false, ended at (15.0, 0.0, 2.32)"
+  ],
+  [
+    "r12_ledge_4_5m",
+    true,
+    "4.5 m wall, sprint run-up at 6.3 m/s: grabbed false"
+  ]
+]

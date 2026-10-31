@@ -1,0 +1,292 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+Vulkan 1.4.329 - Forward+ - Using Device #0: NVIDIA - NVIDIA GeForce RTX 4060
+
+[ui] loadout_received pid=1 Hehe {"primary":"rifle_m416","secondary":"pistol_9"}
+[ui] lobby shows my loadout (pid 1): {"primary":"rifle_m416","secondary":"pistol_9"}
+[ui] request_loadout {"primary":"rifle_m416","secondary":"pistol_9"}
+[world] map built in 11357 ms
+[map] 243 buildings, 1951 doors, 2617 containers, 2745 props, #b1fba961 on PC
+[bots] learned from 275 cells, 4 stuck spots (user://bot_memory_lawless_sub.json)
+[match    0.0] deathmatch start on lawless_sub: 21 players, 3 teams; spawns (-119.0, 1.0, -144.0), (190.0, 1.0, -40.0), (-72.0, 1.0, 196.0) (326/353/343 m apart, layout); day offset 300 s; zone centre (6.0, 45.0) r=364
+[game] autotest r12
+[match    0.0] status: { "ground": 21 }; armed 21; shots 0; zone 0 wait r=364; corpses 0
+[match    0.0] dm teams: North Team 7 at (-120.0, -144.0) spread 3 m; East Team 7 at (189.0, -40.0) spread 3 m; South Team 7 at (-73.0, 196.0) spread 3 m; gap 326 m; zone centre (6.0, 45.0)
+[match    0.0] bots: { "roam": 20 }; containers searched by bots 0 (all players 0); plan steps done 0; guns carried 40
+[match    0.0] roles: { "rusher": { "roam": 6 }, "sniper": { "roam": 6 }, "stalker": { "roam": 6 }, "looter": { "roam": 2 } }; stuck now 0; waypoints 2075; team { "lines": 0, "pings": 0, "laser_follow": 0, "learned_cells": 275, "blocked_cells": 0, "squads": 0, "following_humans": 0 }
+[match    0.0] [lootstats] bots on the ground 20 (in water 0); armed 20; armed with ammo for a gun 20; long guns 20; attachments fitted 0; rounds of unusable ammo carried 0; items on the ground 6342; bot pickups { "detours": 0, "detour_taken": 0, "fetches": 0, "fetch_done": 0, "items_taken": 0 }
+[match    1.6] [radio] Aling Puring (stalker): sneaking
+[match    1.9] [radio] Boy Pickup (rusher): haze
+[match    1.9] [radio] Bayaw Erning (sniper): haze
+[match    3.0] Lolo Pepe crushed by the field at (-25.0, 400.0, 252.0) (r=252.3, outdoors, 1.2 m into it)
+[match    3.0] [field death] Lolo Pepe (stalker) state roam at (-25.0, 400.0, 252.0) goal - path 0/0 no_prog 0.0 pending false
+[match    3.0] [field death]   0 roam (-122.0, 1.0, -144.0) step 0/0 - path 0/0 stuck 0.0 in false exit 0 field -inf btn 0 esc 0.0
+[match    3.0] [field death]   1 roam (-122.0, 1.0, -144.0) step 0/0 - path 0/0 stuck 0.0 in false exit 0 field -inf btn 0 esc 0.0
+[match    3.0] Lolo Pepe killed by the world (field); 3 teams left
+[match    3.0] alive: North Team 6, East Team 7
+[match    3.4] Aling Puring crushed by the field at (8.0, 401.0, 252.0) (r=251.3, outdoors, 1.1 m into it)
+[match    3.4] [field death] Aling Puring (stalker) state zone at (8.0, 401.0, 252.0) goal (11.0, 1.0, 109.0) path 0/12 no_prog 1.0 pending false
+[match    3.4] [field death]   0 roam (-119.0, 1.0, -147.0) step 0/0 - path 0/0 stuck 0.0 in false exit 0 field -inf btn 0 esc 0.0
+[match    3.4] [field death]   1 roam (-119.0, 1.0, -147.0) step 0/0 - path 0/0 stuck 0.0 in false exit 0 field -inf btn 0 esc 0.0
+[match    3.4] [field death]   2 zone (11.0, 400.0, 254.0) step 0/0 - path 0/12 stuck 0.1 in false exit 0 field -1.3 btn 4 esc 0.2
+[match    3.4] [field death]   3 zone (10.0, 400.0, 252.0) step 0/0 - path 0/12 stuck 0.6 in false exit 0 field 0.2 btn 4 esc 1.2
+[match    3.4] Aling Puring killed by the world (field); 3 teams left
+[match    3.4] alive: North Team 5, East Team 7
+[autotest] strip A:/Python/aetherion-project/work/lemondev/r13/ab/off_field_1/ab/field_push_fp.png
+[autotest] PASS r12_field_push: open ground, edge closing at 3 m/s for 5 s: alive true, health 100 -> 100, deepest -0.00 m inside it, carried 13.1 m in (edge 15.0 m minus the 2 m start gap)
+[autotest] PASS r12_field_crush: dummy behind a 6 m wall: dead after 1.22 s, cause field
+[autotest] FAIL r12_field_bot_escapes: bot behind the middle of a 10 m wall: alive false, ended at (0.0, 0.0, 0.0)
+[match    6.9] [radio] Ka Pedring (sniper): haze
+[match    6.9] [radio] Tito Videoke (sniper): haze
+[match   10.9] Ate Load Dito (team 0) landed at (-185.0, 1.0, -206.0), 2.5 m/s, health 100; teammates -
+[match   11.0] [radio] Ate Load Dito (stalker): haze
+[match   14.8] zone 1 shrinking to r=30 at (-275.0, -195.0)
+[match   15.0] status: { "ground": 19 }; armed 19; shots 0; zone 1 shrink r=107; corpses 2; server tick avg 1.70 ms, p99 7.75 ms, max 34.48 ms over 900 ticks
+[match   15.0] dm teams: North Team 5 at (-137.0, -87.0) spread 193 m; East Team 7 at (150.0, -22.0) spread 2 m; South Team 7 at (-90.0, 151.0) spread 3 m; gap 305 m; zone centre (-275.0, -195.0)
+[match   15.0] bots: { "zone": 18 }; containers searched by bots 0 (all players 0); plan steps done 3; guns carried 37
+[match   15.0] roles: { "rusher": { "zone": 6 }, "sniper": { "zone": 6 }, "stalker": { "zone": 4 }, "looter": { "zone": 2 } }; stuck now 0; waypoints 2075; team { "lines": 6, "pings": 0, "laser_follow": 0, "learned_cells": 277, "blocked_cells": 0, "squads": 1, "following_humans": 1 }
+[match   15.0] [lootstats] bots on the ground 18 (in water 0); armed 18; armed with ammo for a gun 18; long guns 19; attachments fitted 1; rounds of unusable ammo carried 0; items on the ground 6340; bot pickups { "detours": 2, "detour_taken": 2, "fetches": 0, "fetch_done": 0, "items_taken": 2 }
+[match   17.3] Bossing Dodong (team 1) landed at (134.0, 1.0, -15.0), 2.5 m/s, health 100; teammates -
+[match   18.1] Ka Pedring (team 1) landed at (136.0, 1.0, -15.0), 2.5 m/s, health 100; teammates 6 m
+[match   18.3] Junjun Tisoy (team 1) landed at (132.0, 1.0, -15.0), 2.5 m/s, health 100; teammates 4 m, 3 m
+[match   19.7] Kapitan Tikoy (team 2) landed at (-95.0, 1.0, 147.0), 4.9 m/s, health 100; teammates -
+[match   20.9] Mang Kanor (team 2) landed at (-93.0, 1.0, 150.0), 4.9 m/s, health 100; teammates 5 m
+[match   21.0] Kumpare Ambo (team 2) landed at (-94.0, 1.0, 147.0), 4.9 m/s, health 100; teammates 3 m, 2 m
+[match   22.5] Boy Pickup (team 2) landed at (-92.0, 1.0, 139.0), 4.9 m/s, health 100; teammates 8 m, 6 m, 13 m
+[match   22.6] Ate Load (team 2) landed at (-95.0, 1.0, 142.0), 4.9 m/s, health 100; teammates 4 m, 4 m, 3 m, 10 m
+[match   23.0] Mang Tomas (team 0) landed at (-194.0, 1.0, -157.0), 4.9 m/s, health 100; teammates 55 m
+[match   24.0] Bebot Karaoke (team 0) landed at (-193.0, 1.0, -177.0), 4.9 m/s, health 100; teammates 41 m, 19 m
+[match   27.9] Tito Videoke (team 0) landed at (-187.0, 1.0, -170.0), 4.9 m/s, health 100; teammates 52 m, 30 m, 32 m
+[match   28.3] Tito Karaoke King (team 2) landed at (-95.0, 1.0, 139.0), 4.9 m/s, health 100; teammates 6 m, 22 m, 4 m, 3 m, 13 m
+[match   28.7] Inday Tsismis (team 1) landed at (93.0, 1.0, -15.0), 2.5 m/s, health 100; teammates 7 m, 11 m, 18 m
+[match   28.9] Mang Jolo (team 2) landed at (-95.0, 1.0, 138.0), 4.9 m/s, health 100; teammates 10 m, 26 m, 1 m, 5 m, 4 m, 14 m
+[match   29.2] Pareng Pandesal (team 1) landed at (94.0, 1.0, -16.0), 4.9 m/s, health 100; teammates 2 m, 11 m, 14 m, 22 m
+[match   30.0] status: { "ground": 19 }; armed 19; shots 0; zone 1 wait r=108; corpses 2; server tick avg 1.73 ms, p99 3.49 ms, max 7.27 ms over 900 ticks
+[match   30.0] dm teams: North Team 5 at (-150.0, -94.0) spread 200 m; East Team 7 at (86.0, -14.0) spread 9 m; South Team 7 at (-101.0, 135.0) spread 10 m; gap 261 m; zone centre (-118.0, -92.0)
+[match   30.0] bots: { "zone": 17, "loot": 1 }; containers searched by bots 0 (all players 0); plan steps done 0; guns carried 37
+[match   30.0] roles: { "rusher": { "zone": 6 }, "sniper": { "zone": 6 }, "stalker": { "loot": 1, "zone": 3 }, "looter": { "zone": 2 } }; stuck now 0; waypoints 2075; team { "lines": 6, "pings": 0, "laser_follow": 0, "learned_cells": 277, "blocked_cells": 0, "squads": 1, "following_humans": 1 }
+[match   30.0] [lootstats] bots on the ground 18 (in water 0); armed 18; armed with ammo for a gun 18; long guns 19; attachments fitted 1; rounds of unusable ammo carried 0; items on the ground 6340; bot pickups { "detours": 2, "detour_taken": 2, "fetches": 0, "fetch_done": 0, "items_taken": 2 }
+[match   31.2] Bayaw Erning (team 1) landed at (93.0, 1.0, -14.0), 2.5 m/s, health 100; teammates 9 m, 1 m, 21 m, 22 m, 32 m
+[match   32.1] Aling Nena (team 1) landed at (93.0, 1.0, -15.0), 2.5 m/s, health 100; teammates 15 m, 7 m, 27 m, 28 m, 5 m, 38 m
+[match   37.3] zone 1 shrinking to r=30 at (-118.0, -92.0)
+[match   45.0] status: { "ground": 19 }; armed 19; shots 0; zone 1 shrink r=84; corpses 2; server tick avg 1.64 ms, p99 2.41 ms, max 7.27 ms over 900 ticks
+[match   45.0] dm teams: North Team 5 at (-120.0, -48.0) spread 180 m; East Team 7 at (8.0, -10.0) spread 10 m; South Team 7 at (-109.0, 88.0) spread 36 m; gap 156 m; zone centre (-118.0, -92.0)
+[match   45.0] bots: { "zone": 16, "roam": 2 }; containers searched by bots 0 (all players 0); plan steps done 2; guns carried 37
+[match   45.0] [stuck] Boy Pickup (rusher, zone) at (-116.1, 1.0, 33.2) -> (-111.0, 0.9, 19.0), ahead , no_prog 1.5
+[match   45.0] [stuck] Tito Karaoke King (sniper, zone) at (-101.8, 1.8, 122.5) -> (-113.0, 1.0, 121.0), ahead , no_prog 3.1
+[match   45.0] [stuck] Kumpare Ambo (looter, zone) at (-93.4, 1.1, 137.1) -> (-115.0, 1.0, 119.0), ahead , no_prog 2.0
+[match   45.0] roles: { "rusher": { "zone": 6 }, "sniper": { "zone": 5, "roam": 1 }, "stalker": { "roam": 1, "zone": 3 }, "looter": { "zone": 2 } }; stuck now 3; waypoints 2075; team { "lines": 6, "pings": 0, "laser_follow": 0, "learned_cells": 277, "blocked_cells": 2, "squads": 1, "following_humans": 1 }
+[match   45.0] [lootstats] bots on the ground 18 (in water 0); armed 18; armed with ammo for a gun 18; long guns 19; attachments fitted 1; rounds of unusable ammo carried 0; items on the ground 6340; bot pickups { "detours": 2, "detour_taken": 2, "fetches": 0, "fetch_done": 0, "items_taken": 2 }
+[match   50.7] [radio] Mang Kanor (rusher): contact
+[match   50.9] [radio] Bossing Dodong (sniper): contact
+[match   52.8] [radio] Boy Pickup (rusher): contact
+[match   53.6] [radio] Junjun Tisoy (stalker): contact
+[match   55.5] [radio] Pareng Pandesal (rusher): contact
+[match   58.1] [radio] Tito Karaoke King (sniper): contact
+[match   59.8] zone 1 shrinking to r=30 at (-118.0, -196.0)
+[match   60.0] status: { "ground": 19 }; armed 19; shots 2; zone 1 shrink r=107; corpses 2; server tick avg 2.31 ms, p99 4.36 ms, max 7.90 ms over 900 ticks
+[match   60.0] dm teams: North Team 5 at (-106.0, -69.0) spread 184 m; East Team 7 at (-74.0, -10.0) spread 15 m; South Team 7 at (-113.0, 30.0) spread 37 m; gap 104 m; zone centre (-118.0, -196.0)
+[match   60.0] bots: { "zone": 15, "fight": 2, "loot": 1 }; containers searched by bots 0 (all players 0); plan steps done 0; guns carried 37
+[match   60.0] roles: { "rusher": { "zone": 6 }, "sniper": { "zone": 4, "fight": 2 }, "stalker": { "loot": 1, "zone": 3 }, "looter": { "zone": 2 } }; stuck now 0; waypoints 2075; team { "lines": 12, "pings": 0, "laser_follow": 0, "learned_cells": 277, "blocked_cells": 2, "squads": 1, "following_humans": 1 }
+[match   60.0] [lootstats] bots on the ground 18 (in water 0); armed 18; armed with ammo for a gun 18; long guns 19; attachments fitted 1; rounds of unusable ammo carried 0; items on the ground 6340; bot pickups { "detours": 2, "detour_taken": 2, "fetches": 0, "fetch_done": 0, "items_taken": 2 }
+[match   60.5] [radio] Mang Kanor (rusher): contact
+[match   61.4] [radio] Ate Load (rusher): need_help
+[match   61.5] Ate Load killed by Bossing Dodong (gunshot); 3 teams left
+[match   61.5] alive: North Team 5, East Team 7
+[match   61.6] [radio] Ka Pedring (sniper): contact
+[match   62.3] [radio] Boy Pickup (rusher): affirmative
+[match   62.5] [radio] Bossing Dodong (sniper): kill
+[match   62.6] Mang Jolo killed by Ka Pedring (gunshot); 3 teams left
+[match   62.6] alive: North Team 5, East Team 7
+[match   63.3] [radio] Boy Pickup (rusher): down
+[match   63.5] [radio] Ka Pedring (sniper): kill
+[match   64.2] [radio] Boy Pickup (rusher): affirmative
+[match   65.2] [radio] Boy Pickup (rusher): down
+[match   66.1] [radio] Tito Karaoke King (sniper): affirmative
+[match   66.1] Ate Load Dito crushed by the field at (-107.0, 1.0, -107.0) (r=88.3, indoors, 1.1 m into it)
+[match   66.1] [field death] Ate Load Dito (stalker) state loot at (-107.0, 1.0, -107.0) goal - path 1/3 no_prog 0.0 pending false
+[match   66.1] [field death]   35 zone (-120.0, 1.0, -163.0) step 2/0 - path 1/3 stuck 0.0 in false exit 0 field -37.3 btn 4 esc 0.0
+[match   66.1] [field death]   36 zone (-121.0, 1.0, -156.0) step 2/0 - path 1/3 stuck 0.0 in false exit 0 field -43.8 btn 4 esc 0.0
+[match   66.1] [field death]   37 zone (-122.0, 1.0, -150.0) step 2/0 - path 1/3 stuck 0.0 in false exit 0 field -50.3 btn 4 esc 0.0
+[match   66.1] [field death]   38 zone (-124.0, 1.0, -143.0) step 2/0 - path 1/3 stuck 0.0 in false exit 0 field -53.6 btn 4 esc 0.0
+[match   66.1] [field death]   39 zone (-125.0, 1.0, -136.0) step 2/0 - path 1/3 stuck 0.0 in false exit 0 field -56.6 btn 4 esc 0.0
+[match   66.1] [field death]   40 zone (-126.0, 1.0, -130.0) step 2/0 - path 1/3 stuck 0.0 in false exit 0 field -59.5 btn 4 esc 0.0
+[match   66.1] [field death]   42 zone (-128.0, 1.0, -123.0) step 2/0 - path 1/3 stuck 0.0 in false exit 0 field -62.2 btn 4 esc 0.0
+[match   66.1] [field death]   43 roam (-129.0, 1.0, -119.0) step 2/0 - path 1/3 stuck 0.0 in false exit 0 field -62.6 btn 0 esc 0.0
+[match   66.1] [field death]   44 roam (-129.0, 1.0, -118.0) step 2/0 - path 1/3 stuck 0.0 in false exit 0 field -60.0 btn 0 esc 0.0
+[match   66.1] [field death]   45 roam (-129.0, 1.0, -118.0) step 2/0 - path 1/3 stuck 0.0 in false exit 0 field -56.7 btn 0 esc 0.0
+[match   66.1] [field death]   46 roam (-129.0, 1.0, -118.0) step 2/0 - path 1/3 stuck 0.0 in false exit 0 field -53.3 btn 0 esc 0.0
+[match   66.1] [field death]   47 roam (-129.0, 1.0, -118.0) step 2/0 - path 1/3 stuck 0.0 in false exit 0 field -50.0 btn 0 esc 0.0
+[match   66.1] [field death]   48 roam (-129.0, 1.0, -118.0) step 2/0 - path 1/3 stuck 0.0 in false exit 0 field -46.7 btn 0 esc 0.0
+[match   66.1] [field death]   49 roam (-129.0, 1.0, -118.0) step 2/0 - path 1/3 stuck 0.0 in false exit 0 field -43.3 btn 0 esc 0.0
+[match   66.1] [field death]   50 roam (-129.0, 1.0, -118.0) step 2/0 - path 1/3 stuck 0.0 in false exit 0 field -40.0 btn 0 esc 0.0
+[match   66.1] [field death]   51 roam (-129.0, 1.0, -118.0) step 2/0 - path 1/3 stuck 0.0 in false exit 0 field -36.7 btn 0 esc 0.0
+[match   66.1] [field death]   52 loot (-118.0, 1.0, -106.0) step 0/2 walk path 1/3 stuck 0.1 in true exit 0 field -18.0 btn 0 esc 0.0
+[match   66.1] [field death]   53 loot (-119.0, 1.0, -107.0) step 0/2 walk path 1/3 stuck 0.1 in true exit 0 field -19.5 btn 0 esc 0.0
+[match   66.1] [field death]   54 loot (-118.0, 1.0, -112.0) step 0/2 walk path 1/3 stuck 0.0 in true exit 0 field -23.8 btn 0 esc 0.0
+[match   66.1] [field death]   55 loot (-117.0, 1.0, -114.0) step 1/2 door path 1/3 stuck 0.6 in true exit 0 field -25.5 btn 0 esc 0.0
+[match   66.1] [field death]   56 loot (-117.0, 1.0, -114.0) step 1/2 door path 1/3 stuck 1.7 in true exit 0 field -25.5 btn 0 esc 0.0
+[match   66.1] [field death]   58 loot (-118.0, 1.0, -114.0) step 1/2 door path 1/3 stuck 2.7 in true exit 0 field -25.5 btn 0 esc 0.0
+[match   66.1] [field death]   59 loot (-117.0, 1.0, -114.0) step 1/2 door path 1/3 stuck 3.8 in true exit 0 field -25.5 btn 0 esc 0.0
+[match   66.1] [field death]   60 loot (-117.0, 1.0, -113.0) step 0/3 walk path 1/3 stuck 0.0 in true exit 0 field -24.5 btn 0 esc 0.0
+[match   66.1] [field death]   61 loot (-117.0, 1.0, -111.0) step 0/3 walk path 1/3 stuck 0.1 in true exit 0 field -20.2 btn 0 esc 0.0
+[match   66.1] [field death]   62 loot (-117.0, 1.0, -109.0) step 0/3 walk path 1/3 stuck 0.1 in true exit 0 field -15.3 btn 0 esc 0.0
+[match   66.1] [field death]   63 loot (-117.0, 1.0, -107.0) step 1/3 walk path 1/3 stuck 0.0 in true exit 0 field -9.4 btn 4 esc 0.2
+[match   66.1] [field death]   64 loot (-116.0, 1.0, -107.0) step 1/3 walk path 1/3 stuck 0.0 in true exit 0 field -5.8 btn 4 esc 1.3
+[match   66.1] [field death]   65 loot (-111.0, 1.0, -106.0) step 1/3 walk path 1/3 stuck 0.0 in true exit 0 field -1.9 btn 4 esc 2.3
+[match   66.1] [field death]   66 loot (-107.0, 1.0, -107.0) step 2/3 door path 1/3 stuck 0.4 in true exit 0 field 0.9 btn 4 esc 3.4
+[match   66.1] Ate Load Dito killed by the world (field); 3 teams left
+[match   66.1] alive: North Team 4, East Team 7
+[r12] fieldhouse failed in house 5 at (-118.0, 1.0, -106.0), door facing (0.0, 0.0, -1.0):
+  0.5 loot step 0/2 -> (-118.0, 1.0, -112.0) at (-118.0, 1.0, -106.0) in true exit 0 stuck 0.2 field -18.0
+  1.0 loot step 0/2 -> (-118.0, 1.0, -112.0) at (-119.0, 1.0, -107.0) in true exit 0 stuck 0.0 field -19.1
+  1.5 loot step 0/2 -> (-118.0, 1.0, -112.0) at (-119.0, 1.0, -108.0) in true exit 0 stuck 0.1 field -19.7
+  2.0 loot step 0/2 -> (-118.0, 1.0, -112.0) at (-119.0, 1.0, -110.0) in true exit 0 stuck 0.0 field -21.8
+  2.5 loot step 0/2 -> (-118.0, 1.0, -112.0) at (-118.0, 1.0, -112.0) in true exit 0 stuck 0.0 field -23.8
+  3.0 loot step 1/2 -> (-118.0, 1.0, -115.0) at (-118.0, 1.0, -114.0) in true exit 0 stuck 0.0 field -25.5
+  3.5 loot step 1/2 -> (-118.0, 1.0, -115.0) at (-117.0, 1.0, -114.0) in true exit 0 stuck 0.5 field -25.5
+  4.0 loot step 1/2 -> (-118.0, 1.0, -115.0) at (-117.0, 1.0, -114.0) in true exit 0 stuck 1.0 field -25.5
+  4.5 loot step 1/2 -> (-118.0, 1.0, -115.0) at (-117.0, 1.0, -114.0) in true exit 0 stuck 1.5 field -25.5
+  5.0 loot step 1/2 -> (-118.0, 1.0, -115.0) at (-117.0, 1.0, -113.0) in true exit 0 stuck 2.0 field -25.4
+  5.5 loot step 1/2 -> (-118.0, 1.0, -115.0) at (-118.0, 1.0, -114.0) in true exit 0 stuck 2.5 field -25.5
+  6.0 loot step 1/2 -> (-118.0, 1.0, -115.0) at (-117.0, 1.0, -113.0) in true exit 0 stuck 3.0 field -25.3
+  6.5 loot step 1/2 -> (-118.0, 1.0, -115.0) at (-117.0, 1.0, -114.0) in true exit 0 stuck 3.5 field -25.5
+  7.0 loot step 1/2 -> (-118.0, 1.0, -115.0) at (-117.0, 1.0, -113.0) in true exit 0 stuck 4.0 field -25.5
+  7.5 loot step 0/3 -> (-118.0, 1.0, -107.0) at (-117.0, 1.0, -113.0) in true exit 0 stuck 0.3 field -25.3
+  8.0 loot step 0/3 -> (-118.0, 1.0, -107.0) at (-117.0, 1.0, -112.0) in true exit 0 stuck 0.1 field -24.0
+  8.5 loot step 0/3 -> (-118.0, 1.0, -107.0) at (-117.0, 1.0, -111.0) in true exit 0 stuck 0.0 field -21.8
+  9.0 loot step 0/3 -> (-118.0, 1.0, -107.0) at (-117.0, 1.0, -111.0) in true exit 0 stuck 0.0 field -19.7
+  9.5 loot step 0/3 -> (-118.0, 1.0, -107.0) at (-117.0, 1.0, -110.0) in true exit 0 stuck 0.1 field -17.3
+  10.0 loot step 0/3 -> (-118.0, 1.0, -107.0) at (-117.0, 1.0, -109.0) in true exit 0 stuck 0.1 field -15.1
+  10.5 loot step 0/3 -> (-118.0, 1.0, -107.0) at (-117.0, 1.0, -109.0) in true exit 0 stuck 0.0 field -13.1
+  11.0 loot step 0/3 -> (-118.0, 1.0, -107.0) at (-117.0, 1.0, -107.0) in true exit 0 stuck 0.0 field -9.6
+  11.5 loot step 1/3 -> (-109.0, 1.0, -106.0) at (-117.0, 1.0, -106.0) in true exit 0 stuck 0.1 field -7.2
+  12.0 loot step 1/3 -> (-109.0, 1.0, -106.0) at (-117.0, 1.0, -107.0) in true exit 0 stuck 0.1 field -6.1
+  12.5 loot step 1/3 -> (-109.0, 1.0, -106.0) at (-115.0, 1.0, -107.0) in true exit 0 stuck 0.0 field -4.7
+  13.0 loot step 1/3 -> (-109.0, 1.0, -106.0) at (-112.0, 1.0, -106.0) in true exit 0 stuck 0.0 field -2.6
+  13.5 loot step 1/3 -> (-109.0, 1.0, -106.0) at (-109.0, 1.0, -106.0) in true exit 0 stuck 0.0 field -0.4
+  14.0 loot step 2/3 -> (-106.0, 1.0, -106.0) at (-107.0, 1.0, -107.0) in true exit 0 stuck 0.1 field 0.1
+  doorway at (-119.0, 1.0, -102.3) n (-1.0, 0.0, 0.0) door -1; walk from the start clear false/true
+  doorway at (-117.0, 1.0, -106.6) n (-1.0, 0.0, 0.0) door -1; walk from the start clear true/true
+  doorway at (-119.0, 4.0, -112.8) n (-1.0, 0.0, 0.0) door -1; walk from the start clear false/false
+  doorway at (-117.0, 4.0, -106.6) n (-1.0, 0.0, 0.0) door -1; walk from the start clear false/false
+  doorway at (-119.0, 7.0, -104.4) n (-1.0, 0.0, 0.0) door -1; walk from the start clear false/false
+  doorway at (-117.0, 7.0, -99.2) n (-1.0, 0.0, 0.0) door -1; walk from the start clear false/false
+  doorway at (-108.2, 7.0, -104.4) n (0.0, 0.0, -1.0) door -1; walk from the start clear false/false
+  doorway at (-117.0, 7.0, -106.6) n (-1.0, 0.0, 0.0) door -1; walk from the start clear false/false
+  doorway at (-119.8, 1.0, -103.3) n (0.0, 0.0, 1.0) door 52; walk from the start clear false/false
+  doorway at (-119.0, 1.0, -109.4) n (1.0, 0.0, 0.0) door 53; walk from the start clear true/false
+  doorway at (-107.9, 1.0, -104.4) n (0.0, 0.0, 1.0) door 54; walk from the start clear false/false
+  doorway at (-116.2, 1.0, -107.6) n (0.0, 0.0, 1.0) door 55; walk from the start clear true/false
+  doorway at (-119.8, 4.0, -108.7) n (0.0, 0.0, 1.0) door 56; walk from the start clear false/false
+  doorway at (-119.0, 4.0, -102.5) n (1.0, 0.0, 0.0) door 57; walk from the start clear false/false
+  doorway at (-116.2, 4.0, -104.4) n (0.0, 0.0, 1.0) door 58; walk from the start clear false/false
+  doorway at (-107.9, 4.0, -107.6) n (0.0, 0.0, 1.0) door 59; walk from the start clear false/false
+  doorway at (-119.8, 7.0, -103.3) n (0.0, 0.0, 1.0) door 60; walk from the start clear false/false
+  doorway at (-128.1, 7.0, -108.7) n (0.0, 0.0, 1.0) door 61; walk from the start clear false/false
+  doorway at (-107.9, 7.0, -107.6) n (0.0, 0.0, 1.0) door 62; walk from the start clear false/false
+  doorway at (-118.0, 1.0, -113.9) n (0.0, 0.0, -1.0) door 49; walk from the start clear true/true
+  doorway at (-107.1, 1.0, -106.0) n (1.0, 0.0, 0.0) door 50; walk from the start clear false/false
+  doorway at (-118.0, 1.0, -98.1) n (0.0, 0.0, 1.0) door 51; walk from the start clear false/true
+[match   66.7] [radio] Tito Videoke (sniper): down
+[match   66.7] [radio] Aling Nena (rusher): contact
+[match   73.9] [radio] Mang Kanor (rusher): contact
+[match   74.7] zone 1 shrinking to r=30 at (-128.0, -202.0)
+[match   74.9] [radio] Mang Tomas (looter): contact
+[match   75.0] status: { "ground": 16 }; armed 16; shots 77; zone 1 shrink r=107; corpses 5; server tick avg 3.57 ms, p99 6.16 ms, max 41.30 ms over 900 ticks
+[match   75.0] dm teams: North Team 4 at (-77.0, -77.0) spread 227 m; East Team 7 at (-110.0, -59.0) spread 18 m; South Team 5 at (-123.0, -18.0) spread 49 m; gap 107 m; zone centre (-128.0, -202.0)
+[match   75.0] bots: { "zone": 10, "fight": 3, "loot": 1, "roam": 1 }; containers searched by bots 0 (all players 2); plan steps done 3; guns carried 31
+[match   75.0] [stuck] Kumpare Ambo (looter, zone) at (-136.7, 1.9, 85.2) -> (-141.0, 0.8, 83.0), ahead wall, no_prog 2.7
+[match   75.0] roles: { "sniper": { "zone": 4, "fight": 1, "loot": 1 }, "rusher": { "zone": 4, "fight": 1 }, "looter": { "zone": 1, "fight": 1 }, "stalker": { "zone": 1, "roam": 1 } }; stuck now 1; waypoints 2075; team { "lines": 26, "pings": 0, "laser_follow": 0, "learned_cells": 281, "blocked_cells": 2, "squads": 1, "following_humans": 1 }
+[match   75.0] [lootstats] bots on the ground 15 (in water 0); armed 15; armed with ammo for a gun 15; long guns 16; attachments fitted 0; rounds of unusable ammo carried 0; items on the ground 6338; bot pickups { "detours": 4, "detour_taken": 4, "fetches": 0, "fetch_done": 0, "items_taken": 4 }
+[match   75.2] [radio] Aling Nena (rusher): taking_fire
+[match   76.4] [radio] Junjun Tisoy (stalker): affirmative
+[match   76.5] [radio] Tito Karaoke King (sniper): reloading
+[match   76.8] [radio] Bebot Karaoke (stalker): contact
+[match   77.3] [radio] Pareng Pandesal (rusher): affirmative
+[match   78.1] [radio] Mang Kanor (rusher): taking_fire
+[match   81.4] [radio] Bayaw Erning (sniper): contact
+[match   81.6] [radio] Mang Kanor (rusher): taking_fire
+[match   82.4] Mang Kanor killed by Bossing Dodong (gunshot); 3 teams left
+[match   82.4] alive: North Team 4, East Team 7
+[match   82.4] Tito Videoke crushed by the field at (-43.0, 1.0, -200.0) (r=84.0, indoors, 1.1 m into it)
+[match   82.4] [field death] Tito Videoke (sniper) state loot at (-43.0, 1.0, -200.0) goal - path 1/2 no_prog 0.0 pending false
+[match   82.4] [field death]   51 roam (-140.0, 1.0, -107.0) step 0/0 - path 0/1 stuck 0.0 in false exit 0 field -38.2 btn 0 esc 0.0
+[match   82.4] [field death]   52 zone (-140.0, 1.0, -107.0) step 0/0 - path 0/2 stuck 0.1 in false exit 0 field -16.4 btn 4 esc 0.0
+[match   82.4] [field death]   53 zone (-138.0, 1.0, -112.0) step 0/0 - path 0/2 stuck 0.0 in false exit 0 field -21.2 btn 4 esc 0.0
+[match   82.4] [field death]   54 zone (-137.0, 1.0, -118.0) step 0/0 - path 0/2 stuck 0.0 in false exit 0 field -27.9 btn 4 esc 0.0
+[match   82.4] [field death]   55 zone (-137.0, 1.0, -123.0) step 0/0 - path 0/2 stuck 0.0 in false exit 0 field -32.7 btn 4 esc 0.0
+[match   82.4] [field death]   56 zone (-136.0, 1.0, -129.0) step 0/0 - path 0/2 stuck 0.0 in false exit 0 field -39.0 btn 4 esc 0.0
+[match   82.4] [field death]   57 zone (-135.0, 1.0, -136.0) step 0/0 - path 0/2 stuck 0.0 in false exit 0 field -45.6 btn 4 esc 0.0
+[match   82.4] [field death]   59 zone (-135.0, 1.0, -143.0) step 0/0 - path 0/2 stuck 0.0 in false exit 0 field -52.2 btn 4 esc 0.0
+[match   82.4] [field death]   60 zone (-134.0, 1.0, -149.0) step 0/0 - path 0/2 stuck 0.0 in false exit 0 field -58.8 btn 4 esc 0.0
+[match   82.4] [field death]   61 zone (-133.0, 1.0, -156.0) step 0/0 - path 0/2 stuck 0.0 in false exit 0 field -62.6 btn 4 esc 0.0
+[match   82.4] [field death]   62 zone (-133.0, 1.0, -160.0) step 0/0 - path 0/2 stuck 0.5 in false exit 0 field -63.0 btn 4 esc 0.0
+[match   82.4] [field death]   63 zone (-133.0, 1.0, -160.0) step 0/0 - path 0/2 stuck 1.5 in false exit 0 field -59.7 btn 4 esc 0.0
+[match   82.4] [field death]   64 zone (-131.0, 2.0, -159.0) step 0/0 - path 0/2 stuck 2.6 in false exit 0 field -56.3 btn 4 esc 0.0
+[match   82.4] [field death]   65 zone (-129.0, 1.0, -161.0) step 0/0 - path 1/2 stuck 0.0 in false exit 0 field -55.5 btn 4 esc 0.0
+[match   82.4] [field death]   66 zone (-129.0, 1.0, -167.0) step 0/0 - path 1/2 stuck 0.0 in false exit 0 field -57.6 btn 4 esc 0.0
+[match   82.4] [field death]   67 loot (-38.0, 1.0, -202.0) step 0/4 walk path 1/2 stuck 0.1 in true exit 0 field -18.1 btn 0 esc 0.0
+[match   82.4] [field death]   68 loot (-40.0, 1.0, -201.0) step 0/4 walk path 1/2 stuck 0.0 in true exit 0 field -19.3 btn 8 esc 0.0
+[match   82.4] [field death]   69 loot (-38.0, 1.0, -202.0) step 0/4 walk path 1/2 stuck 0.0 in true exit 0 field -17.2 btn 0 esc 0.0
+[match   82.4] [field death]   70 loot (-38.0, 1.0, -203.0) step 0/4 walk path 1/2 stuck 1.1 in true exit 0 field -17.8 btn 0 esc 0.0
+[match   82.4] [field death]   71 loot (-40.0, 1.0, -203.0) step 1/4 door path 1/2 stuck 0.1 in true exit 0 field -20.0 btn 0 esc 0.0
+[match   82.4] [field death]   72 loot (-42.0, 1.0, -202.0) step 2/4 walk path 1/2 stuck 0.0 in true exit 0 field -22.1 btn 0 esc 0.0
+[match   82.4] [field death]   73 loot (-43.0, 1.0, -199.0) step 2/4 walk path 1/2 stuck 0.1 in true exit 0 field -22.3 btn 0 esc 0.0
+[match   82.4] [field death]   75 loot (-43.0, 1.0, -200.0) step 3/4 door path 1/2 stuck 0.3 in true exit 0 field -22.9 btn 0 esc 0.0
+[match   82.4] [field death]   76 loot (-43.0, 1.0, -200.0) step 3/4 door path 1/2 stuck 1.3 in true exit 0 field -20.1 btn 0 esc 0.0
+[match   82.4] [field death]   77 loot (-43.0, 1.0, -200.0) step 3/4 door path 1/2 stuck 2.4 in true exit 0 field -16.8 btn 0 esc 0.0
+[match   82.4] [field death]   78 loot (-43.0, 1.0, -200.0) step 3/4 door path 1/2 stuck 3.5 in true exit 0 field -13.4 btn 0 esc 0.0
+[match   82.4] [field death]   79 loot (-42.0, 1.0, -200.0) step 0/2 walk path 1/2 stuck 0.0 in true exit 0 field -9.2 btn 4 esc 0.3
+[match   82.4] [field death]   80 loot (-43.0, 1.0, -200.0) step 1/2 door path 1/2 stuck 0.2 in true exit 0 field -6.8 btn 4 esc 1.3
+[match   82.4] [field death]   81 loot (-43.0, 1.0, -200.0) step 1/2 door path 1/2 stuck 1.3 in true exit 0 field -3.5 btn 4 esc 2.4
+[match   82.4] [field death]   82 loot (-43.0, 1.0, -200.0) step 1/2 door path 1/2 stuck 2.3 in true exit 0 field -0.1 btn 4 esc 3.5
+[match   82.4] Tito Videoke killed by the world (field); 3 teams left
+[match   82.4] alive: North Team 3, East Team 7
+[r12] fieldhouse failed in house 23 at (-38.0, 1.0, -202.0), door facing (1.0, 0.0, 0.0):
+  0.5 loot step 0/4 -> (-40.0, 1.0, -203.0) at (-39.0, 1.0, -202.0) in true exit 0 stuck 0.1 field -18.4
+  1.0 loot step 0/4 -> (-40.0, 1.0, -203.0) at (-40.0, 1.0, -202.0) in true exit 0 stuck 0.0 field -19.8
+  1.5 loot step 0/4 -> (-40.0, 1.0, -203.0) at (-39.0, 1.0, -201.0) in true exit 0 stuck 0.0 field -19.1
+  2.0 loot step 0/4 -> (-40.0, 1.0, -203.0) at (-39.0, 1.0, -202.0) in true exit 0 stuck 0.0 field -18.3
+  2.5 loot step 0/4 -> (-40.0, 1.0, -203.0) at (-37.0, 1.0, -202.0) in true exit 0 stuck 0.0 field -17.1
+  3.0 loot step 0/4 -> (-40.0, 1.0, -203.0) at (-38.0, 1.0, -202.0) in true exit 0 stuck 0.5 field -17.5
+  3.5 loot step 0/4 -> (-40.0, 1.0, -203.0) at (-38.0, 1.0, -203.0) in true exit 0 stuck 1.0 field -17.8
+  4.0 loot step 0/4 -> (-40.0, 1.0, -203.0) at (-39.0, 1.0, -203.0) in true exit 0 stuck 1.5 field -18.4
+  4.5 loot step 1/4 -> (-41.0, 1.0, -203.0) at (-40.0, 1.0, -203.0) in true exit 0 stuck 0.0 field -19.8
+  5.0 loot step 1/4 -> (-41.0, 1.0, -203.0) at (-41.0, 1.0, -203.0) in false exit 0 stuck 0.0 field -20.5
+  5.5 loot step 2/4 -> (-42.0, 1.0, -199.0) at (-42.0, 1.0, -202.0) in true exit 0 stuck 0.0 field -21.7
+  6.0 loot step 2/4 -> (-42.0, 1.0, -199.0) at (-43.0, 1.0, -201.0) in true exit 0 stuck 0.1 field -22.3
+  6.5 loot step 2/4 -> (-42.0, 1.0, -199.0) at (-43.0, 1.0, -200.0) in true exit 0 stuck 0.1 field -22.3
+  7.0 loot step 2/4 -> (-42.0, 1.0, -199.0) at (-43.0, 1.0, -199.0) in true exit 0 stuck 0.1 field -22.1
+  7.5 loot step 3/4 -> (-45.0, 1.0, -199.0) at (-43.0, 1.0, -200.0) in true exit 0 stuck 0.0 field -22.8
+  8.0 loot step 3/4 -> (-45.0, 1.0, -199.0) at (-43.0, 1.0, -200.0) in true exit 0 stuck 0.4 field -22.9
+  8.5 loot step 3/4 -> (-45.0, 1.0, -199.0) at (-43.0, 1.0, -200.0) in true exit 0 stuck 0.9 field -21.4
+  9.0 loot step 3/4 -> (-45.0, 1.0, -199.0) at (-43.0, 1.0, -200.0) in true exit 0 stuck 1.4 field -19.7
+  9.5 loot step 3/4 -> (-45.0, 1.0, -199.0) at (-43.0, 1.0, -200.0) in true exit 0 stuck 1.9 field -18.2
+  10.0 loot step 3/4 -> (-45.0, 1.0, -199.0) at (-43.0, 1.0, -200.0) in true exit 0 stuck 2.4 field -16.7
+  10.5 loot step 3/4 -> (-45.0, 1.0, -199.0) at (-43.0, 2.0, -200.0) in true exit 0 stuck 2.9 field -15.1
+  11.0 loot step 3/4 -> (-45.0, 1.0, -199.0) at (-43.0, 1.0, -200.0) in true exit 0 stuck 3.4 field -13.6
+  11.5 loot step 3/4 -> (-45.0, 1.0, -199.0) at (-43.0, 1.0, -200.0) in true exit 0 stuck 3.9 field -12.0
+  12.0 loot step 0/2 -> (-42.0, 1.0, -199.0) at (-43.0, 1.0, -200.0) in true exit 0 stuck 0.0 field -9.8
+  12.5 loot step 1/2 -> (-45.0, 1.0, -199.0) at (-42.0, 1.0, -200.0) in true exit 0 stuck 0.2 field -7.8
+  13.0 loot step 1/2 -> (-45.0, 1.0, -199.0) at (-43.0, 1.0, -200.0) in true exit 0 stuck 0.0 field -7.3
+  13.5 loot step 1/2 -> (-45.0, 1.0, -199.0) at (-43.0, 1.0, -200.0) in true exit 0 stuck 0.5 field -5.8
+  14.0 loot step 1/2 -> (-45.0, 1.0, -199.0) at (-43.0, 1.0, -200.0) in true exit 0 stuck 1.0 field -4.2
+  14.5 loot step 1/2 -> (-45.0, 1.0, -199.0) at (-43.0, 1.0, -200.0) in true exit 0 stuck 1.5 field -2.7
+  15.0 loot step 1/2 -> (-45.0, 1.0, -199.0) at (-43.0, 1.0, -200.0) in true exit 0 stuck 2.0 field -1.0
+  15.5 loot step 1/2 -> (-45.0, 1.0, -199.0) at (-43.0, 1.0, -200.0) in true exit 0 stuck 2.5 field 0.5
+  doorway at (-33.1, 1.0, -200.6) n (1.0, 0.0, 0.0) door -1; walk from the start clear true/true
+  doorway at (-34.2, 1.0, -203.5) n (0.0, 0.0, 1.0) door -1; walk from the start clear false/false
+  doorway at (-36.7, 7.0, -203.5) n (0.0, 0.0, 1.0) door -1; walk from the start clear false/false
+  doorway at (-40.8, 1.0, -202.7) n (-1.0, 0.0, 0.0) door 109; walk from the start clear false/true
+  doorway at (-40.8, 1.0, -204.7) n (-1.0, 0.0, 0.0) door 110; walk from the start clear false/false
+  doorway at (-33.9, 4.0, -203.5) n (0.0, 0.0, -1.0) door 111; walk from the start clear false/false
+  doorway at (-38.6, 4.0, -203.5) n (0.0, 0.0, -1.0) door 112; walk from the start clear false/false
+  doorway at (-39.5, 4.0, -204.8) n (-1.0, 0.0, 0.0) door 113; walk from the start clear false/false
+  doorway at (-37.7, 7.0, -202.7) n (-1.0, 0.0, 0.0) door 114; walk from the start clear false/false
+  doorway at (-39.5, 7.0, -204.8) n (-1.0, 0.0, 0.0) door 115; walk from the start clear false/false
+  doorway at (-33.1, 1.0, -204.6) n (1.0, 0.0, 0.0) door 107; walk from the start clear false/false
+  doorway at (-43.7, 1.0, -199.2) n (-1.0, 0.0, 0.0) door 108; walk from the start clear false/false
+[match   82.5] [radio] Tito Karaoke King (sniper): affirmative
+[match   82.8] [radio] Bossing Dodong (sniper): kill
+[autotest] FAIL r12_fieldhouse: bot in the middle of a house, no door remembered, field coming: house 2, field from behind: out after 3.8 s (17.6 m from the edge), alive; house 4, field on the door side: out after 2.7 s (25.9 m from the edge), alive; house 5, field from behind: out after 11.6 s (6.9 m from the edge), crushed; house 23, field on the door side: out after 4.9 s (20.3 m from the edge), crushed
+[autotest] done: 4 checks, 2 failed

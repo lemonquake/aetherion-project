@@ -1,0 +1,147 @@
+[
+  [
+    "horror_no_fog",
+    true,
+    "depth fog and volumetric fog remain disabled through daylight/settings updates"
+  ],
+  [
+    "horror_profile",
+    true,
+    "mall material profile and exactly two open lift cabins"
+  ],
+  [
+    "lift_9_walk_in",
+    true,
+    "walked through threshold to (8.960877, 0.246663, -42.24594)"
+  ],
+  [
+    "lift_9_walk_out",
+    true,
+    "returned to lobby without jumping"
+  ],
+  [
+    "lift_16_walk_in",
+    true,
+    "walked through threshold to (15.96092, 0.244972, -42.24233)"
+  ],
+  [
+    "lift_16_walk_out",
+    true,
+    "returned to lobby without jumping"
+  ],
+  [
+    "lift_shaft_9_clear",
+    true,
+    "ray passes through four upper slabs and hits machinery roof at y=27.80"
+  ],
+  [
+    "lift_shaft_16_clear",
+    true,
+    "ray passes through four upper slabs and hits machinery roof at y=27.80"
+  ],
+  [
+    "shaft_void_nav_1",
+    true,
+    "upper-floor navigation excludes the empty hoistway"
+  ],
+  [
+    "shaft_void_nav_2",
+    true,
+    "upper-floor navigation excludes the empty hoistway"
+  ],
+  [
+    "shaft_void_nav_3",
+    true,
+    "upper-floor navigation excludes the empty hoistway"
+  ],
+  [
+    "shaft_void_nav_4",
+    true,
+    "upper-floor navigation excludes the empty hoistway"
+  ],
+  [
+    "upper_lift_lobby_access",
+    true,
+    "walked from Level 3 concourse into real upper landing lobby"
+  ],
+  [
+    "surface_tile",
+    true,
+    "expected tile, got tile at (-18.0, 0.001081, 27.99639)"
+  ],
+  [
+    "surface_tile",
+    true,
+    "expected tile, got tile at (12.5, 0.013132, -42.0)"
+  ],
+  [
+    "surface_metal",
+    true,
+    "expected metal, got metal at (9.65, 0.035182, -41.3)"
+  ],
+  [
+    "surface_dirt",
+    true,
+    "expected dirt, got dirt at (7.1, 0.021335, -35.8)"
+  ],
+  [
+    "surface_escalator",
+    true,
+    "expected escalator, got escalator at (-43.90257, 2.626251, -2.7)"
+  ],
+  [
+    "recorded_steps_tile",
+    true,
+    "5 imported recorded variants"
+  ],
+  [
+    "recorded_steps_rubber",
+    true,
+    "5 imported recorded variants"
+  ],
+  [
+    "recorded_steps_escalator",
+    true,
+    "6 imported recorded variants"
+  ],
+  [
+    "muzzle_world_light",
+    true,
+    "view luminance 19.73 -> 157.52; world surfaces receive warm light"
+  ],
+  [
+    "muzzle_pool_decay",
+    true,
+    "all pooled flashes extinguish after the shot"
+  ],
+  [
+    "gallery_cover",
+    true,
+    "six authored cover/recess positions on four upper floors"
+  ],
+  [
+    "gallery_floor_2",
+    true,
+    "gallery stance rests on existing walkable floor"
+  ],
+  [
+    "gallery_floor_4",
+    true,
+    "gallery stance rests on existing walkable floor"
+  ],
+  [
+    "mall_ride_up",
+    true,
+    "Grand Atrium escalator up: y 0.00 -> 5.01 in 14.0 s standing still (want 5.0)"
+  ],
+  [
+    "mall_ride_down",
+    true,
+    "West Court escalator down: y 10.00 -> 5.02 in 13.9 s standing still (want 5.0)"
+  ],
+  [
+    "mall_glass",
+    true,
+    "shopfront pane 1063 (2.3 x 3.1 m): shattered"
+  ]
+]

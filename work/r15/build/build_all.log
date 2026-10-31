@@ -1,0 +1,36 @@
+presets: 0 export_presets.cfg written: version 0.16.0 (code 16), 438 exclusions
+exports: 0 in 205 s
+[export] Linux Server exit 0 in 48 s
+[export] Windows Release exit 0 in 25 s
+[export] macOS exit 0 in 132 s
+apk: 0 in 124 s, 624740789 bytes
+apk_gl: 0 in 60 s, 624740789 bytes
+builds/android:
+total 1229836
+drwxr-xr-x 1 Azrin Azrael 197121         0 Oct 30 22:03 .
+drwxr-xr-x 1 Azrin Azrael 197121         0 Oct 30 06:29 ..
+-rw-r--r-- 1 Azrin Azrael 197121 624740789 Oct 30 22:03 Aetherion-opengl.apk
+-rw-r--r-- 1 Azrin Azrael 197121   4928992 Oct 30 22:03 Aetherion-opengl.apk.idsig
+-rw-r--r-- 1 Azrin Azrael 197121 624740789 Oct 30 22:02 Aetherion.apk
+-rw-r--r-- 1 Azrin Azrael 197121   4928992 Oct 30 22:02 Aetherion.apk.idsig
+
+builds/release/linux:
+total 1915200
+drwxr-xr-x 1 Azrin Azrael 197121          0 Oct 30 21:57 .
+drwxr-xr-x 1 Azrin Azrael 197121          0 Oct 30 06:50 ..
+-rw-r--r-- 1 Azrin Azrael 197121 1887634908 Oct 30 21:57 aetherion_server.pck
+-rw-r--r-- 1 Azrin Azrael 197121   73519416 Oct 30 21:57 aetherion_server.x86_64
+
+builds/release/macos:
+total 1210952
+drwxr-xr-x 1 Azrin Azrael 197121          0 Oct 30 21:58 .
+drwxr-xr-x 1 Azrin Azrael 197121          0 Oct 30 06:50 ..
+-rw-r--r-- 1 Azrin Azrael 197121 1240008291 Oct 30 22:00 Aetherion.zip
+
+builds/release/windows:
+total 1950108
+drwxr-xr-x 1 Azrin Azrael 197121          0 Oct 30 21:58 .
+drwxr-xr-x 1 Azrin Azrael 197121          0 Oct 30 06:50 ..
+-rwxr-xr-x 1 Azrin Azrael 197121  109268480 Oct 30 21:57 Aetherion.exe
+-rw-r--r-- 1 Azrin Azrael 197121 1887634908 Oct 30 21:58 Aetherion.pck
+builds done

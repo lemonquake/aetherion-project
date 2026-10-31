@@ -1,0 +1,27 @@
+{
+  "vault_survey": {
+    "map": "lawless_sub",
+    "window_types": {
+      "glass": 1521,
+      "open": 1008,
+      "plastic": 593,
+      "shutter": 148
+    },
+    "found": {
+      "window_ground": 877,
+      "window_upper": 731
+    },
+    "result": {
+      "window_ground": [
+        40,
+        40
+      ],
+      "window_upper": [
+        40,
+        40
+      ]
+    },
+    "refused": {},
+    "fails": []
+  }
+}

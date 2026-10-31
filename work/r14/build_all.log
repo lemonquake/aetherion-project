@@ -1,0 +1,19 @@
+presets: 0 export_presets.cfg written: version 0.14.0 (code 14), 412 exclusions
+exe: 0 in 49 s, 1820086464 bytes
+apk: 0 in 126 s, 569185493 bytes
+apk_gl: 0 in 66 s, 569185493 bytes
+builds/android:
+total 1120476
+drwxr-xr-x 1 Azrin Azrael 197121         0 Oct 30 04:50 .
+drwxr-xr-x 1 Azrin Azrael 197121         0 Oct 30 02:33 ..
+-rw-r--r-- 1 Azrin Azrael 197121 569185493 Oct 30 04:50 Aetherion-opengl.apk
+-rw-r--r-- 1 Azrin Azrael 197121   4490720 Oct 30 04:50 Aetherion-opengl.apk.idsig
+-rw-r--r-- 1 Azrin Azrael 197121 569185493 Oct 30 04:49 Aetherion.apk
+-rw-r--r-- 1 Azrin Azrael 197121   4490720 Oct 30 04:49 Aetherion.apk.idsig
+
+builds/windows:
+total 1777432
+drwxr-xr-x 1 Azrin Azrael 197121          0 Oct 30 04:47 .
+drwxr-xr-x 1 Azrin Azrael 197121          0 Oct 30 02:33 ..
+-rwxr-xr-x 1 Azrin Azrael 197121 1820086464 Oct 30 04:47 Aetherion.exe
+builds done

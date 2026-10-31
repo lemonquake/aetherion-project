@@ -1,0 +1,101 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+Vulkan 1.4.329 - Forward+ - Using Device #0: NVIDIA - NVIDIA GeForce RTX 4060
+
+[ui] loadout_received pid=1 Hehe {"primary":"marksman_308","secondary":"pistol_9"}
+[ui] lobby shows my loadout (pid 1): {"primary":"marksman_308","secondary":"pistol_9"}
+[ui] request_loadout {"primary":"marksman_308","secondary":"pistol_9"}
+[lagusan] { "segments": 123, "metres": 1910.45543050766, "lights": 258, "dead": 23, "gaps": 109, "shrines": 18, "walks": 23 }
+[looban] { "loobans": 20, "crate_stacks": 60, "low_walls": 243, "sandbags": 10, "kiosks": 20, "barricades": 10, "yard_walls": 100, &"vacant": 80 }
+[dress] { "poles": 983, "wires": 5448, "laundry": 441, "clutter": 1002, "props": 2109, "tags": 0, "puddles": 168, "plants": 1125, "vehicles": 67, "floating": 6, "loot": 497, "boxes": 38 }
+[vandal] { "wall": 1348, "covered": 427, "stains": 3379, "ground": 880, "spots": 10 }
+WARNING: [Physics interpolation] MultiMesh interpolation is being triggered from outside physics process, this might lead to issues (possibly benign).
+   at: multimesh_instance_set_transform (servers/rendering/storage/mesh_storage.cpp:107)
+   GDScript backtrace (most recent call first):
+       [0] set_leaf_transform (res://src/world/dynamics.gd:510)
+       [1] _apply (res://src/world/door.gd:142)
+       [2] reset_state (res://src/world/door.gd:125)
+       [3] randomize_for_match (res://src/world/dynamics.gd:745)
+       [4] finalize (res://src/world/map_builder.gd:360)
+       [5] build (res://src/world/map_builder.gd:129)
+       [6] build (res://src/match/world.gd:79)
+       [7] _load_match (res://src/core/game.gd:290)
+       [8] start_match (res://src/core/game.gd:274)
+       [9] _autostart (res://src/core/game.gd:191)
+[world] map built in 21795 ms
+[map] 2216 buildings, 4142 doors, 10058 containers, 11127 props, #2b735252 on PC
+[bots] learned from 24 cells, 0 stuck spots (user://bot_memory_kalinaw.json)
+[game] autotest fixes
+[autotest] PASS floor_guns_in_houses: 5928 guns on the ground; 1856 of 2025 houses/shops/apartments (92%) have one lying on a floor
+[autotest] PASS balikbayan_has_guns: 32% of balikbayan box rolls are a gun
+[autotest] shot A:/Python/aetherion-project/work/r17/qa/fixes/01_plane.png
+[autotest] PASS jump: left the plane
+[autotest] shot A:/Python/aetherion-project/work/r17/qa/fixes/02_freefall.png
+[autotest] PASS view_tier_freefall: tier 2 at 265 m above ground, interiors hidden, AO false, local shadows 0
+[autotest] PASS team_cluster: 3 teammates, farthest 37.0 m at canopy
+[autotest] shot A:/Python/aetherion-project/work/r17/qa/fixes/03_canopy_team.png
+[autotest] PASS landed: mode 3, health 100 at (-63.0, 1.0, -305.0)
+[autotest] PASS view_tier_ground: tier 0 at 2 m above ground, interiors drawn, AO true, local shadows 4
+[autotest] shot A:/Python/aetherion-project/work/r17/qa/fixes/04_landed.png
+WARNING: [Physics interpolation] Interpolated Camera3D triggered from outside physics process: "/root/Game/UI/Hud/@Node@15472/@SubViewport@15473/@Camera3D@15477" (possibly benign).
+   at: _notification (scene/3d/camera_3d.cpp:218)
+[autotest] PASS use_takes_items: ["ammo_556: T left it true, E took it true", "rifle_scar: T left it true, E took it true"]; carrying 30 5.56 rounds, SCAR-L in a slot true
+[autotest] PASS stairs_recorded: 1798 indoor flights
+[autotest] shot A:/Python/aetherion-project/work/r17/qa/fixes/05_stair_top_0.png
+[autotest] shot A:/Python/aetherion-project/work/r17/qa/fixes/06_stair_down_view.png
+[autotest] shot A:/Python/aetherion-project/work/r17/qa/fixes/07_stair_top_1.png
+[autotest] shot A:/Python/aetherion-project/work/r17/qa/fixes/08_stair_top_2.png
+[autotest] shot A:/Python/aetherion-project/work/r17/qa/fixes/09_stair_top_3.png
+[autotest] shot A:/Python/aetherion-project/work/r17/qa/fixes/10_stair_top_4.png
+[autotest] shot A:/Python/aetherion-project/work/r17/qa/fixes/11_stair_top_5.png
+[autotest] shot A:/Python/aetherion-project/work/r17/qa/fixes/12_stair_top_6.png
+[autotest] shot A:/Python/aetherion-project/work/r17/qa/fixes/13_stair_top_7.png
+[autotest] shot A:/Python/aetherion-project/work/r17/qa/fixes/14_stair_top_8.png
+[autotest] shot A:/Python/aetherion-project/work/r17/qa/fixes/15_stair_top_9.png
+[autotest] shot A:/Python/aetherion-project/work/r17/qa/fixes/16_stair_top_10.png
+[autotest] shot A:/Python/aetherion-project/work/r17/qa/fixes/17_stair_top_11.png
+[autotest] shot A:/Python/aetherion-project/work/r17/qa/fixes/18_stair_top_12.png
+[autotest] shot A:/Python/aetherion-project/work/r17/qa/fixes/19_stair_top_13.png
+[autotest] shot A:/Python/aetherion-project/work/r17/qa/fixes/20_stair_top_14.png
+[autotest] shot A:/Python/aetherion-project/work/r17/qa/fixes/21_stair_top_15.png
+[autotest] shot A:/Python/aetherion-project/work/r17/qa/fixes/22_stair_top_16.png
+[autotest] shot A:/Python/aetherion-project/work/r17/qa/fixes/23_stair_top_17.png
+[autotest] shot A:/Python/aetherion-project/work/r17/qa/fixes/24_stair_top_18.png
+[autotest] shot A:/Python/aetherion-project/work/r17/qa/fixes/25_stair_top_19.png
+[autotest] shot A:/Python/aetherion-project/work/r17/qa/fixes/26_stair_top_20.png
+[autotest] shot A:/Python/aetherion-project/work/r17/qa/fixes/27_stair_top_21.png
+[autotest] shot A:/Python/aetherion-project/work/r17/qa/fixes/28_stair_top_22.png
+[autotest] shot A:/Python/aetherion-project/work/r17/qa/fixes/29_stair_top_23.png
+[autotest] PASS stairs_climbable: 24 of 24 flights climbed, 24 stepped off on the upper floor; []
+[autotest] shot A:/Python/aetherion-project/work/r17/qa/fixes/30_floor_gun_rifle_556.png
+[autotest] PASS floor_gun_visible: rifle_556 at 2.2 m in an unlit room, no flashlight: 2580 pixels show the gun (mean luma 89.4)
+[autotest] shot A:/Python/aetherion-project/work/r17/qa/fixes/31_tab_box_items.png
+[autotest] FAIL tab_opens_box: beside lootbox_balikbayan: container shown true (id 9652, a loot box true, walked to 9652), page Inventory, its lid opened true, 1 entries listed (the box holds 1)
+[autotest] shot A:/Python/aetherion-project/work/r17/qa/fixes/32_grab_holding_crate_plastic2.png
+[autotest] PASS grab_with_t: crate_plastic2: prompt 'T  Pick up', after E held -1, after T held true, after second T dropped true
+[autotest] shot A:/Python/aetherion-project/work/r17/qa/fixes/33_minimap_before_ping.png
+[autotest] shot A:/Python/aetherion-project/work/r17/qa/fixes/34_minimap_ping.png
+[autotest] FAIL ping_minimap: ping shown true, 10 green pixels in the minimap, cleared after 8 s true, minimap visible true at (20.0, 20.0)
+[autotest] shot A:/Python/aetherion-project/work/r17/qa/fixes/35_door_opened_forward.png
+[autotest] PASS door_opens_forward: door 3979 swung 95 deg, leaf on the far side true (player side +1, leaf side -1)
+[autotest] PASS door_walk_through: walked from (111.0, 1.1, -179.5) through the doorway to (110.8, 1.0, -176.5)
+[autotest] shot A:/Python/aetherion-project/work/r17/qa/fixes/36_door_pushed.png
+[autotest] PASS door_push_swings: leaf at 52 deg, shoved 31 deg by a running player (swinging on its own afterwards true), now 85 deg
+[autotest] PASS door_latches_shut: angle 0.000, solid true
+[autotest] shot A:/Python/aetherion-project/work/r17/qa/fixes/37_vault_through_window.png
+[autotest] PASS vault_through_window: 6 of 6 windows vaulted through; []
+[autotest] PASS vault_hides_weapon: gun lowered while vaulting true, back up after true
+[autotest] PASS trash_no_block: trashbag: blocks movement false, stops bullets false; 579 garbage heaps placed without collision
+[autotest] shot A:/Python/aetherion-project/work/r17/qa/fixes/38_weapon_pistol_9.png
+[autotest] shot A:/Python/aetherion-project/work/r17/qa/fixes/39_weapon_rifle_scar.png
+[autotest] shot A:/Python/aetherion-project/work/r17/qa/fixes/40_weapon_smg_vector.png
+[autotest] shot A:/Python/aetherion-project/work/r17/qa/fixes/41_weapon_pistol_deagle.png
+[autotest] weapons: P92 3 shots, view +4.1 deg, reload ok; P1911 3 shots, view +5.9 deg, reload ok; R1895 Revolver 3 shots, view +8.5 deg, reload ok; S1897 Pump 3 shots, view +13.3 deg, reload ok; MP5K 8 shots, view +6.4 deg, reload ok; Micro UZI 6 shots, view +5.6 deg, reload ok; AR-15 8 shots, view +13.2 deg, reload ok; AKM 6 shots, view +13.8 deg, reload ok; M24 3 shots, view +8.5 deg, reload ok; S686 2 shots, view +9.6 deg, reload ok; Sumpak 1 shots, view +6.1 deg, reload ok; SLR 3 shots, view +6.9 deg, reload ok; SCAR-L 6 shots, view +8.5 deg, reload ok; M416 6 shots, view +7.4 deg, reload ok; M249 8 shots, view +8.7 deg, reload ok; Mini 14 3 shots, view +4.2 deg, reload ok; Beryl M762 6 shots, view +16.1 deg, reload ok; SKS 3 shots, view +5.5 deg, reload ok; Kar98k 3 shots, view +10.1 deg, reload ok; UMP45 6 shots, view +4.3 deg, reload ok; Vector 9 shots, view +6.4 deg, reload ok; Tommy Gun 6 shots, view +5.7 deg, reload ok; S12K 3 shots, view +12.8 deg, reload ok; Deagle 3 shots, view +8.8 deg, reload ok; AWP 3 shots, view +10.2 deg, reload ok
+[autotest] PASS all_weapons_work: 25 guns tested; problems: []
+[autotest] PASS shared_calibres: by calibre: { "9x19": ["P92", "MP5K", "Micro UZI", "Vector"], "45acp": ["P1911", "UMP45", "Tommy Gun"], "357": ["R1895 Revolver"], "12buck": ["S1897 Pump", "S686", "Sumpak", "S12K"], "556": ["AR-15", "SCAR-L", "M416", "M249", "Mini 14"], "762x39": ["AKM", "Beryl M762", "SKS"], "308": ["M24", "SLR", "Kar98k", "AWP"], "50ae": ["Deagle"] }
+SCRIPT ERROR: Invalid access to property or key 'health' on a base object of type 'previously freed'.
+   at: _grenade (res://src/debug/autotest_fixes.gd:742)
+   GDScript backtrace (most recent call first):
+       [0] _grenade (res://src/debug/autotest_fixes.gd:742)
+[autotest] FAIL work_sounds_used: 38 work/sounds files in use; unused ["assets/audio/work/guns/grenade1.mp3", "assets/audio/work/guns/grenade2.mp3", "assets/audio/work/guns/sniper_shoot1.mp3", "assets/audio/work/guns/sniper_shoot2.mp3", "assets/audio/work/player/death1.mp3", "assets/audio/work/player/death2.mp3", "assets/audio/work/player/death3.mp3", "assets/audio/work/player/death4.mp3"]; not loading []
+[autotest] PASS door_sounds_60: door open -6.4 dB (was -2.0), door close -4.4 dB (was 0.0), ambience default 60%
+[autotest] done: 25 checks, 3 failed

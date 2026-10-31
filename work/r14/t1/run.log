@@ -1,0 +1,64 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+Vulkan 1.4.329 - Forward+ - Using Device #0: NVIDIA - NVIDIA GeForce RTX 4060
+
+[ui] loadout_received pid=1 Hehe {"primary":"rifle_m416","secondary":"pistol_9"}
+[ui] lobby shows my loadout (pid 1): {"primary":"rifle_m416","secondary":"pistol_9"}
+[ui] request_loadout {"primary":"rifle_m416","secondary":"pistol_9"}
+[world] map built in 15151 ms
+[map] 243 buildings, 1951 doors, 2617 containers, 2745 props, #b1fba961 on PC
+[bots] learned from 275 cells, 4 stuck spots (user://bot_memory_lawless_sub.json)
+[game] autotest r14
+[autotest] shot A:/Python/aetherion-project/work/r14/t1/01_sight_sight_reddot.png
+[autotest] shot A:/Python/aetherion-project/work/r14/t1/02_sight_sight_holo.png
+[autotest] shot A:/Python/aetherion-project/work/r14/t1/03_sight_sight_reflex.png
+[autotest] shot A:/Python/aetherion-project/work/r14/t1/04_sight_scope_2x.png
+[autotest] shot A:/Python/aetherion-project/work/r14/t1/05_sight_scope_3x.png
+[autotest] shot A:/Python/aetherion-project/work/r14/t1/06_sight_scope_4x.png
+[autotest] shot A:/Python/aetherion-project/work/r14/t1/07_sight_scope_lpvo.png
+[autotest] shot A:/Python/aetherion-project/work/r14/t1/08_sight_scope_6x.png
+[autotest] shot A:/Python/aetherion-project/work/r14/t1/09_sight_scope_8x.png
+[autotest] shot A:/Python/aetherion-project/work/r14/t1/10_sight_scope_night.png
+[autotest] shot A:/Python/aetherion-project/work/r14/t1/11_sight_scope_thermal.png
+[autotest] shot A:/Python/aetherion-project/work/r14/t1/12_sight_scope_15x.png
+[autotest] PASS r14_scopes_unique: 12 sights, 12 reticle styles; most alike: scope_night / scope_15x overlap 55%; reticle pixels { "sight_reddot": 11060, "sight_holo": 5458, "sight_reflex": 10450, "scope_2x": 5036, "scope_3x": 4410, "scope_4x": 2958, "scope_lpvo": 3546, "scope_6x": 2891, "scope_8x": 2235, "scope_night": 771, "scope_thermal": 470, "scope_15x": 767 }
+[autotest] shot A:/Python/aetherion-project/work/r14/t1/13_sight_scope_night_body.png
+[autotest] shot A:/Python/aetherion-project/work/r14/t1/14_sight_scope_thermal_body.png
+[autotest] PASS r14_scope_night: night vision filter true, eyepiece mean colour [0.18, 0.94, 0.31]
+[autotest] FAIL r14_scope_thermal: thermal filter true, 0 warm bodies in the lens, brightest pixel on the enemy 0.35
+[autotest] shot A:/Python/aetherion-project/work/r14/t1/15_sight_scope_lpvo_turned_down.png
+[autotest] PASS r14_scope_variable: 1-4x scope: 4.00x -> 2.05x after three wheel steps, field of view 20.0 -> 39.0, gun in hand rifle_556
+[autotest] PASS r14_attach_numbers: 15 attachments measured: sight_reflex (rifle_m416): ads_time x0.95, zoom 1.1x; scope_lpvo (rifle_m416): ads_time x1.18, zoom 4.0x; scope_night (rifle_m416): ads_time x1.20, zoom 3.0x; scope_thermal (rifle_m416): ads_time x1.25, zoom 4.0x; scope_15x (marksman_308): ads_time x1.55, zoom 15.0x; muzzle_brake (rifle_m416): recoil_up x0.74, recoil_side x0.88, loudness x1.25, flash x1.30; duckbill (shotgun_pump): recoil_up x0.95, pellet_spread x0.80; grip_thumb (rifle_m416): recoil_up x0.94, ads_time x0.85; grip_light (rifle_m416): recoil_up x1.03, recovery x1.28, sway x0.92; grip_ergonomic (rifle_m416): recoil_side x0.92, recovery x1.15, ads_time x0.90; stock_heavy (rifle_m416): recoil_side x0.84, ads_time x1.08, sway x0.70; mag_extquick_light (smg_9): reload x0.78, mag 30->40; mag_extquick_rifle (rifle_m416): reload x0.78, mag 30->40; mag_quick_light (smg_9): reload x0.70; mag_quick_rifle (rifle_m416): reload x0.70
+[autotest] shot A:/Python/aetherion-project/work/r14/t1/16_attach_m416_new_kit.png
+[autotest] shot A:/Python/aetherion-project/work/r14/t1/17_smartab_rising.png
+[autotest] shot A:/Python/aetherion-project/work/r14/t1/18_smartab_inventory.png
+[autotest] PASS r14_smartab_up: watch on the wrist true; hologram 83% of the view's height, 78% of its width
+[autotest] PASS r14_smartab_useless_red: .308 rounds with a 5.56 rifle and a 9 mm SMG: marked 'bad', red edge in the picture true
+[autotest] shot A:/Python/aetherion-project/work/r14/t1/19_smartab_grip_fitted.png
+[autotest] PASS r14_smartab_drag_attachment: thumb grip dragged from the bag (row true) onto the rifle's grip mount (true): fitted true, left in the bag 0
+[autotest] PASS r14_smartab_swap_guns: after the drag: slot 1 smg_9, slot 2 rifle_556, in hand rifle_556 (controller slot 2)
+[autotest] shot A:/Python/aetherion-project/work/r14/t1/20_smartab_took_from_ground.png
+[autotest] PASS r14_smartab_take_ground: 9 mm box on the ground (row true) dragged into the bag: carrying 60 (was 30), still on the ground false
+[autotest] shot A:/Python/aetherion-project/work/r14/t1/21_smartab_page_status.png
+[autotest] shot A:/Python/aetherion-project/work/r14/t1/22_smartab_page_map.png
+[autotest] shot A:/Python/aetherion-project/work/r14/t1/23_smartab_page_team.png
+[autotest] shot A:/Python/aetherion-project/work/r14/t1/24_smartab_page_voice.png
+[autotest] shot A:/Python/aetherion-project/work/r14/t1/25_loot_highlight_on.png
+[autotest] shot A:/Python/aetherion-project/work/r14/t1/26_loot_highlight_off.png
+[autotest] FAIL r14_loot_highlight: outlined: [6324, 6325] of { "ammo_556": 6324, "grip_thumb": 6325, "ammo_308": 6326, "scope_15x": 6327 }; off -> 0 outlined; green pixels on 6 / off 0
+[autotest] shot A:/Python/aetherion-project/work/r14/t1/27_grenade_cooking.png
+[autotest] shot A:/Python/aetherion-project/work/r14/t1/28_grenade_thrown.png
+[autotest] shot A:/Python/aetherion-project/work/r14/t1/29_grenade_thrown_blast.png
+[autotest] PASS r14_grenade_cook_throw: held 1 s: cooking true, fuse ring 1.01 s, in hand true; thrown with 2.47 s left, went off 2.96 s after release; grenades 3 -> 2
+[autotest] shot A:/Python/aetherion-project/work/r14/t1/30_grenade_door_before.png
+[autotest] shot A:/Python/aetherion-project/work/r14/t1/31_grenade_door_fireball.png
+[autotest] shot A:/Python/aetherion-project/work/r14/t1/32_grenade_door_smoke.png
+[autotest] shot A:/Python/aetherion-project/work/r14/t1/33_grenade_door_after.png
+[autotest] PASS r14_grenade_door: door 37 blown apart true; enemy 2.5 m away 100 -> 0 HP; 2 of 2 props near it thrown or broken; view brightness 36 -> 131 at the blast
+[autotest] PASS r14_grenade_muffle: player 8 m from the blast: hearing strength 0.75, world sound low-passed at 535 Hz (filter on true), ears ringing true
+[autotest] shot A:/Python/aetherion-project/work/r14/t1/34_grenade_in_hand.png
+SCRIPT ERROR: Invalid access to property or key 'health' on a base object of type 'previously freed'.
+   at: _grenade (res://src/debug/autotest_r14.gd:912)
+   GDScript backtrace (most recent call first):
+       [0] _grenade (res://src/debug/autotest_r14.gd:912)
+       [1] _shot (res://src/debug/autotest.gd:1547)
+[autotest] done: 14 checks, 2 failed

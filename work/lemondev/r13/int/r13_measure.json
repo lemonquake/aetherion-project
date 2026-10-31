@@ -1,0 +1,104 @@
+{
+  "death": {
+    "cam": [
+      [
+        0.35,
+        3.8,
+        2.87
+      ],
+      [
+        1.0,
+        5.09,
+        2.76
+      ],
+      [
+        2.5,
+        5.19,
+        2.75
+      ],
+      [
+        4.5,
+        5.19,
+        2.75
+      ]
+    ],
+    "detail": "MP5K  ·  22 m  ·  shot through the head",
+    "headshot_badge": true,
+    "killer": "Kuya Wifi",
+    "name": "Kuya Wifi",
+    "over_after_6s": true
+  },
+  "kill_radio": {
+    "bot_kill": [
+      7
+    ],
+    "down": [
+      4
+    ],
+    "headshot_kill": [
+      4
+    ]
+  },
+  "laser": {
+    "arrived_s": 2.25,
+    "camper_closer_to_dot": 0.0,
+    "camper_moved": 0.0,
+    "camper_state": "camp",
+    "camper_took_check": false,
+    "clear": [
+      4
+    ]
+  },
+  "voice": {
+    "fall_back": {
+      "affirmative": [
+        10,
+        4
+      ],
+      "dist": [
+        30.0,
+        5.37503051757813
+      ]
+    },
+    "follow": {
+      "affirmative": [
+        4,
+        7
+      ],
+      "dist": [
+        14.0,
+        2.27166152000427
+      ],
+      "followers": 2
+    },
+    "go": {
+      "affirmative": [
+        7,
+        4
+      ],
+      "to_aim": [
+        26.5040836334229,
+        2.91442966461182
+      ]
+    },
+    "help": {
+      "affirmative": [
+        4
+      ],
+      "dist": [
+        54.9999961853027,
+        3.93631029129028
+      ],
+      "in_position": [
+        4
+      ],
+      "order": "{ \"kind\": \"help\", \"p\": (-119.0, 0.995749, -144.0), \"from\": 1, \"t\": 37.959, \"arrived\": true, \"t_arr\": 46.369 }"
+    },
+    "negative": {
+      "negative": [
+        4
+      ],
+      "order": "{  }"
+    }
+  }
+}

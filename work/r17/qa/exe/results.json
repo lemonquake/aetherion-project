@@ -1,0 +1,42 @@
+[
+  [
+    "r17_starts_at_night",
+    true,
+    "match time 0.0 s, daylight 0.00, day offset 0.0"
+  ],
+  [
+    "r17_mall_night_only",
+    true,
+    "night_only true, brightest daylight over 25 min 0.00, next sun change inf"
+  ],
+  [
+    "r17_floor_spawns",
+    true,
+    "teams on Level 5, Level 3, Level 1; 21 characters, off their floor: none"
+  ],
+  [
+    "r17_squeeze",
+    true,
+    "two bots pinned against the outer wall: hurt from 0.75 s, dead at 2.50 s (1.75 s of squeezing), cause field; the one beside it dead true (field); health trace [[0.75, 99.5, 0.23], [1.0, 90.8, 0.47], [1.25, 80.2, 0.73], [1.5, 67.8, 0.97], [1.75, 53.5, 1.23], [2.0, 37.3, 1.47], [2.25, 19.2, 1.73], [2.5, 0.0, -1.0]]"
+  ],
+  [
+    "r17_respawn",
+    true,
+    "Bayaw Erning back after 5.0 s at (-43.0, 0.0, -29.0) (team floor Level 1), health 100, holding smg_ump45; scores { 0: 0, 1: 0, 2: 0 } -> { 0: 0, 1: 0, 2: 0 }"
+  ],
+  [
+    "r17_score",
+    true,
+    "team 0: 0 -> 1 on the server, HUD team bar 1, under it \"First to 30 kills\""
+  ],
+  [
+    "r17_local_respawn",
+    true,
+    "countdown \"Respawning in 4\"; back true, controlled true, at (1.0, 20.0, 32.0) (team floor Level 5), spawn protection true; the killer's team 0 -> 1"
+  ],
+  [
+    "r17_end_score",
+    true,
+    "ended true on the score rule; scores { 0: 2, 1: 1, 2: 0 }; results say \"North Team wins the round  ·  North Team 2  ·  East Team 1  ·  South Team 0\""
+  ]
+]

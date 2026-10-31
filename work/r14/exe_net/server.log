@@ -1,0 +1,95 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+[server] dedicated server listening on 24731
+[lagusan] { "segments": 123, "metres": 1910.45543050766, "lights": 258, "dead": 23, "gaps": 109, "shrines": 18, "walks": 23 }
+[looban] { "loobans": 20, "crate_stacks": 60, "low_walls": 243, "sandbags": 10, "kiosks": 20, "barricades": 10, "yard_walls": 100, &"vacant": 80 }
+[dress] { "poles": 989, "wires": 5598, "laundry": 452, "clutter": 1024, "props": 2116, "tags": 0, "puddles": 170, "plants": 1147, "vehicles": 71, "floating": 14, "loot": 462, "boxes": 27 }
+[vandal] { "wall": 1415, "covered": 441, "stains": 3509, "ground": 870, "spots": 10 }
+[world] map built in 21120 ms
+[map] 2216 buildings, 4146 doors, 10390 containers, 11250 props, #49929ca0 on PC
+[bots] learned from 18 cells, 3 stuck spots (user://bot_memory_kalinaw.json)
+[match    4.2] start: 8 players, 2 teams, plane (-246.3574, 320.0, 392.1479) -> (211.1219, 320.0, -483.5557)
+[match    4.2] status: { "plane": 8 }; armed 0; shots 0; zone -1 wait r=406; corpses 0; server tick avg 0.14 ms, p99 0.28 ms, max 0.29 ms over 250 ticks
+[match    4.2] bots: { "deploy": 6 }; containers searched by bots 0 (all players 0); plan steps done 0; guns carried 0
+[match    4.2] roles: { "looter": { "deploy": 1 }, "rusher": { "deploy": 3 }, "stalker": { "deploy": 1 }, "sniper": { "deploy": 1 } }; stuck now 0; waypoints 0; team { "lines": 0, "pings": 0, "laser_follow": 0, "learned_cells": 18, "blocked_cells": 0, "squads": 0, "following_humans": 0 }
+[match    4.2] [lootstats] bots on the ground 0 (in water 0); armed 0; armed with ammo for a gun 0; long guns 0; attachments fitted 0; rounds of unusable ammo carried 0; items on the ground 17036; bot pickups { "detours": 0, "detour_taken": 0, "fetches": 0, "fetch_done": 0, "items_taken": 0 }
+[match   11.9] team 0 jumps at (-84.0, 320.0, 82.0)
+[match   13.0] team 1 jumps at (-60.0, 320.0, 35.0)
+[match   13.0] everyone has jumped; zone phase 0 announced
+[match   19.2] status: { "chute": 8 }; armed 0; shots 0; zone 0 wait r=406; corpses 0; server tick avg 0.77 ms, p99 1.52 ms, max 5.30 ms over 900 ticks
+[match   19.2] bots: { "deploy": 6 }; containers searched by bots 0 (all players 0); plan steps done 0; guns carried 0
+[match   19.2] roles: { "looter": { "deploy": 1 }, "rusher": { "deploy": 3 }, "stalker": { "deploy": 1 }, "sniper": { "deploy": 1 } }; stuck now 0; waypoints 0; team { "lines": 0, "pings": 0, "laser_follow": 0, "learned_cells": 18, "blocked_cells": 0, "squads": 0, "following_humans": 0 }
+[match   19.2] [lootstats] bots on the ground 0 (in water 0); armed 0; armed with ammo for a gun 0; long guns 0; attachments fitted 0; rounds of unusable ammo carried 0; items on the ground 17036; bot pickups { "detours": 0, "detour_taken": 0, "fetches": 0, "fetch_done": 0, "items_taken": 0 }
+[match   27.7] Junjun Tisoy (team 1) landed at (-52.0, 4.0, -153.0), 1.4 m/s, health 100; teammates -
+[match   28.9] Bravo (team 0) landed at (-85.0, 1.0, -19.0), 5.2 m/s, health 100; teammates -
+[match   29.1] Alpha (team 0) landed at (-78.0, 1.0, -24.0), 5.2 m/s, health 100; teammates 8 m
+[match   29.5] Ate Load (team 1) landed at (-32.0, 1.0, -142.0), 1.0 m/s, health 100; teammates 17 m
+[netdebug] server: Alpha Use edge in cmd 1375 (mode 3)
+[netdebug] Alpha pressed Use at (-58.65, 0.89, -45.48) yaw -3.142 pitch -0.462: door 
+[match   34.1] Totoy Bibo (team 1) landed at (-13.0, 1.0, -157.0), 1.0 m/s, health 100; teammates 32 m, 29 m
+[match   34.2] status: { "ground": 5, "chute": 3 }; armed 0; shots 0; zone 0 wait r=406; corpses 0; server tick avg 1.08 ms, p99 2.33 ms, max 7.81 ms over 900 ticks
+[match   34.2] bots: { "deploy": 3, "loot": 3 }; containers searched by bots 1 (all players 1); plan steps done 3; guns carried 0
+[match   34.2] roles: { "looter": { "deploy": 1 }, "rusher": { "deploy": 1, "loot": 2 }, "stalker": { "deploy": 1 }, "sniper": { "loot": 1 } }; stuck now 0; waypoints 4336; team { "lines": 0, "pings": 0, "laser_follow": 0, "learned_cells": 18, "blocked_cells": 0, "squads": 1, "following_humans": 0 }
+[match   34.2] [lootstats] bots on the ground 3 (in water 0); armed 0; armed with ammo for a gun 0; long guns 0; attachments fitted 0; rounds of unusable ammo carried 0; items on the ground 17036; bot pickups { "detours": 0, "detour_taken": 0, "fetches": 0, "fetch_done": 0, "items_taken": 0 }
+[match   35.4] Kumareng Marites (team 0) landed at (-58.0, 6.0, -44.0), 1.0 m/s, health 100; teammates 6 m, 34 m
+[match   38.0] Kapitan Tikoy (team 1) landed at (-53.0, 1.0, -162.0), 1.0 m/s, health 100; teammates 12 m, 40 m, 36 m
+[match   39.1] Alpha pinged (-49.0, 2.0, -40.0)
+[match   40.3] Aling Puring (team 0) landed at (-60.0, -1.0, -35.0), 1.0 m/s, health 100; teammates 8 m, 28 m, 12 m
+[match   49.2] status: { "ground": 8 }; armed 4; shots 1; zone 0 wait r=406; corpses 0; server tick avg 1.80 ms, p99 3.33 ms, max 8.53 ms over 900 ticks
+[match   49.2] bots: { "loot": 5, "follow": 1 }; containers searched by bots 9 (all players 8); plan steps done 19; guns carried 5
+[match   49.2] roles: { "looter": { "loot": 1 }, "rusher": { "loot": 3 }, "stalker": { "loot": 1 }, "sniper": { "follow": 1 } }; stuck now 0; waypoints 4336; team { "lines": 1, "pings": 1, "laser_follow": 0, "learned_cells": 18, "blocked_cells": 0, "squads": 1, "following_humans": 0 }
+[match   49.2] [lootstats] bots on the ground 6 (in water 0); armed 4; armed with ammo for a gun 4; long guns 3; attachments fitted 0; rounds of unusable ammo carried 0; items on the ground 17030; bot pickups { "detours": 6, "detour_taken": 6, "fetches": 0, "fetch_done": 0, "items_taken": 6 }
+[netdebug] server: Alpha Use edge in cmd 2535 (mode 3)
+[netdebug] Alpha pressed Use at (-38.43, 0.91, 21.16) yaw 1.172 pitch -1.050: item 16956
+[netdebug] Alpha took item 16956 (ammo_12buck), left over: {  }
+[netdebug] server: Bravo Use edge in cmd 2530 (mode 3)
+[netdebug] Bravo pressed Use at (-39.79, 0.92, 21.03) yaw -1.151 pitch -1.244: item 16955
+[netdebug] Bravo took item 16955 (sumpak), left over: {  }
+[match   64.2] status: { "ground": 8 }; armed 4; shots 1; zone 0 wait r=406; corpses 0; server tick avg 1.73 ms, p99 3.76 ms, max 8.05 ms over 900 ticks
+[match   64.2] bots: { "loot": 3, "hunt": 2, "follow": 1 }; containers searched by bots 12 (all players 11); plan steps done 16; guns carried 6
+[match   64.2] roles: { "looter": { "loot": 1 }, "rusher": { "loot": 2, "hunt": 1 }, "stalker": { "hunt": 1 }, "sniper": { "follow": 1 } }; stuck now 0; waypoints 4336; team { "lines": 5, "pings": 1, "laser_follow": 0, "learned_cells": 18, "blocked_cells": 0, "squads": 1, "following_humans": 0 }
+[match   64.2] [lootstats] bots on the ground 6 (in water 1); armed 4; armed with ammo for a gun 4; long guns 4; attachments fitted 0; rounds of unusable ammo carried 0; items on the ground 17027; bot pickups { "detours": 7, "detour_taken": 7, "fetches": 0, "fetch_done": 0, "items_taken": 7 } wet at [(-55.0, -36.0)]
+ERROR: BUG: Unreferenced static string to 0: _integrate_forces
+   at: unref (core/string/string_name.cpp:118)
+ERROR: BUG: Unreferenced static string to 0: _compute_cost
+   at: unref (core/string/string_name.cpp:118)
+ERROR: BUG: Unreferenced static string to 0: _estimate_cost
+   at: unref (core/string/string_name.cpp:118)
+ERROR: BUG: Unreferenced static string to 0: _create_mesh_array
+   at: unref (core/string/string_name.cpp:118)
+ERROR: BUG: Unreferenced static string to 0: _enter_world
+   at: unref (core/string/string_name.cpp:118)
+ERROR: BUG: Unreferenced static string to 0: ..
+   at: unref (core/string/string_name.cpp:118)
+ERROR: BUG: Unreferenced static string to 0: .
+   at: unref (core/string/string_name.cpp:118)
+ERROR: BUG: Unreferenced static string to 0: _net_id
+   at: unref (core/string/string_name.cpp:118)
+ERROR: BUG: Unreferenced static string to 0: _process_silence
+   at: unref (core/string/string_name.cpp:118)
+ERROR: BUG: Unreferenced static string to 0: _unhandled_key_input
+   at: unref (core/string/string_name.cpp:118)
+ERROR: BUG: Unreferenced static string to 0: _shortcut_input
+   at: unref (core/string/string_name.cpp:118)
+ERROR: BUG: Unreferenced static string to 0: _enter_tree
+   at: unref (core/string/string_name.cpp:118)
+ERROR: BUG: Unreferenced static string to 0: _initialize
+   at: unref (core/string/string_name.cpp:118)
+ERROR: BUG: Unreferenced static string to 0: Variant
+   at: unref (core/string/string_name.cpp:118)
+ERROR: BUG: Unreferenced static string to 0: _set_path_cache
+   at: unref (core/string/string_name.cpp:118)
+ERROR: BUG: Unreferenced static string to 0: _exists
+   at: unref (core/string/string_name.cpp:118)
+ERROR: BUG: Unreferenced static string to 0: _recognize_path
+   at: unref (core/string/string_name.cpp:118)
+ERROR: BUG: Unreferenced static string to 0: @warning_ignore_restore
+   at: unref (core/string/string_name.cpp:118)
+ERROR: BUG: Unreferenced static string to 0: @warning_ignore_start
+   at: unref (core/string/string_name.cpp:118)
+ERROR: BUG: Unreferenced static string to 0: @icon
+   at: unref (core/string/string_name.cpp:118)
+ERROR: 7 RID allocations of type '23NavMeshGeometryParser2D' were leaked at exit.
+ERROR: 6 RID allocations of type '23NavMeshGeometryParser3D' were leaked at exit.
+ERROR: Pages in use exist at exit in PagedAllocator: N12VariantPools11BucketLargeE
+   at: ~PagedAllocator (./core/templates/paged_allocator.h:170)

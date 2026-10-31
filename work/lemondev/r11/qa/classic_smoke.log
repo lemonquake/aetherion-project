@@ -1,0 +1,87 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+[server] dedicated server listening on 27793
+[lagusan] { "segments": 123, "metres": 1910.45543050766, "lights": 258, "dead": 23, "gaps": 109, "shrines": 18, "walks": 23 }
+[looban] { "loobans": 20, "crate_stacks": 60, "low_walls": 243, "sandbags": 10, "kiosks": 20, "barricades": 10, "yard_walls": 100, &"vacant": 80 }
+[dress] { "poles": 989, "wires": 5598, "laundry": 452, "clutter": 1024, "props": 2116, "tags": 0, "puddles": 170, "plants": 1147, "vehicles": 71, "floating": 14, "loot": 462, "boxes": 27 }
+[vandal] { "wall": 1415, "covered": 441, "stains": 3509, "ground": 870, "spots": 10 }
+[world] map built in 30014 ms
+[map] 2216 buildings, 4146 doors, 10390 containers, 11250 props, #49929ca0 on PC
+[bots] learned from 18 cells, 3 stuck spots (user://bot_memory_kalinaw.json)
+[match    0.0] start: 11 players, 3 teams, plane (-464.3034, 320.0, 161.7348) -> (389.0007, 320.0, -336.2773)
+[match    0.0] status: { "plane": 11 }; armed 0; shots 0; zone -1 wait r=406; corpses 0
+[match    0.0] bots: { "deploy": 11 }; containers searched by bots 0 (all players 0); plan steps done 0; guns carried 0
+[match    0.0] roles: { "sniper": { "deploy": 2 }, "looter": { "deploy": 3 }, "rusher": { "deploy": 3 }, "stalker": { "deploy": 3 } }; stuck now 0; waypoints 0; team { "lines": 0, "pings": 0, "laser_follow": 0, "learned_cells": 18, "blocked_cells": 0, "squads": 0, "following_humans": 0 }
+[match    0.0] [lootstats] bots on the ground 0 (in water 0); armed 0; armed with ammo for a gun 0; long guns 0; attachments fitted 0; rounds of unusable ammo carried 0; items on the ground 17032; bot pickups { "detours": 0, "detour_taken": 0, "fetches": 0, "fetch_done": 0, "items_taken": 0 }
+[match    6.0] team 1 jumps at (-228.0, 320.0, 24.0)
+[match    6.0] team 2 jumps at (-228.0, 320.0, 24.0)
+[match   10.6] team 0 jumps at (-46.0, 320.0, -82.0)
+[match   10.7] everyone has jumped; zone phase 0 announced
+[match   15.0] status: { "chute": 8, "freefall": 3 }; armed 0; shots 0; zone 0 wait r=406; corpses 0; server tick avg 0.69 ms, p99 1.18 ms, max 8.34 ms over 900 ticks
+[match   15.0] bots: { "deploy": 11 }; containers searched by bots 0 (all players 0); plan steps done 0; guns carried 0
+[match   15.0] roles: { "sniper": { "deploy": 2 }, "looter": { "deploy": 3 }, "rusher": { "deploy": 3 }, "stalker": { "deploy": 3 } }; stuck now 0; waypoints 0; team { "lines": 0, "pings": 0, "laser_follow": 0, "learned_cells": 18, "blocked_cells": 0, "squads": 0, "following_humans": 0 }
+[match   15.0] [lootstats] bots on the ground 0 (in water 0); armed 0; armed with ammo for a gun 0; long guns 0; attachments fitted 0; rounds of unusable ammo carried 0; items on the ground 17032; bot pickups { "detours": 0, "detour_taken": 0, "fetches": 0, "fetch_done": 0, "items_taken": 0 }
+[match   16.5] Kapitan Tikoy (team 1) landed at (-108.0, 6.0, -26.0), 2.8 m/s, health 100; teammates -
+[match   21.6] Kuya Bert (team 0) landed at (87.0, 1.0, -148.0), 3.4 m/s, health 100; teammates -
+[match   23.1] Mang Tomas (team 0) landed at (72.0, 1.0, -133.0), 1.0 m/s, health 100; teammates 28 m
+[match   24.1] Tsong Balut (team 2) landed at (-296.0, 9.0, 31.0), 1.0 m/s, health 100; teammates -
+[match   24.2] Tita Baby (team 0) landed at (79.0, 1.0, -160.0), 1.6 m/s, health 100; teammates 19 m, 31 m
+[match   24.6] Ka Pedring (team 1) landed at (-94.0, 4.0, 31.0), 1.0 m/s, health 100; teammates 60 m
+[match   25.4] Pareng Jun (team 1) landed at (-95.0, 6.0, 24.0), 1.0 m/s, health 100; teammates 53 m, 7 m
+[match   26.3] Kuya Tricycle (team 1) landed at (-96.0, 1.0, 34.0), 1.0 m/s, health 100; teammates 10 m, 62 m, 5 m
+[match   28.2] Ate Load Dito (team 2) landed at (-280.0, 1.0, 33.0), 1.0 m/s, health 100; teammates 18 m
+[match   28.4] Totoy Kulot (team 2) landed at (-297.0, 1.0, 26.0), 1.0 m/s, health 100; teammates 4 m, 18 m
+[match   30.0] status: { "chute": 1, "ground": 10 }; armed 1; shots 0; zone 0 wait r=406; corpses 0; server tick avg 0.94 ms, p99 2.44 ms, max 9.62 ms over 900 ticks
+[match   30.0] bots: { "deploy": 1, "follow": 3, "fetch": 2, "loot": 5 }; containers searched by bots 0 (all players 0); plan steps done 4; guns carried 1
+[match   30.0] roles: { "sniper": { "deploy": 1, "loot": 1 }, "looter": { "follow": 2, "loot": 1 }, "rusher": { "fetch": 1, "loot": 2 }, "stalker": { "fetch": 1, "loot": 1, "follow": 1 } }; stuck now 0; waypoints 4336; team { "lines": 0, "pings": 0, "laser_follow": 0, "learned_cells": 18, "blocked_cells": 0, "squads": 3, "following_humans": 0 }
+[match   30.0] [lootstats] bots on the ground 10 (in water 1); armed 1; armed with ammo for a gun 1; long guns 1; attachments fitted 0; rounds of unusable ammo carried 0; items on the ground 17029; bot pickups { "detours": 3, "detour_taken": 3, "fetches": 2, "fetch_done": 0, "items_taken": 3 } wet at [(-100.0, -28.0)]
+[match   32.1] Boy Pickup (team 0) landed at (112.0, 6.0, -172.0), 1.0 m/s, health 100; teammates 25 m, 32 m, 74 m
+[match   45.0] status: { "ground": 11 }; armed 5; shots 0; zone 0 wait r=406; corpses 0; server tick avg 1.46 ms, p99 3.90 ms, max 9.88 ms over 900 ticks
+[match   45.0] bots: { "loot": 7, "follow": 3, "fetch": 1 }; containers searched by bots 11 (all players 12); plan steps done 23; guns carried 6
+[match   45.0] roles: { "sniper": { "loot": 2 }, "looter": { "follow": 2, "loot": 1 }, "rusher": { "loot": 3 }, "stalker": { "fetch": 1, "loot": 1, "follow": 1 } }; stuck now 0; waypoints 4336; team { "lines": 0, "pings": 0, "laser_follow": 0, "learned_cells": 18, "blocked_cells": 0, "squads": 3, "following_humans": 0 }
+[match   45.0] [lootstats] bots on the ground 11 (in water 1); armed 5; armed with ammo for a gun 5; long guns 5; attachments fitted 0; rounds of unusable ammo carried 0; items on the ground 17017; bot pickups { "detours": 16, "detour_taken": 16, "fetches": 6, "fetch_done": 3, "items_taken": 16 } wet at [(-99.0, -30.0)]
+[match   60.0] status: { "ground": 11 }; armed 6; shots 0; zone 0 wait r=406; corpses 0; server tick avg 1.46 ms, p99 3.28 ms, max 10.93 ms over 900 ticks
+[match   60.0] bots: { "roam": 2, "follow": 3, "loot": 4, "fetch": 1, "hunt": 1 }; containers searched by bots 17 (all players 17); plan steps done 31; guns carried 11
+[match   60.0] roles: { "sniper": { "roam": 2 }, "looter": { "follow": 2, "loot": 1 }, "rusher": { "loot": 2, "hunt": 1 }, "stalker": { "fetch": 1, "loot": 1, "follow": 1 } }; stuck now 0; waypoints 4336; team { "lines": 2, "pings": 0, "laser_follow": 0, "learned_cells": 18, "blocked_cells": 0, "squads": 3, "following_humans": 0 }
+[match   60.0] [lootstats] bots on the ground 11 (in water 0); armed 6; armed with ammo for a gun 6; long guns 9; attachments fitted 1; rounds of unusable ammo carried 0; items on the ground 17006; bot pickups { "detours": 26, "detour_taken": 26, "fetches": 10, "fetch_done": 5, "items_taken": 28 }
+[match   75.0] status: { "ground": 11 }; armed 6; shots 0; zone 0 wait r=406; corpses 0; server tick avg 1.55 ms, p99 3.54 ms, max 10.11 ms over 900 ticks
+[match   75.0] bots: { "overwatch": 1, "follow": 3, "hunt": 3, "fetch": 1, "loot": 1, "camp": 1, "roam": 1 }; containers searched by bots 21 (all players 20); plan steps done 40; guns carried 11
+[match   75.0] roles: { "sniper": { "overwatch": 1, "roam": 1 }, "looter": { "follow": 2, "camp": 1 }, "rusher": { "hunt": 3 }, "stalker": { "fetch": 1, "loot": 1, "follow": 1 } }; stuck now 0; waypoints 4336; team { "lines": 6, "pings": 0, "laser_follow": 0, "learned_cells": 18, "blocked_cells": 0, "squads": 3, "following_humans": 0 }
+[match   75.0] [lootstats] bots on the ground 11 (in water 1); armed 6; armed with ammo for a gun 6; long guns 9; attachments fitted 1; rounds of unusable ammo carried 0; items on the ground 17007; bot pickups { "detours": 26, "detour_taken": 26, "fetches": 12, "fetch_done": 6, "items_taken": 28 } wet at [(-103.0, -28.0)]
+[match   90.0] status: { "ground": 11 }; armed 7; shots 0; zone 0 wait r=406; corpses 0; server tick avg 1.42 ms, p99 3.33 ms, max 11.42 ms over 900 ticks
+[match   90.0] bots: { "overwatch": 1, "follow": 3, "fetch": 2, "hunt": 2, "loot": 1, "camp": 1, "roam": 1 }; containers searched by bots 21 (all players 24); plan steps done 40; guns carried 12
+[match   90.0] roles: { "sniper": { "overwatch": 1, "roam": 1 }, "looter": { "follow": 2, "camp": 1 }, "rusher": { "fetch": 1, "hunt": 2 }, "stalker": { "fetch": 1, "loot": 1, "follow": 1 } }; stuck now 1; waypoints 4336; team { "lines": 6, "pings": 0, "laser_follow": 0, "learned_cells": 20, "blocked_cells": 0, "squads": 3, "following_humans": 0 }
+[match   90.0] [lootstats] bots on the ground 11 (in water 1); armed 7; armed with ammo for a gun 7; long guns 10; attachments fitted 2; rounds of unusable ammo carried 0; items on the ground 17007; bot pickups { "detours": 26, "detour_taken": 26, "fetches": 19, "fetch_done": 10, "items_taken": 28 } wet at [(-103.0, -28.0)]
+[match  105.0] status: { "ground": 11 }; armed 7; shots 0; zone 0 wait r=406; corpses 0; server tick avg 1.46 ms, p99 3.33 ms, max 10.24 ms over 900 ticks
+[match  105.0] bots: { "overwatch": 1, "follow": 3, "fetch": 1, "hunt": 3, "loot": 1, "camp": 1, "roam": 1 }; containers searched by bots 21 (all players 26); plan steps done 40; guns carried 12
+[match  105.0] roles: { "sniper": { "overwatch": 1, "roam": 1 }, "looter": { "follow": 2, "camp": 1 }, "rusher": { "fetch": 1, "hunt": 2 }, "stalker": { "hunt": 1, "loot": 1, "follow": 1 } }; stuck now 3; waypoints 4336; team { "lines": 7, "pings": 0, "laser_follow": 0, "learned_cells": 20, "blocked_cells": 0, "squads": 3, "following_humans": 0 }
+[match  105.0] [lootstats] bots on the ground 11 (in water 1); armed 7; armed with ammo for a gun 7; long guns 10; attachments fitted 2; rounds of unusable ammo carried 0; items on the ground 17007; bot pickups { "detours": 26, "detour_taken": 26, "fetches": 22, "fetch_done": 11, "items_taken": 28 } wet at [(-101.0, -30.0)]
+[match  120.0] status: { "ground": 11 }; armed 7; shots 0; zone 0 wait r=406; corpses 0; server tick avg 1.67 ms, p99 3.90 ms, max 10.09 ms over 900 ticks
+[match  120.0] bots: { "roam": 3, "follow": 3, "hunt": 3, "loot": 1, "camp": 1 }; containers searched by bots 21 (all players 27); plan steps done 40; guns carried 12
+[match  120.0] roles: { "sniper": { "roam": 2 }, "looter": { "follow": 2, "camp": 1 }, "rusher": { "roam": 1, "hunt": 2 }, "stalker": { "hunt": 1, "loot": 1, "follow": 1 } }; stuck now 1; waypoints 4336; team { "lines": 8, "pings": 0, "laser_follow": 0, "learned_cells": 20, "blocked_cells": 0, "squads": 3, "following_humans": 0 }
+[match  120.0] [lootstats] bots on the ground 11 (in water 0); armed 7; armed with ammo for a gun 7; long guns 10; attachments fitted 2; rounds of unusable ammo carried 0; items on the ground 17007; bot pickups { "detours": 26, "detour_taken": 26, "fetches": 25, "fetch_done": 12, "items_taken": 28 }
+[match  126.6] Ate Load Dito killed by Pareng Jun (gunshot); 3 teams left
+[match  135.0] status: { "ground": 10 }; armed 6; shots 12; zone 0 wait r=406; corpses 1; server tick avg 2.01 ms, p99 5.44 ms, max 47.02 ms over 900 ticks
+[match  135.0] bots: { "overwatch": 1, "follow": 2, "hunt": 3, "loot": 2, "camp": 1, "roam": 1 }; containers searched by bots 18 (all players 30); plan steps done 33; guns carried 11
+[match  135.0] roles: { "sniper": { "overwatch": 1, "roam": 1 }, "looter": { "follow": 2, "camp": 1 }, "rusher": { "hunt": 2 }, "stalker": { "hunt": 1, "loot": 2 } }; stuck now 0; waypoints 4336; team { "lines": 12, "pings": 0, "laser_follow": 0, "learned_cells": 22, "blocked_cells": 0, "squads": 3, "following_humans": 0 }
+[match  135.0] [lootstats] bots on the ground 10 (in water 1); armed 6; armed with ammo for a gun 6; long guns 9; attachments fitted 2; rounds of unusable ammo carried 0; items on the ground 17007; bot pickups { "detours": 26, "detour_taken": 26, "fetches": 26, "fetch_done": 12, "items_taken": 28 } wet at [(-103.0, -28.0)]
+[match  150.0] status: { "ground": 10 }; armed 6; shots 12; zone 0 wait r=406; corpses 1; server tick avg 1.45 ms, p99 3.60 ms, max 13.53 ms over 900 ticks
+[match  150.0] bots: { "overwatch": 1, "follow": 2, "hunt": 3, "loot": 2, "camp": 1, "roam": 1 }; containers searched by bots 18 (all players 30); plan steps done 33; guns carried 11
+[match  150.0] roles: { "sniper": { "overwatch": 1, "roam": 1 }, "looter": { "follow": 2, "camp": 1 }, "rusher": { "hunt": 2 }, "stalker": { "hunt": 1, "loot": 2 } }; stuck now 0; waypoints 4336; team { "lines": 14, "pings": 0, "laser_follow": 0, "learned_cells": 22, "blocked_cells": 0, "squads": 3, "following_humans": 0 }
+[match  150.0] [lootstats] bots on the ground 10 (in water 1); armed 6; armed with ammo for a gun 6; long guns 9; attachments fitted 2; rounds of unusable ammo carried 0; items on the ground 17007; bot pickups { "detours": 27, "detour_taken": 26, "fetches": 27, "fetch_done": 12, "items_taken": 28 } wet at [(-101.0, -28.0)]
+[match  160.7] zone 0 shrinking to r=322 at (-60.0, -50.0)
+[match  165.0] status: { "ground": 10 }; armed 7; shots 14; zone 0 shrink r=402; corpses 1; server tick avg 1.43 ms, p99 2.85 ms, max 11.57 ms over 900 ticks
+[match  165.0] bots: { "overwatch": 1, "follow": 2, "hunt": 3, "fetch": 2, "loot": 1, "roam": 1 }; containers searched by bots 21 (all players 33); plan steps done 39; guns carried 12
+[match  165.0] roles: { "sniper": { "overwatch": 1, "roam": 1 }, "looter": { "follow": 2, "loot": 1 }, "rusher": { "hunt": 2 }, "stalker": { "hunt": 1, "fetch": 2 } }; stuck now 3; waypoints 4336; team { "lines": 16, "pings": 0, "laser_follow": 0, "learned_cells": 22, "blocked_cells": 0, "squads": 3, "following_humans": 0 }
+[match  165.0] [lootstats] bots on the ground 10 (in water 1); armed 7; armed with ammo for a gun 7; long guns 10; attachments fitted 2; rounds of unusable ammo carried 0; items on the ground 17007; bot pickups { "detours": 27, "detour_taken": 26, "fetches": 29, "fetch_done": 12, "items_taken": 28 } wet at [(-97.0, -29.0)]
+[match  169.0] Pareng Jun downed by Totoy Kulot
+[match  169.2] Pareng Jun killed by Totoy Kulot (gunshot); 3 teams left
+[match  180.0] status: { "ground": 9 }; armed 6; shots 21; zone 0 shrink r=388; corpses 2; server tick avg 1.43 ms, p99 3.07 ms, max 13.56 ms over 900 ticks
+[match  180.0] bots: { "overwatch": 1, "follow": 2, "hunt": 3, "loot": 1, "camp": 1, "roam": 1 }; containers searched by bots 19 (all players 37); plan steps done 32; guns carried 10
+[match  180.0] roles: { "sniper": { "overwatch": 1, "roam": 1 }, "looter": { "follow": 2, "camp": 1 }, "rusher": { "hunt": 1 }, "stalker": { "hunt": 2, "loot": 1 } }; stuck now 1; waypoints 4336; team { "lines": 18, "pings": 0, "laser_follow": 0, "learned_cells": 25, "blocked_cells": 0, "squads": 3, "following_humans": 0 }
+[match  180.0] [lootstats] bots on the ground 9 (in water 1); armed 6; armed with ammo for a gun 6; long guns 9; attachments fitted 1; rounds of unusable ammo carried 0; items on the ground 17007; bot pickups { "detours": 27, "detour_taken": 26, "fetches": 29, "fetch_done": 12, "items_taken": 28 } wet at [(-97.0, -29.0)]
+[match  195.0] status: { "ground": 9 }; armed 6; shots 21; zone 0 shrink r=374; corpses 2; server tick avg 1.31 ms, p99 2.97 ms, max 9.56 ms over 900 ticks
+[match  195.0] bots: { "roam": 2, "follow": 2, "hunt": 3, "loot": 1, "camp": 1 }; containers searched by bots 19 (all players 38); plan steps done 32; guns carried 10
+[match  195.0] roles: { "sniper": { "roam": 2 }, "looter": { "follow": 2, "camp": 1 }, "rusher": { "hunt": 1 }, "stalker": { "hunt": 2, "loot": 1 } }; stuck now 2; waypoints 4336; team { "lines": 20, "pings": 0, "laser_follow": 0, "learned_cells": 25, "blocked_cells": 0, "squads": 3, "following_humans": 0 }
+[match  195.0] [lootstats] bots on the ground 9 (in water 1); armed 6; armed with ammo for a gun 6; long guns 9; attachments fitted 1; rounds of unusable ammo carried 0; items on the ground 17006; bot pickups { "detours": 28, "detour_taken": 27, "fetches": 29, "fetch_done": 12, "items_taken": 29 } wet at [(-97.0, -29.0)]
+[run_timed] killed after 240 s

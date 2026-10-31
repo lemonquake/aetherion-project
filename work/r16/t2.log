@@ -1,0 +1,16 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+Vulkan 1.4.329 - Forward+ - Using Device #0: NVIDIA - NVIDIA GeForce RTX 4060
+
+[ui] loadout_received pid=1 Hehe {"primary":"rifle_m416","secondary":"pistol_9"}
+[ui] lobby shows my loadout (pid 1): {"primary":"rifle_m416","secondary":"pistol_9"}
+[ui] request_loadout {"primary":"rifle_m416","secondary":"pistol_9"}
+[world] map built in 4514 ms
+[map] 0 buildings, 217 doors, 168 containers, 795 props, #2749db39 on PC
+[nav] levels: 57027 points, 32 links, 197 ms
+[bots] learned from 29 cells, 1 stuck spots (user://bot_memory_malasugue_mall.json)
+[game] autotest mall
+[autotest] PASS mall_build: 114 units, 1701 plate-glass sheets, 196 glass doors, 16 escalators, 5 levels
+[autotest] FAIL mall_dept_bot: bot from the store's Level 1 to its Level 3: reached (57.0, 0.0, 40.0) in 120 s
+[autotest] done: 2 checks, 1 failed
+WARNING: 7 RIDs of type "Texture" were leaked.
+   at: finalize (servers/rendering/rendering_device.cpp:8900)

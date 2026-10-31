@@ -1,0 +1,35 @@
+{
+  "url": "https://aetherion.15-235-246-87.sslip.io",
+  "game": "0.19.0",
+  "servers": [
+    {
+      "game_mode": "classic",
+      "version": "aetherion-0.19.0",
+      "state": "lobby"
+    },
+    {
+      "game_mode": "deathmatch",
+      "version": "aetherion-0.19.0",
+      "state": "lobby"
+    }
+  ],
+  "downloads": {
+    "windows": {
+      "version": "1.2.0",
+      "sha256_matches": true
+    },
+    "android": {
+      "version": "0.19.0",
+      "sha256_matches": true
+    },
+    "android-opengl": {
+      "version": "0.19.0",
+      "sha256_matches": true
+    }
+  },
+  "windows_checks": {
+    "passed": 29,
+    "total": 29
+  },
+  "android_device_tested": false
+}

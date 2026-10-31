@@ -1,0 +1,22 @@
+[
+  [
+    "r12_field_push",
+    true,
+    "open ground, edge closing at 3 m/s for 5 s: alive true, health 100 -> 100, deepest -0.00 m inside it, carried 13.1 m in (edge 15.0 m minus the 2 m start gap)"
+  ],
+  [
+    "r12_field_crush",
+    true,
+    "dummy behind a 6 m wall: dead after 1.22 s, cause field"
+  ],
+  [
+    "r12_field_bot_escapes",
+    false,
+    "bot behind the middle of a 10 m wall: alive false, ended at (0.0, 0.0, 0.0)"
+  ],
+  [
+    "r12_fieldhouse",
+    false,
+    "bot in the middle of a house, no door remembered, field coming: house 2, field from behind: out after 3.8 s (17.6 m from the edge), alive; house 4, field on the door side: out after 2.7 s (25.9 m from the edge), alive; house 5, field from behind: out after 11.6 s (6.9 m from the edge), crushed; house 23, field on the door side: out after 4.9 s (20.3 m from the edge), crushed"
+  ]
+]

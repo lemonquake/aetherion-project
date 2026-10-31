@@ -1,0 +1,57 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+[server] dedicated server listening on 24641
+[world] map built in 1864 ms
+[map] 0 buildings, 217 doors, 168 containers, 795 props, #2749db39 on PC
+[nav] levels: 57027 points, 32 links, 198 ms
+[bots] learned from 52 cells, 1 stuck spots (user://bot_memory_malasugue_mall.json)
+[match    3.6] deathmatch start on malasugue_mall: 9 players, 3 teams; spawns (0.0, 20.0, 27.0), (42.0, 10.0, -26.0), (-40.0, 0.0, -27.0) (68/82/67 m apart, floors); day offset 0 s; zone centre (-17.0, 4.0) r=134; win by score 50, field holds at r=80
+[match    3.6] status: { "ground": 9 }; armed 9; shots 0; zone 0 wait r=134; corpses 0; levels { "between": 1, "L1": 3, "L3": 3, "L5": 2 }; server tick avg 0.09 ms, p99 0.19 ms, max 0.28 ms over 217 ticks
+[match    3.6] dm teams: North Team 3 at (-1.0, 29.0) spread 1 m; East Team 3 at (41.0, -27.0) spread 1 m; South Team 3 at (-41.0, -28.0) spread 1 m; gap 70 m; zone centre (-17.0, 4.0)
+[match    3.6] bots: { "roam": 8 }; containers searched by bots 0 (all players 0); plan steps done 0; guns carried 16
+[match    3.6] roles: { "stalker": { "roam": 4 }, "looter": { "roam": 2 }, "rusher": { "roam": 1 }, "sniper": { "roam": 1 } }; stuck now 0; waypoints 0; team { "lines": 0, "pings": 0, "laser_follow": 0, "learned_cells": 52, "blocked_cells": 0, "squads": 0, "following_humans": 0 }
+[match    3.6] [lootstats] bots on the ground 8 (in water 0); armed 8; armed with ammo for a gun 8; long guns 8; attachments fitted 0; rounds of unusable ammo carried 0; items on the ground 422; bot pickups { "detours": 0, "detour_taken": 0, "fetches": 0, "fetch_done": 0, "items_taken": 0 }
+[match    9.9] Delta killed by Kumpare Ambo (gunshot); 3 teams left
+[match    9.9] alive: North Team 2, East Team 3; score { 0: 0, 1: 1, 2: 0 }
+[match    9.9] Kuya Tricycle (team 0) landed at (-2.0, 20.0, 24.0), 2.8 m/s, health 100; teammates -
+[match   11.3] Kuya Bert (team 0) landed at (-2.0, 20.0, 24.0), 2.8 m/s, health 100; teammates 4 m
+[match   14.9] Delta respawned at (1.0, 20.0, 32.0) (nearest enemy 63 m)
+[match   15.3] Totoy Bibo (team 1) landed at (56.0, 10.0, -33.0), 4.5 m/s, health 100; teammates -
+[match   18.6] status: { "ground": 9 }; armed 9; shots 0; zone 0 wait r=134; corpses 1; levels { "L1": 3, "L3": 3, "between": 1, "L5": 2 }; server tick avg 1.86 ms, p99 6.97 ms, max 12.51 ms over 900 ticks
+[match   18.6] dm teams: North Team 3 at (-3.0, 14.0) spread 11 m; East Team 3 at (34.0, -29.0) spread 31 m; South Team 3 at (-32.0, -20.0) spread 2 m; gap 57 m; zone centre (-17.0, 4.0)
+[match   18.6] bots: { "hunt": 5, "roam": 1, "follow": 2 }; containers searched by bots 0 (all players 0); plan steps done 0; guns carried 16
+[match   18.6] roles: { "stalker": { "hunt": 3, "follow": 1 }, "looter": { "roam": 1, "follow": 1 }, "rusher": { "hunt": 1 }, "sniper": { "hunt": 1 } }; stuck now 3; waypoints 0; team { "lines": 5, "pings": 0, "laser_follow": 0, "learned_cells": 53, "blocked_cells": 0, "squads": 2, "following_humans": 1 }
+[match   18.6] [lootstats] bots on the ground 8 (in water 0); armed 8; armed with ammo for a gun 8; long guns 8; attachments fitted 0; rounds of unusable ammo carried 0; items on the ground 422; bot pickups { "detours": 0, "detour_taken": 0, "fetches": 0, "fetch_done": 0, "items_taken": 0 }
+ERROR: BUG: Unreferenced static string to 0: _exit_world
+   at: unref (core/string/string_name.cpp:118)
+ERROR: BUG: Unreferenced static string to 0: markers
+   at: unref (core/string/string_name.cpp:118)
+ERROR: BUG: Unreferenced static string to 0: _compression
+   at: unref (core/string/string_name.cpp:118)
+ERROR: BUG: Unreferenced static string to 0: _request_gizmo_for_id
+   at: unref (core/string/string_name.cpp:118)
+ERROR: BUG: Unreferenced static string to 0: _enter_world
+   at: unref (core/string/string_name.cpp:118)
+ERROR: BUG: Unreferenced static string to 0: .
+   at: unref (core/string/string_name.cpp:118)
+ERROR: BUG: Unreferenced static string to 0: _net_id
+   at: unref (core/string/string_name.cpp:118)
+ERROR: BUG: Unreferenced static string to 0: servers
+   at: unref (core/string/string_name.cpp:118)
+ERROR: BUG: Unreferenced static string to 0: Variant
+   at: unref (core/string/string_name.cpp:118)
+ERROR: BUG: Unreferenced static string to 0: @warning_ignore_restore
+   at: unref (core/string/string_name.cpp:118)
+ERROR: BUG: Unreferenced static string to 0: @warning_ignore_start
+   at: unref (core/string/string_name.cpp:118)
+ERROR: BUG: Unreferenced static string to 0: @warning_ignore
+   at: unref (core/string/string_name.cpp:118)
+ERROR: BUG: Unreferenced static string to 0: @icon
+   at: unref (core/string/string_name.cpp:118)
+WARNING: A Thread object is being destroyed without its completion having been realized.
+Please call wait_to_finish() on it to ensure correct cleanup.
+   at: ~Thread (core/os/thread.cpp:116)
+ERROR: 7 RID allocations of type '23NavMeshGeometryParser2D' were leaked at exit.
+ERROR: 6 RID allocations of type '23NavMeshGeometryParser3D' were leaked at exit.
+ERROR: Pages in use exist at exit in PagedAllocator: N12VariantPools11BucketLargeE
+   at: ~PagedAllocator (./core/templates/paged_allocator.h:170)

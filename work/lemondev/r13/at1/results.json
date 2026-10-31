@@ -1,0 +1,57 @@
+[
+  [
+    "r13_sounds_load",
+    true,
+    "18 of 18 sound ids load"
+  ],
+  [
+    "r13_awp",
+    true,
+    "AWP defined with a model (res://assets/models/items/bolt_308.glb); the sumpak shoots its own sound"
+  ],
+  [
+    "r13_voice_follow",
+    true,
+    "Follow me: 2 bots follow, 2 said affirmative, nearest bot 14.0 -> 4.4 m, state follow"
+  ],
+  [
+    "r13_voice_help",
+    true,
+    "Need help!: bot 55 m off said affirmative true and came 55.0 -> 4.0 m (in position said true)"
+  ],
+  [
+    "r13_voice_go",
+    true,
+    "Let's go!: bot near the player moved toward where the player looks 26.5 -> 4.5 m, affirmative true"
+  ],
+  [
+    "r13_voice_fall_back",
+    true,
+    "Fall back!: bot 30 m off said affirmative true and pulled back to 5.4 m"
+  ],
+  [
+    "r13_voice_negative",
+    true,
+    "Need help! with the only bot in reach in a close fight: it said negative true and took no order ({  })"
+  ],
+  [
+    "r13_laser_check",
+    false,
+    "teammate laser on a spot 14 m from a roaming bot: it got there in 5.5 s and said clear false; the camping bot moved 23.5 m and is still roam"
+  ],
+  [
+    "r13_kill_radio",
+    false,
+    "player's headshot kill confirmed on the radio by a teammate bot true; a bot's own kill said true; a teammate's death called (man down) false"
+  ],
+  [
+    "r13_death_camera",
+    true,
+    "camera on the body in third person (distance, height): [[0.35, 3.8, 2.87], [1.0, 5.04, 2.76], [2.5, 5.19, 2.75], [4.5, 5.19, 2.75]]; spectating after 6 s: true"
+  ],
+  [
+    "r13_death_card",
+    true,
+    "card: killed by Aling Puring (killer Aling Puring), \"SCAR-L  ·  22 m  ·  shot through the head\", headshot badge true"
+  ]
+]

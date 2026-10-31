@@ -1,0 +1,16 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+Vulkan 1.4.329 - Forward+ - Using Device #0: NVIDIA - NVIDIA GeForce RTX 4060
+
+[preview] map built in 4180 ms: {"buildings":0,"containers":168,"doors":217,"finish_ms":685,"ladders":0,"layout_ms":140,"lights":{"dead":0,"house_dark":0,"house_lit":0,"pole":0,"porch":0,"rooms":0},"mall":{"build_ms":1888,"decor":{"discs":432,"icicle_lights":2358,"lights":1,"props":302},"dept":{"escalators":2,"fixtures":0,"lights":0,"zones":0},"dept_rooms":{"escalators":0,"fixtures":69,"lights":20,"zones":17},"downlights_L1":"609 lit / 735 dead","downlights_L2":"624 lit / 693 dead","downlights_L3":"414 lit / 928 dead","downlights_L4":"475 lit / 868 dead","downlights_L5":"620 lit / 738 dead","escalators":{"escalators":16,"steps":432},"floors_ms":143,"lights":{"beams":4,"down":220,"emergency":57,"faulty":57,"shafts":3},"shell_ms":424,"shops":{"doors":180,"fixtures":18050,"panes":707,"shutters":29,"smashed":112,"units":114},"shops_ms":1341,"wreck":{"barricades":4,"blood":104,"burnt":"Bisikleta Bikes","carts":18,"ceiling":20,"decals":1262,"litter":200,"props":285,"sparks":6,"writing":80,"writing_L1":8,"writing_L2":9,"writing_L3":9,"writing_L4":11,"writing_L5":11}},"props":795,"sink":{"boxes":33065,"colliders":78,"far_tris":0,"meshes":1307,"tris":429730},"terrain_ms":24,"towns_ms":1913,"windows":1701,"zones":1}
+[preview] saved ../work/r16/after3/atrium_l1_t450.png fps 26.0 luma 58.0561283674782
+[preview] saved ../work/r16/after3/north_walk_l2_t450.png fps 46.0 luma 42.5966946528655
+[preview] saved ../work/r16/after3/east_court_l3_t450.png fps 60.0 luma 53.6557578082589
+[preview] saved ../work/r16/after3/west_court_l1_t450.png fps 36.0 luma 39.9893235077764
+[preview] saved ../work/r16/after3/food_l5_t450.png fps 44.0 luma 54.9600437560664
+[preview] saved ../work/r16/after3/plaza_south_t450.png fps 60.0 luma 31.6679677771248
+[preview] saved ../work/r16/after3/walk_l4_t450.png fps 33.0 luma 35.0457204494596
+[preview] saved ../work/r16/after3/dept_l2_t450.png fps 44.0 luma 18.2195966907999
+[preview] saved ../work/r16/after3/dept_l1_t450.png fps 60.0 luma 27.0927973464528
+[preview] saved ../work/r16/after3/restroom_l3_t450.png fps 32.0 luma 49.7467220945419
+WARNING: 7 RIDs of type "Texture" were leaked.
+   at: finalize (servers/rendering/rendering_device.cpp:8900)

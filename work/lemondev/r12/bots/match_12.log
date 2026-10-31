@@ -1,0 +1,91 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+[server] dedicated server listening on 27612
+[world] map built in 11176 ms
+[map] 243 buildings, 1951 doors, 2617 containers, 2745 props, #b1fba961 on PC
+[bots] learned from 183 cells, 12 stuck spots (user://bot_memory_lawless_sub.json)
+[match    0.0] deathmatch start on lawless_sub: 21 players, 3 teams; spawns (-119.0, 1.0, -144.0), (190.0, 1.0, -40.0), (-72.0, 1.0, 196.0) (326/353/343 m apart, layout); day offset 300 s; zone centre (-46.0, -27.0) r=372
+[match    0.0] status: { "ground": 21 }; armed 21; shots 0; zone 0 wait r=372; corpses 0
+[match    0.0] dm teams: North Team 7 at (-120.0, -144.0) spread 3 m; East Team 7 at (189.0, -40.0) spread 3 m; South Team 7 at (-73.0, 196.0) spread 3 m; gap 326 m; zone centre (-46.0, -27.0)
+[match    0.0] bots: { "zone": 4, "roam": 17 }; containers searched by bots 0 (all players 0); plan steps done 0; guns carried 42
+[match    0.0] roles: { "stalker": { "zone": 1, "roam": 3 }, "rusher": { "roam": 8, "zone": 1 }, "sniper": { "roam": 4, "zone": 1 }, "looter": { "roam": 2, "zone": 1 } }; stuck now 0; waypoints 0; team { "lines": 2, "pings": 0, "laser_follow": 0, "learned_cells": 183, "blocked_cells": 2, "squads": 0, "following_humans": 0 }
+[match    0.0] [lootstats] bots on the ground 21 (in water 0); armed 21; armed with ammo for a gun 21; long guns 21; attachments fitted 0; rounds of unusable ammo carried 0; items on the ground 6304; bot pickups { "detours": 0, "detour_taken": 0, "fetches": 0, "fetch_done": 0, "items_taken": 0 }
+[match   11.4] Kuya Tricycle (team 2) landed at (-48.0, 1.0, 147.0), 4.9 m/s, health 100; teammates -
+[match   15.0] status: { "ground": 21 }; armed 21; shots 0; zone 0 wait r=372; corpses 0; server tick avg 2.03 ms, p99 3.75 ms, max 8.79 ms over 900 ticks
+[match   15.0] dm teams: North Team 7 at (-98.0, -59.0) spread 2 m; East Team 7 at (159.0, -37.0) spread 35 m; South Team 7 at (-39.0, 122.0) spread 6 m; gap 257 m; zone centre (-46.0, -27.0)
+[match   15.0] bots: { "zone": 14, "hunt": 4, "roam": 1, "follow": 2 }; containers searched by bots 0 (all players 0); plan steps done 0; guns carried 42
+[match   15.0] roles: { "stalker": { "zone": 2, "hunt": 2 }, "rusher": { "zone": 6, "hunt": 2, "follow": 1 }, "sniper": { "zone": 4, "roam": 1 }, "looter": { "zone": 2, "follow": 1 } }; stuck now 0; waypoints 2075; team { "lines": 4, "pings": 0, "laser_follow": 0, "learned_cells": 183, "blocked_cells": 2, "squads": 2, "following_humans": 0 }
+[match   15.0] [lootstats] bots on the ground 21 (in water 0); armed 21; armed with ammo for a gun 21; long guns 21; attachments fitted 0; rounds of unusable ammo carried 0; items on the ground 6304; bot pickups { "detours": 0, "detour_taken": 0, "fetches": 0, "fetch_done": 0, "items_taken": 0 }
+[match   25.3] Mang Kanor (team 0) landed at (-92.0, 1.0, -10.0), 2.5 m/s, health 100; teammates -
+[match   28.3] Totoy Bibo (team 2) landed at (-21.0, 1.0, 71.0), 2.5 m/s, health 100; teammates 11 m
+[match   30.0] zone 0 shrinking to r=194 at (114.0, -56.0)
+[match   30.0] status: { "ground": 21 }; armed 21; shots 0; zone 0 shrink r=372; corpses 0; server tick avg 1.95 ms, p99 3.31 ms, max 7.55 ms over 900 ticks
+[match   30.0] dm teams: North Team 7 at (-73.0, -9.0) spread 2 m; East Team 7 at (119.0, -35.0) spread 65 m; South Team 7 at (-19.0, 72.0) spread 7 m; gap 194 m; zone centre (-46.0, -27.0)
+[match   30.0] bots: { "hunt": 8, "roam": 6, "zone": 2, "follow": 4, "overwatch": 1 }; containers searched by bots 0 (all players 0); plan steps done 0; guns carried 42
+[match   30.0] roles: { "stalker": { "hunt": 3, "roam": 1 }, "rusher": { "roam": 2, "hunt": 5, "zone": 1, "follow": 1 }, "sniper": { "follow": 2, "overwatch": 1, "zone": 1, "roam": 1 }, "looter": { "roam": 2, "follow": 1 } }; stuck now 1; waypoints 2075; team { "lines": 6, "pings": 0, "laser_follow": 0, "learned_cells": 183, "blocked_cells": 2, "squads": 4, "following_humans": 0 }
+[match   30.0] [lootstats] bots on the ground 21 (in water 0); armed 21; armed with ammo for a gun 21; long guns 21; attachments fitted 0; rounds of unusable ammo carried 0; items on the ground 6304; bot pickups { "detours": 0, "detour_taken": 0, "fetches": 0, "fetch_done": 0, "items_taken": 0 }
+[match   30.0] Toto Pancit (team 1) landed at (93.0, 1.0, -23.0), 2.5 m/s, health 100; teammates -
+[match   30.8] Aling Nena (team 0) landed at (-73.0, 1.0, -4.0), 4.9 m/s, health 100; teammates 6 m
+[match   36.6] Kuya Bert killed by Pinsan Gardo (gunshot); 3 teams left
+[match   36.6] alive: North Team 7, East Team 7
+[match   37.7] Mang Kanor killed by Aling Taho (gunshot); 3 teams left
+[match   37.7] alive: North Team 6, East Team 7
+[match   37.8] Totoy Bibo killed by Aling Taho (gunshot); 3 teams left
+[match   37.8] alive: North Team 6, East Team 7
+[match   39.8] Boy Pickup killed by Manong Guard (gunshot); 3 teams left
+[match   39.8] alive: North Team 6, East Team 6
+[match   40.8] Tatay Kulas killed by Ate Siomai (gunshot); 3 teams left
+[match   40.8] alive: North Team 6, East Team 6
+[match   42.9] Tsong Ramil killed by Kuya Wifi (gunshot); 3 teams left
+[match   42.9] alive: North Team 5, East Team 6
+[match   43.0] Ate Siomai killed by Aling Nena (gunshot); 3 teams left
+[match   43.0] alive: North Team 4, East Team 6
+[match   43.8] Kuya Tricycle killed by Aling Taho (gunshot); 3 teams left
+[match   43.8] alive: North Team 4, East Team 6
+[match   45.0] status: { "ground": 13 }; armed 13; shots 512; zone 0 shrink r=283; corpses 8; server tick avg 10.71 ms, p99 31.43 ms, max 52.38 ms over 900 ticks
+[match   45.0] dm teams: North Team 4 at (-64.0, 1.0) spread 13 m; East Team 6 at (94.0, -37.0) spread 82 m; South Team 3 at (-12.0, 51.0) spread 8 m; gap 163 m; zone centre (34.0, -42.0)
+[match   45.0] bots: { "hunt": 3, "fight": 6, "overwatch": 1, "zone": 1, "follow": 1, "heal": 1 }; containers searched by bots 0 (all players 0); plan steps done 0; guns carried 26
+[match   45.0] roles: { "stalker": { "hunt": 2 }, "rusher": { "fight": 2, "hunt": 1 }, "sniper": { "fight": 4, "overwatch": 1 }, "looter": { "zone": 1, "follow": 1, "heal": 1 } }; stuck now 0; waypoints 2075; team { "lines": 29, "pings": 0, "laser_follow": 0, "learned_cells": 189, "blocked_cells": 2, "squads": 6, "following_humans": 0 }
+[match   45.0] [lootstats] bots on the ground 13 (in water 0); armed 13; armed with ammo for a gun 13; long guns 13; attachments fitted 0; rounds of unusable ammo carried 0; items on the ground 6304; bot pickups { "detours": 0, "detour_taken": 0, "fetches": 0, "fetch_done": 0, "items_taken": 0 }
+[match   45.7] Mang Tomas Ketchup killed by Manong Guard (gunshot); 3 teams left
+[match   45.7] alive: North Team 4, East Team 5
+[match   46.2] Aling Taho killed by Kuya Wifi (bleeding); 3 teams left
+[match   46.2] alive: North Team 3, East Team 5
+[match   49.0] Kumareng Marites killed by Kuya Wifi (gunshot); 3 teams left
+[match   49.0] alive: North Team 2, East Team 5
+[match   53.8] Toto Pancit killed by Manong Guard (gunshot); 3 teams left
+[match   53.8] alive: North Team 2, East Team 4
+[match   58.2] Pareng Jun (team 1) landed at (33.0, 1.0, 0.0), 4.9 m/s, health 100; teammates -
+[match   59.0] Aling Nena killed by Pinsan Gardo (gunshot); 3 teams left
+[match   59.0] alive: North Team 1, East Team 4
+[match   60.0] [field watch] zone 0: 0 bots indoors in the field's path when it started closing: 0 out before the edge reached them, 0 out after it, 0 never out (); 0 of them dead by the end
+[match   60.0] status: { "ground": 8 }; armed 8; shots 711; zone 1 wait r=194; corpses 13; server tick avg 3.21 ms, p99 7.23 ms, max 13.33 ms over 900 ticks
+[match   60.0] dm teams: North Team 1 at (-55.0, -8.0) spread 0 m; East Team 4 at (108.0, -49.0) spread 97 m; South Team 3 at (-12.0, 39.0) spread 8 m; gap 168 m; zone centre (114.0, -56.0)
+[match   60.0] bots: { "hunt": 1, "zone": 1, "roam": 1, "overwatch": 1, "fight": 3, "follow": 1 }; containers searched by bots 0 (all players 0); plan steps done 0; guns carried 16
+[match   60.0] roles: { "stalker": { "hunt": 1, "zone": 1 }, "sniper": { "roam": 1, "overwatch": 1, "fight": 2 }, "looter": { "fight": 1, "follow": 1 } }; stuck now 0; waypoints 2075; team { "lines": 42, "pings": 0, "laser_follow": 0, "learned_cells": 192, "blocked_cells": 2, "squads": 6, "following_humans": 0 }
+[match   60.0] [lootstats] bots on the ground 8 (in water 0); armed 8; armed with ammo for a gun 8; long guns 8; attachments fitted 0; rounds of unusable ammo carried 0; items on the ground 6304; bot pickups { "detours": 0, "detour_taken": 0, "fetches": 0, "fetch_done": 0, "items_taken": 0 }
+[match   62.0] Mang Jolo killed by Kuya Wifi (gunshot); 2 teams left
+[match   62.0] alive: North Team 0, East Team 4
+[match   71.5] Inday Tsismis (team 1) landed at (36.0, 1.0, -32.0), 4.9 m/s, health 100; teammates 42 m
+[match   75.0] status: { "ground": 7 }; armed 7; shots 750; zone 1 wait r=194; corpses 14; server tick avg 1.34 ms, p99 3.09 ms, max 7.39 ms over 900 ticks
+[match   75.0] dm teams: East Team 4 at (131.0, -66.0) spread 69 m; South Team 3 at (25.0, -7.0) spread 6 m; gap -1 m; zone centre (114.0, -56.0)
+[match   75.0] bots: { "hunt": 1, "zone": 4, "overwatch": 1, "follow": 1 }; containers searched by bots 0 (all players 0); plan steps done 0; guns carried 14
+[match   75.0] roles: { "stalker": { "hunt": 1, "zone": 1 }, "sniper": { "zone": 3, "overwatch": 1 }, "looter": { "follow": 1 } }; stuck now 0; waypoints 2075; team { "lines": 46, "pings": 0, "laser_follow": 0, "learned_cells": 194, "blocked_cells": 2, "squads": 6, "following_humans": 0 }
+[match   75.0] [lootstats] bots on the ground 7 (in water 0); armed 7; armed with ammo for a gun 7; long guns 7; attachments fitted 0; rounds of unusable ammo carried 0; items on the ground 6304; bot pickups { "detours": 0, "detour_taken": 0, "fetches": 0, "fetch_done": 0, "items_taken": 0 }
+[match   79.1] Pinsan Gardo (team 2) landed at (37.0, 1.0, -23.0), 2.5 m/s, health 100; teammates -
+[match   80.0] Manong Guard (team 2) landed at (37.0, 1.0, -23.0), 2.5 m/s, health 82; teammates 5 m
+[match   82.5] zone 1 shrinking to r=113 at (178.0, -94.0)
+[match   90.0] status: { "ground": 7 }; armed 7; shots 763; zone 1 shrink r=167; corpses 14; server tick avg 1.05 ms, p99 2.38 ms, max 5.59 ms over 900 ticks
+[match   90.0] dm teams: East Team 4 at (145.0, -80.0) spread 50 m; South Team 3 at (89.0, -25.0) spread 3 m; gap -1 m; zone centre (135.0, -69.0)
+[match   90.0] bots: { "fight": 4, "zone": 1, "overwatch": 1, "follow": 1 }; containers searched by bots 0 (all players 0); plan steps done 0; guns carried 14
+[match   90.0] roles: { "stalker": { "fight": 2 }, "sniper": { "zone": 1, "overwatch": 1, "fight": 2 }, "looter": { "follow": 1 } }; stuck now 0; waypoints 2075; team { "lines": 49, "pings": 0, "laser_follow": 0, "learned_cells": 194, "blocked_cells": 2, "squads": 6, "following_humans": 0 }
+[match   90.0] [lootstats] bots on the ground 7 (in water 0); armed 7; armed with ammo for a gun 7; long guns 7; attachments fitted 0; rounds of unusable ammo carried 0; items on the ground 6304; bot pickups { "detours": 0, "detour_taken": 0, "fetches": 0, "fetch_done": 0, "items_taken": 0 }
+[match   92.2] Kuya Wifi killed by Inday Tsismis (gunshot); 2 teams left
+[match   92.2] alive: North Team 0, East Team 4
+[match   93.8] Manong Guard killed by Pinsan Gardo (gunshot); 2 teams left
+[match   93.8] alive: North Team 0, East Team 4
+[match  104.2] Pinsan Gardo killed by Inday Tsismis (gunshot); 1 teams left
+[match  104.2] alive: North Team 0, East Team 4
+[match  104.2] match over: winner team 1 (East Team) after 104 s, 946 shots fired
+[bots] saved 198 learned cells to user://bot_memory_lawless_sub.json
+[game] results: {}

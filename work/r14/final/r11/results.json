@@ -1,0 +1,32 @@
+[
+  [
+    "r11_three_teams",
+    true,
+    "players per team { 0: 7, 2: 7, 1: 7 }, spawns [(-119.0, 1.0, -144.0), (190.0, 1.0, -40.0), (-72.0, 1.0, 196.0)], closest spawns 326 m apart"
+  ],
+  [
+    "r11_cage_pa",
+    true,
+    "speakers { \"cage\": 28, \"tower\": 4 }; start line played: true; the 3 nearest stacks are on the cage: true ([(-128.0, 16.0, -222.0), (-64.0, 16.0, -222.0), (-222.0, 16.0, -128.0)])"
+  ],
+  [
+    "r11_cage_holds",
+    true,
+    "walked into the north cage from z -218.0: stopped at z -223.31 (wall line -224.0); chest ray stops at z -223.63"
+  ],
+  [
+    "r11_impact_haze",
+    true,
+    "centre change against the view before the hit: 2.83 at 0.15 s, 2.56 at 1.5 s, 0.48 at 4 s (no-hit control over 1.5 s: 0.46)"
+  ],
+  [
+    "r11_kerbs_step_up",
+    true,
+    "24 kerb approaches walking (no jump); 0 failed []"
+  ],
+  [
+    "r11_upper_stairs_climb",
+    true,
+    "14 upper flights tried (7 ending above 8.5 m: roofs, top floors); 0 failed []"
+  ]
+]

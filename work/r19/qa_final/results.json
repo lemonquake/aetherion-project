@@ -1,0 +1,112 @@
+[
+  [
+    "horror_no_fog",
+    true,
+    "depth fog and volumetric fog remain disabled through daylight/settings updates"
+  ],
+  [
+    "horror_profile",
+    true,
+    "mall material profile and exactly two open lift cabins"
+  ],
+  [
+    "lift_9_walk_in",
+    true,
+    "walked through threshold to (8.960896, 0.246666, -42.24586)"
+  ],
+  [
+    "lift_9_walk_out",
+    true,
+    "returned to lobby without jumping"
+  ],
+  [
+    "lift_16_walk_in",
+    true,
+    "walked through threshold to (15.96094, 0.244974, -42.24223)"
+  ],
+  [
+    "lift_16_walk_out",
+    true,
+    "returned to lobby without jumping"
+  ],
+  [
+    "surface_tile",
+    true,
+    "expected tile, got tile at (-18.0, 0.009674, 28.01407)"
+  ],
+  [
+    "surface_tile",
+    true,
+    "expected tile, got tile at (12.5, 0.013132, -42.0)"
+  ],
+  [
+    "surface_metal",
+    true,
+    "expected metal, got metal at (9.65, 0.035182, -41.3)"
+  ],
+  [
+    "surface_dirt",
+    true,
+    "expected dirt, got dirt at (7.1, 0.021335, -35.8)"
+  ],
+  [
+    "surface_escalator",
+    true,
+    "expected escalator, got escalator at (-43.91339, 2.620001, -2.7)"
+  ],
+  [
+    "recorded_steps_tile",
+    true,
+    "5 imported recorded variants"
+  ],
+  [
+    "recorded_steps_rubber",
+    true,
+    "5 imported recorded variants"
+  ],
+  [
+    "recorded_steps_escalator",
+    true,
+    "6 imported recorded variants"
+  ],
+  [
+    "muzzle_world_light",
+    true,
+    "view luminance 7.19 -> 93.30; world surfaces receive warm light"
+  ],
+  [
+    "muzzle_pool_decay",
+    true,
+    "all pooled flashes extinguish after the shot"
+  ],
+  [
+    "gallery_cover",
+    true,
+    "six authored cover/recess positions on four upper floors"
+  ],
+  [
+    "gallery_floor_2",
+    true,
+    "gallery stance rests on existing walkable floor"
+  ],
+  [
+    "gallery_floor_4",
+    true,
+    "gallery stance rests on existing walkable floor"
+  ],
+  [
+    "mall_ride_up",
+    true,
+    "Grand Atrium escalator up: y 0.00 -> 5.01 in 14.0 s standing still (want 5.0)"
+  ],
+  [
+    "mall_ride_down",
+    true,
+    "West Court escalator down: y 10.00 -> 5.02 in 14.0 s standing still (want 5.0)"
+  ],
+  [
+    "mall_glass",
+    true,
+    "shopfront pane 1063 (2.3 x 3.1 m): shattered"
+  ]
+]

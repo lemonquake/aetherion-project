@@ -1,0 +1,16 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+Vulkan 1.4.329 - Forward+ - Using Device #0: NVIDIA - NVIDIA GeForce RTX 4060
+
+[ui] loadout_received pid=1 Hehe {"primary":"marksman_308","secondary":"pistol_9"}
+[ui] lobby shows my loadout (pid 1): {"primary":"marksman_308","secondary":"pistol_9"}
+[ui] request_loadout {"primary":"marksman_308","secondary":"pistol_9"}
+[world] map built in 13162 ms
+[map] 243 buildings, 1951 doors, 2617 containers, 2745 props, #b1fba961 on PC
+[bots] learned from 252 cells, 3 stuck spots (user://bot_memory_lawless_sub.json)
+[game] autotest r12
+[autotest] strip A:/Python/aetherion-project/work/r17/qa/r12b/ab/field_push_fp.png
+[autotest] PASS r12_field_push: open ground, edge closing at 3 m/s for 5 s: alive true, health 100 -> 100, deepest -0.00 m inside it, carried 13.1 m in (edge 15.0 m minus the 2 m start gap)
+[autotest] PASS r12_field_crush: dummy behind a 6 m wall: dead after 2.97 s, cause field
+[autotest] PASS r12_field_bot_escapes: bot behind the middle of a 10 m wall: alive true, ended at (9.8, 0.0, -18.8) (over it)
+[autotest] PASS r12_fieldhouse: bot in the middle of a house, no door remembered, field coming: house 2, field from behind: out after 0.6 s (18.2 m from the edge), alive; house 4, field on the door side: out after 4.8 s (26.0 m from the edge), alive; house 5, field from behind: out after 3.1 s (26.0 m from the edge), alive; house 23, field on the door side: out after 4.0 s (20.5 m from the edge), alive
+[autotest] done: 4 checks, 0 failed

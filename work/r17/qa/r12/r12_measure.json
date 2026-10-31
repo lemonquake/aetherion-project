@@ -1,0 +1,43 @@
+{
+  "field": {
+    "dummy_cause": "field",
+    "dummy_dead_t": 2.96666666666667,
+    "edge_moved": 15.0,
+    "health": [
+      100.0,
+      100.0
+    ],
+    "max_pen": -0.000790405273448869,
+    "moved": 13.1103210449219,
+    "runner_alive": true,
+    "runner_end": "(9.750694, 0.018738, -18.78818)"
+  },
+  "fieldhouse_0": {
+    "dead": false,
+    "house": 2,
+    "out_pen": -17.3998413085938,
+    "out_t": 2.9,
+    "p": "(-185.0, 1.19, -195.0)"
+  },
+  "fieldhouse_1": {
+    "dead": false,
+    "house": 4,
+    "out_pen": -25.8485870361328,
+    "out_t": 2.1,
+    "p": "(-118.0, 1.19, -182.0)"
+  },
+  "fieldhouse_2": {
+    "dead": true,
+    "house": 5,
+    "out_pen": -3.81221508789062,
+    "out_t": 12.6,
+    "p": "(-118.0, 1.05, -106.0)"
+  },
+  "fieldhouse_3": {
+    "dead": false,
+    "house": 23,
+    "out_pen": -14.5153732910156,
+    "out_t": 10.8,
+    "p": "(-38.40491, 1.08, -201.75)"
+  }
+}

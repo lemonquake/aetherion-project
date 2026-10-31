@@ -1,0 +1,30 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+Vulkan 1.4.329 - Forward+ - Using Device #0: NVIDIA - NVIDIA GeForce RTX 4060
+
+[ui] loadout_received pid=1 Hehe {"primary":"rifle_m416","secondary":"pistol_9"}
+[ui] lobby shows my loadout (pid 1): {"primary":"rifle_m416","secondary":"pistol_9"}
+[ui] request_loadout {"primary":"rifle_m416","secondary":"pistol_9"}
+[world] map built in 13603 ms
+[map] 243 buildings, 1951 doors, 2617 containers, 2745 props, #b1fba961 on PC
+[bots] learned from 283 cells, 2 stuck spots (user://bot_memory_lawless_sub.json)
+[match    0.0] deathmatch start on lawless_sub: 21 players, 3 teams; spawns (-119.0, 1.0, -144.0), (190.0, 1.0, -40.0), (-72.0, 1.0, 196.0) (326/353/343 m apart, layout); day offset 300 s; zone centre (-54.0, 7.0) r=373
+[game] autotest r13
+[match    0.0] status: { "ground": 21 }; armed 21; shots 0; zone 0 wait r=373; corpses 0
+[match    0.0] dm teams: North Team 7 at (-120.0, -144.0) spread 3 m; East Team 7 at (189.0, -40.0) spread 3 m; South Team 7 at (-73.0, 196.0) spread 3 m; gap 326 m; zone centre (-54.0, 7.0)
+[match    0.0] bots: { "roam": 20 }; containers searched by bots 0 (all players 0); plan steps done 0; guns carried 40
+[match    0.0] roles: { "sniper": { "roam": 7 }, "rusher": { "roam": 4 }, "stalker": { "roam": 8 }, "looter": { "roam": 1 } }; stuck now 0; waypoints 2075; team { "lines": 0, "pings": 0, "laser_follow": 0, "learned_cells": 283, "blocked_cells": 0, "squads": 0, "following_humans": 0 }
+[match    0.0] [lootstats] bots on the ground 20 (in water 0); armed 20; armed with ammo for a gun 20; long guns 20; attachments fitted 0; rounds of unusable ammo carried 0; items on the ground 6340; bot pickups { "detours": 0, "detour_taken": 0, "fetches": 0, "fetch_done": 0, "items_taken": 0 }
+[match    2.0] Kuya Tricycle killed by Hehe (gunshot); 3 teams left
+[match    2.0] alive: North Team 7, East Team 7
+[match    2.5] [radio] Kumareng Marites (rusher): headshot_kill
+[match    4.5] [radio] Pareng Pandesal (stalker): contact
+[match    4.7] Kuya Fishball killed by Kumareng Marites (gunshot); 3 teams left
+[match    4.7] alive: North Team 7, East Team 6
+[match    5.4] [radio] Kumareng Marites (rusher): kill
+[match    7.8] [radio] Mang Isko (sniper): good_spot
+[match    7.8] Kumareng Marites killed by Mang Isko (gunshot); 3 teams left
+[match    7.8] alive: North Team 6, East Team 6
+[match    8.2] [radio] Pareng Pandesal (stalker): down
+[match    8.9] [radio] Mang Isko (sniper): kill
+[autotest] PASS r13_kill_radio: player's headshot kill confirmed on the radio by a teammate bot true; a bot's own kill said true; a teammate's death called (man down) true
+[autotest] done: 1 checks, 0 failed

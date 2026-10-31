@@ -1,0 +1,13 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+Vulkan 1.4.329 - Forward+ - Using Device #0: NVIDIA - NVIDIA GeForce RTX 4060
+
+[ui] request_loadout {"primary":"rifle_m416","secondary":"pistol_9"}
+[ui] lobby shows my loadout (pid 290112937): {"primary":"rifle_m416","secondary":"pistol_9"}
+[world] map built in 3624 ms
+[map] 0 buildings, 216 doors, 193 containers, 670 props, #64ec4447 on PC
+[game] match started (client)
+[game] autotest mall
+[autotest] PASS mall_build: 114 units, 1815 plate-glass sheets, 196 glass doors, 16 escalators, 5 levels
+[autotest] done: 1 checks, 0 failed
+WARNING: 7 RIDs of type "Texture" were leaked.
+   at: finalize (servers/rendering/rendering_device.cpp:8900)

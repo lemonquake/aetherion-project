@@ -1,0 +1,82 @@
+{
+  "version": "0.20.0",
+  "verified_utc": "2026-10-30T23:20:39.361721+00:00",
+  "url": "https://aetherion.15-235-246-87.sslip.io",
+  "website_sha256": "897f528ee73a86525488b8a685e11644a035c8d5f3a2fbaacd086a6ae0ef15a7",
+  "manifests": {
+    "windows": {
+      "version": "0.20.0",
+      "files": 2,
+      "notes": 7
+    },
+    "linux": {
+      "version": "0.20.0",
+      "files": 2,
+      "notes": 7
+    },
+    "macos": {
+      "version": "0.20.0",
+      "files": 7,
+      "notes": 7
+    }
+  },
+  "downloads": {
+    "windows": {
+      "platform": "windows",
+      "name": "Aetherion Launcher for Windows",
+      "version": "1.2.0",
+      "requires": "Windows 10 or 11, 64-bit",
+      "file": "AetherionLauncher.exe",
+      "size": 978432,
+      "sha256": "f23012f548d3d683d469baa1d0334aa4447c6ac6a0a09976d06ec872b884469a"
+    },
+    "android": {
+      "platform": "android",
+      "name": "Aetherion for Android",
+      "version": "0.20.0",
+      "requires": "Android 7.0 or newer, 64-bit",
+      "file": "Aetherion.apk",
+      "size": 648866414,
+      "sha256": "8dd3fab09a0a4a5d145d4ef7cca8f43df47f27d5e70093223835b6adaa6796a1"
+    },
+    "android-opengl": {
+      "platform": "android-opengl",
+      "name": "Aetherion for Android (OpenGL compatibility build)",
+      "version": "0.20.0",
+      "requires": "Android 7.0 or newer, 64-bit",
+      "file": "Aetherion-opengl.apk",
+      "size": 648862318,
+      "sha256": "82e1072c83c94da7855160810bab3e0496c29c2a374d49addb1aa73fd211d56d"
+    }
+  },
+  "servers": [
+    {
+      "game_mode": "deathmatch",
+      "map": "lawless_sub",
+      "max": 21.0,
+      "name": "Official Deathmatch \u00b7 Singapore",
+      "players": 0.0,
+      "region": "Singapore",
+      "state": "lobby",
+      "version": "aetherion-0.20.0"
+    },
+    {
+      "game_mode": "classic",
+      "map": "kalinaw",
+      "max": 28.0,
+      "name": "Official Classic \u00b7 Singapore",
+      "players": 0.0,
+      "region": "Singapore",
+      "state": "lobby",
+      "version": "aetherion-0.20.0"
+    }
+  ],
+  "source_files_verified": 166,
+  "standalone_windows": {
+    "path": "builds/windows/Aetherion.exe",
+    "size": 2058789048,
+    "sha256": "5c7fed55ae479af84d0e159906e5ab4d82b0c907832f7c27fe05896c58a1b214"
+  },
+  "ok": true,
+  "recent_service_script_errors": []
+}

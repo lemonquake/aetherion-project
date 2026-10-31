@@ -1,0 +1,17 @@
+[
+  [
+    "r14_dm_zone_fixed",
+    true,
+    "lobby speed -> first wait/shrink (s): [[1.0, 37.5, 37.5], [2.5, 37.5, 37.5]]; the whole DM field closes in 250 s at x1.6"
+  ],
+  [
+    "r14_spectate_fps",
+    false,
+    "watching Lola Basyang: 144 fps, p99 28.0 ms, 58 frames over 16.7 ms (alive, first person at the same spot: 22 fps, p99 116.3 ms)"
+  ],
+  [
+    "r14_spectate_smooth",
+    true,
+    "moving bots near the one watched stood still in 0% of frames ([[\"Ate Load\", 1132, 0.0], [\"Tito Karaoke King\", 1104, 0.0], [\"Junjun Tisoy\", 1121, 0.01], [\"Ka Pedring\", 1130, 0.0], [\"Lola Basyang\", 944, 0.0]])"
+  ]
+]

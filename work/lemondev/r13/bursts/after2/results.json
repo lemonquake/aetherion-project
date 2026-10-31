@@ -1,0 +1,17 @@
+[
+  [
+    "bursts_flat",
+    false,
+    "open ground: run { \"bursts\": 1, \"top_tick\": 23.45, \"top_0.1s\": 4.78, \"rise_0.25s\": 2.4, \"step_ups\": 0, \"steps\": [] }, sprint { \"bursts\": 1, \"top_tick\": 24.09, \"top_0.1s\": 4.85, \"rise_0.25s\": 2.58, \"step_ups\": 0, \"steps\": [] }"
+  ],
+  [
+    "bursts_stairs",
+    true,
+    "13 stair runs, 0 with bursts; worst tick 6.6 m/s, worst 0.1 s 6.4 m/s (run 4.4, sprint 6.3)"
+  ],
+  [
+    "bursts_water",
+    false,
+    "8 runs out of the estero, 1 with bursts; sharpest speed rise 1.86 m/s in 0.25 s (run 4.4 m/s)"
+  ]
+]

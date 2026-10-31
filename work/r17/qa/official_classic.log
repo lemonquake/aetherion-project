@@ -1,0 +1,13 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+[roomtest] solo PASS host: room host 1123557429, me 1123557429
+[roomtest] solo FAIL starts_alone: state lobby after 30.0 s
+[lagusan] { "segments": 123, "metres": 1910.45543050766, "lights": 258, "dead": 23, "gaps": 109, "shrines": 18, "walks": 23 }
+[looban] { "loobans": 20, "crate_stacks": 60, "low_walls": 243, "sandbags": 10, "kiosks": 20, "barricades": 10, "yard_walls": 100, &"vacant": 80 }
+[dress] { "poles": 983, "wires": 5448, "laundry": 441, "clutter": 1002, "props": 2109, "tags": 0, "puddles": 168, "plants": 1125, "vehicles": 67, "floating": 6, "loot": 497, "boxes": 38 }
+[vandal] { "wall": 1348, "covered": 427, "stains": 3379, "ground": 880, "spots": 10 }
+[world] map built in 11853 ms
+[map] 2216 buildings, 4142 doors, 10058 containers, 11127 props, #2b735252 on PC
+[game] match started (client)
+[roomtest] solo PASS in_the_match: state match, map kalinaw, my character (-512.0, 320.0, -348.0), 20 characters, match phase plane
+[roomtest] solo done: 1 failed

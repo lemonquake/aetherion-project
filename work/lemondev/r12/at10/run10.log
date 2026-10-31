@@ -1,0 +1,49 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+Vulkan 1.4.329 - Forward+ - Using Device #0: NVIDIA - NVIDIA GeForce RTX 4060
+
+[ui] loadout_received pid=1 Hehe {"primary":"rifle_m416","secondary":"pistol_9"}
+[ui] lobby shows my loadout (pid 1): {"primary":"rifle_m416","secondary":"pistol_9"}
+[ui] request_loadout {"primary":"rifle_m416","secondary":"pistol_9"}
+[world] map built in 15934 ms
+[map] 243 buildings, 1951 doors, 2617 containers, 2745 props, #b1fba961 on PC
+[bots] learned from 262 cells, 6 stuck spots (user://bot_memory_lawless_sub.json)
+[game] autotest r12
+ERROR: Lambda capture at index 0 was freed. Passed "null" instead.
+   at: call (modules/gdscript/gdscript_lambda_callable.cpp:110)
+[r12] fieldhouse failed in house 23 at (-38.0, 1.0, -202.0), door facing (1.0, 0.0, 0.0):
+  0.5 loot step 0/2 -> (-35.0, 1.0, -201.0) at (-38.0, 1.0, -201.0) in true exit 0 stuck 0.0 field -17.3
+  1.0 loot step 0/2 -> (-35.0, 1.0, -201.0) at (-36.0, 1.0, -201.0) in true exit 0 stuck 0.0 field -15.3
+  1.5 loot step 1/2 -> (-32.0, 1.0, -201.0) at (-34.0, 1.0, -201.0) in true exit 0 stuck 0.0 field -13.7
+  2.0 loot step 2/2 -> - at (-32.0, 1.0, -201.0) in false exit 0 stuck 0.0 field -11.6
+  2.5 zone step 2/0 -> (-112.0, 1.0, -208.0) at (-31.0, 1.0, -200.0) in false exit 0 stuck 0.0 field -11.0
+  3.0 zone step 2/0 -> (-112.0, 1.0, -208.0) at (-31.0, 1.0, -198.0) in false exit 0 stuck 0.0 field -10.8
+  3.5 zone step 2/0 -> (-112.0, 1.0, -208.0) at (-31.0, 1.0, -195.0) in false exit 0 stuck 0.0 field -10.6
+  4.0 zone step 2/0 -> (-112.0, 1.0, -208.0) at (-31.0, 1.0, -192.0) in false exit 0 stuck 0.0 field -10.4
+  4.5 zone step 2/0 -> (-112.0, 1.0, -208.0) at (-31.0, 1.0, -188.0) in false exit 0 stuck 0.0 field -10.0
+  5.0 zone step 2/0 -> (-112.0, 1.0, -208.0) at (-31.0, 1.0, -185.0) in false exit 0 stuck 0.0 field -9.5
+  5.5 zone step 2/0 -> (-112.0, 1.0, -208.0) at (-31.0, 1.0, -182.0) in false exit 0 stuck 0.0 field -8.7
+  6.0 zone step 2/0 -> (-112.0, 1.0, -208.0) at (-31.0, 1.0, -179.0) in false exit 0 stuck 0.0 field -8.0
+  6.5 zone step 2/0 -> (-112.0, 1.0, -208.0) at (-31.0, 1.0, -176.0) in false exit 0 stuck 0.0 field -7.2
+  7.0 zone step 2/0 -> (-112.0, 1.0, -208.0) at (-31.0, 1.0, -173.0) in false exit 0 stuck 0.0 field -6.4
+  7.5 zone step 2/0 -> (-112.0, 1.0, -208.0) at (-31.0, 1.0, -169.0) in false exit 0 stuck 0.0 field -5.4
+  8.0 zone step 2/0 -> (-112.0, 1.0, -208.0) at (-31.0, 1.0, -166.0) in false exit 0 stuck 0.0 field -4.3
+  8.5 zone step 2/0 -> (-112.0, 1.0, -208.0) at (-31.0, 1.0, -165.0) in false exit 0 stuck 0.2 field -2.7
+  9.0 zone step 2/0 -> (-112.0, 1.0, -208.0) at (-33.0, 1.0, -167.0) in false exit 0 stuck 0.7 field -2.8
+  9.5 loot step 0/2 -> (-35.0, 1.0, -169.0) at (-34.0, 1.0, -169.0) in true exit 0 stuck 0.0 field -3.7
+  10.0 loot step 1/2 -> (-32.0, 1.0, -169.0) at (-34.0, 1.0, -169.0) in true exit 0 stuck 0.3 field -1.9
+  10.5 loot step 1/2 -> (-32.0, 1.0, -169.0) at (-34.0, 1.0, -170.0) in true exit 0 stuck 0.3 field -0.2
+  11.0 loot step 1/2 -> (-32.0, 1.0, -169.0) at (-35.0, 1.0, -170.0) in true exit 0 stuck 0.7 field -0.1
+  11.5 loot step 1/2 -> (-32.0, 1.0, -169.0) at (-37.0, 2.0, -171.0) in true exit 0 stuck 1.3 field -0.2
+  12.0 loot step 1/2 -> (-32.0, 1.0, -169.0) at (-38.0, 1.0, -171.0) in true exit 0 stuck 1.7 field -0.4
+  12.5 loot step 1/2 -> (-32.0, 1.0, -169.0) at (-40.0, 2.0, -171.0) in true exit 0 stuck 2.3 field 0.1
+  doorway at (-33.1, 1.0, -200.6) n (1.0, 0.0, 0.0) door -1; walk from the start clear true/true
+  doorway at (-34.2, 1.0, -203.5) n (0.0, 0.0, 1.0) door -1; walk from the start clear false/false
+  doorway at (-36.7, 7.0, -203.5) n (0.0, 0.0, 1.0) door -1; walk from the start clear false/false
+  doorway at (-33.1, 1.0, -204.6) n (1.0, 0.0, 0.0) door 107; walk from the start clear false/false
+  doorway at (-43.7, 1.0, -199.2) n (-1.0, 0.0, 0.0) door 108; walk from the start clear false/false
+SCRIPT ERROR: Invalid access to property or key 'team' on a base object of type 'previously freed'.
+   at: _fieldhouse (res://src/debug/autotest_r12.gd:864)
+   GDScript backtrace (most recent call first):
+       [0] _fieldhouse (res://src/debug/autotest_r12.gd:864)
+       [1] _phys (res://src/debug/autotest_r12.gd:68)
+[autotest] done: 0 checks, 0 failed

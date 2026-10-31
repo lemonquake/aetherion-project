@@ -1,0 +1,323 @@
+20:18:38 | INFO: Data are loaded, start creating Blender stuff
+20:18:38 | INFO: Blender create Mesh node Mesh.005
+20:18:38 | INFO: glTF import finished in 0.05s
+A:\Python\aetherion-project\tools\blender\process_props.py:372: DeprecationWarning: 'Material.use_nodes' is expected to be removed in Blender 6.0
+  if not m or not m.use_nodes:
+INFO Draco is available, use library at C:\Program Files\Blender Foundation\Blender 5.2\5.2\scripts\addons_core\io_scene_gltf2\bf_intern_draco_bridge.dll
+INFO MeshOptimizer is available, use library at C:\Program Files\Blender Foundation\Blender 5.2\5.2\scripts\addons_core\io_scene_gltf2\bf_intern_meshopt_bridge.dll
+20:18:40 | INFO: Starting glTF 2.0 export
+20:18:40 | INFO: Extracting primitive: Mesh.005
+20:18:40 | WARNING: More than one shader node tex image used for a texture. The resulting glTF sampler will behave like the first shader node tex image.
+20:18:40 | INFO: Primitives created: 1
+20:18:40 | INFO: Finished glTF 2.0 export in 0.12415456771850586 s
+00:12.594  render           | Saved: 'A:\Python\aetherion-project\work\props\BarberShopChair_01.png'
+
+[props] BarberShopChair_01               4280 ->   3999 tris  1 mat  0.76 x 1.33 x 1.49 m  decimated to its 4,000-triangle budget; 4,280 -> 3,999 triangles, 1 material (tools/blender/process_props.py)
+20:18:41 | INFO: Data are loaded, start creating Blender stuff
+20:18:41 | INFO: Blender create Mesh node Line008.000
+20:18:41 | INFO: glTF import finished in 0.06s
+A:\Python\aetherion-project\tools\blender\process_props.py:378: DeprecationWarning: 'Material.use_nodes' is expected to be removed in Blender 6.0
+  if not m or not m.use_nodes:
+A:\Python\aetherion-project\tools\blender\process_props.py:445: DeprecationWarning: 'Material.use_nodes' is expected to be removed in Blender 6.0
+  m.use_nodes = True
+20:18:42 | INFO: Starting glTF 2.0 export
+20:18:42 | INFO: Extracting primitive: Line008.000
+20:18:42 | WARNING: More than one shader node tex image used for a texture. The resulting glTF sampler will behave like the first shader node tex image.
+20:18:42 | INFO: Primitives created: 1
+20:18:42 | INFO: Finished glTF 2.0 export in 0.010455608367919922 s
+00:13.157  render           | Saved: 'A:\Python\aetherion-project\work\props\Chandelier_01.png'
+
+[props] Chandelier_01                   26860 ->   3000 tris  1 mat  0.75 x 0.82 x 0.80 m  decimated to its 3,000-triangle budget; 2 materials packed into one 1024x1280 atlas; 26,860 -> 3,000 triangles, 1 material (tools/blender/process_props.py)
+20:18:42 | INFO: Data are loaded, start creating Blender stuff
+20:18:42 | INFO: Blender create Mesh node Bottom_Cart
+20:18:42 | INFO: Blender create Mesh node Top_Cart
+20:18:42 | INFO: Blender create Mesh node Mugs
+20:18:42 | INFO: glTF import finished in 0.06s
+20:18:42 | INFO: Starting glTF 2.0 export
+20:18:42 | INFO: Extracting primitive: Bottom_Cart
+20:18:42 | WARNING: More than one shader node tex image used for a texture. The resulting glTF sampler will behave like the first shader node tex image.
+20:18:42 | INFO: Primitives created: 1
+20:18:42 | INFO: Finished glTF 2.0 export in 0.011903524398803711 s
+00:13.938  render           | Saved: 'A:\Python\aetherion-project\work\props\CoffeeCart_01.png'
+
+[props] CoffeeCart_01                   27659 ->   3999 tris  1 mat  2.17 x 1.07 x 1.72 m  decimated to its 4,000-triangle budget; 3 materials packed into one 2048x1280 atlas (4 tiling UV corners clamped); 27,659 -> 3,999 triangles, 1 material (tools/blender/process_props.py)
+20:18:43 | INFO: Data are loaded, start creating Blender stuff
+20:18:43 | INFO: Blender create Mesh node Mesh
+20:18:43 | INFO: glTF import finished in 0.01s
+20:18:43 | INFO: Starting glTF 2.0 export
+20:18:43 | INFO: Extracting primitive: Mesh
+20:18:43 | WARNING: More than one shader node tex image used for a texture. The resulting glTF sampler will behave like the first shader node tex image.
+20:18:43 | INFO: Primitives created: 1
+20:18:43 | INFO: Finished glTF 2.0 export in 0.010179758071899414 s
+00:14.079  render           | Saved: 'A:\Python\aetherion-project\work\props\Ottoman_01.png'
+
+[props] Ottoman_01                       4240 ->   3000 tris  1 mat  0.88 x 0.62 x 0.62 m  decimated to its 3,000-triangle budget; 4,240 -> 3,000 triangles, 1 material (tools/blender/process_props.py)
+20:18:43 | INFO: Data are loaded, start creating Blender stuff
+20:18:43 | INFO: Blender create Mesh node Plane.016
+20:18:43 | INFO: Blender create Mesh node Plane.026
+20:18:43 | INFO: Blender create Mesh node Plane.032
+20:18:43 | INFO: Blender create Mesh node Plane.039
+20:18:43 | INFO: Blender create Mesh node Plane.019
+20:18:43 | INFO: Blender create Mesh node Plane.020
+20:18:43 | INFO: glTF import finished in 0.12s
+20:18:44 | INFO: Starting glTF 2.0 export
+20:18:44 | INFO: Extracting primitive: Plane.016
+20:18:44 | WARNING: More than one shader node tex image used for a texture. The resulting glTF sampler will behave like the first shader node tex image.
+20:18:44 | INFO: Primitives created: 1
+20:18:44 | INFO: Finished glTF 2.0 export in 0.01175546646118164 s
+00:15.000  render           | Saved: 'A:\Python\aetherion-project\work\props\anthurium_botany_01.png'
+
+[props] anthurium_botany_01             67152 ->   3999 tris  1 mat  2.80 x 1.80 x 0.50 m  decimated to its 4,000-triangle budget; blend / transmission dropped, opaque (anthurium_botany_01); 67,152 -> 3,999 triangles, 1 material (tools/blender/process_props.py)
+20:18:44 | INFO: Data are loaded, start creating Blender stuff
+20:18:44 | INFO: Blender create Mesh node Cubo
+20:18:44 | INFO: glTF import finished in 0.06s
+20:18:44 | INFO: Starting glTF 2.0 export
+20:18:44 | INFO: Extracting primitive: Cubo
+20:18:44 | WARNING: More than one shader node tex image used for a texture. The resulting glTF sampler will behave like the first shader node tex image.
+20:18:44 | INFO: Primitives created: 1
+20:18:44 | INFO: Finished glTF 2.0 export in 0.011355876922607422 s
+00:15.313  render           | Saved: 'A:\Python\aetherion-project\work\props\bar_chair_round_01.png'
+
+[props] bar_chair_round_01              14373 ->   3000 tris  1 mat  0.48 x 0.49 x 0.75 m  decimated to its 3,000-triangle budget; 14,373 -> 3,000 triangles, 1 material (tools/blender/process_props.py)
+20:18:44 | INFO: Data are loaded, start creating Blender stuff
+20:18:44 | INFO: Blender create Mesh node Plane.095
+20:18:44 | INFO: glTF import finished in 0.03s
+20:18:44 | INFO: Starting glTF 2.0 export
+20:18:44 | INFO: Extracting primitive: Plane.095
+20:18:44 | WARNING: More than one shader node tex image used for a texture. The resulting glTF sampler will behave like the first shader node tex image.
+20:18:44 | INFO: Primitives created: 1
+20:18:44 | INFO: Finished glTF 2.0 export in 0.009670495986938477 s
+00:15.750  render           | Saved: 'A:\Python\aetherion-project\work\props\boombox.png'
+
+[props] boombox                         10168 ->   2999 tris  1 mat  0.72 x 0.19 x 0.47 m  decimated to its 3,000-triangle budget; 2 materials packed into one 1024x1280 atlas; blend / transmission dropped, opaque (boombox_speakers); 10,168 -> 2,999 triangles, 1 material (tools/blender/process_props.py)
+20:18:44 | INFO: Data are loaded, start creating Blender stuff
+20:18:44 | INFO: Blender create Mesh node Circle.001
+20:18:44 | INFO: glTF import finished in 0.04s
+20:18:45 | INFO: Starting glTF 2.0 export
+20:18:45 | INFO: Extracting primitive: Circle.001
+20:18:45 | WARNING: More than one shader node tex image used for a texture. The resulting glTF sampler will behave like the first shader node tex image.
+20:18:45 | INFO: Primitives created: 1
+20:18:45 | INFO: Finished glTF 2.0 export in 0.010204315185546875 s
+00:16.032  render           | Saved: 'A:\Python\aetherion-project\work\props\brass_vase_01.png'
+
+[props] brass_vase_01                   21440 ->   2999 tris  1 mat  0.23 x 0.23 x 0.69 m  decimated to its 3,000-triangle budget; 21,440 -> 2,999 triangles, 1 material (tools/blender/process_props.py)
+20:18:45 | INFO: Data are loaded, start creating Blender stuff
+20:18:45 | INFO: Blender create Mesh node Mesh.007
+20:18:45 | INFO: glTF import finished in 0.01s
+20:18:45 | INFO: Starting glTF 2.0 export
+20:18:45 | INFO: Extracting primitive: Mesh.007
+20:18:45 | WARNING: More than one shader node tex image used for a texture. The resulting glTF sampler will behave like the first shader node tex image.
+20:18:45 | INFO: Primitives created: 1
+20:18:45 | INFO: Finished glTF 2.0 export in 0.011196613311767578 s
+00:16.172  render           | Saved: 'A:\Python\aetherion-project\work\props\bronze_whale_statue.png'
+
+[props] bronze_whale_statue              3816 ->   3816 tris  1 mat  0.93 x 1.37 x 1.07 m  re-exported unchanged (within budget, one material); 3,816 -> 3,816 triangles, 1 material (tools/blender/process_props.py)
+20:18:45 | INFO: Data are loaded, start creating Blender stuff
+20:18:45 | INFO: Blender create Mesh node Plane.014
+20:18:45 | INFO: Blender create Mesh node Plane.003
+20:18:45 | INFO: Blender create Mesh node Cylinder.012
+20:18:45 | INFO: Blender create Mesh node Plane.019
+20:18:45 | INFO: Blender create Mesh node Cylinder.015
+20:18:45 | INFO: glTF import finished in 0.04s
+20:18:45 | INFO: Starting glTF 2.0 export
+20:18:45 | INFO: Extracting primitive: Plane.014
+20:18:45 | WARNING: More than one shader node tex image used for a texture. The resulting glTF sampler will behave like the first shader node tex image.
+20:18:45 | INFO: Primitives created: 1
+20:18:45 | INFO: Finished glTF 2.0 export in 0.010806560516357422 s
+00:16.407  render           | Saved: 'A:\Python\aetherion-project\work\props\calathea_orbifolia_01.png'
+
+[props] calathea_orbifolia_01           16688 ->   4000 tris  1 mat  2.49 x 1.19 x 0.42 m  decimated to its 4,000-triangle budget; blend / transmission dropped, opaque (calathea_orbifolia_01); 16,688 -> 4,000 triangles, 1 material (tools/blender/process_props.py)
+20:18:45 | INFO: Data are loaded, start creating Blender stuff
+20:18:45 | INFO: Blender create Mesh node Cylinder.009
+20:18:45 | INFO: glTF import finished in 0.02s
+A:\Python\aetherion-project\tools\blender\process_props.py:597: DeprecationWarning: 'Material.use_nodes' is expected to be removed in Blender 6.0
+  if not m or not m.use_nodes:
+20:18:45 | INFO: Starting glTF 2.0 export
+20:18:45 | INFO: Extracting primitive: Cylinder.009
+20:18:45 | WARNING: More than one shader node tex image used for a texture. The resulting glTF sampler will behave like the first shader node tex image.
+20:18:45 | INFO: Primitives created: 1
+20:18:45 | INFO: Finished glTF 2.0 export in 0.008108377456665039 s
+00:16.704  render           | Saved: 'A:\Python\aetherion-project\work\props\ceramic_vase_01.png'
+
+[props] ceramic_vase_01                 10296 ->   1799 tris  1 mat  0.20 x 0.20 x 0.40 m  decimated to its 1,800-triangle budget; textures 512 px; 10,296 -> 1,799 triangles, 1 material (tools/blender/process_props.py)
+20:18:45 | INFO: Data are loaded, start creating Blender stuff
+20:18:45 | INFO: Blender create Mesh node Cube.001
+20:18:45 | INFO: glTF import finished in 0.02s
+20:18:46 | INFO: Starting glTF 2.0 export
+20:18:46 | INFO: Extracting primitive: Cube.001
+20:18:46 | WARNING: More than one shader node tex image used for a texture. The resulting glTF sampler will behave like the first shader node tex image.
+20:18:46 | INFO: Primitives created: 1
+20:18:46 | INFO: Finished glTF 2.0 export in 0.00867915153503418 s
+00:17.032  render           | Saved: 'A:\Python\aetherion-project\work\props\ceramic_vase_03.png'
+
+[props] ceramic_vase_03                 11136 ->   1800 tris  1 mat  0.11 x 0.11 x 0.41 m  decimated to its 1,800-triangle budget; textures 512 px; 11,136 -> 1,800 triangles, 1 material (tools/blender/process_props.py)
+20:18:46 | INFO: Data are loaded, start creating Blender stuff
+20:18:46 | INFO: Blender create Mesh node Plane.001
+20:18:46 | INFO: glTF import finished in 0.01s
+20:18:46 | INFO: Starting glTF 2.0 export
+20:18:46 | INFO: Extracting primitive: Plane.001
+20:18:46 | WARNING: More than one shader node tex image used for a texture. The resulting glTF sampler will behave like the first shader node tex image.
+20:18:46 | INFO: Primitives created: 1
+20:18:46 | INFO: Finished glTF 2.0 export in 0.012045145034790039 s
+00:17.172  render           | Saved: 'A:\Python\aetherion-project\work\props\coffee_table_round_01.png'
+
+[props] coffee_table_round_01            4044 ->   4000 tris  1 mat  1.30 x 1.30 x 0.49 m  decimated to its 4,000-triangle budget; 4,044 -> 4,000 triangles, 1 material (tools/blender/process_props.py)
+20:18:46 | INFO: Data are loaded, start creating Blender stuff
+20:18:46 | INFO: Blender create Mesh node Plane.001
+20:18:46 | INFO: Blender create Mesh node Plane.003
+20:18:46 | INFO: glTF import finished in 0.01s
+20:18:46 | INFO: Starting glTF 2.0 export
+20:18:46 | INFO: Extracting primitive: Plane.001
+20:18:46 | WARNING: More than one shader node tex image used for a texture. The resulting glTF sampler will behave like the first shader node tex image.
+20:18:46 | INFO: Primitives created: 1
+20:18:46 | INFO: Finished glTF 2.0 export in 0.0073473453521728516 s
+00:17.469  render           | Saved: 'A:\Python\aetherion-project\work\props\fire_alarm.png'
+
+[props] fire_alarm                       2705 ->   1000 tris  1 mat  0.10 x 0.03 x 0.14 m  decimated to its 1,000-triangle budget; textures 512 px; 2,705 -> 1,000 triangles, 1 material (tools/blender/process_props.py)
+20:18:46 | INFO: Data are loaded, start creating Blender stuff
+20:18:46 | INFO: Blender create Mesh node Cube.021
+20:18:46 | INFO: glTF import finished in 0.03s
+20:18:46 | INFO: Starting glTF 2.0 export
+20:18:46 | INFO: Extracting primitive: Cube.021
+20:18:46 | WARNING: More than one shader node tex image used for a texture. The resulting glTF sampler will behave like the first shader node tex image.
+20:18:46 | INFO: Primitives created: 1
+20:18:46 | INFO: Finished glTF 2.0 export in 0.010598421096801758 s
+00:17.672  render           | Saved: 'A:\Python\aetherion-project\work\props\gallinera_chair.png'
+
+[props] gallinera_chair                 11560 ->   2999 tris  1 mat  0.58 x 0.60 x 1.03 m  decimated to its 3,000-triangle budget; 11,560 -> 2,999 triangles, 1 material (tools/blender/process_props.py)
+20:18:46 | INFO: Data are loaded, start creating Blender stuff
+20:18:46 | INFO: Blender create Mesh node Cube.005
+20:18:46 | INFO: Blender create Mesh node Cube.001
+20:18:46 | INFO: Blender create Mesh node Cube.002
+20:18:46 | INFO: glTF import finished in 0.02s
+20:18:46 | INFO: Starting glTF 2.0 export
+20:18:46 | INFO: Extracting primitive: Cube.005
+20:18:46 | WARNING: More than one shader node tex image used for a texture. The resulting glTF sampler will behave like the first shader node tex image.
+20:18:46 | INFO: Primitives created: 1
+20:18:46 | INFO: Finished glTF 2.0 export in 0.011383056640625 s
+00:17.844  render           | Saved: 'A:\Python\aetherion-project\work\props\gallinera_table.png'
+
+[props] gallinera_table                  5528 ->   2999 tris  1 mat  0.83 x 0.52 x 0.49 m  decimated to its 3,000-triangle budget; 5,528 -> 2,999 triangles, 1 material (tools/blender/process_props.py)
+20:18:46 | INFO: Data are loaded, start creating Blender stuff
+20:18:46 | INFO: Blender create Mesh node lounge_chair
+20:18:46 | INFO: glTF import finished in 0.02s
+20:18:47 | INFO: Starting glTF 2.0 export
+20:18:47 | INFO: Extracting primitive: lounge_chair
+20:18:47 | WARNING: More than one shader node tex image used for a texture. The resulting glTF sampler will behave like the first shader node tex image.
+20:18:47 | INFO: Primitives created: 1
+20:18:47 | INFO: Finished glTF 2.0 export in 0.010889530181884766 s
+00:18.000  render           | Saved: 'A:\Python\aetherion-project\work\props\mid_century_lounge_chair.png'
+
+[props] mid_century_lounge_chair         6148 ->   3000 tris  1 mat  1.01 x 1.19 x 1.17 m  decimated to its 3,000-triangle budget; 6,148 -> 3,000 triangles, 1 material (tools/blender/process_props.py)
+20:18:47 | INFO: Data are loaded, start creating Blender stuff
+20:18:47 | INFO: Blender create Mesh node Cylinder.003
+20:18:47 | INFO: glTF import finished in 0.02s
+20:18:47 | INFO: Starting glTF 2.0 export
+20:18:47 | INFO: Extracting primitive: Cylinder.003
+20:18:47 | WARNING: More than one shader node tex image used for a texture. The resulting glTF sampler will behave like the first shader node tex image.
+20:18:47 | INFO: Primitives created: 1
+20:18:47 | INFO: Finished glTF 2.0 export in 0.010101318359375 s
+00:18.157  render           | Saved: 'A:\Python\aetherion-project\work\props\modern_ceiling_lamp_01.png'
+
+[props] modern_ceiling_lamp_01           5602 ->   3000 tris  1 mat  0.43 x 0.43 x 0.95 m  decimated to its 3,000-triangle budget; 5,602 -> 3,000 triangles, 1 material (tools/blender/process_props.py)
+20:18:47 | INFO: Data are loaded, start creating Blender stuff
+20:18:47 | INFO: Blender create Mesh node Cube.003
+20:18:47 | INFO: glTF import finished in 0.01s
+20:18:47 | INFO: Starting glTF 2.0 export
+20:18:47 | INFO: Extracting primitive: Cube.003
+20:18:47 | WARNING: More than one shader node tex image used for a texture. The resulting glTF sampler will behave like the first shader node tex image.
+20:18:47 | INFO: Primitives created: 1
+20:18:47 | INFO: Finished glTF 2.0 export in 0.012326955795288086 s
+00:18.313  render           | Saved: 'A:\Python\aetherion-project\work\props\modern_coffee_table_01.png'
+
+[props] modern_coffee_table_01           4504 ->   4000 tris  1 mat  0.60 x 1.20 x 0.39 m  decimated to its 4,000-triangle budget; 4,504 -> 4,000 triangles, 1 material (tools/blender/process_props.py)
+20:18:47 | INFO: Data are loaded, start creating Blender stuff
+20:18:47 | INFO: Blender create Mesh node mesh.001
+20:18:47 | INFO: Blender create Mesh node Plane.002
+20:18:47 | INFO: Blender create Mesh node Circle.001
+20:18:47 | INFO: Blender create Mesh node Circle
+20:18:47 | INFO: Blender create Mesh node Cylinder.027
+20:18:47 | INFO: Blender create Mesh node Cylinder.118
+20:18:47 | INFO: Blender create Mesh node Cylinder.092
+20:18:47 | INFO: Blender create Mesh node Cylinder.051
+20:18:47 | INFO: glTF import finished in 0.19s
+20:18:48 | INFO: Starting glTF 2.0 export
+20:18:48 | INFO: Extracting primitive: mesh.001
+20:18:48 | WARNING: More than one shader node tex image used for a texture. The resulting glTF sampler will behave like the first shader node tex image.
+20:18:48 | INFO: Primitives created: 1
+20:18:48 | INFO: Finished glTF 2.0 export in 0.011767148971557617 s
+00:19.735  render           | Saved: 'A:\Python\aetherion-project\work\props\pachira_aquatica_01.png'
+
+[props] pachira_aquatica_01             76914 ->   4000 tris  1 mat  6.87 x 1.00 x 1.90 m  decimated to its 4,000-triangle budget; 2 materials packed into one 2048x1024 atlas; 76,914 -> 4,000 triangles, 1 material (tools/blender/process_props.py)
+20:18:48 | INFO: Data are loaded, start creating Blender stuff
+20:18:48 | INFO: Blender create Mesh node Plane.001
+20:18:48 | INFO: glTF import finished in 0.03s
+20:18:48 | INFO: Starting glTF 2.0 export
+20:18:48 | INFO: Extracting primitive: Plane.001
+20:18:48 | WARNING: More than one shader node tex image used for a texture. The resulting glTF sampler will behave like the first shader node tex image.
+20:18:48 | INFO: Primitives created: 1
+20:18:48 | INFO: Finished glTF 2.0 export in 0.011190414428710938 s
+00:19.938  render           | Saved: 'A:\Python\aetherion-project\work\props\planter_box_02.png'
+
+[props] planter_box_02                  10944 ->   4000 tris  1 mat  1.25 x 0.47 x 0.45 m  decimated to its 4,000-triangle budget; 10,944 -> 4,000 triangles, 1 material (tools/blender/process_props.py)
+20:18:49 | INFO: Data are loaded, start creating Blender stuff
+20:18:49 | INFO: Blender create Mesh node Plane.002
+20:18:49 | INFO: glTF import finished in 0.03s
+20:18:49 | INFO: Starting glTF 2.0 export
+20:18:49 | INFO: Extracting primitive: Plane.002
+20:18:49 | WARNING: More than one shader node tex image used for a texture. The resulting glTF sampler will behave like the first shader node tex image.
+20:18:49 | INFO: Primitives created: 1
+20:18:49 | INFO: Finished glTF 2.0 export in 0.01126408576965332 s
+00:20.157  render           | Saved: 'A:\Python\aetherion-project\work\props\planter_box_03.png'
+
+[props] planter_box_03                  13112 ->   3000 tris  1 mat  0.91 x 0.66 x 0.86 m  decimated to its 3,000-triangle budget; 13,112 -> 3,000 triangles, 1 material (tools/blender/process_props.py)
+20:18:49 | INFO: Data are loaded, start creating Blender stuff
+20:18:49 | INFO: Blender create Mesh node HaworthiaScan_Model_2.001
+20:18:49 | INFO: Blender create Mesh node Plane.118
+20:18:49 | INFO: Blender create Mesh node Plane.116
+20:18:49 | INFO: Blender create Mesh node Mesh
+20:18:49 | INFO: glTF import finished in 0.02s
+20:18:49 | INFO: Starting glTF 2.0 export
+20:18:49 | INFO: Extracting primitive: HaworthiaScan_Model_2.001
+20:18:49 | WARNING: More than one shader node tex image used for a texture. The resulting glTF sampler will behave like the first shader node tex image.
+20:18:49 | INFO: Primitives created: 1
+20:18:49 | INFO: Finished glTF 2.0 export in 0.007085084915161133 s
+00:20.485  render           | Saved: 'A:\Python\aetherion-project\work\props\potted_plant_04.png'
+
+[props] potted_plant_04                  8929 ->   1000 tris  1 mat  0.17 x 0.18 x 0.27 m  decimated to its 1,000-triangle budget; textures 512 px; 8,929 -> 1,000 triangles, 1 material (tools/blender/process_props.py)
+20:18:49 | INFO: Data are loaded, start creating Blender stuff
+20:18:49 | INFO: Blender create Mesh node Plane.006
+20:18:49 | INFO: glTF import finished in 0.01s
+20:18:49 | INFO: Starting glTF 2.0 export
+20:18:49 | INFO: Extracting primitive: Plane.006
+20:18:49 | WARNING: More than one shader node tex image used for a texture. The resulting glTF sampler will behave like the first shader node tex image.
+20:18:49 | INFO: Primitives created: 1
+20:18:49 | INFO: Finished glTF 2.0 export in 0.010735034942626953 s
+00:20.625  render           | Saved: 'A:\Python\aetherion-project\work\props\round_wooden_table_02.png'
+
+[props] round_wooden_table_02            4254 ->   3000 tris  1 mat  0.80 x 0.80 x 0.75 m  decimated to its 3,000-triangle budget; 4,254 -> 3,000 triangles, 1 material (tools/blender/process_props.py)
+20:18:49 | INFO: Data are loaded, start creating Blender stuff
+20:18:49 | INFO: Blender create Mesh node Cube.001
+20:18:49 | INFO: glTF import finished in 0.02s
+20:18:49 | INFO: Starting glTF 2.0 export
+20:18:49 | INFO: Extracting primitive: Cube.001
+20:18:49 | WARNING: More than one shader node tex image used for a texture. The resulting glTF sampler will behave like the first shader node tex image.
+20:18:49 | INFO: Primitives created: 1
+20:18:49 | INFO: Finished glTF 2.0 export in 0.010412931442260742 s
+00:20.797  render           | Saved: 'A:\Python\aetherion-project\work\props\side_table_tall_01.png'
+
+[props] side_table_tall_01               6408 ->   2999 tris  1 mat  0.38 x 0.38 x 0.76 m  decimated to its 3,000-triangle budget; 6,408 -> 2,999 triangles, 1 material (tools/blender/process_props.py)
+20:18:49 | INFO: Data are loaded, start creating Blender stuff
+20:18:49 | INFO: Blender create Mesh node Mesh.009
+20:18:49 | INFO: glTF import finished in 0.02s
+20:18:49 | INFO: Starting glTF 2.0 export
+20:18:49 | INFO: Extracting primitive: Mesh.009
+20:18:49 | WARNING: More than one shader node tex image used for a texture. The resulting glTF sampler will behave like the first shader node tex image.
+20:18:49 | INFO: Primitives created: 1
+20:18:50 | INFO: Finished glTF 2.0 export in 0.011828899383544922 s
+00:20.969  render           | Saved: 'A:\Python\aetherion-project\work\props\sofa_03.png'
+
+[props] sofa_03                          8003 ->   3999 tris  1 mat  2.73 x 0.93 x 1.12 m  decimated to its 4,000-triangle budget; blend / transmission dropped, opaque (sofa_03_fringe); 8,003 -> 3,999 triangles, 1 material (tools/blender/process_props.py)
+Blender 5.2.1 LTS (hash 9e2066aef7ef built 2026-08-25 02:38:20)
+
+Blender quit

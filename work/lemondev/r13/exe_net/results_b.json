@@ -1,0 +1,52 @@
+[
+  [
+    "connected_as_client",
+    true,
+    "pid 763489345, rtt 6 ms"
+  ],
+  [
+    "landed",
+    true,
+    "mode 3 at (-78.0, 1.0, -24.0)"
+  ],
+  [
+    "sees_teammate",
+    true,
+    "Alpha found"
+  ],
+  [
+    "door_open_seen_by_other",
+    true,
+    "door 779 target -1.65"
+  ],
+  [
+    "window_broken_seen_by_other",
+    false,
+    "window 2134"
+  ],
+  [
+    "ping_seen_by_teammate",
+    true,
+    "Alpha's ping (eid 2) on Bravo's minimap: true"
+  ],
+  [
+    "flashlight_seen_by_other",
+    true,
+    "Alpha flags 1"
+  ],
+  [
+    "radio_cue_seen_by_teammate",
+    true,
+    "radio flag seen true, 25 voice packets"
+  ],
+  [
+    "radio_static_not_for_teammates",
+    true,
+    "radio static from Alpha's or Bravo's radio heard by Bravo: 0"
+  ],
+  [
+    "radio_static_from_enemy",
+    true,
+    "an enemy bot's callout 7 m away: its radio static heard true, its voice heard true"
+  ]
+]

@@ -1,0 +1,60 @@
+20:19:39 | INFO: Data are loaded, start creating Blender stuff
+20:19:39 | INFO: Blender create Mesh node Plane.016
+20:19:39 | INFO: Blender create Mesh node Plane.026
+20:19:40 | INFO: Blender create Mesh node Plane.032
+20:19:40 | INFO: Blender create Mesh node Plane.039
+20:19:40 | INFO: Blender create Mesh node Plane.019
+20:19:40 | INFO: Blender create Mesh node Plane.020
+20:19:40 | INFO: glTF import finished in 0.14s
+A:\Python\aetherion-project\tools\blender\process_props.py:376: DeprecationWarning: 'Material.use_nodes' is expected to be removed in Blender 6.0
+  if not m or not m.use_nodes:
+INFO Draco is available, use library at C:\Program Files\Blender Foundation\Blender 5.2\5.2\scripts\addons_core\io_scene_gltf2\bf_intern_draco_bridge.dll
+INFO MeshOptimizer is available, use library at C:\Program Files\Blender Foundation\Blender 5.2\5.2\scripts\addons_core\io_scene_gltf2\bf_intern_meshopt_bridge.dll
+20:19:40 | INFO: Starting glTF 2.0 export
+20:19:40 | INFO: Extracting primitive: Plane.016
+20:19:40 | WARNING: More than one shader node tex image used for a texture. The resulting glTF sampler will behave like the first shader node tex image.
+20:19:40 | INFO: Primitives created: 1
+20:19:40 | INFO: Finished glTF 2.0 export in 0.05299830436706543 s
+00:03.422  render           | Saved: 'A:\Python\aetherion-project\work\props\anthurium_botany_01.png'
+
+[props] anthurium_botany_01             15808 ->   3560 tris  1 mat  0.90 x 1.14 x 0.50 m  kept one variant (anthurium_botany_01_a) of the set, removed 5 other objects, re-centred on it; thinned to 16% of its blades / leaves, survivors enlarged 1.60x; blend / transmission dropped, opaque (anthurium_botany_01); 15,808 -> 3,560 triangles, 1 material (tools/blender/process_props.py)
+20:19:41 | INFO: Data are loaded, start creating Blender stuff
+20:19:41 | INFO: Blender create Mesh node Plane.014
+20:19:41 | INFO: Blender create Mesh node Plane.003
+20:19:41 | INFO: Blender create Mesh node Cylinder.012
+20:19:41 | INFO: Blender create Mesh node Plane.019
+20:19:41 | INFO: Blender create Mesh node Cylinder.015
+20:19:41 | INFO: glTF import finished in 0.04s
+20:19:41 | INFO: Starting glTF 2.0 export
+20:19:41 | INFO: Extracting primitive: Plane.014
+20:19:41 | WARNING: More than one shader node tex image used for a texture. The resulting glTF sampler will behave like the first shader node tex image.
+20:19:41 | INFO: Primitives created: 1
+20:19:41 | INFO: Finished glTF 2.0 export in 0.008600473403930664 s
+00:03.594  render           | Saved: 'A:\Python\aetherion-project\work\props\calathea_orbifolia_01.png'
+
+[props] calathea_orbifolia_01            5904 ->   1706 tris  1 mat  0.60 x 0.53 x 0.42 m  kept one variant (calathea_orbifolia_01_a) of the set, removed 4 other objects, re-centred on it; thinned to 42% of its blades / leaves, survivors enlarged 1.54x; blend / transmission dropped, opaque (calathea_orbifolia_01); 5,904 -> 1,706 triangles, 1 material (tools/blender/process_props.py)
+20:19:41 | INFO: Data are loaded, start creating Blender stuff
+20:19:41 | INFO: Blender create Mesh node mesh.001
+20:19:41 | INFO: Blender create Mesh node Plane.002
+20:19:41 | INFO: Blender create Mesh node Circle.001
+20:19:41 | INFO: Blender create Mesh node Circle
+20:19:41 | INFO: Blender create Mesh node Cylinder.027
+20:19:41 | INFO: Blender create Mesh node Cylinder.118
+20:19:41 | INFO: Blender create Mesh node Cylinder.092
+20:19:41 | INFO: Blender create Mesh node Cylinder.051
+20:19:41 | INFO: glTF import finished in 0.14s
+A:\Python\aetherion-project\tools\blender\process_props.py:382: DeprecationWarning: 'Material.use_nodes' is expected to be removed in Blender 6.0
+  if not m or not m.use_nodes:
+A:\Python\aetherion-project\tools\blender\process_props.py:449: DeprecationWarning: 'Material.use_nodes' is expected to be removed in Blender 6.0
+  m.use_nodes = True
+20:19:41 | INFO: Starting glTF 2.0 export
+20:19:41 | INFO: Extracting primitive: Circle_leaves
+20:19:41 | WARNING: More than one shader node tex image used for a texture. The resulting glTF sampler will behave like the first shader node tex image.
+20:19:41 | INFO: Primitives created: 1
+20:19:41 | INFO: Finished glTF 2.0 export in 0.016587257385253906 s
+00:04.360  render           | Saved: 'A:\Python\aetherion-project\work\props\pachira_aquatica_01.png'
+
+[props] pachira_aquatica_01             28105 ->   1100 tris  1 mat  1.05 x 1.00 x 1.90 m  kept one variant (pachira_aquatica_01_bark_d, pachira_aquatica_01_leaves_d) of the set, removed 6 other objects, re-centred on it; leaves: 100 modelled leaves (24341 triangles) -> 100 two-triangle leaves enlarged 1.1x; trunk: 3764 -> 900 triangles; 2 materials packed into one 2048x1024 atlas; 28,105 -> 1,100 triangles, 1 material (tools/blender/process_props.py)
+Blender 5.2.1 LTS (hash 9e2066aef7ef built 2026-08-25 02:38:20)
+
+Blender quit

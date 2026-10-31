@@ -1,0 +1,21 @@
+{
+  "stairs": {
+    "map": "kalinaw",
+    "n": 30,
+    "widths": {
+      "0.78": 30
+    },
+    "fails": [
+      {
+        "foot": "(8.0, 1.0, 25.8)",
+        "w": 0.78,
+        "rise": 2.49,
+        "run": 2.62,
+        "legs": [
+          "down failed at (7.8, 1.8, 25.8) (stuck 1.2 s)"
+        ]
+      }
+    ],
+    "mean_up_down_s": 2.37388888888889
+  }
+}

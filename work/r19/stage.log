@@ -1,0 +1,18 @@
+[stage] windows 0.19.0
+  Aetherion.exe                                                 109268480 bytes,   39 chunks
+  Aetherion.pck                                                1949496948 bytes,  657 chunks
+  -> 2 files, 2.06 GB, 1.25 GB compressed
+[stage] macos 0.19.0
+  Aetherion Project by Aljay Leodones.app/Contents/Info.plist        2007 bytes,    1 chunks
+  Aetherion Project by Aljay Leodones.app/Contents/MacOS/Aethe  170963648 bytes,   42 chunks
+  Aetherion Project by Aljay Leodones.app/Contents/PkgInfo              9 bytes,    1 chunks
+  Aetherion Project by Aljay Leodones.app/Contents/Resources/A 1949496948 bytes,  657 chunks
+  Aetherion Project by Aljay Leodones.app/Contents/Resources/i     219752 bytes,    1 chunks
+  Aetherion Project by Aljay Leodones.app/Contents/Resources/P        229 bytes,    1 chunks
+  Aetherion Project by Aljay Leodones.app/Contents/_CodeSignat       3227 bytes,    1 chunks
+  (no launcher build for macos yet: A:\Python\aetherion-project\builds\release\launcher\Aetherion-Launcher-macOS.zip)
+  -> 7 files, 2.12 GB, 1.27 GB compressed
+[stage] linux 0.19.0
+  aetherion_server.pck                                         1949496948 bytes,  657 chunks
+  aetherion_server.x86_64                                        73519416 bytes,   28 chunks
+  -> 2 files, 2.02 GB, 1.24 GB compressed

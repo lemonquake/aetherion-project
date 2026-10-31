@@ -1,0 +1,78 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+Vulkan 1.4.329 - Forward+ - Using Device #0: NVIDIA - NVIDIA GeForce RTX 4060
+
+[ui] loadout_received pid=1 Hehe {"primary":"rifle_m416","secondary":"pistol_9"}
+[ui] lobby shows my loadout (pid 1): {"primary":"rifle_m416","secondary":"pistol_9"}
+[ui] request_loadout {"primary":"rifle_m416","secondary":"pistol_9"}
+[world] map built in 13287 ms
+[map] 243 buildings, 1951 doors, 2617 containers, 2745 props, #b1fba961 on PC
+[bots] learned from 275 cells, 4 stuck spots (user://bot_memory_lawless_sub.json)
+[game] autotest canal
+[canal] channel (-78.0, -216.0) toward (-1.0, 0.0): OUT in 5.1 s, depth 0.90, end (-85.4, 1.0, -216.0) [&"hang", &"climb"]
+[canal] channel (-78.0, -216.0) toward (1.0, 0.0): OUT in 5.1 s, depth 0.90, end (-70.6, 1.0, -216.0) [&"hang", &"climb"]
+[canal] channel (-78.0, -196.0) toward (-1.0, 0.0): OUT in 5.1 s, depth 0.90, end (-85.4, 1.0, -196.0) [&"hang", &"climb"]
+[canal] channel (-78.0, -196.0) toward (1.0, 0.0): OUT in 5.1 s, depth 0.90, end (-70.6, 1.0, -196.0) [&"hang", &"climb"]
+[canal] channel (-78.0, -176.0) toward (-1.0, 0.0): OUT in 5.1 s, depth 0.90, end (-85.4, 1.0, -176.0) [&"hang", &"climb"]
+[canal] channel (-78.0, -176.0) toward (1.0, 0.0): OUT in 5.1 s, depth 0.90, end (-70.6, 1.0, -176.0) [&"hang", &"climb"]
+[canal] channel (-78.0, -156.0) toward (-1.0, 0.0): OUT in 5.1 s, depth 0.90, end (-85.4, 1.0, -156.0) [&"hang", &"climb"]
+[canal] channel (-78.0, -156.0) toward (1.0, 0.0): OUT in 5.1 s, depth 0.90, end (-70.6, 1.0, -156.0) [&"hang", &"climb"]
+[canal] channel (-78.0, -136.0) toward (-1.0, 0.0): OUT in 5.1 s, depth 0.90, end (-85.4, 1.0, -136.0) [&"hang", &"climb"]
+[canal] channel (-78.0, -136.0) toward (1.0, 0.0): OUT in 5.1 s, depth 0.90, end (-70.6, 1.0, -136.0) [&"hang", &"climb"]
+[canal] channel (-78.0, -116.0) toward (-1.0, 0.0): OUT in 5.1 s, depth 0.90, end (-85.4, 1.0, -116.0) [&"hang", &"climb"]
+[canal] channel (-78.0, -116.0) toward (1.0, 0.0): OUT in 5.1 s, depth 0.90, end (-70.6, 1.0, -116.0) [&"hang", &"climb"]
+[canal] channel (-78.0, -96.0) toward (-1.0, 0.0): OUT in 5.1 s, depth 0.90, end (-85.4, 1.0, -96.0) [&"hang", &"climb"]
+[canal] channel (-78.0, -96.0) toward (1.0, 0.0): OUT in 5.1 s, depth 0.90, end (-70.6, 1.0, -96.0) [&"hang", &"climb"]
+[canal] channel (-78.0, -76.0) toward (-1.0, 0.0): OUT in 5.1 s, depth 0.90, end (-85.4, 1.0, -76.0) [&"hang", &"climb"]
+[canal] channel (-78.0, -76.0) toward (1.0, 0.0): OUT in 5.1 s, depth 0.90, end (-70.6, 1.0, -76.0) [&"hang", &"climb"]
+[canal] channel (-78.0, -56.0) toward (-1.0, 0.0): OUT in 5.1 s, depth 0.90, end (-85.4, 1.0, -56.0) [&"hang", &"climb"]
+[canal] channel (-78.0, -56.0) toward (1.0, 0.0): OUT in 5.1 s, depth 0.90, end (-70.6, 1.0, -56.0) [&"hang", &"climb"]
+[canal] channel (-78.0, -36.0) toward (-1.0, 0.0): OUT in 5.1 s, depth 0.90, end (-85.4, 1.0, -36.0) [&"hang", &"climb"]
+[canal] channel (-78.0, -36.0) toward (1.0, 0.0): OUT in 5.1 s, depth 0.90, end (-70.6, 1.0, -36.0) [&"hang", &"climb"]
+[autotest] PASS canal_out_channel: channel: got out at 10 of 10 spots (holding forward toward a bank, tapping Jump, 8 s)
+[canal] basin (-68.0, 18.0) toward (0.0, -1.0): OUT in 2.3 s, depth 0.90, end (-68.0, 1.0, 15.6) [&"hang", &"climb"]
+[canal] basin (-59.0, 22.0) toward (0.707107, -0.707107): OUT in 2.4 s, depth 0.90, end (-57.1, 0.9, 19.6) [&"hang", &"climb"]
+[canal] basin (-51.0, 30.0) toward (0.707107, -0.707107): OUT in 2.3 s, depth 0.90, end (-49.0, 1.0, 28.4) [&"hang", &"climb"]
+[canal] basin (-50.0, 36.0) toward (1.0, 0.0): OUT in 2.3 s, depth 0.90, end (-47.6, 1.0, 36.0) [&"hang", &"climb"]
+[canal] basin (-50.0, 48.0) toward (1.0, 0.0): OUT in 2.3 s, depth 0.90, end (-47.6, 1.0, 48.0) [&"hang", &"climb"]
+[canal] basin (-50.0, 60.0) toward (1.0, 0.0): OUT in 2.3 s, depth 0.90, end (-47.6, 1.0, 60.0) [&"hang", &"climb"]
+[canal] basin (-54.0, 71.0) toward (0.707107, 0.707107): OUT in 2.3 s, depth 0.90, end (-51.9, 1.0, 72.6) [&"hang", &"climb"]
+[canal] basin (-62.0, 79.0) toward (0.707107, 0.707107): OUT in 2.3 s, depth 0.90, end (-60.4, 1.0, 81.0) [&"hang", &"climb"]
+[canal] basin (-72.0, 84.0) toward (0.0, 1.0): OUT in 2.3 s, depth 0.90, end (-72.0, 1.0, 86.4) [&"hang", &"climb"]
+[canal] basin (-84.0, 84.0) toward (0.0, 1.0): OUT in 2.3 s, depth 0.90, end (-84.0, 1.0, 86.4) [&"hang", &"climb"]
+[canal] basin (-95.0, 80.0) toward (-0.707107, 0.707107): OUT in 2.3 s, depth 0.90, end (-96.6, 1.0, 82.1) [&"hang", &"climb"]
+[canal] basin (-103.0, 72.0) toward (-0.707107, 0.707107): OUT in 2.3 s, depth 0.90, end (-105.0, 1.0, 73.6) [&"hang", &"climb"]
+[canal] basin (-112.0, 63.0) toward (-0.707107, 0.707107): OUT in 2.4 s, depth 0.90, end (-113.9, 0.9, 65.5) [&"hang", &"climb"]
+[canal] basin (-114.0, 56.0) toward (-1.0, 0.0): OUT in 2.3 s, depth 0.90, end (-116.4, 1.0, 56.0) [&"hang", &"climb"]
+[canal] basin (-114.0, 44.0) toward (-1.0, 0.0): OUT in 2.3 s, depth 0.90, end (-116.4, 1.0, 44.0) [&"hang", &"climb"]
+[canal] basin (-114.0, 32.0) toward (-1.0, 0.0): OUT in 2.3 s, depth 0.90, end (-116.4, 1.0, 32.0) [&"hang", &"climb"]
+[canal] basin (-110.0, 25.0) toward (-0.707107, -0.707107): OUT in 2.3 s, depth 0.90, end (-112.1, 1.0, 23.4) [&"hang", &"climb"]
+[canal] basin (-98.0, 18.0) toward (0.0, -1.0): OUT in 2.3 s, depth 0.90, end (-98.0, 1.0, 15.6) [&"hang", &"climb"]
+[canal] basin (-86.0, 18.0) toward (0.0, -1.0): OUT in 2.3 s, depth 0.90, end (-86.0, 1.0, 15.6) [&"hang", &"climb"]
+[autotest] PASS canal_out_basin: basin: got out at 19 of 19 spots (holding forward toward a bank, tapping Jump, 8 s)
+[canal] estero (12.0, 118.0) toward (0.0, 1.0): OUT in 2.8 s, depth 1.00, end (12.0, 1.0, 127.0) []
+[canal] estero (12.0, 118.0) toward (0.0, -1.0): OUT in 2.9 s, depth 1.00, end (12.0, 0.8, 110.5) []
+[canal] estero (52.0, 118.0) toward (0.0, 1.0): OUT in 2.9 s, depth 1.00, end (52.0, 0.9, 127.5) []
+[canal] estero (52.0, 118.0) toward (0.0, -1.0): OUT in 3.7 s, depth 1.00, end (52.0, 1.0, 109.4) [&"hang", &"climb"]
+[canal] estero (72.0, 118.0) toward (0.0, 1.0): OUT in 2.9 s, depth 1.00, end (72.0, 0.9, 127.9) []
+[canal] estero (72.0, 118.0) toward (0.0, -1.0): OUT in 2.9 s, depth 1.00, end (72.0, 0.8, 110.5) []
+[canal] estero (92.0, 118.0) toward (0.0, 1.0): OUT in 2.8 s, depth 1.00, end (92.0, 0.9, 125.8) []
+[canal] estero (92.0, 118.0) toward (0.0, -1.0): OUT in 3.7 s, depth 1.00, end (92.0, 1.0, 109.4) [&"hang", &"climb"]
+[canal] estero (112.0, 118.0) toward (0.0, 1.0): OUT in 2.8 s, depth 1.00, end (112.0, 1.0, 127.3) []
+[canal] estero (112.0, 118.0) toward (0.0, -1.0): OUT in 3.7 s, depth 1.00, end (112.0, 1.0, 109.4) [&"hang", &"climb"]
+[canal] estero (132.0, 118.0) toward (0.0, 1.0): OUT in 2.9 s, depth 1.00, end (132.0, 0.9, 126.7) []
+[canal] estero (132.0, 118.0) toward (0.0, -1.0): OUT in 3.7 s, depth 1.00, end (132.0, 1.0, 109.4) [&"hang", &"climb"]
+[canal] estero (152.0, 118.0) toward (0.0, 1.0): OUT in 2.9 s, depth 1.00, end (152.0, 0.8, 126.9) []
+[canal] estero (152.0, 118.0) toward (0.0, -1.0): OUT in 3.7 s, depth 1.00, end (152.0, 0.9, 109.4) [&"hang", &"climb"]
+[canal] estero (172.0, 118.0) toward (0.0, 1.0): OUT in 3.0 s, depth 1.00, end (171.5, 0.8, 127.6) []
+[canal] estero (172.0, 118.0) toward (0.0, -1.0): OUT in 2.9 s, depth 1.00, end (172.0, 0.9, 108.5) []
+[canal] estero (192.0, 118.0) toward (0.0, 1.0): OUT in 2.9 s, depth 1.00, end (192.0, 0.9, 127.1) []
+[canal] estero (192.0, 118.0) toward (0.0, -1.0): OUT in 4.0 s, depth 1.00, end (192.0, 0.9, 109.4) [&"hang", &"climb"]
+[canal] estero (212.0, 118.0) toward (0.0, 1.0): OUT in 2.9 s, depth 1.00, end (212.0, 0.9, 127.9) []
+[canal] estero (212.0, 118.0) toward (0.0, -1.0): OUT in 3.9 s, depth 1.00, end (212.0, 0.9, 109.5) [&"hang", &"climb"]
+[autotest] PASS canal_out_estero: estero: got out at 10 of 10 spots (holding forward toward a bank, tapping Jump, 8 s)
+[canal] bot from (-50.0, 48.0): OUT in 4.7 s (over the coping false), end (-47.4, 1.0, 50.0)
+[canal] bot from (-114.0, 40.0): OUT in 6.2 s (over the coping false), end (-116.4, 0.9, 45.0)
+[canal] bot from (-78.0, -140.0): OUT in 6.0 s (over the coping true), end (-71.1, 0.7, -140.2)
+[canal] bot from (-80.0, -100.0): OUT in 6.5 s (over the coping true), end (-71.1, 0.6, -102.1)
+[autotest] PASS canal_out_bots: bots dropped in the canal away from ladders: 4 of 4 out within 25 s ["out 5 s", "out 6 s", "out 6 s (coping)", "out 7 s (coping)"]
+[autotest] done: 4 checks, 0 failed

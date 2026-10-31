@@ -1,0 +1,22 @@
+{
+  "flat": {
+    "run": {
+      "bursts": 1,
+      "rise_0.25s": 2.4,
+      "step_ups": 0,
+      "steps": [],
+      "top_0.1s": 4.78,
+      "top_at": 6,
+      "top_tick": 23.45
+    },
+    "sprint": {
+      "bursts": 1,
+      "rise_0.25s": 2.58,
+      "step_ups": 0,
+      "steps": [],
+      "top_0.1s": 4.85,
+      "top_at": 7,
+      "top_tick": 24.09
+    }
+  }
+}

@@ -1,0 +1,42 @@
+[
+  [
+    "r17_starts_at_night",
+    true,
+    "match time 0.0 s, daylight 0.00, day offset 0.0"
+  ],
+  [
+    "r17_mall_night_only",
+    true,
+    "night_only true, brightest daylight over 25 min 0.00, next sun change inf"
+  ],
+  [
+    "r17_floor_spawns",
+    true,
+    "teams on Level 3, Level 1, Level 5; 21 characters, off their floor: none"
+  ],
+  [
+    "r17_squeeze",
+    true,
+    "two bots pinned against the outer wall: hurt from 0.73 s, dead at 2.48 s (1.75 s of squeezing), cause field; the one beside it dead true (field); health trace [[0.75, 99.0, 0.23], [1.0, 90.2, 0.5], [1.25, 79.5, 0.73], [1.5, 66.9, 1.0], [1.75, 52.5, 1.23], [2.0, 36.2, 1.5], [2.25, 18.0, 1.73]]"
+  ],
+  [
+    "r17_respawn",
+    true,
+    "Mang Tani back after 4.9 s at (-1.0, 20.0, 31.0) (team floor Level 5), health 100, holding dmr_sks; scores { 0: 0, 1: 0, 2: 0 } -> { 0: 0, 1: 0, 2: 0 }"
+  ],
+  [
+    "r17_score",
+    true,
+    "team 0: 0 -> 1 on the server, HUD team bar 1, under it \"First to 30 kills\""
+  ],
+  [
+    "r17_local_respawn",
+    true,
+    "countdown \"Respawning in 4\"; back true, controlled true, at (44.0, 10.0, -26.0) (team floor Level 3), spawn protection true; the killer's team 0 -> 1"
+  ],
+  [
+    "r17_end_score",
+    true,
+    "ended true on the score rule; scores { 0: 2, 1: 1, 2: 0 }; results say \"North Team wins the round  ·  North Team 2  ·  East Team 1  ·  South Team 0\""
+  ]
+]

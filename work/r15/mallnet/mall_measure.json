@@ -1,0 +1,37 @@
+{
+  "build": {
+    "escalators": 16,
+    "fingerprint": "0 buildings, 216 doors, 193 containers, 670 props, #64ec4447",
+    "glass_doors": 196,
+    "levels": 5,
+    "plates": 1815,
+    "stats": {
+      "build_ms": 1448,
+      "decor": {
+        "discs": 432,
+        "icicle_lights": 4644,
+        "lights": 1,
+        "props": 305
+      },
+      "downlights_L1": 1317,
+      "downlights_L2": 1334,
+      "downlights_L3": 1334,
+      "downlights_L4": 1357,
+      "downlights_L5": 1369,
+      "escalators": {
+        "escalators": 16,
+        "steps": 432
+      },
+      "floors_ms": 104,
+      "shell_ms": 341,
+      "shops": {
+        "doors": 180,
+        "fixtures": 20156,
+        "panes": 839,
+        "units": 114
+      },
+      "shops_ms": 1290
+    },
+    "units": 114
+  }
+}

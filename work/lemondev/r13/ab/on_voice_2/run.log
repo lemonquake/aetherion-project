@@ -1,0 +1,64 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+Vulkan 1.4.329 - Forward+ - Using Device #0: NVIDIA - NVIDIA GeForce RTX 4060
+
+[ui] loadout_received pid=1 Hehe {"primary":"rifle_m416","secondary":"pistol_9"}
+[ui] lobby shows my loadout (pid 1): {"primary":"rifle_m416","secondary":"pistol_9"}
+[ui] request_loadout {"primary":"rifle_m416","secondary":"pistol_9"}
+[world] map built in 13082 ms
+[map] 243 buildings, 1951 doors, 2617 containers, 2745 props, #b1fba961 on PC
+[bots] learned from 275 cells, 4 stuck spots (user://bot_memory_lawless_sub.json)
+[match    0.0] deathmatch start on lawless_sub: 21 players, 3 teams; spawns (-119.0, 1.0, -144.0), (190.0, 1.0, -40.0), (-72.0, 1.0, 196.0) (326/353/343 m apart, layout); day offset 150 s; zone centre (-2.0, 54.0) r=373
+[game] autotest r13
+[match    0.0] status: { "ground": 21 }; armed 21; shots 0; zone 0 wait r=373; corpses 0
+[match    0.0] dm teams: North Team 7 at (-120.0, -144.0) spread 3 m; East Team 7 at (189.0, -40.0) spread 3 m; South Team 7 at (-73.0, 196.0) spread 3 m; gap 326 m; zone centre (-2.0, 54.0)
+[match    0.0] bots: { "roam": 20 }; containers searched by bots 0 (all players 0); plan steps done 0; guns carried 40
+[match    0.0] roles: { "rusher": { "roam": 7 }, "sniper": { "roam": 6 }, "looter": { "roam": 3 }, "stalker": { "roam": 4 } }; stuck now 0; waypoints 2075; team { "lines": 0, "pings": 0, "laser_follow": 0, "learned_cells": 275, "blocked_cells": 0, "squads": 0, "following_humans": 0 }
+[match    0.0] [lootstats] bots on the ground 20 (in water 0); armed 20; armed with ammo for a gun 20; long guns 20; attachments fitted 0; rounds of unusable ammo carried 0; items on the ground 6318; bot pickups { "detours": 0, "detour_taken": 0, "fetches": 0, "fetch_done": 0, "items_taken": 0 }
+[match    2.0] [radio] Hehe (?): follow_me
+[match    2.0] [voice] Hehe: follow_me; took [4, 7], refused -1
+[match    2.4] [radio] Tito Boy (looter): affirmative
+[match    3.4] [radio] Kuya Fishball (stalker): affirmative
+[autotest] PASS r13_voice_follow: Follow me: 2 bots follow, 2 said affirmative, nearest bot 14.0 -> 3.5 m, state follow
+[match    7.5] [radio] Hehe (?): need_help
+[match    7.5] [voice] Hehe: need_help; took [4, 10], refused -1
+[match    7.9] [radio] Tito Boy (looter): affirmative
+[match    9.1] [radio] Kumareng Marites (rusher): affirmative
+[match   15.0] status: { "ground": 21 }; armed 21; shots 0; zone 0 wait r=9000; corpses 0; server tick avg 2.14 ms, p99 3.78 ms, max 14.67 ms over 900 ticks
+[match   15.0] dm teams: North Team 7 at (-190.0, -101.0) spread 87 m; East Team 7 at (189.0, -40.0) spread 3 m; South Team 7 at (-73.0, 196.0) spread 3 m; gap 384 m; zone centre (0.0, 0.0)
+[match   15.0] bots: { "roam": 18, "order": 2 }; containers searched by bots 0 (all players 0); plan steps done 0; guns carried 40
+[match   15.0] roles: { "rusher": { "roam": 6, "order": 1 }, "sniper": { "roam": 6 }, "looter": { "order": 1, "roam": 2 }, "stalker": { "roam": 4 } }; stuck now 0; waypoints 2075; team { "lines": 4, "pings": 0, "laser_follow": 0, "learned_cells": 275, "blocked_cells": 0, "squads": 0, "following_humans": 2 }
+[match   15.0] [lootstats] bots on the ground 20 (in water 0); armed 20; armed with ammo for a gun 20; long guns 20; attachments fitted 0; rounds of unusable ammo carried 0; items on the ground 6318; bot pickups { "detours": 0, "detour_taken": 0, "fetches": 0, "fetch_done": 0, "items_taken": 0 }
+[match   15.2] Tito Boy (team 0) landed at (-126.0, 1.0, -127.0), 4.7 m/s, health 100; teammates -
+[match   17.1] [radio] Tito Boy (looter): in_position
+[autotest] PASS r13_voice_help: Need help!: bot 55 m off said affirmative true and came 55.0 -> 3.9 m (in position said true)
+[match   22.2] [radio] Hehe (?): lets_go
+[match   22.2] [voice] Hehe: lets_go; took [4, 7, 10], refused -1
+[match   22.6] [radio] Tito Boy (looter): affirmative
+[match   23.5] [radio] Kuya Fishball (stalker): affirmative
+[match   25.7] [radio] Kuya Fishball (stalker): in_position
+[match   29.9] Kumareng Marites (team 0) landed at (-110.0, 1.0, -128.0), 4.5 m/s, health 100; teammates 38 m
+[match   30.0] status: { "ground": 21 }; armed 21; shots 0; zone 0 wait r=9000; corpses 0; server tick avg 2.12 ms, p99 3.55 ms, max 6.78 ms over 900 ticks
+[match   30.0] dm teams: North Team 7 at (-169.0, -130.0) spread 82 m; East Team 7 at (189.0, -40.0) spread 3 m; South Team 7 at (-73.0, 196.0) spread 3 m; gap 370 m; zone centre (0.0, 0.0)
+[match   30.0] bots: { "roam": 17, "order": 3 }; containers searched by bots 0 (all players 0); plan steps done 0; guns carried 40
+[match   30.0] roles: { "rusher": { "roam": 6, "order": 1 }, "sniper": { "roam": 6 }, "looter": { "order": 1, "roam": 2 }, "stalker": { "order": 1, "roam": 3 } }; stuck now 0; waypoints 2075; team { "lines": 8, "pings": 0, "laser_follow": 0, "learned_cells": 275, "blocked_cells": 0, "squads": 0, "following_humans": 2 }
+[match   30.0] [lootstats] bots on the ground 20 (in water 0); armed 20; armed with ammo for a gun 20; long guns 20; attachments fitted 0; rounds of unusable ammo carried 0; items on the ground 6318; bot pickups { "detours": 0, "detour_taken": 0, "fetches": 0, "fetch_done": 0, "items_taken": 0 }
+[autotest] PASS r13_voice_go: Let's go!: bot near the player moved toward where the player looks 26.5 -> 4.6 m, affirmative true
+[match   31.7] [radio] Hehe (?): fall_back
+[match   31.7] [voice] Hehe: fall_back; took [10, 4, 7], refused -1
+[match   31.7] [radio] Kumareng Marites (rusher): in_position
+[match   32.7] [radio] Kumareng Marites (rusher): affirmative
+[match   33.6] [radio] Tito Boy (looter): affirmative
+[match   34.4] Kuya Fishball (team 0) landed at (-99.0, 1.0, -131.0), 4.7 m/s, health 100; teammates 11 m, 15 m
+[match   37.6] [radio] Tito Boy (looter): in_position
+[match   40.3] [radio] Kuya Fishball (stalker): in_position
+[autotest] PASS r13_voice_fall_back: Fall back!: bot 30 m off said affirmative true and pulled back to 5.4 m
+[match   42.0] [radio] Hehe (?): need_help
+[match   42.0] [voice] Hehe: need_help; took [], refused 4
+[match   42.6] [radio] Tito Boy (looter): negative
+[match   45.0] status: { "ground": 21 }; armed 21; shots 0; zone 0 wait r=9000; corpses 0; server tick avg 2.13 ms, p99 3.48 ms, max 8.54 ms over 900 ticks
+[match   45.0] dm teams: North Team 7 at (-99.0, -126.0) spread 117 m; East Team 7 at (189.0, -40.0) spread 3 m; South Team 7 at (-76.0, 151.0) spread 78 m; gap 300 m; zone centre (0.0, 0.0)
+[match   45.0] bots: { "roam": 20 }; containers searched by bots 0 (all players 0); plan steps done 0; guns carried 40
+[match   45.0] roles: { "rusher": { "roam": 7 }, "sniper": { "roam": 6 }, "looter": { "roam": 3 }, "stalker": { "roam": 4 } }; stuck now 0; waypoints 2075; team { "lines": 14, "pings": 0, "laser_follow": 0, "learned_cells": 275, "blocked_cells": 0, "squads": 0, "following_humans": 2 }
+[match   45.0] [lootstats] bots on the ground 20 (in water 0); armed 20; armed with ammo for a gun 20; long guns 20; attachments fitted 0; rounds of unusable ammo carried 0; items on the ground 6318; bot pickups { "detours": 0, "detour_taken": 0, "fetches": 0, "fetch_done": 0, "items_taken": 0 }
+[autotest] PASS r13_voice_negative: Need help! with the only bot in reach in a close fight: it said negative true and took no order ({  })
+[autotest] done: 5 checks, 0 failed

@@ -1,0 +1,76 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+Vulkan 1.4.329 - Forward+ - Using Device #0: NVIDIA - NVIDIA GeForce RTX 4060
+
+[ui] loadout_received pid=1 Hehe {"primary":"marksman_308","secondary":"pistol_9"}
+[ui] lobby shows my loadout (pid 1): {"primary":"marksman_308","secondary":"pistol_9"}
+[ui] request_loadout {"primary":"marksman_308","secondary":"pistol_9"}
+[world] map built in 4107 ms
+[map] 0 buildings, 217 doors, 168 containers, 795 props, #2749db39 on PC
+[nav] levels: 57027 points, 32 links, 140 ms
+[bots] learned from 51 cells, 1 stuck spots (user://bot_memory_malasugue_mall.json)
+[match    0.0] deathmatch start on malasugue_mall: 21 players, 3 teams; spawns (42.0, 10.0, -26.0), (-40.0, 0.0, -27.0), (0.0, 20.0, 27.0) (82/67/68 m apart, floors); day offset 0 s; zone centre (15.0, 10.0) r=134; win by score 30, field holds at r=80
+[game] autotest r17
+[autotest] PASS r17_starts_at_night: match time 0.0 s, daylight 0.00, day offset 0.0
+[autotest] PASS r17_mall_night_only: night_only true, brightest daylight over 25 min 0.00, next sun change inf
+[autotest] PASS r17_floor_spawns: teams on Level 3, Level 1, Level 5; 21 characters, off their floor: none
+[match    0.0] status: { "ground": 21 }; armed 21; shots 0; zone 0 wait r=9000; corpses 0; levels { "L3": 7, "between": 1, "L1": 7, "L5": 6 }
+[match    0.0] dm teams: North Team 7 at (42.0, -26.0) spread 2 m; East Team 7 at (-40.0, -27.0) spread 2 m; South Team 7 at (-1.0, 29.0) spread 2 m; gap 83 m; zone centre (0.0, 0.0)
+[match    0.0] bots: { "roam": 20 }; containers searched by bots 0 (all players 0); plan steps done 0; guns carried 40
+[match    0.0] roles: { "stalker": { "roam": 9 }, "sniper": { "roam": 5 }, "rusher": { "roam": 4 }, "looter": { "roam": 2 } }; stuck now 0; waypoints 0; team { "lines": 0, "pings": 0, "laser_follow": 0, "learned_cells": 51, "blocked_cells": 0, "squads": 0, "following_humans": 0 }
+[match    0.0] [lootstats] bots on the ground 20 (in water 0); armed 20; armed with ammo for a gun 20; long guns 20; attachments fitted 0; rounds of unusable ammo carried 0; items on the ground 437; bot pickups { "detours": 0, "detour_taken": 0, "fetches": 0, "fetch_done": 0, "items_taken": 0 }
+[autotest] shot A:/Python/aetherion-project/work/r17/qa/final_r17/01_r17_start_hud.png
+[match    1.6] Junjun Tisoy (team 2) landed at (-3.0, 20.0, 25.0), 2.8 m/s, health 100; teammates -
+[autotest] shot A:/Python/aetherion-project/work/r17/qa/final_r17/02_r17_squeeze_outside.png
+[match    2.3] Inday Rice Cooker (team 2) landed at (-7.0, 20.0, 29.0), 2.8 m/s, health 100; teammates 8 m
+[match    2.4] Ate Siomai (team 2) landed at (-3.0, 20.0, 24.0), 2.8 m/s, health 100; teammates 3 m, 7 m
+[match    2.6] Lola Basyang (team 2) landed at (-1.0, 20.0, 27.0), 2.5 m/s, health 100; teammates 5 m, 7 m, 8 m
+[match    2.7] Aling Taho (team 2) landed at (-2.0, 20.0, 24.0), 2.8 m/s, health 100; teammates 3 m, 1 m, 4 m, 9 m
+[match    2.9] Kuya Tricycle (team 2) landed at (-3.0, 20.0, 24.0), 2.8 m/s, health 100; teammates 3 m, 1 m, 2 m, 4 m, 9 m
+[match    3.5] Mang Tani crushed by the field at (-30.0, 0.0, -46.0) (r=25.9, outdoors, 3.5 m into it, pinned 2.0 s)
+[match    3.5] [field death] Mang Tani (stalker) state roam at (-30.0, 0.0, -46.0) goal - path 0/0 no_prog 0.0 pending false
+[match    3.5] [field death]   0 roam (-1.0, 21.0, 28.0) step 0/0 - path 0/0 stuck 0.0 in false exit 0 field -inf btn 0 esc 0.0
+[match    3.5] Mang Tani killed by the world (field); 3 teams left
+[match    3.5] alive: North Team 7, East Team 7; score { 0: 0, 1: 0, 2: 0 }
+[match    3.5] Mang Jolo crushed by the field at (-29.0, 0.0, -46.0) (r=25.8, outdoors, 3.5 m into it, pinned 2.0 s)
+[match    3.5] [field death] Mang Jolo (sniper) state roam at (-29.0, 0.0, -46.0) goal - path 0/0 no_prog 0.0 pending false
+[match    3.5] [field death]   0 roam (-40.0, 0.0, -27.0) step 0/0 - path 0/0 stuck 0.0 in false exit 0 field -inf btn 0 esc 0.0
+[match    3.5] Mang Jolo killed by the world (field); 3 teams left
+[match    3.5] alive: North Team 7, East Team 6; score { 0: 0, 1: 0, 2: 0 }
+[autotest] PASS r17_squeeze: two bots pinned against the outer wall: hurt from 0.73 s, dead at 2.48 s (1.75 s of squeezing), cause field; the one beside it dead true (field); health trace [[0.75, 99.0, 0.23], [1.0, 90.2, 0.5], [1.25, 79.5, 0.73], [1.5, 66.9, 1.0], [1.75, 52.5, 1.23], [2.0, 36.2, 1.5], [2.25, 18.0, 1.73]]
+[match    4.0] Ising Batingaw (team 0) landed at (24.0, 10.0, -25.0), 2.1 m/s, health 100; teammates -
+[match    4.5] Totoy Bibo (team 0) landed at (43.0, 10.0, -28.0), 4.4 m/s, health 100; teammates 20 m
+[match    8.5] Mang Tani respawned at (-1.0, 20.0, 31.0) (nearest enemy 58 m)
+[autotest] PASS r17_respawn: Mang Tani back after 4.9 s at (-1.0, 20.0, 31.0) (team floor Level 5), health 100, holding dmr_sks; scores { 0: 0, 1: 0, 2: 0 } -> { 0: 0, 1: 0, 2: 0 }
+[match    8.5] Lola Basyang killed by Hehe (gunshot); 3 teams left
+[match    8.5] alive: North Team 7, East Team 6; score { 0: 1, 1: 0, 2: 0 }
+[match    8.5] Mang Jolo respawned at (-42.0, 0.0, -29.0) (nearest enemy 54 m)
+[autotest] PASS r17_score: team 0: 0 -> 1 on the server, HUD team bar 1, under it "First to 30 kills"
+[autotest] shot A:/Python/aetherion-project/work/r17/qa/final_r17/03_r17_score_hud.png
+[match    9.0] Hehe killed by Pinsan Gardo (gunshot); 3 teams left
+[match    9.0] alive: North Team 6, East Team 7; score { 0: 1, 1: 1, 2: 0 }
+[autotest] shot A:/Python/aetherion-project/work/r17/qa/final_r17/04_r17_respawn_countdown.png
+[match   10.7] Ate Bebang (team 1) landed at (-32.0, 0.0, -15.0), 4.4 m/s, health 100; teammates -
+[match   12.0] Kumareng Marites (team 1) landed at (-33.0, 0.0, -17.0), 4.4 m/s, health 100; teammates 4 m
+[match   12.5] Pinsan Gardo (team 1) landed at (-32.0, 0.0, -9.0), 4.4 m/s, health 100; teammates 7 m, 4 m
+[match   12.9] Kumpare Ambo (team 0) landed at (6.0, 10.0, -23.0), 4.4 m/s, health 100; teammates 7 m, 15 m
+[match   13.5] Lola Basyang respawned at (0.0, 20.0, 32.0) (nearest enemy 39 m)
+[match   14.0] Hehe respawned at (44.0, 10.0, -26.0) (nearest enemy 51 m)
+[match   14.3] Bayaw Erning (team 1) landed at (-33.0, 0.0, -12.0), 4.5 m/s, health 100; teammates 3 m, 4 m, 1 m
+[match   14.5] Utoy Kalabaw (team 0) landed at (18.0, 10.0, -21.0), 4.4 m/s, health 100; teammates 16 m, 15 m, 38 m
+[autotest] PASS r17_local_respawn: countdown "Respawning in 4"; back true, controlled true, at (44.0, 10.0, -26.0) (team floor Level 3), spawn protection true; the killer's team 0 -> 1
+[match   15.0] status: { "ground": 21 }; armed 21; shots 0; zone 0 wait r=9000; corpses 4; levels { "L3": 7, "L1": 6, "L5": 6, "between": 2 }; server tick avg 3.93 ms, p99 16.59 ms, max 35.68 ms over 900 ticks
+[match   15.0] dm teams: North Team 7 at (8.0, -22.0) spread 18 m; East Team 7 at (-29.0, -13.0) spread 9 m; South Team 7 at (-7.0, 12.0) spread 13 m; gap 40 m; zone centre (0.0, 0.0)
+[match   15.0] bots: { "hunt": 15, "follow": 3, "roam": 2 }; containers searched by bots 0 (all players 0); plan steps done 0; guns carried 40
+[match   15.0] roles: { "stalker": { "hunt": 7, "follow": 1, "roam": 1 }, "rusher": { "hunt": 4 }, "looter": { "follow": 1, "roam": 1 }, "sniper": { "hunt": 4, "follow": 1 } }; stuck now 4; waypoints 0; team { "lines": 11, "pings": 0, "laser_follow": 0, "learned_cells": 51, "blocked_cells": 1, "squads": 3, "following_humans": 0 }
+[match   15.0] [lootstats] bots on the ground 20 (in water 0); armed 20; armed with ammo for a gun 20; long guns 20; attachments fitted 0; rounds of unusable ammo carried 0; items on the ground 437; bot pickups { "detours": 0, "detour_taken": 0, "fetches": 0, "fetch_done": 0, "items_taken": 0 }
+[autotest] shot A:/Python/aetherion-project/work/r17/qa/final_r17/05_r17_back_in.png
+[match   15.6] Pinsan Gardo killed by Hehe (gunshot); 3 teams left
+[match   15.6] alive: North Team 7, East Team 6; score { 0: 2, 1: 1, 2: 0 }
+[match   15.6] match over (score): winner team 0 (North Team) with 2 after 16 s, scores { 0: 2, 1: 1, 2: 0 }, 0 shots fired
+[bots] saved 52 learned cells to user://bot_memory_malasugue_mall.json
+[match   16.4] Mang Tani (team 2) landed at (-2.0, 20.0, 25.0), 2.8 m/s, health 100; teammates 24 m, 19 m, 27 m, 24 m, 24 m
+[autotest] PASS r17_end_score: ended true on the score rule; scores { 0: 2, 1: 1, 2: 0 }; results say "North Team wins the round  ·  North Team 2  ·  East Team 1  ·  South Team 0"
+[autotest] shot A:/Python/aetherion-project/work/r17/qa/final_r17/06_r17_results_score.png
+[autotest] done: 8 checks, 0 failed
+WARNING: 7 RIDs of type "Texture" were leaked.
+   at: finalize (servers/rendering/rendering_device.cpp:8900)

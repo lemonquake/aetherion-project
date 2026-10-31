@@ -1,0 +1,132 @@
+[
+  [
+    "master_volume_cap",
+    true,
+    "slider 100 -> 0.750 of full output; with debug unlock -> 1.000"
+  ],
+  [
+    "quality_preset",
+    true,
+    "low: no shadows, AO or fog; ultra: 4 moon cascades; restored to high"
+  ],
+  [
+    "jump",
+    true,
+    "left the plane"
+  ],
+  [
+    "view_tier_freefall",
+    true,
+    "tier 2 at 265 m above ground, interiors hidden, AO false, local shadows 0"
+  ],
+  [
+    "team_cluster",
+    true,
+    "3 teammates, farthest 35.5 m at canopy"
+  ],
+  [
+    "landed",
+    true,
+    "mode 3, health 100 at (-147.0, 1.0, 71.0)"
+  ],
+  [
+    "view_tier_ground",
+    true,
+    "tier 0 at 2 m above ground, interiors drawn, AO true, local shadows 8"
+  ],
+  [
+    "flashlight_on",
+    true,
+    "charge 0.62"
+  ],
+  [
+    "flashlight_lights_room",
+    true,
+    "centre of view 1.4 -> 35.0 (0-255)"
+  ],
+  [
+    "lit_room",
+    true,
+    "lamp light in a kitchen"
+  ],
+  [
+    "flashlight_on",
+    true,
+    "charge 0.59"
+  ],
+  [
+    "flashlight_lights_room",
+    true,
+    "centre of view 0.1 -> 36.0 (0-255)"
+  ],
+  [
+    "smartab_raised",
+    true,
+    "flags 9, weapon blocked true"
+  ],
+  [
+    "smartab_lowered",
+    true,
+    "flags 1"
+  ],
+  [
+    "draw_rifle",
+    true,
+    "current 'rifle_556'"
+  ],
+  [
+    "rifle_fired",
+    true,
+    "6 shots"
+  ],
+  [
+    "recoil_moves_view",
+    true,
+    "pitch climbed 10.91 deg"
+  ],
+  [
+    "bullet_flight",
+    true,
+    "310 m in 0.383 s (23 ticks), drop 0.66 m, 702 of 940 m/s left"
+  ],
+  [
+    "low_battery_flag",
+    true,
+    "charge 0.078"
+  ],
+  [
+    "battery_dies",
+    true,
+    "light on false, charge 0.0000"
+  ],
+  [
+    "battery_swap_started",
+    true,
+    "swap timer 2.33"
+  ],
+  [
+    "battery_replaced",
+    true,
+    "charge 1.00, spares 1 -> 0"
+  ],
+  [
+    "corpse_spawned",
+    true,
+    "corpse 1"
+  ],
+  [
+    "corpse_opened",
+    true,
+    "8 entries, 4 batteries on body"
+  ],
+  [
+    "corpse_battery_looted",
+    true,
+    "batteries 0 -> 4"
+  ],
+  [
+    "corpse_persists",
+    true,
+    "after looting"
+  ]
+]

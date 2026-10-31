@@ -1,0 +1,238 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+[server] dedicated server listening on 27614
+[world] map built in 12009 ms
+[map] 243 buildings, 1951 doors, 2617 containers, 2745 props, #b1fba961 on PC
+[bots] learned from 203 cells, 7 stuck spots (user://bot_memory_lawless_sub.json)
+[match    0.0] deathmatch start on lawless_sub: 21 players, 3 teams; spawns (-119.0, 1.0, -144.0), (190.0, 1.0, -40.0), (-72.0, 1.0, 196.0) (326/353/343 m apart, layout); day offset 300 s; zone centre (-24.0, -28.0) r=356
+[match    0.0] status: { "ground": 21 }; armed 21; shots 0; zone 0 wait r=356; corpses 0
+[match    0.0] dm teams: North Team 7 at (-120.0, -144.0) spread 3 m; East Team 7 at (189.0, -40.0) spread 3 m; South Team 7 at (-73.0, 196.0) spread 3 m; gap 326 m; zone centre (-24.0, -28.0)
+[match    0.0] bots: { "zone": 4, "roam": 17 }; containers searched by bots 0 (all players 0); plan steps done 0; guns carried 42
+[match    0.0] roles: { "rusher": { "zone": 2, "roam": 2 }, "stalker": { "roam": 6 }, "looter": { "roam": 7, "zone": 1 }, "sniper": { "roam": 2, "zone": 1 } }; stuck now 0; waypoints 0; team { "lines": 2, "pings": 0, "laser_follow": 0, "learned_cells": 203, "blocked_cells": 0, "squads": 0, "following_humans": 0 }
+[match    0.0] [lootstats] bots on the ground 21 (in water 0); armed 21; armed with ammo for a gun 21; long guns 21; attachments fitted 0; rounds of unusable ammo carried 0; items on the ground 6299; bot pickups { "detours": 0, "detour_taken": 0, "fetches": 0, "fetch_done": 0, "items_taken": 0 }
+[match   15.0] status: { "ground": 21 }; armed 21; shots 0; zone 0 wait r=356; corpses 0; server tick avg 1.92 ms, p99 3.22 ms, max 8.34 ms over 900 ticks
+[match   15.0] dm teams: North Team 7 at (-100.0, -82.0) spread 1 m; East Team 7 at (169.0, -43.0) spread 41 m; South Team 7 at (-62.0, 159.0) spread 20 m; gap 271 m; zone centre (-24.0, -28.0)
+[match   15.0] bots: { "hunt": 6, "roam": 7, "loot": 4, "follow": 4 }; containers searched by bots 0 (all players 0); plan steps done 3; guns carried 42
+[match   15.0] roles: { "rusher": { "hunt": 3, "roam": 1 }, "stalker": { "hunt": 3, "roam": 3 }, "looter": { "loot": 4, "roam": 1, "follow": 3 }, "sniper": { "roam": 2, "follow": 1 } }; stuck now 0; waypoints 2075; team { "lines": 6, "pings": 0, "laser_follow": 0, "learned_cells": 203, "blocked_cells": 0, "squads": 4, "following_humans": 0 }
+[match   15.0] [lootstats] bots on the ground 21 (in water 0); armed 21; armed with ammo for a gun 21; long guns 21; attachments fitted 0; rounds of unusable ammo carried 0; items on the ground 6299; bot pickups { "detours": 0, "detour_taken": 0, "fetches": 0, "fetch_done": 0, "items_taken": 0 }
+[match   16.4] Utoy Kalabaw (team 1) landed at (188.0, 1.0, -81.0), 2.5 m/s, health 100; teammates -
+[match   16.7] Kapitbahay Lito (team 1) landed at (188.0, 1.0, -80.0), 3.1 m/s, health 100; teammates 1 m
+[match   17.2] Mang Tomas (team 2) landed at (-48.0, 1.0, 147.0), 4.9 m/s, health 100; teammates -
+[match   18.4] Tito Boy (team 2) landed at (-20.0, 1.0, 144.0), 2.5 m/s, health 100; teammates 27 m
+[match   20.9] Nanay Kakanin (team 0) landed at (-102.0, 1.0, -80.0), 4.9 m/s, health 100; teammates -
+[match   27.6] Lola Basyang (team 1) landed at (93.0, 1.0, -33.0), 4.9 m/s, health 100; teammates 102 m, 104 m
+[match   29.3] Tito Videoke (team 2) landed at (-85.0, 1.0, 158.0), 4.9 m/s, health 100; teammates 106 m, 103 m
+[match   29.5] Bossing Dodong (team 1) landed at (96.0, 1.0, 32.0), 4.9 m/s, health 100; teammates 143 m, 144 m, 71 m
+[match   30.0] zone 0 shrinking to r=194 at (51.0, 39.0)
+[match   30.0] status: { "ground": 21 }; armed 21; shots 0; zone 0 shrink r=356; corpses 0; server tick avg 2.23 ms, p99 5.01 ms, max 10.92 ms over 900 ticks
+[match   30.0] dm teams: North Team 7 at (-95.0, -14.0) spread 6 m; East Team 7 at (132.0, -46.0) spread 58 m; South Team 7 at (-48.0, 107.0) spread 51 m; gap 229 m; zone centre (-24.0, -28.0)
+[match   30.0] bots: { "hunt": 10, "loot": 2, "follow": 6, "roam": 2, "camp": 1 }; containers searched by bots 7 (all players 4); plan steps done 43; guns carried 44
+[match   30.0] roles: { "rusher": { "hunt": 4 }, "stalker": { "hunt": 6 }, "looter": { "loot": 2, "follow": 4, "roam": 1, "camp": 1 }, "sniper": { "roam": 1, "follow": 2 } }; stuck now 0; waypoints 2075; team { "lines": 8, "pings": 0, "laser_follow": 0, "learned_cells": 203, "blocked_cells": 0, "squads": 6, "following_humans": 0 }
+[match   30.0] [lootstats] bots on the ground 21 (in water 0); armed 21; armed with ammo for a gun 21; long guns 23; attachments fitted 0; rounds of unusable ammo carried 0; items on the ground 6296; bot pickups { "detours": 3, "detour_taken": 3, "fetches": 0, "fetch_done": 0, "items_taken": 3 }
+[match   32.8] Pinsan Gardo (team 1) landed at (93.0, 1.0, -39.0), 2.5 m/s, health 100; teammates 52 m, 101 m, 103 m, 22 m
+[match   33.3] Kumpare Ambo (team 2) landed at (-79.0, 1.0, 144.0), 4.9 m/s, health 100; teammates 105 m, 109 m, 11 m
+[match   37.7] Bossing Barbecue killed by Aling Puring (gunshot); 3 teams left
+[match   37.7] alive: North Team 6, East Team 7
+[match   43.3] Kulot Sabaw (team 1) landed at (36.0, 1.0, -51.0), 2.5 m/s, health 100; teammates 43 m, 152 m, 6 m, 154 m, 10 m
+[match   44.2] Ate Load Dito killed by Mang Tomas (gunshot); 3 teams left
+[match   44.2] alive: North Team 5, East Team 7
+[match   44.4] Pareng Jun killed by Mang Tomas (gunshot); 3 teams left
+[match   44.4] alive: North Team 4, East Team 7
+[match   45.0] status: { "ground": 18 }; armed 18; shots 304; zone 0 shrink r=275; corpses 3; server tick avg 10.73 ms, p99 22.38 ms, max 42.67 ms over 900 ticks
+[match   45.0] dm teams: North Team 4 at (-83.0, -3.0) spread 9 m; East Team 7 at (97.0, -60.0) spread 80 m; South Team 7 at (-54.0, 78.0) spread 52 m; gap 188 m; zone centre (13.0, 5.0)
+[match   45.0] bots: { "hunt": 4, "loot": 2, "fight": 7, "camp": 2, "follow": 3 }; containers searched by bots 9 (all players 5); plan steps done 20; guns carried 38
+[match   45.0] roles: { "rusher": { "hunt": 2, "fight": 1 }, "stalker": { "hunt": 2, "fight": 2 }, "looter": { "loot": 2, "camp": 2, "fight": 1, "follow": 3 }, "sniper": { "fight": 3 } }; stuck now 0; waypoints 2075; team { "lines": 25, "pings": 0, "laser_follow": 0, "learned_cells": 204, "blocked_cells": 0, "squads": 6, "following_humans": 0 }
+[match   45.0] [lootstats] bots on the ground 18 (in water 0); armed 18; armed with ammo for a gun 18; long guns 20; attachments fitted 0; rounds of unusable ammo carried 0; items on the ground 6296; bot pickups { "detours": 3, "detour_taken": 3, "fetches": 0, "fetch_done": 0, "items_taken": 3 }
+[match   46.4] Tito Karaoke King killed by Aling Puring (gunshot); 3 teams left
+[match   46.4] alive: North Team 3, East Team 7
+[match   48.1] Ate Siomai killed by Nanay Kakanin (bleeding); 3 teams left
+[match   48.1] alive: North Team 2, East Team 7
+[match   50.0] Kuya Bert (team 2) landed at (-93.0, 1.0, 109.0), 4.9 m/s, health 100; teammates 114 m, 29 m, 101 m, 28 m
+[match   51.8] Ising Batingaw killed by Mang Tomas (gunshot); 3 teams left
+[match   51.8] alive: North Team 1, East Team 7
+[match   55.9] Mang Tomas killed by Nanay Kakanin (gunshot); 3 teams left
+[match   55.9] alive: North Team 1, East Team 7
+[match   60.0] [field watch] zone 0: 0 bots indoors in the field's path when it started closing: 0 out before the edge reached them, 0 out after it, 0 never out (); 0 of them dead by the end
+[match   60.0] status: { "ground": 14 }; armed 14; shots 413; zone 1 wait r=194; corpses 7; server tick avg 4.26 ms, p99 10.96 ms, max 25.88 ms over 900 ticks
+[match   60.0] dm teams: North Team 1 at (-94.0, -11.0) spread 0 m; East Team 7 at (78.0, -65.0) spread 94 m; South Team 6 at (-73.0, 56.0) spread 57 m; gap 180 m; zone centre (51.0, 39.0)
+[match   60.0] bots: { "hunt": 2, "loot": 4, "zone": 1, "fight": 3, "follow": 4 }; containers searched by bots 9 (all players 5); plan steps done 8; guns carried 30
+[match   60.0] roles: { "rusher": { "hunt": 1, "fight": 1 }, "stalker": { "hunt": 1, "zone": 1, "fight": 1 }, "looter": { "loot": 4, "follow": 3 }, "sniper": { "follow": 1, "fight": 1 } }; stuck now 0; waypoints 2075; team { "lines": 37, "pings": 0, "laser_follow": 0, "learned_cells": 207, "blocked_cells": 0, "squads": 6, "following_humans": 0 }
+[match   60.0] [lootstats] bots on the ground 14 (in water 0); armed 14; armed with ammo for a gun 14; long guns 16; attachments fitted 0; rounds of unusable ammo carried 0; items on the ground 6296; bot pickups { "detours": 3, "detour_taken": 3, "fetches": 0, "fetch_done": 0, "items_taken": 3 }
+[match   62.0] Bunso Badong killed by Nanay Kakanin (gunshot); 3 teams left
+[match   62.0] alive: North Team 1, East Team 7
+[match   71.1] Nanay Kakanin killed by Tito Boy (bleeding); 2 teams left
+[match   71.1] alive: North Team 0, East Team 7
+[match   71.3] Lola Basyang killed by Aling Puring (gunshot); 2 teams left
+[match   71.3] alive: North Team 0, East Team 6
+[match   75.0] status: { "ground": 11 }; armed 11; shots 561; zone 1 wait r=194; corpses 10; server tick avg 4.02 ms, p99 7.00 ms, max 18.39 ms over 900 ticks
+[match   75.0] dm teams: East Team 6 at (94.0, -20.0) spread 79 m; South Team 5 at (-77.0, 67.0) spread 51 m; gap -1 m; zone centre (51.0, 39.0)
+[match   75.0] bots: { "fight": 2, "loot": 4, "investigate": 1, "zone": 2, "follow": 1, "heal": 1 }; containers searched by bots 9 (all players 5); plan steps done 4; guns carried 24
+[match   75.0] roles: { "rusher": { "fight": 1 }, "stalker": { "fight": 1, "investigate": 1 }, "looter": { "loot": 4, "zone": 2, "follow": 1 }, "sniper": { "heal": 1 } }; stuck now 0; waypoints 2075; team { "lines": 48, "pings": 0, "laser_follow": 0, "learned_cells": 208, "blocked_cells": 0, "squads": 6, "following_humans": 0 }
+[match   75.0] [lootstats] bots on the ground 11 (in water 0); armed 11; armed with ammo for a gun 11; long guns 13; attachments fitted 0; rounds of unusable ammo carried 0; items on the ground 6296; bot pickups { "detours": 3, "detour_taken": 3, "fetches": 0, "fetch_done": 0, "items_taken": 3 }
+[match   82.2] Kulot Sabaw killed by Aling Puring (bleeding); 2 teams left
+[match   82.2] alive: North Team 0, East Team 5
+[match   82.5] zone 1 shrinking to r=113 at (11.0, 71.0)
+[match   88.3] Tito Boy killed by Pinsan Gardo (gunshot); 2 teams left
+[match   88.3] alive: North Team 0, East Team 5
+[match   90.0] status: { "ground": 9 }; armed 9; shots 664; zone 1 shrink r=167; corpses 12; server tick avg 3.66 ms, p99 7.61 ms, max 10.26 ms over 900 ticks
+[match   90.0] dm teams: East Team 5 at (68.0, -2.0) spread 53 m; South Team 4 at (-81.0, 79.0) spread 43 m; gap -1 m; zone centre (37.0, 49.0)
+[match   90.0] bots: { "loot": 2, "fight": 2, "zone": 2, "follow": 1, "investigate": 1, "heal": 1 }; containers searched by bots 9 (all players 5); plan steps done 5; guns carried 20
+[match   90.0] roles: { "looter": { "loot": 2, "zone": 2, "follow": 1, "fight": 1, "investigate": 1 }, "stalker": { "fight": 1 }, "sniper": { "heal": 1 } }; stuck now 0; waypoints 2075; team { "lines": 59, "pings": 0, "laser_follow": 0, "learned_cells": 211, "blocked_cells": 0, "squads": 6, "following_humans": 0 }
+[match   90.0] [lootstats] bots on the ground 9 (in water 0); armed 9; armed with ammo for a gun 9; long guns 11; attachments fitted 0; rounds of unusable ammo carried 0; items on the ground 6296; bot pickups { "detours": 3, "detour_taken": 3, "fetches": 0, "fetch_done": 0, "items_taken": 3 }
+[match  100.5] Aling Puring killed by Pinsan Gardo (gunshot); 2 teams left
+[match  100.5] alive: North Team 0, East Team 5
+[match  105.0] [field watch] zone 1: 2 bots indoors in the field's path when it started closing: 1 out before the edge reached them, 0 out after it, 1 never out (Kumpare Ambo); 0 of them dead by the end
+[match  105.0] status: { "ground": 8 }; armed 8; shots 690; zone 2 wait r=113; corpses 13; server tick avg 1.68 ms, p99 3.38 ms, max 9.98 ms over 900 ticks
+[match  105.0] dm teams: East Team 5 at (55.0, 14.0) spread 39 m; South Team 3 at (-73.0, 98.0) spread 28 m; gap -1 m; zone centre (11.0, 71.0)
+[match  105.0] bots: { "loot": 6, "hunt": 1, "follow": 1 }; containers searched by bots 9 (all players 5); plan steps done 4; guns carried 19
+[match  105.0] roles: { "looter": { "loot": 6, "follow": 1 }, "stalker": { "hunt": 1 } }; stuck now 0; waypoints 2075; team { "lines": 63, "pings": 0, "laser_follow": 0, "learned_cells": 212, "blocked_cells": 0, "squads": 6, "following_humans": 0 }
+[match  105.0] [lootstats] bots on the ground 8 (in water 0); armed 8; armed with ammo for a gun 8; long guns 11; attachments fitted 0; rounds of unusable ammo carried 0; items on the ground 6293; bot pickups { "detours": 7, "detour_taken": 7, "fetches": 0, "fetch_done": 0, "items_taken": 7 }
+[match  113.2] Bossing Dodong killed by Tito Videoke (gunshot); 2 teams left
+[match  113.2] alive: North Team 0, East Team 4
+[match  120.0] status: { "ground": 7 }; armed 7; shots 782; zone 2 wait r=113; corpses 14; server tick avg 2.24 ms, p99 4.84 ms, max 7.97 ms over 900 ticks
+[match  120.0] dm teams: East Team 4 at (22.0, 53.0) spread 23 m; South Team 3 at (-71.0, 96.0) spread 28 m; gap -1 m; zone centre (11.0, 71.0)
+[match  120.0] bots: { "loot": 2, "zone": 3, "follow": 1, "investigate": 1 }; containers searched by bots 9 (all players 5); plan steps done 4; guns carried 17
+[match  120.0] roles: { "looter": { "loot": 2, "zone": 3, "follow": 1, "investigate": 1 } }; stuck now 0; waypoints 2075; team { "lines": 70, "pings": 0, "laser_follow": 0, "learned_cells": 213, "blocked_cells": 0, "squads": 6, "following_humans": 0 }
+[match  120.0] [lootstats] bots on the ground 7 (in water 0); armed 7; armed with ammo for a gun 7; long guns 10; attachments fitted 0; rounds of unusable ammo carried 0; items on the ground 6293; bot pickups { "detours": 7, "detour_taken": 7, "fetches": 0, "fetch_done": 0, "items_taken": 7 }
+[match  125.0] zone 2 shrinking to r=63 at (-14.0, 107.0)
+[match  135.0] status: { "ground": 7 }; armed 7; shots 831; zone 2 shrink r=88; corpses 14; server tick avg 1.77 ms, p99 3.15 ms, max 5.97 ms over 900 ticks
+[match  135.0] dm teams: East Team 4 at (22.0, 68.0) spread 31 m; South Team 3 at (-57.0, 105.0) spread 29 m; gap -1 m; zone centre (-2.0, 89.0)
+[match  135.0] bots: { "roam": 1, "loot": 4, "follow": 1, "fight": 1 }; containers searched by bots 11 (all players 7); plan steps done 9; guns carried 17
+[match  135.0] roles: { "looter": { "roam": 1, "loot": 4, "follow": 1, "fight": 1 } }; stuck now 0; waypoints 2075; team { "lines": 75, "pings": 0, "laser_follow": 0, "learned_cells": 213, "blocked_cells": 0, "squads": 6, "following_humans": 0 }
+[match  135.0] [lootstats] bots on the ground 7 (in water 0); armed 7; armed with ammo for a gun 6; long guns 10; attachments fitted 0; rounds of unusable ammo carried 0; items on the ground 6293; bot pickups { "detours": 7, "detour_taken": 7, "fetches": 0, "fetch_done": 0, "items_taken": 7 }
+[match  145.0] [field watch] zone 2: 1 bots indoors in the field's path when it started closing: 1 out before the edge reached them, 0 out after it, 0 never out (); 0 of them dead by the end
+[match  145.5] Pinsan Gardo killed by Tito Videoke (gunshot); 2 teams left
+[match  145.5] alive: North Team 0, East Team 3
+[match  150.0] status: { "ground": 6 }; armed 6; shots 865; zone 3 wait r=63; corpses 15; server tick avg 1.41 ms, p99 2.88 ms, max 9.69 ms over 900 ticks
+[match  150.0] dm teams: East Team 3 at (20.0, 74.0) spread 11 m; South Team 3 at (-22.0, 90.0) spread 17 m; gap -1 m; zone centre (-14.0, 107.0)
+[match  150.0] bots: { "loot": 3, "follow": 1, "zone": 2 }; containers searched by bots 12 (all players 7); plan steps done 10; guns carried 15
+[match  150.0] roles: { "looter": { "loot": 3, "follow": 1, "zone": 2 } }; stuck now 0; waypoints 2075; team { "lines": 80, "pings": 0, "laser_follow": 0, "learned_cells": 215, "blocked_cells": 0, "squads": 6, "following_humans": 0 }
+[match  150.0] [lootstats] bots on the ground 6 (in water 0); armed 6; armed with ammo for a gun 6; long guns 9; attachments fitted 0; rounds of unusable ammo carried 0; items on the ground 6293; bot pickups { "detours": 7, "detour_taken": 7, "fetches": 0, "fetch_done": 0, "items_taken": 7 }
+[match  153.0] Boy Pickup (team 1) landed at (11.0, 1.0, 68.0), 4.9 m/s, health 100; teammates 6 m, 19 m
+[match  160.0] zone 3 shrinking to r=28 at (-15.0, 81.0)
+[match  161.3] Tito Videoke killed by Kapitbahay Lito (gunshot); 2 teams left
+[match  161.3] alive: North Team 0, East Team 3
+[match  165.0] status: { "ground": 5 }; armed 5; shots 996; zone 3 shrink r=52; corpses 16; server tick avg 1.90 ms, p99 4.17 ms, max 11.52 ms over 900 ticks
+[match  165.0] dm teams: East Team 3 at (7.0, 70.0) spread 9 m; South Team 2 at (-17.0, 109.0) spread 2 m; gap -1 m; zone centre (-14.0, 99.0)
+[match  165.0] bots: { "fight": 3, "zone": 1, "loot": 1 }; containers searched by bots 12 (all players 7); plan steps done 4; guns carried 13
+[match  165.0] roles: { "looter": { "fight": 3, "zone": 1, "loot": 1 } }; stuck now 0; waypoints 2075; team { "lines": 88, "pings": 0, "laser_follow": 0, "learned_cells": 216, "blocked_cells": 0, "squads": 6, "following_humans": 0 }
+[match  165.0] [lootstats] bots on the ground 5 (in water 0); armed 5; armed with ammo for a gun 5; long guns 8; attachments fitted 0; rounds of unusable ammo carried 0; items on the ground 6293; bot pickups { "detours": 7, "detour_taken": 7, "fetches": 0, "fetch_done": 0, "items_taken": 7 }
+[match  169.7] Kumpare Ambo killed by Kapitbahay Lito (bleeding); 2 teams left
+[match  169.7] alive: North Team 0, East Team 3
+[match  175.0] [field watch] zone 3: 0 bots indoors in the field's path when it started closing: 0 out before the edge reached them, 0 out after it, 0 never out (); 0 of them dead by the end
+[match  180.0] status: { "ground": 4 }; armed 4; shots 1060; zone 4 wait r=28; corpses 17; server tick avg 1.52 ms, p99 3.32 ms, max 7.92 ms over 900 ticks
+[match  180.0] dm teams: East Team 3 at (-3.0, 67.0) spread 9 m; South Team 1 at (-19.0, 105.0) spread 0 m; gap -1 m; zone centre (-15.0, 81.0)
+[match  180.0] bots: { "zone": 3, "fight": 1 }; containers searched by bots 12 (all players 7); plan steps done 2; guns carried 11
+[match  180.0] roles: { "looter": { "zone": 3, "fight": 1 } }; stuck now 1; waypoints 2075; team { "lines": 91, "pings": 0, "laser_follow": 0, "learned_cells": 217, "blocked_cells": 0, "squads": 6, "following_humans": 0 }
+[match  180.0] [lootstats] bots on the ground 4 (in water 0); armed 4; armed with ammo for a gun 4; long guns 7; attachments fitted 0; rounds of unusable ammo carried 0; items on the ground 6293; bot pickups { "detours": 7, "detour_taken": 7, "fetches": 0, "fetch_done": 0, "items_taken": 7 }
+[match  187.5] zone 4 shrinking to r=0 at (-20.0, 108.0)
+[match  195.0] Boy Pickup crushed by the field at (-6.0, 2.0, 98.0) (r=11.3, outdoors, 0.9 m into it)
+[match  195.0] [field death] Boy Pickup (looter) state zone at (-6.0, 2.0, 98.0) goal (-29.0, 1.0, 102.0) path 0/1 no_prog 0.5 pending false
+[match  195.0] [field death]   164 fight (8.0, 1.0, 64.0) step 0/0 - path 0/3 stuck 0.0 in false exit 0 field -12.2 btn 16 esc 0.0
+[match  195.0] [field death]   165 zone (7.0, 1.0, 64.0) step 0/0 - path 0/3 stuck 0.3 in false exit 0 field -11.3 btn 4 esc 0.0
+[match  195.0] [field death]   166 zone (2.0, 1.0, 61.0) step 0/0 - path 0/3 stuck 0.0 in false exit 0 field -10.2 btn 4 esc 0.0
+[match  195.0] [field death]   167 zone (-3.0, 1.0, 58.0) step 0/0 - path 0/3 stuck 0.0 in false exit 0 field -8.3 btn 4 esc 0.0
+[match  195.0] [field death]   168 zone (-6.0, 1.0, 58.0) step 0/0 - path 1/3 stuck 0.5 in false exit 0 field -7.7 btn 4 esc 0.0
+[match  195.0] [field death]   169 zone (-6.0, 1.0, 59.0) step 0/0 - path 1/3 stuck 0.7 in false exit 0 field -8.0 btn 4 esc 0.0
+[match  195.0] [field death]   170 zone (-6.0, 1.0, 59.0) step 0/0 - path 1/3 stuck 1.4 in false exit 0 field -7.8 btn 4 esc 0.0
+[match  195.0] [field death]   171 zone (-6.0, 1.0, 59.0) step 0/0 - path 0/1 stuck 0.8 in false exit 0 field -7.1 btn 4 esc 0.0
+[match  195.0] [field death]   172 follow (-6.0, 1.0, 61.0) step 0/0 - path 0/0 stuck 0.6 in false exit 0 field -7.9 btn 4 esc 0.0
+[match  195.0] [field death]   173 zone (-6.0, 1.0, 61.0) step 0/0 - path 0/1 stuck 0.5 in false exit 0 field -6.8 btn 4 esc 0.0
+[match  195.0] [field death]   174 zone (-6.0, 1.0, 61.0) step 0/0 - path 0/1 stuck 1.6 in false exit 0 field -6.0 btn 4 esc 0.0
+[match  195.0] [field death]   175 zone (-6.0, 1.0, 60.0) step 0/0 - path 0/0 stuck 0.0 in false exit 0 field -5.3 btn 4 esc 0.0
+[match  195.0] [field death]   176 zone (-6.0, 1.0, 61.0) step 0/0 - path 0/2 stuck 0.2 in false exit 0 field -6.2 btn 4 esc 0.0
+[match  195.0] [field death]   177 zone (-6.0, 1.0, 62.0) step 0/0 - path 0/2 stuck 0.7 in false exit 0 field -6.8 btn 4 esc 0.0
+[match  195.0] [field death]   178 zone (-6.0, 1.0, 62.0) step 0/0 - path 0/2 stuck 1.7 in false exit 0 field -6.8 btn 0 esc 0.0
+[match  195.0] [field death]   180 zone (-6.0, 1.0, 61.0) step 0/0 - path 0/2 stuck 2.8 in false exit 0 field -5.8 btn 4 esc 0.0
+[match  195.0] [field death]   181 zone (-6.0, 1.0, 62.0) step 0/0 - path 0/2 stuck 0.4 in false exit 0 field -6.8 btn 4 esc 0.0
+[match  195.0] [field death]   182 zone (-6.0, 1.0, 62.0) step 0/0 - path 0/2 stuck 1.5 in false exit 0 field -6.8 btn 4 esc 0.0
+[match  195.0] [field death]   183 zone (-6.0, 1.0, 62.0) step 0/0 - path 0/2 stuck 2.5 in false exit 0 field -6.8 btn 4 esc 0.0
+[match  195.0] [field death]   184 zone (-6.0, 1.0, 62.0) step 0/0 - path 0/2 stuck 0.3 in false exit 0 field -6.9 btn 4 esc 0.0
+[match  195.0] [field death]   185 zone (-6.0, 1.0, 64.0) step 0/0 - path 0/2 stuck 0.4 in false exit 0 field -8.1 btn 4 esc 0.0
+[match  195.0] [field death]   186 zone (-6.0, 1.0, 65.0) step 0/0 - path 0/2 stuck 0.5 in false exit 0 field -9.3 btn 4 esc 0.0
+[match  195.0] [field death]   187 zone (-6.0, 1.0, 65.0) step 0/0 - path 0/2 stuck 1.5 in false exit 0 field -9.5 btn 4 esc 0.0
+[match  195.0] [field death]   188 zone (-6.0, 1.0, 66.0) step 0/0 - path 0/2 stuck 2.2 in false exit 0 field -7.7 btn 4 esc 0.6
+[match  195.0] [field death]   189 zone (-5.0, 1.0, 70.0) step 0/0 - path 0/2 stuck 3.1 in false exit 0 field -6.5 btn 4 esc 1.7
+[match  195.0] [field death]   190 zone (-5.0, 1.0, 74.0) step 0/0 - path 0/2 stuck 0.1 in false exit 0 field -4.9 btn 4 esc 2.7
+[match  195.0] [field death]   191 zone (-5.0, 1.0, 80.0) step 0/0 - path 0/2 stuck 0.8 in false exit 0 field -5.0 btn 4 esc 3.8
+[match  195.0] [field death]   192 zone (-6.0, 1.0, 87.0) step 0/0 - path 0/2 stuck 1.9 in false exit 0 field -5.2 btn 4 esc 4.9
+[match  195.0] [field death]   193 zone (-6.0, 1.0, 94.0) step 0/0 - path 0/2 stuck 2.9 in false exit 0 field -3.4 btn 4 esc 5.9
+[match  195.0] [field death]   194 zone (-5.0, 1.0, 97.0) step 0/0 - path 0/1 stuck 0.5 in false exit 0 field 0.0 btn 4 esc 7.0
+[match  195.0] Boy Pickup killed by the world (field); 2 teams left
+[match  195.0] alive: North Team 0, East Team 2
+[match  195.0] status: { "ground": 3 }; armed 3; shots 1107; zone 4 shrink r=11; corpses 18; server tick avg 1.36 ms, p99 2.98 ms, max 35.89 ms over 900 ticks
+[match  195.0] dm teams: East Team 2 at (-6.0, 96.0) spread 1 m; South Team 1 at (-20.0, 100.0) spread 0 m; gap -1 m; zone centre (-18.0, 98.0)
+[match  195.0] bots: { "zone": 3 }; containers searched by bots 12 (all players 7); plan steps done 2; guns carried 9
+[match  195.0] roles: { "looter": { "zone": 3 } }; stuck now 2; waypoints 2075; team { "lines": 95, "pings": 0, "laser_follow": 0, "learned_cells": 218, "blocked_cells": 1, "squads": 6, "following_humans": 0 }
+[match  195.0] [lootstats] bots on the ground 3 (in water 0); armed 3; armed with ammo for a gun 3; long guns 6; attachments fitted 0; rounds of unusable ammo carried 0; items on the ground 6293; bot pickups { "detours": 7, "detour_taken": 7, "fetches": 0, "fetch_done": 0, "items_taken": 7 }
+[match  195.0] Utoy Kalabaw crushed by the field at (-6.0, 1.0, 97.0) (r=11.2, outdoors, 1.0 m into it)
+[match  195.0] [field death] Utoy Kalabaw (looter) state zone at (-6.0, 1.0, 97.0) goal (-10.0, 1.0, 111.0) path 0/2 no_prog 3.0 pending false
+[match  195.0] [field death]   164 loot (13.0, 1.0, 82.0) step 0/9 nav path 0/0 stuck 0.0 in false exit 2 field -20.7 btn 0 esc 0.0
+[match  195.0] [field death]   165 zone (14.0, 1.0, 82.0) step 0/0 - path 0/0 stuck 0.0 in false exit 0 field -18.1 btn 4 esc 0.0
+[match  195.0] [field death]   166 loot (13.0, 1.0, 79.0) step 0/8 nav path 0/6 stuck 0.2 in false exit 2 field -16.5 btn 0 esc 0.0
+[match  195.0] [field death]   167 zone (14.0, 1.0, 81.0) step 0/0 - path 0/1 stuck 0.5 in false exit 0 field -13.9 btn 4 esc 0.0
+[match  195.0] [field death]   169 loot (13.0, 1.0, 82.0) step 0/6 nav path 0/12 stuck 0.7 in false exit 2 field -13.6 btn 0 esc 0.0
+[match  195.0] [field death]   170 zone (13.0, 1.0, 82.0) step 0/0 - path 0/1 stuck 0.4 in false exit 0 field -11.6 btn 4 esc 0.0
+[match  195.0] [field death]   171 zone (12.0, 1.0, 82.0) step 0/0 - path 0/1 stuck 0.3 in false exit 0 field -10.7 btn 4 esc 0.0
+[match  195.0] [field death]   172 zone (10.0, 2.0, 81.0) step 0/0 - path 1/1 stuck 0.9 in false exit 0 field -10.9 btn 4 esc 0.0
+[match  195.0] [field death]   173 loot (8.0, 1.0, 79.0) step 0/26 nav path 0/0 stuck 0.0 in false exit 2 field -10.0 btn 0 esc 0.0
+[match  195.0] [field death]   174 zone (9.0, 1.0, 80.0) step 0/0 - path 0/1 stuck 0.1 in false exit 0 field -7.2 btn 4 esc 0.3
+[match  195.0] [field death]   175 fight (5.0, 1.0, 80.0) step 0/0 - path 0/1 stuck 0.6 in false exit 0 field -9.2 btn 2 esc 0.0
+[match  195.0] [field death]   176 fight (2.0, 1.0, 79.0) step 0/0 - path 0/1 stuck 0.6 in false exit 0 field -11.8 btn 2 esc 0.0
+[match  195.0] [field death]   177 fight (2.0, 1.0, 79.0) step 0/0 - path 0/1 stuck 0.6 in false exit 0 field -11.6 btn 2 esc 0.0
+[match  195.0] [field death]   178 fight (2.0, 1.0, 79.0) step 0/0 - path 0/1 stuck 0.6 in false exit 0 field -11.1 btn 18 esc 0.0
+[match  195.0] [field death]   179 fight (2.0, 1.0, 80.0) step 0/0 - path 0/14 stuck 0.1 in false exit 0 field -11.3 btn 2 esc 0.0
+[match  195.0] [field death]   180 fight (2.0, 1.0, 79.0) step 0/0 - path 0/14 stuck 0.1 in false exit 0 field -11.8 btn 2 esc 0.0
+[match  195.0] [field death]   181 fight (2.0, 1.0, 79.0) step 0/0 - path 0/14 stuck 0.1 in false exit 0 field -11.7 btn 18 esc 0.0
+[match  195.0] [field death]   182 fight (2.0, 1.0, 80.0) step 0/0 - path 0/14 stuck 0.1 in false exit 0 field -11.2 btn 18 esc 0.0
+[match  195.0] [field death]   183 fight (2.0, 1.0, 80.0) step 0/0 - path 0/14 stuck 0.1 in false exit 0 field -11.2 btn 2 esc 0.0
+[match  195.0] [field death]   184 fight (2.0, 1.0, 80.0) step 0/0 - path 0/14 stuck 0.1 in false exit 0 field -11.7 btn 2 esc 0.0
+[match  195.0] [field death]   185 fight (2.0, 1.0, 80.0) step 0/0 - path 0/14 stuck 0.1 in false exit 0 field -11.8 btn 18 esc 0.0
+[match  195.0] [field death]   186 zone (2.0, 1.0, 80.0) step 0/0 - path 0/0 stuck 0.1 in false exit 0 field -11.3 btn 0 esc 0.0
+[match  195.0] [field death]   187 zone (6.0, 1.0, 82.0) step 0/0 - path 0/14 stuck 0.0 in false exit 0 field -7.8 btn 4 esc 0.0
+[match  195.0] [field death]   188 zone (11.0, 1.0, 81.0) step 0/0 - path 1/14 stuck 0.1 in false exit 0 field -1.4 btn 4 esc 0.5
+[match  195.0] [field death]   189 zone (6.0, 2.0, 82.0) step 0/0 - path 1/14 stuck 1.1 in false exit 0 field -2.9 btn 4 esc 1.6
+[match  195.0] [field death]   190 zone (0.0, 1.0, 83.0) step 0/0 - path 1/14 stuck 2.1 in false exit 0 field -6.0 btn 4 esc 2.6
+[match  195.0] [field death]   191 zone (-5.0, 1.0, 86.0) step 0/0 - path 0/0 stuck 3.2 in false exit 0 field -8.4 btn 4 esc 3.7
+[match  195.0] [field death]   192 zone (-5.0, 1.0, 92.0) step 0/0 - path 0/2 stuck 0.1 in false exit 0 field -6.5 btn 4 esc 4.7
+[match  195.0] [field death]   193 zone (-5.0, 1.0, 95.0) step 0/0 - path 0/2 stuck 1.2 in false exit 0 field -3.2 btn 4 esc 5.7
+[match  195.0] [field death]   194 zone (-5.0, 1.0, 94.0) step 0/0 - path 0/2 stuck 2.3 in false exit 0 field -0.4 btn 4 esc 6.8
+[match  195.0] Utoy Kalabaw killed by the world (field); 2 teams left
+[match  195.0] alive: North Team 0, East Team 1
+[match  195.0] Kapitbahay Lito crushed by the field at (-6.0, 2.0, 96.0) (r=11.2, outdoors, 1.1 m into it)
+[match  195.0] [field death] Kapitbahay Lito (looter) state zone at (-6.0, 2.0, 96.0) goal (-25.0, 1.0, 119.0) path 0/1 no_prog 0.0 pending false
+[match  195.0] [field death]   164 fight (4.0, 1.0, 65.0) step 2/0 - path 3/10 stuck 0.0 in false exit 0 field -14.2 btn 18 esc 0.0
+[match  195.0] [field death]   165 fight (4.0, 1.0, 65.0) step 2/0 - path 3/10 stuck 0.0 in false exit 0 field -13.4 btn 66 esc 0.0
+[match  195.0] [field death]   166 fight (4.0, 1.0, 65.0) step 2/0 - path 3/10 stuck 0.0 in false exit 0 field -12.5 btn 66 esc 0.0
+[match  195.0] [field death]   167 zone (4.0, 1.0, 65.0) step 2/0 - path 0/3 stuck 0.2 in false exit 0 field -11.6 btn 4 esc 0.0
+[match  195.0] [field death]   168 zone (0.0, 1.0, 62.0) step 2/0 - path 0/3 stuck 0.0 in false exit 0 field -9.6 btn 4 esc 0.0
+[match  195.0] [field death]   169 zone (-4.0, 1.0, 58.0) step 2/0 - path 0/3 stuck 0.0 in false exit 0 field -6.8 btn 4 esc 0.0
+[match  195.0] [field death]   170 zone (-6.0, 1.0, 57.0) step 2/0 - path 1/3 stuck 0.3 in false exit 0 field -6.0 btn 4 esc 0.0
+[match  195.0] [field death]   171 zone (-6.0, 1.0, 59.0) step 2/0 - path 1/3 stuck 0.4 in false exit 0 field -6.5 btn 4 esc 0.0
+[match  195.0] [field death]   172 zone (-6.0, 1.0, 59.0) step 2/0 - path 1/3 stuck 1.1 in false exit 0 field -6.3 btn 4 esc 0.0
+[match  195.0] [field death]   173 zone (-6.0, 1.0, 60.0) step 2/0 - path 0/2 stuck 0.4 in false exit 0 field -6.1 btn 4 esc 0.0
+[match  195.0] [field death]   174 zone (-6.0, 1.0, 60.0) step 2/0 - path 0/2 stuck 1.5 in false exit 0 field -5.4 btn 4 esc 0.0
+[match  195.0] [field death]   175 zone (-4.0, 1.0, 60.0) step 2/0 - path 0/3 stuck 0.1 in false exit 0 field -4.4 btn 4 esc 0.0
+[match  195.0] [field death]   176 zone (-5.0, 1.0, 58.0) step 2/0 - path 1/3 stuck 0.0 in false exit 0 field -2.5 btn 4 esc 0.2
+[match  195.0] [field death]   177 zone (-6.0, 1.0, 60.0) step 2/0 - path 1/3 stuck 0.3 in false exit 0 field -4.7 btn 4 esc 0.0
+[match  195.0] [field death]   179 zone (-6.0, 1.0, 60.0) step 2/0 - path 1/3 stuck 1.3 in false exit 0 field -4.8 btn 4 esc 0.0
+[match  195.0] [field death]   180 zone (-6.0, 1.0, 60.0) step 2/0 - path 1/3 stuck 2.4 in false exit 0 field -5.3 btn 4 esc 0.0
+[match  195.0] [field death]   181 zone (-6.0, 1.0, 60.0) step 2/0 - path 0/3 stuck 0.2 in false exit 0 field -4.8 btn 4 esc 0.0
+[match  195.0] [field death]   182 zone (-6.0, 1.0, 61.0) step 2/0 - path 0/3 stuck 0.1 in false exit 0 field -6.3 btn 4 esc 0.0
+[match  195.0] [field death]   183 zone (-6.0, 1.0, 61.0) step 2/0 - path 0/3 stuck 1.1 in false exit 0 field -6.3 btn 4 esc 0.0
+[match  195.0] [field death]   184 zone (-6.0, 1.0, 60.0) step 2/0 - path 0/3 stuck 2.2 in false exit 0 field -5.3 btn 0 esc 0.0
+[match  195.0] [field death]   185 zone (-6.0, 1.0, 62.0) step 2/0 - path 0/1 stuck 0.0 in false exit 0 field -6.5 btn 4 esc 0.0
+[match  195.0] [field death]   186 zone (-6.0, 1.0, 64.0) step 2/0 - path 0/1 stuck 0.2 in false exit 0 field -8.8 btn 4 esc 0.0
+[match  195.0] [field death]   187 zone (-6.0, 1.0, 64.0) step 2/0 - path 0/1 stuck 1.1 in false exit 0 field -8.7 btn 0 esc 0.0
+[match  195.0] [field death]   188 zone (-6.0, 1.0, 65.0) step 2/0 - path 0/1 stuck 1.5 in false exit 0 field -6.6 btn 4 esc 0.7
+[match  195.0] [field death]   189 zone (-6.0, 1.0, 65.0) step 2/0 - path 0/1 stuck 2.6 in false exit 0 field -2.0 btn 4 esc 1.7
+[match  195.0] [field death]   190 zone (-5.0, 1.0, 69.0) step 2/0 - path 0/1 stuck 2.1 in false exit 0 field -0.3 btn 4 esc 2.8
+[match  195.0] [field death]   191 zone (-5.0, 1.0, 75.0) step 2/0 - path 0/1 stuck 0.0 in false exit 0 field -1.0 btn 4 esc 3.9
+[match  195.0] [field death]   192 zone (-5.0, 1.0, 82.0) step 2/0 - path 0/1 stuck 0.0 in false exit 0 field -1.2 btn 4 esc 4.9
+[match  195.0] [field death]   193 zone (-5.0, 1.0, 88.0) step 2/0 - path 0/1 stuck 0.0 in false exit 0 field -1.3 btn 4 esc 6.0
+[match  195.0] [field death]   194 zone (-5.0, 1.0, 95.0) step 2/0 - path 0/1 stuck 0.0 in false exit 0 field -0.0 btn 4 esc 7.0
+[match  195.0] Kapitbahay Lito killed by the world (field); 1 teams left
+[match  195.0] alive: North Team 0, East Team 0
+[match  195.0] match over: winner team 2 (South Team) after 195 s, 1107 shots fired
+[bots] saved 218 learned cells to user://bot_memory_lawless_sub.json
+[game] results: {}

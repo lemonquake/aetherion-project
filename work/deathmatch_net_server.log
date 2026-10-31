@@ -1,0 +1,36 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+[world] map built in 1943 ms
+[map] 0 buildings, 213 doors, 163 containers, 779 props, #55dd752c on PC
+[nav] levels: 56959 points, 32 links, 152 ms
+[match    0.1] deathmatch start on malasugue_mall: 4 players, 2 teams; spawns (42.0, 10.0, -26.0), (-40.0, 0.0, -27.0) (82/82 m apart, floors); day offset 0 s; zone centre (18.0, -2.0) r=134; win by wipe
+[match    0.1] status: { "ground": 4 }; armed 4; shots 0; zone -1 hold r=134; corpses 0; levels { "L3": 2, "L1": 2 }; server tick avg 0.09 ms, p99 0.19 ms, max 0.19 ms over 7 ticks
+[match    0.1] dm teams: West Team 2 at (41.0, -26.0) spread 1 m; East Team 2 at (-41.0, -27.0) spread 1 m; gap 83 m; zone centre (18.0, -2.0)
+[match    0.1] bots: { "roam": 2 }; containers searched by bots 0 (all players 0); plan steps done 0; guns carried 4
+[match    0.1] roles: { "sniper": { "roam": 2 } }; stuck now 0; waypoints 0; team { "lines": 0, "pings": 0, "laser_follow": 0, "learned_cells": 0, "blocked_cells": 0, "squads": 0, "following_humans": 0 }
+[match    0.1] [lootstats] bots on the ground 2 (in water 0); armed 2; armed with ammo for a gun 2; long guns 2; attachments fitted 0; rounds of unusable ammo carried 0; items on the ground 395; bot pickups { "detours": 0, "detour_taken": 0, "fetches": 0, "fetch_done": 0, "items_taken": 0 }
+[match    0.2] DM host test killed by the world (); 2 teams left
+[match    0.2] alive: West Team 1, East Team 2; score { 0: 0, 1: 0 }
+[match    0.2] Aling Puring killed by the world (); 1 teams left
+[match    0.2] alive: West Team 0, East Team 2; score { 0: 0, 1: 0 }
+[match    0.2] round 1 over: winner 1, scores { 0: 0, 1: 1 }
+[match    0.2] DM host test respawned at (42.0, 10.0, -26.0) (nearest enemy 1000 m)
+[match    0.2] DM guest test respawned at (-43.0, 0.0, -27.0) (nearest enemy 86 m)
+[match    0.2] Aling Puring respawned at (45.0, 10.0, -26.0) (nearest enemy 89 m)
+[match    0.2] Junjun Tisoy respawned at (-42.0, 0.0, -29.0) (nearest enemy 84 m)
+[match    0.2] round 2 started; scores { 0: 0, 1: 1 }
+[match    0.2] DM host test killed by the world (); 2 teams left
+[match    0.2] alive: West Team 1, East Team 2; score { 0: 0, 1: 1 }
+[match    0.2] Aling Puring killed by the world (); 1 teams left
+[match    0.2] alive: West Team 0, East Team 2; score { 0: 0, 1: 1 }
+[match    0.2] match over: winner team 1 (East Team) after 0 s, 0 shots fired
+[world] map built in 2318 ms
+[map] 0 buildings, 213 doors, 163 containers, 779 props, #55dd752c on PC
+[nav] levels: 56959 points, 32 links, 205 ms
+[match    0.1] deathmatch start on malasugue_mall: 4 players, 2 teams; spawns (-40.0, 0.0, -27.0), (0.0, 20.0, 27.0) (67/67 m apart, floors); day offset 0 s; zone centre (16.0, 0.0) r=132; win by wipe
+[match    0.1] status: { "ground": 4 }; armed 4; shots 0; zone -1 hold r=132; corpses 0; levels { "L1": 2, "between": 1, "L5": 1 }; server tick avg 0.11 ms, p99 0.29 ms, max 0.29 ms over 8 ticks
+[match    0.1] dm teams: West Team 2 at (-41.0, -27.0) spread 1 m; East Team 2 at (0.0, 28.0) spread 1 m; gap 71 m; zone centre (16.0, 0.0)
+[match    0.1] bots: { "roam": 2 }; containers searched by bots 0 (all players 0); plan steps done 0; guns carried 4
+[match    0.1] roles: { "rusher": { "roam": 1 }, "sniper": { "roam": 1 } }; stuck now 0; waypoints 0; team { "lines": 0, "pings": 0, "laser_follow": 0, "learned_cells": 0, "blocked_cells": 0, "squads": 0, "following_humans": 0 }
+[match    0.1] [lootstats] bots on the ground 2 (in water 0); armed 2; armed with ammo for a gun 2; long guns 2; attachments fitted 0; rounds of unusable ammo carried 0; items on the ground 420; bot pickups { "detours": 0, "detour_taken": 0, "fetches": 0, "fetch_done": 0, "items_taken": 0 }
+[dm-net server] 7 checks, 0 failed

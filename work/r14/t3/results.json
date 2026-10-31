@@ -1,0 +1,77 @@
+[
+  [
+    "r14_sights_on_line",
+    true,
+    "sight window vs where the bullets go, px (looking up 62 deg, level): { \"sight_reddot\": [0.3, 2.1], \"sight_holo\": [0.5, 0.4], \"sight_reflex\": [0.4, 0.5] }"
+  ],
+  [
+    "r14_scopes_unique",
+    true,
+    "12 sights, 12 reticle styles; most alike: sight_reddot / sight_reflex overlap 38%; reticle pixels { \"sight_reddot\": 8584, \"sight_holo\": 7588, \"sight_reflex\": 10316, \"scope_2x\": 5140, \"scope_3x\": 4455, \"scope_4x\": 2886, \"scope_lpvo\": 3601, \"scope_6x\": 3061, \"scope_8x\": 2138, \"scope_night\": 1516, \"scope_thermal\": 413, \"scope_15x\": 691 }"
+  ],
+  [
+    "r14_scope_night",
+    true,
+    "night vision filter true, eyepiece mean colour [0.11, 0.56, 0.19]"
+  ],
+  [
+    "r14_scope_thermal",
+    true,
+    "thermal filter true, 1 warm bodies in the lens, brightest pixel on the enemy 1.00"
+  ],
+  [
+    "r14_scope_variable",
+    true,
+    "1-4x scope: 4.00x -> 2.05x after three wheel steps, field of view 20.0 -> 39.0, gun in hand rifle_556"
+  ],
+  [
+    "r14_smartab_up",
+    true,
+    "watch on the wrist true; hologram 83% of the view's height, 78% of its width"
+  ],
+  [
+    "r14_smartab_useless_red",
+    true,
+    ".308 rounds with a 5.56 rifle and a 9 mm SMG: marked 'bad', red edge in the picture true"
+  ],
+  [
+    "r14_smartab_drag_attachment",
+    true,
+    "thumb grip dragged from the bag (row true) onto the rifle's grip mount (true): fitted true, left in the bag 0"
+  ],
+  [
+    "r14_smartab_swap_guns",
+    true,
+    "after the drag: slot 1 smg_9, slot 2 rifle_556, in hand rifle_556 (controller slot 2)"
+  ],
+  [
+    "r14_smartab_take_ground",
+    true,
+    "9 mm box on the ground (row true) dragged into the bag: carrying 60 (was 30), still on the ground false"
+  ],
+  [
+    "r14_loot_highlight",
+    false,
+    "outlined: [6339, 6340] of { \"ammo_9x19\": 6339, \"grip_thumb\": 6340, \"ammo_308\": 6341, \"scope_15x\": 6342 }; off -> 0 outlined; green pixels on 7 / off 0"
+  ],
+  [
+    "r14_grenade_cook_throw",
+    true,
+    "held 1 s: cooking true, fuse ring 1.02 s, in hand true; thrown with 2.45 s left, went off 2.85 s after release; grenades 3 -> 2"
+  ],
+  [
+    "r14_grenade_door",
+    true,
+    "door 37 blown apart true; enemy 2.5 m away 100 -> 3 HP; 2 of 2 props near it thrown or broken; view brightness 37 -> 140 at the blast"
+  ],
+  [
+    "r14_grenade_muffle",
+    true,
+    "player 8 m from the blast: hearing strength 0.75, world sound low-passed at 535 Hz (filter on true), ears ringing true"
+  ],
+  [
+    "r14_grenade_in_hand",
+    false,
+    "enemy kept the key down: went off 1.18 s after the pin came out, never thrown true, 100 -> 0 HP (killed)"
+  ]
+]

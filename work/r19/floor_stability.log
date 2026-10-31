@@ -1,0 +1,12 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+Vulkan 1.4.329 - Forward+ - Using Device #0: NVIDIA - NVIDIA GeForce RTX 4060
+
+[preview] map built in 4201 ms: {"buildings":0,"containers":163,"doors":213,"finish_ms":563,"horror_cover":6,"horror_lifts":2,"ladders":0,"layout_ms":138,"lift_shaft_height":28.0,"lights":{"dead":0,"house_dark":0,"house_lit":0,"pole":0,"porch":0,"rooms":0},"mall":{"build_ms":2119,"decor":{"discs":432,"icicle_lights":2358,"lights":1,"props":301},"dept":{"escalators":2,"fixtures":0,"lights":0,"zones":0},"dept_rooms":{"escalators":0,"fixtures":69,"lights":20,"zones":17},"downlights_L1":"589 lit / 735 dead","downlights_L2":"604 lit / 693 dead","downlights_L3":"394 lit / 928 dead","downlights_L4":"475 lit / 848 dead","downlights_L5":"600 lit / 738 dead","escalators":{"escalators":16,"steps":432},"floors_ms":124,"horror":{"breaches":1,"cover_spots":6,"debris":200,"open_lifts":2},"lights":{"beams":4,"down":220,"emergency":57,"faulty":57,"shafts":3},"shell_ms":390,"shops":{"doors":176,"fixtures":18407,"panes":689,"shutters":28,"smashed":108,"units":114},"shops_ms":1404,"wreck":{"barricades":4,"blood":104,"burnt":"Bisikleta Bikes","carts":18,"ceiling":20,"decals":1234,"litter":200,"props":284,"sparks":6,"writing":80,"writing_L1":8,"writing_L2":9,"writing_L3":9,"writing_L4":11,"writing_L5":11}},"props":779,"sink":{"boxes":33888,"colliders":99,"far_tris":0,"meshes":652,"tris":443930},"terrain_ms":24,"towns_ms":2143,"windows":1683,"zones":1}
+[zfight] hall 73 flipping pixels (of 518400 sampled)
+[preview] saved A:/Python/aetherion-project/work/r19/floor_stability/hall.png fps 55.0 luma 29.5510728107137
+[zfight] floor_close 38 flipping pixels (of 518400 sampled)
+[preview] saved A:/Python/aetherion-project/work/r19/floor_stability/floor_close.png fps 61.0 luma 32.8659555022938
+[zfight] upper_floor 109 flipping pixels (of 518400 sampled)
+[preview] saved A:/Python/aetherion-project/work/r19/floor_stability/upper_floor.png fps 49.0 luma 30.5209531064301
+WARNING: 7 RIDs of type "Texture" were leaked.
+   at: finalize (servers/rendering/rendering_device.cpp:8900)

@@ -1,0 +1,12 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+Vulkan 1.4.329 - Forward+ - Using Device #0: NVIDIA - NVIDIA GeForce RTX 4060
+
+[preview] map built in 3378 ms: {"buildings":0,"containers":193,"doors":216,"finish_ms":591,"ladders":0,"layout_ms":114,"lights":{"dead":0,"house_dark":0,"house_lit":0,"pole":0,"porch":0,"rooms":0},"mall":{"build_ms":1351,"decor":{"discs":432,"icicle_lights":4644,"lights":1,"props":305},"downlights_L1":1317,"downlights_L2":1334,"downlights_L3":1334,"downlights_L4":1357,"downlights_L5":1369,"escalators":{"escalators":16,"steps":432},"floors_ms":104,"shell_ms":328,"shops":{"doors":180,"fixtures":20156,"panes":839,"units":114},"shops_ms":1191},"props":670,"sink":{"boxes":31682,"colliders":65,"far_tris":0,"meshes":1006,"tris":404318},"terrain_ms":24,"towns_ms":1375,"windows":1815,"zones":1}
+[preview] saved ../work/release_shots/mall/grand_l2_t450.png fps 60.0 luma 173.316963130085
+[preview] saved ../work/release_shots/mall/west_escalators_t450.png fps 33.0 luma 163.011773554775
+[preview] saved ../work/release_shots/mall/east_tree_l3_t450.png fps 42.0 luma 172.599190295005
+[preview] saved ../work/release_shots/mall/shopfront_t450.png fps 60.0 luma 164.394397565801
+[preview] saved ../work/release_shots/mall/food_hall_t450.png fps 31.0 luma 156.133043112626
+[preview] saved ../work/release_shots/mall/entrance_south_t450.png fps 31.0 luma 174.017954526732
+WARNING: 7 RIDs of type "Texture" were leaked.
+   at: finalize (servers/rendering/rendering_device.cpp:8900)

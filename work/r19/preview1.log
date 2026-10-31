@@ -1,0 +1,40 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+Vulkan 1.4.329 - Forward+ - Using Device #0: NVIDIA - NVIDIA GeForce RTX 4060
+
+SCRIPT ERROR: Parse Error: Cannot infer the type of "opt" variable because the value doesn't have a set type.
+   at: GDScript::reload (res://src/world/maps/malasugue_mall/mall_horror.gd:22)
+SCRIPT ERROR: Compile Error: Failed to compile depended scripts.
+   at: GDScript::reload (res://src/world/maps/malasugue_mall/mall_builder.gd:0)
+SCRIPT ERROR: Compile Error: Failed to compile depended scripts.
+   at: GDScript::reload (res://src/world/map_builder.gd:0)
+SCRIPT ERROR: Compile Error: Failed to compile depended scripts.
+   at: GDScript::reload (res://src/match/world.gd:0)
+SCRIPT ERROR: Compile Error: Failed to compile depended scripts.
+   at: GDScript::reload (res://src/core/game.gd:0)
+SCRIPT ERROR: Compile Error: Failed to compile depended scripts.
+   at: GDScript::reload (res://src/online/profile.gd:0)
+SCRIPT ERROR: Compile Error: Failed to compile depended scripts.
+   at: GDScript::reload (res://src/net/net.gd:0)
+ERROR: Failed to load script "res://src/net/net.gd" with error "Compilation failed".
+   at: load (modules/gdscript/gdscript_resource_format.cpp:46)
+SCRIPT ERROR: Invalid call. Nonexistent function 'new' in base 'GDScript'.
+   at: _unit (res://src/world/maps/malasugue_mall/mall_shops.gd:143)
+   GDScript backtrace (most recent call first):
+       [0] _unit (res://src/world/maps/malasugue_mall/mall_shops.gd:143)
+       [1] build_all (res://src/world/maps/malasugue_mall/mall_shops.gd:69)
+       [2] build (res://src/world/maps/malasugue_mall/mall_builder.gd:313)
+       [3] _build_mall (res://src/world/map_builder.gd:190)
+       [4] build (res://src/world/map_builder.gd:79)
+       [5] _ready (res://tools/map_preview.gd:90)
+SCRIPT ERROR: Invalid call. Nonexistent function 'new' in base 'GDScript'.
+   at: build (res://src/world/maps/malasugue_mall/mall_builder.gd:332)
+   GDScript backtrace (most recent call first):
+       [0] build (res://src/world/maps/malasugue_mall/mall_builder.gd:332)
+       [1] _build_mall (res://src/world/map_builder.gd:190)
+       [2] build (res://src/world/map_builder.gd:79)
+       [3] _ready (res://tools/map_preview.gd:90)
+[preview] map built in 4926 ms: {"buildings":0,"containers":167,"doors":215,"finish_ms":1551,"ladders":0,"layout_ms":111,"lights":{"dead":0,"house_dark":0,"house_lit":0,"pole":0,"porch":0,"rooms":0},"mall":{"decor":{"discs":432,"icicle_lights":2358,"lights":1,"props":302},"dept":{"escalators":2,"fixtures":0,"lights":0,"zones":0},"dept_rooms":{"escalators":0,"fixtures":69,"lights":20,"zones":17},"escalators":{"escalators":16,"steps":432},"floors_ms":113,"shell_ms":372,"shops":{"doors":178,"fixtures":17921,"panes":704,"shutters":29,"smashed":110,"units":114},"shops_ms":1235,"wreck":{"barricades":4,"blood":104,"burnt":"Bisikleta Bikes","carts":18,"ceiling":20,"decals":1256,"litter":200,"props":286,"sparks":6,"writing":80,"writing_L1":8,"writing_L2":9,"writing_L3":9,"writing_L4":11,"writing_L5":11}},"props":793,"sink":{"boxes":32638,"colliders":89,"far_tris":0,"meshes":636,"tris":424474},"terrain_ms":22,"towns_ms":1761,"windows":1698,"zones":1}
+[preview] saved A:/Python/aetherion-project/work/r19/after/atrium.png fps 41.0 luma 12.1821160932636
+[preview] saved A:/Python/aetherion-project/work/r19/after/lifts.png fps 48.0 luma 8.16336024626125
+[preview] saved A:/Python/aetherion-project/work/r19/after/lift_a.png fps 58.0 luma 8.62170092170567
+[preview] saved A:/Python/aetherion-project/work/r19/after/west.png fps 56.0 luma 9.57080362850079

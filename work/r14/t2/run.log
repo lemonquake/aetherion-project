@@ -1,0 +1,63 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+Vulkan 1.4.329 - Forward+ - Using Device #0: NVIDIA - NVIDIA GeForce RTX 4060
+
+[ui] loadout_received pid=1 Hehe {"primary":"rifle_m416","secondary":"pistol_9"}
+[ui] lobby shows my loadout (pid 1): {"primary":"rifle_m416","secondary":"pistol_9"}
+[ui] request_loadout {"primary":"rifle_m416","secondary":"pistol_9"}
+[world] map built in 12819 ms
+[map] 243 buildings, 1951 doors, 2617 containers, 2745 props, #b1fba961 on PC
+[bots] learned from 275 cells, 4 stuck spots (user://bot_memory_lawless_sub.json)
+[game] autotest r14
+[autotest] shot A:/Python/aetherion-project/work/r14/t2/01_sight_sight_reddot.png
+[autotest] shot A:/Python/aetherion-project/work/r14/t2/02_sight_sight_holo.png
+[autotest] shot A:/Python/aetherion-project/work/r14/t2/03_sight_sight_reflex.png
+[autotest] shot A:/Python/aetherion-project/work/r14/t2/04_sight_scope_2x.png
+[autotest] shot A:/Python/aetherion-project/work/r14/t2/05_sight_scope_3x.png
+[autotest] shot A:/Python/aetherion-project/work/r14/t2/06_sight_scope_4x.png
+[autotest] shot A:/Python/aetherion-project/work/r14/t2/07_sight_scope_lpvo.png
+[autotest] shot A:/Python/aetherion-project/work/r14/t2/08_sight_scope_6x.png
+[autotest] shot A:/Python/aetherion-project/work/r14/t2/09_sight_scope_8x.png
+[autotest] shot A:/Python/aetherion-project/work/r14/t2/10_sight_scope_night.png
+[autotest] shot A:/Python/aetherion-project/work/r14/t2/11_sight_scope_thermal.png
+[autotest] shot A:/Python/aetherion-project/work/r14/t2/12_sight_scope_15x.png
+[autotest] PASS r14_sights_on_line: sight window vs where the bullets go, px (looking up 62 deg, level): { "sight_reddot": [0.4, 0.4], "sight_holo": [0.6, 0.4], "sight_reflex": [0.4, 0.5] }
+[autotest] PASS r14_scopes_unique: 12 sights, 12 reticle styles; most alike: sight_reddot / sight_reflex overlap 49%; reticle pixels { "sight_reddot": 11148, "sight_holo": 5490, "sight_reflex": 10354, "scope_2x": 4816, "scope_3x": 4548, "scope_4x": 3205, "scope_lpvo": 3231, "scope_6x": 2958, "scope_8x": 2472, "scope_night": 1673, "scope_thermal": 438, "scope_15x": 810 }
+[autotest] shot A:/Python/aetherion-project/work/r14/t2/13_sight_scope_night_body.png
+SCRIPT ERROR: Invalid assignment of property or key 'global_position' with value of type 'Vector3' on a base object of type 'previously freed'.
+   at: _scopes (res://src/debug/autotest_r14.gd:378)
+   GDScript backtrace (most recent call first):
+       [0] _scopes (res://src/debug/autotest_r14.gd:378)
+       [1] _gun (res://src/debug/autotest_r14.gd:81)
+       [2] _until (res://src/debug/autotest.gd:1615)
+[autotest] PASS r14_attach_numbers: 15 attachments measured: sight_reflex (rifle_m416): ads_time x0.95, zoom 1.1x; scope_lpvo (rifle_m416): ads_time x1.18, zoom 4.0x; scope_night (rifle_m416): ads_time x1.20, zoom 3.0x; scope_thermal (rifle_m416): ads_time x1.25, zoom 4.0x; scope_15x (marksman_308): ads_time x1.55, zoom 15.0x; muzzle_brake (rifle_m416): recoil_up x0.74, recoil_side x0.88, loudness x1.25, flash x1.30; duckbill (shotgun_pump): recoil_up x0.95, pellet_spread x0.80; grip_thumb (rifle_m416): recoil_up x0.94, ads_time x0.85; grip_light (rifle_m416): recoil_up x1.03, recovery x1.28, sway x0.92; grip_ergonomic (rifle_m416): recoil_side x0.92, recovery x1.15, ads_time x0.90; stock_heavy (rifle_m416): recoil_side x0.84, ads_time x1.08, sway x0.70; mag_extquick_light (smg_9): reload x0.78, mag 30->40; mag_extquick_rifle (rifle_m416): reload x0.78, mag 30->40; mag_quick_light (smg_9): reload x0.70; mag_quick_rifle (rifle_m416): reload x0.70
+[autotest] shot A:/Python/aetherion-project/work/r14/t2/14_attach_m416_new_kit.png
+[autotest] shot A:/Python/aetherion-project/work/r14/t2/15_smartab_rising.png
+[autotest] shot A:/Python/aetherion-project/work/r14/t2/16_smartab_inventory.png
+[autotest] PASS r14_smartab_up: watch on the wrist true; hologram 83% of the view's height, 78% of its width
+[autotest] PASS r14_smartab_useless_red: .308 rounds with a 5.56 rifle and a 9 mm SMG: marked 'bad', red edge in the picture true
+[autotest] shot A:/Python/aetherion-project/work/r14/t2/17_smartab_grip_fitted.png
+[autotest] PASS r14_smartab_drag_attachment: thumb grip dragged from the bag (row true) onto the rifle's grip mount (true): fitted true, left in the bag 0
+[autotest] PASS r14_smartab_swap_guns: after the drag: slot 1 smg_9, slot 2 rifle_556, in hand rifle_556 (controller slot 2)
+[autotest] shot A:/Python/aetherion-project/work/r14/t2/18_smartab_took_from_ground.png
+[autotest] PASS r14_smartab_take_ground: 9 mm box on the ground (row true) dragged into the bag: carrying 60 (was 30), still on the ground false
+[autotest] shot A:/Python/aetherion-project/work/r14/t2/19_smartab_page_status.png
+[autotest] shot A:/Python/aetherion-project/work/r14/t2/20_smartab_page_map.png
+[autotest] shot A:/Python/aetherion-project/work/r14/t2/21_smartab_page_team.png
+[autotest] shot A:/Python/aetherion-project/work/r14/t2/22_smartab_page_voice.png
+[autotest] shot A:/Python/aetherion-project/work/r14/t2/23_loot_highlight_on.png
+[autotest] shot A:/Python/aetherion-project/work/r14/t2/24_loot_highlight_off.png
+[autotest] FAIL r14_loot_highlight: outlined: [6330, 6331] of { "ammo_556": 6330, "grip_thumb": 6331, "ammo_308": 6332, "scope_15x": 6333 }; off -> 0 outlined; green pixels on 5 / off 0
+[autotest] shot A:/Python/aetherion-project/work/r14/t2/25_grenade_cooking.png
+[autotest] shot A:/Python/aetherion-project/work/r14/t2/26_grenade_thrown.png
+[autotest] shot A:/Python/aetherion-project/work/r14/t2/27_grenade_thrown_blast.png
+[autotest] PASS r14_grenade_cook_throw: held 1 s: cooking true, fuse ring 1.02 s, in hand true; thrown with 2.45 s left, went off 2.79 s after release; grenades 3 -> 2
+[autotest] shot A:/Python/aetherion-project/work/r14/t2/28_grenade_door_before.png
+[autotest] shot A:/Python/aetherion-project/work/r14/t2/29_grenade_door_fireball.png
+[autotest] shot A:/Python/aetherion-project/work/r14/t2/30_grenade_door_smoke.png
+[autotest] shot A:/Python/aetherion-project/work/r14/t2/31_grenade_door_after.png
+SCRIPT ERROR: Invalid access to property or key 'health' on a base object of type 'previously freed'.
+   at: _grenade (res://src/debug/autotest_r14.gd:882)
+   GDScript backtrace (most recent call first):
+       [0] _grenade (res://src/debug/autotest_r14.gd:882)
+       [1] _shot (res://src/debug/autotest.gd:1547)
+[autotest] done: 10 checks, 1 failed

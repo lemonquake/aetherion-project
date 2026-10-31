@@ -1,0 +1,67 @@
+[
+  [
+    "mall_build",
+    true,
+    "114 units, 1701 plate-glass sheets, 196 glass doors, 16 escalators, 5 levels"
+  ],
+  [
+    "mall_ride_up",
+    true,
+    "Grand Atrium escalator up: y 0.00 -> 5.01 in 13.9 s standing still (want 5.0)"
+  ],
+  [
+    "mall_ride_down",
+    true,
+    "West Court escalator down: y 10.00 -> 5.02 in 13.9 s standing still (want 5.0)"
+  ],
+  [
+    "mall_stairs",
+    true,
+    "fire stair: walked up to y 2.52 (half landing 2.50)"
+  ],
+  [
+    "mall_glass",
+    true,
+    "shopfront pane 1063 (2.3 x 3.1 m): shattered"
+  ],
+  [
+    "mall_glass_door",
+    true,
+    "glass door 52: burst"
+  ],
+  [
+    "mall_dept_stairs_L2",
+    true,
+    "stopped escalator Level 1 -> 2: y 5.02 (want 5.0) in 3.8 s"
+  ],
+  [
+    "mall_dept_stairs_L3",
+    true,
+    "stopped escalator Level 2 -> 3: y 10.02 (want 10.0) in 3.8 s"
+  ],
+  [
+    "mall_dark",
+    true,
+    "mean brightness 38 over 6 views (want < 80), 6 with >12% near-black, 4 with lit pools"
+  ],
+  [
+    "mall_flicker",
+    true,
+    "floor brightness under a flicker downlight swings 21.7, under a working one 0.5"
+  ],
+  [
+    "mall_restroom_L3",
+    true,
+    "Level 3 public restrooms in the plan: true"
+  ],
+  [
+    "mall_bot_climb",
+    true,
+    "bot from L1 (-50, 0) to the L5 food hall: reached (-11.0, 20.0, -25.0) in 29 s (highest y 20.0)"
+  ],
+  [
+    "mall_dept_bot",
+    false,
+    "bot from the store's Level 1 to its Level 3: reached (65.0, 0.0, 21.0) in 120 s"
+  ]
+]

@@ -1,0 +1,4 @@
+SCRIPT ERROR: Invalid access to property or key 'global_position' on a base object of type 'previously freed'.
+   at: _walk (res://src/debug/autotest_r11.gd:209)
+   GDScript backtrace (most recent call first):
+       [0] _walk (res://src/debug/autotest_r11.gd:209)

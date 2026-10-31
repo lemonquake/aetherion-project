@@ -1,0 +1,47 @@
+[
+  [
+    "connected_as_client",
+    true,
+    "pid 582156349, rtt 16 ms"
+  ],
+  [
+    "landed",
+    true,
+    "mode 3 at (-78.0, 1.0, -23.0)"
+  ],
+  [
+    "floor_items_synced",
+    true,
+    "17106 floor items known to this client"
+  ],
+  [
+    "prediction",
+    true,
+    "max error 0.000 m, 0 corrections, 2 replayed"
+  ],
+  [
+    "door_open_local",
+    true,
+    "door 791 target -1.65"
+  ],
+  [
+    "window_broken_local",
+    true,
+    "window 2170"
+  ],
+  [
+    "vault_predicted",
+    true,
+    "vaulted true, now 0.67 m outside the window, max prediction error 0.000 m, 0 corrections"
+  ],
+  [
+    "ladder_predicted",
+    true,
+    "climbed 5.1 m to the roof true (y 6.10 / 6.07), max prediction error 0.000 m, 0 corrections"
+  ],
+  [
+    "item_race_single_owner",
+    false,
+    "Alpha got it: false, Bravo got it: false"
+  ]
+]

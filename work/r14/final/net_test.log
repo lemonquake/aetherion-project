@@ -1,0 +1,28 @@
+[autotest-a] PASS connected_as_client: pid 189542583, rtt 7288 ms
+[autotest-a] PASS landed: mode 3 at (-84.0, 1.0, -13.0)
+[autotest-a] PASS floor_items_synced: 17036 floor items known to this client
+[autotest-a] PASS prediction: max error 0.000 m, 0 corrections, 2 replayed
+[autotest-a] at door: me (-103.66, 0.82, -41.8) (wanted (-103.66, 0.92, -41.8)), door centre (-103.66, 1.92, -40.7), use ray sees door
+[autotest-a] PASS door_open_local: door 779 target -1.65
+[autotest-a] FAIL window_broken_local: window 2134
+[autotest-a] PASS vault_predicted: vaulted true, now 0.72 m outside the window, max prediction error 0.000 m, 0 corrections
+[autotest-a] PASS ladder_predicted: climbed 2.6 m to the roof true (y 3.48 / 3.45), max prediction error 0.000 m, 0 corrections
+[autotest-a] race: item 16950 at (-127.53, 0.89, 23.69) (node none), me (-126.67, 0.87, 23.95), eye-to-item 1.88 m, use ray sees item 16951; full ray hits nothing layer - at (0.0, 0.0, 0.0)
+[autotest-a] race: commands carrying Use: [2374, 2375, 2376] (tab false, paused false, mode 3)
+[autotest-a] PASS item_race_single_owner: Alpha got it: false, Bravo got it: true
+[autotest-a] PASS field_predicted: carried 16.6 m in by the field (the edge closed 18 m); mean prediction error 0.001 m over 179 acks (max 0.001 m), 0 corrections; alive true, health 100 -> 100
+[autotest-a] done: 10 checks, 1 failed
+[autotest-b] PASS connected_as_client: pid 740381659, rtt 14 ms
+[autotest-b] PASS landed: mode 3 at (-91.0, 1.0, -8.0)
+[autotest-b] PASS sees_teammate: Alpha found
+[autotest-b] PASS door_open_seen_by_other: door 779 target -1.65
+[autotest-b] FAIL window_broken_seen_by_other: window 2134
+[autotest-b] PASS ping_seen_by_teammate: Alpha's ping (eid 1) on Bravo's minimap: true
+[autotest-b] PASS flashlight_seen_by_other: Alpha flags 1
+[autotest-b] PASS radio_cue_seen_by_teammate: radio flag seen true, 25 voice packets
+[autotest-b] PASS radio_static_not_for_teammates: radio static from Alpha's or Bravo's radio heard by Bravo: 0
+[autotest-b] race: item 16950 at (-127.53, 0.89, 23.69) (node none), me (-128.39, 0.88, 23.95), eye-to-item 1.88 m, use ray sees item 16951; full ray hits nothing layer - at (0.0, 0.0, 0.0)
+[autotest-b] race: commands carrying Use: [2391, 2392, 2393] (tab false, paused false, mode 3)
+[autotest-b] PASS radio_static_from_enemy: an enemy bot's callout 7 m away: its radio static heard true, its voice heard true
+[autotest-b] done: 10 checks, 1 failed
+alpha exit 1, bravo exit 1

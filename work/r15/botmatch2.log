@@ -1,0 +1,109 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+[server] dedicated server listening on 27491
+[world] map built in 2200 ms
+[map] 0 buildings, 216 doors, 193 containers, 670 props, #64ec4447 on PC
+[nav] levels: 56765 points, 32 links, 132 ms
+[bots] learned from 15 cells, 4 stuck spots (user://bot_memory_malasugue_mall.json)
+[match    0.0] deathmatch start on malasugue_mall: 21 players, 3 teams; spawns (0.0, 0.0, -41.0), (64.0, 0.0, 0.0), (0.0, 0.0, 40.0) (76/76/81 m apart, layout); day offset 150 s; zone centre (13.0, 6.0) r=130
+[match    0.0] status: { "ground": 21 }; armed 21; shots 0; zone 0 wait r=130; corpses 0; levels { "L1": 21 }
+[match    0.0] dm teams: North Team 7 at (0.0, -41.0) spread 2 m; East Team 7 at (64.0, 0.0) spread 2 m; South Team 7 at (0.0, 41.0) spread 2 m; gap 76 m; zone centre (13.0, 6.0)
+[match    0.0] bots: { "roam": 21 }; containers searched by bots 0 (all players 0); plan steps done 0; guns carried 42
+[match    0.0] roles: { "looter": { "roam": 8 }, "sniper": { "roam": 7 }, "stalker": { "roam": 6 } }; stuck now 0; waypoints 0; team { "lines": 0, "pings": 0, "laser_follow": 0, "learned_cells": 15, "blocked_cells": 0, "squads": 0, "following_humans": 0 }
+[match    0.0] [lootstats] bots on the ground 21 (in water 0); armed 21; armed with ammo for a gun 21; long guns 21; attachments fitted 0; rounds of unusable ammo carried 0; items on the ground 470; bot pickups { "detours": 0, "detour_taken": 0, "fetches": 0, "fetch_done": 0, "items_taken": 0 }
+[match   11.1] Aling Nena killed by Mang Tani (gunshot); 3 teams left
+[match   11.1] alive: North Team 6, East Team 7
+[match   11.6] Kuya Wifi killed by Mang Kanor (gunshot); 3 teams left
+[match   11.6] alive: North Team 6, East Team 6
+[match   12.2] Tita Baby killed by Kumareng Marites (gunshot); 3 teams left
+[match   12.2] alive: North Team 5, East Team 6
+[match   12.6] Bossing Barbecue killed by Junjun Tisoy (gunshot); 3 teams left
+[match   12.6] alive: North Team 5, East Team 6
+[match   14.2] Kumpare Ambo killed by Bunso Badong (gunshot); 3 teams left
+[match   14.2] alive: North Team 5, East Team 6
+[match   15.0] status: { "ground": 16 }; armed 16; shots 182; zone 0 wait r=130; corpses 5; levels { "L1": 16 }; server tick avg 3.75 ms, p99 11.40 ms, max 38.51 ms over 900 ticks
+[match   15.0] dm teams: North Team 5 at (12.0, -22.0) spread 6 m; East Team 6 at (37.0, 0.0) spread 12 m; South Team 5 at (0.0, 13.0) spread 10 m; gap 33 m; zone centre (13.0, 6.0)
+[match   15.0] bots: { "roam": 3, "fight": 7, "hunt": 3, "follow": 1, "heal": 1, "order": 1 }; containers searched by bots 0 (all players 0); plan steps done 0; guns carried 32
+[match   15.0] roles: { "looter": { "roam": 3, "fight": 2, "follow": 1, "heal": 1, "order": 1 }, "sniper": { "fight": 3, "hunt": 1 }, "stalker": { "hunt": 2, "fight": 2 } }; stuck now 0; waypoints 0; team { "lines": 20, "pings": 0, "laser_follow": 0, "learned_cells": 23, "blocked_cells": 0, "squads": 6, "following_humans": 0 }
+[match   15.0] [lootstats] bots on the ground 16 (in water 0); armed 16; armed with ammo for a gun 16; long guns 16; attachments fitted 0; rounds of unusable ammo carried 0; items on the ground 470; bot pickups { "detours": 0, "detour_taken": 0, "fetches": 0, "fetch_done": 0, "items_taken": 0 }
+[match   17.4] Bossing Dodong (team 1) landed at (50.0, 0.0, 0.0), 2.5 m/s, health 100; teammates -
+[match   17.5] Junjun Tisoy (team 1) landed at (31.0, 0.0, 21.0), 4.7 m/s, health 54; teammates 28 m
+[match   21.5] Lolo Kalesa killed by Tito Boy (gunshot); 3 teams left
+[match   21.5] alive: North Team 4, East Team 6
+[match   22.6] Mang Tomas Ketchup killed by Kumareng Marites (gunshot); 3 teams left
+[match   22.6] alive: North Team 3, East Team 6
+[match   23.5] Aling Puring killed by Nanay Kakanin (gunshot); 3 teams left
+[match   23.5] alive: North Team 2, East Team 6
+[match   24.3] Mang Tani killed by Kumareng Marites (gunshot); 3 teams left
+[match   24.3] alive: North Team 1, East Team 6
+[match   25.6] Bunso Badong killed by Kumareng Marites (gunshot); 2 teams left
+[match   25.6] alive: North Team 0, East Team 6
+[match   27.4] Mang Kanor (team 1) landed at (24.0, 0.0, 18.0), 2.5 m/s, health 100; teammates 45 m, 8 m
+[match   27.5] Junjun Tisoy killed by Nanay Kakanin (gunshot); 2 teams left
+[match   27.5] alive: North Team 0, East Team 5
+[match   30.0] status: { "ground": 10 }; armed 10; shots 335; zone 0 wait r=130; corpses 11; levels { "L1": 10 }; server tick avg 4.70 ms, p99 10.90 ms, max 29.21 ms over 900 ticks
+[match   30.0] dm teams: East Team 5 at (33.0, -3.0) spread 23 m; South Team 5 at (6.0, 11.0) spread 5 m; gap -1 m; zone centre (13.0, 6.0)
+[match   30.0] bots: { "fight": 2, "roam": 1, "order": 4, "hunt": 1, "heal": 1, "investigate": 1 }; containers searched by bots 0 (all players 0); plan steps done 0; guns carried 22
+[match   30.0] roles: { "looter": { "fight": 2, "roam": 1, "heal": 1, "order": 2 }, "sniper": { "order": 1, "investigate": 1 }, "stalker": { "hunt": 1, "order": 1 } }; stuck now 0; waypoints 0; team { "lines": 48, "pings": 0, "laser_follow": 0, "learned_cells": 27, "blocked_cells": 0, "squads": 6, "following_humans": 0 }
+[match   30.0] [lootstats] bots on the ground 10 (in water 0); armed 10; armed with ammo for a gun 10; long guns 12; attachments fitted 1; rounds of unusable ammo carried 0; items on the ground 466; bot pickups { "detours": 4, "detour_taken": 4, "fetches": 0, "fetch_done": 0, "items_taken": 4 }
+[match   32.0] Kuya Bert killed by Tito Boy (gunshot); 2 teams left
+[match   32.0] alive: North Team 0, East Team 4
+[match   33.0] Kumareng Marites killed by Nanay Kakanin (gunshot); 2 teams left
+[match   33.0] alive: North Team 0, East Team 3
+[match   33.9] Tito Karaoke King (team 1) landed at (27.0, 0.0, 21.0), 4.9 m/s, health 100; teammates 48 m, 7 m
+[match   37.5] zone 0 shrinking to r=70 at (48.0, -37.0)
+[match   38.6] Tito Karaoke King killed by Nanay Kakanin (gunshot); 2 teams left
+[match   38.6] alive: North Team 0, East Team 2
+[match   44.6] Mang Kanor killed by Kuya Tricycle (gunshot); 2 teams left
+[match   44.6] alive: North Team 0, East Team 1
+[match   45.0] status: { "ground": 6 }; armed 6; shots 434; zone 0 shrink r=118; corpses 15; levels { "L1": 6 }; server tick avg 1.95 ms, p99 4.59 ms, max 15.26 ms over 900 ticks
+[match   45.0] dm teams: East Team 1 at (57.0, -10.0) spread 0 m; South Team 5 at (3.0, 4.0) spread 11 m; gap -1 m; zone centre (20.0, -3.0)
+[match   45.0] bots: { "roam": 2, "order": 2, "follow": 2 }; containers searched by bots 0 (all players 0); plan steps done 0; guns carried 13
+[match   45.0] roles: { "looter": { "roam": 2, "follow": 2 }, "sniper": { "order": 1 }, "stalker": { "order": 1 } }; stuck now 0; waypoints 0; team { "lines": 63, "pings": 0, "laser_follow": 0, "learned_cells": 29, "blocked_cells": 0, "squads": 6, "following_humans": 0 }
+[match   45.0] [lootstats] bots on the ground 6 (in water 0); armed 6; armed with ammo for a gun 6; long guns 7; attachments fitted 0; rounds of unusable ammo carried 0; items on the ground 464; bot pickups { "detours": 6, "detour_taken": 6, "fetches": 0, "fetch_done": 0, "items_taken": 6 }
+[match   53.6] Tsong Balut (team 2) landed at (5.0, 0.0, 7.0), 2.5 m/s, health 89; teammates -
+[match   53.6] Nanay Kakanin (team 2) landed at (13.0, 0.0, -35.0), 4.9 m/s, health 78; teammates 43 m
+[match   54.3] Tito Boy killed by Bossing Dodong (gunshot); 2 teams left
+[match   54.3] alive: North Team 0, East Team 1
+[match   60.0] status: { "ground": 5 }; armed 5; shots 440; zone 0 shrink r=94; corpses 16; levels { "L1": 5 }; server tick avg 0.90 ms, p99 1.79 ms, max 21.98 ms over 900 ticks
+[match   60.0] dm teams: East Team 1 at (29.0, 20.0) spread 0 m; South Team 4 at (21.0, -3.0) spread 19 m; gap -1 m; zone centre (34.0, -20.0)
+[match   60.0] bots: { "roam": 2, "order": 1, "follow": 1, "hunt": 1 }; containers searched by bots 0 (all players 0); plan steps done 0; guns carried 11
+[match   60.0] roles: { "looter": { "roam": 2, "follow": 1 }, "sniper": { "order": 1 }, "stalker": { "hunt": 1 } }; stuck now 0; waypoints 0; team { "lines": 72, "pings": 0, "laser_follow": 0, "learned_cells": 29, "blocked_cells": 0, "squads": 6, "following_humans": 0 }
+[match   60.0] [lootstats] bots on the ground 5 (in water 0); armed 5; armed with ammo for a gun 5; long guns 6; attachments fitted 0; rounds of unusable ammo carried 0; items on the ground 464; bot pickups { "detours": 6, "detour_taken": 6, "fetches": 0, "fetch_done": 0, "items_taken": 6 }
+[match   63.9] Kuya Tricycle killed by Bossing Dodong (gunshot); 2 teams left
+[match   63.9] alive: North Team 0, East Team 1
+[match   65.6] Bossing Dodong killed by Nanay Kakanin (gunshot); 1 teams left
+[match   65.6] alive: North Team 0, East Team 0
+[match   65.7] match over: winner team 2 (South Team) after 66 s, 477 shots fired
+[bots] saved 29 learned cells to user://bot_memory_malasugue_mall.json
+ERROR: BUG: Unreferenced static string to 0: _exit_world
+   at: unref (core/string/string_name.cpp:118)
+ERROR: BUG: Unreferenced static string to 0: .
+   at: unref (core/string/string_name.cpp:118)
+ERROR: BUG: Unreferenced static string to 0: markers
+   at: unref (core/string/string_name.cpp:118)
+ERROR: BUG: Unreferenced static string to 0: _compression
+   at: unref (core/string/string_name.cpp:118)
+ERROR: BUG: Unreferenced static string to 0: _request_gizmo_for_id
+   at: unref (core/string/string_name.cpp:118)
+ERROR: BUG: Unreferenced static string to 0: _enter_world
+   at: unref (core/string/string_name.cpp:118)
+ERROR: BUG: Unreferenced static string to 0: servers
+   at: unref (core/string/string_name.cpp:118)
+ERROR: BUG: Unreferenced static string to 0: Variant
+   at: unref (core/string/string_name.cpp:118)
+ERROR: BUG: Unreferenced static string to 0: @warning_ignore_restore
+   at: unref (core/string/string_name.cpp:118)
+ERROR: BUG: Unreferenced static string to 0: @warning_ignore_start
+   at: unref (core/string/string_name.cpp:118)
+ERROR: BUG: Unreferenced static string to 0: @warning_ignore
+   at: unref (core/string/string_name.cpp:118)
+ERROR: BUG: Unreferenced static string to 0: @icon
+   at: unref (core/string/string_name.cpp:118)
+WARNING: A Thread object is being destroyed without its completion having been realized.
+Please call wait_to_finish() on it to ensure correct cleanup.
+   at: ~Thread (core/os/thread.cpp:116)
+ERROR: 7 RID allocations of type '23NavMeshGeometryParser2D' were leaked at exit.
+ERROR: 6 RID allocations of type '23NavMeshGeometryParser3D' were leaked at exit.
+ERROR: Pages in use exist at exit in PagedAllocator: N12VariantPools11BucketLargeE
+   at: ~PagedAllocator (./core/templates/paged_allocator.h:170)

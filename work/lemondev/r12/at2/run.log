@@ -1,0 +1,22 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+Vulkan 1.4.329 - Forward+ - Using Device #0: NVIDIA - NVIDIA GeForce RTX 4060
+
+[ui] loadout_received pid=1 Hehe {"primary":"rifle_m416","secondary":"pistol_9"}
+[ui] lobby shows my loadout (pid 1): {"primary":"rifle_m416","secondary":"pistol_9"}
+[ui] request_loadout {"primary":"rifle_m416","secondary":"pistol_9"}
+[world] map built in 13798 ms
+[map] 243 buildings, 1951 doors, 2617 containers, 2745 props, #b1fba961 on PC
+[bots] learned from 163 cells, 15 stuck spots (user://bot_memory_lawless_sub.json)
+[game] autotest r12
+[autotest] PASS r12_accel: sprint from rest: 3.07 m/s at 0.3 s (< 4.41), 6.30 m/s at 1.4 s (>= 5.98)
+[autotest] PASS r12_brake: letting go at 6.30 m/s: 5.02 m/s after 0.15 s, stopped after 0.60 s, 2.09 m
+[autotest] PASS r12_turn: 90 degree snap at a sprint: 2.52 m/s along the new heading 0.25 s later (< 3.78); 45 deg/s curve keeps 6.30 m/s (>= 5.67)
+[autotest] PASS r12_jump_carry: standing jump holding forward lands 1.38 m ahead (>= 0.6), holding back 1.15 m behind (>= 0.4)
+[autotest] FAIL r12_fall: damage by drop height: { "2.5": 0.0, "3.5": 0.0347904631919, "6.0": 11.2400197591947, "4.5": 3.35681871143569, "4.5_roll": 0.0, "8.0": 28.9067184719845, "8.0_roll": 5.32999311093887 }
+[autotest] PASS r12_ledge_2_2m: 2.2 m wall, run and jump: grabbed true at 0.10 s, on top after 1.33 s more, feet at (-15.0, 2.22, -10.64)
+[autotest] PASS r12_over_2m: 2.0 m garden wall: grabbed true, ended at (0.0, 0.02, -10.85) (past z -10.25, on the ground)
+[autotest] FAIL r12_ledge_3m: 3.0 m wall: plain jump at 4.4 m/s grabbed false; sprint run-up at 0.0 m/s grabbed false, ended at (15.0, 0.0, 2.32)
+[autotest] PASS r12_ledge_4_5m: 4.5 m wall, sprint run-up at 6.3 m/s: grabbed false
+[autotest] PASS r12_slide: crouch at 6.3 m/s: slid true, 4.36 m, body 1.15 m tall, crouched after: true
+[autotest] PASS r12_sim_10k: 10,000 random-input steps: all finite, nothing stuck; moves { "jump": 135, "land": 123, "ledge_grab": 2, "climb": 1, "ledge_drop": 1, "roll": 1, "land_roll": 1 }; resets 15; longest vault 1.10 s, hang 0.20 s, slide 0.00 s, roll 0.58 s
+[autotest] done: 11 checks, 2 failed

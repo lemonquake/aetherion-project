@@ -1,0 +1,208 @@
+A:\Python\aetherion-project\tools\blender\make_loot_models.py:52: DeprecationWarning: 'Material.use_nodes' is expected to be removed in Blender 6.0
+  m.use_nodes = True
+INFO Draco is available, use library at C:\Program Files\Blender Foundation\Blender 5.2\5.2\scripts\addons_core\io_scene_gltf2\bf_intern_draco_bridge.dll
+INFO MeshOptimizer is available, use library at C:\Program Files\Blender Foundation\Blender 5.2\5.2\scripts\addons_core\io_scene_gltf2\bf_intern_meshopt_bridge.dll
+03:32:52 | INFO: Starting glTF 2.0 export
+03:32:52 | INFO: Extracting primitive: base
+03:32:52 | INFO: Primitives created: 1
+03:32:52 | INFO: Extracting primitive: body
+03:32:52 | INFO: Primitives created: 1
+03:32:52 | INFO: Extracting primitive: bridge
+03:32:52 | INFO: Primitives created: 1
+03:32:52 | INFO: Extracting primitive: dial
+03:32:52 | INFO: Primitives created: 1
+03:32:52 | INFO: Extracting primitive: post1
+03:32:52 | INFO: Primitives created: 1
+03:32:52 | INFO: Extracting primitive: post-1
+03:32:52 | INFO: Primitives created: 1
+03:32:52 | INFO: Extracting primitive: window
+03:32:52 | INFO: Primitives created: 1
+03:32:52 | INFO: Finished glTF 2.0 export in 0.11694741249084473 s
+00:10.250  render           | Saved: 'A:\Python\aetherion-project\work\loot_models\sight_reflex.png'
+A:\Python\aetherion-project\tools\blender\make_loot_models.py:52: DeprecationWarning: 'Material.use_nodes' is expected to be removed in Blender 6.0
+  m.use_nodes = True
+
+[loot] sight_reflex           attachment    700 tris  size [0.041, 0.072, 0.051]
+03:32:53 | INFO: Starting glTF 2.0 export
+03:32:53 | INFO: Extracting primitive: base
+03:32:53 | INFO: Primitives created: 1
+03:32:53 | INFO: Extracting primitive: lens_f
+03:32:53 | INFO: Primitives created: 1
+03:32:53 | INFO: Extracting primitive: lens_r
+03:32:53 | INFO: Primitives created: 1
+03:32:53 | INFO: Extracting primitive: ring0
+03:32:53 | INFO: Primitives created: 1
+03:32:53 | INFO: Extracting primitive: ring1
+03:32:53 | INFO: Primitives created: 1
+03:32:53 | INFO: Extracting primitive: riser0
+03:32:53 | INFO: Primitives created: 1
+03:32:53 | INFO: Extracting primitive: riser1
+03:32:53 | INFO: Primitives created: 1
+03:32:53 | INFO: Extracting primitive: saddle
+03:32:53 | INFO: Primitives created: 1
+03:32:53 | INFO: Extracting primitive: throw
+03:32:53 | INFO: Primitives created: 1
+03:32:53 | INFO: Extracting primitive: tube
+03:32:53 | INFO: Primitives created: 1
+03:32:53 | INFO: Extracting primitive: turret_s
+03:32:53 | INFO: Primitives created: 1
+03:32:53 | INFO: Extracting primitive: turret_t
+03:32:53 | INFO: Primitives created: 1
+03:32:53 | INFO: Extracting primitive: zoom_ring
+03:32:53 | INFO: Primitives created: 1
+03:32:53 | INFO: Finished glTF 2.0 export in 0.03159642219543457 s
+00:10.422  render           | Saved: 'A:\Python\aetherion-project\work\loot_models\scope_lpvo.png'
+
+[loot] scope_lpvo             attachment   2924 tris  size [0.0511, 0.253, 0.072]
+03:32:54 | INFO: Starting glTF 2.0 export
+03:32:54 | INFO: Extracting primitive: base
+03:32:54 | INFO: Primitives created: 1
+03:32:54 | INFO: Extracting primitive: body
+03:32:54 | INFO: Primitives created: 1
+03:32:54 | INFO: Extracting primitive: eye
+03:32:54 | INFO: Primitives created: 1
+03:32:54 | INFO: Extracting primitive: ir
+03:32:54 | INFO: Primitives created: 1
+03:32:54 | INFO: Extracting primitive: ir_lens
+03:32:54 | INFO: Primitives created: 1
+03:32:54 | INFO: Extracting primitive: knob
+03:32:54 | INFO: Primitives created: 1
+03:32:54 | INFO: Extracting primitive: lens_f
+03:32:54 | INFO: Primitives created: 1
+03:32:54 | INFO: Extracting primitive: obj
+03:32:54 | INFO: Primitives created: 1
+03:32:54 | INFO: Extracting primitive: riser
+03:32:54 | INFO: Primitives created: 1
+03:32:54 | INFO: Finished glTF 2.0 export in 0.026347637176513672 s
+00:10.563  render           | Saved: 'A:\Python\aetherion-project\work\loot_models\scope_night.png'
+
+[loot] scope_night            attachment   1092 tris  size [0.0798, 0.239, 0.076]
+03:32:54 | INFO: Starting glTF 2.0 export
+03:32:54 | INFO: Extracting primitive: base
+03:32:54 | INFO: Primitives created: 1
+03:32:54 | INFO: Extracting primitive: battery
+03:32:54 | INFO: Primitives created: 1
+03:32:54 | INFO: Extracting primitive: body
+03:32:54 | INFO: Primitives created: 1
+03:32:54 | INFO: Extracting primitive: btn0
+03:32:54 | INFO: Primitives created: 1
+03:32:54 | INFO: Extracting primitive: btn1
+03:32:54 | INFO: Primitives created: 1
+03:32:54 | INFO: Extracting primitive: btn2
+03:32:54 | INFO: Primitives created: 1
+03:32:54 | INFO: Extracting primitive: eye
+03:32:54 | INFO: Primitives created: 1
+03:32:54 | INFO: Extracting primitive: lens_f
+03:32:54 | INFO: Primitives created: 1
+03:32:54 | INFO: Extracting primitive: obj
+03:32:54 | INFO: Primitives created: 1
+03:32:54 | INFO: Extracting primitive: riser
+03:32:54 | INFO: Primitives created: 1
+03:32:54 | INFO: Finished glTF 2.0 export in 0.0264589786529541 s
+00:10.688  render           | Saved: 'A:\Python\aetherion-project\work\loot_models\scope_thermal.png'
+
+[loot] scope_thermal          attachment   1304 tris  size [0.058, 0.228, 0.099]
+03:32:54 | INFO: Starting glTF 2.0 export
+03:32:54 | INFO: Extracting primitive: base
+03:32:54 | INFO: Primitives created: 1
+03:32:54 | INFO: Extracting primitive: lens_f
+03:32:54 | INFO: Primitives created: 1
+03:32:54 | INFO: Extracting primitive: lens_r
+03:32:54 | INFO: Primitives created: 1
+03:32:54 | INFO: Extracting primitive: lever
+03:32:54 | INFO: Primitives created: 1
+03:32:54 | INFO: Extracting primitive: ring0
+03:32:54 | INFO: Primitives created: 1
+03:32:54 | INFO: Extracting primitive: ring1
+03:32:54 | INFO: Primitives created: 1
+03:32:54 | INFO: Extracting primitive: riser0
+03:32:54 | INFO: Primitives created: 1
+03:32:54 | INFO: Extracting primitive: riser1
+03:32:54 | INFO: Primitives created: 1
+03:32:54 | INFO: Extracting primitive: saddle
+03:32:54 | INFO: Primitives created: 1
+03:32:54 | INFO: Extracting primitive: shade
+03:32:54 | INFO: Primitives created: 1
+03:32:54 | INFO: Extracting primitive: tube
+03:32:54 | INFO: Primitives created: 1
+03:32:54 | INFO: Extracting primitive: turret_s
+03:32:54 | INFO: Primitives created: 1
+03:32:54 | INFO: Extracting primitive: turret_t
+03:32:54 | INFO: Primitives created: 1
+03:32:54 | INFO: Extracting primitive: wheel
+03:32:54 | INFO: Primitives created: 1
+03:32:54 | INFO: Finished glTF 2.0 export in 0.0301053524017334 s
+00:10.828  render           | Saved: 'A:\Python\aetherion-project\work\loot_models\scope_15x.png'
+
+[loot] scope_15x              attachment   2960 tris  size [0.069, 0.4915, 0.102]
+03:32:54 | INFO: Starting glTF 2.0 export
+03:32:54 | INFO: Extracting primitive: body.001
+03:32:54 | INFO: Primitives created: 1
+03:32:54 | INFO: Extracting primitive: bore
+03:32:54 | INFO: Primitives created: 1
+03:32:54 | INFO: Finished glTF 2.0 export in 0.008814573287963867 s
+00:10.984  render           | Saved: 'A:\Python\aetherion-project\work\loot_models\muzzle_brake.png'
+
+[loot] muzzle_brake           attachment    548 tris  size [0.026, 0.0712, 0.026]
+03:32:54 | INFO: Starting glTF 2.0 export
+03:32:54 | INFO: Extracting primitive: bill
+03:32:54 | INFO: Primitives created: 1
+03:32:54 | INFO: Extracting primitive: collar
+03:32:54 | INFO: Primitives created: 1
+03:32:54 | INFO: Extracting primitive: slot
+03:32:54 | INFO: Primitives created: 1
+03:32:54 | INFO: Finished glTF 2.0 export in 0.008135795593261719 s
+00:11.063  render           | Saved: 'A:\Python\aetherion-project\work\loot_models\duckbill.png'
+
+[loot] duckbill               attachment    288 tris  size [0.042, 0.0615, 0.025]
+03:32:54 | INFO: Starting glTF 2.0 export
+03:32:54 | INFO: Extracting primitive: g_clamp
+03:32:54 | INFO: Primitives created: 1
+03:32:54 | INFO: Extracting primitive: g_screw
+03:32:54 | INFO: Primitives created: 1
+03:32:54 | INFO: Extracting primitive: rest
+03:32:54 | INFO: Primitives created: 1
+03:32:54 | INFO: Extracting primitive: stub
+03:32:54 | INFO: Primitives created: 1
+03:32:54 | INFO: Finished glTF 2.0 export in 0.016701221466064453 s
+00:11.172  render           | Saved: 'A:\Python\aetherion-project\work\loot_models\grip_thumb.png'
+
+[loot] grip_thumb             attachment    460 tris  size [0.0416, 0.0506, 0.0295]
+03:32:54 | INFO: Starting glTF 2.0 export
+03:32:54 | INFO: Extracting primitive: g_clamp
+03:32:54 | INFO: Primitives created: 1
+03:32:54 | INFO: Extracting primitive: g_screw
+03:32:54 | INFO: Primitives created: 1
+03:32:54 | INFO: Extracting primitive: post.001
+03:32:54 | INFO: Primitives created: 1
+03:32:54 | INFO: Finished glTF 2.0 export in 0.013102293014526367 s
+00:11.297  render           | Saved: 'A:\Python\aetherion-project\work\loot_models\grip_light.png'
+
+[loot] grip_light             attachment    344 tris  size [0.029, 0.04, 0.085]
+03:32:54 | INFO: Starting glTF 2.0 export
+03:32:54 | INFO: Extracting primitive: body
+03:32:54 | INFO: Primitives created: 1
+03:32:54 | INFO: Extracting primitive: g_clamp
+03:32:54 | INFO: Primitives created: 1
+03:32:54 | INFO: Extracting primitive: g_screw
+03:32:54 | INFO: Primitives created: 1
+03:32:54 | INFO: Finished glTF 2.0 export in 0.013175010681152344 s
+00:11.391  render           | Saved: 'A:\Python\aetherion-project\work\loot_models\grip_ergonomic.png'
+
+[loot] grip_ergonomic         attachment    408 tris  size [0.03, 0.0504, 0.0806]
+03:32:55 | INFO: Starting glTF 2.0 export
+03:32:55 | INFO: Extracting primitive: body
+03:32:55 | INFO: Primitives created: 1
+03:32:55 | INFO: Extracting primitive: cheek
+03:32:55 | INFO: Primitives created: 1
+03:32:55 | INFO: Extracting primitive: hinge
+03:32:55 | INFO: Primitives created: 1
+03:32:55 | INFO: Extracting primitive: pad
+03:32:55 | INFO: Primitives created: 1
+03:32:55 | INFO: Finished glTF 2.0 export in 0.015585184097290039 s
+00:11.500  render           | Saved: 'A:\Python\aetherion-project\work\loot_models\stock_heavy.png'
+
+[loot] stock_heavy            attachment    516 tris  size [0.044, 0.289, 0.1526]
+Blender 5.2.1 LTS (hash 9e2066aef7ef built 2026-08-25 02:38:20)
+
+Blender quit

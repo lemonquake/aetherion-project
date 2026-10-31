@@ -1,0 +1,27 @@
+[
+  [
+    "r12_fieldvis_captured",
+    true,
+    "boundary captures taken"
+  ],
+  [
+    "r12_field_push",
+    true,
+    "open ground, edge closing at 3 m/s for 5 s: alive true, health 100 -> 100, deepest -0.00 m inside it, carried 13.1 m in (edge 15.0 m minus the 2 m start gap)"
+  ],
+  [
+    "r12_field_crush",
+    true,
+    "dummy behind a 6 m wall: dead after 2.97 s, cause field"
+  ],
+  [
+    "r12_field_bot_escapes",
+    true,
+    "bot behind the middle of a 10 m wall: alive true, ended at (9.8, 0.0, -18.8) (over it)"
+  ],
+  [
+    "r12_fieldhouse",
+    false,
+    "bot in the middle of a house, no door remembered, field coming: house 2, field from behind: out after 2.9 s (17.4 m from the edge), alive; house 4, field on the door side: out after 2.1 s (25.8 m from the edge), alive; house 5, field from behind: out after 12.6 s (3.8 m from the edge), crushed; house 23, field on the door side: out after 10.8 s (14.5 m from the edge), alive"
+  ]
+]
