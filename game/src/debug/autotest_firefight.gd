@@ -105,7 +105,12 @@ func run() -> void:
 		await t._wait(1.0)
 		var shots0 := _shots(shooters)
 		t._perf_begin("ff_" + ph)
-		await t._wait(secs)
+		if ph == "fire":
+			await t._wait(secs * 0.5)
+			t._shot("firefight_" + ph)
+			await t._wait(secs * 0.5)
+		else:
+			await t._wait(secs)
 		t._perf_end()
 		var row: Dictionary = t._perf_report[-1]
 		row["rounds"] = _shots(shooters) - shots0

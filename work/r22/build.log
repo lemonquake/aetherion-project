@@ -1,0 +1,58 @@
+[export] Linux Server -> ../builds/release/linux/aetherion_server.x86_64
+[export] Linux Server exit 0 in 112 s
+total 2028636
+drwxr-xr-x 1 Azrin Azrael 197121          0 Nov  1 07:33 .
+drwxr-xr-x 1 Azrin Azrael 197121          0 Oct 31 07:19 ..
+-rw-r--r-- 1 Azrin Azrael 197121 2003793572 Nov  1 07:33 aetherion_server.pck
+-rw-r--r-- 1 Azrin Azrael 197121   73519416 Nov  1 07:32 aetherion_server.x86_64
+[export] Windows Release -> ../builds/release/windows/Aetherion.exe
+[export] Windows Release exit 0 in 30 s
+total 2063544
+drwxr-xr-x 1 Azrin Azrael 197121          0 Nov  1 07:34 .
+drwxr-xr-x 1 Azrin Azrael 197121          0 Oct 31 07:19 ..
+-rwxr-xr-x 1 Azrin Azrael 197121  109268480 Nov  1 07:33 Aetherion.exe
+-rw-r--r-- 1 Azrin Azrael 197121 2003793572 Nov  1 07:34 Aetherion.pck
+[export] macOS -> ../builds/release/macos/Aetherion.zip
+[export] macOS exit 0 in 149 s
+total 1290540
+drwxr-xr-x 1 Azrin Azrael 197121          0 Nov  1 07:35 .
+drwxr-xr-x 1 Azrin Azrael 197121          0 Oct 31 07:19 ..
+-rw-r--r-- 1 Azrin Azrael 197121 1321505885 Nov  1 07:36 Aetherion.zip
+== android gl
+synced 8372 files
+import settings written for 3612 files
+import pass 1: 0 textures still to import
+A:\Python\aetherion-project\.claude\worktrees\epic-wescoff-100904\builds\android\Aetherion-opengl.apk: 690 MB
+== android
+synced 1 files
+import settings written for 0 files
+import pass 1: 0 textures still to import
+A:\Python\aetherion-project\.claude\worktrees\epic-wescoff-100904\builds\android\Aetherion.apk: 690 MB
+builds/android:
+total 1358712
+drwxr-xr-x 1 Azrin Azrael 197121         0 Nov  1 07:40 .
+drwxr-xr-x 1 Azrin Azrael 197121         0 Nov  1 07:36 ..
+-rw-r--r-- 1 Azrin Azrael 197121 690209649 Nov  1 07:39 Aetherion-opengl.apk
+-rw-r--r-- 1 Azrin Azrael 197121   5445088 Nov  1 07:39 Aetherion-opengl.apk.idsig
+-rw-r--r-- 1 Azrin Azrael 197121 690209649 Nov  1 07:40 Aetherion.apk
+-rw-r--r-- 1 Azrin Azrael 197121   5445088 Nov  1 07:40 Aetherion.apk.idsig
+
+builds/release/linux:
+total 2028636
+drwxr-xr-x 1 Azrin Azrael 197121          0 Nov  1 07:33 .
+drwxr-xr-x 1 Azrin Azrael 197121          0 Oct 31 07:19 ..
+-rw-r--r-- 1 Azrin Azrael 197121 2003793572 Nov  1 07:33 aetherion_server.pck
+-rw-r--r-- 1 Azrin Azrael 197121   73519416 Nov  1 07:32 aetherion_server.x86_64
+
+builds/release/macos:
+total 1290540
+drwxr-xr-x 1 Azrin Azrael 197121          0 Nov  1 07:35 .
+drwxr-xr-x 1 Azrin Azrael 197121          0 Oct 31 07:19 ..
+-rw-r--r-- 1 Azrin Azrael 197121 1321505885 Nov  1 07:36 Aetherion.zip
+
+builds/release/windows:
+total 2063544
+drwxr-xr-x 1 Azrin Azrael 197121          0 Nov  1 07:34 .
+drwxr-xr-x 1 Azrin Azrael 197121          0 Oct 31 07:19 ..
+-rwxr-xr-x 1 Azrin Azrael 197121  109268480 Nov  1 07:33 Aetherion.exe
+-rw-r--r-- 1 Azrin Azrael 197121 2003793572 Nov  1 07:34 Aetherion.pck

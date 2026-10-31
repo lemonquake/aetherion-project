@@ -1,0 +1,44 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+Vulkan 1.4.329 - Forward+ - Using Device #0: NVIDIA - NVIDIA GeForce RTX 4060
+
+[ui] loadout_received pid=1 Hehe {"att_primary":[],"att_secondary":[],"primary":"marksman_308","secondary":"pistol_9"}
+[ui] lobby shows my loadout (pid 1): {"att_primary":[],"att_secondary":[],"primary":"marksman_308","secondary":"pistol_9"}
+[ui] request_loadout {"att_primary":[],"att_secondary":[],"primary":"marksman_308","secondary":"pistol_9"}
+[world] map built in 4913 ms
+[map] 0 buildings, 213 doors, 163 containers, 779 props, #55dd752c on PC
+[nav] levels: 56959 points, 32 links, 133 ms
+[nav] r21: 1424 cells closed by the physics check, main walk 49517 of 55567 points (6050 in pockets), 236 ms
+[botnav] malasugue_mall: walk check and 1304 spots from res://data/botnav/malasugue_mall.json { "hide": 301, "snipe": 618, "cover": 190, "open": 195 }
+[bots] learned from 98 cells, 68 stuck spots, 0 spots learned from play, 52 spot records (user://bot_memory_malasugue_mall.json)
+[game] autotest navtour
+[autotest] PASS navtour_analysis: malasugue_mall: 1304 spots { "hide": 301, "snipe": 618, "cover": 190, "open": 195 } from res://data/botnav/malasugue_mall.json, walk check closed 1424 cells, analysis 0 ms
+[navtour] PASS snipe (30.5, 0.0, 48.5) (auto): 37.6 s, 0 stalls, ended at (34.5, 0.0, 48.3)
+[navtour] PASS cover (56.5, 5.0, 38.5) (auto): 24.3 s, 0 stalls, ended at (54.7, 4.5, 40.6)
+[navtour] PASS hide (70.5, 0.0, 5.5) (Alex Jackie, Level 1 (back corner)): 12.8 s, 1 stalls, ended at (67.4, 0.0, 6.1)
+[navtour] PASS snipe (-29.5, 5.0, 20.5) (auto): 28.3 s, 0 stalls, ended at (-26.4, 5.0, 20.6)
+[navtour] PASS snipe (56.5, 0.0, -5.5) (auto): 25.5 s, 0 stalls, ended at (55.4, 0.8, -2.9)
+[navtour] FAIL open (0.5, 15.0, -35.5) (auto): 62.9 s, 1 stalls, ended at (50.7, 15.0, -34.3)
+[navtour] PASS hide (-57.5, 15.0, -43.5) (auto): 12.0 s, 0 stalls, ended at (-58.1, 15.0, -40.2)
+[navtour] PASS snipe (40.5, 10.0, 9.5) (East Court balcony, Level 3): 34.7 s, 1 stalls, ended at (37.3, 10.0, 7.9)
+[navtour] PASS cover (40.5, 0.0, -29.5) (auto): 19.2 s, 0 stalls, ended at (43.9, 0.0, -29.5)
+[navtour] PASS open (40.5, 15.0, -19.5) (auto): 37.1 s, 0 stalls, ended at (42.1, 15.0, -22.7)
+[navtour] PASS hide (-61.5, 0.0, 32.5) (auto): 42.4 s, 1 stalls, ended at (-59.3, 0.0, 29.7)
+[navtour] PASS open (-79.5, 0.0, 48.5) (auto): 18.1 s, 0 stalls, ended at (-79.0, 0.0, 44.8)
+[navtour] PASS hide (-61.5, 0.0, -29.5) (auto): 22.4 s, 1 stalls, ended at (-57.6, 0.0, -28.8)
+[navtour] PASS hide (-67.5, 15.0, 20.5) (auto): 39.7 s, 0 stalls, ended at (-67.7, 15.0, 17.1)
+[navtour] PASS snipe (0.5, 5.0, -16.5) (Grand Atrium balcony, Level 2): 32.0 s, 0 stalls, ended at (-2.8, 5.0, -15.7)
+[world] rescued Hehe back onto land at (60.0, 1.0, 10.0)
+[navtour] FAIL cover (-65.5, 10.0, 32.5) (auto): 69.9 s, 11 stalls, ended at (-56.6, 10.0, 32.3)
+[navtour] FAIL snipe (62.5, 0.0, -63.5) (auto): 110.4 s, 31 stalls, ended at (-57.6, 10.0, 29.3)
+[navtour] PASS hide (44.5, 5.0, -41.5) (auto): 33.1 s, 0 stalls, ended at (44.7, 5.0, -38.1)
+[navtour] PASS open (4.5, 5.0, -31.5) (auto): 8.8 s, 0 stalls, ended at (8.3, 5.0, -31.9)
+[navtour] PASS snipe (-21.5, 15.0, 34.5) (auto): 33.3 s, 0 stalls, ended at (-25.2, 15.0, 34.2)
+[navtour] PASS cover (56.5, 5.0, 38.5) (auto): 21.6 s, 0 stalls, ended at (52.9, 5.0, 39.6)
+[navtour] PASS open (0.5, 15.0, -35.5) (auto): 25.1 s, 0 stalls, ended at (0.9, 15.0, -31.4)
+[navtour] PASS cover (0.5, 5.0, 42.5) (auto): 40.1 s, 0 stalls, ended at (0.0, 5.0, 38.9)
+[navtour] PASS hide (-63.5, 0.0, 18.5) (auto): 21.7 s, 0 stalls, ended at (-59.7, 0.0, 19.1)
+[autotest] FAIL navtour_route: bot reached 21 of 24 waypoints across the map, 47 stalls
+[autotest] FAIL navtour_no_wall_stalls: 47 stalls over 24 legs (no progress for 2 s or more)
+[autotest] done: 3 checks, 2 failed
+WARNING: 7 RIDs of type "Texture" were leaked.
+   at: finalize (servers/rendering/rendering_device.cpp:8900)
