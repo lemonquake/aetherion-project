@@ -41,6 +41,16 @@ INNER = [
     ("src/world/map_builder.gd", "view_lod.update(dt)", "map.view_lod", 1),
     ("src/ai/bot_brain.gd", "path = nav.find_path(ch.global_position, goal, MAX_EXPAND)", "bot.find_path", 1),
     ("src/world/lighting.gd", "_shadow_budget()", "light.manager", 1),
+    # r22: the bullet path (projectile_server.gd) and the impact effect a listen host makes inside it
+    ("src/weapons/projectile_server.gd", "var wh := space.intersect_ray(wq)", "pj.ray", 1),
+    ("src/weapons/projectile_server.gd", "var ch_hit := _test_characters(p, from, to, tick)", "pj.chars", 1),
+    ("src/weapons/projectile_server.gd", "_flybys(p, from, to)", "pj.flyby", 1),
+    ("src/weapons/projectile_server.gd", "var bh := space.intersect_ray(bq)", "pj.back_ray", 1),
+    ("src/weapons/projectile_server.gd", "world.server_impact(hit_pos, normal, str(mat.get(\"impact\", \"concrete\")), \"hole\", p.shooter, p.id, mat_id, att)", "pj.impact_hole", 1),
+    ("src/weapons/projectile_server.gd", "world.server_impact(exit_pos, dir, str(mat.get(\"impact\", \"concrete\")), \"exit\", p.shooter, p.id, mat_id, att)", "pj.impact_exit", 1),
+    ("src/fx/effects.gd", "SoundSys.play_at(\"ricochet\" if what == \"ricochet\" else snd, pos, 0.0)", "fx.impact_sound", 1),
+    ("src/fx/effects.gd", "holes.add(pos, normal, mat if mat != \"\" else kind, what == \"exit\", _attach(att))", "fx.holes", 1),
+    ("src/fx/effects.gd", "for k in IMPACT_FX.get(kind, IMPACT_FX[\"concrete\"]):", "fx.impact_particles", 2),
 ]
 TAG = "  ##PROF"
 

@@ -7,6 +7,15 @@ extends RefCounted
 ## character's recorded state at (view_tick + flight ticks), where view_tick is the tick the shooter was rendering
 ## when they fired (clamped to max_rewind). This favours the shooter by at most max_rewind seconds and never lets a
 ## bullet hit someone the shooter could not have seen at that moment.
+##
+## (r22) Every round in flight tests every character, every tick, so a big firefight (a few hundred rounds in the air,
+## most of them misses flying on for seconds) cost a listen host 80+ ms a frame on Freight Delight. Once per tick the
+## characters a round can meet are gathered with the bounds of where each has been over the rewind window and where its
+## eyes are now; a round only looks up history and hit capsules for a character whose bounds come within reach of its
+## segment, and only works out a fly-by for one whose eyes are within 3.5 m of the segment's box. The same hits and
+## fly-bys as before, without the lookups that could never have counted. A round that has left the map (40 m past its
+## edge and past everyone, heading further out: nothing it could still meet) is dropped then, not after 4 s and 1.6 km
+## (on Freight Delight, 70 m to the edge, a miss used to fly on for twenty times as long as it was over the map).
 
 const HitZones := preload("res://src/player/hitzones.gd")
 
@@ -15,6 +24,15 @@ var space: PhysicsDirectSpaceState3D
 var list: Array = []
 var _next_id := 1
 var stats := {"spawned": 0, "world_hits": 0, "char_hits": 0, "penetrations": 0, "ricochets": 0, "expired": 0}
+# (r22) this tick's characters (see the top): the character, the box of its rewound chest points, its eyes now
+var _cands: Array = []
+var _lo := PackedVector3Array()
+var _hi := PackedVector3Array()
+var _eye := PackedVector3Array()
+const HIT_REACH := 2.2      # _test_characters: a chest point further than this from the segment cannot be hit
+const FLYBY_REACH := 3.5    # _flybys: the crack / whiz is heard within this of the head
+const OUT_MARGIN := 40.0    # a round this far past the map's edge (and past everyone) and heading out is gone
+var _edge := INF            # this tick's: the map's half size or the furthest character, plus OUT_MARGIN
 
 
 func _init(w) -> void:
@@ -63,10 +81,14 @@ func step(dt: float, tick: int) -> void:
 	var max_t := float(Defs.ballistics.get("max_lifetime_s", 4.0))
 	var max_d := float(Defs.ballistics.get("max_distance_m", 1600.0))
 	var min_v := float(Defs.ballistics.get("min_lethal_speed", 60.0))
+	_gather(tick)
 	for i in range(list.size() - 1, -1, -1):
 		var p: Dictionary = list[i]
 		var alive := _advance(p, dt, tick)
 		p.age += 1
+		if alive and _gone(p.pos, p.vel):
+			alive = false
+			stats.expired += 1
 		if not alive or p.age * dt > max_t or p.dist > max_d or (p.vel as Vector3).length() < min_v:
 			if alive:
 				stats.expired += 1
@@ -208,12 +230,68 @@ static func _attach_code(col) -> int:
 	return 0
 
 
+func _gather(tick: int) -> void:
+	## (r22) Once per tick: who a round can meet, the box of where each was over the rewind window (every state
+	## history_state can return for this tick's rounds, the first one before the window included) lifted to the chest
+	## point the hit test starts from, and its eyes now (nobody moves while a tick's rounds fly).
+	_cands.clear()
+	_lo.resize(0)
+	_hi.resize(0)
+	_eye.resize(0)
+	var oldest := tick - int(float(Defs.rule("net.max_rewind_s", 0.3)) * Defs.TICK_RATE) - 1
+	var chest := Vector3.UP * 0.9
+	var far := float(world.map.layout.HALF) if world.map and world.map.layout else INF
+	for ch in world.characters.values():
+		if ch.mode in [Motor.DEAD, Motor.SPECTATE, Motor.PLANE]:
+			continue
+		var lo: Vector3 = ch.global_position
+		var hi := lo
+		var h: Dictionary = world._history.get(ch.eid, {})
+		if not h.is_empty():
+			var ticks: Array = h.ticks
+			var states: Array = h.states
+			var n := ticks.size()
+			for k in n:
+				var j := (int(h.i) - 1 - k + n * 2) % n
+				var t := int(ticks[j])
+				if t < 0:
+					break
+				var sp: Vector3 = states[j].pos
+				lo = lo.min(sp)
+				hi = hi.max(sp)
+				if t < oldest:
+					break
+		_cands.append(ch)
+		_lo.append(lo + chest)
+		_hi.append(hi + chest)
+		_eye.append(ch.eye_position())
+		far = maxf(far, maxf(maxf(absf(lo.x), absf(hi.x)), maxf(absf(lo.z), absf(hi.z))))
+	_edge = far + OUT_MARGIN
+
+
+func _gone(pos: Vector3, vel: Vector3) -> bool:
+	## Past the edge on an axis and still heading out on it (drag slows a round but never turns it): it can only get
+	## further from everything in the map.
+	return (pos.x > _edge and vel.x > 0.0) or (pos.x < -_edge and vel.x < 0.0) 		or (pos.z > _edge and vel.z > 0.0) or (pos.z < -_edge and vel.z < 0.0)
+
+
+static func _near_box(from: Vector3, to: Vector3, lo: Vector3, hi: Vector3, reach: float) -> bool:
+	## Whether the box lo..hi comes within reach of the segment's own box (cheap, never false when a point of the box is
+	## within reach of the segment).
+	var a := from.min(to)
+	var b := from.max(to)
+	return lo.x <= b.x + reach and hi.x >= a.x - reach and lo.y <= b.y + reach and hi.y >= a.y - reach 		and lo.z <= b.z + reach and hi.z >= a.z - reach
+
+
 func _test_characters(p: Dictionary, from: Vector3, to: Vector3, tick: int) -> Dictionary:
 	var best := {}
 	var best_t := INF
 	var eval_tick: int = mini(int(p.view_tick) + int(p.age), tick)
-	for ch in world.characters.values():
-		if ch.eid == p.ignore_eid or ch.mode in [Motor.DEAD, Motor.SPECTATE, Motor.PLANE]:
+	for k in _cands.size():
+		var ch = _cands[k]
+		if not is_instance_valid(ch) or ch.eid == p.ignore_eid or ch.mode in [Motor.DEAD, Motor.SPECTATE, Motor.PLANE]:
+			continue
+		if not _near_box(from, to, _lo[k], _hi[k], HIT_REACH):
 			continue
 		var st: Dictionary = world.history_state(ch.eid, eval_tick)
 		if st.is_empty():
@@ -232,10 +310,13 @@ func _test_characters(p: Dictionary, from: Vector3, to: Vector3, tick: int) -> D
 
 func _flybys(p: Dictionary, from: Vector3, to: Vector3) -> void:
 	## Rounds passing close to someone's head produce a crack / whiz for that player only.
-	for ch in world.characters.values():
-		if ch.eid == p.shooter or ch.mode in [Motor.DEAD, Motor.SPECTATE, Motor.PLANE] or p.flyby.has(ch.eid):
+	for k in _cands.size():
+		var ch = _cands[k]
+		var head: Vector3 = _eye[k]
+		if not _near_box(from, to, head, head, FLYBY_REACH):
 			continue
-		var head: Vector3 = ch.eye_position()
+		if not is_instance_valid(ch) or ch.eid == p.shooter or ch.mode in [Motor.DEAD, Motor.SPECTATE, Motor.PLANE] or p.flyby.has(ch.eid):
+			continue
 		var d := _seg_point_dist(from, to, head)
 		if d < 3.5:
 			p.flyby[ch.eid] = true

@@ -336,6 +336,9 @@ const MAP_NAMES := {"kalinaw": "Sitio Kalinaw", "lawless_sub": "Lawless Sub", "m
 static func gun_picture(id: String) -> Texture2D:
 	## The gun seen from the side on a transparent background (assets/ui/r7/guns, 512x224), or null.
 	var path := UI + "r7/guns/%s.png" % id
+	if not ResourceLoader.exists(path):
+		# (r22) a gun drawn with another's model (the AWP is the bolt_308) shows that model's picture
+		path = UI + "r7/guns/%s.png" % str(Defs.weapon(id).get("model", id))
 	return load(path) if ResourceLoader.exists(path) else null
 
 

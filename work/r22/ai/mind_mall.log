@@ -1,0 +1,643 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+[server] dedicated server listening on 27682
+[world] map built in 3010 ms
+[map] 0 buildings, 213 doors, 163 containers, 779 props, #55dd752c on PC
+[nav] levels: 56959 points, 32 links, 154 ms
+[nav] r21: 1424 cells closed by the physics check, main walk 49517 of 55567 points (6050 in pockets), 257 ms
+[botnav] malasugue_mall: walk check and 1304 spots from res://data/botnav/malasugue_mall.json { "hide": 301, "snipe": 618, "cover": 190, "open": 195 }
+[bots] learned from 98 cells, 68 stuck spots, 0 spots learned from play, 52 spot records (user://bot_memory_malasugue_mall.json)
+[loadout] Kumpare Ambo bolt_308 [scope_8x,suppressor_rifle,mag_ext_sniper,cheek_pad] mag 8/8 | pistol_deagle [sight_reddot,weapon_light] mag 7/7
+[loadout] Bossing Dodong shotgun_pump [sight_holo,choke,bullet_loops,weapon_light] mag 6/6 | pistol_deagle [suppressor_light,mag_extquick_light,weapon_light] mag 10/10
+[loadout] Nanay Kakanin smg_ump45 [sight_holo,suppressor_light,grip_ergonomic,mag_extquick_light,weapon_light] mag 35/35 | revolver_357 [] mag 6/6
+[loadout] Tita Baby rifle_556 [scope_night,suppressor_rifle,grip_thumb,mag_extquick_rifle,weapon_light] mag 40/40 | pistol_deagle [sight_reflex,suppressor_light,mag_extquick_light,weapon_light] mag 10/10
+[loadout] Utoy Kalabaw smg_ump45 [scope_2x,suppressor_light,grip_vertical,weapon_light] mag 25/25 | revolver_357 [sight_reddot] mag 6/6
+[loadout] Bossing Barbecue rifle_556 [scope_night,suppressor_rifle,grip_vertical,mag_extquick_rifle,weapon_light] mag 40/40 | pistol_9 [suppressor_light,mag_extquick_light,weapon_light] mag 21/21
+[loadout] Tito Karaoke King machine_pistol [sight_reddot,suppressor_light,laser_sight,stock_heavy] mag 32/32 | revolver_357 [sight_reddot] mag 6/6
+[loadout] Ising Batingaw rifle_556 [scope_night,suppressor_rifle,grip_vertical,mag_extquick_rifle,weapon_light] mag 40/40 | pistol_9 [suppressor_light,mag_extquick_light] mag 21/21
+[loadout] Aling Taho smg_ump45 [sight_reddot,suppressor_light,grip_vertical,mag_extquick_light,weapon_light] mag 35/35 | pistol_9 [sight_reddot,suppressor_light,mag_extquick_light] mag 21/21
+[loadout] Lola Basyang rifle_m762 [grip_light,mag_extquick_rifle] mag 40/40 | revolver_357 [sight_reddot] mag 6/6
+[loadout] Tatay Kulas smg_ump45 [sight_reddot,suppressor_light] mag 25/25 | pistol_45 [sight_reddot,suppressor_light] mag 7/7
+[loadout] Tsong Ramil shotgun_double [choke,bullet_loops] mag 2/2 | pistol_9 [sight_reddot,suppressor_light,mag_extquick_light,weapon_light] mag 21/21
+[match    0.0] deathmatch start on malasugue_mall: 12 players, 2 teams; spawns (42.0, 10.0, -26.0), (-40.0, 0.0, -27.0) (82/82 m apart, floors); day offset 0 s; zone centre (10.0, -1.0) r=126; win by wipe
+[match    0.0] status: { "ground": 12 }; armed 12; shots 0; zone -1 hold r=126; corpses 0; levels { "L1": 6, "L3": 6 }
+[match    0.0] dm teams: West Team 6 at (42.0, -26.0) spread 1 m; East Team 6 at (-40.0, -27.0) spread 1 m; gap 83 m; zone centre (10.0, -1.0)
+[match    0.0] bots: { "roam": 12 }; containers searched by bots 0 (all players 0); plan steps done 0; guns carried 24
+[match    0.0] roles: { "stalker": { "roam": 2 }, "sniper": { "roam": 4 }, "rusher": { "roam": 4 }, "looter": { "roam": 2 } }; stuck now 0; waypoints 1304; team { "lines": 0, "pings": 0, "laser_follow": 0, "learned_cells": 98, "blocked_cells": 28, "squads": 0, "following_humans": 0, &"learned_spots": 0 }
+[match    0.0] [lootstats] bots on the ground 12 (in water 0); armed 12; armed with ammo for a gun 12; long guns 12; attachments fitted 73; rounds of unusable ammo carried 0; items on the ground 416; bot pickups { "detours": 0, "detour_taken": 0, "fetches": 0, "fetch_done": 0, "items_taken": 0 }
+[match   11.8] Utoy Kalabaw (team 1) landed at (-52.0, 0.0, -41.0), 3.8 m/s, health 100; teammates -
+[match   12.7] Bossing Barbecue (team 0) landed at (51.0, 0.0, -40.0), 14.9 m/s, health 100; teammates -
+[match   13.9] Lola Basyang (team 0) landed at (51.0, 0.0, -40.0), 12.3 m/s, health 100; teammates 1 m
+[match   14.0] Tatay Kulas (team 1) landed at (-50.0, 0.0, -39.0), 7.0 m/s, health 100; teammates 3 m
+[match   14.1] Tita Baby (team 0) landed at (51.0, 2.0, -40.0), 10.3 m/s, health 100; teammates 2 m, 2 m
+[match   14.3] Bossing Dodong (team 0) landed at (51.0, 3.0, -40.0), 9.0 m/s, health 100; teammates 2 m, 4 m, 3 m
+[match   15.0] status: { "ground": 12 }; armed 12; shots 0; zone -1 hold r=126; corpses 0; levels { "L1": 6, "between": 6 }; server tick avg 1.88 ms, p99 12.41 ms, max 38.46 ms over 900 ticks
+[match   15.0] dm teams: West Team 6 at (53.0, -40.0) spread 4 m; East Team 6 at (-18.0, -21.0) spread 30 m; gap 73 m; zone centre (10.0, -1.0)
+[match   15.0] bots: { "follow": 2, "roam": 4, "hunt": 5, "heal": 1 }; containers searched by bots 0 (all players 0); plan steps done 0; guns carried 24
+[match   15.0] roles: { "stalker": { "follow": 1, "hunt": 1 }, "sniper": { "roam": 3, "heal": 1 }, "rusher": { "hunt": 4 }, "looter": { "follow": 1, "roam": 1 } }; stuck now 0; waypoints 1304; team { "lines": 3, "pings": 0, "laser_follow": 0, "learned_cells": 98, "blocked_cells": 28, "squads": 2, "following_humans": 0, &"learned_spots": 0 }
+[match   15.0] [lootstats] bots on the ground 12 (in water 0); armed 12; armed with ammo for a gun 12; long guns 12; attachments fitted 73; rounds of unusable ammo carried 0; items on the ground 416; bot pickups { "detours": 0, "detour_taken": 0, "fetches": 0, "fetch_done": 0, "items_taken": 0 }
+[match   16.8] Tsong Ramil (team 0) landed at (51.0, 5.0, -39.0), 8.3 m/s, health 100; teammates 8 m, 6 m, 5 m, 11 m
+[match   18.9] Tita Baby killed by Aling Taho (gunshot); 2 teams left
+[match   18.9] alive: West Team 5, East Team 6; score { 0: 0, 1: 0 }
+[match   19.0] Ising Batingaw (team 0) landed at (56.0, 5.0, -37.0), 6.2 m/s, health 100; teammates 7 m, 6 m, 16 m, 4 m
+[match   21.0] Lola Basyang killed by Kumpare Ambo (gunshot); 2 teams left
+[match   21.0] alive: West Team 4, East Team 6; score { 0: 0, 1: 0 }
+[match   22.7] Aling Taho (team 1) landed at (19.0, 0.0, -34.0), 4.5 m/s, health 10; teammates 75 m, 72 m
+[match   24.1] Aling Taho killed by Bossing Dodong (gunshot); 2 teams left
+[match   24.1] alive: West Team 4, East Team 5; score { 0: 0, 1: 0 }
+[match   25.9] Tito Karaoke King (team 1) landed at (-7.0, 0.0, -1.0), 4.4 m/s, health 100; teammates 62 m, 63 m
+[match   26.6] Tsong Ramil killed by Kumpare Ambo (gunshot); 2 teams left
+[match   26.6] alive: West Team 3, East Team 5; score { 0: 0, 1: 0 }
+[match   30.0] [botskill] normal shots 93 hits 21 reaction_avg 0.46 (n 11) dmg 446 bots 8
+[match   30.0] status: { "ground": 8 }; armed 8; shots 93; zone -1 hold r=126; corpses 4; levels { "L1": 7, "L2": 1 }; server tick avg 3.27 ms, p99 17.65 ms, max 45.07 ms over 900 ticks
+[match   30.0] dm teams: West Team 3 at (48.0, -35.0) spread 5 m; East Team 5 at (-12.0, -27.0) spread 35 m; gap 61 m; zone centre (10.0, -1.0)
+[match   30.0] bots: { "heal": 1, "order": 2, "hunt": 3, "roam": 2 }; containers searched by bots 0 (all players 0); plan steps done 0; guns carried 16
+[match   30.0] roles: { "stalker": { "heal": 1, "hunt": 1 }, "sniper": { "order": 1, "roam": 1 }, "rusher": { "hunt": 2 }, "looter": { "order": 1, "roam": 1 } }; stuck now 0; waypoints 1304; team { "lines": 24, "pings": 0, "laser_follow": 0, "learned_cells": 98, "blocked_cells": 28, "squads": 2, "following_humans": 0, &"learned_spots": 0 }
+[match   30.0] [lootstats] bots on the ground 8 (in water 0); armed 8; armed with ammo for a gun 8; long guns 8; attachments fitted 47; rounds of unusable ammo carried 0; items on the ground 416; bot pickups { "detours": 0, "detour_taken": 0, "fetches": 0, "fetch_done": 0, "items_taken": 0 }
+[match   36.1] Tito Karaoke King killed by Ising Batingaw (gunshot); 2 teams left
+[match   36.1] alive: West Team 3, East Team 4; score { 0: 0, 1: 0 }
+[match   37.4] Ising Batingaw killed by Kumpare Ambo (gunshot); 2 teams left
+[match   37.4] alive: West Team 2, East Team 4; score { 0: 0, 1: 0 }
+[match   37.6] Nanay Kakanin killed by Bossing Barbecue (gunshot); 2 teams left
+[match   37.6] alive: West Team 2, East Team 3; score { 0: 0, 1: 0 }
+[match   37.7] [endgame] East Team mates 3 foes 2 nocontact 0s
+[match   37.7] [endgame] West Team mates 2 foes 3 nocontact 0s
+[match   40.1] [sweep] Bossing Barbecue -> cell (4, -2, 0) spot 857 stale 70s 23 m
+[match   45.0] [botskill] normal shots 159 hits 45 reaction_avg 0.44 (n 26) dmg 947 bots 5
+[match   45.0] status: { "ground": 5 }; armed 5; shots 161; zone -1 hold r=126; corpses 7; levels { "L1": 4, "between": 1 }; server tick avg 1.84 ms, p99 11.44 ms, max 25.43 ms over 900 ticks
+[match   45.0] dm teams: West Team 2 at (51.0, -38.0) spread 1 m; East Team 3 at (-22.0, -37.0) spread 25 m; gap 74 m; zone centre (10.0, -1.0)
+[match   45.0] bots: { "hunt": 4, "order": 1 }; containers searched by bots 0 (all players 0); plan steps done 0; guns carried 10
+[match   45.0] roles: { "stalker": { "hunt": 2 }, "sniper": { "order": 1, "hunt": 1 }, "looter": { "hunt": 1 } }; stuck now 0; waypoints 1304; team { "lines": 40, "pings": 0, "laser_follow": 0, "learned_cells": 98, "blocked_cells": 28, "squads": 2, "following_humans": 0, &"learned_spots": 0 }
+[match   45.0] [lootstats] bots on the ground 5 (in water 0); armed 5; armed with ammo for a gun 5; long guns 5; attachments fitted 30; rounds of unusable ammo carried 0; items on the ground 416; bot pickups { "detours": 0, "detour_taken": 0, "fetches": 0, "fetch_done": 0, "items_taken": 0 }
+[match   54.8] Kumpare Ambo (team 1) landed at (26.0, 0.0, -59.0), 2.5 m/s, health 100; teammates 89 m, 31 m
+[match   58.2] [sweep] Bossing Barbecue -> cell (4, -2, 0) spot 1283 stale 88s 22 m
+[match   60.0] [botskill] normal shots 159 hits 45 reaction_avg 0.44 (n 26) dmg 947 bots 5
+[match   60.0] status: { "ground": 5 }; armed 5; shots 161; zone -1 hold r=126; corpses 7; levels { "L1": 5 }; server tick avg 1.24 ms, p99 8.69 ms, max 17.52 ms over 900 ticks
+[match   60.0] dm teams: West Team 2 at (51.0, -37.0) spread 0 m; East Team 3 at (-11.0, -42.0) spread 30 m; gap 62 m; zone centre (10.0, -1.0)
+[match   60.0] bots: { "hunt": 4, "order": 1 }; containers searched by bots 0 (all players 0); plan steps done 0; guns carried 10
+[match   60.0] roles: { "stalker": { "hunt": 2 }, "sniper": { "order": 1, "hunt": 1 }, "looter": { "hunt": 1 } }; stuck now 0; waypoints 1304; team { "lines": 40, "pings": 0, "laser_follow": 0, "learned_cells": 98, "blocked_cells": 28, "squads": 2, "following_humans": 0, &"learned_spots": 0 }
+[match   60.0] [lootstats] bots on the ground 5 (in water 0); armed 5; armed with ammo for a gun 5; long guns 5; attachments fitted 30; rounds of unusable ammo carried 0; items on the ground 416; bot pickups { "detours": 0, "detour_taken": 0, "fetches": 0, "fetch_done": 0, "items_taken": 0 }
+[match   70.5] [sweep] Utoy Kalabaw -> cell (-3, -2, 1) spot 1190 stale 100s 17 m
+[match   75.0] [botskill] normal shots 180 hits 51 reaction_avg 0.45 (n 28) dmg 996 bots 5
+[match   75.0] status: { "ground": 5 }; armed 5; shots 182; zone -1 hold r=126; corpses 7; levels { "L1": 5 }; server tick avg 1.42 ms, p99 7.94 ms, max 14.76 ms over 900 ticks
+[match   75.0] dm teams: West Team 2 at (47.0, -32.0) spread 1 m; East Team 3 at (-8.0, -36.0) spread 30 m; gap 56 m; zone centre (10.0, -1.0)
+[match   75.0] bots: { "hunt": 2, "fight": 2, "order": 1 }; containers searched by bots 0 (all players 0); plan steps done 0; guns carried 10
+[match   75.0] roles: { "stalker": { "hunt": 2 }, "sniper": { "fight": 1, "order": 1 }, "looter": { "fight": 1 } }; stuck now 1; waypoints 1304; team { "lines": 44, "pings": 0, "laser_follow": 0, "learned_cells": 98, "blocked_cells": 28, "squads": 2, "following_humans": 0, &"learned_spots": 0 }
+[match   75.0] [lootstats] bots on the ground 5 (in water 0); armed 5; armed with ammo for a gun 5; long guns 5; attachments fitted 30; rounds of unusable ammo carried 0; items on the ground 416; bot pickups { "detours": 0, "detour_taken": 0, "fetches": 0, "fetch_done": 0, "items_taken": 0 }
+[match   77.0] Tatay Kulas killed by Bossing Barbecue (gunshot); 2 teams left
+[match   77.0] alive: West Team 2, East Team 2; score { 0: 0, 1: 0 }
+[match   80.6] Bossing Dodong killed by Kumpare Ambo (gunshot); 2 teams left
+[match   80.6] alive: West Team 1, East Team 2; score { 0: 0, 1: 0 }
+[match   89.8] Bossing Barbecue killed by Kumpare Ambo (gunshot); 1 teams left
+[match   89.8] alive: West Team 0, East Team 2; score { 0: 0, 1: 0 }
+[match   89.9] round 1 over: winner 1, scores { 0: 0, 1: 1 }
+[loadout] Tsong Ramil bolt_kar98 [suppressor_rifle,cheek_pad] mag 5/5 | pistol_deagle [sight_reddot,suppressor_light,mag_extquick_light,weapon_light] mag 10/10
+[match   93.9] Tsong Ramil respawned at (39.0, 10.0, -26.0) (nearest enemy 1000 m)
+[loadout] Tatay Kulas rifle_556 [scope_3x,suppressor_rifle,grip_vertical,mag_extquick_rifle,weapon_light] mag 40/40 | pistol_45 [sight_reddot,mag_extquick_light,weapon_light] mag 12/12
+[match   93.9] Tatay Kulas respawned at (-42.0, 0.0, -25.0) (nearest enemy 81 m)
+[loadout] Lola Basyang rifle_m762 [suppressor_rifle,grip_angled,mag_extquick_rifle,weapon_light] mag 40/40 | pistol_9 [sight_reddot,mag_extquick_light,weapon_light] mag 21/21
+[match   93.9] Lola Basyang respawned at (42.0, 10.0, -29.0) (nearest enemy 84 m)
+[loadout] Aling Taho shotgun_double [bullet_loops] mag 2/2 | pistol_9 [sight_reddot,mag_extquick_light,weapon_light] mag 21/21
+[match   93.9] Aling Taho respawned at (-43.0, 0.0, -27.0) (nearest enemy 83 m)
+[loadout] Ising Batingaw shotgun_double [bullet_loops] mag 2/2 | pistol_9 [sight_reflex,suppressor_light,mag_extquick_light,weapon_light] mag 21/21
+[match   93.9] Ising Batingaw respawned at (44.0, 10.0, -28.0) (nearest enemy 86 m)
+[loadout] Tito Karaoke King rifle_scar [suppressor_rifle,mag_extquick_rifle,weapon_light] mag 40/40 | revolver_357 [sight_reddot] mag 6/6
+[match   93.9] Tito Karaoke King respawned at (-42.0, 0.0, -29.0) (nearest enemy 81 m)
+[loadout] Bossing Barbecue smg_9 [sight_reflex,suppressor_light,grip_angled,weapon_light] mag 30/30 | pistol_deagle [sight_reddot,suppressor_light,weapon_light] mag 7/7
+[match   93.9] Bossing Barbecue respawned at (44.0, 10.0, -24.0) (nearest enemy 86 m)
+[loadout] Utoy Kalabaw lmg_m249 [sight_reddot,muzzle_brake,laser_sight,stock_heavy,weapon_light] mag 100/100 | pistol_deagle [sight_reddot,weapon_light] mag 7/7
+[match   93.9] Utoy Kalabaw respawned at (-43.0, 0.0, -29.0) (nearest enemy 83 m)
+[loadout] Tita Baby bolt_awp [scope_6x,suppressor_rifle,mag_ext_sniper,cheek_pad] mag 8/8 | pistol_45 [sight_reddot,suppressor_light,mag_extquick_light] mag 12/12
+[match   93.9] Tita Baby respawned at (40.0, 10.0, -28.0) (nearest enemy 83 m)
+[loadout] Nanay Kakanin bolt_awp [scope_8x,mag_ext_sniper] mag 8/8 | pistol_9 [suppressor_light,weapon_light] mag 15/15
+[match   93.9] Nanay Kakanin respawned at (-41.0, 0.0, -30.0) (nearest enemy 80 m)
+[loadout] Bossing Dodong bolt_kar98 [scope_8x,suppressor_rifle,cheek_pad] mag 5/5 | pistol_9 [sight_reddot,suppressor_light,mag_extquick_light,weapon_light] mag 21/21
+[match   93.9] Bossing Dodong respawned at (42.0, 10.0, -23.0) (nearest enemy 83 m)
+[loadout] Kumpare Ambo dmr_mini14 [scope_6x,suppressor_rifle,mag_ext_sniper,cheek_pad] mag 30/30 | pistol_9 [sight_reddot,suppressor_light,weapon_light] mag 15/15
+[match   93.9] Kumpare Ambo respawned at (-40.0, 0.0, -29.0) (nearest enemy 79 m)
+[match   93.9] round 2 started; scores { 0: 0, 1: 1 }
+[match   93.9] status: { "ground": 12 }; armed 12; shots 217; zone -1 hold r=131; corpses 0; levels { "L3": 6, "L1": 6 }; server tick avg 1.57 ms, p99 6.82 ms, max 17.36 ms over 892 ticks
+[match   93.9] dm teams: West Team 6 at (42.0, -26.0) spread 3 m; East Team 6 at (-42.0, -28.0) spread 2 m; gap 84 m; zone centre (10.0, 11.0)
+[match   93.9] bots: { "roam": 12 }; containers searched by bots 0 (all players 0); plan steps done 0; guns carried 24
+[match   93.9] roles: { "rusher": { "roam": 5 }, "stalker": { "roam": 2 }, "looter": { "roam": 3 }, "sniper": { "roam": 2 } }; stuck now 0; waypoints 1304; team { "lines": 52, "pings": 0, "laser_follow": 0, "learned_cells": 98, "blocked_cells": 28, "squads": 2, "following_humans": 0, &"learned_spots": 0 }
+[match   93.9] [lootstats] bots on the ground 12 (in water 0); armed 12; armed with ammo for a gun 12; long guns 12; attachments fitted 73; rounds of unusable ammo carried 0; items on the ground 416; bot pickups { "detours": 0, "detour_taken": 0, "fetches": 0, "fetch_done": 0, "items_taken": 0 }
+[match   94.0] [botskill] normal shots 215 hits 61 reaction_avg 0.46 (n 36) dmg 1216 bots 12
+[match  105.2] Ising Batingaw (team 0) landed at (51.0, 0.0, -40.0), 12.3 m/s, health 100; teammates -
+[match  105.7] Bossing Barbecue (team 0) landed at (51.0, 0.0, -40.0), 12.3 m/s, health 100; teammates 1 m
+[match  106.3] Tsong Ramil (team 0) landed at (50.0, 5.0, -40.0), 7.0 m/s, health 100; teammates 6 m, 5 m
+[match  106.5] Bossing Dodong (team 0) landed at (57.0, 10.0, -39.0), 7.0 m/s, health 100; teammates 8 m, 12 m, 11 m
+[match  106.6] Lola Basyang (team 0) landed at (51.0, 0.0, -40.0), 12.3 m/s, health 100; teammates 4 m, 4 m, 4 m, 12 m
+[match  108.9] status: { "ground": 12 }; armed 12; shots 217; zone -1 hold r=131; corpses 0; levels { "between": 5, "L1": 7 }; server tick avg 1.96 ms, p99 13.24 ms, max 39.52 ms over 900 ticks
+[match  108.9] dm teams: West Team 6 at (52.0, -39.0) spread 6 m; East Team 6 at (1.0, -18.0) spread 14 m; gap 55 m; zone centre (10.0, 11.0)
+[match  108.9] bots: { "hunt": 7, "roam": 3, "follow": 2 }; containers searched by bots 0 (all players 0); plan steps done 0; guns carried 24
+[match  108.9] roles: { "rusher": { "hunt": 5 }, "stalker": { "hunt": 2 }, "looter": { "roam": 2, "follow": 1 }, "sniper": { "roam": 1, "follow": 1 } }; stuck now 0; waypoints 1304; team { "lines": 54, "pings": 0, "laser_follow": 0, "learned_cells": 98, "blocked_cells": 28, "squads": 4, "following_humans": 0, &"learned_spots": 0 }
+[match  108.9] [lootstats] bots on the ground 12 (in water 0); armed 12; armed with ammo for a gun 12; long guns 12; attachments fitted 73; rounds of unusable ammo carried 0; items on the ground 416; bot pickups { "detours": 0, "detour_taken": 0, "fetches": 0, "fetch_done": 0, "items_taken": 0 }
+[match  109.0] [botskill] normal shots 215 hits 61 reaction_avg 0.46 (n 36) dmg 1216 bots 12
+[match  109.3] Tita Baby (team 0) landed at (52.0, 0.0, -39.0), 12.3 m/s, health 100; teammates 6 m, 10 m, 5 m, 8 m, 10 m
+[match  111.3] Lola Basyang killed by Bossing Barbecue (gunshot); 2 teams left
+[match  111.3] alive: West Team 5, East Team 6; score { 0: 0, 1: 1 }
+[match  111.9] Ising Batingaw killed by Bossing Barbecue (gunshot); 2 teams left
+[match  111.9] alive: West Team 4, East Team 6; score { 0: 0, 1: 1 }
+[match  112.5] Aling Taho killed by Bossing Barbecue (gunshot); 2 teams left
+[match  112.5] alive: West Team 4, East Team 5; score { 0: 0, 1: 1 }
+[match  112.8] Utoy Kalabaw killed by Bossing Barbecue (gunshot); 2 teams left
+[match  112.8] alive: West Team 4, East Team 4; score { 0: 0, 1: 1 }
+[match  113.1] Bossing Barbecue killed by Kumpare Ambo (gunshot); 2 teams left
+[match  113.1] alive: West Team 3, East Team 4; score { 0: 0, 1: 1 }
+[match  114.6] Nanay Kakanin (team 1) landed at (-5.0, 0.0, -1.0), 4.9 m/s, health 100; teammates -
+[match  114.8] Tatay Kulas (team 1) landed at (24.0, 5.0, -6.0), 2.5 m/s, health 100; teammates 30 m
+[match  119.0] Tito Karaoke King (team 1) landed at (24.0, 5.0, -1.0), 2.5 m/s, health 100; teammates 3 m, 15 m
+[match  120.1] Kumpare Ambo (team 1) landed at (23.0, 0.0, -20.0), 2.1 m/s, health 100; teammates 20 m, 21 m, 24 m
+[match  120.3] Tsong Ramil killed by Kumpare Ambo (gunshot); 2 teams left
+[match  120.3] alive: West Team 2, East Team 4; score { 0: 0, 1: 1 }
+[match  120.5] [endgame] East Team mates 4 foes 2 nocontact 0s
+[match  120.6] [endgame] West Team mates 2 foes 4 nocontact 0s
+[match  120.8] [sweep] Kumpare Ambo -> cell (1, -2, 2) spot 1168 stale 57s 15 m
+[match  122.0] Bossing Dodong killed by Tito Karaoke King (gunshot); 2 teams left
+[match  122.0] alive: West Team 1, East Team 4; score { 0: 0, 1: 1 }
+[match  123.9] status: { "ground": 5 }; armed 5; shots 330; zone -1 hold r=131; corpses 7; levels { "L2": 2, "L1": 3 }; server tick avg 2.97 ms, p99 15.09 ms, max 35.58 ms over 900 ticks
+[match  123.9] dm teams: West Team 1 at (51.0, -38.0) spread 0 m; East Team 4 at (16.0, -12.0) spread 13 m; gap 43 m; zone centre (10.0, 11.0)
+[match  123.9] bots: { "hunt": 2, "investigate": 2, "follow": 1 }; containers searched by bots 0 (all players 0); plan steps done 0; guns carried 11
+[match  123.9] roles: { "rusher": { "hunt": 2 }, "sniper": { "investigate": 1 }, "looter": { "follow": 1 }, "stalker": { "investigate": 1 } }; stuck now 0; waypoints 1304; team { "lines": 75, "pings": 0, "laser_follow": 0, "learned_cells": 99, "blocked_cells": 28, "squads": 4, "following_humans": 0, &"learned_spots": 0 }
+[match  123.9] [lootstats] bots on the ground 5 (in water 0); armed 5; armed with ammo for a gun 5; long guns 6; attachments fitted 30; rounds of unusable ammo carried 0; items on the ground 414; bot pickups { "detours": 2, "detour_taken": 2, "fetches": 0, "fetch_done": 0, "items_taken": 2 }
+[match  124.0] [botskill] normal shots 328 hits 86 reaction_avg 0.40 (n 53) dmg 1743 bots 5
+[match  127.2] Tita Baby killed by Kumpare Ambo (gunshot); 1 teams left
+[match  127.2] alive: West Team 0, East Team 4; score { 0: 0, 1: 1 }
+[match  127.2] round 2 over: winner 1, scores { 0: 0, 1: 2 }
+[loadout] Tsong Ramil rifle_556 [scope_3x,mag_extquick_rifle,weapon_light] mag 40/40 | pistol_45 [sight_reflex,suppressor_light,mag_extquick_light,weapon_light] mag 12/12
+[match  131.2] Tsong Ramil respawned at (42.0, 10.0, -23.0) (nearest enemy 1000 m)
+[loadout] Tatay Kulas rifle_m762 [scope_3x,suppressor_rifle] mag 30/30 | pistol_deagle [sight_reddot,suppressor_light,mag_extquick_light] mag 10/10
+[match  131.2] Tatay Kulas respawned at (-43.0, 0.0, -27.0) (nearest enemy 86 m)
+[loadout] Lola Basyang shotgun_double [] mag 2/2 | pistol_9 [sight_reddot,suppressor_light,mag_extquick_light,weapon_light] mag 21/21
+[match  131.2] Lola Basyang respawned at (44.0, 10.0, -24.0) (nearest enemy 87 m)
+[loadout] Aling Taho lmg_m249 [sight_reddot,laser_sight,stock_heavy,weapon_light] mag 100/100 | pistol_9 [suppressor_light,mag_extquick_light,weapon_light] mag 21/21
+[match  131.2] Aling Taho respawned at (-43.0, 0.0, -29.0) (nearest enemy 86 m)
+[loadout] Ising Batingaw bolt_kar98 [scope_8x] mag 5/5 | revolver_357 [sight_reddot] mag 6/6
+[match  131.2] Ising Batingaw respawned at (42.0, 10.0, -24.0) (nearest enemy 86 m)
+[loadout] Tito Karaoke King bolt_awp [scope_6x,suppressor_rifle,mag_ext_sniper,cheek_pad] mag 8/8 | pistol_9 [sight_reddot,suppressor_light,mag_extquick_light,weapon_light] mag 21/21
+[match  131.2] Tito Karaoke King respawned at (-42.0, 0.0, -29.0) (nearest enemy 84 m)
+[loadout] Bossing Barbecue shotgun_pump [choke,weapon_light] mag 6/6 | pistol_deagle [sight_reddot,mag_extquick_light] mag 10/10
+[match  131.2] Bossing Barbecue respawned at (44.0, 10.0, -28.0) (nearest enemy 86 m)
+[loadout] Utoy Kalabaw rifle_scar [scope_night,suppressor_rifle,grip_half,mag_extquick_rifle,weapon_light] mag 40/40 | pistol_45 [sight_reflex,suppressor_light,weapon_light] mag 7/7
+[match  131.2] Utoy Kalabaw respawned at (-42.0, 0.0, -25.0) (nearest enemy 84 m)
+[loadout] Tita Baby smg_tommy [grip_thumb] mag 30/30 | revolver_357 [sight_reddot] mag 6/6
+[match  131.2] Tita Baby respawned at (45.0, 10.0, -26.0) (nearest enemy 87 m)
+[loadout] Nanay Kakanin bolt_308 [scope_6x,suppressor_rifle,cheek_pad] mag 5/5 | pistol_deagle [sight_reflex,suppressor_light,mag_extquick_light,weapon_light] mag 10/10
+[match  131.2] Nanay Kakanin respawned at (-42.0, 0.0, -27.0) (nearest enemy 84 m)
+[loadout] Bossing Dodong lmg_m249 [sight_reflex,muzzle_brake,laser_sight,stock_heavy,weapon_light] mag 100/100 | pistol_deagle [sight_reflex,suppressor_light,mag_extquick_light,weapon_light] mag 10/10
+[match  131.2] Bossing Dodong respawned at (42.0, 10.0, -29.0) (nearest enemy 84 m)
+[loadout] Kumpare Ambo machine_pistol [suppressor_light,laser_sight,mag_extquick_light,stock_heavy,weapon_light] mag 45/45 | revolver_357 [] mag 6/6
+[match  131.2] Kumpare Ambo respawned at (-40.0, 0.0, -27.0) (nearest enemy 83 m)
+[match  131.2] round 3 started; scores { 0: 0, 1: 2 }
+[match  138.9] status: { "ground": 12 }; armed 12; shots 341; zone -1 hold r=122; corpses 0; levels { "L3": 6, "L1": 6 }; server tick avg 1.99 ms, p99 16.74 ms, max 43.96 ms over 660 ticks
+[match  138.9] dm teams: West Team 6 at (49.0, -34.0) spread 4 m; East Team 6 at (-40.0, -29.0) spread 10 m; gap 90 m; zone centre (3.0, 5.0)
+[match  138.9] bots: { "follow": 2, "roam": 5, "hunt": 5 }; containers searched by bots 0 (all players 0); plan steps done 0; guns carried 24
+[match  138.9] roles: { "sniper": { "follow": 1, "roam": 3 }, "stalker": { "hunt": 4 }, "looter": { "follow": 1, "roam": 2 }, "rusher": { "hunt": 1 } }; stuck now 0; waypoints 1304; team { "lines": 79, "pings": 0, "laser_follow": 0, "learned_cells": 99, "blocked_cells": 28, "squads": 6, "following_humans": 0, &"learned_spots": 0 }
+[match  138.9] [lootstats] bots on the ground 12 (in water 0); armed 12; armed with ammo for a gun 12; long guns 12; attachments fitted 68; rounds of unusable ammo carried 0; items on the ground 414; bot pickups { "detours": 2, "detour_taken": 2, "fetches": 0, "fetch_done": 0, "items_taken": 2 }
+[match  141.5] Tita Baby (team 0) landed at (57.0, 10.0, -39.0), 7.7 m/s, health 100; teammates -
+[match  142.6] Bossing Dodong (team 0) landed at (51.0, 0.0, -40.0), 12.3 m/s, health 100; teammates 10 m
+[match  143.0] [botskill] normal shots 339 hits 88 reaction_avg 0.41 (n 55) dmg 1793 bots 12
+[match  143.4] Lola Basyang (team 0) landed at (51.0, 0.0, -40.0), 12.3 m/s, health 100; teammates 11 m, 2 m
+[match  143.7] Utoy Kalabaw (team 1) landed at (-51.0, 0.0, -40.0), 7.0 m/s, health 100; teammates -
+[match  143.8] Bossing Barbecue (team 0) landed at (50.0, 0.0, -39.0), 12.3 m/s, health 100; teammates 1 m, 11 m, 2 m
+[match  144.2] Ising Batingaw (team 0) landed at (51.0, 0.0, -39.0), 12.3 m/s, health 100; teammates 2 m, 1 m, 10 m, 4 m
+[match  144.3] Nanay Kakanin (team 1) landed at (-50.0, 0.0, -38.0), 7.7 m/s, health 100; teammates 2 m
+[match  150.2] [hold] Tatay Kulas overwatch spot 792 88s
+[match  152.7] Tsong Ramil (team 0) landed at (52.0, 5.0, -39.0), 4.9 m/s, health 100; teammates 11 m, 16 m, 5 m, 8 m, 17 m
+[match  153.9] status: { "ground": 12 }; armed 12; shots 457; zone -1 hold r=122; corpses 0; levels { "L2": 2, "L1": 8, "between": 1, "L3": 1 }; server tick avg 3.61 ms, p99 19.39 ms, max 34.55 ms over 900 ticks
+[match  153.9] dm teams: West Team 6 at (48.0, -34.0) spread 9 m; East Team 6 at (-20.0, -28.0) spread 37 m; gap 68 m; zone centre (3.0, 5.0)
+[match  153.9] bots: { "follow": 2, "order": 2, "fight": 4, "roam": 3, "hunt": 1 }; containers searched by bots 0 (all players 0); plan steps done 0; guns carried 24
+[match  153.9] roles: { "sniper": { "follow": 1, "order": 1, "roam": 1, "fight": 1 }, "stalker": { "fight": 3, "hunt": 1 }, "looter": { "follow": 1, "roam": 2 }, "rusher": { "order": 1 } }; stuck now 0; waypoints 1304; team { "lines": 86, "pings": 0, "laser_follow": 0, "learned_cells": 99, "blocked_cells": 28, "squads": 6, "following_humans": 0, &"learned_spots": 0 }
+[match  153.9] [lootstats] bots on the ground 12 (in water 0); armed 12; armed with ammo for a gun 12; long guns 12; attachments fitted 68; rounds of unusable ammo carried 0; items on the ground 414; bot pickups { "detours": 3, "detour_taken": 2, "fetches": 0, "fetch_done": 0, "items_taken": 2 }
+[match  154.1] Kumpare Ambo killed by Ising Batingaw (bleeding); 2 teams left
+[match  154.1] alive: West Team 6, East Team 5; score { 0: 0, 1: 2 }
+[match  158.0] [botskill] normal shots 459 hits 93 reaction_avg 0.42 (n 64) dmg 1892 bots 11
+[match  158.5] Tatay Kulas (team 1) landed at (0.0, 0.0, -7.0), 4.9 m/s, health 100; teammates 63 m, 57 m
+[match  162.6] Tito Karaoke King killed by Bossing Barbecue (gunshot); 2 teams left
+[match  162.6] alive: West Team 6, East Team 4; score { 0: 0, 1: 2 }
+[match  167.3] Aling Taho (team 1) landed at (-60.0, 0.0, -33.0), 2.5 m/s, health 100; teammates 60 m, 9 m, 3 m
+[match  168.9] status: { "ground": 10 }; armed 10; shots 469; zone -1 hold r=122; corpses 2; levels { "L1": 6, "between": 2, "L2": 1, "L3": 1 }; server tick avg 2.64 ms, p99 13.45 ms, max 48.88 ms over 900 ticks
+[match  168.9] dm teams: West Team 6 at (52.0, -39.0) spread 5 m; East Team 4 at (-43.0, -25.0) spread 23 m; gap 96 m; zone centre (3.0, 5.0)
+[match  168.9] bots: { "follow": 2, "investigate": 2, "order": 2, "heal": 1, "hunt": 1, "roam": 2 }; containers searched by bots 0 (all players 0); plan steps done 0; guns carried 21
+[match  168.9] roles: { "sniper": { "follow": 1, "investigate": 1, "heal": 1 }, "stalker": { "order": 2, "investigate": 1, "hunt": 1 }, "looter": { "follow": 1, "roam": 2 } }; stuck now 1; waypoints 1304; team { "lines": 103, "pings": 0, "laser_follow": 0, "learned_cells": 99, "blocked_cells": 28, "squads": 6, "following_humans": 0, &"learned_spots": 0 }
+[match  168.9] [lootstats] bots on the ground 10 (in water 0); armed 10; armed with ammo for a gun 10; long guns 11; attachments fitted 55; rounds of unusable ammo carried 0; items on the ground 412; bot pickups { "detours": 4, "detour_taken": 4, "fetches": 0, "fetch_done": 0, "items_taken": 4 }
+[match  172.8] [hold] Bossing Barbecue overwatch spot 468 90s
+[match  173.0] [botskill] normal shots 467 hits 99 reaction_avg 0.43 (n 67) dmg 2068 bots 10
+[match  183.9] status: { "ground": 10 }; armed 10; shots 469; zone -1 hold r=122; corpses 2; levels { "L1": 7, "L2": 1, "between": 2 }; server tick avg 2.20 ms, p99 17.73 ms, max 44.88 ms over 900 ticks
+[match  183.9] dm teams: West Team 6 at (51.0, -39.0) spread 6 m; East Team 4 at (-49.0, -33.0) spread 12 m; gap 100 m; zone centre (3.0, 5.0)
+[match  183.9] bots: { "follow": 2, "roam": 3, "order": 2, "investigate": 1, "overwatch": 1, "hunt": 1 }; containers searched by bots 0 (all players 0); plan steps done 0; guns carried 21
+[match  183.9] roles: { "sniper": { "follow": 1, "roam": 1, "overwatch": 1 }, "stalker": { "order": 2, "investigate": 1, "hunt": 1 }, "looter": { "follow": 1, "roam": 2 } }; stuck now 1; waypoints 1304; team { "lines": 105, "pings": 0, "laser_follow": 0, "learned_cells": 99, "blocked_cells": 29, "squads": 6, "following_humans": 0, &"learned_spots": 0 }
+[match  183.9] [lootstats] bots on the ground 10 (in water 0); armed 10; armed with ammo for a gun 10; long guns 11; attachments fitted 55; rounds of unusable ammo carried 0; items on the ground 412; bot pickups { "detours": 4, "detour_taken": 4, "fetches": 0, "fetch_done": 0, "items_taken": 4 }
+[match  188.0] [botskill] normal shots 467 hits 99 reaction_avg 0.43 (n 67) dmg 2068 bots 10
+[match  198.9] status: { "ground": 10 }; armed 10; shots 469; zone -1 hold r=122; corpses 2; levels { "L1": 7, "between": 1, "L2": 1, "L3": 1 }; server tick avg 2.13 ms, p99 16.89 ms, max 41.16 ms over 900 ticks
+[match  198.9] dm teams: West Team 6 at (50.0, -37.0) spread 6 m; East Team 4 at (-50.0, -37.0) spread 7 m; gap 100 m; zone centre (3.0, 5.0)
+[match  198.9] bots: { "follow": 2, "roam": 3, "order": 2, "investigate": 1, "overwatch": 1, "hunt": 1 }; containers searched by bots 0 (all players 0); plan steps done 0; guns carried 21
+[match  198.9] roles: { "sniper": { "follow": 1, "roam": 1, "overwatch": 1 }, "stalker": { "order": 2, "investigate": 1, "hunt": 1 }, "looter": { "follow": 1, "roam": 2 } }; stuck now 0; waypoints 1304; team { "lines": 108, "pings": 0, "laser_follow": 0, "learned_cells": 99, "blocked_cells": 29, "squads": 6, "following_humans": 0, &"learned_spots": 0 }
+[match  198.9] [lootstats] bots on the ground 10 (in water 0); armed 10; armed with ammo for a gun 10; long guns 11; attachments fitted 55; rounds of unusable ammo carried 0; items on the ground 412; bot pickups { "detours": 4, "detour_taken": 4, "fetches": 0, "fetch_done": 0, "items_taken": 4 }
+[match  203.0] [botskill] normal shots 467 hits 99 reaction_avg 0.43 (n 67) dmg 2068 bots 10
+[match  207.5] [endgame] West Team mates 6 foes 4 nocontact 45s
+[match  207.5] [sweep] Tita Baby -> cell (0, -2, 2) spot 1100 stale 106s 35 m
+[match  207.5] [sweep] Bossing Barbecue -> cell (-2, -2, 1) spot 697 stale 106s 82 m
+[match  207.7] [endgame] East Team mates 4 foes 6 nocontact 45s
+[match  207.7] [sweep] Tatay Kulas -> cell (-2, -2, 1) spot 1157 stale 107s 27 m
+[match  207.8] [sweep] Nanay Kakanin -> cell (-2, -4, 0) spot 483 stale 107s 32 m
+[match  209.6] [sweep] Utoy Kalabaw -> cell (2, -2, 0) spot 1101 stale 108s 94 m
+[match  213.9] status: { "ground": 10 }; armed 10; shots 469; zone -1 hold r=122; corpses 2; levels { "L1": 7, "L2": 2, "L3": 1 }; server tick avg 1.76 ms, p99 8.41 ms, max 38.83 ms over 900 ticks
+[match  213.9] dm teams: West Team 6 at (51.0, -39.0) spread 6 m; East Team 4 at (-46.0, -34.0) spread 6 m; gap 97 m; zone centre (3.0, 5.0)
+[match  213.9] bots: { "follow": 2, "hunt": 5, "order": 2, "investigate": 1 }; containers searched by bots 0 (all players 0); plan steps done 0; guns carried 21
+[match  213.9] roles: { "sniper": { "follow": 1, "hunt": 2 }, "stalker": { "order": 2, "investigate": 1, "hunt": 1 }, "looter": { "follow": 1, "hunt": 2 } }; stuck now 1; waypoints 1304; team { "lines": 108, "pings": 0, "laser_follow": 0, "learned_cells": 99, "blocked_cells": 29, "squads": 6, "following_humans": 0, &"learned_spots": 0 }
+[match  213.9] [lootstats] bots on the ground 10 (in water 0); armed 10; armed with ammo for a gun 10; long guns 11; attachments fitted 55; rounds of unusable ammo carried 0; items on the ground 412; bot pickups { "detours": 4, "detour_taken": 4, "fetches": 0, "fetch_done": 0, "items_taken": 4 }
+[match  218.0] [botskill] normal shots 467 hits 99 reaction_avg 0.43 (n 67) dmg 2068 bots 10
+[match  221.1] [sweep] Tita Baby -> cell (0, -3, 2) spot 964 stale 120s 36 m
+[match  225.6] [sweep] Tatay Kulas -> cell (-2, -3, 1) spot 439 stale 124s 34 m
+[match  227.0] [sweep] Nanay Kakanin -> cell (0, -3, 1) spot 963 stale 126s 36 m
+[match  228.9] status: { "ground": 10 }; armed 10; shots 469; zone -1 hold r=122; corpses 2; levels { "L1": 7, "L2": 2, "L3": 1 }; server tick avg 2.09 ms, p99 17.05 ms, max 41.66 ms over 900 ticks
+[match  228.9] dm teams: West Team 6 at (38.0, -34.0) spread 23 m; East Team 4 at (-10.0, -40.0) spread 28 m; gap 49 m; zone centre (3.0, 5.0)
+[match  228.9] bots: { "follow": 2, "hunt": 2, "order": 2, "fight": 2, "roam": 2 }; containers searched by bots 0 (all players 0); plan steps done 0; guns carried 21
+[match  228.9] roles: { "sniper": { "follow": 1, "hunt": 2 }, "stalker": { "order": 2, "fight": 2 }, "looter": { "follow": 1, "roam": 2 } }; stuck now 0; waypoints 1304; team { "lines": 111, "pings": 0, "laser_follow": 0, "learned_cells": 99, "blocked_cells": 29, "squads": 6, "following_humans": 0, &"learned_spots": 0 }
+[match  228.9] [lootstats] bots on the ground 10 (in water 0); armed 10; armed with ammo for a gun 10; long guns 11; attachments fitted 55; rounds of unusable ammo carried 0; items on the ground 412; bot pickups { "detours": 4, "detour_taken": 4, "fetches": 0, "fetch_done": 0, "items_taken": 4 }
+[match  230.3] Ising Batingaw killed by Utoy Kalabaw (gunshot); 2 teams left
+[match  230.3] alive: West Team 5, East Team 4; score { 0: 0, 1: 2 }
+[match  230.4] Utoy Kalabaw killed by Tsong Ramil (gunshot); 2 teams left
+[match  230.4] alive: West Team 5, East Team 3; score { 0: 0, 1: 2 }
+[match  233.0] [botskill] normal shots 494 hits 108 reaction_avg 0.43 (n 71) dmg 2286 bots 8
+[match  243.9] status: { "ground": 8 }; armed 8; shots 509; zone -1 hold r=122; corpses 4; levels { "L1": 6, "L2": 1, "L3": 1 }; server tick avg 2.09 ms, p99 16.95 ms, max 38.26 ms over 900 ticks
+[match  243.9] dm teams: West Team 5 at (24.0, -37.0) spread 32 m; East Team 3 at (-40.0, -26.0) spread 27 m; gap 64 m; zone centre (3.0, 5.0)
+[match  243.9] bots: { "roam": 3, "investigate": 2, "order": 2, "hunt": 1 }; containers searched by bots 0 (all players 0); plan steps done 0; guns carried 17
+[match  243.9] roles: { "sniper": { "roam": 2, "investigate": 1 }, "stalker": { "order": 1, "hunt": 1 }, "looter": { "roam": 1, "order": 1, "investigate": 1 } }; stuck now 1; waypoints 1304; team { "lines": 124, "pings": 0, "laser_follow": 0, "learned_cells": 99, "blocked_cells": 29, "squads": 6, "following_humans": 0, &"learned_spots": 0 }
+[match  243.9] [lootstats] bots on the ground 8 (in water 0); armed 8; armed with ammo for a gun 8; long guns 9; attachments fitted 45; rounds of unusable ammo carried 0; items on the ground 412; bot pickups { "detours": 4, "detour_taken": 4, "fetches": 0, "fetch_done": 0, "items_taken": 4 }
+[match  245.1] Bossing Barbecue killed by Tatay Kulas (gunshot); 2 teams left
+[match  245.1] alive: West Team 4, East Team 3; score { 0: 0, 1: 2 }
+[match  245.3] [hold] Aling Taho camp spot 233 57s
+[match  248.0] [botskill] normal shots 508 hits 112 reaction_avg 0.44 (n 75) dmg 2412 bots 7
+[match  258.9] status: { "ground": 7 }; armed 7; shots 511; zone -1 hold r=122; corpses 5; levels { "L1": 3, "between": 2, "L3": 1, "L2": 1 }; server tick avg 1.60 ms, p99 13.82 ms, max 31.31 ms over 900 ticks
+[match  258.9] dm teams: West Team 4 at (45.0, -34.0) spread 6 m; East Team 3 at (-38.0, -25.0) spread 29 m; gap 83 m; zone centre (3.0, 5.0)
+[match  258.9] bots: { "roam": 4, "hunt": 2, "camp": 1 }; containers searched by bots 0 (all players 0); plan steps done 0; guns carried 15
+[match  258.9] roles: { "sniper": { "roam": 2 }, "stalker": { "hunt": 2 }, "looter": { "camp": 1, "roam": 2 } }; stuck now 1; waypoints 1304; team { "lines": 128, "pings": 0, "laser_follow": 0, "learned_cells": 99, "blocked_cells": 29, "squads": 6, "following_humans": 0, &"learned_spots": 0 }
+[match  258.9] [lootstats] bots on the ground 7 (in water 0); armed 7; armed with ammo for a gun 7; long guns 8; attachments fitted 41; rounds of unusable ammo carried 0; items on the ground 412; bot pickups { "detours": 4, "detour_taken": 4, "fetches": 0, "fetch_done": 0, "items_taken": 4 }
+[match  263.0] [botskill] normal shots 508 hits 112 reaction_avg 0.44 (n 75) dmg 2412 bots 7
+[match  273.9] status: { "ground": 7 }; armed 7; shots 511; zone -1 hold r=122; corpses 5; levels { "between": 3, "L1": 2, "L3": 1, "L2": 1 }; server tick avg 1.40 ms, p99 8.71 ms, max 23.98 ms over 900 ticks
+[match  273.9] dm teams: West Team 4 at (24.0, -32.0) spread 32 m; East Team 3 at (-37.0, -28.0) spread 29 m; gap 62 m; zone centre (3.0, 5.0)
+[match  273.9] bots: { "roam": 4, "hunt": 2, "camp": 1 }; containers searched by bots 0 (all players 0); plan steps done 0; guns carried 16
+[match  273.9] roles: { "sniper": { "roam": 2 }, "stalker": { "hunt": 2 }, "looter": { "camp": 1, "roam": 2 } }; stuck now 1; waypoints 1304; team { "lines": 128, "pings": 0, "laser_follow": 0, "learned_cells": 99, "blocked_cells": 29, "squads": 6, "following_humans": 0, &"learned_spots": 0 }
+[match  273.9] [lootstats] bots on the ground 7 (in water 0); armed 7; armed with ammo for a gun 7; long guns 9; attachments fitted 41; rounds of unusable ammo carried 0; items on the ground 411; bot pickups { "detours": 5, "detour_taken": 5, "fetches": 0, "fetch_done": 0, "items_taken": 5 }
+[match  278.0] [botskill] normal shots 508 hits 112 reaction_avg 0.44 (n 75) dmg 2412 bots 7
+[match  280.0] [hold] Tita Baby camp spot 210 46s
+[match  288.9] status: { "ground": 7 }; armed 7; shots 511; zone -1 hold r=122; corpses 5; levels { "L1": 3, "between": 2, "L3": 1, "L2": 1 }; server tick avg 1.35 ms, p99 7.03 ms, max 27.32 ms over 900 ticks
+[match  288.9] dm teams: West Team 4 at (15.0, -24.0) spread 29 m; East Team 3 at (-37.0, -29.0) spread 30 m; gap 53 m; zone centre (3.0, 5.0)
+[match  288.9] bots: { "roam": 3, "hunt": 2, "camp": 2 }; containers searched by bots 0 (all players 0); plan steps done 0; guns carried 16
+[match  288.9] roles: { "sniper": { "roam": 2 }, "stalker": { "hunt": 2 }, "looter": { "camp": 2, "roam": 1 } }; stuck now 0; waypoints 1304; team { "lines": 128, "pings": 0, "laser_follow": 0, "learned_cells": 99, "blocked_cells": 29, "squads": 6, "following_humans": 0, &"learned_spots": 0 }
+[match  288.9] [lootstats] bots on the ground 7 (in water 0); armed 7; armed with ammo for a gun 7; long guns 9; attachments fitted 41; rounds of unusable ammo carried 0; items on the ground 411; bot pickups { "detours": 5, "detour_taken": 5, "fetches": 0, "fetch_done": 0, "items_taken": 5 }
+[match  290.1] [endgame] East Team mates 3 foes 4 nocontact 45s
+[match  290.1] [sweep] Aling Taho -> cell (0, -1, 2) spot 162 stale 189s 25 m
+[match  290.1] [sweep] Tatay Kulas -> cell (-2, -2, 1) spot 697 stale 189s 32 m
+[match  290.1] [endgame] West Team mates 4 foes 3 nocontact 45s
+[match  290.1] [sweep] Tsong Ramil -> cell (-2, -2, 0) spot 1153 stale 189s 68 m
+[match  290.4] [sweep] Tita Baby -> cell (-3, -2, 2) spot 1063 stale 189s 50 m
+[match  293.0] [botskill] normal shots 508 hits 112 reaction_avg 0.44 (n 75) dmg 2412 bots 7
+[match  293.4] [sweep] Lola Basyang -> cell (0, -1, 0) spot 1201 stale 192s 22 m
+[match  299.6] Aling Taho killed by Bossing Dodong (bleeding); 2 teams left
+[match  299.6] alive: West Team 4, East Team 2; score { 0: 0, 1: 2 }
+[match  303.9] status: { "ground": 6 }; armed 6; shots 561; zone -1 hold r=122; corpses 6; levels { "L1": 3, "between": 1, "L3": 1, "L2": 1 }; server tick avg 2.39 ms, p99 12.03 ms, max 41.18 ms over 900 ticks
+[match  303.9] dm teams: West Team 4 at (-2.0, -23.0) spread 12 m; East Team 2 at (-52.0, -38.0) spread 6 m; gap 52 m; zone centre (3.0, 5.0)
+[match  303.9] bots: { "hunt": 6 }; containers searched by bots 0 (all players 0); plan steps done 0; guns carried 15
+[match  303.9] roles: { "sniper": { "hunt": 2 }, "stalker": { "hunt": 2 }, "looter": { "hunt": 2 } }; stuck now 0; waypoints 1304; team { "lines": 137, "pings": 0, "laser_follow": 0, "learned_cells": 99, "blocked_cells": 29, "squads": 6, "following_humans": 0, &"learned_spots": 0 }
+[match  303.9] [lootstats] bots on the ground 6 (in water 0); armed 6; armed with ammo for a gun 6; long guns 9; attachments fitted 34; rounds of unusable ammo carried 0; items on the ground 410; bot pickups { "detours": 6, "detour_taken": 6, "fetches": 0, "fetch_done": 0, "items_taken": 6 }
+[match  306.5] Nanay Kakanin killed by Tsong Ramil (gunshot); 2 teams left
+[match  306.5] alive: West Team 4, East Team 1; score { 0: 0, 1: 2 }
+[match  308.0] [botskill] normal shots 569 hits 119 reaction_avg 0.45 (n 81) dmg 2673 bots 5
+[match  317.1] [sweep] Tsong Ramil -> cell (-4, -2, 2) spot 472 stale 216s 12 m
+[match  318.9] status: { "ground": 5 }; armed 5; shots 572; zone -1 hold r=122; corpses 7; levels { "L1": 2, "between": 1, "L2": 2 }; server tick avg 1.42 ms, p99 6.91 ms, max 18.98 ms over 900 ticks
+[match  318.9] dm teams: West Team 4 at (-8.0, -22.0) spread 26 m; East Team 1 at (-52.0, -42.0) spread 0 m; gap 48 m; zone centre (3.0, 5.0)
+[match  318.9] bots: { "hunt": 4, "investigate": 1 }; containers searched by bots 0 (all players 0); plan steps done 0; guns carried 13
+[match  318.9] roles: { "sniper": { "hunt": 1, "investigate": 1 }, "stalker": { "hunt": 2 }, "looter": { "hunt": 1 } }; stuck now 0; waypoints 1304; team { "lines": 143, "pings": 0, "laser_follow": 0, "learned_cells": 99, "blocked_cells": 29, "squads": 6, "following_humans": 0, &"learned_spots": 0 }
+[match  318.9] [lootstats] bots on the ground 5 (in water 0); armed 5; armed with ammo for a gun 5; long guns 8; attachments fitted 27; rounds of unusable ammo carried 0; items on the ground 410; bot pickups { "detours": 6, "detour_taken": 6, "fetches": 0, "fetch_done": 0, "items_taken": 6 }
+[match  323.0] [botskill] normal shots 569 hits 119 reaction_avg 0.45 (n 81) dmg 2673 bots 5
+[match  329.5] Tatay Kulas killed by Tsong Ramil (gunshot); 1 teams left
+[match  329.5] alive: West Team 4, East Team 0; score { 0: 0, 1: 2 }
+[match  329.6] round 3 over: winner 0, scores { 0: 1, 1: 2 }
+[loadout] Tsong Ramil rifle_m416 [scope_night,suppressor_rifle,grip_thumb,mag_extquick_rifle] mag 40/40 | pistol_deagle [sight_reddot,suppressor_light,weapon_light] mag 7/7
+[match  333.6] Tsong Ramil respawned at (45.0, 10.0, -26.0) (nearest enemy 1000 m)
+[loadout] Tatay Kulas rifle_m416 [scope_3x,grip_thumb,mag_extquick_rifle,stock_heavy,weapon_light] mag 40/40 | pistol_deagle [sight_reddot,suppressor_light,weapon_light] mag 7/7
+[match  333.6] Tatay Kulas respawned at (-43.0, 0.0, -29.0) (nearest enemy 89 m)
+[loadout] Lola Basyang rifle_762 [scope_3x,suppressor_rifle,mag_extquick_rifle] mag 40/40 | pistol_deagle [mag_extquick_light,weapon_light] mag 10/10
+[match  333.6] Lola Basyang respawned at (44.0, 10.0, -26.0) (nearest enemy 87 m)
+[loadout] Aling Taho lmg_m249 [sight_reddot,muzzle_brake,laser_sight,stock_heavy] mag 100/100 | pistol_45 [sight_reflex,suppressor_light,mag_extquick_light] mag 12/12
+[match  333.6] Aling Taho respawned at (-42.0, 0.0, -29.0) (nearest enemy 86 m)
+[loadout] Ising Batingaw lmg_m249 [sight_reddot,muzzle_brake,laser_sight,stock_heavy] mag 100/100 | pistol_9 [sight_reddot,suppressor_light,mag_extquick_light,weapon_light] mag 21/21
+[match  333.6] Ising Batingaw respawned at (42.0, 10.0, -23.0) (nearest enemy 84 m)
+[loadout] Tito Karaoke King smg_vector [sight_holo,grip_angled,mag_extquick_light,weapon_light] mag 33/33 | pistol_45 [mag_extquick_light,weapon_light] mag 12/12
+[match  333.6] Tito Karaoke King respawned at (-40.0, 0.0, -29.0) (nearest enemy 83 m)
+[loadout] Bossing Barbecue dmr_sks [suppressor_rifle,mag_ext_sniper,cheek_pad] mag 20/20 | revolver_357 [sight_reddot] mag 6/6
+[match  333.6] Bossing Barbecue respawned at (44.0, 10.0, -28.0) (nearest enemy 84 m)
+[loadout] Utoy Kalabaw lmg_m249 [sight_reddot,muzzle_brake,stock_heavy,weapon_light] mag 100/100 | pistol_deagle [sight_reflex,suppressor_light,mag_extquick_light,weapon_light] mag 10/10
+[match  333.6] Utoy Kalabaw respawned at (-43.0, 0.0, -27.0) (nearest enemy 86 m)
+[loadout] Tita Baby machine_pistol [sight_reddot,suppressor_light,laser_sight,mag_extquick_light,stock_heavy,weapon_light] mag 45/45 | pistol_deagle [sight_reddot,suppressor_light,mag_extquick_light,weapon_light] mag 10/10
+[match  333.6] Tita Baby respawned at (44.0, 10.0, -24.0) (nearest enemy 84 m)
+[loadout] Nanay Kakanin dmr_sks [scope_thermal,suppressor_rifle] mag 10/10 | pistol_9 [sight_reddot,suppressor_light,mag_extquick_light,weapon_light] mag 21/21
+[match  333.6] Nanay Kakanin respawned at (-42.0, 0.0, -27.0) (nearest enemy 84 m)
+[loadout] Bossing Dodong smg_vector [sight_holo,suppressor_light,grip_thumb,stock_tactical,weapon_light] mag 19/19 | pistol_45 [sight_reflex,mag_extquick_light] mag 12/12
+[match  333.6] Bossing Dodong respawned at (42.0, 10.0, -26.0) (nearest enemy 83 m)
+[loadout] Kumpare Ambo rifle_762 [scope_3x,laser_sight,mag_extquick_rifle] mag 40/40 | pistol_45 [mag_extquick_light] mag 12/12
+[match  333.6] Kumpare Ambo respawned at (-42.0, 0.0, -25.0) (nearest enemy 84 m)
+[match  333.6] round 4 started; scores { 0: 1, 1: 2 }
+[match  333.9] status: { "ground": 12 }; armed 12; shots 587; zone -1 hold r=119; corpses 0; levels { "L3": 6, "L1": 6 }; server tick avg 1.18 ms, p99 8.14 ms, max 22.48 ms over 660 ticks
+[match  333.9] dm teams: West Team 6 at (43.0, -25.0) spread 2 m; East Team 6 at (-42.0, -28.0) spread 2 m; gap 86 m; zone centre (-2.0, -2.0)
+[match  333.9] bots: { "roam": 12 }; containers searched by bots 0 (all players 0); plan steps done 0; guns carried 24
+[match  333.9] roles: { "rusher": { "roam": 3 }, "sniper": { "roam": 2 }, "stalker": { "roam": 5 }, "looter": { "roam": 2 } }; stuck now 0; waypoints 1304; team { "lines": 148, "pings": 0, "laser_follow": 0, "learned_cells": 99, "blocked_cells": 29, "squads": 6, "following_humans": 0, &"learned_spots": 0 }
+[match  333.9] [lootstats] bots on the ground 12 (in water 0); armed 12; armed with ammo for a gun 12; long guns 12; attachments fitted 80; rounds of unusable ammo carried 0; items on the ground 410; bot pickups { "detours": 6, "detour_taken": 6, "fetches": 0, "fetch_done": 0, "items_taken": 6 }
+[match  342.0] [botskill] normal shots 583 hits 125 reaction_avg 0.45 (n 83) dmg 2794 bots 12
+[match  344.9] Lola Basyang (team 0) landed at (51.0, 0.0, -40.0), 12.3 m/s, health 100; teammates -
+[match  345.0] Bossing Dodong (team 0) landed at (51.0, 2.0, -40.0), 10.3 m/s, health 100; teammates 2 m
+[match  345.6] Tito Karaoke King (team 1) landed at (-51.0, 0.0, -40.0), 7.0 m/s, health 100; teammates -
+[match  345.9] Tsong Ramil (team 0) landed at (51.0, 0.0, -40.0), 12.3 m/s, health 100; teammates 3 m, 2 m
+[match  346.3] Tita Baby (team 0) landed at (56.0, 10.0, -37.0), 8.3 m/s, health 100; teammates 11 m, 13 m, 10 m
+[match  346.3] Utoy Kalabaw (team 1) landed at (-50.0, 0.0, -39.0), 7.7 m/s, health 100; teammates 2 m
+[match  346.4] Bossing Barbecue (team 0) landed at (51.0, 0.0, -39.0), 12.3 m/s, health 100; teammates 1 m, 6 m, 12 m, 4 m
+[match  346.5] Nanay Kakanin (team 1) landed at (-51.0, 0.0, -40.0), 7.0 m/s, health 100; teammates 3 m, 1 m
+[match  346.8] Ising Batingaw (team 0) landed at (56.0, 0.0, -43.0), 14.2 m/s, health 100; teammates 7 m, 2 m, 7 m, 12 m, 6 m
+[match  348.2] [hold] Kumpare Ambo camp spot 233 44s
+[match  348.9] status: { "ground": 12 }; armed 12; shots 587; zone -1 hold r=119; corpses 0; levels { "L1": 10, "between": 2 }; server tick avg 2.18 ms, p99 16.89 ms, max 47.63 ms over 900 ticks
+[match  348.9] dm teams: West Team 6 at (52.0, -38.0) spread 6 m; East Team 6 at (-39.0, -28.0) spread 27 m; gap 91 m; zone centre (-2.0, -2.0)
+[match  348.9] bots: { "hunt": 6, "roam": 3, "follow": 1, "heal": 1, "camp": 1 }; containers searched by bots 0 (all players 0); plan steps done 0; guns carried 24
+[match  348.9] roles: { "rusher": { "hunt": 3 }, "sniper": { "roam": 2 }, "stalker": { "hunt": 3, "follow": 1, "heal": 1 }, "looter": { "roam": 1, "camp": 1 } }; stuck now 0; waypoints 1304; team { "lines": 151, "pings": 0, "laser_follow": 0, "learned_cells": 99, "blocked_cells": 29, "squads": 8, "following_humans": 0, &"learned_spots": 0 }
+[match  348.9] [lootstats] bots on the ground 12 (in water 0); armed 12; armed with ammo for a gun 12; long guns 12; attachments fitted 80; rounds of unusable ammo carried 0; items on the ground 410; bot pickups { "detours": 6, "detour_taken": 6, "fetches": 0, "fetch_done": 0, "items_taken": 6 }
+[match  352.5] [hold] Tatay Kulas overwatch spot 792 82s
+[match  355.5] Aling Taho (team 1) landed at (-59.0, 0.0, -4.0), 4.9 m/s, health 100; teammates 39 m, 33 m, 31 m
+[match  357.0] [botskill] normal shots 598 hits 128 reaction_avg 0.45 (n 88) dmg 2824 bots 12
+[match  358.7] Tatay Kulas killed by Tsong Ramil (gunshot); 2 teams left
+[match  358.7] alive: West Team 6, East Team 5; score { 0: 1, 1: 2 }
+[match  363.9] status: { "ground": 11 }; armed 11; shots 636; zone -1 hold r=119; corpses 1; levels { "L1": 10, "between": 1 }; server tick avg 2.77 ms, p99 14.41 ms, max 35.66 ms over 900 ticks
+[match  363.9] dm teams: West Team 6 at (26.0, -26.0) spread 21 m; East Team 5 at (-31.0, -28.0) spread 20 m; gap 57 m; zone centre (-2.0, -2.0)
+[match  363.9] bots: { "fight": 5, "follow": 1, "hunt": 2, "roam": 2, "order": 1 }; containers searched by bots 0 (all players 0); plan steps done 0; guns carried 22
+[match  363.9] roles: { "rusher": { "fight": 3 }, "stalker": { "fight": 2, "follow": 1, "hunt": 2 }, "sniper": { "roam": 1 }, "looter": { "roam": 1, "order": 1 } }; stuck now 0; waypoints 1304; team { "lines": 165, "pings": 0, "laser_follow": 0, "learned_cells": 99, "blocked_cells": 30, "squads": 8, "following_humans": 0, &"learned_spots": 0 }
+[match  363.9] [lootstats] bots on the ground 11 (in water 0); armed 11; armed with ammo for a gun 11; long guns 11; attachments fitted 72; rounds of unusable ammo carried 0; items on the ground 410; bot pickups { "detours": 6, "detour_taken": 6, "fetches": 0, "fetch_done": 0, "items_taken": 6 }
+[match  364.3] Bossing Dodong killed by Utoy Kalabaw (gunshot); 2 teams left
+[match  364.3] alive: West Team 5, East Team 5; score { 0: 1, 1: 2 }
+[match  367.2] Utoy Kalabaw killed by Ising Batingaw (gunshot); 2 teams left
+[match  367.2] alive: West Team 5, East Team 4; score { 0: 1, 1: 2 }
+[match  368.9] Kumpare Ambo (team 1) landed at (0.0, 0.0, -1.0), 4.9 m/s, health 100; teammates 35 m, 67 m, 60 m
+[match  371.0] Tsong Ramil killed by Kumpare Ambo (bleeding); 2 teams left
+[match  371.0] alive: West Team 4, East Team 4; score { 0: 1, 1: 2 }
+[match  371.0] Kumpare Ambo killed by Tsong Ramil (gunshot); 2 teams left
+[match  371.0] alive: West Team 4, East Team 3; score { 0: 1, 1: 2 }
+[match  372.0] [botskill] normal shots 867 hits 162 reaction_avg 0.40 (n 120) dmg 3396 bots 7
+[match  378.9] status: { "ground": 7 }; armed 7; shots 872; zone -1 hold r=119; corpses 5; levels { "L1": 7 }; server tick avg 4.02 ms, p99 18.14 ms, max 54.63 ms over 900 ticks
+[match  378.9] dm teams: West Team 4 at (38.0, -29.0) spread 17 m; East Team 3 at (-40.0, -35.0) spread 18 m; gap 79 m; zone centre (-2.0, -2.0)
+[match  378.9] bots: { "hunt": 5, "roam": 2 }; containers searched by bots 0 (all players 0); plan steps done 0; guns carried 14
+[match  378.9] roles: { "stalker": { "hunt": 5 }, "sniper": { "roam": 1 }, "looter": { "roam": 1 } }; stuck now 0; waypoints 1304; team { "lines": 183, "pings": 0, "laser_follow": 0, "learned_cells": 99, "blocked_cells": 30, "squads": 8, "following_humans": 0, &"learned_spots": 0 }
+[match  378.9] [lootstats] bots on the ground 7 (in water 0); armed 7; armed with ammo for a gun 7; long guns 7; attachments fitted 46; rounds of unusable ammo carried 0; items on the ground 410; bot pickups { "detours": 6, "detour_taken": 6, "fetches": 0, "fetch_done": 0, "items_taken": 6 }
+[match  387.0] [botskill] normal shots 867 hits 162 reaction_avg 0.40 (n 120) dmg 3396 bots 7
+[match  393.9] status: { "ground": 7 }; armed 7; shots 941; zone -1 hold r=119; corpses 5; levels { "L1": 7 }; server tick avg 2.14 ms, p99 14.36 ms, max 48.15 ms over 900 ticks
+[match  393.9] dm teams: West Team 4 at (39.0, -29.0) spread 17 m; East Team 3 at (-36.0, -36.0) spread 25 m; gap 76 m; zone centre (-2.0, -2.0)
+[match  393.9] bots: { "fight": 2, "order": 2, "hunt": 2, "roam": 1 }; containers searched by bots 0 (all players 0); plan steps done 0; guns carried 14
+[match  393.9] roles: { "stalker": { "fight": 2, "order": 1, "hunt": 2 }, "sniper": { "order": 1 }, "looter": { "roam": 1 } }; stuck now 0; waypoints 1304; team { "lines": 190, "pings": 0, "laser_follow": 0, "learned_cells": 99, "blocked_cells": 31, "squads": 8, "following_humans": 0, &"learned_spots": 0 }
+[match  393.9] [lootstats] bots on the ground 7 (in water 0); armed 7; armed with ammo for a gun 7; long guns 7; attachments fitted 46; rounds of unusable ammo carried 0; items on the ground 410; bot pickups { "detours": 6, "detour_taken": 6, "fetches": 0, "fetch_done": 0, "items_taken": 6 }
+[match  400.8] Lola Basyang killed by Nanay Kakanin (gunshot); 2 teams left
+[match  400.8] alive: West Team 3, East Team 3; score { 0: 1, 1: 2 }
+[match  402.0] [botskill] normal shots 1059 hits 168 reaction_avg 0.41 (n 127) dmg 3525 bots 6
+[match  408.9] status: { "ground": 6 }; armed 6; shots 1064; zone -1 hold r=119; corpses 6; levels { "L1": 5, "between": 1 }; server tick avg 2.70 ms, p99 7.87 ms, max 38.52 ms over 900 ticks
+[match  408.9] dm teams: West Team 3 at (44.0, -32.0) spread 16 m; East Team 3 at (-4.0, -26.0) spread 3 m; gap 49 m; zone centre (-2.0, -2.0)
+[match  408.9] bots: { "hunt": 1, "order": 3, "roam": 2 }; containers searched by bots 0 (all players 0); plan steps done 0; guns carried 12
+[match  408.9] roles: { "stalker": { "hunt": 1, "order": 3 }, "sniper": { "roam": 1 }, "looter": { "roam": 1 } }; stuck now 0; waypoints 1304; team { "lines": 199, "pings": 0, "laser_follow": 0, "learned_cells": 99, "blocked_cells": 31, "squads": 8, "following_humans": 0, &"learned_spots": 0 }
+[match  408.9] [lootstats] bots on the ground 6 (in water 0); armed 6; armed with ammo for a gun 6; long guns 6; attachments fitted 41; rounds of unusable ammo carried 0; items on the ground 410; bot pickups { "detours": 6, "detour_taken": 6, "fetches": 0, "fetch_done": 0, "items_taken": 6 }
+[match  417.0] [botskill] normal shots 1059 hits 168 reaction_avg 0.41 (n 127) dmg 3525 bots 6
+[match  423.9] status: { "ground": 6 }; armed 6; shots 1064; zone -1 hold r=119; corpses 6; levels { "L1": 5, "between": 1 }; server tick avg 1.30 ms, p99 4.40 ms, max 38.48 ms over 900 ticks
+[match  423.9] dm teams: West Team 3 at (45.0, -32.0) spread 20 m; East Team 3 at (0.0, -26.0) spread 7 m; gap 45 m; zone centre (-2.0, -2.0)
+[match  423.9] bots: { "hunt": 2, "order": 2, "roam": 2 }; containers searched by bots 0 (all players 0); plan steps done 0; guns carried 12
+[match  423.9] roles: { "stalker": { "hunt": 2, "order": 2 }, "sniper": { "roam": 1 }, "looter": { "roam": 1 } }; stuck now 0; waypoints 1304; team { "lines": 199, "pings": 0, "laser_follow": 0, "learned_cells": 99, "blocked_cells": 31, "squads": 8, "following_humans": 0, &"learned_spots": 0 }
+[match  423.9] [lootstats] bots on the ground 6 (in water 0); armed 6; armed with ammo for a gun 6; long guns 6; attachments fitted 41; rounds of unusable ammo carried 0; items on the ground 410; bot pickups { "detours": 6, "detour_taken": 6, "fetches": 0, "fetch_done": 0, "items_taken": 6 }
+[match  432.0] [botskill] normal shots 1059 hits 168 reaction_avg 0.41 (n 127) dmg 3525 bots 6
+[match  433.6] Aling Taho killed by Ising Batingaw (gunshot); 2 teams left
+[match  433.6] alive: West Team 3, East Team 2; score { 0: 1, 1: 2 }
+[match  433.9] [endgame] West Team mates 3 foes 2 nocontact 0s
+[match  434.0] [endgame] East Team mates 2 foes 3 nocontact 0s
+[match  438.9] status: { "ground": 5 }; armed 5; shots 1096; zone -1 hold r=119; corpses 7; levels { "L1": 5 }; server tick avg 1.71 ms, p99 7.29 ms, max 32.94 ms over 900 ticks
+[match  438.9] dm teams: West Team 3 at (36.0, -21.0) spread 11 m; East Team 2 at (-19.0, -29.0) spread 4 m; gap 56 m; zone centre (-2.0, -2.0)
+[match  438.9] bots: { "hunt": 3, "investigate": 2 }; containers searched by bots 0 (all players 0); plan steps done 0; guns carried 10
+[match  438.9] roles: { "stalker": { "hunt": 1, "investigate": 2 }, "sniper": { "hunt": 1 }, "looter": { "hunt": 1 } }; stuck now 0; waypoints 1304; team { "lines": 206, "pings": 0, "laser_follow": 0, "learned_cells": 100, "blocked_cells": 31, "squads": 8, "following_humans": 0, &"learned_spots": 0 }
+[match  438.9] [lootstats] bots on the ground 5 (in water 0); armed 5; armed with ammo for a gun 5; long guns 5; attachments fitted 34; rounds of unusable ammo carried 0; items on the ground 410; bot pickups { "detours": 6, "detour_taken": 6, "fetches": 0, "fetch_done": 0, "items_taken": 6 }
+[match  447.0] [botskill] normal shots 1090 hits 173 reaction_avg 0.41 (n 129) dmg 3621 bots 5
+[match  451.0] [sweep] Ising Batingaw -> cell (1, -2, 2) spot 1167 stale 147s 11 m
+[match  451.3] [sweep] Bossing Barbecue -> cell (1, -2, 1) spot 1194 stale 148s 8 m
+[match  451.7] [sweep] Tita Baby -> cell (1, -4, 0) spot 501 stale 148s 34 m
+[match  453.9] status: { "ground": 5 }; armed 5; shots 1096; zone -1 hold r=119; corpses 7; levels { "L1": 5 }; server tick avg 1.19 ms, p99 5.34 ms, max 17.49 ms over 900 ticks
+[match  453.9] dm teams: West Team 3 at (24.0, -28.0) spread 5 m; East Team 2 at (-55.0, -38.0) spread 4 m; gap 79 m; zone centre (-2.0, -2.0)
+[match  453.9] bots: { "hunt": 5 }; containers searched by bots 0 (all players 0); plan steps done 0; guns carried 10
+[match  453.9] roles: { "stalker": { "hunt": 3 }, "sniper": { "hunt": 1 }, "looter": { "hunt": 1 } }; stuck now 0; waypoints 1304; team { "lines": 207, "pings": 0, "laser_follow": 0, "learned_cells": 100, "blocked_cells": 31, "squads": 8, "following_humans": 0, &"learned_spots": 0 }
+[match  453.9] [lootstats] bots on the ground 5 (in water 0); armed 5; armed with ammo for a gun 5; long guns 5; attachments fitted 34; rounds of unusable ammo carried 0; items on the ground 410; bot pickups { "detours": 6, "detour_taken": 6, "fetches": 0, "fetch_done": 0, "items_taken": 6 }
+[match  462.0] [botskill] normal shots 1090 hits 173 reaction_avg 0.41 (n 129) dmg 3621 bots 5
+[match  462.2] [sweep] Ising Batingaw -> cell (1, -2, 1) spot 1183 stale 159s 8 m
+[match  463.6] [sweep] Bossing Barbecue -> cell (-2, -1, 0) spot 706 stale 160s 44 m
+[match  463.7] [sweep] Tita Baby -> cell (-3, -3, 0) spot 1117 stale 160s 72 m
+[match  464.6] [sweep] Tito Karaoke King -> cell (-4, -3, 1) spot 270 stale 161s 6 m
+[match  468.9] status: { "ground": 5 }; armed 5; shots 1096; zone -1 hold r=119; corpses 7; levels { "L1": 4, "between": 1 }; server tick avg 1.29 ms, p99 7.20 ms, max 22.23 ms over 900 ticks
+[match  468.9] dm teams: West Team 3 at (11.0, -27.0) spread 17 m; East Team 2 at (-54.0, -40.0) spread 2 m; gap 67 m; zone centre (-2.0, -2.0)
+[match  468.9] bots: { "hunt": 5 }; containers searched by bots 0 (all players 0); plan steps done 0; guns carried 10
+[match  468.9] roles: { "stalker": { "hunt": 3 }, "sniper": { "hunt": 1 }, "looter": { "hunt": 1 } }; stuck now 0; waypoints 1304; team { "lines": 207, "pings": 0, "laser_follow": 0, "learned_cells": 100, "blocked_cells": 31, "squads": 8, "following_humans": 0, &"learned_spots": 0 }
+[match  468.9] [lootstats] bots on the ground 5 (in water 0); armed 5; armed with ammo for a gun 5; long guns 5; attachments fitted 34; rounds of unusable ammo carried 0; items on the ground 410; bot pickups { "detours": 6, "detour_taken": 6, "fetches": 0, "fetch_done": 0, "items_taken": 6 }
+[match  475.8] [hold] Bossing Barbecue overwatch spot 706 16s (endgame)
+[match  476.4] [sweep] Tito Karaoke King -> cell (-2, -2, 1) spot 885 stale 173s 31 m
+[match  476.4] [sweep] Nanay Kakanin -> cell (2, -2, 0) spot 1101 stale 173s 96 m
+[match  477.0] [botskill] normal shots 1090 hits 173 reaction_avg 0.41 (n 129) dmg 3621 bots 5
+[match  478.2] [sweep] Ising Batingaw -> cell (-2, -2, 1) spot 658 stale 175s 66 m
+[match  480.3] [sweep] Tita Baby -> cell (-4, -3, 1) spot 270 stale 177s 15 m
+[match  483.9] status: { "ground": 5 }; armed 5; shots 1096; zone -1 hold r=119; corpses 7; levels { "between": 1, "L2": 1, "L1": 3 }; server tick avg 1.58 ms, p99 12.38 ms, max 110.08 ms over 900 ticks
+[match  483.9] dm teams: West Team 3 at (1.0, -34.0) spread 38 m; East Team 2 at (-35.0, -31.0) spread 9 m; gap 37 m; zone centre (-2.0, -2.0)
+[match  483.9] bots: { "hunt": 3, "overwatch": 1, "fight": 1 }; containers searched by bots 0 (all players 0); plan steps done 0; guns carried 10
+[match  483.9] roles: { "stalker": { "hunt": 2, "fight": 1 }, "sniper": { "overwatch": 1 }, "looter": { "hunt": 1 } }; stuck now 0; waypoints 1304; team { "lines": 208, "pings": 0, "laser_follow": 0, "learned_cells": 100, "blocked_cells": 31, "squads": 8, "following_humans": 0, &"learned_spots": 0 }
+[match  483.9] [lootstats] bots on the ground 5 (in water 0); armed 5; armed with ammo for a gun 5; long guns 5; attachments fitted 34; rounds of unusable ammo carried 0; items on the ground 410; bot pickups { "detours": 6, "detour_taken": 6, "fetches": 0, "fetch_done": 0, "items_taken": 6 }
+[match  485.6] Bossing Barbecue killed by Nanay Kakanin (gunshot); 2 teams left
+[match  485.6] alive: West Team 2, East Team 2; score { 0: 1, 1: 2 }
+[match  492.0] [botskill] normal shots 1095 hits 177 reaction_avg 0.41 (n 130) dmg 3726 bots 4
+[match  495.1] Tita Baby killed by Nanay Kakanin (gunshot); 2 teams left
+[match  495.1] alive: West Team 1, East Team 2; score { 0: 1, 1: 2 }
+[match  498.9] status: { "ground": 3 }; armed 3; shots 1129; zone -1 hold r=119; corpses 9; levels { "L1": 3 }; server tick avg 1.22 ms, p99 6.44 ms, max 40.35 ms over 900 ticks
+[match  498.9] dm teams: West Team 1 at (33.0, -27.0) spread 0 m; East Team 2 at (-31.0, -25.0) spread 18 m; gap 63 m; zone centre (-2.0, -2.0)
+[match  498.9] bots: { "hunt": 1, "order": 1, "heal": 1 }; containers searched by bots 0 (all players 0); plan steps done 0; guns carried 6
+[match  498.9] roles: { "stalker": { "hunt": 1, "order": 1, "heal": 1 } }; stuck now 0; waypoints 1304; team { "lines": 221, "pings": 0, "laser_follow": 0, "learned_cells": 100, "blocked_cells": 31, "squads": 8, "following_humans": 0, &"learned_spots": 0 }
+[match  498.9] [lootstats] bots on the ground 3 (in water 0); armed 3; armed with ammo for a gun 3; long guns 3; attachments fitted 20; rounds of unusable ammo carried 0; items on the ground 410; bot pickups { "detours": 6, "detour_taken": 6, "fetches": 0, "fetch_done": 0, "items_taken": 6 }
+[match  507.0] [botskill] normal shots 1123 hits 184 reaction_avg 0.41 (n 133) dmg 3841 bots 3
+[match  513.9] status: { "ground": 3 }; armed 3; shots 1129; zone -1 hold r=119; corpses 9; levels { "L1": 3 }; server tick avg 0.78 ms, p99 3.54 ms, max 54.33 ms over 900 ticks
+[match  513.9] dm teams: West Team 1 at (26.0, -13.0) spread 0 m; East Team 2 at (-12.0, -28.0) spread 10 m; gap 41 m; zone centre (-2.0, -2.0)
+[match  513.9] bots: { "hunt": 2, "order": 1 }; containers searched by bots 0 (all players 0); plan steps done 0; guns carried 6
+[match  513.9] roles: { "stalker": { "hunt": 2, "order": 1 } }; stuck now 0; waypoints 1304; team { "lines": 222, "pings": 0, "laser_follow": 0, "learned_cells": 100, "blocked_cells": 31, "squads": 8, "following_humans": 0, &"learned_spots": 0 }
+[match  513.9] [lootstats] bots on the ground 3 (in water 0); armed 3; armed with ammo for a gun 3; long guns 3; attachments fitted 20; rounds of unusable ammo carried 0; items on the ground 410; bot pickups { "detours": 6, "detour_taken": 6, "fetches": 0, "fetch_done": 0, "items_taken": 6 }
+[match  515.0] [sweep] Nanay Kakanin -> cell (-1, -3, 1) spot 421 stale 212s 6 m
+[match  522.0] [botskill] normal shots 1145 hits 185 reaction_avg 0.41 (n 136) dmg 3854 bots 3
+[match  522.4] Ising Batingaw killed by Tito Karaoke King (gunshot); 1 teams left
+[match  522.4] alive: West Team 0, East Team 2; score { 0: 1, 1: 2 }
+[match  522.5] round 4 over: winner 1, scores { 0: 1, 1: 3 }
+[loadout] Tsong Ramil shotgun_saiga [sight_reddot,mag_extquick_rifle] mag 8/8 | pistol_9 [suppressor_light,mag_extquick_light] mag 21/21
+[match  526.5] Tsong Ramil respawned at (44.0, 10.0, -24.0) (nearest enemy 1000 m)
+[loadout] Tatay Kulas rifle_556 [grip_thumb,mag_extquick_rifle,weapon_light] mag 40/40 | pistol_9 [sight_reflex,mag_extquick_light,weapon_light] mag 21/21
+[match  526.5] Tatay Kulas respawned at (-43.0, 0.0, -29.0) (nearest enemy 87 m)
+[loadout] Lola Basyang smg_vector [sight_holo,mag_extquick_light] mag 33/33 | pistol_deagle [sight_reddot,suppressor_light,mag_extquick_light] mag 10/10
+[match  526.5] Lola Basyang respawned at (44.0, 10.0, -26.0) (nearest enemy 87 m)
+[loadout] Aling Taho dmr_sks [suppressor_rifle,mag_ext_sniper,cheek_pad] mag 20/20 | pistol_9 [sight_reddot,suppressor_light,weapon_light] mag 15/15
+[match  526.5] Aling Taho respawned at (-42.0, 0.0, -27.0) (nearest enemy 86 m)
+[loadout] Ising Batingaw shotgun_saiga [sight_reddot,compensator,mag_extquick_rifle,weapon_light] mag 8/8 | pistol_deagle [suppressor_light,weapon_light] mag 7/7
+[match  526.5] Ising Batingaw respawned at (45.0, 10.0, -26.0) (nearest enemy 87 m)
+[loadout] Tito Karaoke King smg_9 [sight_reddot,suppressor_light,mag_extquick_light,weapon_light] mag 40/40 | pistol_9 [suppressor_light,mag_extquick_light,weapon_light] mag 21/21
+[match  526.5] Tito Karaoke King respawned at (-43.0, 0.0, -27.0) (nearest enemy 87 m)
+[loadout] Bossing Barbecue bolt_308 [scope_8x,suppressor_rifle,mag_ext_sniper] mag 8/8 | pistol_45 [sight_reddot,suppressor_light,mag_extquick_light,weapon_light] mag 12/12
+[match  526.5] Bossing Barbecue respawned at (42.0, 10.0, -23.0) (nearest enemy 84 m)
+[loadout] Utoy Kalabaw bolt_kar98 [scope_8x,suppressor_rifle,cheek_pad] mag 5/5 | revolver_357 [] mag 6/6
+[match  526.5] Utoy Kalabaw respawned at (-42.0, 0.0, -29.0) (nearest enemy 84 m)
+[loadout] Tita Baby dmr_sks [scope_lpvo] mag 10/10 | pistol_45 [suppressor_light,mag_extquick_light,weapon_light] mag 12/12
+[match  526.5] Tita Baby respawned at (42.0, 10.0, -24.0) (nearest enemy 84 m)
+[loadout] Nanay Kakanin shotgun_saiga [sight_reddot,weapon_light] mag 5/5 | pistol_deagle [sight_reddot,suppressor_light,mag_extquick_light,weapon_light] mag 10/10
+[match  526.5] Nanay Kakanin respawned at (-40.0, 0.0, -29.0) (nearest enemy 83 m)
+[loadout] Bossing Dodong smg_tommy [grip_vertical,mag_extquick_light] mag 50/50 | pistol_45 [sight_reflex,suppressor_light,weapon_light] mag 7/7
+[match  526.5] Bossing Dodong respawned at (42.0, 10.0, -26.0) (nearest enemy 83 m)
+[loadout] Kumpare Ambo smg_tommy [suppressor_light,grip_vertical] mag 30/30 | pistol_9 [sight_reddot,suppressor_light,mag_extquick_light,weapon_light] mag 21/21
+[match  526.5] Kumpare Ambo respawned at (-41.0, 0.0, -30.0) (nearest enemy 83 m)
+[match  526.5] round 5 started; scores { 0: 1, 1: 3 }
+[match  528.9] status: { "ground": 12 }; armed 12; shots 1164; zone -1 hold r=132; corpses 0; levels { "L3": 6, "L1": 6 }; server tick avg 1.30 ms, p99 4.72 ms, max 51.20 ms over 660 ticks
+[match  528.9] dm teams: West Team 6 at (43.0, -25.0) spread 2 m; East Team 6 at (-42.0, -28.0) spread 1 m; gap 85 m; zone centre (-11.0, 12.0)
+[match  528.9] bots: { "roam": 12 }; containers searched by bots 0 (all players 0); plan steps done 0; guns carried 24
+[match  528.9] roles: { "sniper": { "roam": 3 }, "looter": { "roam": 3 }, "rusher": { "roam": 4 }, "stalker": { "roam": 2 } }; stuck now 0; waypoints 1304; team { "lines": 224, "pings": 0, "laser_follow": 0, "learned_cells": 100, "blocked_cells": 31, "squads": 8, "following_humans": 0, &"learned_spots": 0 }
+[match  528.9] [lootstats] bots on the ground 12 (in water 0); armed 12; armed with ammo for a gun 12; long guns 12; attachments fitted 65; rounds of unusable ammo carried 0; items on the ground 410; bot pickups { "detours": 6, "detour_taken": 6, "fetches": 0, "fetch_done": 0, "items_taken": 6 }
+[match  535.3] [hold] Tsong Ramil overwatch spot 464 69s
+[match  536.5] Ising Batingaw (team 0) landed at (57.0, 10.0, -39.0), 7.7 m/s, health 100; teammates -
+[match  537.8] Bossing Dodong (team 0) landed at (51.0, 0.0, -40.0), 12.3 m/s, health 100; teammates 11 m
+[match  538.7] Tita Baby (team 0) landed at (51.0, 0.0, -40.0), 12.3 m/s, health 100; teammates 10 m, 3 m
+[match  539.4] Lola Basyang (team 0) landed at (51.0, 0.0, -40.0), 12.3 m/s, health 100; teammates 9 m, 2 m, 5 m
+[match  539.6] Nanay Kakanin (team 1) landed at (-51.0, 0.0, -40.0), 7.0 m/s, health 100; teammates -
+[match  541.0] [botskill] normal shots 1158 hits 185 reaction_avg 0.41 (n 136) dmg 3854 bots 12
+[match  541.4] Bossing Barbecue (team 0) landed at (51.0, 0.0, -39.0), 12.3 m/s, health 100; teammates 7 m, 11 m, 9 m, 3 m
+[match  541.8] Kumpare Ambo (team 1) landed at (-7.0, 0.0, -3.0), 5.5 m/s, health 100; teammates 60 m
+[match  542.0] [hold] Tito Karaoke King camp spot 233 37s
+[match  543.9] status: { "ground": 12 }; armed 12; shots 1184; zone -1 hold r=132; corpses 0; levels { "L3": 2, "L1": 9, "between": 1 }; server tick avg 2.70 ms, p99 18.14 ms, max 69.74 ms over 900 ticks
+[match  543.9] dm teams: West Team 6 at (46.0, -32.0) spread 7 m; East Team 6 at (-6.0, -18.0) spread 26 m; gap 54 m; zone centre (-11.0, 12.0)
+[match  543.9] bots: { "overwatch": 1, "order": 2, "fight": 5, "roam": 1, "camp": 1, "hunt": 1, "investigate": 1 }; containers searched by bots 0 (all players 0); plan steps done 0; guns carried 24
+[match  543.9] roles: { "sniper": { "overwatch": 1, "fight": 2 }, "looter": { "order": 1, "roam": 1, "camp": 1 }, "rusher": { "fight": 2, "investigate": 1, "order": 1 }, "stalker": { "fight": 1, "hunt": 1 } }; stuck now 1; waypoints 1304; team { "lines": 230, "pings": 0, "laser_follow": 0, "learned_cells": 100, "blocked_cells": 31, "squads": 10, "following_humans": 0, &"learned_spots": 0 }
+[match  543.9] [lootstats] bots on the ground 12 (in water 0); armed 12; armed with ammo for a gun 12; long guns 12; attachments fitted 65; rounds of unusable ammo carried 0; items on the ground 410; bot pickups { "detours": 7, "detour_taken": 6, "fetches": 0, "fetch_done": 0, "items_taken": 6 }
+[match  544.2] Utoy Kalabaw killed by Lola Basyang (gunshot); 2 teams left
+[match  544.2] alive: West Team 6, East Team 5; score { 0: 1, 1: 3 }
+[match  544.8] Lola Basyang killed by Bossing Dodong (gunshot); 2 teams left
+[match  544.8] alive: West Team 5, East Team 5; score { 0: 1, 1: 3 }
+[match  544.8] Aling Taho killed by Lola Basyang (gunshot); 2 teams left
+[match  544.8] alive: West Team 5, East Team 4; score { 0: 1, 1: 3 }
+[match  549.9] Tita Baby killed by Kumpare Ambo (gunshot); 2 teams left
+[match  549.9] alive: West Team 4, East Team 4; score { 0: 1, 1: 3 }
+[match  555.2] Kumpare Ambo killed by Bossing Barbecue (gunshot); 2 teams left
+[match  555.2] alive: West Team 4, East Team 3; score { 0: 1, 1: 3 }
+[match  555.3] Bossing Dodong killed by Tatay Kulas (gunshot); 2 teams left
+[match  555.3] alive: West Team 3, East Team 3; score { 0: 1, 1: 3 }
+[match  556.0] [botskill] normal shots 1287 hits 217 reaction_avg 0.40 (n 154) dmg 4403 bots 6
+[match  558.9] status: { "ground": 6 }; armed 6; shots 1294; zone -1 hold r=132; corpses 6; levels { "between": 1, "L1": 5 }; server tick avg 3.58 ms, p99 17.02 ms, max 54.63 ms over 900 ticks
+[match  558.9] dm teams: West Team 3 at (50.0, -38.0) spread 9 m; East Team 3 at (6.0, -14.0) spread 8 m; gap 49 m; zone centre (-11.0, 12.0)
+[match  558.9] bots: { "order": 2, "roam": 2, "heal": 1, "hunt": 1 }; containers searched by bots 0 (all players 0); plan steps done 0; guns carried 12
+[match  558.9] roles: { "sniper": { "order": 1 }, "looter": { "roam": 2, "order": 1 }, "stalker": { "heal": 1, "hunt": 1 } }; stuck now 0; waypoints 1304; team { "lines": 254, "pings": 0, "laser_follow": 0, "learned_cells": 100, "blocked_cells": 31, "squads": 10, "following_humans": 0, &"learned_spots": 0 }
+[match  558.9] [lootstats] bots on the ground 6 (in water 0); armed 6; armed with ammo for a gun 6; long guns 6; attachments fitted 36; rounds of unusable ammo carried 0; items on the ground 410; bot pickups { "detours": 7, "detour_taken": 6, "fetches": 0, "fetch_done": 0, "items_taken": 6 }
+[match  560.7] Tsong Ramil (team 0) landed at (51.0, 0.0, -39.0), 12.3 m/s, health 100; teammates 6 m, 18 m
+[match  562.5] Tatay Kulas (team 1) landed at (-3.0, 0.0, -2.0), 2.5 m/s, health 100; teammates 29 m
+[match  564.0] Bossing Barbecue killed by Tito Karaoke King (gunshot); 2 teams left
+[match  564.0] alive: West Team 2, East Team 3; score { 0: 1, 1: 3 }
+[match  564.4] [endgame] East Team mates 3 foes 2 nocontact 0s
+[match  564.5] [endgame] West Team mates 2 foes 3 nocontact 0s
+[match  566.3] Ising Batingaw killed by Tito Karaoke King (gunshot); 2 teams left
+[match  566.3] alive: West Team 1, East Team 3; score { 0: 1, 1: 3 }
+[match  570.9] [sweep] Tito Karaoke King -> cell (2, -3, 1) spot 1072 stale 74s 5 m
+[match  571.0] [botskill] normal shots 1337 hits 233 reaction_avg 0.40 (n 159) dmg 4554 bots 4
+[match  573.9] status: { "ground": 4 }; armed 4; shots 1352; zone -1 hold r=132; corpses 8; levels { "L1": 4 }; server tick avg 2.15 ms, p99 8.91 ms, max 47.54 ms over 900 ticks
+[match  573.9] dm teams: West Team 1 at (51.0, -36.0) spread 0 m; East Team 3 at (34.0, -18.0) spread 15 m; gap 25 m; zone centre (-11.0, 12.0)
+[match  573.9] bots: { "fight": 2, "hunt": 2 }; containers searched by bots 0 (all players 0); plan steps done 0; guns carried 8
+[match  573.9] roles: { "sniper": { "fight": 1 }, "looter": { "hunt": 1, "fight": 1 }, "stalker": { "hunt": 1 } }; stuck now 0; waypoints 1304; team { "lines": 267, "pings": 0, "laser_follow": 0, "learned_cells": 100, "blocked_cells": 31, "squads": 10, "following_humans": 0, &"learned_spots": 0 }
+[match  573.9] [lootstats] bots on the ground 4 (in water 0); armed 4; armed with ammo for a gun 4; long guns 4; attachments fitted 23; rounds of unusable ammo carried 0; items on the ground 409; bot pickups { "detours": 8, "detour_taken": 7, "fetches": 0, "fetch_done": 0, "items_taken": 7 }
+[match  576.2] Tito Karaoke King killed by Tsong Ramil (gunshot); 2 teams left
+[match  576.2] alive: West Team 1, East Team 2; score { 0: 1, 1: 3 }
+[match  581.9] [sweep] Tatay Kulas -> cell (2, -3, 1) spot 271 stale 85s 7 m
+[match  584.7] Tsong Ramil killed by Tatay Kulas (gunshot); 1 teams left
+[match  584.7] alive: West Team 0, East Team 2; score { 0: 1, 1: 3 }
+[match  584.7] round 5 over: winner 1, scores { 0: 1, 1: 4 }
+[loadout] Tsong Ramil shotgun_saiga [sight_reddot,mag_extquick_rifle] mag 8/8 | pistol_deagle [sight_reddot,suppressor_light,mag_extquick_light,weapon_light] mag 10/10
+[match  588.7] Tsong Ramil respawned at (39.0, 10.0, -28.0) (nearest enemy 1000 m)
+[loadout] Tatay Kulas bolt_awp [scope_6x,suppressor_rifle,mag_ext_sniper] mag 8/8 | revolver_357 [sight_reddot] mag 6/6
+[match  588.7] Tatay Kulas respawned at (-43.0, 0.0, -27.0) (nearest enemy 83 m)
+[loadout] Lola Basyang bolt_kar98 [suppressor_rifle,cheek_pad] mag 5/5 | revolver_357 [sight_reddot] mag 6/6
+[match  588.7] Lola Basyang respawned at (42.0, 10.0, -24.0) (nearest enemy 86 m)
+[loadout] Aling Taho smg_tommy [suppressor_light,grip_ergonomic,mag_extquick_light] mag 50/50 | pistol_deagle [sight_reddot,suppressor_light,mag_extquick_light] mag 10/10
+[match  588.7] Aling Taho respawned at (-43.0, 0.0, -29.0) (nearest enemy 83 m)
+[loadout] Ising Batingaw rifle_scar [suppressor_rifle,grip_thumb,mag_extquick_rifle,weapon_light] mag 40/40 | revolver_357 [] mag 6/6
+[match  588.7] Ising Batingaw respawned at (44.0, 10.0, -28.0) (nearest enemy 87 m)
+[loadout] Tito Karaoke King bolt_308 [scope_6x,suppressor_rifle,mag_ext_sniper,cheek_pad] mag 8/8 | pistol_45 [suppressor_light,mag_extquick_light,weapon_light] mag 12/12
+[match  588.7] Tito Karaoke King respawned at (-42.0, 0.0, -27.0) (nearest enemy 81 m)
+[loadout] Bossing Barbecue shotgun_pump [sight_reddot,choke] mag 6/6 | pistol_45 [sight_reddot,suppressor_light,mag_extquick_light] mag 12/12
+[match  588.7] Bossing Barbecue respawned at (44.0, 10.0, -24.0) (nearest enemy 86 m)
+[loadout] Utoy Kalabaw smg_ump45 [suppressor_light,grip_angled,mag_extquick_light,weapon_light] mag 35/35 | pistol_45 [sight_reddot,suppressor_light,mag_extquick_light,weapon_light] mag 12/12
+[match  588.7] Utoy Kalabaw respawned at (-42.0, 0.0, -25.0) (nearest enemy 81 m)
+[loadout] Tita Baby shotgun_saiga [sight_reflex,compensator,mag_extquick_rifle,weapon_light] mag 8/8 | pistol_9 [sight_reddot,suppressor_light,mag_extquick_light,weapon_light] mag 21/21
+[match  588.7] Tita Baby respawned at (44.0, 10.0, -26.0) (nearest enemy 86 m)
+[loadout] Nanay Kakanin smg_ump45 [sight_holo,suppressor_light,grip_angled,mag_extquick_light,weapon_light] mag 35/35 | pistol_45 [sight_reddot,suppressor_light,mag_extquick_light,weapon_light] mag 12/12
+[match  588.7] Nanay Kakanin respawned at (-40.0, 0.0, -24.0) (nearest enemy 80 m)
+[loadout] Bossing Dodong shotgun_saiga [compensator,mag_extquick_rifle,weapon_light] mag 8/8 | pistol_deagle [mag_extquick_light,weapon_light] mag 10/10
+[match  588.7] Bossing Dodong respawned at (45.0, 10.0, -26.0) (nearest enemy 86 m)
+[loadout] Kumpare Ambo bolt_awp [scope_6x,mag_ext_sniper] mag 8/8 | revolver_357 [sight_reddot] mag 6/6
+[match  588.7] Kumpare Ambo respawned at (-40.0, 0.0, -29.0) (nearest enemy 79 m)
+[match  588.7] round 6 started; scores { 0: 1, 1: 4 }
+[match  588.9] status: { "ground": 12 }; armed 12; shots 1376; zone -1 hold r=126; corpses 0; levels { "L3": 6, "L1": 6 }; server tick avg 1.29 ms, p99 7.76 ms, max 21.45 ms over 660 ticks
+[match  588.9] dm teams: West Team 6 at (43.0, -26.0) spread 2 m; East Team 6 at (-42.0, -27.0) spread 2 m; gap 85 m; zone centre (7.0, 8.0)
+[match  588.9] bots: { "roam": 12 }; containers searched by bots 0 (all players 0); plan steps done 0; guns carried 24
+[match  588.9] roles: { "sniper": { "roam": 3 }, "looter": { "roam": 3 }, "stalker": { "roam": 3 }, "rusher": { "roam": 3 } }; stuck now 0; waypoints 1304; team { "lines": 273, "pings": 0, "laser_follow": 0, "learned_cells": 100, "blocked_cells": 31, "squads": 10, "following_humans": 0, &"learned_spots": 0 }
+[match  588.9] [lootstats] bots on the ground 12 (in water 0); armed 12; armed with ammo for a gun 12; long guns 12; attachments fitted 68; rounds of unusable ammo carried 0; items on the ground 409; bot pickups { "detours": 8, "detour_taken": 7, "fetches": 0, "fetch_done": 0, "items_taken": 7 }
+[match  590.0] [botskill] normal shots 1367 hits 249 reaction_avg 0.40 (n 166) dmg 4755 bots 12
+[match  595.7] [hold] Ising Batingaw overwatch spot 464 104s
+[match  600.0] Bossing Dodong (team 0) landed at (51.0, 0.0, -39.0), 12.3 m/s, health 100; teammates -
+[match  600.3] Tita Baby (team 0) landed at (51.0, 0.0, -40.0), 12.3 m/s, health 100; teammates 2 m
+[match  600.7] Bossing Barbecue (team 0) landed at (51.0, 0.0, -40.0), 12.3 m/s, health 100; teammates 1 m, 1 m
+[match  602.2] Lola Basyang (team 0) landed at (56.0, 0.0, -40.0), 15.5 m/s, health 100; teammates 7 m, 3 m, 4 m
+[match  603.9] status: { "ground": 12 }; armed 12; shots 1376; zone -1 hold r=126; corpses 0; levels { "L2": 1, "L1": 7, "L3": 1, "between": 3 }; server tick avg 2.53 ms, p99 13.18 ms, max 46.71 ms over 900 ticks
+[match  603.9] dm teams: West Team 6 at (52.0, -38.0) spread 6 m; East Team 6 at (-12.0, -14.0) spread 22 m; gap 67 m; zone centre (7.0, 8.0)
+[match  603.9] bots: { "follow": 2, "heal": 1, "roam": 2, "overwatch": 1, "hunt": 6 }; containers searched by bots 0 (all players 0); plan steps done 0; guns carried 24
+[match  603.9] roles: { "sniper": { "follow": 1, "heal": 1, "overwatch": 1 }, "looter": { "follow": 1, "roam": 2 }, "stalker": { "hunt": 3 }, "rusher": { "hunt": 3 } }; stuck now 2; waypoints 1304; team { "lines": 276, "pings": 0, "laser_follow": 0, "learned_cells": 100, "blocked_cells": 31, "squads": 12, "following_humans": 0, &"learned_spots": 0 }
+[match  603.9] [lootstats] bots on the ground 12 (in water 0); armed 12; armed with ammo for a gun 12; long guns 12; attachments fitted 68; rounds of unusable ammo carried 0; items on the ground 409; bot pickups { "detours": 9, "detour_taken": 7, "fetches": 0, "fetch_done": 0, "items_taken": 7 }
+[match  603.9] [hold] Aling Taho camp spot 233 57s
+[match  604.4] Tito Karaoke King (team 1) landed at (-58.0, 0.0, -34.0), 4.9 m/s, health 100; teammates -
+[match  604.7] Tsong Ramil (team 0) landed at (55.0, 0.0, -44.0), 9.7 m/s, health 100; teammates 3 m, 20 m, 10 m, 2 m
+[match  605.0] [botskill] normal shots 1367 hits 249 reaction_avg 0.40 (n 166) dmg 4755 bots 12
+[match  607.3] Kumpare Ambo (team 1) landed at (-1.0, 0.0, -1.0), 4.9 m/s, health 100; teammates 62 m
+[match  611.9] Utoy Kalabaw killed by Tatay Kulas (gunshot); 2 teams left
+[match  611.9] alive: West Team 6, East Team 5; score { 0: 1, 1: 4 }
+[match  612.2] Nanay Kakanin (team 1) landed at (-6.0, 0.0, 2.0), 4.2 m/s, health 100; teammates 61 m, 30 m
+[match  614.1] Bossing Barbecue killed by Kumpare Ambo (bleeding); 2 teams left
+[match  614.1] alive: West Team 5, East Team 5; score { 0: 1, 1: 4 }
+[match  618.0] Kumpare Ambo killed by Tsong Ramil (gunshot); 2 teams left
+[match  618.0] alive: West Team 5, East Team 4; score { 0: 1, 1: 4 }
+[match  618.9] status: { "ground": 9 }; armed 9; shots 1451; zone -1 hold r=126; corpses 3; levels { "L1": 8, "between": 1 }; server tick avg 3.38 ms, p99 15.48 ms, max 32.83 ms over 900 ticks
+[match  618.9] dm teams: West Team 5 at (46.0, -34.0) spread 9 m; East Team 4 at (-15.0, -14.0) spread 25 m; gap 64 m; zone centre (7.0, 8.0)
+[match  618.9] bots: { "follow": 1, "roam": 2, "order": 2, "investigate": 1, "hunt": 2, "heal": 1 }; containers searched by bots 0 (all players 0); plan steps done 0; guns carried 18
+[match  618.9] roles: { "sniper": { "follow": 1, "order": 2 }, "looter": { "roam": 2, "investigate": 1 }, "stalker": { "hunt": 1 }, "rusher": { "hunt": 1, "heal": 1 } }; stuck now 1; waypoints 1304; team { "lines": 296, "pings": 0, "laser_follow": 0, "learned_cells": 100, "blocked_cells": 31, "squads": 12, "following_humans": 0, &"learned_spots": 0 }
+[match  618.9] [lootstats] bots on the ground 9 (in water 0); armed 9; armed with ammo for a gun 9; long guns 9; attachments fitted 52; rounds of unusable ammo carried 0; items on the ground 409; bot pickups { "detours": 9, "detour_taken": 7, "fetches": 0, "fetch_done": 0, "items_taken": 7 }
+[match  619.7] Aling Taho (team 1) landed at (3.0, 0.0, -5.0), 4.9 m/s, health 100; teammates 67 m, 12 m
+[match  620.0] [botskill] normal shots 1442 hits 263 reaction_avg 0.40 (n 181) dmg 4981 bots 9
+[match  621.2] Ising Batingaw (team 0) landed at (51.0, 0.0, -38.0), 12.3 m/s, health 100; teammates 6 m, 10 m, 11 m, 30 m
+[match  621.6] [hold] Tatay Kulas camp spot 233 39s
+[match  624.7] Bossing Dodong killed by Aling Taho (gunshot); 2 teams left
+[match  624.7] alive: West Team 4, East Team 4; score { 0: 1, 1: 4 }
+[match  630.3] Aling Taho killed by Ising Batingaw (gunshot); 2 teams left
+[match  630.3] alive: West Team 4, East Team 3; score { 0: 1, 1: 4 }
+[match  633.9] status: { "ground": 7 }; armed 7; shots 1543; zone -1 hold r=126; corpses 5; levels { "L1": 7 }; server tick avg 2.43 ms, p99 17.72 ms, max 43.94 ms over 900 ticks
+[match  633.9] dm teams: West Team 4 at (38.0, -32.0) spread 9 m; East Team 3 at (-10.0, -21.0) spread 34 m; gap 49 m; zone centre (7.0, 8.0)
+[match  633.9] bots: { "follow": 1, "roam": 4, "investigate": 1, "hunt": 1 }; containers searched by bots 0 (all players 0); plan steps done 0; guns carried 14
+[match  633.9] roles: { "sniper": { "follow": 1, "roam": 2 }, "looter": { "roam": 2 }, "stalker": { "investigate": 1 }, "rusher": { "hunt": 1 } }; stuck now 0; waypoints 1304; team { "lines": 307, "pings": 0, "laser_follow": 0, "learned_cells": 100, "blocked_cells": 31, "squads": 12, "following_humans": 0, &"learned_spots": 0 }
+[match  633.9] [lootstats] bots on the ground 7 (in water 0); armed 7; armed with ammo for a gun 7; long guns 7; attachments fitted 41; rounds of unusable ammo carried 0; items on the ground 409; bot pickups { "detours": 9, "detour_taken": 7, "fetches": 0, "fetch_done": 0, "items_taken": 7 }
+[match  635.0] [botskill] normal shots 1534 hits 276 reaction_avg 0.40 (n 194) dmg 5295 bots 7
+[match  636.0] Nanay Kakanin killed by Ising Batingaw (gunshot); 2 teams left
+[match  636.0] alive: West Team 4, East Team 2; score { 0: 1, 1: 4 }
+[match  636.2] [endgame] West Team mates 4 foes 2 nocontact 0s
+[match  636.2] Tatay Kulas (team 1) landed at (4.0, 0.0, 0.0), 4.9 m/s, health 94; teammates 73 m
+[match  636.3] [endgame] East Team mates 2 foes 4 nocontact 0s
+[match  636.4] [sweep] Tita Baby -> cell (1, -2, 1) spot 1194 stale 78s 13 m
+[match  642.6] Tatay Kulas killed by Ising Batingaw (gunshot); 2 teams left
+[match  642.6] alive: West Team 4, East Team 1; score { 0: 1, 1: 4 }
+[match  642.9] [sweep] Ising Batingaw -> cell (3, -1, 0) spot 738 stale 84s 29 m
+[match  648.9] status: { "ground": 5 }; armed 5; shots 1564; zone -1 hold r=126; corpses 7; levels { "L1": 5 }; server tick avg 1.59 ms, p99 9.03 ms, max 83.84 ms over 900 ticks
+[match  648.9] dm teams: West Team 4 at (28.0, -23.0) spread 6 m; East Team 1 at (-49.0, -33.0) spread 0 m; gap 78 m; zone centre (7.0, 8.0)
+[match  648.9] bots: { "follow": 1, "hunt": 4 }; containers searched by bots 0 (all players 0); plan steps done 0; guns carried 10
+[match  648.9] roles: { "sniper": { "follow": 1, "hunt": 2 }, "looter": { "hunt": 1 }, "stalker": { "hunt": 1 } }; stuck now 0; waypoints 1304; team { "lines": 317, "pings": 0, "laser_follow": 0, "learned_cells": 100, "blocked_cells": 31, "squads": 12, "following_humans": 0, &"learned_spots": 0 }
+[match  648.9] [lootstats] bots on the ground 5 (in water 0); armed 5; armed with ammo for a gun 5; long guns 5; attachments fitted 28; rounds of unusable ammo carried 0; items on the ground 409; bot pickups { "detours": 9, "detour_taken": 7, "fetches": 0, "fetch_done": 0, "items_taken": 7 }
+[match  648.9] [sweep] Tita Baby -> cell (1, -1, 1) spot 116 stale 90s 15 m
+[match  650.0] [botskill] normal shots 1555 hits 283 reaction_avg 0.40 (n 202) dmg 5540 bots 5
+[run_timed] killed after 660 s

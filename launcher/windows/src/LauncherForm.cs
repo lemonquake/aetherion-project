@@ -505,6 +505,18 @@ namespace Aetherion.Launcher
             }
         }
 
+        static string SkillName(string id)
+        {
+            switch (id)
+            {
+                case "easy": return "Easy";
+                case "normal": return "Normal";
+                case "hard": return "Hard";
+                case "pro": return "Pro";
+                default: return "";
+            }
+        }
+
         void DrawNews(Graphics g)
         {
             var r = new RectangleF(M, 418, 520, 150);
@@ -554,7 +566,11 @@ namespace Aetherion.Launcher
             {
                 var mode = Json.Str(s, "game_mode") == "deathmatch" ? "Deathmatch" : "Classic";
                 var map = MapName(Json.Str(s, "map"));
-                Ui.Draw(g, mode, _fBodyB, Ui.Text, r.X + 20, y);
+                float mw = Ui.Draw(g, mode, _fBodyB, Ui.Text, r.X + 20, y);
+                // (1.4.0) the server's bot difficulty, from game 0.22.0 on
+                var skill = SkillName(Json.Str(s, "bot_skill"));
+                if (skill != "" && Json.Str(s, "bots") != "False")
+                    Ui.Draw(g, "· " + skill + " bots", _fSmall, Ui.Dim, r.X + 20 + mw + 8, y + 2);
                 Ui.Draw(g, map + " · " + Json.Str(s, "region"), _fSmall, Ui.Dim, r.X + 20, y + 20);
                 Ui.DrawRight(g, Json.Long(s, "players") + " / " + Json.Long(s, "max"), _fBodyB, Ui.Text, r.Right - 20, y);
                 var st = Json.Str(s, "state") == "lobby" ? "in the lobby" : "match in progress";

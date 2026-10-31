@@ -1,0 +1,418 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+Vulkan 1.4.329 - Forward+ - Using Device #0: NVIDIA - NVIDIA GeForce RTX 4060
+
+[ui] loadout_received pid=1 Hehe {"att_primary":[],"att_secondary":[],"primary":"marksman_308","secondary":"pistol_9"}
+[ui] lobby shows my loadout (pid 1): {"att_primary":[],"att_secondary":[],"primary":"marksman_308","secondary":"pistol_9"}
+[ui] request_loadout {"att_primary":[],"att_secondary":[],"primary":"marksman_308","secondary":"pistol_9"}
+[world] map built in 806 ms
+[map] 0 buildings, 0 doors, 0 containers, 0 props, #00000000 on PC
+[nav] levels: 34890 points, 3 links, 115 ms
+[nav] r21: 617 cells closed by the physics check, main walk 34227 of 34282 points (55 in pockets), 156 ms
+[botnav] freight_delight: walk check and 258 spots from res://data/botnav/freight_delight.json { "hide": 102, "snipe": 83, "cover": 45, "open": 28 }
+[bots] learned from 47 cells, 0 stuck spots, 0 spots learned from play, 11 spot records (user://bot_memory_freight_delight.json)
+[game] autotest firefight
+[firefight] 10 shooters on 10 candidate spots, camera at (16.0, 0.0, -3.0) looking at (-6.0, 1.2, -6.0)
+[autotest] PASS firefight_shooters: 10 shooters placed in front of the camera
+[perf]   view tier -1 -> 0 at 2 m above ground (ff_quiet)
+[perf]   hitch 26.3 ms in ff_quiet, tier 0, 2 m above ground
+[perf] ff_quiet         359 fr  avg  16.67 ms (   60 fps)  p50  16.67  p95  17.91  p99  19.79  max  26.33  >16.7ms  172 | render cpu  0.28 gpu  0.00 | process 16.89 physics  4.54 | draws   2009 objs   2323 prims   725316 | agl 0
+[perf]   1.00 physics steps/frame; engine physics step avg 0.43 ms max 0.69 ms; active bodies 0, pairs 0, islands 0
+[perf]   ms/frame: world.physics_process 2.74, character_visual.process 0.44, player_controller.process 0.35, w.map_tick 0.20, map.lighting_tick 0.18, w.record 0.10, hud.process 0.10, voice.process 0.10, player_controller.physics_process 0.09, w.health 0.08, w.match_server 0.07, effects.process 0.04, light.manager 0.03, ambience.process 0.03
+[perf]   worst single call (ms): world.physics_process 5.2, w.record 1.1, w.map_tick 0.9, map.lighting_tick 0.9, light.manager 0.7, player_controller.process 0.6, ambience.process 0.5, w.health 0.3
+[firefight] quiet: 0 rounds fired, avg 16.67 ms, p95 17.91, max 26.33, gpu 0.00 ms
+[perf]   hitch 153.7 ms in ff_fire_warm, tier 0, 2 m above ground
+[perf]   hitch 124.3 ms in ff_fire_warm, tier 0, 2 m above ground
+[perf]   hitch 178.7 ms in ff_fire_warm, tier 0, 2 m above ground
+[perf]   hitch 124.8 ms in ff_fire_warm, tier 0, 2 m above ground
+[perf]   hitch 155.2 ms in ff_fire_warm, tier 0, 2 m above ground
+[perf]   hitch 131.2 ms in ff_fire_warm, tier 0, 2 m above ground
+[perf]   hitch 144.4 ms in ff_fire_warm, tier 0, 2 m above ground
+[perf]   hitch 116.2 ms in ff_fire_warm, tier 0, 2 m above ground
+[perf]   hitch 147.7 ms in ff_fire_warm, tier 0, 2 m above ground
+[perf]   hitch 139.1 ms in ff_fire_warm, tier 0, 2 m above ground
+[perf]   hitch 136.4 ms in ff_fire_warm, tier 0, 2 m above ground
+[perf]   hitch 132.7 ms in ff_fire_warm, tier 0, 2 m above ground
+[perf]   hitch 143.9 ms in ff_fire_warm, tier 0, 2 m above ground
+[perf]   hitch 121.6 ms in ff_fire_warm, tier 0, 2 m above ground
+[perf]   hitch 138.0 ms in ff_fire_warm, tier 0, 2 m above ground
+[perf]   hitch 158.3 ms in ff_fire_warm, tier 0, 2 m above ground
+[perf]   hitch 123.0 ms in ff_fire_warm, tier 0, 2 m above ground
+[perf]   hitch 110.5 ms in ff_fire_warm, tier 0, 2 m above ground
+[perf]   hitch 141.4 ms in ff_fire_warm, tier 0, 2 m above ground
+[perf]   hitch 125.7 ms in ff_fire_warm, tier 0, 2 m above ground
+[perf]   hitch 154.5 ms in ff_fire_warm, tier 0, 2 m above ground
+[perf]   hitch 144.9 ms in ff_fire_warm, tier 0, 2 m above ground
+[perf]   hitch 154.5 ms in ff_fire_warm, tier 0, 2 m above ground
+[perf]   hitch 120.2 ms in ff_fire_warm, tier 0, 2 m above ground
+[perf]   hitch 123.0 ms in ff_fire_warm, tier 0, 2 m above ground
+[perf]   hitch 103.3 ms in ff_fire_warm, tier 0, 2 m above ground
+[perf]   hitch 117.3 ms in ff_fire_warm, tier 0, 2 m above ground
+[perf]   hitch 101.3 ms in ff_fire_warm, tier 0, 2 m above ground
+[perf]   hitch 107.2 ms in ff_fire_warm, tier 0, 2 m above ground
+[perf]   hitch 118.9 ms in ff_fire_warm, tier 0, 2 m above ground
+[perf]   hitch 128.4 ms in ff_fire_warm, tier 0, 2 m above ground
+[perf]   hitch 137.0 ms in ff_fire_warm, tier 0, 2 m above ground
+[perf]   hitch 128.3 ms in ff_fire_warm, tier 0, 2 m above ground
+[perf]   hitch 152.9 ms in ff_fire_warm, tier 0, 2 m above ground
+[perf]   hitch 174.8 ms in ff_fire_warm, tier 0, 2 m above ground
+[perf]   hitch 190.5 ms in ff_fire_warm, tier 0, 2 m above ground
+[perf]   hitch 153.7 ms in ff_fire_warm, tier 0, 2 m above ground
+[perf]   hitch 160.5 ms in ff_fire_warm, tier 0, 2 m above ground
+[perf]   hitch 180.9 ms in ff_fire_warm, tier 0, 2 m above ground
+[perf]   hitch 174.0 ms in ff_fire_warm, tier 0, 2 m above ground
+[perf]   hitch 170.4 ms in ff_fire_warm, tier 0, 2 m above ground
+[perf]   hitch 180.6 ms in ff_fire_warm, tier 0, 2 m above ground
+[perf]   hitch 170.8 ms in ff_fire_warm, tier 0, 2 m above ground
+[perf]   hitch 170.3 ms in ff_fire_warm, tier 0, 2 m above ground
+[perf]   hitch 157.3 ms in ff_fire_warm, tier 0, 2 m above ground
+[perf]   hitch 167.0 ms in ff_fire_warm, tier 0, 2 m above ground
+[perf]   hitch 132.5 ms in ff_fire_warm, tier 0, 2 m above ground
+[perf]   hitch 150.2 ms in ff_fire_warm, tier 0, 2 m above ground
+[perf]   hitch 163.0 ms in ff_fire_warm, tier 0, 2 m above ground
+[perf]   hitch 167.7 ms in ff_fire_warm, tier 0, 2 m above ground
+[perf]   hitch 170.0 ms in ff_fire_warm, tier 0, 2 m above ground
+[perf]   hitch 174.3 ms in ff_fire_warm, tier 0, 2 m above ground
+[perf]   hitch 177.0 ms in ff_fire_warm, tier 0, 2 m above ground
+[perf]   hitch 166.8 ms in ff_fire_warm, tier 0, 2 m above ground
+[perf]   hitch 159.1 ms in ff_fire_warm, tier 0, 2 m above ground
+[perf]   hitch 141.4 ms in ff_fire_warm, tier 0, 2 m above ground
+[perf]   hitch 135.6 ms in ff_fire_warm, tier 0, 2 m above ground
+[perf]   hitch 151.0 ms in ff_fire_warm, tier 0, 2 m above ground
+[perf]   hitch 139.3 ms in ff_fire_warm, tier 0, 2 m above ground
+[perf]   hitch 135.9 ms in ff_fire_warm, tier 0, 2 m above ground
+[perf] ff_fire_warm      60 fr  avg 145.89 ms (    7 fps)  p50 144.88  p95 180.63  p99 190.48  max 190.48  >16.7ms   60 | render cpu  0.86 gpu  0.00 | process 23.80 physics 34.35 | draws   3886 objs   4189 prims  1538427 | agl 0
+[perf]   6.10 physics steps/frame; engine physics step avg 0.56 ms max 0.79 ms; active bodies 0, pairs 0, islands 0
+[perf]   ms/frame: world.physics_process 121.91, w.projectiles 101.24, pj.flyby 40.92, pj.chars 31.47, fx.impact_sound 10.14, pj.impact_hole 8.24, pj.impact_exit 6.23, fx.holes 2.83, pj.ray 1.27, w.map_tick 1.24, map.lighting_tick 1.10, fx.impact_particles 0.83, voice.process 0.81, w.health 0.60
+[perf]   worst single call (ms): world.physics_process 44.9, w.projectiles 41.1, pj.chars 2.1, pj.flyby 1.6, pj.impact_exit 1.5, fx.impact_sound 1.4, pj.impact_hole 1.3, voice.process 1.3
+[firefight] fire_warm: 224 rounds fired, avg 145.89 ms, p95 180.63, max 190.48, gpu 0.00 ms
+[perf]   hitch 154.6 ms in ff_fire, tier 0, 2 m above ground
+[perf]   hitch 139.3 ms in ff_fire, tier 0, 2 m above ground
+[perf]   hitch 199.8 ms in ff_fire, tier 0, 2 m above ground
+[perf]   hitch 178.3 ms in ff_fire, tier 0, 2 m above ground
+[perf]   hitch 178.4 ms in ff_fire, tier 0, 2 m above ground
+[perf]   hitch 191.0 ms in ff_fire, tier 0, 2 m above ground
+[perf]   hitch 270.6 ms in ff_fire, tier 0, 2 m above ground
+[perf]   hitch 217.0 ms in ff_fire, tier 0, 2 m above ground
+[perf]   hitch 186.6 ms in ff_fire, tier 0, 2 m above ground
+[perf]   hitch 178.3 ms in ff_fire, tier 0, 2 m above ground
+[perf]   hitch 233.5 ms in ff_fire, tier 0, 2 m above ground
+[perf]   hitch 169.9 ms in ff_fire, tier 0, 2 m above ground
+[perf]   hitch 180.3 ms in ff_fire, tier 0, 2 m above ground
+[perf]   hitch 183.1 ms in ff_fire, tier 0, 2 m above ground
+[perf]   hitch 192.0 ms in ff_fire, tier 0, 2 m above ground
+[perf]   hitch 154.2 ms in ff_fire, tier 0, 2 m above ground
+[perf]   hitch 134.7 ms in ff_fire, tier 0, 2 m above ground
+[perf]   hitch 147.8 ms in ff_fire, tier 0, 2 m above ground
+[perf]   hitch 159.0 ms in ff_fire, tier 0, 2 m above ground
+[perf]   hitch 136.7 ms in ff_fire, tier 0, 2 m above ground
+[perf]   hitch 144.3 ms in ff_fire, tier 0, 2 m above ground
+[perf]   hitch 121.6 ms in ff_fire, tier 0, 2 m above ground
+[perf]   hitch 125.3 ms in ff_fire, tier 0, 2 m above ground
+[perf]   hitch 110.7 ms in ff_fire, tier 0, 2 m above ground
+[perf]   hitch 119.7 ms in ff_fire, tier 0, 2 m above ground
+[perf]   hitch 119.1 ms in ff_fire, tier 0, 2 m above ground
+[perf]   hitch 122.0 ms in ff_fire, tier 0, 2 m above ground
+[perf]   hitch 102.4 ms in ff_fire, tier 0, 2 m above ground
+[perf]   hitch 104.7 ms in ff_fire, tier 0, 2 m above ground
+[perf]   hitch 90.9 ms in ff_fire, tier 0, 2 m above ground
+[perf]   hitch 104.0 ms in ff_fire, tier 0, 2 m above ground
+[perf]   hitch 109.3 ms in ff_fire, tier 0, 2 m above ground
+[perf]   hitch 99.5 ms in ff_fire, tier 0, 2 m above ground
+[perf]   hitch 97.5 ms in ff_fire, tier 0, 2 m above ground
+[perf]   hitch 96.7 ms in ff_fire, tier 0, 2 m above ground
+[perf]   hitch 94.2 ms in ff_fire, tier 0, 2 m above ground
+[perf]   hitch 92.5 ms in ff_fire, tier 0, 2 m above ground
+[perf]   hitch 79.2 ms in ff_fire, tier 0, 2 m above ground
+[perf]   hitch 75.2 ms in ff_fire, tier 0, 2 m above ground
+[perf]   hitch 75.7 ms in ff_fire, tier 0, 2 m above ground
+[perf]   hitch 62.7 ms in ff_fire, tier 0, 2 m above ground
+[perf]   hitch 63.4 ms in ff_fire, tier 0, 2 m above ground
+[perf]   hitch 68.4 ms in ff_fire, tier 0, 2 m above ground
+[perf]   hitch 69.8 ms in ff_fire, tier 0, 2 m above ground
+[perf]   hitch 86.8 ms in ff_fire, tier 0, 2 m above ground
+[perf]   hitch 61.1 ms in ff_fire, tier 0, 2 m above ground
+[perf]   hitch 77.8 ms in ff_fire, tier 0, 2 m above ground
+[perf]   hitch 95.5 ms in ff_fire, tier 0, 2 m above ground
+[perf]   hitch 97.2 ms in ff_fire, tier 0, 2 m above ground
+[perf]   hitch 116.3 ms in ff_fire, tier 0, 2 m above ground
+[perf]   hitch 113.7 ms in ff_fire, tier 0, 2 m above ground
+[perf]   hitch 118.3 ms in ff_fire, tier 0, 2 m above ground
+[perf]   hitch 113.0 ms in ff_fire, tier 0, 2 m above ground
+[perf]   hitch 146.7 ms in ff_fire, tier 0, 2 m above ground
+[perf]   hitch 138.0 ms in ff_fire, tier 0, 2 m above ground
+[perf]   hitch 153.4 ms in ff_fire, tier 0, 2 m above ground
+[perf]   hitch 146.8 ms in ff_fire, tier 0, 2 m above ground
+[perf]   hitch 116.2 ms in ff_fire, tier 0, 2 m above ground
+[perf]   hitch 118.8 ms in ff_fire, tier 0, 2 m above ground
+[perf]   hitch 114.3 ms in ff_fire, tier 0, 2 m above ground
+[perf]   hitch 123.4 ms in ff_fire, tier 0, 2 m above ground
+[perf]   hitch 119.9 ms in ff_fire, tier 0, 2 m above ground
+[perf]   hitch 143.6 ms in ff_fire, tier 0, 2 m above ground
+[perf] ff_fire           63 fr  avg 129.12 ms (    8 fps)  p50 119.73  p95 199.77  p99 270.59  max 270.59  >16.7ms   63 | render cpu  0.84 gpu  0.00 | process 23.73 physics 31.55 | draws   3836 objs   4139 prims  1536084 | agl 0
+[perf]   5.79 physics steps/frame; engine physics step avg 0.56 ms max 0.88 ms; active bodies 0, pairs 0, islands 0
+[perf]   ms/frame: world.physics_process 106.57, w.projectiles 87.53, pj.flyby 33.52, pj.chars 26.16, fx.impact_sound 10.98, pj.impact_hole 8.33, pj.impact_exit 6.69, fx.holes 2.34, pj.ray 1.13, w.map_tick 1.12, map.lighting_tick 0.98, fx.impact_particles 0.96, voice.process 0.64, w.health 0.54
+[perf]   worst single call (ms): world.physics_process 50.3, w.projectiles 44.6, pj.impact_hole 1.8, fx.impact_sound 1.7, sound_system.process 1.4, pj.impact_exit 1.3, voice.process 1.2, pj.flyby 1.1
+[firefight] fire: 231 rounds fired, avg 129.12 ms, p95 199.77, max 270.59, gpu 0.00 ms
+[perf]   hitch 119.5 ms in ff_fire_flash_noshadow, tier 0, 2 m above ground
+[perf]   hitch 125.8 ms in ff_fire_flash_noshadow, tier 0, 2 m above ground
+[perf]   hitch 130.8 ms in ff_fire_flash_noshadow, tier 0, 2 m above ground
+[perf]   hitch 118.3 ms in ff_fire_flash_noshadow, tier 0, 2 m above ground
+[perf]   hitch 119.9 ms in ff_fire_flash_noshadow, tier 0, 2 m above ground
+[perf]   hitch 109.4 ms in ff_fire_flash_noshadow, tier 0, 2 m above ground
+[perf]   hitch 122.0 ms in ff_fire_flash_noshadow, tier 0, 2 m above ground
+[perf]   hitch 106.5 ms in ff_fire_flash_noshadow, tier 0, 2 m above ground
+[perf]   hitch 118.4 ms in ff_fire_flash_noshadow, tier 0, 2 m above ground
+[perf]   hitch 93.5 ms in ff_fire_flash_noshadow, tier 0, 2 m above ground
+[perf]   hitch 118.5 ms in ff_fire_flash_noshadow, tier 0, 2 m above ground
+[perf]   hitch 92.3 ms in ff_fire_flash_noshadow, tier 0, 2 m above ground
+[perf]   hitch 87.2 ms in ff_fire_flash_noshadow, tier 0, 2 m above ground
+[perf]   hitch 95.0 ms in ff_fire_flash_noshadow, tier 0, 2 m above ground
+[perf]   hitch 87.7 ms in ff_fire_flash_noshadow, tier 0, 2 m above ground
+[perf]   hitch 92.1 ms in ff_fire_flash_noshadow, tier 0, 2 m above ground
+[perf]   hitch 125.7 ms in ff_fire_flash_noshadow, tier 0, 2 m above ground
+[perf]   hitch 111.3 ms in ff_fire_flash_noshadow, tier 0, 2 m above ground
+[perf]   hitch 119.9 ms in ff_fire_flash_noshadow, tier 0, 2 m above ground
+[perf]   hitch 158.7 ms in ff_fire_flash_noshadow, tier 0, 2 m above ground
+[perf]   hitch 158.6 ms in ff_fire_flash_noshadow, tier 0, 2 m above ground
+[perf]   hitch 159.8 ms in ff_fire_flash_noshadow, tier 0, 2 m above ground
+[perf]   hitch 135.0 ms in ff_fire_flash_noshadow, tier 0, 2 m above ground
+[perf]   hitch 156.8 ms in ff_fire_flash_noshadow, tier 0, 2 m above ground
+[perf]   hitch 150.0 ms in ff_fire_flash_noshadow, tier 0, 2 m above ground
+[perf]   hitch 123.9 ms in ff_fire_flash_noshadow, tier 0, 2 m above ground
+[perf]   hitch 115.8 ms in ff_fire_flash_noshadow, tier 0, 2 m above ground
+[perf]   hitch 122.7 ms in ff_fire_flash_noshadow, tier 0, 2 m above ground
+[perf]   hitch 113.1 ms in ff_fire_flash_noshadow, tier 0, 2 m above ground
+[perf]   hitch 115.9 ms in ff_fire_flash_noshadow, tier 0, 2 m above ground
+[perf]   hitch 129.4 ms in ff_fire_flash_noshadow, tier 0, 2 m above ground
+[perf]   hitch 114.0 ms in ff_fire_flash_noshadow, tier 0, 2 m above ground
+[perf]   hitch 108.0 ms in ff_fire_flash_noshadow, tier 0, 2 m above ground
+[perf]   hitch 121.4 ms in ff_fire_flash_noshadow, tier 0, 2 m above ground
+[perf]   hitch 137.8 ms in ff_fire_flash_noshadow, tier 0, 2 m above ground
+[perf]   hitch 130.5 ms in ff_fire_flash_noshadow, tier 0, 2 m above ground
+[perf]   hitch 116.8 ms in ff_fire_flash_noshadow, tier 0, 2 m above ground
+[perf]   hitch 111.4 ms in ff_fire_flash_noshadow, tier 0, 2 m above ground
+[perf]   hitch 118.3 ms in ff_fire_flash_noshadow, tier 0, 2 m above ground
+[perf]   hitch 119.1 ms in ff_fire_flash_noshadow, tier 0, 2 m above ground
+[perf]   hitch 155.5 ms in ff_fire_flash_noshadow, tier 0, 2 m above ground
+[perf]   hitch 152.1 ms in ff_fire_flash_noshadow, tier 0, 2 m above ground
+[perf]   hitch 147.8 ms in ff_fire_flash_noshadow, tier 0, 2 m above ground
+[perf]   hitch 149.9 ms in ff_fire_flash_noshadow, tier 0, 2 m above ground
+[perf]   hitch 144.6 ms in ff_fire_flash_noshadow, tier 0, 2 m above ground
+[perf]   hitch 151.7 ms in ff_fire_flash_noshadow, tier 0, 2 m above ground
+[perf]   hitch 142.4 ms in ff_fire_flash_noshadow, tier 0, 2 m above ground
+[perf]   hitch 139.2 ms in ff_fire_flash_noshadow, tier 0, 2 m above ground
+[perf]   hitch 145.0 ms in ff_fire_flash_noshadow, tier 0, 2 m above ground
+[perf]   hitch 142.1 ms in ff_fire_flash_noshadow, tier 0, 2 m above ground
+[perf]   hitch 138.9 ms in ff_fire_flash_noshadow, tier 0, 2 m above ground
+[perf]   hitch 133.5 ms in ff_fire_flash_noshadow, tier 0, 2 m above ground
+[perf]   hitch 121.9 ms in ff_fire_flash_noshadow, tier 0, 2 m above ground
+[perf]   hitch 123.8 ms in ff_fire_flash_noshadow, tier 0, 2 m above ground
+[perf]   hitch 121.7 ms in ff_fire_flash_noshadow, tier 0, 2 m above ground
+[perf]   hitch 111.5 ms in ff_fire_flash_noshadow, tier 0, 2 m above ground
+[perf]   hitch 109.5 ms in ff_fire_flash_noshadow, tier 0, 2 m above ground
+[perf]   hitch 165.2 ms in ff_fire_flash_noshadow, tier 0, 2 m above ground
+[perf]   hitch 145.9 ms in ff_fire_flash_noshadow, tier 0, 2 m above ground
+[perf]   hitch 166.0 ms in ff_fire_flash_noshadow, tier 0, 2 m above ground
+[perf] ff_fire_flash_noshadow    60 fr  avg 126.98 ms (    8 fps)  p50 122.68  p95 159.76  p99 166.03  max 166.03  >16.7ms   60 | render cpu  0.86 gpu  0.00 | process 20.26 physics 29.64 | draws   2141 objs   2444 prims   732951 | agl 0
+[perf]   6.05 physics steps/frame; engine physics step avg 0.60 ms max 1.31 ms; active bodies 0, pairs 0, islands 0
+[perf]   ms/frame: world.physics_process 105.59, w.projectiles 85.39, pj.flyby 34.02, pj.chars 26.10, fx.impact_sound 9.11, pj.impact_hole 7.23, pj.impact_exit 5.62, fx.holes 2.35, w.map_tick 1.23, map.lighting_tick 1.09, pj.ray 1.06, fx.impact_particles 0.79, voice.process 0.66, w.health 0.56
+[perf]   worst single call (ms): world.physics_process 42.6, w.projectiles 37.5, pj.impact_hole 1.4, pj.impact_exit 1.2, pj.flyby 1.1, fx.impact_sound 1.0, voice.process 1.0, w.map_tick 0.8
+[firefight] fire_flash_noshadow: 209 rounds fired, avg 126.98 ms, p95 159.76, max 166.03, gpu 0.00 ms
+[perf]   hitch 163.6 ms in ff_fire_no_flash, tier 0, 2 m above ground
+[perf]   hitch 154.8 ms in ff_fire_no_flash, tier 0, 2 m above ground
+[perf]   hitch 150.9 ms in ff_fire_no_flash, tier 0, 2 m above ground
+[perf]   hitch 174.6 ms in ff_fire_no_flash, tier 0, 2 m above ground
+[perf]   hitch 154.1 ms in ff_fire_no_flash, tier 0, 2 m above ground
+[perf]   hitch 151.2 ms in ff_fire_no_flash, tier 0, 2 m above ground
+[perf]   hitch 153.8 ms in ff_fire_no_flash, tier 0, 2 m above ground
+[perf]   hitch 155.5 ms in ff_fire_no_flash, tier 0, 2 m above ground
+[perf]   hitch 138.8 ms in ff_fire_no_flash, tier 0, 2 m above ground
+[perf]   hitch 159.3 ms in ff_fire_no_flash, tier 0, 2 m above ground
+[perf]   hitch 152.5 ms in ff_fire_no_flash, tier 0, 2 m above ground
+[perf]   hitch 183.8 ms in ff_fire_no_flash, tier 0, 2 m above ground
+[perf]   hitch 166.8 ms in ff_fire_no_flash, tier 0, 2 m above ground
+[perf]   hitch 145.2 ms in ff_fire_no_flash, tier 0, 2 m above ground
+[perf]   hitch 137.1 ms in ff_fire_no_flash, tier 0, 2 m above ground
+[perf]   hitch 135.6 ms in ff_fire_no_flash, tier 0, 2 m above ground
+[perf]   hitch 141.4 ms in ff_fire_no_flash, tier 0, 2 m above ground
+[perf]   hitch 134.6 ms in ff_fire_no_flash, tier 0, 2 m above ground
+[perf]   hitch 146.9 ms in ff_fire_no_flash, tier 0, 2 m above ground
+[perf]   hitch 149.7 ms in ff_fire_no_flash, tier 0, 2 m above ground
+[perf]   hitch 125.9 ms in ff_fire_no_flash, tier 0, 2 m above ground
+[perf]   hitch 139.8 ms in ff_fire_no_flash, tier 0, 2 m above ground
+[perf]   hitch 132.3 ms in ff_fire_no_flash, tier 0, 2 m above ground
+[perf]   hitch 130.7 ms in ff_fire_no_flash, tier 0, 2 m above ground
+[perf]   hitch 127.4 ms in ff_fire_no_flash, tier 0, 2 m above ground
+[perf]   hitch 134.2 ms in ff_fire_no_flash, tier 0, 2 m above ground
+[perf]   hitch 141.1 ms in ff_fire_no_flash, tier 0, 2 m above ground
+[perf]   hitch 175.8 ms in ff_fire_no_flash, tier 0, 2 m above ground
+[perf]   hitch 158.2 ms in ff_fire_no_flash, tier 0, 2 m above ground
+[perf]   hitch 164.2 ms in ff_fire_no_flash, tier 0, 2 m above ground
+[perf]   hitch 165.5 ms in ff_fire_no_flash, tier 0, 2 m above ground
+[perf]   hitch 204.6 ms in ff_fire_no_flash, tier 0, 2 m above ground
+[perf]   hitch 187.3 ms in ff_fire_no_flash, tier 0, 2 m above ground
+[perf]   hitch 198.6 ms in ff_fire_no_flash, tier 0, 2 m above ground
+[perf]   hitch 172.3 ms in ff_fire_no_flash, tier 0, 2 m above ground
+[perf]   hitch 175.0 ms in ff_fire_no_flash, tier 0, 2 m above ground
+[perf]   hitch 162.2 ms in ff_fire_no_flash, tier 0, 2 m above ground
+[perf]   hitch 121.5 ms in ff_fire_no_flash, tier 0, 2 m above ground
+[perf]   hitch 110.8 ms in ff_fire_no_flash, tier 0, 2 m above ground
+[perf]   hitch 113.8 ms in ff_fire_no_flash, tier 0, 2 m above ground
+[perf]   hitch 105.7 ms in ff_fire_no_flash, tier 0, 2 m above ground
+[perf]   hitch 111.8 ms in ff_fire_no_flash, tier 0, 2 m above ground
+[perf]   hitch 106.5 ms in ff_fire_no_flash, tier 0, 2 m above ground
+[perf]   hitch 116.3 ms in ff_fire_no_flash, tier 0, 2 m above ground
+[perf]   hitch 116.9 ms in ff_fire_no_flash, tier 0, 2 m above ground
+[perf]   hitch 116.5 ms in ff_fire_no_flash, tier 0, 2 m above ground
+[perf]   hitch 118.4 ms in ff_fire_no_flash, tier 0, 2 m above ground
+[perf]   hitch 114.2 ms in ff_fire_no_flash, tier 0, 2 m above ground
+[perf]   hitch 116.7 ms in ff_fire_no_flash, tier 0, 2 m above ground
+[perf]   hitch 107.0 ms in ff_fire_no_flash, tier 0, 2 m above ground
+[perf]   hitch 101.7 ms in ff_fire_no_flash, tier 0, 2 m above ground
+[perf]   hitch 93.2 ms in ff_fire_no_flash, tier 0, 2 m above ground
+[perf]   hitch 100.3 ms in ff_fire_no_flash, tier 0, 2 m above ground
+[perf]   hitch 91.6 ms in ff_fire_no_flash, tier 0, 2 m above ground
+[perf]   hitch 111.1 ms in ff_fire_no_flash, tier 0, 2 m above ground
+[perf]   hitch 96.8 ms in ff_fire_no_flash, tier 0, 2 m above ground
+[perf]   hitch 94.6 ms in ff_fire_no_flash, tier 0, 2 m above ground
+[perf]   hitch 90.7 ms in ff_fire_no_flash, tier 0, 2 m above ground
+[perf]   hitch 105.7 ms in ff_fire_no_flash, tier 0, 2 m above ground
+[perf]   hitch 83.3 ms in ff_fire_no_flash, tier 0, 2 m above ground
+[perf] ff_fire_no_flash    60 fr  avg 136.51 ms (    7 fps)  p50 137.09  p95 187.28  p99 204.59  max 204.59  >16.7ms   60 | render cpu  0.87 gpu  0.00 | process 22.33 physics 35.21 | draws   2147 objs   2450 prims   733448 | agl 0
+[perf]   6.08 physics steps/frame; engine physics step avg 0.63 ms max 1.39 ms; active bodies 0, pairs 0, islands 0
+[perf]   ms/frame: world.physics_process 113.78, w.projectiles 91.42, pj.flyby 36.48, pj.chars 27.97, fx.impact_sound 9.67, pj.impact_hole 7.60, pj.impact_exit 5.96, fx.holes 2.35, w.map_tick 1.30, pj.ray 1.16, map.lighting_tick 1.15, fx.impact_particles 0.87, voice.process 0.73, w.health 0.60
+[perf]   worst single call (ms): world.physics_process 45.6, w.projectiles 41.3, pj.impact_hole 1.8, fx.impact_sound 1.7, pj.impact_exit 1.3, pj.flyby 1.3, voice.process 1.1, w.map_tick 1.0
+[firefight] fire_no_flash: 227 rounds fired, avg 136.51 ms, p95 187.28, max 204.59, gpu 0.00 ms
+[perf]   hitch 148.8 ms in ff_fire_no_lamp_shadow, tier 0, 2 m above ground
+[perf]   hitch 113.2 ms in ff_fire_no_lamp_shadow, tier 0, 2 m above ground
+[perf]   hitch 147.6 ms in ff_fire_no_lamp_shadow, tier 0, 2 m above ground
+[perf]   hitch 124.1 ms in ff_fire_no_lamp_shadow, tier 0, 2 m above ground
+[perf]   hitch 147.6 ms in ff_fire_no_lamp_shadow, tier 0, 2 m above ground
+[perf]   hitch 147.1 ms in ff_fire_no_lamp_shadow, tier 0, 2 m above ground
+[perf]   hitch 167.3 ms in ff_fire_no_lamp_shadow, tier 0, 2 m above ground
+[perf]   hitch 158.4 ms in ff_fire_no_lamp_shadow, tier 0, 2 m above ground
+[perf]   hitch 121.2 ms in ff_fire_no_lamp_shadow, tier 0, 2 m above ground
+[perf]   hitch 134.9 ms in ff_fire_no_lamp_shadow, tier 0, 2 m above ground
+[perf]   hitch 150.6 ms in ff_fire_no_lamp_shadow, tier 0, 2 m above ground
+[perf]   hitch 162.3 ms in ff_fire_no_lamp_shadow, tier 0, 2 m above ground
+[perf]   hitch 157.0 ms in ff_fire_no_lamp_shadow, tier 0, 2 m above ground
+[perf]   hitch 187.8 ms in ff_fire_no_lamp_shadow, tier 0, 2 m above ground
+[perf]   hitch 134.9 ms in ff_fire_no_lamp_shadow, tier 0, 2 m above ground
+[perf]   hitch 160.8 ms in ff_fire_no_lamp_shadow, tier 0, 2 m above ground
+[perf]   hitch 145.8 ms in ff_fire_no_lamp_shadow, tier 0, 2 m above ground
+[perf]   hitch 151.8 ms in ff_fire_no_lamp_shadow, tier 0, 2 m above ground
+[perf]   hitch 147.2 ms in ff_fire_no_lamp_shadow, tier 0, 2 m above ground
+[perf]   hitch 194.1 ms in ff_fire_no_lamp_shadow, tier 0, 2 m above ground
+[perf]   hitch 135.3 ms in ff_fire_no_lamp_shadow, tier 0, 2 m above ground
+[perf]   hitch 136.9 ms in ff_fire_no_lamp_shadow, tier 0, 2 m above ground
+[perf]   hitch 131.0 ms in ff_fire_no_lamp_shadow, tier 0, 2 m above ground
+[perf]   hitch 134.2 ms in ff_fire_no_lamp_shadow, tier 0, 2 m above ground
+[perf]   hitch 109.1 ms in ff_fire_no_lamp_shadow, tier 0, 2 m above ground
+[perf]   hitch 120.7 ms in ff_fire_no_lamp_shadow, tier 0, 2 m above ground
+[perf]   hitch 117.8 ms in ff_fire_no_lamp_shadow, tier 0, 2 m above ground
+[perf]   hitch 117.0 ms in ff_fire_no_lamp_shadow, tier 0, 2 m above ground
+[perf]   hitch 103.9 ms in ff_fire_no_lamp_shadow, tier 0, 2 m above ground
+[perf]   hitch 109.5 ms in ff_fire_no_lamp_shadow, tier 0, 2 m above ground
+[perf]   hitch 106.1 ms in ff_fire_no_lamp_shadow, tier 0, 2 m above ground
+[perf]   hitch 124.5 ms in ff_fire_no_lamp_shadow, tier 0, 2 m above ground
+[perf]   hitch 108.9 ms in ff_fire_no_lamp_shadow, tier 0, 2 m above ground
+[perf]   hitch 122.1 ms in ff_fire_no_lamp_shadow, tier 0, 2 m above ground
+[perf]   hitch 107.5 ms in ff_fire_no_lamp_shadow, tier 0, 2 m above ground
+[perf]   hitch 99.7 ms in ff_fire_no_lamp_shadow, tier 0, 2 m above ground
+[perf]   hitch 107.7 ms in ff_fire_no_lamp_shadow, tier 0, 2 m above ground
+[perf]   hitch 99.5 ms in ff_fire_no_lamp_shadow, tier 0, 2 m above ground
+[perf]   hitch 107.6 ms in ff_fire_no_lamp_shadow, tier 0, 2 m above ground
+[perf]   hitch 96.7 ms in ff_fire_no_lamp_shadow, tier 0, 2 m above ground
+[perf]   hitch 132.2 ms in ff_fire_no_lamp_shadow, tier 0, 2 m above ground
+[perf]   hitch 110.9 ms in ff_fire_no_lamp_shadow, tier 0, 2 m above ground
+[perf]   hitch 134.6 ms in ff_fire_no_lamp_shadow, tier 0, 2 m above ground
+[perf]   hitch 123.0 ms in ff_fire_no_lamp_shadow, tier 0, 2 m above ground
+[perf]   hitch 137.1 ms in ff_fire_no_lamp_shadow, tier 0, 2 m above ground
+[perf]   hitch 118.1 ms in ff_fire_no_lamp_shadow, tier 0, 2 m above ground
+[perf]   hitch 157.6 ms in ff_fire_no_lamp_shadow, tier 0, 2 m above ground
+[perf]   hitch 144.1 ms in ff_fire_no_lamp_shadow, tier 0, 2 m above ground
+[perf]   hitch 142.4 ms in ff_fire_no_lamp_shadow, tier 0, 2 m above ground
+[perf]   hitch 137.1 ms in ff_fire_no_lamp_shadow, tier 0, 2 m above ground
+[perf]   hitch 125.9 ms in ff_fire_no_lamp_shadow, tier 0, 2 m above ground
+[perf]   hitch 124.4 ms in ff_fire_no_lamp_shadow, tier 0, 2 m above ground
+[perf]   hitch 116.3 ms in ff_fire_no_lamp_shadow, tier 0, 2 m above ground
+[perf]   hitch 113.1 ms in ff_fire_no_lamp_shadow, tier 0, 2 m above ground
+[perf]   hitch 113.4 ms in ff_fire_no_lamp_shadow, tier 0, 2 m above ground
+[perf]   hitch 113.8 ms in ff_fire_no_lamp_shadow, tier 0, 2 m above ground
+[perf]   hitch 122.7 ms in ff_fire_no_lamp_shadow, tier 0, 2 m above ground
+[perf]   hitch 111.8 ms in ff_fire_no_lamp_shadow, tier 0, 2 m above ground
+[perf]   hitch 117.7 ms in ff_fire_no_lamp_shadow, tier 0, 2 m above ground
+[perf]   hitch 115.4 ms in ff_fire_no_lamp_shadow, tier 0, 2 m above ground
+[perf] ff_fire_no_lamp_shadow    60 fr  avg 130.16 ms (    8 fps)  p50 124.47  p95 167.25  p99 194.11  max 194.11  >16.7ms   60 | render cpu  0.77 gpu  0.00 | process 20.90 physics 31.92 | draws   3239 objs   3542 prims  1425667 | agl 0
+[perf]   6.10 physics steps/frame; engine physics step avg 0.52 ms max 0.80 ms; active bodies 0, pairs 0, islands 0
+[perf]   ms/frame: world.physics_process 109.20, w.projectiles 88.44, pj.flyby 34.19, pj.chars 26.46, fx.impact_sound 10.98, pj.impact_hole 8.34, pj.impact_exit 6.84, fx.holes 2.53, pj.ray 1.10, w.map_tick 0.97, fx.impact_particles 0.94, map.lighting_tick 0.84, voice.process 0.69, w.record 0.53
+[perf]   worst single call (ms): world.physics_process 42.1, w.projectiles 37.6, pj.impact_hole 1.2, voice.process 1.1, pj.impact_exit 1.1, fx.impact_sound 1.0, ambience.process 0.7, sound_system.process 0.6
+[firefight] fire_no_lamp_shadow: 226 rounds fired, avg 130.16 ms, p95 167.25, max 194.11, gpu 0.00 ms
+[perf]   hitch 117.6 ms in ff_fire_again, tier 0, 2 m above ground
+[perf]   hitch 113.5 ms in ff_fire_again, tier 0, 2 m above ground
+[perf]   hitch 120.2 ms in ff_fire_again, tier 0, 2 m above ground
+[perf]   hitch 110.3 ms in ff_fire_again, tier 0, 2 m above ground
+[perf]   hitch 113.3 ms in ff_fire_again, tier 0, 2 m above ground
+[perf]   hitch 134.2 ms in ff_fire_again, tier 0, 2 m above ground
+[perf]   hitch 115.6 ms in ff_fire_again, tier 0, 2 m above ground
+[perf]   hitch 112.8 ms in ff_fire_again, tier 0, 2 m above ground
+[perf]   hitch 109.8 ms in ff_fire_again, tier 0, 2 m above ground
+[perf]   hitch 99.0 ms in ff_fire_again, tier 0, 2 m above ground
+[perf]   hitch 134.5 ms in ff_fire_again, tier 0, 2 m above ground
+[perf]   hitch 133.4 ms in ff_fire_again, tier 0, 2 m above ground
+[perf]   hitch 187.4 ms in ff_fire_again, tier 0, 2 m above ground
+[perf]   hitch 134.3 ms in ff_fire_again, tier 0, 2 m above ground
+[perf]   hitch 150.9 ms in ff_fire_again, tier 0, 2 m above ground
+[perf]   hitch 144.7 ms in ff_fire_again, tier 0, 2 m above ground
+[perf]   hitch 174.3 ms in ff_fire_again, tier 0, 2 m above ground
+[perf]   hitch 148.9 ms in ff_fire_again, tier 0, 2 m above ground
+[perf]   hitch 187.3 ms in ff_fire_again, tier 0, 2 m above ground
+[perf]   hitch 154.9 ms in ff_fire_again, tier 0, 2 m above ground
+[perf]   hitch 135.1 ms in ff_fire_again, tier 0, 2 m above ground
+[perf]   hitch 125.4 ms in ff_fire_again, tier 0, 2 m above ground
+[perf]   hitch 120.2 ms in ff_fire_again, tier 0, 2 m above ground
+[perf]   hitch 137.0 ms in ff_fire_again, tier 0, 2 m above ground
+[perf]   hitch 132.4 ms in ff_fire_again, tier 0, 2 m above ground
+[perf]   hitch 117.0 ms in ff_fire_again, tier 0, 2 m above ground
+[perf]   hitch 126.9 ms in ff_fire_again, tier 0, 2 m above ground
+[perf]   hitch 132.9 ms in ff_fire_again, tier 0, 2 m above ground
+[perf]   hitch 121.9 ms in ff_fire_again, tier 0, 2 m above ground
+[perf]   hitch 120.4 ms in ff_fire_again, tier 0, 2 m above ground
+[perf]   hitch 111.7 ms in ff_fire_again, tier 0, 2 m above ground
+[perf]   hitch 124.6 ms in ff_fire_again, tier 0, 2 m above ground
+[perf]   hitch 128.8 ms in ff_fire_again, tier 0, 2 m above ground
+[perf]   hitch 148.4 ms in ff_fire_again, tier 0, 2 m above ground
+[perf]   hitch 130.5 ms in ff_fire_again, tier 0, 2 m above ground
+[perf]   hitch 117.6 ms in ff_fire_again, tier 0, 2 m above ground
+[perf]   hitch 121.3 ms in ff_fire_again, tier 0, 2 m above ground
+[perf]   hitch 98.5 ms in ff_fire_again, tier 0, 2 m above ground
+[perf]   hitch 116.1 ms in ff_fire_again, tier 0, 2 m above ground
+[perf]   hitch 103.6 ms in ff_fire_again, tier 0, 2 m above ground
+[perf]   hitch 114.3 ms in ff_fire_again, tier 0, 2 m above ground
+[perf]   hitch 118.2 ms in ff_fire_again, tier 0, 2 m above ground
+[perf]   hitch 102.6 ms in ff_fire_again, tier 0, 2 m above ground
+[perf]   hitch 106.9 ms in ff_fire_again, tier 0, 2 m above ground
+[perf]   hitch 106.0 ms in ff_fire_again, tier 0, 2 m above ground
+[perf]   hitch 115.4 ms in ff_fire_again, tier 0, 2 m above ground
+[perf]   hitch 101.7 ms in ff_fire_again, tier 0, 2 m above ground
+[perf]   hitch 108.9 ms in ff_fire_again, tier 0, 2 m above ground
+[perf]   hitch 101.6 ms in ff_fire_again, tier 0, 2 m above ground
+[perf]   hitch 93.7 ms in ff_fire_again, tier 0, 2 m above ground
+[perf]   hitch 91.4 ms in ff_fire_again, tier 0, 2 m above ground
+[perf]   hitch 91.3 ms in ff_fire_again, tier 0, 2 m above ground
+[perf]   hitch 144.5 ms in ff_fire_again, tier 0, 2 m above ground
+[perf]   hitch 131.4 ms in ff_fire_again, tier 0, 2 m above ground
+[perf]   hitch 143.9 ms in ff_fire_again, tier 0, 2 m above ground
+[perf]   hitch 119.4 ms in ff_fire_again, tier 0, 2 m above ground
+[perf]   hitch 132.5 ms in ff_fire_again, tier 0, 2 m above ground
+[perf]   hitch 126.7 ms in ff_fire_again, tier 0, 2 m above ground
+[perf]   hitch 153.2 ms in ff_fire_again, tier 0, 2 m above ground
+[perf]   hitch 156.8 ms in ff_fire_again, tier 0, 2 m above ground
+[perf] ff_fire_again     60 fr  avg 125.46 ms (    8 fps)  p50 121.33  p95 174.29  p99 187.35  max 187.35  >16.7ms   60 | render cpu  0.85 gpu  0.00 | process 20.52 physics 30.54 | draws   4139 objs   4442 prims  1655693 | agl 0
+[perf]   6.08 physics steps/frame; engine physics step avg 0.56 ms max 1.04 ms; active bodies 0, pairs 0, islands 0
+[perf]   ms/frame: world.physics_process 103.31, w.projectiles 82.27, pj.flyby 31.17, pj.chars 24.24, fx.impact_sound 10.90, pj.impact_hole 8.34, pj.impact_exit 6.66, fx.holes 2.54, w.map_tick 1.19, map.lighting_tick 1.06, pj.ray 1.03, fx.impact_particles 0.89, voice.process 0.64, w.health 0.53
+[perf]   worst single call (ms): world.physics_process 40.8, w.projectiles 35.8, pj.impact_exit 2.3, fx.impact_sound 2.2, w.map_tick 1.2, pj.impact_hole 1.2, map.lighting_tick 1.2, voice.process 1.1
+[firefight] fire_again: 236 rounds fired, avg 125.46 ms, p95 174.29, max 187.35, gpu 0.00 ms
+[autotest] PASS firefight_fired: 231 rounds in the fire phase
+[firefight] quiet 16.67 ms -> fire 129.12 ms (gpu 0.00 -> 0.00)
+[autotest] done: 2 checks, 0 failed

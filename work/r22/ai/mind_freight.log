@@ -1,0 +1,713 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+[server] dedicated server listening on 27681
+[world] map built in 729 ms
+[map] 0 buildings, 0 doors, 0 containers, 0 props, #00000000 on PC
+[nav] levels: 34890 points, 3 links, 91 ms
+[nav] r21: 617 cells closed by the physics check, main walk 34227 of 34282 points (55 in pockets), 166 ms
+[botnav] freight_delight: walk check and 258 spots from res://data/botnav/freight_delight.json { "hide": 102, "snipe": 83, "cover": 45, "open": 28 }
+[bots] learned from 47 cells, 0 stuck spots, 0 spots learned from play, 11 spot records (user://bot_memory_freight_delight.json)
+[loadout] Lola Basyang bolt_308 [scope_8x,suppressor_rifle,mag_ext_sniper,cheek_pad] mag 8/8 | pistol_deagle [sight_reddot,weapon_light] mag 7/7
+[loadout] Aling Puring shotgun_pump [sight_holo,choke,bullet_loops,weapon_light] mag 6/6 | pistol_deagle [suppressor_light,mag_extquick_light,weapon_light] mag 10/10
+[loadout] Bossing Barbecue smg_ump45 [sight_holo,suppressor_light,grip_ergonomic,mag_extquick_light,weapon_light] mag 35/35 | revolver_357 [] mag 6/6
+[loadout] Ate Siomai rifle_556 [scope_night,suppressor_rifle,grip_thumb,mag_extquick_rifle,weapon_light] mag 40/40 | pistol_deagle [sight_reflex,suppressor_light,mag_extquick_light,weapon_light] mag 10/10
+[loadout] Pareng Jun smg_ump45 [scope_2x,suppressor_light,grip_vertical,weapon_light] mag 25/25 | revolver_357 [sight_reddot] mag 6/6
+[loadout] Tita Baby rifle_556 [scope_night,suppressor_rifle,grip_vertical,mag_extquick_rifle,weapon_light] mag 40/40 | pistol_9 [suppressor_light,mag_extquick_light,weapon_light] mag 21/21
+[loadout] Bayaw Erning machine_pistol [sight_reddot,suppressor_light,laser_sight,stock_heavy] mag 32/32 | revolver_357 [sight_reddot] mag 6/6
+[loadout] Bebot Karaoke rifle_556 [scope_night,suppressor_rifle,grip_vertical,mag_extquick_rifle,weapon_light] mag 40/40 | pistol_9 [suppressor_light,mag_extquick_light] mag 21/21
+[loadout] Ate Load Dito smg_ump45 [sight_reddot,suppressor_light,grip_vertical,mag_extquick_light,weapon_light] mag 35/35 | pistol_9 [sight_reddot,suppressor_light,mag_extquick_light] mag 21/21
+[loadout] Ising Batingaw rifle_m762 [grip_light,mag_extquick_rifle] mag 40/40 | revolver_357 [sight_reddot] mag 6/6
+[loadout] Pinsan Gardo smg_ump45 [sight_reddot,suppressor_light] mag 25/25 | pistol_45 [sight_reddot,suppressor_light] mag 7/7
+[loadout] Inday Rice Cooker shotgun_double [choke,bullet_loops] mag 2/2 | pistol_9 [sight_reddot,suppressor_light,mag_extquick_light,weapon_light] mag 21/21
+[match    0.0] deathmatch start on freight_delight: 12 players, 2 teams; spawns (-52.0, 0.0, 0.0), (50.0, 0.0, 0.0) (103/103 m apart, layout); day offset 0 s; zone centre (3.0, 0.0) r=93; win by wipe
+[match    0.0] status: { "ground": 12 }; armed 12; shots 0; zone -1 hold r=93; corpses 0; levels { "L1": 12 }
+[match    0.0] dm teams: West Team 6 at (-50.0, 1.0) spread 3 m; East Team 6 at (53.0, 0.0) spread 8 m; gap 102 m; zone centre (3.0, 0.0)
+[match    0.0] bots: { "roam": 12 }; containers searched by bots 0 (all players 0); plan steps done 0; guns carried 24
+[match    0.0] roles: { "stalker": { "roam": 2 }, "sniper": { "roam": 4 }, "rusher": { "roam": 4 }, "looter": { "roam": 2 } }; stuck now 0; waypoints 258; team { "lines": 0, "pings": 0, "laser_follow": 0, "learned_cells": 47, "blocked_cells": 0, "squads": 0, "following_humans": 0, &"learned_spots": 0 }
+[match    0.0] [lootstats] bots on the ground 12 (in water 0); armed 12; armed with ammo for a gun 12; long guns 12; attachments fitted 73; rounds of unusable ammo carried 0; items on the ground 0; bot pickups { "detours": 0, "detour_taken": 0, "fetches": 0, "fetch_done": 0, "items_taken": 0 }
+[match    9.2] Lola Basyang (team 1) landed at (47.0, 0.0, -3.0), 2.5 m/s, health 100; teammates -
+[match   11.5] [hold] Aling Puring overwatch spot 149 95s
+[match   13.9] [hold] Bebot Karaoke camp spot 23 36s
+[match   15.0] [botskill] normal shots 4 hits 1 reaction_avg 0.27 (n 3) dmg 9 bots 12
+[match   15.0] status: { "ground": 12 }; armed 12; shots 7; zone -1 hold r=93; corpses 0; levels { "L1": 11, "L2": 1 }; server tick avg 1.74 ms, p99 8.10 ms, max 36.60 ms over 900 ticks
+[match   15.0] dm teams: West Team 6 at (-27.0, 1.0) spread 18 m; East Team 6 at (11.0, 7.0) spread 9 m; gap 38 m; zone centre (3.0, 0.0)
+[match   15.0] bots: { "follow": 1, "investigate": 2, "fight": 5, "roam": 2, "hunt": 1, "camp": 1 }; containers searched by bots 0 (all players 0); plan steps done 0; guns carried 24
+[match   15.0] roles: { "stalker": { "follow": 1, "hunt": 1 }, "sniper": { "investigate": 2, "roam": 1, "fight": 1 }, "rusher": { "fight": 4 }, "looter": { "camp": 1, "roam": 1 } }; stuck now 0; waypoints 258; team { "lines": 5, "pings": 0, "laser_follow": 0, "learned_cells": 47, "blocked_cells": 0, "squads": 2, "following_humans": 0, &"learned_spots": 0 }
+[match   15.0] [lootstats] bots on the ground 12 (in water 0); armed 12; armed with ammo for a gun 12; long guns 12; attachments fitted 73; rounds of unusable ammo carried 0; items on the ground 0; bot pickups { "detours": 0, "detour_taken": 0, "fetches": 0, "fetch_done": 0, "items_taken": 0 }
+[match   15.1] Bossing Barbecue killed by Bayaw Erning (gunshot); 2 teams left
+[match   15.1] alive: West Team 6, East Team 5; score { 0: 0, 1: 0 }
+[match   16.8] [hold] Pinsan Gardo camp spot 59 39s
+[match   17.5] Bayaw Erning killed by Ising Batingaw (gunshot); 2 teams left
+[match   17.5] alive: West Team 6, East Team 4; score { 0: 0, 1: 0 }
+[match   18.3] Lola Basyang killed by Ising Batingaw (gunshot); 2 teams left
+[match   18.3] alive: West Team 6, East Team 3; score { 0: 0, 1: 0 }
+[match   19.8] Ising Batingaw killed by Pinsan Gardo (gunshot); 2 teams left
+[match   19.8] alive: West Team 5, East Team 3; score { 0: 0, 1: 0 }
+[match   20.0] Inday Rice Cooker killed by Pinsan Gardo (gunshot); 2 teams left
+[match   20.0] alive: West Team 4, East Team 3; score { 0: 0, 1: 0 }
+[match   20.4] Ate Siomai (team 0) landed at (-9.0, 0.0, -27.0), 7.7 m/s, health 100; teammates -
+[match   21.7] Tita Baby (team 0) landed at (-12.0, 0.0, 2.0), 4.9 m/s, health 100; teammates 29 m
+[match   26.7] [hold] Tita Baby overwatch spot 149 61s
+[match   27.4] Aling Puring killed by Ate Load Dito (gunshot); 2 teams left
+[match   27.4] alive: West Team 3, East Team 3; score { 0: 0, 1: 0 }
+[match   30.0] [botskill] normal shots 65 hits 25 reaction_avg 0.30 (n 20) dmg 555 bots 6
+[match   30.0] status: { "ground": 6 }; armed 6; shots 65; zone -1 hold r=93; corpses 6; levels { "L1": 5, "L2": 1 }; server tick avg 2.10 ms, p99 16.83 ms, max 38.44 ms over 900 ticks
+[match   30.0] dm teams: West Team 3 at (-28.0, 15.0) spread 23 m; East Team 3 at (-10.0, 17.0) spread 20 m; gap 18 m; zone centre (3.0, 0.0)
+[match   30.0] bots: { "roam": 3, "hunt": 1, "camp": 1, "order": 1 }; containers searched by bots 0 (all players 0); plan steps done 0; guns carried 12
+[match   30.0] roles: { "sniper": { "roam": 2, "order": 1 }, "stalker": { "hunt": 1 }, "looter": { "camp": 1, "roam": 1 } }; stuck now 0; waypoints 258; team { "lines": 27, "pings": 0, "laser_follow": 0, "learned_cells": 47, "blocked_cells": 0, "squads": 2, "following_humans": 0, &"learned_spots": 0 }
+[match   30.0] [lootstats] bots on the ground 6 (in water 0); armed 6; armed with ammo for a gun 6; long guns 6; attachments fitted 41; rounds of unusable ammo carried 0; items on the ground 0; bot pickups { "detours": 0, "detour_taken": 0, "fetches": 0, "fetch_done": 0, "items_taken": 0 }
+[match   32.3] Pareng Jun killed by Bebot Karaoke (gunshot); 2 teams left
+[match   32.3] alive: West Team 3, East Team 2; score { 0: 0, 1: 0 }
+[match   32.3] [endgame] West Team mates 3 foes 2 nocontact 0s
+[match   32.5] [sweep] Bebot Karaoke -> cell (-2, 2, 0) spot 151 stale 62s 24 m
+[match   32.7] [endgame] East Team mates 2 foes 3 nocontact 0s
+[match   34.1] Ate Load Dito killed by Ate Siomai (gunshot); 2 teams left
+[match   34.1] alive: West Team 3, East Team 1; score { 0: 0, 1: 0 }
+[match   34.5] [sweep] Ate Siomai -> cell (1, 0, 0) spot 247 stale 64s 15 m
+[match   36.0] Ate Siomai killed by Pinsan Gardo (gunshot); 2 teams left
+[match   36.0] alive: West Team 2, East Team 1; score { 0: 0, 1: 0 }
+[match   36.8] Pinsan Gardo killed by Ate Siomai (bleeding); 1 teams left
+[match   36.8] alive: West Team 2, East Team 0; score { 0: 0, 1: 0 }
+[match   36.8] round 1 over: winner 0, scores { 0: 1, 1: 0 }
+[loadout] Inday Rice Cooker bolt_kar98 [suppressor_rifle,cheek_pad] mag 5/5 | pistol_deagle [sight_reddot,suppressor_light,mag_extquick_light,weapon_light] mag 10/10
+[match   40.8] Inday Rice Cooker respawned at (-54.0, 0.0, 2.0) (nearest enemy 1000 m)
+[loadout] Pinsan Gardo rifle_556 [scope_3x,suppressor_rifle,grip_vertical,mag_extquick_rifle,weapon_light] mag 40/40 | pistol_45 [sight_reddot,mag_extquick_light,weapon_light] mag 12/12
+[match   40.8] Pinsan Gardo respawned at (53.0, 0.0, -8.0) (nearest enemy 107 m)
+[loadout] Ising Batingaw rifle_m762 [suppressor_rifle,grip_angled,mag_extquick_rifle,weapon_light] mag 40/40 | pistol_9 [sight_reddot,mag_extquick_light,weapon_light] mag 21/21
+[match   40.8] Ising Batingaw respawned at (-56.0, 0.0, 5.0) (nearest enemy 109 m)
+[loadout] Ate Load Dito shotgun_double [bullet_loops] mag 2/2 | pistol_9 [sight_reddot,mag_extquick_light,weapon_light] mag 21/21
+[match   40.8] Ate Load Dito respawned at (53.0, 0.0, 11.0) (nearest enemy 107 m)
+[loadout] Bebot Karaoke shotgun_double [bullet_loops] mag 2/2 | pistol_9 [sight_reflex,suppressor_light,mag_extquick_light,weapon_light] mag 21/21
+[match   40.8] Bebot Karaoke respawned at (-54.0, 0.0, -2.0) (nearest enemy 106 m)
+[loadout] Bayaw Erning rifle_scar [suppressor_rifle,mag_extquick_rifle,weapon_light] mag 40/40 | revolver_357 [sight_reddot] mag 6/6
+[match   40.8] Bayaw Erning respawned at (53.0, 0.0, -11.0) (nearest enemy 107 m)
+[loadout] Tita Baby smg_9 [sight_reflex,suppressor_light,grip_angled,weapon_light] mag 30/30 | pistol_deagle [sight_reddot,suppressor_light,weapon_light] mag 7/7
+[match   40.8] Tita Baby respawned at (-56.0, 0.0, -2.0) (nearest enemy 109 m)
+[loadout] Pareng Jun lmg_m249 [sight_reddot,muzzle_brake,laser_sight,stock_heavy,weapon_light] mag 100/100 | pistol_deagle [sight_reddot,weapon_light] mag 7/7
+[match   40.8] Pareng Jun respawned at (50.0, 0.0, 5.0) (nearest enemy 104 m)
+[loadout] Ate Siomai bolt_awp [scope_6x,suppressor_rifle,mag_ext_sniper,cheek_pad] mag 8/8 | pistol_45 [sight_reddot,suppressor_light,mag_extquick_light] mag 12/12
+[match   40.8] Ate Siomai respawned at (-56.0, 0.0, 2.0) (nearest enemy 106 m)
+[loadout] Bossing Barbecue bolt_awp [scope_8x,mag_ext_sniper] mag 8/8 | pistol_9 [suppressor_light,weapon_light] mag 15/15
+[match   40.8] Bossing Barbecue respawned at (50.0, 0.0, 11.0) (nearest enemy 104 m)
+[loadout] Aling Puring bolt_kar98 [scope_8x,suppressor_rifle,cheek_pad] mag 5/5 | pistol_9 [sight_reddot,suppressor_light,mag_extquick_light,weapon_light] mag 21/21
+[match   40.8] Aling Puring respawned at (-56.0, 0.0, -5.0) (nearest enemy 107 m)
+[loadout] Lola Basyang dmr_mini14 [scope_6x,suppressor_rifle,mag_ext_sniper,cheek_pad] mag 30/30 | pistol_9 [sight_reddot,suppressor_light,weapon_light] mag 15/15
+[match   40.8] Lola Basyang respawned at (53.0, 0.0, 5.0) (nearest enemy 106 m)
+[match   40.8] round 2 started; scores { 0: 1, 1: 0 }
+[match   45.0] status: { "ground": 12 }; armed 12; shots 101; zone -1 hold r=95; corpses 0; levels { "L1": 12 }; server tick avg 1.52 ms, p99 8.97 ms, max 18.38 ms over 660 ticks
+[match   45.0] dm teams: West Team 6 at (-55.0, 0.0) spread 3 m; East Team 6 at (52.0, 2.0) spread 8 m; gap 107 m; zone centre (3.0, 4.0)
+[match   45.0] bots: { "roam": 12 }; containers searched by bots 0 (all players 0); plan steps done 0; guns carried 24
+[match   45.0] roles: { "rusher": { "roam": 5 }, "stalker": { "roam": 2 }, "looter": { "roam": 3 }, "sniper": { "roam": 2 } }; stuck now 0; waypoints 258; team { "lines": 40, "pings": 0, "laser_follow": 0, "learned_cells": 49, "blocked_cells": 0, "squads": 2, "following_humans": 0, &"learned_spots": 0 }
+[match   45.0] [lootstats] bots on the ground 12 (in water 0); armed 12; armed with ammo for a gun 12; long guns 12; attachments fitted 73; rounds of unusable ammo carried 0; items on the ground 0; bot pickups { "detours": 0, "detour_taken": 0, "fetches": 0, "fetch_done": 0, "items_taken": 0 }
+[match   48.1] Lola Basyang (team 1) landed at (47.0, 0.0, 3.0), 2.5 m/s, health 100; teammates -
+[match   49.0] [botskill] normal shots 101 hits 43 reaction_avg 0.30 (n 28) dmg 968 bots 12
+[match   53.4] [hold] Tita Baby camp spot 23 36s
+[match   53.9] [hold] Ate Siomai overwatch spot 149 61s
+[match   55.6] Bayaw Erning killed by Ate Load Dito (gunshot); 2 teams left
+[match   55.6] alive: West Team 6, East Team 5; score { 0: 1, 1: 0 }
+[match   56.8] [hold] Aling Puring camp spot 33 46s
+[match   57.1] [hold] Bossing Barbecue camp spot 59 50s
+[match   57.9] Inday Rice Cooker killed by Pinsan Gardo (gunshot); 2 teams left
+[match   57.9] alive: West Team 5, East Team 5; score { 0: 1, 1: 0 }
+[match   59.6] Bebot Karaoke killed by Pinsan Gardo (gunshot); 2 teams left
+[match   59.6] alive: West Team 4, East Team 5; score { 0: 1, 1: 0 }
+[match   60.0] status: { "ground": 9 }; armed 9; shots 132; zone -1 hold r=95; corpses 3; levels { "L1": 9 }; server tick avg 2.18 ms, p99 9.90 ms, max 27.38 ms over 900 ticks
+[match   60.0] dm teams: West Team 4 at (-31.0, 9.0) spread 21 m; East Team 5 at (10.0, 10.0) spread 14 m; gap 41 m; zone centre (3.0, 4.0)
+[match   60.0] bots: { "follow": 1, "fight": 3, "roam": 2, "order": 2, "hunt": 1 }; containers searched by bots 0 (all players 0); plan steps done 0; guns carried 18
+[match   60.0] roles: { "rusher": { "follow": 1, "fight": 1 }, "stalker": { "fight": 1, "hunt": 1 }, "looter": { "roam": 2, "order": 1 }, "sniper": { "order": 1, "fight": 1 } }; stuck now 0; waypoints 258; team { "lines": 54, "pings": 0, "laser_follow": 0, "learned_cells": 49, "blocked_cells": 0, "squads": 4, "following_humans": 0, &"learned_spots": 0 }
+[match   60.0] [lootstats] bots on the ground 9 (in water 0); armed 9; armed with ammo for a gun 9; long guns 9; attachments fitted 58; rounds of unusable ammo carried 0; items on the ground 0; bot pickups { "detours": 0, "detour_taken": 0, "fetches": 0, "fetch_done": 0, "items_taken": 0 }
+[match   60.0] Ate Load Dito killed by Ising Batingaw (gunshot); 2 teams left
+[match   60.0] alive: West Team 4, East Team 4; score { 0: 1, 1: 0 }
+[match   62.2] Pareng Jun (team 1) landed at (20.0, 0.0, 21.0), 4.9 m/s, health 100; teammates 14 m
+[match   64.0] [botskill] normal shots 160 hits 56 reaction_avg 0.40 (n 51) dmg 1398 bots 8
+[match   68.2] Tita Baby (team 0) landed at (-32.0, 0.0, 30.0), 3.4 m/s, health 100; teammates -
+[match   68.7] Ising Batingaw killed by Pinsan Gardo (gunshot); 2 teams left
+[match   68.7] alive: West Team 3, East Team 4; score { 0: 1, 1: 0 }
+[match   71.5] Ate Siomai (team 0) landed at (-26.0, 0.0, 0.0), 4.5 m/s, health 85; teammates 16 m
+[match   72.0] [hold] Aling Puring camp spot 23 52s
+[match   72.8] [hold] Bossing Barbecue camp spot 61 57s
+[match   75.0] status: { "ground": 7 }; armed 7; shots 243; zone -1 hold r=95; corpses 5; levels { "L1": 7 }; server tick avg 2.75 ms, p99 13.67 ms, max 26.72 ms over 900 ticks
+[match   75.0] dm teams: West Team 3 at (-37.0, 15.0) spread 15 m; East Team 4 at (0.0, 7.0) spread 13 m; gap 38 m; zone centre (3.0, 4.0)
+[match   75.0] bots: { "fight": 2, "order": 4, "camp": 1 }; containers searched by bots 0 (all players 0); plan steps done 0; guns carried 14
+[match   75.0] roles: { "rusher": { "fight": 1 }, "looter": { "order": 2, "camp": 1 }, "sniper": { "order": 1, "fight": 1 }, "stalker": { "order": 1 } }; stuck now 0; waypoints 258; team { "lines": 71, "pings": 0, "laser_follow": 0, "learned_cells": 51, "blocked_cells": 0, "squads": 4, "following_humans": 0, &"learned_spots": 0 }
+[match   75.0] [lootstats] bots on the ground 7 (in water 0); armed 7; armed with ammo for a gun 7; long guns 7; attachments fitted 47; rounds of unusable ammo carried 0; items on the ground 0; bot pickups { "detours": 0, "detour_taken": 0, "fetches": 0, "fetch_done": 0, "items_taken": 0 }
+[match   78.6] Ate Siomai killed by Pinsan Gardo (gunshot); 2 teams left
+[match   78.6] alive: West Team 2, East Team 4; score { 0: 1, 1: 0 }
+[match   78.6] [endgame] East Team mates 4 foes 2 nocontact 0s
+[match   78.7] [endgame] West Team mates 2 foes 4 nocontact 0s
+[match   79.0] [botskill] normal shots 255 hits 66 reaction_avg 0.43 (n 57) dmg 1709 bots 6
+[match   87.3] Pinsan Gardo killed by Tita Baby (gunshot); 2 teams left
+[match   87.3] alive: West Team 2, East Team 3; score { 0: 1, 1: 0 }
+[match   90.0] status: { "ground": 5 }; armed 5; shots 259; zone -1 hold r=95; corpses 7; levels { "L1": 5 }; server tick avg 1.25 ms, p99 4.27 ms, max 15.57 ms over 900 ticks
+[match   90.0] dm teams: West Team 2 at (-32.0, -10.0) spread 18 m; East Team 3 at (-15.0, 8.0) spread 16 m; gap 25 m; zone centre (3.0, 4.0)
+[match   90.0] bots: { "order": 3, "hunt": 2 }; containers searched by bots 0 (all players 0); plan steps done 0; guns carried 10
+[match   90.0] roles: { "looter": { "order": 1, "hunt": 2 }, "sniper": { "order": 1 }, "stalker": { "order": 1 } }; stuck now 0; waypoints 258; team { "lines": 79, "pings": 0, "laser_follow": 0, "learned_cells": 51, "blocked_cells": 0, "squads": 4, "following_humans": 0, &"learned_spots": 0 }
+[match   90.0] [lootstats] bots on the ground 5 (in water 0); armed 5; armed with ammo for a gun 5; long guns 5; attachments fitted 32; rounds of unusable ammo carried 0; items on the ground 0; bot pickups { "detours": 0, "detour_taken": 0, "fetches": 0, "fetch_done": 0, "items_taken": 0 }
+[match   94.0] [botskill] normal shots 259 hits 70 reaction_avg 0.43 (n 59) dmg 1809 bots 5
+[match  100.8] [sweep] Tita Baby -> cell (-2, -1, 1) spot 204 stale 90s 22 m
+[match  104.4] Tita Baby killed by Pareng Jun (gunshot); 2 teams left
+[match  104.4] alive: West Team 1, East Team 3; score { 0: 1, 1: 0 }
+[match  105.0] status: { "ground": 4 }; armed 4; shots 265; zone -1 hold r=95; corpses 8; levels { "L1": 4 }; server tick avg 0.97 ms, p99 3.79 ms, max 10.90 ms over 900 ticks
+[match  105.0] dm teams: West Team 1 at (-35.0, -27.0) spread 0 m; East Team 3 at (-25.0, 7.0) spread 20 m; gap 35 m; zone centre (3.0, 4.0)
+[match  105.0] bots: { "hunt": 4 }; containers searched by bots 0 (all players 0); plan steps done 0; guns carried 8
+[match  105.0] roles: { "sniper": { "hunt": 1 }, "looter": { "hunt": 2 }, "stalker": { "hunt": 1 } }; stuck now 0; waypoints 258; team { "lines": 83, "pings": 0, "laser_follow": 0, "learned_cells": 51, "blocked_cells": 0, "squads": 4, "following_humans": 0, &"learned_spots": 0 }
+[match  105.0] [lootstats] bots on the ground 4 (in water 0); armed 4; armed with ammo for a gun 4; long guns 4; attachments fitted 25; rounds of unusable ammo carried 0; items on the ground 0; bot pickups { "detours": 0, "detour_taken": 0, "fetches": 0, "fetch_done": 0, "items_taken": 0 }
+[match  107.1] [sweep] Pareng Jun -> cell (-2, -1, 1) spot 188 stale 96s 11 m
+[match  109.0] [botskill] normal shots 265 hits 72 reaction_avg 0.43 (n 62) dmg 1882 bots 4
+[match  120.0] status: { "ground": 4 }; armed 4; shots 265; zone -1 hold r=95; corpses 8; levels { "L1": 4 }; server tick avg 0.88 ms, p99 3.70 ms, max 9.17 ms over 900 ticks
+[match  120.0] dm teams: West Team 1 at (-36.0, -28.0) spread 0 m; East Team 3 at (-26.0, 11.0) spread 14 m; gap 41 m; zone centre (3.0, 4.0)
+[match  120.0] bots: { "hunt": 4 }; containers searched by bots 0 (all players 0); plan steps done 0; guns carried 8
+[match  120.0] roles: { "sniper": { "hunt": 1 }, "looter": { "hunt": 2 }, "stalker": { "hunt": 1 } }; stuck now 0; waypoints 258; team { "lines": 87, "pings": 0, "laser_follow": 0, "learned_cells": 51, "blocked_cells": 0, "squads": 4, "following_humans": 0, &"learned_spots": 0 }
+[match  120.0] [lootstats] bots on the ground 4 (in water 0); armed 4; armed with ammo for a gun 4; long guns 4; attachments fitted 25; rounds of unusable ammo carried 0; items on the ground 0; bot pickups { "detours": 0, "detour_taken": 0, "fetches": 0, "fetch_done": 0, "items_taken": 0 }
+[match  124.0] [botskill] normal shots 265 hits 72 reaction_avg 0.43 (n 62) dmg 1882 bots 4
+[match  124.5] [sweep] Pareng Jun -> cell (-2, -2, 1) spot 143 stale 114s 22 m
+[match  134.3] [sweep] Aling Puring -> cell (1, -2, 0) spot 137 stale 124s 66 m
+[match  134.3] [sweep] Lola Basyang -> cell (-3, -1, 1) spot 10 stale 124s 26 m
+[match  135.0] status: { "ground": 4 }; armed 4; shots 265; zone -1 hold r=95; corpses 8; levels { "L1": 4 }; server tick avg 0.91 ms, p99 3.70 ms, max 21.01 ms over 900 ticks
+[match  135.0] dm teams: West Team 1 at (-33.0, -27.0) spread 0 m; East Team 3 at (-25.0, 12.0) spread 15 m; gap 41 m; zone centre (3.0, 4.0)
+[match  135.0] bots: { "hunt": 4 }; containers searched by bots 0 (all players 0); plan steps done 0; guns carried 8
+[match  135.0] roles: { "sniper": { "hunt": 1 }, "looter": { "hunt": 2 }, "stalker": { "hunt": 1 } }; stuck now 0; waypoints 258; team { "lines": 88, "pings": 0, "laser_follow": 0, "learned_cells": 51, "blocked_cells": 0, "squads": 4, "following_humans": 0, &"learned_spots": 0 }
+[match  135.0] [lootstats] bots on the ground 4 (in water 0); armed 4; armed with ammo for a gun 4; long guns 4; attachments fitted 25; rounds of unusable ammo carried 0; items on the ground 0; bot pickups { "detours": 0, "detour_taken": 0, "fetches": 0, "fetch_done": 0, "items_taken": 0 }
+[match  135.9] Bossing Barbecue (team 1) landed at (-32.0, 0.0, 30.0), 3.4 m/s, health 100; teammates 33 m, 27 m
+[match  139.0] [botskill] normal shots 275 hits 73 reaction_avg 0.44 (n 64) dmg 1896 bots 4
+[match  142.1] Pareng Jun killed by Aling Puring (gunshot); 2 teams left
+[match  142.1] alive: West Team 1, East Team 2; score { 0: 1, 1: 0 }
+[match  150.0] status: { "ground": 3 }; armed 3; shots 341; zone -1 hold r=95; corpses 9; levels { "L1": 3 }; server tick avg 1.63 ms, p99 4.20 ms, max 16.82 ms over 900 ticks
+[match  150.0] dm teams: West Team 1 at (-18.0, -26.0) spread 0 m; East Team 2 at (-25.0, 8.0) spread 6 m; gap 34 m; zone centre (3.0, 4.0)
+[match  150.0] bots: { "order": 1, "fight": 2 }; containers searched by bots 0 (all players 0); plan steps done 0; guns carried 6
+[match  150.0] roles: { "looter": { "order": 1, "fight": 1 }, "stalker": { "fight": 1 } }; stuck now 0; waypoints 258; team { "lines": 96, "pings": 0, "laser_follow": 0, "learned_cells": 51, "blocked_cells": 0, "squads": 4, "following_humans": 0, &"learned_spots": 0 }
+[match  150.0] [lootstats] bots on the ground 3 (in water 0); armed 3; armed with ammo for a gun 3; long guns 3; attachments fitted 18; rounds of unusable ammo carried 0; items on the ground 0; bot pickups { "detours": 0, "detour_taken": 0, "fetches": 0, "fetch_done": 0, "items_taken": 0 }
+[match  151.8] Lola Basyang killed by Aling Puring (gunshot); 2 teams left
+[match  151.8] alive: West Team 1, East Team 1; score { 0: 1, 1: 0 }
+[match  154.0] [botskill] normal shots 344 hits 77 reaction_avg 0.45 (n 66) dmg 2150 bots 2
+[match  165.0] status: { "ground": 2 }; armed 2; shots 349; zone -1 hold r=95; corpses 10; levels { "L1": 2 }; server tick avg 0.79 ms, p99 1.86 ms, max 19.70 ms over 900 ticks
+[match  165.0] dm teams: West Team 1 at (-24.0, -19.0) spread 0 m; East Team 1 at (-23.0, 7.0) spread 0 m; gap 26 m; zone centre (3.0, 4.0)
+[match  165.0] bots: { "fight": 2 }; containers searched by bots 0 (all players 0); plan steps done 0; guns carried 4
+[match  165.0] roles: { "looter": { "fight": 2 } }; stuck now 0; waypoints 258; team { "lines": 103, "pings": 0, "laser_follow": 0, "learned_cells": 51, "blocked_cells": 0, "squads": 4, "following_humans": 0, &"learned_spots": 0 }
+[match  165.0] [lootstats] bots on the ground 2 (in water 0); armed 2; armed with ammo for a gun 2; long guns 2; attachments fitted 11; rounds of unusable ammo carried 0; items on the ground 0; bot pickups { "detours": 0, "detour_taken": 0, "fetches": 0, "fetch_done": 0, "items_taken": 0 }
+[match  165.9] Bossing Barbecue killed by Aling Puring (gunshot); 1 teams left
+[match  165.9] alive: West Team 1, East Team 0; score { 0: 1, 1: 0 }
+[match  165.9] round 2 over: winner 0, scores { 0: 2, 1: 0 }
+[loadout] Inday Rice Cooker rifle_556 [scope_3x,mag_extquick_rifle,weapon_light] mag 40/40 | pistol_45 [sight_reflex,suppressor_light,mag_extquick_light,weapon_light] mag 12/12
+[match  169.9] Inday Rice Cooker respawned at (-51.0, 0.0, 2.0) (nearest enemy 1000 m)
+[loadout] Pinsan Gardo rifle_m762 [scope_3x,suppressor_rifle] mag 30/30 | pistol_deagle [sight_reddot,suppressor_light,mag_extquick_light] mag 10/10
+[match  169.9] Pinsan Gardo respawned at (53.0, 0.0, -8.0) (nearest enemy 104 m)
+[loadout] Ising Batingaw shotgun_double [] mag 2/2 | pistol_9 [sight_reddot,suppressor_light,mag_extquick_light,weapon_light] mag 21/21
+[match  169.9] Ising Batingaw respawned at (-56.0, 0.0, 5.0) (nearest enemy 109 m)
+[loadout] Ate Load Dito lmg_m249 [sight_reddot,laser_sight,stock_heavy,weapon_light] mag 100/100 | pistol_9 [suppressor_light,mag_extquick_light,weapon_light] mag 21/21
+[match  169.9] Ate Load Dito respawned at (53.0, 0.0, -11.0) (nearest enemy 105 m)
+[loadout] Bebot Karaoke bolt_kar98 [scope_8x] mag 5/5 | revolver_357 [sight_reddot] mag 6/6
+[match  169.9] Bebot Karaoke respawned at (-56.0, 0.0, 2.0) (nearest enemy 109 m)
+[loadout] Bayaw Erning bolt_awp [scope_6x,suppressor_rifle,mag_ext_sniper,cheek_pad] mag 8/8 | pistol_9 [sight_reddot,suppressor_light,mag_extquick_light,weapon_light] mag 21/21
+[match  169.9] Bayaw Erning respawned at (53.0, 0.0, -5.0) (nearest enemy 104 m)
+[loadout] Tita Baby shotgun_pump [choke,weapon_light] mag 6/6 | pistol_deagle [sight_reddot,mag_extquick_light] mag 10/10
+[match  169.9] Tita Baby respawned at (-56.0, 0.0, -5.0) (nearest enemy 109 m)
+[loadout] Pareng Jun rifle_scar [scope_night,suppressor_rifle,grip_half,mag_extquick_rifle,weapon_light] mag 40/40 | pistol_45 [sight_reflex,suppressor_light,weapon_light] mag 7/7
+[match  169.9] Pareng Jun respawned at (53.0, 0.0, 8.0) (nearest enemy 104 m)
+[loadout] Ate Siomai smg_tommy [grip_thumb] mag 30/30 | revolver_357 [sight_reddot] mag 6/6
+[match  169.9] Ate Siomai respawned at (-54.0, 0.0, 2.0) (nearest enemy 106 m)
+[loadout] Bossing Barbecue bolt_308 [scope_6x,suppressor_rifle,cheek_pad] mag 5/5 | pistol_deagle [sight_reflex,suppressor_light,mag_extquick_light,weapon_light] mag 10/10
+[match  169.9] Bossing Barbecue respawned at (53.0, 0.0, 11.0) (nearest enemy 104 m)
+[loadout] Aling Puring lmg_m249 [sight_reflex,muzzle_brake,laser_sight,stock_heavy,weapon_light] mag 100/100 | pistol_deagle [sight_reflex,suppressor_light,mag_extquick_light,weapon_light] mag 10/10
+[match  169.9] Aling Puring respawned at (-51.0, 0.0, -2.0) (nearest enemy 104 m)
+[loadout] Lola Basyang machine_pistol [suppressor_light,laser_sight,mag_extquick_light,stock_heavy,weapon_light] mag 45/45 | revolver_357 [] mag 6/6
+[match  169.9] Lola Basyang respawned at (53.0, 0.0, 5.0) (nearest enemy 104 m)
+[match  169.9] round 3 started; scores { 0: 2, 1: 0 }
+[match  173.0] [botskill] normal shots 351 hits 78 reaction_avg 0.45 (n 68) dmg 2208 bots 12
+[match  180.0] status: { "ground": 12 }; armed 12; shots 351; zone -1 hold r=92; corpses 0; levels { "L1": 12 }; server tick avg 1.73 ms, p99 8.00 ms, max 28.29 ms over 660 ticks
+[match  180.0] dm teams: West Team 6 at (-41.0, -6.0) spread 13 m; East Team 6 at (32.0, 0.0) spread 5 m; gap 73 m; zone centre (1.0, 2.0)
+[match  180.0] bots: { "follow": 2, "roam": 5, "hunt": 5 }; containers searched by bots 0 (all players 0); plan steps done 0; guns carried 24
+[match  180.0] roles: { "sniper": { "follow": 1, "roam": 3 }, "stalker": { "hunt": 4 }, "looter": { "follow": 1, "roam": 2 }, "rusher": { "hunt": 1 } }; stuck now 0; waypoints 258; team { "lines": 105, "pings": 0, "laser_follow": 0, "learned_cells": 52, "blocked_cells": 0, "squads": 6, "following_humans": 0, &"learned_spots": 0 }
+[match  180.0] [lootstats] bots on the ground 12 (in water 0); armed 12; armed with ammo for a gun 12; long guns 12; attachments fitted 68; rounds of unusable ammo carried 0; items on the ground 0; bot pickups { "detours": 0, "detour_taken": 0, "fetches": 0, "fetch_done": 0, "items_taken": 0 }
+[match  185.9] Lola Basyang killed by Inday Rice Cooker (gunshot); 2 teams left
+[match  185.9] alive: West Team 6, East Team 5; score { 0: 2, 1: 0 }
+[match  186.7] Bayaw Erning killed by Ate Siomai (gunshot); 2 teams left
+[match  186.7] alive: West Team 6, East Team 4; score { 0: 2, 1: 0 }
+[match  188.0] [botskill] normal shots 440 hits 100 reaction_avg 0.44 (n 83) dmg 2564 bots 10
+[match  188.1] Ate Siomai killed by Bayaw Erning (bleeding); 2 teams left
+[match  188.1] alive: West Team 5, East Team 4; score { 0: 2, 1: 0 }
+[match  189.7] [hold] Pinsan Gardo overwatch spot 147 74s
+[match  195.0] status: { "ground": 9 }; armed 9; shots 450; zone -1 hold r=92; corpses 3; levels { "L1": 8, "L2": 1 }; server tick avg 3.23 ms, p99 13.30 ms, max 55.55 ms over 900 ticks
+[match  195.0] dm teams: West Team 5 at (-25.0, -14.0) spread 21 m; East Team 4 at (8.0, 21.0) spread 12 m; gap 48 m; zone centre (1.0, 2.0)
+[match  195.0] bots: { "follow": 2, "investigate": 1, "hunt": 4, "roam": 2 }; containers searched by bots 0 (all players 0); plan steps done 0; guns carried 18
+[match  195.0] roles: { "sniper": { "follow": 1, "investigate": 1, "roam": 1 }, "stalker": { "hunt": 4 }, "looter": { "follow": 1, "roam": 1 } }; stuck now 0; waypoints 258; team { "lines": 119, "pings": 0, "laser_follow": 0, "learned_cells": 53, "blocked_cells": 0, "squads": 6, "following_humans": 0, &"learned_spots": 0 }
+[match  195.0] [lootstats] bots on the ground 9 (in water 0); armed 9; armed with ammo for a gun 9; long guns 9; attachments fitted 53; rounds of unusable ammo carried 0; items on the ground 0; bot pickups { "detours": 0, "detour_taken": 0, "fetches": 0, "fetch_done": 0, "items_taken": 0 }
+[match  200.6] Ising Batingaw killed by Pareng Jun (gunshot); 2 teams left
+[match  200.6] alive: West Team 4, East Team 4; score { 0: 2, 1: 0 }
+[match  203.0] [botskill] normal shots 468 hits 110 reaction_avg 0.43 (n 87) dmg 2727 bots 8
+[match  205.0] Aling Puring (team 0) landed at (-5.0, 0.0, -24.0), 4.9 m/s, health 100; teammates -
+[match  205.1] [hold] Pinsan Gardo overwatch spot 157 88s
+[match  206.2] [hold] Tita Baby overwatch spot 13 115s
+[match  210.0] status: { "ground": 8 }; armed 8; shots 480; zone -1 hold r=92; corpses 4; levels { "L1": 7, "L2": 1 }; server tick avg 1.98 ms, p99 7.31 ms, max 29.47 ms over 900 ticks
+[match  210.0] dm teams: West Team 4 at (-11.0, -3.0) spread 9 m; East Team 4 at (-16.0, 23.0) spread 28 m; gap 26 m; zone centre (1.0, 2.0)
+[match  210.0] bots: { "follow": 1, "fight": 1, "order": 2, "hunt": 1, "overwatch": 1, "roam": 1, "investigate": 1 }; containers searched by bots 0 (all players 0); plan steps done 0; guns carried 16
+[match  210.0] roles: { "sniper": { "follow": 1, "fight": 1, "overwatch": 1 }, "looter": { "order": 1, "roam": 1 }, "stalker": { "hunt": 1, "order": 1, "investigate": 1 } }; stuck now 1; waypoints 258; team { "lines": 130, "pings": 0, "laser_follow": 0, "learned_cells": 55, "blocked_cells": 0, "squads": 6, "following_humans": 0, &"learned_spots": 0 }
+[match  210.0] [lootstats] bots on the ground 8 (in water 0); armed 8; armed with ammo for a gun 8; long guns 8; attachments fitted 49; rounds of unusable ammo carried 0; items on the ground 0; bot pickups { "detours": 0, "detour_taken": 0, "fetches": 0, "fetch_done": 0, "items_taken": 0 }
+[match  212.1] Pinsan Gardo killed by Bebot Karaoke (gunshot); 2 teams left
+[match  212.1] alive: West Team 4, East Team 3; score { 0: 2, 1: 0 }
+[match  213.0] Tita Baby killed by Pinsan Gardo (bleeding); 2 teams left
+[match  213.0] alive: West Team 3, East Team 3; score { 0: 2, 1: 0 }
+[match  215.0] [hold] Bossing Barbecue camp spot 23 63s
+[match  218.0] [botskill] normal shots 490 hits 115 reaction_avg 0.44 (n 93) dmg 2973 bots 6
+[match  225.0] status: { "ground": 6 }; armed 6; shots 491; zone -1 hold r=92; corpses 6; levels { "L1": 6 }; server tick avg 1.38 ms, p99 5.42 ms, max 20.11 ms over 900 ticks
+[match  225.0] dm teams: West Team 3 at (4.0, -17.0) spread 13 m; East Team 3 at (-36.0, 33.0) spread 14 m; gap 64 m; zone centre (1.0, 2.0)
+[match  225.0] bots: { "follow": 2, "hunt": 3, "camp": 1 }; containers searched by bots 0 (all players 0); plan steps done 0; guns carried 12
+[match  225.0] roles: { "sniper": { "follow": 1 }, "looter": { "follow": 1, "camp": 1 }, "stalker": { "hunt": 3 } }; stuck now 0; waypoints 258; team { "lines": 138, "pings": 0, "laser_follow": 0, "learned_cells": 55, "blocked_cells": 0, "squads": 6, "following_humans": 0, &"learned_spots": 0 }
+[match  225.0] [lootstats] bots on the ground 6 (in water 0); armed 6; armed with ammo for a gun 6; long guns 6; attachments fitted 40; rounds of unusable ammo carried 0; items on the ground 0; bot pickups { "detours": 0, "detour_taken": 0, "fetches": 0, "fetch_done": 0, "items_taken": 0 }
+[match  233.0] [botskill] normal shots 490 hits 115 reaction_avg 0.44 (n 93) dmg 2973 bots 6
+[match  240.0] status: { "ground": 6 }; armed 6; shots 491; zone -1 hold r=92; corpses 6; levels { "L1": 6 }; server tick avg 1.13 ms, p99 3.29 ms, max 6.04 ms over 900 ticks
+[match  240.0] dm teams: West Team 3 at (14.0, -14.0) spread 10 m; East Team 3 at (-15.0, 33.0) spread 29 m; gap 55 m; zone centre (1.0, 2.0)
+[match  240.0] bots: { "follow": 2, "hunt": 3, "camp": 1 }; containers searched by bots 0 (all players 0); plan steps done 0; guns carried 12
+[match  240.0] roles: { "sniper": { "follow": 1 }, "looter": { "follow": 1, "camp": 1 }, "stalker": { "hunt": 3 } }; stuck now 0; waypoints 258; team { "lines": 139, "pings": 0, "laser_follow": 0, "learned_cells": 55, "blocked_cells": 0, "squads": 6, "following_humans": 0, &"learned_spots": 0 }
+[match  240.0] [lootstats] bots on the ground 6 (in water 0); armed 6; armed with ammo for a gun 6; long guns 6; attachments fitted 40; rounds of unusable ammo carried 0; items on the ground 0; bot pickups { "detours": 0, "detour_taken": 0, "fetches": 0, "fetch_done": 0, "items_taken": 0 }
+[match  248.0] [botskill] normal shots 490 hits 115 reaction_avg 0.44 (n 93) dmg 2973 bots 6
+[match  253.1] Bebot Karaoke (team 0) landed at (17.0, 0.0, -4.0), 2.5 m/s, health 100; teammates 24 m
+[match  255.0] status: { "ground": 6 }; armed 6; shots 491; zone -1 hold r=92; corpses 6; levels { "L1": 6 }; server tick avg 1.07 ms, p99 3.60 ms, max 9.30 ms over 900 ticks
+[match  255.0] dm teams: West Team 3 at (23.0, -4.0) spread 10 m; East Team 3 at (-28.0, 34.0) spread 20 m; gap 63 m; zone centre (1.0, 2.0)
+[match  255.0] bots: { "follow": 2, "hunt": 3, "camp": 1 }; containers searched by bots 0 (all players 0); plan steps done 0; guns carried 12
+[match  255.0] roles: { "sniper": { "follow": 1 }, "looter": { "follow": 1, "camp": 1 }, "stalker": { "hunt": 3 } }; stuck now 0; waypoints 258; team { "lines": 140, "pings": 0, "laser_follow": 0, "learned_cells": 55, "blocked_cells": 0, "squads": 6, "following_humans": 0, &"learned_spots": 0 }
+[match  255.0] [lootstats] bots on the ground 6 (in water 0); armed 6; armed with ammo for a gun 6; long guns 6; attachments fitted 40; rounds of unusable ammo carried 0; items on the ground 0; bot pickups { "detours": 0, "detour_taken": 0, "fetches": 0, "fetch_done": 0, "items_taken": 0 }
+[match  257.1] [endgame] East Team mates 3 foes 3 nocontact 45s
+[match  257.1] [sweep] Bossing Barbecue -> cell (-4, -1, 0) spot 257 stale 117s 34 m
+[match  257.2] [endgame] West Team mates 3 foes 3 nocontact 45s
+[match  257.2] [sweep] Aling Puring -> cell (1, 1, 0) spot 106 stale 117s 29 m
+[match  260.6] [sweep] Pareng Jun -> cell (-2, -1, 0) spot 181 stale 121s 42 m
+[match  263.0] [botskill] normal shots 490 hits 115 reaction_avg 0.44 (n 93) dmg 2973 bots 6
+[match  265.3] [sweep] Bebot Karaoke -> cell (2, -1, 1) spot 14 stale 125s 17 m
+[match  270.0] status: { "ground": 6 }; armed 6; shots 491; zone -1 hold r=92; corpses 6; levels { "L1": 5, "L2": 1 }; server tick avg 1.07 ms, p99 3.70 ms, max 9.89 ms over 900 ticks
+[match  270.0] dm teams: West Team 3 at (24.0, 1.0) spread 14 m; East Team 3 at (-27.0, 14.0) spread 20 m; gap 53 m; zone centre (1.0, 2.0)
+[match  270.0] bots: { "follow": 2, "hunt": 4 }; containers searched by bots 0 (all players 0); plan steps done 0; guns carried 12
+[match  270.0] roles: { "sniper": { "follow": 1 }, "looter": { "follow": 1, "hunt": 1 }, "stalker": { "hunt": 3 } }; stuck now 0; waypoints 258; team { "lines": 140, "pings": 0, "laser_follow": 0, "learned_cells": 55, "blocked_cells": 0, "squads": 6, "following_humans": 0, &"learned_spots": 0 }
+[match  270.0] [lootstats] bots on the ground 6 (in water 0); armed 6; armed with ammo for a gun 6; long guns 6; attachments fitted 40; rounds of unusable ammo carried 0; items on the ground 0; bot pickups { "detours": 0, "detour_taken": 0, "fetches": 0, "fetch_done": 0, "items_taken": 0 }
+[match  271.3] [sweep] Bossing Barbecue -> cell (-4, -2, 0) spot 246 stale 131s 22 m
+[match  272.6] [sweep] Aling Puring -> cell (2, 1, 0) spot 19 stale 133s 23 m
+[match  272.9] Bossing Barbecue (team 1) landed at (-36.0, 3.0, -10.0), 4.9 m/s, health 77; teammates -
+[match  278.0] [botskill] normal shots 490 hits 115 reaction_avg 0.44 (n 93) dmg 2973 bots 6
+[match  281.3] [sweep] Bebot Karaoke -> cell (2, -1, 1) spot 14 stale 141s 12 m
+[match  282.7] [sweep] Pareng Jun -> cell (-1, -2, 0) spot 111 stale 143s 24 m
+[match  284.6] [sweep] Bossing Barbecue -> cell (-1, -2, 1) spot 217 stale 145s 33 m
+[match  285.0] status: { "ground": 6 }; armed 6; shots 491; zone -1 hold r=92; corpses 6; levels { "L1": 6 }; server tick avg 1.05 ms, p99 4.40 ms, max 18.24 ms over 900 ticks
+[match  285.0] dm teams: West Team 3 at (39.0, 0.0) spread 11 m; East Team 3 at (-28.0, -16.0) spread 18 m; gap 70 m; zone centre (1.0, 2.0)
+[match  285.0] bots: { "follow": 2, "hunt": 4 }; containers searched by bots 0 (all players 0); plan steps done 0; guns carried 12
+[match  285.0] roles: { "sniper": { "follow": 1 }, "looter": { "follow": 1, "hunt": 1 }, "stalker": { "hunt": 3 } }; stuck now 0; waypoints 258; team { "lines": 140, "pings": 0, "laser_follow": 0, "learned_cells": 55, "blocked_cells": 0, "squads": 6, "following_humans": 0, &"learned_spots": 0 }
+[match  285.0] [lootstats] bots on the ground 6 (in water 0); armed 6; armed with ammo for a gun 6; long guns 6; attachments fitted 40; rounds of unusable ammo carried 0; items on the ground 0; bot pickups { "detours": 0, "detour_taken": 0, "fetches": 0, "fetch_done": 0, "items_taken": 0 }
+[match  289.7] [sweep] Aling Puring -> cell (3, 1, 0) spot 245 stale 150s 25 m
+[match  293.0] [botskill] normal shots 490 hits 115 reaction_avg 0.44 (n 93) dmg 2973 bots 6
+[match  294.2] [sweep] Pareng Jun -> cell (-2, -3, 0) spot 211 stale 154s 16 m
+[match  294.7] [sweep] Bebot Karaoke -> cell (2, -3, 0) spot 212 stale 155s 21 m
+[match  300.0] status: { "ground": 6 }; armed 6; shots 491; zone -1 hold r=92; corpses 6; levels { "between": 1, "L1": 4, "L2": 1 }; server tick avg 1.10 ms, p99 3.06 ms, max 11.84 ms over 900 ticks
+[match  300.0] dm teams: West Team 3 at (46.0, -5.0) spread 19 m; East Team 3 at (-17.0, -27.0) spread 8 m; gap 67 m; zone centre (1.0, 2.0)
+[match  300.0] bots: { "follow": 2, "hunt": 4 }; containers searched by bots 0 (all players 0); plan steps done 0; guns carried 12
+[match  300.0] roles: { "sniper": { "follow": 1 }, "looter": { "follow": 1, "hunt": 1 }, "stalker": { "hunt": 3 } }; stuck now 0; waypoints 258; team { "lines": 140, "pings": 0, "laser_follow": 0, "learned_cells": 55, "blocked_cells": 0, "squads": 6, "following_humans": 0, &"learned_spots": 0 }
+[match  300.0] [lootstats] bots on the ground 6 (in water 0); armed 6; armed with ammo for a gun 6; long guns 6; attachments fitted 40; rounds of unusable ammo carried 0; items on the ground 0; bot pickups { "detours": 0, "detour_taken": 0, "fetches": 0, "fetch_done": 0, "items_taken": 0 }
+[match  300.2] Inday Rice Cooker (team 0) landed at (42.0, 0.0, -16.0), 4.4 m/s, health 100; teammates 5 m, 41 m
+[match  301.9] [hold] Bossing Barbecue camp spot 217 9s (endgame)
+[match  303.6] [sweep] Aling Puring -> cell (2, 2, 0) spot 130 stale 164s 24 m
+[match  304.6] [sweep] Pareng Jun -> cell (0, -3, 0) spot 213 stale 165s 25 m
+[match  308.0] [botskill] normal shots 490 hits 115 reaction_avg 0.44 (n 93) dmg 2973 bots 6
+[match  309.6] [sweep] Bebot Karaoke -> cell (3, -3, 0) spot 235 stale 170s 24 m
+[match  311.0] [sweep] Bossing Barbecue -> cell (0, -1, 1) spot 150 stale 171s 26 m
+[match  315.0] status: { "ground": 6 }; armed 6; shots 491; zone -1 hold r=92; corpses 6; levels { "L1": 5, "L2": 1 }; server tick avg 1.17 ms, p99 2.75 ms, max 7.95 ms over 900 ticks
+[match  315.0] dm teams: West Team 3 at (40.0, -13.0) spread 32 m; East Team 3 at (-3.0, -31.0) spread 8 m; gap 47 m; zone centre (1.0, 2.0)
+[match  315.0] bots: { "follow": 2, "hunt": 4 }; containers searched by bots 0 (all players 0); plan steps done 0; guns carried 12
+[match  315.0] roles: { "sniper": { "follow": 1 }, "looter": { "follow": 1, "hunt": 1 }, "stalker": { "hunt": 3 } }; stuck now 0; waypoints 258; team { "lines": 140, "pings": 0, "laser_follow": 0, "learned_cells": 55, "blocked_cells": 0, "squads": 6, "following_humans": 0, &"learned_spots": 0 }
+[match  315.0] [lootstats] bots on the ground 6 (in water 0); armed 6; armed with ammo for a gun 6; long guns 6; attachments fitted 40; rounds of unusable ammo carried 0; items on the ground 0; bot pickups { "detours": 0, "detour_taken": 0, "fetches": 0, "fetch_done": 0, "items_taken": 0 }
+[match  315.3] [sweep] Aling Puring -> cell (0, 1, 1) spot 107 stale 175s 31 m
+[match  317.3] [hint] West Team: nearest enemy Bossing Barbecue, 40 m from the team, hint 2 m off
+[match  317.4] [hint] East Team: nearest enemy Inday Rice Cooker, 43 m from the team, hint 11 m off
+[match  323.0] [botskill] normal shots 490 hits 115 reaction_avg 0.44 (n 93) dmg 2973 bots 6
+[match  330.0] status: { "ground": 6 }; armed 6; shots 502; zone -1 hold r=92; corpses 6; levels { "L1": 5, "L2": 1 }; server tick avg 1.37 ms, p99 7.40 ms, max 19.81 ms over 900 ticks
+[match  330.0] dm teams: West Team 3 at (42.0, -11.0) spread 8 m; East Team 3 at (30.0, -34.0) spread 6 m; gap 26 m; zone centre (1.0, 2.0)
+[match  330.0] bots: { "fight": 2, "follow": 1, "hunt": 2, "roam": 1 }; containers searched by bots 0 (all players 0); plan steps done 0; guns carried 12
+[match  330.0] roles: { "sniper": { "fight": 1 }, "looter": { "follow": 1, "roam": 1 }, "stalker": { "hunt": 2, "fight": 1 } }; stuck now 0; waypoints 258; team { "lines": 145, "pings": 0, "laser_follow": 0, "learned_cells": 55, "blocked_cells": 0, "squads": 6, "following_humans": 0, &"learned_spots": 0 }
+[match  330.0] [lootstats] bots on the ground 6 (in water 0); armed 6; armed with ammo for a gun 6; long guns 6; attachments fitted 40; rounds of unusable ammo carried 0; items on the ground 0; bot pickups { "detours": 0, "detour_taken": 0, "fetches": 0, "fetch_done": 0, "items_taken": 0 }
+[match  330.7] Inday Rice Cooker killed by Pareng Jun (gunshot); 2 teams left
+[match  330.7] alive: West Team 2, East Team 3; score { 0: 2, 1: 0 }
+[match  331.0] [endgame] East Team mates 3 foes 2 nocontact 0s
+[match  331.1] [endgame] West Team mates 2 foes 3 nocontact 0s
+[match  338.0] [botskill] normal shots 518 hits 123 reaction_avg 0.44 (n 102) dmg 3129 bots 5
+[match  342.6] [sweep] Bebot Karaoke -> cell (0, 1, 1) spot 0 stale 203s 49 m
+[match  344.0] Bebot Karaoke killed by Ate Load Dito (gunshot); 2 teams left
+[match  344.0] alive: West Team 1, East Team 3; score { 0: 2, 1: 0 }
+[match  344.1] [sweep] Bossing Barbecue -> cell (3, -3, 0) spot 236 stale 204s 26 m
+[match  344.6] [sweep] Pareng Jun -> cell (2, 1, 0) spot 91 stale 205s 51 m
+[match  345.0] status: { "ground": 4 }; armed 4; shots 534; zone -1 hold r=92; corpses 8; levels { "L1": 4 }; server tick avg 1.51 ms, p99 5.72 ms, max 24.69 ms over 900 ticks
+[match  345.0] dm teams: West Team 1 at (42.0, 4.0) spread 0 m; East Team 3 at (40.0, -20.0) spread 5 m; gap 24 m; zone centre (1.0, 2.0)
+[match  345.0] bots: { "follow": 1, "hunt": 1, "fight": 2 }; containers searched by bots 0 (all players 0); plan steps done 0; guns carried 8
+[match  345.0] roles: { "looter": { "follow": 1, "fight": 1 }, "stalker": { "hunt": 1, "fight": 1 } }; stuck now 0; waypoints 258; team { "lines": 156, "pings": 0, "laser_follow": 0, "learned_cells": 58, "blocked_cells": 0, "squads": 6, "following_humans": 0, &"learned_spots": 0 }
+[match  345.0] [lootstats] bots on the ground 4 (in water 0); armed 4; armed with ammo for a gun 4; long guns 4; attachments fitted 31; rounds of unusable ammo carried 0; items on the ground 0; bot pickups { "detours": 0, "detour_taken": 0, "fetches": 0, "fetch_done": 0, "items_taken": 0 }
+[match  350.8] Bossing Barbecue killed by Aling Puring (gunshot); 2 teams left
+[match  350.8] alive: West Team 1, East Team 2; score { 0: 2, 1: 0 }
+[match  353.0] [botskill] normal shots 549 hits 127 reaction_avg 0.44 (n 115) dmg 3396 bots 3
+[match  354.9] Aling Puring killed by Pareng Jun (gunshot); 1 teams left
+[match  354.9] alive: West Team 0, East Team 2; score { 0: 2, 1: 0 }
+[match  354.9] round 3 over: winner 1, scores { 0: 2, 1: 1 }
+[loadout] Inday Rice Cooker rifle_m416 [scope_night,suppressor_rifle,grip_thumb,mag_extquick_rifle] mag 40/40 | pistol_deagle [sight_reddot,suppressor_light,weapon_light] mag 7/7
+[match  358.9] Inday Rice Cooker respawned at (-51.0, 0.0, -2.0) (nearest enemy 1000 m)
+[loadout] Pinsan Gardo rifle_m416 [scope_3x,grip_thumb,mag_extquick_rifle,stock_heavy,weapon_light] mag 40/40 | pistol_deagle [sight_reddot,suppressor_light,weapon_light] mag 7/7
+[match  358.9] Pinsan Gardo respawned at (53.0, 0.0, 8.0) (nearest enemy 104 m)
+[loadout] Ising Batingaw rifle_762 [scope_3x,suppressor_rifle,mag_extquick_rifle] mag 40/40 | pistol_deagle [mag_extquick_light,weapon_light] mag 10/10
+[match  358.9] Ising Batingaw respawned at (-56.0, 0.0, -5.0) (nearest enemy 109 m)
+[loadout] Ate Load Dito lmg_m249 [sight_reddot,muzzle_brake,laser_sight,stock_heavy] mag 100/100 | pistol_45 [sight_reflex,suppressor_light,mag_extquick_light] mag 12/12
+[match  358.9] Ate Load Dito respawned at (53.0, 0.0, -5.0) (nearest enemy 104 m)
+[loadout] Bebot Karaoke lmg_m249 [sight_reddot,muzzle_brake,laser_sight,stock_heavy] mag 100/100 | pistol_9 [sight_reddot,suppressor_light,mag_extquick_light,weapon_light] mag 21/21
+[match  358.9] Bebot Karaoke respawned at (-56.0, 0.0, 2.0) (nearest enemy 109 m)
+[loadout] Bayaw Erning smg_vector [sight_holo,grip_angled,mag_extquick_light,weapon_light] mag 33/33 | pistol_45 [mag_extquick_light,weapon_light] mag 12/12
+[match  358.9] Bayaw Erning respawned at (53.0, 0.0, -11.0) (nearest enemy 104 m)
+[loadout] Tita Baby dmr_sks [suppressor_rifle,mag_ext_sniper,cheek_pad] mag 20/20 | revolver_357 [sight_reddot] mag 6/6
+[match  358.9] Tita Baby respawned at (-54.0, 0.0, 5.0) (nearest enemy 106 m)
+[loadout] Pareng Jun lmg_m249 [sight_reddot,muzzle_brake,stock_heavy,weapon_light] mag 100/100 | pistol_deagle [sight_reflex,suppressor_light,mag_extquick_light,weapon_light] mag 10/10
+[match  358.9] Pareng Jun respawned at (50.0, 0.0, 11.0) (nearest enemy 102 m)
+[loadout] Ate Siomai machine_pistol [sight_reddot,suppressor_light,laser_sight,mag_extquick_light,stock_heavy,weapon_light] mag 45/45 | pistol_deagle [sight_reddot,suppressor_light,mag_extquick_light,weapon_light] mag 10/10
+[match  358.9] Ate Siomai respawned at (-56.0, 0.0, -2.0) (nearest enemy 107 m)
+[loadout] Bossing Barbecue dmr_sks [scope_thermal,suppressor_rifle] mag 10/10 | pistol_9 [sight_reddot,suppressor_light,mag_extquick_light,weapon_light] mag 21/21
+[match  358.9] Bossing Barbecue respawned at (53.0, 0.0, 11.0) (nearest enemy 105 m)
+[loadout] Aling Puring smg_vector [sight_holo,suppressor_light,grip_thumb,stock_tactical,weapon_light] mag 19/19 | pistol_45 [sight_reflex,mag_extquick_light] mag 12/12
+[match  358.9] Aling Puring respawned at (-56.0, 0.0, 5.0) (nearest enemy 106 m)
+[loadout] Lola Basyang rifle_762 [scope_3x,laser_sight,mag_extquick_rifle] mag 40/40 | pistol_45 [mag_extquick_light] mag 12/12
+[match  358.9] Lola Basyang respawned at (53.0, 0.0, -8.0) (nearest enemy 104 m)
+[match  358.9] round 4 started; scores { 0: 2, 1: 1 }
+[match  360.0] status: { "ground": 12 }; armed 12; shots 560; zone -1 hold r=91; corpses 0; levels { "L1": 12 }; server tick avg 1.54 ms, p99 6.30 ms, max 14.57 ms over 660 ticks
+[match  360.0] dm teams: West Team 6 at (-55.0, 1.0) spread 4 m; East Team 6 at (52.0, 1.0) spread 9 m; gap 107 m; zone centre (-1.0, -1.0)
+[match  360.0] bots: { "roam": 12 }; containers searched by bots 0 (all players 0); plan steps done 0; guns carried 24
+[match  360.0] roles: { "rusher": { "roam": 3 }, "sniper": { "roam": 2 }, "stalker": { "roam": 5 }, "looter": { "roam": 2 } }; stuck now 0; waypoints 258; team { "lines": 163, "pings": 0, "laser_follow": 0, "learned_cells": 61, "blocked_cells": 0, "squads": 6, "following_humans": 0, &"learned_spots": 0 }
+[match  360.0] [lootstats] bots on the ground 12 (in water 0); armed 12; armed with ammo for a gun 12; long guns 12; attachments fitted 80; rounds of unusable ammo carried 0; items on the ground 0; bot pickups { "detours": 0, "detour_taken": 0, "fetches": 0, "fetch_done": 0, "items_taken": 0 }
+[match  369.4] [hold] Pinsan Gardo overwatch spot 109 58s
+[match  372.0] [botskill] normal shots 557 hits 131 reaction_avg 0.45 (n 119) dmg 3479 bots 12
+[match  374.7] Aling Puring killed by Pareng Jun (gunshot); 2 teams left
+[match  374.7] alive: West Team 5, East Team 6; score { 0: 2, 1: 1 }
+[match  374.8] Tita Baby killed by Bebot Karaoke (gunshot); 2 teams left
+[match  374.8] alive: West Team 4, East Team 6; score { 0: 2, 1: 1 }
+[match  375.0] status: { "ground": 10 }; armed 10; shots 627; zone -1 hold r=91; corpses 2; levels { "L1": 10 }; server tick avg 2.86 ms, p99 16.45 ms, max 31.50 ms over 900 ticks
+[match  375.0] dm teams: West Team 4 at (-16.0, -9.0) spread 10 m; East Team 6 at (16.0, 10.0) spread 15 m; gap 37 m; zone centre (-1.0, -1.0)
+[match  375.0] bots: { "fight": 7, "follow": 1, "hunt": 1, "investigate": 1 }; containers searched by bots 0 (all players 0); plan steps done 0; guns carried 20
+[match  375.0] roles: { "rusher": { "fight": 2 }, "sniper": { "fight": 1 }, "stalker": { "fight": 3, "follow": 1, "hunt": 1 }, "looter": { "fight": 1, "investigate": 1 } }; stuck now 0; waypoints 258; team { "lines": 171, "pings": 0, "laser_follow": 0, "learned_cells": 61, "blocked_cells": 0, "squads": 8, "following_humans": 0, &"learned_spots": 0 }
+[match  375.0] [lootstats] bots on the ground 10 (in water 0); armed 10; armed with ammo for a gun 10; long guns 10; attachments fitted 69; rounds of unusable ammo carried 0; items on the ground 0; bot pickups { "detours": 0, "detour_taken": 0, "fetches": 0, "fetch_done": 0, "items_taken": 0 }
+[match  375.6] Pareng Jun killed by Inday Rice Cooker (gunshot); 2 teams left
+[match  375.6] alive: West Team 4, East Team 5; score { 0: 2, 1: 1 }
+[match  375.8] Lola Basyang killed by Ate Siomai (gunshot); 2 teams left
+[match  375.8] alive: West Team 4, East Team 4; score { 0: 2, 1: 1 }
+[match  377.6] Ate Siomai killed by Ate Load Dito (gunshot); 2 teams left
+[match  377.6] alive: West Team 3, East Team 4; score { 0: 2, 1: 1 }
+[match  380.4] Inday Rice Cooker killed by Bayaw Erning (gunshot); 2 teams left
+[match  380.4] alive: West Team 2, East Team 4; score { 0: 2, 1: 1 }
+[match  380.7] [endgame] East Team mates 4 foes 2 nocontact 0s
+[match  380.8] [endgame] West Team mates 2 foes 4 nocontact 0s
+[match  382.0] Ate Load Dito killed by Ising Batingaw (bleeding); 2 teams left
+[match  382.0] alive: West Team 2, East Team 3; score { 0: 2, 1: 1 }
+[match  383.3] Bebot Karaoke killed by Pinsan Gardo (gunshot); 2 teams left
+[match  383.3] alive: West Team 1, East Team 3; score { 0: 2, 1: 1 }
+[match  387.0] [botskill] normal shots 768 hits 171 reaction_avg 0.41 (n 161) dmg 4261 bots 4
+[match  388.4] Ising Batingaw killed by Bayaw Erning (gunshot); 1 teams left
+[match  388.4] alive: West Team 0, East Team 3; score { 0: 2, 1: 1 }
+[match  388.5] round 4 over: winner 1, scores { 0: 2, 1: 2 }
+[loadout] Inday Rice Cooker shotgun_saiga [sight_reddot,mag_extquick_rifle] mag 8/8 | pistol_9 [suppressor_light,mag_extquick_light] mag 21/21
+[match  392.5] Inday Rice Cooker respawned at (-49.0, 0.0, -2.0) (nearest enemy 1000 m)
+[loadout] Pinsan Gardo rifle_556 [grip_thumb,mag_extquick_rifle,weapon_light] mag 40/40 | pistol_9 [sight_reflex,mag_extquick_light,weapon_light] mag 21/21
+[match  392.5] Pinsan Gardo respawned at (53.0, 0.0, 8.0) (nearest enemy 102 m)
+[loadout] Ising Batingaw smg_vector [sight_holo,mag_extquick_light] mag 33/33 | pistol_deagle [sight_reddot,suppressor_light,mag_extquick_light] mag 10/10
+[match  392.5] Ising Batingaw respawned at (-56.0, 0.0, -2.0) (nearest enemy 109 m)
+[loadout] Ate Load Dito dmr_sks [suppressor_rifle,mag_ext_sniper,cheek_pad] mag 20/20 | pistol_9 [sight_reddot,suppressor_light,weapon_light] mag 15/15
+[match  392.5] Ate Load Dito respawned at (53.0, 0.0, 11.0) (nearest enemy 102 m)
+[loadout] Bebot Karaoke shotgun_saiga [sight_reddot,compensator,mag_extquick_rifle,weapon_light] mag 8/8 | pistol_deagle [suppressor_light,weapon_light] mag 7/7
+[match  392.5] Bebot Karaoke respawned at (-56.0, 0.0, 2.0) (nearest enemy 109 m)
+[loadout] Bayaw Erning smg_9 [sight_reddot,suppressor_light,mag_extquick_light,weapon_light] mag 40/40 | pistol_9 [suppressor_light,mag_extquick_light,weapon_light] mag 21/21
+[match  392.5] Bayaw Erning respawned at (53.0, 0.0, -8.0) (nearest enemy 102 m)
+[loadout] Tita Baby bolt_308 [scope_8x,suppressor_rifle,mag_ext_sniper] mag 8/8 | pistol_45 [sight_reddot,suppressor_light,mag_extquick_light,weapon_light] mag 12/12
+[match  392.5] Tita Baby respawned at (-56.0, 0.0, -5.0) (nearest enemy 109 m)
+[loadout] Pareng Jun bolt_kar98 [scope_8x,suppressor_rifle,cheek_pad] mag 5/5 | revolver_357 [] mag 6/6
+[match  392.5] Pareng Jun respawned at (53.0, 0.0, -5.0) (nearest enemy 101 m)
+[loadout] Ate Siomai dmr_sks [scope_lpvo] mag 10/10 | pistol_45 [suppressor_light,mag_extquick_light,weapon_light] mag 12/12
+[match  392.5] Ate Siomai respawned at (-51.0, 0.0, 2.0) (nearest enemy 104 m)
+[loadout] Bossing Barbecue shotgun_saiga [sight_reddot,weapon_light] mag 5/5 | pistol_deagle [sight_reddot,suppressor_light,mag_extquick_light,weapon_light] mag 10/10
+[match  392.5] Bossing Barbecue respawned at (50.0, 0.0, 11.0) (nearest enemy 100 m)
+[loadout] Aling Puring smg_tommy [grip_vertical,mag_extquick_light] mag 50/50 | pistol_45 [sight_reflex,suppressor_light,weapon_light] mag 7/7
+[match  392.5] Aling Puring respawned at (-54.0, 0.0, -2.0) (nearest enemy 105 m)
+[loadout] Lola Basyang smg_tommy [suppressor_light,grip_vertical] mag 30/30 | pistol_9 [sight_reddot,suppressor_light,mag_extquick_light,weapon_light] mag 21/21
+[match  392.5] Lola Basyang respawned at (53.0, 0.0, -11.0) (nearest enemy 102 m)
+[match  392.5] round 5 started; scores { 0: 2, 1: 2 }
+[match  392.5] status: { "ground": 12 }; armed 12; shots 777; zone -1 hold r=95; corpses 0; levels { "L1": 12 }; server tick avg 3.51 ms, p99 16.64 ms, max 28.50 ms over 808 ticks
+[match  392.5] dm teams: West Team 6 at (-54.0, -1.0) spread 3 m; East Team 6 at (52.0, 1.0) spread 9 m; gap 106 m; zone centre (-4.0, 4.0)
+[match  392.5] bots: { "roam": 12 }; containers searched by bots 0 (all players 0); plan steps done 0; guns carried 24
+[match  392.5] roles: { "sniper": { "roam": 3 }, "looter": { "roam": 3 }, "rusher": { "roam": 4 }, "stalker": { "roam": 2 } }; stuck now 0; waypoints 258; team { "lines": 193, "pings": 0, "laser_follow": 0, "learned_cells": 62, "blocked_cells": 0, "squads": 8, "following_humans": 0, &"learned_spots": 0 }
+[match  392.5] [lootstats] bots on the ground 12 (in water 0); armed 12; armed with ammo for a gun 12; long guns 12; attachments fitted 65; rounds of unusable ammo carried 0; items on the ground 0; bot pickups { "detours": 0, "detour_taken": 0, "fetches": 0, "fetch_done": 0, "items_taken": 0 }
+[match  402.3] [hold] Ate Load Dito overwatch spot 109 116s
+[match  404.5] [hold] Pareng Jun overwatch spot 157 103s
+[match  405.3] [hold] Bayaw Erning camp spot 104 36s
+[match  406.0] [botskill] normal shots 774 hits 171 reaction_avg 0.41 (n 163) dmg 4261 bots 12
+[match  407.3] Lola Basyang killed by Ate Siomai (gunshot); 2 teams left
+[match  407.3] alive: West Team 6, East Team 5; score { 0: 2, 1: 2 }
+[match  407.5] status: { "ground": 11 }; armed 11; shots 785; zone -1 hold r=95; corpses 1; levels { "L1": 10, "L2": 1 }; server tick avg 2.00 ms, p99 10.53 ms, max 30.11 ms over 900 ticks
+[match  407.5] dm teams: West Team 6 at (-20.0, -8.0) spread 14 m; East Team 5 at (26.0, 6.0) spread 11 m; gap 49 m; zone centre (-4.0, 4.0)
+[match  407.5] bots: { "roam": 1, "fight": 3, "hunt": 1, "overwatch": 2, "camp": 1, "follow": 1, "order": 1, "investigate": 1 }; containers searched by bots 0 (all players 0); plan steps done 0; guns carried 22
+[match  407.5] roles: { "sniper": { "roam": 1, "overwatch": 2 }, "looter": { "fight": 2, "camp": 1 }, "rusher": { "hunt": 1, "fight": 1, "investigate": 1 }, "stalker": { "follow": 1, "order": 1 } }; stuck now 0; waypoints 258; team { "lines": 199, "pings": 0, "laser_follow": 0, "learned_cells": 62, "blocked_cells": 0, "squads": 10, "following_humans": 0, &"learned_spots": 0 }
+[match  407.5] [lootstats] bots on the ground 11 (in water 0); armed 11; armed with ammo for a gun 11; long guns 11; attachments fitted 59; rounds of unusable ammo carried 0; items on the ground 0; bot pickups { "detours": 0, "detour_taken": 0, "fetches": 0, "fetch_done": 0, "items_taken": 0 }
+[match  407.9] [hold] Inday Rice Cooker overwatch spot 117 82s
+[match  409.7] Pinsan Gardo killed by Aling Puring (gunshot); 2 teams left
+[match  409.7] alive: West Team 6, East Team 4; score { 0: 2, 1: 2 }
+[match  412.3] Aling Puring killed by Bossing Barbecue (gunshot); 2 teams left
+[match  412.3] alive: West Team 5, East Team 4; score { 0: 2, 1: 2 }
+[match  412.6] Ising Batingaw killed by Tita Baby (gunshot); 2 teams left
+[match  412.6] alive: West Team 4, East Team 4; score { 0: 2, 1: 2 }
+[match  412.6] Ate Siomai killed by Ising Batingaw (gunshot); 2 teams left
+[match  412.6] alive: West Team 3, East Team 4; score { 0: 2, 1: 2 }
+[match  417.2] Inday Rice Cooker killed by Pareng Jun (gunshot); 2 teams left
+[match  417.2] alive: West Team 2, East Team 4; score { 0: 2, 1: 2 }
+[match  417.5] [endgame] East Team mates 4 foes 2 nocontact 0s
+[match  417.6] [endgame] West Team mates 2 foes 4 nocontact 0s
+[match  418.2] Tita Baby killed by Bayaw Erning (gunshot); 2 teams left
+[match  418.2] alive: West Team 1, East Team 4; score { 0: 2, 1: 2 }
+[match  421.0] [botskill] normal shots 900 hits 199 reaction_avg 0.40 (n 194) dmg 4836 bots 5
+[match  422.5] status: { "ground": 5 }; armed 5; shots 905; zone -1 hold r=95; corpses 7; levels { "L1": 5 }; server tick avg 3.58 ms, p99 18.62 ms, max 35.11 ms over 900 ticks
+[match  422.5] dm teams: West Team 1 at (-45.0, 14.0) spread 0 m; East Team 4 at (1.0, -10.0) spread 18 m; gap 52 m; zone centre (-4.0, 4.0)
+[match  422.5] bots: { "hunt": 4, "order": 1 }; containers searched by bots 0 (all players 0); plan steps done 0; guns carried 10
+[match  422.5] roles: { "sniper": { "hunt": 2 }, "looter": { "hunt": 2 }, "stalker": { "order": 1 } }; stuck now 0; waypoints 258; team { "lines": 221, "pings": 0, "laser_follow": 0, "learned_cells": 62, "blocked_cells": 0, "squads": 10, "following_humans": 0, &"learned_spots": 0 }
+[match  422.5] [lootstats] bots on the ground 5 (in water 0); armed 5; armed with ammo for a gun 5; long guns 5; attachments fitted 28; rounds of unusable ammo carried 0; items on the ground 0; bot pickups { "detours": 0, "detour_taken": 0, "fetches": 0, "fetch_done": 0, "items_taken": 0 }
+[match  428.3] [sweep] Bebot Karaoke -> cell (-1, 2, 0) spot 126 stale 66s 18 m
+[match  436.0] [botskill] normal shots 900 hits 199 reaction_avg 0.40 (n 194) dmg 4836 bots 5
+[match  437.5] status: { "ground": 5 }; armed 5; shots 905; zone -1 hold r=95; corpses 7; levels { "L1": 5 }; server tick avg 1.30 ms, p99 7.29 ms, max 20.11 ms over 900 ticks
+[match  437.5] dm teams: West Team 1 at (-29.0, 28.0) spread 0 m; East Team 4 at (-11.0, -4.0) spread 29 m; gap 36 m; zone centre (-4.0, 4.0)
+[match  437.5] bots: { "hunt": 5 }; containers searched by bots 0 (all players 0); plan steps done 0; guns carried 10
+[match  437.5] roles: { "sniper": { "hunt": 2 }, "looter": { "hunt": 2 }, "stalker": { "hunt": 1 } }; stuck now 0; waypoints 258; team { "lines": 221, "pings": 0, "laser_follow": 0, "learned_cells": 62, "blocked_cells": 0, "squads": 10, "following_humans": 0, &"learned_spots": 0 }
+[match  437.5] [lootstats] bots on the ground 5 (in water 0); armed 5; armed with ammo for a gun 5; long guns 5; attachments fitted 28; rounds of unusable ammo carried 0; items on the ground 0; bot pickups { "detours": 0, "detour_taken": 0, "fetches": 0, "fetch_done": 0, "items_taken": 0 }
+[match  444.5] [sweep] Bossing Barbecue -> cell (-2, -1, 1) spot 188 stale 82s 29 m
+[match  447.3] [sweep] Bebot Karaoke -> cell (0, 2, 0) spot 77 stale 85s 34 m
+[match  448.2] [sweep] Ate Load Dito -> cell (-4, -1, 0) spot 251 stale 86s 27 m
+[match  448.2] [sweep] Bayaw Erning -> cell (-4, 2, 0) spot 24 stale 86s 32 m
+[match  449.3] [sweep] Pareng Jun -> cell (1, -2, 1) spot 30 stale 87s 19 m
+[match  451.0] [botskill] normal shots 900 hits 199 reaction_avg 0.40 (n 194) dmg 4836 bots 5
+[match  452.5] status: { "ground": 5 }; armed 5; shots 905; zone -1 hold r=95; corpses 7; levels { "L1": 5 }; server tick avg 1.47 ms, p99 10.82 ms, max 31.30 ms over 900 ticks
+[match  452.5] dm teams: West Team 1 at (-9.0, 26.0) spread 0 m; East Team 4 at (-14.0, -2.0) spread 33 m; gap 28 m; zone centre (-4.0, 4.0)
+[match  452.5] bots: { "hunt": 3, "fight": 2 }; containers searched by bots 0 (all players 0); plan steps done 0; guns carried 10
+[match  452.5] roles: { "sniper": { "hunt": 2 }, "looter": { "fight": 2 }, "stalker": { "hunt": 1 } }; stuck now 0; waypoints 258; team { "lines": 223, "pings": 0, "laser_follow": 0, "learned_cells": 62, "blocked_cells": 0, "squads": 10, "following_humans": 0, &"learned_spots": 0 }
+[match  452.5] [lootstats] bots on the ground 5 (in water 0); armed 5; armed with ammo for a gun 5; long guns 5; attachments fitted 28; rounds of unusable ammo carried 0; items on the ground 0; bot pickups { "detours": 0, "detour_taken": 0, "fetches": 0, "fetch_done": 0, "items_taken": 0 }
+[match  453.5] Bebot Karaoke killed by Bayaw Erning (gunshot); 1 teams left
+[match  453.5] alive: West Team 0, East Team 4; score { 0: 2, 1: 2 }
+[match  453.5] round 5 over: winner 1, scores { 0: 2, 1: 3 }
+[loadout] Inday Rice Cooker shotgun_saiga [sight_reddot,mag_extquick_rifle] mag 8/8 | pistol_deagle [sight_reddot,suppressor_light,mag_extquick_light,weapon_light] mag 10/10
+[match  457.5] Inday Rice Cooker respawned at (-54.0, 0.0, 2.0) (nearest enemy 1000 m)
+[loadout] Pinsan Gardo bolt_awp [scope_6x,suppressor_rifle,mag_ext_sniper] mag 8/8 | revolver_357 [sight_reddot] mag 6/6
+[match  457.5] Pinsan Gardo respawned at (53.0, 0.0, -11.0) (nearest enemy 107 m)
+[loadout] Ising Batingaw bolt_kar98 [suppressor_rifle,cheek_pad] mag 5/5 | revolver_357 [sight_reddot] mag 6/6
+[match  457.5] Ising Batingaw respawned at (-56.0, 0.0, 5.0) (nearest enemy 110 m)
+[loadout] Ate Load Dito smg_tommy [suppressor_light,grip_ergonomic,mag_extquick_light] mag 50/50 | pistol_deagle [sight_reddot,suppressor_light,mag_extquick_light] mag 10/10
+[match  457.5] Ate Load Dito respawned at (53.0, 0.0, 11.0) (nearest enemy 107 m)
+[loadout] Bebot Karaoke rifle_scar [suppressor_rifle,grip_thumb,mag_extquick_rifle,weapon_light] mag 40/40 | revolver_357 [] mag 6/6
+[match  457.5] Bebot Karaoke respawned at (-56.0, 0.0, -2.0) (nearest enemy 109 m)
+[loadout] Bayaw Erning bolt_308 [scope_6x,suppressor_rifle,mag_ext_sniper,cheek_pad] mag 8/8 | pistol_45 [suppressor_light,mag_extquick_light,weapon_light] mag 12/12
+[match  457.5] Bayaw Erning respawned at (53.0, 0.0, -5.0) (nearest enemy 106 m)
+[loadout] Tita Baby shotgun_pump [sight_reddot,choke] mag 6/6 | pistol_45 [sight_reddot,suppressor_light,mag_extquick_light] mag 12/12
+[match  457.5] Tita Baby respawned at (-56.0, 0.0, -5.0) (nearest enemy 109 m)
+[loadout] Pareng Jun smg_ump45 [suppressor_light,grip_angled,mag_extquick_light,weapon_light] mag 35/35 | pistol_45 [sight_reddot,suppressor_light,mag_extquick_light,weapon_light] mag 12/12
+[match  457.5] Pareng Jun respawned at (50.0, 0.0, -11.0) (nearest enemy 105 m)
+[loadout] Ate Siomai shotgun_saiga [sight_reflex,compensator,mag_extquick_rifle,weapon_light] mag 8/8 | pistol_9 [sight_reddot,suppressor_light,mag_extquick_light,weapon_light] mag 21/21
+[match  457.5] Ate Siomai respawned at (-54.0, 0.0, -2.0) (nearest enemy 104 m)
+[loadout] Bossing Barbecue smg_ump45 [sight_holo,suppressor_light,grip_angled,mag_extquick_light,weapon_light] mag 35/35 | pistol_45 [sight_reddot,suppressor_light,mag_extquick_light,weapon_light] mag 12/12
+[match  457.5] Bossing Barbecue respawned at (50.0, 0.0, 11.0) (nearest enemy 104 m)
+[loadout] Aling Puring shotgun_saiga [compensator,mag_extquick_rifle,weapon_light] mag 8/8 | pistol_deagle [mag_extquick_light,weapon_light] mag 10/10
+[match  457.5] Aling Puring respawned at (-54.0, 0.0, -5.0) (nearest enemy 104 m)
+[loadout] Lola Basyang bolt_awp [scope_6x,mag_ext_sniper] mag 8/8 | revolver_357 [sight_reddot] mag 6/6
+[match  457.5] Lola Basyang respawned at (53.0, 0.0, 5.0) (nearest enemy 106 m)
+[match  457.5] round 6 started; scores { 0: 2, 1: 3 }
+[match  467.5] status: { "ground": 12 }; armed 12; shots 918; zone -1 hold r=93; corpses 0; levels { "L1": 11, "L2": 1 }; server tick avg 2.20 ms, p99 10.63 ms, max 29.29 ms over 660 ticks
+[match  467.5] dm teams: West Team 6 at (-39.0, -16.0) spread 7 m; East Team 6 at (36.0, 2.0) spread 12 m; gap 77 m; zone centre (2.0, 3.0)
+[match  467.5] bots: { "roam": 5, "follow": 2, "hunt": 5 }; containers searched by bots 0 (all players 0); plan steps done 0; guns carried 24
+[match  467.5] roles: { "sniper": { "roam": 2, "follow": 1 }, "looter": { "roam": 3 }, "stalker": { "hunt": 3 }, "rusher": { "hunt": 2, "follow": 1 } }; stuck now 0; waypoints 258; team { "lines": 226, "pings": 0, "laser_follow": 0, "learned_cells": 64, "blocked_cells": 0, "squads": 12, "following_humans": 0, &"learned_spots": 0 }
+[match  467.5] [lootstats] bots on the ground 12 (in water 0); armed 12; armed with ammo for a gun 12; long guns 12; attachments fitted 68; rounds of unusable ammo carried 0; items on the ground 0; bot pickups { "detours": 0, "detour_taken": 0, "fetches": 0, "fetch_done": 0, "items_taken": 0 }
+[match  467.6] [hold] Ate Load Dito camp spot 19 41s
+[match  470.0] [botskill] normal shots 913 hits 209 reaction_avg 0.40 (n 196) dmg 4919 bots 12
+[match  475.2] Bebot Karaoke killed by Pinsan Gardo (gunshot); 2 teams left
+[match  475.2] alive: West Team 5, East Team 6; score { 0: 2, 1: 3 }
+[match  477.0] Bossing Barbecue (team 1) landed at (2.0, 0.0, 3.0), 4.9 m/s, health 34; teammates -
+[match  477.5] Pareng Jun killed by Ising Batingaw (gunshot); 2 teams left
+[match  477.5] alive: West Team 5, East Team 5; score { 0: 2, 1: 3 }
+[match  479.7] [hold] Inday Rice Cooker overwatch spot 117 63s
+[match  479.8] Aling Puring (team 0) landed at (-9.0, 0.0, -2.0), 4.9 m/s, health 52; teammates -
+[match  480.1] Aling Puring killed by Lola Basyang (gunshot); 2 teams left
+[match  480.1] alive: West Team 4, East Team 5; score { 0: 2, 1: 3 }
+[match  482.5] status: { "ground": 9 }; armed 9; shots 1036; zone -1 hold r=93; corpses 3; levels { "L1": 9 }; server tick avg 7.24 ms, p99 33.45 ms, max 134.94 ms over 900 ticks
+[match  482.5] dm teams: West Team 4 at (-15.0, -23.0) spread 7 m; East Team 5 at (9.0, 6.0) spread 16 m; gap 38 m; zone centre (2.0, 3.0)
+[match  482.5] bots: { "overwatch": 1, "roam": 2, "fight": 3, "camp": 1, "hunt": 1, "heal": 1 }; containers searched by bots 0 (all players 0); plan steps done 0; guns carried 18
+[match  482.5] roles: { "sniper": { "overwatch": 1, "fight": 1 }, "looter": { "roam": 2, "camp": 1 }, "stalker": { "hunt": 1, "fight": 1 }, "rusher": { "heal": 1, "fight": 1 } }; stuck now 0; waypoints 258; team { "lines": 248, "pings": 0, "laser_follow": 0, "learned_cells": 65, "blocked_cells": 0, "squads": 12, "following_humans": 0, &"learned_spots": 0 }
+[match  482.5] [lootstats] bots on the ground 9 (in water 0); armed 9; armed with ammo for a gun 9; long guns 9; attachments fitted 51; rounds of unusable ammo carried 0; items on the ground 0; bot pickups { "detours": 0, "detour_taken": 0, "fetches": 0, "fetch_done": 0, "items_taken": 0 }
+[match  485.0] [botskill] normal shots 1036 hits 242 reaction_avg 0.41 (n 228) dmg 5504 bots 9
+[match  486.6] Lola Basyang killed by Inday Rice Cooker (gunshot); 2 teams left
+[match  486.6] alive: West Team 4, East Team 4; score { 0: 2, 1: 3 }
+[match  487.7] Ate Siomai killed by Pinsan Gardo (gunshot); 2 teams left
+[match  487.7] alive: West Team 3, East Team 4; score { 0: 2, 1: 3 }
+[match  489.9] [hold] Pinsan Gardo camp spot 59 62s
+[match  491.2] [hold] Ising Batingaw overwatch spot 117 65s
+[match  492.4] Bossing Barbecue killed by Inday Rice Cooker (gunshot); 2 teams left
+[match  492.4] alive: West Team 3, East Team 3; score { 0: 2, 1: 3 }
+[match  496.2] [hold] Bayaw Erning camp spot 23 55s
+[match  497.5] status: { "ground": 6 }; armed 6; shots 1090; zone -1 hold r=93; corpses 6; levels { "L1": 6 }; server tick avg 2.73 ms, p99 8.96 ms, max 17.84 ms over 900 ticks
+[match  497.5] dm teams: West Team 3 at (-14.0, -19.0) spread 10 m; East Team 3 at (0.0, 16.0) spread 44 m; gap 38 m; zone centre (2.0, 3.0)
+[match  497.5] bots: { "roam": 1, "camp": 3, "overwatch": 1, "hunt": 1 }; containers searched by bots 0 (all players 0); plan steps done 0; guns carried 12
+[match  497.5] roles: { "sniper": { "roam": 1, "overwatch": 1 }, "looter": { "camp": 3 }, "stalker": { "hunt": 1 } }; stuck now 0; waypoints 258; team { "lines": 265, "pings": 0, "laser_follow": 0, "learned_cells": 66, "blocked_cells": 0, "squads": 12, "following_humans": 0, &"learned_spots": 0 }
+[match  497.5] [lootstats] bots on the ground 6 (in water 0); armed 6; armed with ammo for a gun 6; long guns 6; attachments fitted 31; rounds of unusable ammo carried 0; items on the ground 0; bot pickups { "detours": 0, "detour_taken": 0, "fetches": 0, "fetch_done": 0, "items_taken": 0 }
+[match  500.0] [botskill] normal shots 1085 hits 262 reaction_avg 0.42 (n 236) dmg 5805 bots 6
+[match  505.3] [hold] Inday Rice Cooker overwatch spot 157 77s
+[match  506.1] Pinsan Gardo (team 1) landed at (15.0, 0.0, -4.0), 2.5 m/s, health 85; teammates -
+[match  508.4] [hold] Ate Load Dito camp spot 19 36s
+[match  512.1] Ising Batingaw killed by Pinsan Gardo (gunshot); 2 teams left
+[match  512.1] alive: West Team 2, East Team 3; score { 0: 2, 1: 3 }
+[match  512.4] [endgame] East Team mates 3 foes 2 nocontact 0s
+[match  512.5] status: { "ground": 5 }; armed 5; shots 1100; zone -1 hold r=93; corpses 7; levels { "L1": 5 }; server tick avg 1.47 ms, p99 4.96 ms, max 12.91 ms over 900 ticks
+[match  512.5] dm teams: West Team 2 at (2.0, -8.0) spread 18 m; East Team 3 at (-1.0, 17.0) spread 43 m; gap 25 m; zone centre (2.0, 3.0)
+[match  512.5] bots: { "roam": 1, "fight": 2, "camp": 2 }; containers searched by bots 0 (all players 0); plan steps done 0; guns carried 10
+[match  512.5] roles: { "sniper": { "roam": 1 }, "looter": { "fight": 1, "camp": 2 }, "stalker": { "fight": 1 } }; stuck now 0; waypoints 258; team { "lines": 272, "pings": 0, "laser_follow": 0, "learned_cells": 66, "blocked_cells": 0, "squads": 12, "following_humans": 0, &"learned_spots": 0 }
+[match  512.5] [lootstats] bots on the ground 5 (in water 0); armed 5; armed with ammo for a gun 5; long guns 5; attachments fitted 28; rounds of unusable ammo carried 0; items on the ground 0; bot pickups { "detours": 0, "detour_taken": 0, "fetches": 0, "fetch_done": 0, "items_taken": 0 }
+[match  512.6] [endgame] West Team mates 2 foes 3 nocontact 0s
+[match  514.5] Pinsan Gardo killed by Inday Rice Cooker (gunshot); 2 teams left
+[match  514.5] alive: West Team 2, East Team 2; score { 0: 2, 1: 3 }
+[match  515.0] [botskill] normal shots 1099 hits 267 reaction_avg 0.43 (n 245) dmg 6040 bots 4
+[match  515.0] [sweep] Inday Rice Cooker -> cell (0, -1, 1) spot 243 stale 88s 16 m
+[match  519.3] Inday Rice Cooker (team 0) landed at (20.0, 0.0, -8.0), 4.9 m/s, health 79; teammates -
+[match  527.5] status: { "ground": 4 }; armed 4; shots 1107; zone -1 hold r=93; corpses 8; levels { "L1": 4 }; server tick avg 1.52 ms, p99 16.00 ms, max 38.38 ms over 900 ticks
+[match  527.5] dm teams: West Team 2 at (-3.0, 12.0) spread 18 m; East Team 2 at (15.0, 26.0) spread 27 m; gap 23 m; zone centre (2.0, 3.0)
+[match  527.5] bots: { "hunt": 4 }; containers searched by bots 0 (all players 0); plan steps done 0; guns carried 8
+[match  527.5] roles: { "sniper": { "hunt": 1 }, "looter": { "hunt": 2 }, "stalker": { "hunt": 1 } }; stuck now 0; waypoints 258; team { "lines": 281, "pings": 0, "laser_follow": 0, "learned_cells": 66, "blocked_cells": 0, "squads": 12, "following_humans": 0, &"learned_spots": 0 }
+[match  527.5] [lootstats] bots on the ground 4 (in water 0); armed 4; armed with ammo for a gun 4; long guns 4; attachments fitted 24; rounds of unusable ammo carried 0; items on the ground 0; bot pickups { "detours": 0, "detour_taken": 0, "fetches": 0, "fetch_done": 0, "items_taken": 0 }
+[match  530.0] [botskill] normal shots 1102 hits 267 reaction_avg 0.43 (n 247) dmg 6040 bots 4
+[match  536.1] Bayaw Erning killed by Inday Rice Cooker (gunshot); 2 teams left
+[match  536.1] alive: West Team 2, East Team 1; score { 0: 2, 1: 3 }
+[match  537.8] Ate Load Dito (team 1) landed at (42.0, 0.0, 0.0), 4.9 m/s, health 100; teammates -
+[match  542.5] status: { "ground": 3 }; armed 3; shots 1112; zone -1 hold r=93; corpses 9; levels { "L1": 3 }; server tick avg 1.05 ms, p99 6.09 ms, max 16.98 ms over 900 ticks
+[match  542.5] dm teams: West Team 2 at (-7.0, 31.0) spread 15 m; East Team 1 at (41.0, 18.0) spread 0 m; gap 49 m; zone centre (2.0, 3.0)
+[match  542.5] bots: { "investigate": 1, "hunt": 2 }; containers searched by bots 0 (all players 0); plan steps done 0; guns carried 6
+[match  542.5] roles: { "sniper": { "investigate": 1 }, "looter": { "hunt": 1 }, "stalker": { "hunt": 1 } }; stuck now 0; waypoints 258; team { "lines": 287, "pings": 0, "laser_follow": 0, "learned_cells": 67, "blocked_cells": 0, "squads": 12, "following_humans": 0, &"learned_spots": 0 }
+[match  542.5] [lootstats] bots on the ground 3 (in water 0); armed 3; armed with ammo for a gun 3; long guns 3; attachments fitted 17; rounds of unusable ammo carried 0; items on the ground 0; bot pickups { "detours": 0, "detour_taken": 0, "fetches": 0, "fetch_done": 0, "items_taken": 0 }
+[match  543.8] [sweep] Inday Rice Cooker -> cell (0, 1, 1) spot 107 stale 116s 13 m
+[match  545.0] [botskill] normal shots 1107 hits 271 reaction_avg 0.43 (n 250) dmg 6168 bots 3
+[match  557.5] status: { "ground": 3 }; armed 3; shots 1112; zone -1 hold r=93; corpses 9; levels { "L1": 3 }; server tick avg 1.07 ms, p99 7.57 ms, max 20.82 ms over 900 ticks
+[match  557.5] dm teams: West Team 2 at (-10.0, 29.0) spread 13 m; East Team 1 at (10.0, 35.0) spread 0 m; gap 21 m; zone centre (2.0, 3.0)
+[match  557.5] bots: { "hunt": 3 }; containers searched by bots 0 (all players 0); plan steps done 0; guns carried 6
+[match  557.5] roles: { "sniper": { "hunt": 1 }, "looter": { "hunt": 1 }, "stalker": { "hunt": 1 } }; stuck now 0; waypoints 258; team { "lines": 287, "pings": 0, "laser_follow": 0, "learned_cells": 67, "blocked_cells": 0, "squads": 12, "following_humans": 0, &"learned_spots": 0 }
+[match  557.5] [lootstats] bots on the ground 3 (in water 0); armed 3; armed with ammo for a gun 3; long guns 3; attachments fitted 17; rounds of unusable ammo carried 0; items on the ground 0; bot pickups { "detours": 0, "detour_taken": 0, "fetches": 0, "fetch_done": 0, "items_taken": 0 }
+[match  559.0] [sweep] Inday Rice Cooker -> cell (0, 1, 1) spot 0 stale 132s 12 m
+[match  559.6] [sweep] Ate Load Dito -> cell (-1, 1, 1) spot 116 stale 132s 27 m
+[match  560.0] [botskill] normal shots 1107 hits 271 reaction_avg 0.43 (n 250) dmg 6168 bots 3
+[match  565.5] Inday Rice Cooker killed by Ate Load Dito (gunshot); 2 teams left
+[match  565.5] alive: West Team 1, East Team 1; score { 0: 2, 1: 3 }
+[match  572.5] status: { "ground": 2 }; armed 2; shots 1159; zone -1 hold r=93; corpses 10; levels { "L1": 2 }; server tick avg 1.36 ms, p99 7.21 ms, max 12.70 ms over 900 ticks
+[match  572.5] dm teams: West Team 1 at (-21.0, 33.0) spread 0 m; East Team 1 at (5.0, 33.0) spread 0 m; gap 25 m; zone centre (2.0, 3.0)
+[match  572.5] bots: { "fight": 2 }; containers searched by bots 0 (all players 0); plan steps done 0; guns carried 4
+[match  572.5] roles: { "looter": { "fight": 1 }, "stalker": { "fight": 1 } }; stuck now 0; waypoints 258; team { "lines": 296, "pings": 0, "laser_follow": 0, "learned_cells": 68, "blocked_cells": 0, "squads": 12, "following_humans": 0, &"learned_spots": 0 }
+[match  572.5] [lootstats] bots on the ground 2 (in water 0); armed 2; armed with ammo for a gun 2; long guns 2; attachments fitted 11; rounds of unusable ammo carried 0; items on the ground 0; bot pickups { "detours": 0, "detour_taken": 0, "fetches": 0, "fetch_done": 0, "items_taken": 0 }
+[match  575.0] [botskill] normal shots 1160 hits 289 reaction_avg 0.44 (n 259) dmg 6370 bots 2
+[match  576.4] Tita Baby killed by Ate Load Dito (gunshot); 1 teams left
+[match  576.4] alive: West Team 0, East Team 1; score { 0: 2, 1: 3 }
+[match  576.4] round 6 over: winner 1, scores { 0: 2, 1: 4 }
+[loadout] Inday Rice Cooker dmr_sks [scope_lpvo,mag_ext_sniper,cheek_pad] mag 20/20 | pistol_45 [sight_reflex,suppressor_light,mag_extquick_light] mag 12/12
+[match  580.4] Inday Rice Cooker respawned at (-49.0, 0.0, 2.0) (nearest enemy 1000 m)
+[loadout] Pinsan Gardo dmr_mini14 [scope_6x,suppressor_rifle,mag_ext_sniper] mag 30/30 | pistol_9 [suppressor_light,weapon_light] mag 15/15
+[match  580.4] Pinsan Gardo respawned at (53.0, 0.0, 8.0) (nearest enemy 102 m)
+[loadout] Ising Batingaw dmr_mini14 [suppressor_rifle] mag 20/20 | pistol_45 [sight_reflex,suppressor_light,mag_extquick_light] mag 12/12
+[match  580.4] Ising Batingaw respawned at (-56.0, 0.0, 5.0) (nearest enemy 109 m)
+[loadout] Ate Load Dito bolt_308 [scope_6x,mag_ext_sniper,bullet_loops] mag 8/8 | pistol_deagle [sight_reddot,suppressor_light,mag_extquick_light,weapon_light] mag 10/10
+[match  580.4] Ate Load Dito respawned at (53.0, 0.0, -11.0) (nearest enemy 102 m)
+[loadout] Bebot Karaoke marksman_308 [scope_6x,mag_ext_sniper,cheek_pad] mag 30/30 | revolver_357 [sight_reddot] mag 6/6
+[match  580.4] Bebot Karaoke respawned at (-56.0, 0.0, -2.0) (nearest enemy 109 m)
+[loadout] Bayaw Erning shotgun_double [choke,bullet_loops] mag 2/2 | pistol_9 [sight_reflex,suppressor_light,weapon_light] mag 15/15
+[match  580.4] Bayaw Erning respawned at (53.0, 0.0, -5.0) (nearest enemy 102 m)
+[loadout] Tita Baby smg_vector [sight_reddot,suppressor_light,grip_vertical,mag_extquick_light,stock_heavy,weapon_light] mag 33/33 | pistol_45 [mag_extquick_light,weapon_light] mag 12/12
+[match  580.4] Tita Baby respawned at (-56.0, 0.0, -5.0) (nearest enemy 109 m)
+[loadout] Pareng Jun bolt_awp [scope_6x,suppressor_rifle,mag_ext_sniper,bullet_loops] mag 8/8 | pistol_45 [sight_reddot,suppressor_light,mag_extquick_light,weapon_light] mag 12/12
+[match  580.4] Pareng Jun respawned at (53.0, 0.0, -8.0) (nearest enemy 102 m)
+[loadout] Ate Siomai rifle_762 [scope_3x,muzzle_brake,laser_sight,weapon_light] mag 30/30 | pistol_45 [sight_reddot,suppressor_light,mag_extquick_light,weapon_light] mag 12/12
+[match  580.4] Ate Siomai respawned at (-54.0, 0.0, 2.0) (nearest enemy 106 m)
+[loadout] Bossing Barbecue smg_tommy [suppressor_light,grip_vertical] mag 30/30 | pistol_deagle [sight_reddot,suppressor_light,weapon_light] mag 7/7
+[match  580.4] Bossing Barbecue respawned at (53.0, 0.0, 11.0) (nearest enemy 102 m)
+[loadout] Aling Puring machine_pistol [sight_reddot,suppressor_light,laser_sight,mag_extquick_light,weapon_light] mag 45/45 | revolver_357 [sight_reddot] mag 6/6
+[match  580.4] Aling Puring respawned at (-56.0, 0.0, 2.0) (nearest enemy 109 m)
+[loadout] Lola Basyang smg_tommy [grip_vertical] mag 30/30 | revolver_357 [sight_reddot] mag 6/6
+[match  580.4] Lola Basyang respawned at (50.0, 0.0, -8.0) (nearest enemy 99 m)
+[match  580.4] round 7 started; scores { 0: 2, 1: 4 }
+[match  587.5] status: { "ground": 12 }; armed 12; shots 1171; zone -1 hold r=92; corpses 0; levels { "L1": 12 }; server tick avg 1.70 ms, p99 9.12 ms, max 21.96 ms over 660 ticks
+[match  587.5] dm teams: West Team 6 at (-50.0, -1.0) spread 6 m; East Team 6 at (46.0, 0.0) spread 4 m; gap 95 m; zone centre (-2.0, 1.0)
+[match  587.5] bots: { "follow": 2, "hunt": 6, "roam": 4 }; containers searched by bots 0 (all players 0); plan steps done 0; guns carried 24
+[match  587.5] roles: { "looter": { "follow": 2, "roam": 1 }, "rusher": { "hunt": 4 }, "sniper": { "roam": 3 }, "stalker": { "hunt": 2 } }; stuck now 0; waypoints 258; team { "lines": 300, "pings": 0, "laser_follow": 0, "learned_cells": 69, "blocked_cells": 0, "squads": 14, "following_humans": 0, &"learned_spots": 0 }
+[match  587.5] [lootstats] bots on the ground 12 (in water 0); armed 12; armed with ammo for a gun 12; long guns 12; attachments fitted 68; rounds of unusable ammo carried 0; items on the ground 0; bot pickups { "detours": 0, "detour_taken": 0, "fetches": 0, "fetch_done": 0, "items_taken": 0 }
+[match  588.3] Pareng Jun (team 1) landed at (49.0, 0.0, 5.0), 2.5 m/s, health 100; teammates -
+[match  594.0] [botskill] normal shots 1166 hits 292 reaction_avg 0.44 (n 260) dmg 6391 bots 12
+[match  594.6] Ate Siomai killed by Bossing Barbecue (gunshot); 2 teams left
+[match  594.6] alive: West Team 5, East Team 6; score { 0: 2, 1: 4 }
+[match  597.2] Bebot Karaoke killed by Lola Basyang (gunshot); 2 teams left
+[match  597.2] alive: West Team 4, East Team 6; score { 0: 2, 1: 4 }
+[match  597.9] Ising Batingaw killed by Bayaw Erning (gunshot); 2 teams left
+[match  597.9] alive: West Team 3, East Team 6; score { 0: 2, 1: 4 }
+[match  599.9] [hold] Bayaw Erning overwatch spot 147 95s
+[match  601.4] Ate Load Dito killed by Inday Rice Cooker (gunshot); 2 teams left
+[match  601.4] alive: West Team 3, East Team 5; score { 0: 2, 1: 4 }
+[match  601.7] Pinsan Gardo (team 1) landed at (2.0, 0.0, 3.0), 4.5 m/s, health 40; teammates 21 m
+[match  602.5] status: { "ground": 8 }; armed 8; shots 1308; zone -1 hold r=92; corpses 4; levels { "L1": 8 }; server tick avg 4.05 ms, p99 12.57 ms, max 27.11 ms over 900 ticks
+[match  602.5] dm teams: West Team 3 at (-26.0, -6.0) spread 19 m; East Team 5 at (9.0, -6.0) spread 10 m; gap 36 m; zone centre (-2.0, 1.0)
+[match  602.5] bots: { "roam": 1, "heal": 1, "order": 3, "fight": 3 }; containers searched by bots 0 (all players 0); plan steps done 0; guns carried 16
+[match  602.5] roles: { "looter": { "roam": 1, "fight": 1, "order": 1 }, "rusher": { "heal": 1 }, "sniper": { "order": 1, "fight": 1 }, "stalker": { "order": 1, "fight": 1 } }; stuck now 0; waypoints 258; team { "lines": 319, "pings": 0, "laser_follow": 0, "learned_cells": 70, "blocked_cells": 0, "squads": 14, "following_humans": 0, &"learned_spots": 0 }
+[match  602.5] [lootstats] bots on the ground 8 (in water 0); armed 8; armed with ammo for a gun 8; long guns 8; attachments fitted 45; rounds of unusable ammo carried 0; items on the ground 0; bot pickups { "detours": 0, "detour_taken": 0, "fetches": 0, "fetch_done": 0, "items_taken": 0 }
+[match  602.9] Aling Puring killed by Lola Basyang (gunshot); 2 teams left
+[match  602.9] alive: West Team 2, East Team 5; score { 0: 2, 1: 4 }
+[match  603.4] [endgame] East Team mates 5 foes 2 nocontact 0s
+[match  603.4] [endgame] West Team mates 2 foes 5 nocontact 0s
+[match  606.2] Inday Rice Cooker killed by Pinsan Gardo (bleeding); 2 teams left
+[match  606.2] alive: West Team 1, East Team 5; score { 0: 2, 1: 4 }
+[match  606.4] Lola Basyang (team 1) landed at (5.0, 0.0, -25.0), 4.9 m/s, health 37; teammates 21 m, 8 m
+[match  609.0] [botskill] normal shots 1319 hits 312 reaction_avg 0.44 (n 288) dmg 7057 bots 6
+[match  614.9] Pinsan Gardo killed by Tita Baby (gunshot); 2 teams left
+[match  614.9] alive: West Team 1, East Team 4; score { 0: 2, 1: 4 }
+[match  617.5] status: { "ground": 5 }; armed 5; shots 1333; zone -1 hold r=92; corpses 7; levels { "L1": 5 }; server tick avg 1.54 ms, p99 5.68 ms, max 15.96 ms over 900 ticks
+[match  617.5] dm teams: West Team 1 at (-17.0, 10.0) spread 0 m; East Team 4 at (2.0, -10.0) spread 16 m; gap 28 m; zone centre (-2.0, 1.0)
+[match  617.5] bots: { "order": 3, "fight": 1, "hunt": 1 }; containers searched by bots 0 (all players 0); plan steps done 0; guns carried 10
+[match  617.5] roles: { "sniper": { "order": 1 }, "stalker": { "fight": 1, "hunt": 1 }, "looter": { "order": 2 } }; stuck now 0; waypoints 258; team { "lines": 332, "pings": 0, "laser_follow": 0, "learned_cells": 70, "blocked_cells": 0, "squads": 14, "following_humans": 0, &"learned_spots": 0 }
+[match  617.5] [lootstats] bots on the ground 5 (in water 0); armed 5; armed with ammo for a gun 5; long guns 5; attachments fitted 28; rounds of unusable ammo carried 0; items on the ground 0; bot pickups { "detours": 0, "detour_taken": 0, "fetches": 0, "fetch_done": 0, "items_taken": 0 }
+[match  624.0] [botskill] normal shots 1355 hits 327 reaction_avg 0.44 (n 299) dmg 7232 bots 5
+[match  627.1] Tita Baby killed by Bossing Barbecue (gunshot); 1 teams left
+[match  627.1] alive: West Team 0, East Team 4; score { 0: 2, 1: 4 }
+[match  627.1] round 7 over: winner 1, scores { 0: 2, 1: 5 }
+[loadout] Inday Rice Cooker dmr_mini14 [scope_lpvo,suppressor_rifle,mag_ext_sniper,cheek_pad] mag 30/30 | pistol_deagle [suppressor_light,mag_extquick_light] mag 10/10
+[match  631.1] Inday Rice Cooker respawned at (-49.0, 0.0, 2.0) (nearest enemy 1000 m)
+[loadout] Pinsan Gardo smg_ump45 [grip_vertical,mag_extquick_light,weapon_light] mag 35/35 | pistol_deagle [sight_reflex,suppressor_light,mag_extquick_light,weapon_light] mag 10/10
+[match  631.1] Pinsan Gardo respawned at (53.0, 0.0, 8.0) (nearest enemy 102 m)
+[loadout] Ising Batingaw shotgun_double [bullet_loops] mag 2/2 | pistol_deagle [sight_reflex,suppressor_light,mag_extquick_light,weapon_light] mag 10/10
+[match  631.1] Ising Batingaw respawned at (-56.0, 0.0, -5.0) (nearest enemy 109 m)
+[loadout] Ate Load Dito smg_ump45 [sight_holo,suppressor_light,mag_extquick_light] mag 35/35 | revolver_357 [sight_reflex] mag 6/6
+[match  631.1] Ate Load Dito respawned at (53.0, 0.0, -11.0) (nearest enemy 102 m)
+[loadout] Bebot Karaoke marksman_308 [scope_6x,suppressor_rifle,mag_ext_sniper,cheek_pad] mag 30/30 | pistol_45 [sight_reflex,mag_extquick_light,weapon_light] mag 12/12
+[match  631.1] Bebot Karaoke respawned at (-54.0, 0.0, -5.0) (nearest enemy 106 m)
+[loadout] Bayaw Erning smg_vector [sight_reddot,suppressor_light,grip_thumb,mag_extquick_light,stock_tactical,weapon_light] mag 33/33 | pistol_45 [sight_reddot,suppressor_light,weapon_light] mag 7/7
+[match  631.1] Bayaw Erning respawned at (53.0, 0.0, -8.0) (nearest enemy 102 m)
+[loadout] Tita Baby smg_ump45 [sight_reflex,mag_extquick_light] mag 35/35 | revolver_357 [sight_reddot] mag 6/6
+[match  631.1] Tita Baby respawned at (-56.0, 0.0, 5.0) (nearest enemy 109 m)
+[loadout] Pareng Jun shotgun_pump [choke] mag 6/6 | pistol_45 [sight_reddot,mag_extquick_light,weapon_light] mag 12/12
+[match  631.1] Pareng Jun respawned at (53.0, 0.0, 11.0) (nearest enemy 102 m)
+[loadout] Ate Siomai smg_vector [scope_2x,suppressor_light,mag_extquick_light,stock_heavy,weapon_light] mag 33/33 | pistol_deagle [sight_reflex,suppressor_light,mag_extquick_light,weapon_light] mag 10/10
+[match  631.1] Ate Siomai respawned at (-56.0, 0.0, 2.0) (nearest enemy 109 m)
+[loadout] Bossing Barbecue lmg_m249 [sight_holo,muzzle_brake,laser_sight,weapon_light] mag 100/100 | pistol_45 [sight_reflex,suppressor_light,mag_extquick_light] mag 12/12
+[match  631.1] Bossing Barbecue respawned at (50.0, 0.0, -8.0) (nearest enemy 99 m)
+[loadout] Aling Puring shotgun_saiga [mag_extquick_rifle,weapon_light] mag 8/8 | pistol_45 [mag_extquick_light,weapon_light] mag 12/12
+[match  631.1] Aling Puring respawned at (-54.0, 0.0, 2.0) (nearest enemy 104 m)
+[loadout] Lola Basyang smg_9 [scope_2x,suppressor_light,grip_thumb] mag 30/30 | pistol_9 [suppressor_light,weapon_light] mag 15/15
+[match  631.1] Lola Basyang respawned at (53.0, 0.0, 5.0) (nearest enemy 101 m)
+[match  631.1] round 8 started; scores { 0: 2, 1: 5 }
+[match  632.5] status: { "ground": 12 }; armed 12; shots 1421; zone -1 hold r=92; corpses 0; levels { "L1": 12 }; server tick avg 1.50 ms, p99 4.16 ms, max 7.99 ms over 660 ticks
+[match  632.5] dm teams: West Team 6 at (-54.0, 0.0) spread 4 m; East Team 6 at (52.0, 0.0) spread 8 m; gap 106 m; zone centre (1.0, 2.0)
+[match  632.5] bots: { "roam": 12 }; containers searched by bots 0 (all players 0); plan steps done 0; guns carried 24
+[match  632.5] roles: { "sniper": { "roam": 8 }, "stalker": { "roam": 2 }, "rusher": { "roam": 2 } }; stuck now 0; waypoints 258; team { "lines": 339, "pings": 0, "laser_follow": 0, "learned_cells": 70, "blocked_cells": 0, "squads": 14, "following_humans": 0, &"learned_spots": 0 }
+[match  632.5] [lootstats] bots on the ground 12 (in water 0); armed 12; armed with ammo for a gun 12; long guns 12; attachments fitted 70; rounds of unusable ammo carried 0; items on the ground 0; bot pickups { "detours": 0, "detour_taken": 0, "fetches": 0, "fetch_done": 0, "items_taken": 0 }
+[match  642.6] [hold] Aling Puring overwatch spot 149 89s
+[match  643.0] [botskill] normal shots 1416 hits 343 reaction_avg 0.44 (n 306) dmg 7367 bots 12
+[match  644.8] [hold] Bossing Barbecue overwatch spot 122 92s
+[match  647.5] status: { "ground": 12 }; armed 12; shots 1450; zone -1 hold r=92; corpses 0; levels { "L1": 12 }; server tick avg 2.47 ms, p99 13.32 ms, max 41.54 ms over 900 ticks
+[match  647.5] dm teams: West Team 6 at (-20.0, -9.0) spread 13 m; East Team 6 at (16.0, 5.0) spread 12 m; gap 39 m; zone centre (1.0, 2.0)
+[match  647.5] bots: { "fight": 7, "hunt": 1, "follow": 1, "investigate": 1, "roam": 2 }; containers searched by bots 0 (all players 0); plan steps done 0; guns carried 24
+[match  647.5] roles: { "sniper": { "fight": 5, "follow": 1, "roam": 2 }, "stalker": { "hunt": 1, "fight": 1 }, "rusher": { "investigate": 1, "fight": 1 } }; stuck now 0; waypoints 258; team { "lines": 347, "pings": 0, "laser_follow": 0, "learned_cells": 70, "blocked_cells": 0, "squads": 16, "following_humans": 0, &"learned_spots": 0 }
+[match  647.5] [lootstats] bots on the ground 12 (in water 0); armed 12; armed with ammo for a gun 12; long guns 12; attachments fitted 70; rounds of unusable ammo carried 0; items on the ground 0; bot pickups { "detours": 0, "detour_taken": 0, "fetches": 0, "fetch_done": 0, "items_taken": 0 }
+[match  649.3] Ising Batingaw killed by Lola Basyang (gunshot); 2 teams left
+[match  649.3] alive: West Team 5, East Team 6; score { 0: 2, 1: 5 }
+[match  650.3] Ate Load Dito killed by Ate Siomai (gunshot); 2 teams left
+[match  650.3] alive: West Team 5, East Team 5; score { 0: 2, 1: 5 }
+[match  651.4] Lola Basyang killed by Inday Rice Cooker (gunshot); 2 teams left
+[match  651.4] alive: West Team 5, East Team 4; score { 0: 2, 1: 5 }
+[match  651.7] Ate Siomai killed by Pareng Jun (gunshot); 2 teams left
+[match  651.7] alive: West Team 4, East Team 4; score { 0: 2, 1: 5 }
+[run_timed] killed after 660 s

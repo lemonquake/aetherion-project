@@ -22,6 +22,14 @@ var _hole_tex: Texture2D
 var _blood_tex: Array = []
 var _blood_nrm: Array = []
 var _flash_pool: Array = []
+var test_no_flash := false   # r22 firefight benchmark: no muzzle-flash light at all
+## (r22) Muzzle flashes cast shadows (desktop Forward+) only near the camera: your own always, others within
+## FLASH_SHADOW_M, at most FLASH_SHADOWS of those at once. Each shadowed flash redraws everything within its reach six
+## times; in a big firefight on Freight Delight that was some 1,400 extra draw calls a frame for flashes too far off to
+## show their shadows.
+const FLASH_SHADOW_M := 14.0
+const FLASH_SHADOWS := 2
+var flash_shadows := false   # (set in setup: off on phones and in Safe graphics, as before)
 var _zone_wall: MeshInstance3D
 var _zone_mat: ShaderMaterial
 var _field_zap_t := 0.0
@@ -75,7 +83,8 @@ func setup(w) -> void:
 		l.omni_range = 11.0
 		l.omni_attenuation = 1.3
 		l.omni_shadow_mode = OmniLight3D.SHADOW_CUBE
-		l.shadow_enabled = not Settings.is_mobile() and RenderingServer.get_current_rendering_method() == "forward_plus"
+		l.shadow_enabled = false
+		flash_shadows = not Settings.is_mobile() and RenderingServer.get_current_rendering_method() == "forward_plus"
 		l.shadow_caster_mask = 0xFFFFF & ~Defs.RENDER_INTERIOR_PROPS
 		l.shadow_bias = .035
 		l.light_volumetric_fog_energy = 0.0
@@ -135,7 +144,7 @@ func shot(ch, origin: Vector3, dir: Vector3, velocity: float, ammo: String, weap
 	if local and world.controller and world.controller.vm:
 		flash_pos = world.controller.vm.muzzle_position()
 	var flash_power := clampf(sqrt(float(a.get("mass", .008)) * velocity * velocity / 2200.0), .55, 1.65)
-	_flash(flash_pos, Attach.mult(w, "flash_mult"), flash_power)
+	_flash(flash_pos, Attach.mult(w, "flash_mult"), flash_power, local)
 	if world.ambience:
 		world.ambience.on_loud(origin, float(d.get("loudness", 600)) * 0.25 * Attach.mult(w, "loudness_mult"))
 	var snd := "shot_" + str(d.get("sound", "pistol_9"))
@@ -165,14 +174,21 @@ func shot(ch, origin: Vector3, dir: Vector3, velocity: float, ammo: String, weap
 	_spawn_tracer(flash_pos if local else origin, dir * velocity, float(a.get("drag_k", 0.001)), bright)
 
 
-func _flash(p: Vector3, mult: float = 1.0, power: float = 1.0) -> void:
-	if mult < 0.15:
+func _flash(p: Vector3, mult: float = 1.0, power: float = 1.0, own: bool = false) -> void:
+	if mult < 0.15 or test_no_flash:
 		return  # suppressed: no flash worth lighting a room with
 	var reduce := bool(Settings.get_value("accessibility", "reduce_flashes"))
+	var shadowed := 0
+	for f in _flash_pool:
+		if f.t > 0.0 and (f.light as OmniLight3D).shadow_enabled:
+			shadowed += 1
 	for f in _flash_pool:
 		if f.t <= 0.0:
 			var l: OmniLight3D = f.light
 			l.global_position = p
+			var cam := get_viewport().get_camera_3d()
+			l.shadow_enabled = flash_shadows and (own or (shadowed < FLASH_SHADOWS and cam != null
+				and cam.global_position.distance_to(p) < FLASH_SHADOW_M))
 			f.base = (1.8 if reduce else 13.0 * power) * minf(mult, 1.3)
 			l.light_energy = f.base
 			l.omni_range = 6.0 if reduce else (9.0 + power * 2.0)

@@ -517,7 +517,12 @@ final class LauncherView: NSView {
         }
         for s in list {
             let dm = s["game_mode"] as? String == "deathmatch"
-            drawText(dm ? "Deathmatch" : "Classic", fBodyB, Theme.text, r.minX + 20, y)
+            let mw = drawText(dm ? "Deathmatch" : "Classic", fBodyB, Theme.text, r.minX + 20, y)
+            // (1.4.0) the server's bot difficulty, from game 0.22.0 on
+            let skills = ["easy": "Easy", "normal": "Normal", "hard": "Hard", "pro": "Pro"]
+            if let skill = skills[s["bot_skill"] as? String ?? ""], (s["bots"] as? Bool) != false {
+                _ = drawText("· " + skill + " bots", fSmall, Theme.dim, r.minX + 20 + mw + 8, y + 2)
+            }
             let maps = ["malasugue_mall": "Malasugue Mall", "freight_delight": "Freight Delight", "lawless_sub": "Lawless Sub", "kalinaw": "Sitio Kalinaw"]
             let mapId = s["map"] as? String ?? ""
             drawText((maps[mapId] ?? (dm ? "Malasugue Mall" : "Sitio Kalinaw")) + " · " + (s["region"] as? String ?? ""), fSmall, Theme.dim, r.minX + 20, y + 20)

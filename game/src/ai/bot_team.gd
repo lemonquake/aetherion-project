@@ -27,6 +27,10 @@ extends RefCounted
 ## storeyed maps) keeps when a bot of the team last walked through or beside it, so sweeping bots go where nobody has
 ## looked for longest, each claiming its cell so teammates spread. After a long quiet in the endgame the team gets a
 ## rough idea (within 20 m) of the nearest enemy, so a hidden last player is always found. Also the [botskill] numbers.
+##
+## (r22) Each team has a blackboard (board(team), src/ai/limbo): the parent scope of its bots' own blackboards in their
+## minds (bot_mind.gd). It holds what the whole team knows: "intel", the latest callout {p, t} (a sighting, or the
+## endgame's hint), and "endgame" (whether the team is in it). Fresh each round.
 
 const CELL := 8.0
 const STEP := 4                  # walk-grid cells between samples
@@ -72,6 +76,9 @@ static var _cells_n := -1          # spots.size() the buckets were made for
 static var _storeyed := -1
 static var skill_stats := {}       # skill -> {shots, hits, dmg, react_s, react_n}
 static var _skill_t := 0.0
+const Blackboard := preload("res://src/ai/limbo/blackboard.gd")
+static var boards := {}            # team -> Blackboard: the team's scope of its bots' minds
+static var state_s := {}           # activity label -> bot-seconds spent in it this match (the [botstates] line)
 
 
 static func begin(w) -> void:
@@ -104,6 +111,8 @@ static func begin(w) -> void:
 	_storeyed = -1
 	skill_stats = {}
 	_skill_t = 0.0
+	boards = {}
+	state_s = {}
 	if learning():
 		_load()
 	set_spots(BotNav.spots if BotNav.phase == "done" else [])
@@ -469,6 +478,8 @@ static func tick(dt: float) -> void:
 	if _skill_t >= 15.0:
 		_skill_t = 0.0
 		_log_skill()
+		if Game.arg("botlog") != null and log_on():
+			_log_bots()
 	_watch_t += dt
 	if _watch_t < 0.5 or not learning():
 		return
@@ -789,6 +800,14 @@ static func team_round(team: int) -> void:
 	_cnt.erase(team)
 	checked[team] = {}
 	sweep_claims[team] = {}
+	boards.erase(team)   # (a new round's bots get a fresh one)
+
+
+static func board(team: int):
+	## The team's blackboard (made on first use; a new one each round).
+	if not boards.has(team):
+		boards[team] = Blackboard.new()
+	return boards[team]
 
 
 static func contact(team: int) -> void:
@@ -818,6 +837,7 @@ static func counts(team: int) -> Dictionary:
 
 static func note_endgame(team: int, on: bool, c: Dictionary) -> void:
 	## A bot of the team found it in the endgame (or not): the start is kept for the hint, and logged once per entry.
+	board(team).set_var(&"endgame", on)
 	if not on:
 		end_t.erase(team)
 		return
@@ -993,9 +1013,36 @@ static func skill_note(sk: String, what: String, v: float) -> void:
 			s.react_n = int(s.react_n) + 1
 
 
+static func _log_bots() -> void:
+	## --botlog: every standing bot, what it is doing (r22 diagnostics): name, state label, mind mode, order, goal distance.
+	for eid in world.bots:
+		var b = world.bots[eid]
+		if b.ch.mode != Motor.GROUND:
+			continue
+		var p: Vector3 = b.ch.global_position
+		var md: String = str(b.mind.mode()) if b.get("mind") != null else "-"
+		world.match_server.log_event("[bot] %s t%d %s/%s role %s order %s goal %s end %s sq %d hold %.0f at %s" % [b.ch.pname, b.ch.team, b.state, md,
+			b.role, str(b.order.get("kind", "-")), ("%.0fm" % p.distance_to(b.goal)) if b.goal != Vector3.INF else "-", str(b._end), b.squad_id,
+			b._hold_t, str(p.round())])
+
+
+static func note_state(label: String, dt: float) -> void:
+	state_s[label] = float(state_s.get(label, 0.0)) + dt
+
+
 static func _log_skill() -> void:
 	if not log_on() or skill_stats.is_empty():
 		return
+	if not state_s.is_empty():
+		var tot := 0.0
+		for k in state_s:
+			tot += float(state_s[k])
+		var keys: Array = state_s.keys()
+		keys.sort_custom(func(a, c): return float(state_s[a]) > float(state_s[c]))
+		var parts := []
+		for k in keys:
+			parts.append("%s %.0f%%" % [k, 100.0 * float(state_s[k]) / maxf(tot, 0.001)])
+		world.match_server.log_event("[botstates] %.0f bot-s: %s" % [tot, ", ".join(parts)])
 	var per := {}
 	for eid in world.bots:
 		var sk := str(world.bots[eid].skill)

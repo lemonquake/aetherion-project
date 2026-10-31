@@ -1,0 +1,118 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+Vulkan 1.4.329 - Forward+ - Using Device #0: NVIDIA - NVIDIA GeForce RTX 4060
+
+[ui] loadout_received pid=1 Hehe {"att_primary":[],"att_secondary":[],"primary":"marksman_308","secondary":"pistol_9"}
+[ui] lobby shows my loadout (pid 1): {"att_primary":[],"att_secondary":[],"primary":"marksman_308","secondary":"pistol_9"}
+[ui] request_loadout {"att_primary":[],"att_secondary":[],"primary":"marksman_308","secondary":"pistol_9"}
+[world] map built in 723 ms
+[map] 0 buildings, 0 doors, 0 containers, 0 props, #00000000 on PC
+[nav] levels: 34890 points, 3 links, 75 ms
+[nav] r21: 617 cells closed by the physics check, main walk 34227 of 34282 points (55 in pockets), 138 ms
+[botnav] freight_delight: walk check and 258 spots from res://data/botnav/freight_delight.json { "hide": 102, "snipe": 83, "cover": 45, "open": 28 }
+[bots] learned from 47 cells, 0 stuck spots, 0 spots learned from play, 11 spot records (user://bot_memory_freight_delight.json)
+[game] autotest firefight
+[firefight] 10 shooters on 10 candidate spots, camera at (16.0, 0.0, -3.0) looking at (-6.0, 1.2, -6.0)
+[autotest] PASS firefight_shooters: 10 shooters placed in front of the camera
+[perf]   view tier -1 -> 0 at 2 m above ground (ff_quiet)
+[perf]   hitch 30.7 ms in ff_quiet, tier 0, 2 m above ground
+[perf] ff_quiet         359 fr  avg  16.67 ms (   60 fps)  p50  16.66  p95  18.14  p99  21.24  max  30.69  >16.7ms  163 | render cpu  0.30 gpu  0.00 | process 16.23 physics  4.53 | draws   2128 objs   2449 prims   749903 | agl 0
+[perf]   1.00 physics steps/frame; engine physics step avg 0.47 ms max 2.51 ms; active bodies 0, pairs 0, islands 0
+[perf]   ms/frame: world.physics_process 2.69, character_visual.process 0.48, player_controller.process 0.37, w.map_tick 0.20, map.lighting_tick 0.18, player_controller.physics_process 0.11, hud.process 0.11, voice.process 0.11, w.record 0.10, w.health 0.08, w.match_server 0.07, effects.process 0.04, light.manager 0.03, ambience.process 0.03
+[perf]   worst single call (ms): world.physics_process 4.1, w.map_tick 0.9, map.lighting_tick 0.8, light.manager 0.7, player_controller.process 0.7, hud.process 0.3, character_visual.process 0.2, voice.process 0.2
+[firefight] quiet: 0 rounds fired, avg 16.67 ms, p95 18.14, max 30.69, gpu 0.00 ms
+[perf]   hitch 25.5 ms in ff_fire_warm, tier 0, 2 m above ground
+[perf]   hitch 26.7 ms in ff_fire_warm, tier 0, 2 m above ground
+[perf]   hitch 29.7 ms in ff_fire_warm, tier 0, 2 m above ground
+[perf]   hitch 25.7 ms in ff_fire_warm, tier 0, 2 m above ground
+[perf]   hitch 29.9 ms in ff_fire_warm, tier 0, 2 m above ground
+[perf]   hitch 25.0 ms in ff_fire_warm, tier 0, 2 m above ground
+[perf]   hitch 27.3 ms in ff_fire_warm, tier 0, 2 m above ground
+[perf]   hitch 32.1 ms in ff_fire_warm, tier 0, 2 m above ground
+[perf]   hitch 26.8 ms in ff_fire_warm, tier 0, 2 m above ground
+[perf]   hitch 31.4 ms in ff_fire_warm, tier 0, 2 m above ground
+[perf]   hitch 35.0 ms in ff_fire_warm, tier 0, 2 m above ground
+[perf]   hitch 33.4 ms in ff_fire_warm, tier 0, 2 m above ground
+[perf]   hitch 26.5 ms in ff_fire_warm, tier 0, 2 m above ground
+[perf]   hitch 25.3 ms in ff_fire_warm, tier 0, 2 m above ground
+[perf]   hitch 32.0 ms in ff_fire_warm, tier 0, 2 m above ground
+[perf]   hitch 26.4 ms in ff_fire_warm, tier 0, 2 m above ground
+[perf]   hitch 30.2 ms in ff_fire_warm, tier 0, 2 m above ground
+[perf]   hitch 25.5 ms in ff_fire_warm, tier 0, 2 m above ground
+[perf]   hitch 33.3 ms in ff_fire_warm, tier 0, 2 m above ground
+[perf] ff_fire_warm     341 fr  avg  17.54 ms (   57 fps)  p50  16.95  p95  25.31  p99  32.11  max  34.98  >16.7ms  177 | render cpu  0.61 gpu  0.00 | process 17.38 physics 13.57 | draws   3456 objs   3766 prims  1249524 | agl 0
+[perf]   1.06 physics steps/frame; engine physics step avg 0.46 ms max 0.75 ms; active bodies 0, pairs 0, islands 0
+[perf]   ms/frame: world.physics_process 5.24, w.projectiles 2.29, fx.impact_sound 0.90, pj.impact_hole 0.74, pj.impact_exit 0.56, character_visual.process 0.44, player_controller.process 0.33, pj.chars 0.27, fx.holes 0.22, effects.process 0.19, w.map_tick 0.19, map.lighting_tick 0.16, voice.process 0.10, hud.process 0.10
+[perf]   worst single call (ms): world.physics_process 16.4, w.projectiles 13.6, pj.impact_hole 1.1, sound_system.process 1.0, pj.impact_exit 0.9, fx.impact_sound 0.9, w.map_tick 0.8, map.lighting_tick 0.8
+[firefight] fire_warm: 249 rounds fired, avg 17.54 ms, p95 25.31, max 34.98, gpu 0.00 ms
+[perf]   hitch 28.0 ms in ff_fire, tier 0, 2 m above ground
+[perf]   hitch 27.5 ms in ff_fire, tier 0, 2 m above ground
+[perf]   hitch 26.6 ms in ff_fire, tier 0, 2 m above ground
+[perf]   hitch 30.6 ms in ff_fire, tier 0, 2 m above ground
+[perf]   hitch 27.9 ms in ff_fire, tier 0, 2 m above ground
+[perf]   hitch 32.9 ms in ff_fire, tier 0, 2 m above ground
+[perf]   hitch 26.7 ms in ff_fire, tier 0, 2 m above ground
+[perf]   hitch 28.2 ms in ff_fire, tier 0, 2 m above ground
+[perf]   hitch 31.5 ms in ff_fire, tier 0, 2 m above ground
+[perf]   hitch 25.4 ms in ff_fire, tier 0, 2 m above ground
+[perf]   hitch 30.6 ms in ff_fire, tier 0, 2 m above ground
+[perf]   hitch 32.5 ms in ff_fire, tier 0, 2 m above ground
+[perf]   hitch 30.2 ms in ff_fire, tier 0, 2 m above ground
+[perf] ff_fire          353 fr  avg  16.98 ms (   59 fps)  p50  16.62  p95  23.95  p99  30.59  max  32.92  >16.7ms  167 | render cpu  0.52 gpu  0.00 | process 17.46 physics 11.90 | draws   2759 objs   3069 prims   956245 | agl 0
+[perf]   1.02 physics steps/frame; engine physics step avg 0.43 ms max 0.78 ms; active bodies 0, pairs 0, islands 0
+[perf]   ms/frame: world.physics_process 4.52, w.projectiles 1.89, fx.impact_sound 0.78, pj.impact_hole 0.62, pj.impact_exit 0.48, character_visual.process 0.41, player_controller.process 0.30, pj.chars 0.21, fx.holes 0.20, w.map_tick 0.17, effects.process 0.16, map.lighting_tick 0.15, voice.process 0.09, hud.process 0.09
+[perf]   worst single call (ms): world.physics_process 14.2, w.projectiles 11.4, pj.impact_hole 1.1, fx.impact_sound 0.9, pj.impact_exit 0.9, sound_system.process 0.7, w.map_tick 0.6, ambience.process 0.6
+[firefight] fire: 178 rounds fired, avg 16.98 ms, p95 23.95, max 32.92, gpu 0.00 ms
+[perf]   hitch 29.4 ms in ff_fire_flash_noshadow, tier 0, 2 m above ground
+[perf]   hitch 25.8 ms in ff_fire_flash_noshadow, tier 0, 2 m above ground
+[perf]   hitch 26.8 ms in ff_fire_flash_noshadow, tier 0, 2 m above ground
+[perf]   hitch 32.0 ms in ff_fire_flash_noshadow, tier 0, 2 m above ground
+[perf]   hitch 29.5 ms in ff_fire_flash_noshadow, tier 0, 2 m above ground
+[perf]   hitch 29.7 ms in ff_fire_flash_noshadow, tier 0, 2 m above ground
+[perf]   hitch 27.5 ms in ff_fire_flash_noshadow, tier 0, 2 m above ground
+[perf]   hitch 25.5 ms in ff_fire_flash_noshadow, tier 0, 2 m above ground
+[perf]   hitch 30.0 ms in ff_fire_flash_noshadow, tier 0, 2 m above ground
+[perf]   hitch 26.9 ms in ff_fire_flash_noshadow, tier 0, 2 m above ground
+[perf]   hitch 33.3 ms in ff_fire_flash_noshadow, tier 0, 2 m above ground
+[perf] ff_fire_flash_noshadow   353 fr  avg  16.95 ms (   59 fps)  p50  16.69  p95  22.31  p99  29.73  max  33.33  >16.7ms  175 | render cpu  0.58 gpu  0.00 | process 16.68 physics 13.07 | draws   2270 objs   2579 prims   757725 | agl 0
+[perf]   1.02 physics steps/frame; engine physics step avg 0.45 ms max 0.74 ms; active bodies 0, pairs 0, islands 0
+[perf]   ms/frame: world.physics_process 4.96, w.projectiles 2.13, fx.impact_sound 0.93, pj.impact_hole 0.72, pj.impact_exit 0.56, character_visual.process 0.42, player_controller.process 0.30, pj.chars 0.22, fx.holes 0.19, w.map_tick 0.17, effects.process 0.17, map.lighting_tick 0.15, hud.process 0.09, voice.process 0.09
+[perf]   worst single call (ms): world.physics_process 17.7, w.projectiles 14.7, pj.impact_hole 1.1, fx.impact_sound 0.9, pj.impact_exit 0.9, w.map_tick 0.8, map.lighting_tick 0.8, sound_system.process 0.6
+[firefight] fire_flash_noshadow: 232 rounds fired, avg 16.95 ms, p95 22.31, max 33.33, gpu 0.00 ms
+[perf]   hitch 27.0 ms in ff_fire_no_flash, tier 0, 2 m above ground
+[perf]   hitch 31.6 ms in ff_fire_no_flash, tier 0, 2 m above ground
+[perf]   hitch 25.5 ms in ff_fire_no_flash, tier 0, 2 m above ground
+[perf]   hitch 26.5 ms in ff_fire_no_flash, tier 0, 2 m above ground
+[perf] ff_fire_no_flash   359 fr  avg  16.71 ms (   60 fps)  p50  16.58  p95  20.24  p99  25.54  max  31.65  >16.7ms  161 | render cpu  0.52 gpu  0.00 | process 14.76 physics 11.93 | draws   2264 objs   2573 prims   757438 | agl 0
+[perf]   1.01 physics steps/frame; engine physics step avg 0.45 ms max 0.70 ms; active bodies 0, pairs 0, islands 0
+[perf]   ms/frame: world.physics_process 4.73, w.projectiles 1.93, fx.impact_sound 0.79, pj.impact_hole 0.63, pj.impact_exit 0.48, character_visual.process 0.42, player_controller.process 0.30, pj.chars 0.21, fx.holes 0.19, w.map_tick 0.17, map.lighting_tick 0.15, effects.process 0.14, hud.process 0.09, player_controller.physics_process 0.09
+[perf]   worst single call (ms): world.physics_process 19.0, w.projectiles 16.1, pj.impact_hole 1.0, pj.impact_exit 0.9, fx.impact_sound 0.8, w.map_tick 0.8, map.lighting_tick 0.8, ambience.process 0.6
+[firefight] fire_no_flash: 202 rounds fired, avg 16.71 ms, p95 20.24, max 31.65, gpu 0.00 ms
+[perf]   hitch 26.1 ms in ff_fire_no_lamp_shadow, tier 0, 2 m above ground
+[perf]   hitch 27.0 ms in ff_fire_no_lamp_shadow, tier 0, 2 m above ground
+[perf]   hitch 28.5 ms in ff_fire_no_lamp_shadow, tier 0, 2 m above ground
+[perf] ff_fire_no_lamp_shadow   358 fr  avg  16.72 ms (   60 fps)  p50  16.53  p95  20.88  p99  24.57  max  28.47  >16.7ms  164 | render cpu  0.53 gpu  0.00 | process 15.15 physics 14.14 | draws   2249 objs   2558 prims   893390 | agl 0
+[perf]   1.01 physics steps/frame; engine physics step avg 0.44 ms max 0.80 ms; active bodies 0, pairs 0, islands 0
+[perf]   ms/frame: world.physics_process 4.87, w.projectiles 2.01, fx.impact_sound 0.85, pj.impact_hole 0.69, pj.impact_exit 0.51, character_visual.process 0.41, player_controller.process 0.29, pj.chars 0.21, fx.holes 0.21, effects.process 0.16, w.map_tick 0.15, map.lighting_tick 0.12, player_controller.physics_process 0.09, voice.process 0.09
+[perf]   worst single call (ms): world.physics_process 14.6, w.projectiles 11.6, pj.impact_hole 1.1, fx.impact_sound 0.9, pj.impact_exit 0.8, sound_system.process 0.6, ambience.process 0.6, player_controller.process 0.5
+[firefight] fire_no_lamp_shadow: 211 rounds fired, avg 16.72 ms, p95 20.88, max 28.47, gpu 0.00 ms
+[perf]   hitch 30.3 ms in ff_fire_again, tier 0, 2 m above ground
+[perf]   hitch 28.8 ms in ff_fire_again, tier 0, 2 m above ground
+[perf]   hitch 25.8 ms in ff_fire_again, tier 0, 2 m above ground
+[perf]   hitch 30.8 ms in ff_fire_again, tier 0, 2 m above ground
+[perf]   hitch 27.0 ms in ff_fire_again, tier 0, 2 m above ground
+[perf]   hitch 32.3 ms in ff_fire_again, tier 0, 2 m above ground
+[perf]   hitch 32.9 ms in ff_fire_again, tier 0, 2 m above ground
+[perf]   hitch 29.0 ms in ff_fire_again, tier 0, 2 m above ground
+[perf]   hitch 37.1 ms in ff_fire_again, tier 0, 2 m above ground
+[perf]   hitch 31.7 ms in ff_fire_again, tier 0, 2 m above ground
+[perf]   hitch 34.7 ms in ff_fire_again, tier 0, 2 m above ground
+[perf]   hitch 26.4 ms in ff_fire_again, tier 0, 2 m above ground
+[perf]   hitch 28.1 ms in ff_fire_again, tier 0, 2 m above ground
+[perf] ff_fire_again    349 fr  avg  17.13 ms (   58 fps)  p50  16.29  p95  24.53  p99  32.28  max  37.10  >16.7ms  142 | render cpu  0.58 gpu  0.00 | process 17.80 physics 13.33 | draws   3272 objs   3582 prims  1174740 | agl 0
+[perf]   1.03 physics steps/frame; engine physics step avg 0.46 ms max 0.95 ms; active bodies 0, pairs 0, islands 0
+[perf]   ms/frame: world.physics_process 5.32, w.projectiles 2.18, fx.impact_sound 0.92, pj.impact_hole 0.71, pj.impact_exit 0.54, character_visual.process 0.42, player_controller.process 0.31, pj.chars 0.25, fx.holes 0.18, w.map_tick 0.18, effects.process 0.17, map.lighting_tick 0.15, voice.process 0.09, hud.process 0.09
+[perf]   worst single call (ms): world.physics_process 19.7, w.projectiles 16.4, pj.impact_hole 1.2, fx.impact_sound 1.0, pj.impact_exit 0.9, w.map_tick 0.8, map.lighting_tick 0.8, light.manager 0.6
+[firefight] fire_again: 236 rounds fired, avg 17.13 ms, p95 24.53, max 37.10, gpu 0.00 ms
+[autotest] PASS firefight_fired: 178 rounds in the fire phase
+[firefight] quiet 16.67 ms -> fire 16.98 ms (gpu 0.00 -> 0.00)
+[autotest] done: 2 checks, 0 failed

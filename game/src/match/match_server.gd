@@ -816,6 +816,8 @@ func _log_status() -> void:
 			sum += v
 		perf = "; server tick avg %.2f ms, p99 %.2f ms, max %.2f ms over %d ticks" % [sum / 1000.0 / ticks.size(),
 			ticks[int(ticks.size() * 0.99)] / 1000.0, ticks[-1] / 1000.0, ticks.size()]
+		# (r22) objects alive: a leak (bots rebuilt each round) shows as a count that keeps climbing round after round
+		perf += "; objects %d" % int(Performance.get_monitor(Performance.OBJECT_COUNT))
 	var modes := {}
 	var armed := 0
 	for c in world.characters.values():

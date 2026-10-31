@@ -231,7 +231,8 @@ func server_spawn_character(pid: int, team: int, pname: String, pos: Vector3, mo
 	var ch := _make_character(eid, pid, team, pname, pos, mode, yaw)
 	_spawn_char.rpc(eid, pid, team, pname, pos, mode, yaw)
 	if Net.is_bot(pid):
-		var brain = BotBrain.new(self, ch)
+		# (r22) --brain=r22a: tests only, the brain before the LimboAI-style mind (src/debug/legacy), for A/B matches
+		var brain = (load("res://src/debug/legacy/bot_brain_r22a.gd") if str(Game.arg("brain", "")) == "r22a" else BotBrain).new(self, ch)
 		bots[eid] = brain
 	return ch
 
