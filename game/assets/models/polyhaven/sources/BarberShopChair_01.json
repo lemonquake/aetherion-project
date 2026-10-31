@@ -1,0 +1,19 @@
+{
+  "source": "Poly Haven",
+  "title": "Barber Shop Chair 01",
+  "url": "https://polyhaven.com/a/BarberShopChair_01",
+  "authors": [
+    "Fernando Quinn"
+  ],
+  "license": "CC0-1.0",
+  "license_url": "https://polyhaven.com/license",
+  "attribution_required": false,
+  "kind": "model",
+  "modifications": "Decimated to its 4,000-triangle budget; 4,280 -> 3,999 triangles, 1 material (tools/blender/process_props.py).",
+  "retrieved": "2026-10-30",
+  "files": {
+    "BarberShopChair_01.gltf": "504c794b99ef9704ae78c35ba32d2d1aac5fe15fe2e6c6f24434502c2d91e05f",
+    "BarberShopChair_01.bin": "6ad6bdbd31f0850bd94320aa105439c4c609212441ba17ad64a21e72272c9311"
+  },
+  "processed_from": "game/assets/thirdparty/polyhaven/models/BarberShopChair_01/BarberShopChair_01_1k.gltf"
+}

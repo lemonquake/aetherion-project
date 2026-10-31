@@ -1,0 +1,19 @@
+{
+  "source": "Poly Haven",
+  "title": "Coffee Table Round 01",
+  "url": "https://polyhaven.com/a/coffee_table_round_01",
+  "authors": [
+    "Ulan Cabanilla"
+  ],
+  "license": "CC0-1.0",
+  "license_url": "https://polyhaven.com/license",
+  "attribution_required": false,
+  "kind": "model",
+  "modifications": "Decimated to its 4,000-triangle budget; 4,044 -> 4,000 triangles, 1 material (tools/blender/process_props.py).",
+  "retrieved": "2026-10-30",
+  "files": {
+    "coffee_table_round_01.gltf": "a907ce9d5c3a872aede26bd5f8bb68654d7ec0229945d4c4073c3a695a4c7e52",
+    "coffee_table_round_01.bin": "80637530d01268b568b5bd8dc0a9cf982274852a15e8fddbbc79b68724deb244"
+  },
+  "processed_from": "game/assets/thirdparty/polyhaven/models/coffee_table_round_01/coffee_table_round_01_1k.gltf"
+}

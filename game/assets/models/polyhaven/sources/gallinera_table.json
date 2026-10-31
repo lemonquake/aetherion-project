@@ -1,0 +1,19 @@
+{
+  "source": "Poly Haven",
+  "title": "Gallinera Table",
+  "url": "https://polyhaven.com/a/gallinera_table",
+  "authors": [
+    "Ulan Cabanilla"
+  ],
+  "license": "CC0-1.0",
+  "license_url": "https://polyhaven.com/license",
+  "attribution_required": false,
+  "kind": "model",
+  "modifications": "Decimated to its 3,000-triangle budget; 5,528 -> 2,999 triangles, 1 material (tools/blender/process_props.py).",
+  "retrieved": "2026-10-30",
+  "files": {
+    "gallinera_table.gltf": "a3837ebbf306d7a6eeef30cb426ddf9b49a52c5d9353e4d42f5096175b4fcf3d",
+    "gallinera_table.bin": "974be0144fdbd910115a21168e9d4e6f8eb1becbda772116f971a2c50168270c"
+  },
+  "processed_from": "game/assets/thirdparty/polyhaven/models/gallinera_table/gallinera_table_1k.gltf"
+}

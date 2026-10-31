@@ -1,0 +1,20 @@
+{
+  "source": "Poly Haven",
+  "title": "Anthurium Botany 01",
+  "url": "https://polyhaven.com/a/anthurium_botany_01",
+  "authors": [
+    "Rob Tuytel",
+    "Rico Cilliers"
+  ],
+  "license": "CC0-1.0",
+  "license_url": "https://polyhaven.com/license",
+  "attribution_required": false,
+  "kind": "model",
+  "modifications": "Kept one variant (anthurium_botany_01_a) of the set, removed 5 other objects, re-centred on it; thinned to 16% of its blades / leaves, survivors enlarged 1.60x; blend / transmission dropped, opaque (anthurium_botany_01); 15,808 -> 3,560 triangles, 1 material (tools/blender/process_props.py).",
+  "retrieved": "2026-10-30",
+  "files": {
+    "anthurium_botany_01.gltf": "0cdda78f3835e99d0b15f59df5480ef805554f84b41dbb899fef5acb88fd3d08",
+    "anthurium_botany_01.bin": "9aef0b2d0594418c2604100977cd19894bcd7ab23edb8528300a13f3a2512ea3"
+  },
+  "processed_from": "game/assets/thirdparty/polyhaven/models/anthurium_botany_01/anthurium_botany_01_1k.gltf"
+}

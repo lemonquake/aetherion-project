@@ -1,0 +1,20 @@
+{
+  "source": "Poly Haven",
+  "title": "Calathea Orbifolia 01",
+  "url": "https://polyhaven.com/a/calathea_orbifolia_01",
+  "authors": [
+    "Rob Tuytel",
+    "Rico Cilliers"
+  ],
+  "license": "CC0-1.0",
+  "license_url": "https://polyhaven.com/license",
+  "attribution_required": false,
+  "kind": "model",
+  "modifications": "Kept one variant (calathea_orbifolia_01_a) of the set, removed 4 other objects, re-centred on it; thinned to 42% of its blades / leaves, survivors enlarged 1.54x; blend / transmission dropped, opaque (calathea_orbifolia_01); 5,904 -> 1,706 triangles, 1 material (tools/blender/process_props.py).",
+  "retrieved": "2026-10-30",
+  "files": {
+    "calathea_orbifolia_01.gltf": "32051c633468a1d646acbd609a2071a84db7b44d273a67271263c3c4bfa1fb57",
+    "calathea_orbifolia_01.bin": "73ccaa7e78272e8d52fd8bcdcb41f88839d02eeba607ee186724c2f254260bd1"
+  },
+  "processed_from": "game/assets/thirdparty/polyhaven/models/calathea_orbifolia_01/calathea_orbifolia_01_1k.gltf"
+}

@@ -1,0 +1,19 @@
+{
+  "source": "Poly Haven",
+  "title": "Chandelier 01",
+  "url": "https://polyhaven.com/a/Chandelier_01",
+  "authors": [
+    "Kirill Sannikov"
+  ],
+  "license": "CC0-1.0",
+  "license_url": "https://polyhaven.com/license",
+  "attribution_required": false,
+  "kind": "model",
+  "modifications": "Decimated to its 3,000-triangle budget; 2 materials packed into one 1024x1280 atlas; 26,860 -> 3,000 triangles, 1 material (tools/blender/process_props.py).",
+  "retrieved": "2026-10-30",
+  "files": {
+    "Chandelier_01.gltf": "68daaeb05373e1849973675debd02b16dff638bba77dd1bbbeb65ec54f133100",
+    "Chandelier_01.bin": "04f946f3d13a9868ec8c07b751677ffdbe9bdc0533e7eb8c5d95d3468e99fac9"
+  },
+  "processed_from": "game/assets/thirdparty/polyhaven/models/Chandelier_01/Chandelier_01_1k.gltf"
+}

@@ -1,0 +1,19 @@
+{
+  "source": "Poly Haven",
+  "title": "Side Table Tall 01",
+  "url": "https://polyhaven.com/a/side_table_tall_01",
+  "authors": [
+    "James Ray Cock"
+  ],
+  "license": "CC0-1.0",
+  "license_url": "https://polyhaven.com/license",
+  "attribution_required": false,
+  "kind": "model",
+  "modifications": "Decimated to its 3,000-triangle budget; 6,408 -> 2,999 triangles, 1 material (tools/blender/process_props.py).",
+  "retrieved": "2026-10-30",
+  "files": {
+    "side_table_tall_01.gltf": "8a30dbfcf8cc44d0dea22234291de02c432dfcb5a3db7410b26fedf384515340",
+    "side_table_tall_01.bin": "37ebfc00b3ddeabaad2ce45a39478cda58cdacb8a31a957b1328539a78ef6703"
+  },
+  "processed_from": "game/assets/thirdparty/polyhaven/models/side_table_tall_01/side_table_tall_01_1k.gltf"
+}

@@ -1,0 +1,19 @@
+{
+  "source": "Poly Haven",
+  "title": "Coffee Cart 01",
+  "url": "https://polyhaven.com/a/CoffeeCart_01",
+  "authors": [
+    "Joe Seabuhr"
+  ],
+  "license": "CC0-1.0",
+  "license_url": "https://polyhaven.com/license",
+  "attribution_required": false,
+  "kind": "model",
+  "modifications": "Decimated to its 4,000-triangle budget; 3 materials packed into one 2048x1280 atlas (4 tiling UV corners clamped); 27,659 -> 3,999 triangles, 1 material (tools/blender/process_props.py).",
+  "retrieved": "2026-10-30",
+  "files": {
+    "CoffeeCart_01.gltf": "66d25d14028d0c928b553f78a2fad731692f1a7500f7640e00581fb57c207b8c",
+    "CoffeeCart_01.bin": "b1e5d4908a58961524d8461359e4e432b354a75294ebcc741ef0f0cd97d0943f"
+  },
+  "processed_from": "game/assets/thirdparty/polyhaven/models/CoffeeCart_01/CoffeeCart_01_1k.gltf"
+}

@@ -1,0 +1,19 @@
+{
+  "source": "Poly Haven",
+  "title": "Fire Alarm",
+  "url": "https://polyhaven.com/a/fire_alarm",
+  "authors": [
+    "Slinc"
+  ],
+  "license": "CC0-1.0",
+  "license_url": "https://polyhaven.com/license",
+  "attribution_required": false,
+  "kind": "model",
+  "modifications": "Decimated to its 1,000-triangle budget; textures 512 px; 2,705 -> 1,000 triangles, 1 material (tools/blender/process_props.py).",
+  "retrieved": "2026-10-30",
+  "files": {
+    "fire_alarm.gltf": "57a267cf7f8b8d39f8fc73e9f81dcff9d84402783871f9e19b63c4cf931ac1fe",
+    "fire_alarm.bin": "2bc2016ca997f4114adae18b46d0c7068343537684965cd8d488378a2a6ba57e"
+  },
+  "processed_from": "game/assets/thirdparty/polyhaven/models/fire_alarm/fire_alarm_1k.gltf"
+}

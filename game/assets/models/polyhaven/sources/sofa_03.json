@@ -1,0 +1,19 @@
+{
+  "source": "Poly Haven",
+  "title": "Sofa 03",
+  "url": "https://polyhaven.com/a/sofa_03",
+  "authors": [
+    "Fran Calvente"
+  ],
+  "license": "CC0-1.0",
+  "license_url": "https://polyhaven.com/license",
+  "attribution_required": false,
+  "kind": "model",
+  "modifications": "Decimated to its 4,000-triangle budget; blend / transmission dropped, opaque (sofa_03_fringe); 8,003 -> 3,999 triangles, 1 material (tools/blender/process_props.py).",
+  "retrieved": "2026-10-30",
+  "files": {
+    "sofa_03.gltf": "41ab0e4cf4d425f3d269125888017fa174f27994a4c5e4868712f391c90f9960",
+    "sofa_03.bin": "7507a03e2e9a494ab390aa1320bb14a589c50ca3b7b7788688688e9166d4f40d"
+  },
+  "processed_from": "game/assets/thirdparty/polyhaven/models/sofa_03/sofa_03_1k.gltf"
+}

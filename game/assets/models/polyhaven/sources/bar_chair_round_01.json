@@ -1,0 +1,19 @@
+{
+  "source": "Poly Haven",
+  "title": "Bar Chair Round 01",
+  "url": "https://polyhaven.com/a/bar_chair_round_01",
+  "authors": [
+    "Dairon Sanchez"
+  ],
+  "license": "CC0-1.0",
+  "license_url": "https://polyhaven.com/license",
+  "attribution_required": false,
+  "kind": "model",
+  "modifications": "Decimated to its 3,000-triangle budget; 14,373 -> 3,000 triangles, 1 material (tools/blender/process_props.py).",
+  "retrieved": "2026-10-30",
+  "files": {
+    "bar_chair_round_01.gltf": "fd2999b979393ca00b309a5b7a90c2b0860fd7fe86f9fb3a0b7fb8f09a839621",
+    "bar_chair_round_01.bin": "b874982c5218dbc45c738eb86445a6bef28050f8c097dc7fb86230eefb9e72eb"
+  },
+  "processed_from": "game/assets/thirdparty/polyhaven/models/bar_chair_round_01/bar_chair_round_01_1k.gltf"
+}

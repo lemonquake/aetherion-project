@@ -1,0 +1,19 @@
+{
+  "source": "Poly Haven",
+  "title": "Planter Box 03",
+  "url": "https://polyhaven.com/a/planter_box_03",
+  "authors": [
+    "James Ray Cock"
+  ],
+  "license": "CC0-1.0",
+  "license_url": "https://polyhaven.com/license",
+  "attribution_required": false,
+  "kind": "model",
+  "modifications": "Decimated to its 3,000-triangle budget; 13,112 -> 3,000 triangles, 1 material (tools/blender/process_props.py).",
+  "retrieved": "2026-10-30",
+  "files": {
+    "planter_box_03.gltf": "0f7b750e4ab6be52a8a6113eb5c23f136d967a89f95c604965a2fb2b90802f2e",
+    "planter_box_03.bin": "0493e2cddc5f8a2ff9792b1d91470a90687546b0d87a5de414509b0ac8ec1451"
+  },
+  "processed_from": "game/assets/thirdparty/polyhaven/models/planter_box_03/planter_box_03_1k.gltf"
+}

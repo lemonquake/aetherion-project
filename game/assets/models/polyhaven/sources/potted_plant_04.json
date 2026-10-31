@@ -1,0 +1,19 @@
+{
+  "source": "Poly Haven",
+  "title": "Potted Plant 04",
+  "url": "https://polyhaven.com/a/potted_plant_04",
+  "authors": [
+    "James Ray Cock"
+  ],
+  "license": "CC0-1.0",
+  "license_url": "https://polyhaven.com/license",
+  "attribution_required": false,
+  "kind": "model",
+  "modifications": "Decimated to its 1,000-triangle budget; textures 512 px; 8,929 -> 1,000 triangles, 1 material (tools/blender/process_props.py).",
+  "retrieved": "2026-10-30",
+  "files": {
+    "potted_plant_04.gltf": "989b2e11372cad29e068856f88d3110f4dc7761b78985711ed01edd94f23c5ec",
+    "potted_plant_04.bin": "17738e7e56267a49890a1101039b8be75d9fee646818de8e2e899b3879ff08f7"
+  },
+  "processed_from": "game/assets/thirdparty/polyhaven/models/potted_plant_04/potted_plant_04_1k.gltf"
+}

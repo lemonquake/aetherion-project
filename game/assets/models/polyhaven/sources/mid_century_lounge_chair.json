@@ -1,0 +1,19 @@
+{
+  "source": "Poly Haven",
+  "title": "Mid Century Lounge Chair",
+  "url": "https://polyhaven.com/a/mid_century_lounge_chair",
+  "authors": [
+    "Kuutti Siitonen"
+  ],
+  "license": "CC0-1.0",
+  "license_url": "https://polyhaven.com/license",
+  "attribution_required": false,
+  "kind": "model",
+  "modifications": "Decimated to its 3,000-triangle budget; 6,148 -> 3,000 triangles, 1 material (tools/blender/process_props.py).",
+  "retrieved": "2026-10-30",
+  "files": {
+    "mid_century_lounge_chair.gltf": "f61ce4bb355917cbab17ca0e90089aa2dc50f4a3cfbccb0cf2283025ef9c5c81",
+    "mid_century_lounge_chair.bin": "f1e0a41937891fb1eee399785de632f3960dfc62aa310f94bcd3781e9ce4a01f"
+  },
+  "processed_from": "game/assets/thirdparty/polyhaven/models/mid_century_lounge_chair/mid_century_lounge_chair_1k.gltf"
+}

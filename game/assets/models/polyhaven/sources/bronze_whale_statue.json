@@ -1,0 +1,19 @@
+{
+  "source": "Poly Haven",
+  "title": "Bronze Whale Statue",
+  "url": "https://polyhaven.com/a/bronze_whale_statue",
+  "authors": [
+    "Tina"
+  ],
+  "license": "CC0-1.0",
+  "license_url": "https://polyhaven.com/license",
+  "attribution_required": false,
+  "kind": "model",
+  "modifications": "Re-exported unchanged (within budget, one material); 3,816 -> 3,816 triangles, 1 material (tools/blender/process_props.py).",
+  "retrieved": "2026-10-30",
+  "files": {
+    "bronze_whale_statue.gltf": "5a31b540e6fe136263d6c77dce541323a453bee5d8dd001b14bd746f9120f2ac",
+    "bronze_whale_statue.bin": "b5fa4fd7d5bf57b866a38d51b28a6074acae1045afe1d76c4c62f2e1790718d3"
+  },
+  "processed_from": "game/assets/thirdparty/polyhaven/models/bronze_whale_statue/bronze_whale_statue_1k.gltf"
+}

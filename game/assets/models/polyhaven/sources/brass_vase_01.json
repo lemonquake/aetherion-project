@@ -1,0 +1,19 @@
+{
+  "source": "Poly Haven",
+  "title": "Brass Vase 01",
+  "url": "https://polyhaven.com/a/brass_vase_01",
+  "authors": [
+    "Rico Cilliers"
+  ],
+  "license": "CC0-1.0",
+  "license_url": "https://polyhaven.com/license",
+  "attribution_required": false,
+  "kind": "model",
+  "modifications": "Decimated to its 3,000-triangle budget; 21,440 -> 2,999 triangles, 1 material (tools/blender/process_props.py).",
+  "retrieved": "2026-10-30",
+  "files": {
+    "brass_vase_01.gltf": "b907e577e219796e3c7cb59d431ce4508fc1063db85e6fd41a87cf599037d856",
+    "brass_vase_01.bin": "9f2cb94cb84258fc279a6556995f37750278f361c76ce815619848dfb073d726"
+  },
+  "processed_from": "game/assets/thirdparty/polyhaven/models/brass_vase_01/brass_vase_01_1k.gltf"
+}

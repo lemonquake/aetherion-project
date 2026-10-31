@@ -1,0 +1,19 @@
+{
+  "source": "Poly Haven",
+  "title": "Gallinera Chair",
+  "url": "https://polyhaven.com/a/gallinera_chair",
+  "authors": [
+    "Ulan Cabanilla"
+  ],
+  "license": "CC0-1.0",
+  "license_url": "https://polyhaven.com/license",
+  "attribution_required": false,
+  "kind": "model",
+  "modifications": "Decimated to its 3,000-triangle budget; 11,560 -> 2,999 triangles, 1 material (tools/blender/process_props.py).",
+  "retrieved": "2026-10-30",
+  "files": {
+    "gallinera_chair.gltf": "57cc8167b305c80e87a357b3728b551206246afeb81505647934e7ba149255c3",
+    "gallinera_chair.bin": "5bd9a14790444f4c7b7c503e757c039306ea5bce536e2f25ac2c691b54bbb88c"
+  },
+  "processed_from": "game/assets/thirdparty/polyhaven/models/gallinera_chair/gallinera_chair_1k.gltf"
+}

@@ -1,0 +1,19 @@
+{
+  "source": "Poly Haven",
+  "title": "Round Wooden Table 02",
+  "url": "https://polyhaven.com/a/round_wooden_table_02",
+  "authors": [
+    "Ulan Cabanilla"
+  ],
+  "license": "CC0-1.0",
+  "license_url": "https://polyhaven.com/license",
+  "attribution_required": false,
+  "kind": "model",
+  "modifications": "Decimated to its 3,000-triangle budget; 4,254 -> 3,000 triangles, 1 material (tools/blender/process_props.py).",
+  "retrieved": "2026-10-30",
+  "files": {
+    "round_wooden_table_02.gltf": "cba27f5bf62cd971d4b8449b9cd9784d5ddbd34fca68c07b2b7156b07bdd0ec9",
+    "round_wooden_table_02.bin": "6e6b22970e637d874fc28a1113a9659c61a9b07e96dffc3828d63adcf74d5cf7"
+  },
+  "processed_from": "game/assets/thirdparty/polyhaven/models/round_wooden_table_02/round_wooden_table_02_1k.gltf"
+}

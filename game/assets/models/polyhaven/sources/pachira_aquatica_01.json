@@ -1,0 +1,20 @@
+{
+  "source": "Poly Haven",
+  "title": "Pachira Aquatica 01",
+  "url": "https://polyhaven.com/a/pachira_aquatica_01",
+  "authors": [
+    "Rob Tuytel",
+    "Rico Cilliers"
+  ],
+  "license": "CC0-1.0",
+  "license_url": "https://polyhaven.com/license",
+  "attribution_required": false,
+  "kind": "model",
+  "modifications": "Kept one variant (pachira_aquatica_01_bark_d, pachira_aquatica_01_leaves_d) of the set, removed 6 other objects, re-centred on it; leaves: 100 modelled leaves (24341 triangles) -> 100 two-triangle leaves enlarged 1.1x; trunk: 3764 -> 900 triangles; 2 materials packed into one 2048x1024 atlas; 28,105 -> 1,100 triangles, 1 material (tools/blender/process_props.py).",
+  "retrieved": "2026-10-25",
+  "files": {
+    "pachira_aquatica_01.gltf": "0db3a3dcb4aeea7606ef766801fa263a47e4d00d9170c3d904844c77e4db4a42",
+    "pachira_aquatica_01.bin": "92d88e42978368ef9fe78d1ef1bc834f6d94c74b7ef4d473a0f0088a4c7c4a91"
+  },
+  "processed_from": "game/assets/thirdparty/polyhaven/models/pachira_aquatica_01/pachira_aquatica_01_1k.gltf"
+}

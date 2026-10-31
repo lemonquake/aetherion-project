@@ -1,0 +1,19 @@
+{
+  "source": "Poly Haven",
+  "title": "Boombox",
+  "url": "https://polyhaven.com/a/boombox",
+  "authors": [
+    "Thomas Paul Mouilleron"
+  ],
+  "license": "CC0-1.0",
+  "license_url": "https://polyhaven.com/license",
+  "attribution_required": false,
+  "kind": "model",
+  "modifications": "Decimated to its 3,000-triangle budget; 2 materials packed into one 1024x1280 atlas; blend / transmission dropped, opaque (boombox_speakers); 10,168 -> 2,999 triangles, 1 material (tools/blender/process_props.py).",
+  "retrieved": "2026-10-30",
+  "files": {
+    "boombox.gltf": "0b72db1e7f5795495f17ccaea84667eaa617630c23cf6151a99b5b50a0ebd52e",
+    "boombox.bin": "f0fc655691222044c5ce2aa7edb97ae22deaf8c2efa450c4ac2a159568f8e414"
+  },
+  "processed_from": "game/assets/thirdparty/polyhaven/models/boombox/boombox_1k.gltf"
+}

@@ -1,0 +1,19 @@
+{
+  "source": "Poly Haven",
+  "title": "Ceramic Vase 01",
+  "url": "https://polyhaven.com/a/ceramic_vase_01",
+  "authors": [
+    "James Ray Cock"
+  ],
+  "license": "CC0-1.0",
+  "license_url": "https://polyhaven.com/license",
+  "attribution_required": false,
+  "kind": "model",
+  "modifications": "Decimated to its 1,800-triangle budget; textures 512 px; 10,296 -> 1,799 triangles, 1 material (tools/blender/process_props.py).",
+  "retrieved": "2026-10-30",
+  "files": {
+    "ceramic_vase_01.gltf": "ef7a93ba64c44af34327aea465c289a132b49ab60cb8029ee07776eadb286e8e",
+    "ceramic_vase_01.bin": "94c8950f49bfeff8f182359b9d10db0ecfe111c556b1def3083b0801d12453fe"
+  },
+  "processed_from": "game/assets/thirdparty/polyhaven/models/ceramic_vase_01/ceramic_vase_01_1k.gltf"
+}
