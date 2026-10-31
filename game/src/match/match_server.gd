@@ -193,9 +193,9 @@ func _reset_dm_field(rng: RandomNumberGenerator) -> void:
 	var L = world.map.layout
 	var c := _dm_centre(rng, Net.dm_teams())
 	var r0: float = L.PLAY_HALF * 1.45 + c.length()
-	var mall := str(Net.config.get("map", "")) == "malasugue_mall"
-	_field_enabled = not mall or bool(Net.config.get("dm_field", false))
-	_hold_r = r0 * 0.5 if mall else 0.0
+	var optional := Net.dm_field_optional()   # Malasugue Mall, Freight Delight: off unless the host turns it on
+	_field_enabled = not optional or bool(Net.config.get("dm_field", false))
+	_hold_r = r0 * 0.5 if optional else 0.0
 	if respawns():
 		# Keep respawn positions inside the final circle.
 		for t in Net.dm_teams():

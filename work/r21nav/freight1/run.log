@@ -1,0 +1,47 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+[world] map built in 867 ms
+[map] 0 buildings, 0 doors, 0 containers, 0 props, #00000000 on PC
+[nav] levels: 34886 points, 3 links, 91 ms
+[botnav] walk check: 617 of 34886 cells closed by the real collision, 220 ms
+[botnav] link check: 0 links between open cells cross a wall, 400 ms
+[nav] r21: 617 cells closed by the physics check, main walk 34223 of 34278 points (55 in pockets), 151 ms
+[botnav] freight_delight: analysing 1240 candidate spots (walk check 220 ms)
+[bots] learned from 45 cells, 0 stuck spots, 0 spots learned from play, 0 spot records (user://bot_memory_freight_delight.json)
+[game] autotest freight
+[botnav] saved user://botnav/freight_delight.json (249 spots)
+[botnav] freight_delight: 249 spots from 1240 candidates in 91 ms of ticks { "hide": 102, "snipe": 80, "cover": 42, "open": 25 }
+[autotest] PASS freight_build: spawns 16 / 18, stair links 3, walk cells [32176, 2710], waypoints 791 (272 upstairs), lamps 98
+[autotest] PASS freight_stair_stair_a: Stair A: walked up to y 3.08 in 2.0 s
+[autotest] PASS freight_stair_stair_b: Stair B: walked up to y 3.10 in 2.0 s
+[autotest] PASS freight_stair_stair_c: Stair C: walked up to y 3.07 in 2.0 s
+[freight] PASS Stair A top: Bodega mezzanine: 5.6 s, 0 stalls, ended at (-37.6, 3.2, -11.5)
+[freight] PASS Deck, west end: 4.1 s, 0 stalls, ended at (-30.8, 3.2, -26.1)
+[freight] PASS Deck, over the west passage: 3.3 s, 0 stalls, ended at (-14.9, 3.2, -28.1)
+[freight] PASS Deck, middle: 2.0 s, 0 stalls, ended at (-2.5, 3.2, -28.2)
+[freight] PASS Crane platform: 5.9 s, 0 stalls, ended at (-0.1, 3.2, -3.4)
+[freight] PASS Taas corridor: 5.4 s, 0 stalls, ended at (4.3, 3.2, 17.4)
+[freight] PASS Taas east room: 0.8 s, 0 stalls, ended at (7.7, 3.2, 17.6)
+[freight] PASS Taas balcony (Stair C top): 3.8 s, 0 stalls, ended at (-3.9, 3.2, 19.7)
+[freight] PASS Courtyard: 4.1 s, 0 stalls, ended at (2.9, 0.0, 25.7)
+[freight] PASS Alley C, east: 7.1 s, 0 stalls, ended at (26.1, 0.0, 35.3)
+[freight] PASS Through-shanty, east: 5.9 s, 0 stalls, ended at (35.7, 0.1, 22.8)
+[freight] PASS Talyer floor: 6.1 s, 0 stalls, ended at (30.9, 0.0, 3.8)
+[freight] PASS Talyer office: 5.4 s, 1 stalls, ended at (38.6, 0.0, 4.6)
+[freight] FAIL Stair B landing: 36.5 s, 0 stalls, ended at (40.2, 1.6, -16.7)
+[freight] PASS Container leg by the Talyer: 0.5 s, 0 stalls, ended at (38.9, 3.2, -19.0)
+[freight] FAIL Deck, east end: 30.1 s, 1 stalls, ended at (-30.7, 3.2, -19.0)
+[freight] FAIL Canyon, east: 29.9 s, 0 stalls, ended at (10.9, 0.0, -27.6)
+[freight] PASS Through-home in the inner row: 4.1 s, 0 stalls, ended at (22.3, 0.0, -32.7)
+[freight] PASS Plaza, videoke: 7.7 s, 0 stalls, ended at (12.0, 0.0, -4.5)
+[freight] PASS Canyon, west: 11.7 s, 0 stalls, ended at (-39.0, 0.0, -32.1)
+[freight] PASS Container home: 2.6 s, 0 stalls, ended at (-35.7, 0.0, -24.9)
+[freight] PASS Sari-sari store: 6.4 s, 0 stalls, ended at (-22.0, 0.0, 3.7)
+[freight] PASS Through-shanty, west: 4.6 s, 0 stalls, ended at (-36.2, 0.1, 15.3)
+[freight] PASS Bodega floor: 3.1 s, 0 stalls, ended at (-34.6, 0.0, 3.5)
+[freight] PASS West spawn: 3.1 s, 0 stalls, ended at (-47.8, 0.0, 1.1)
+[freight] PASS East spawn: 18.9 s, 0 stalls, ended at (48.0, 0.0, 4.6)
+[autotest] FAIL freight_bot_routes: bot reached 23 of 26 places across both floors, 2 stalls
+[autotest] PASS freight_bot_no_wall_stalls: 2 stalls over the tour (no progress for 2 s or more)
+[autotest] done: 6 checks, 1 failed
+exit=1

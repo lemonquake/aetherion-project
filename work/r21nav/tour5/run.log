@@ -1,0 +1,38 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+[world] map built in 1762 ms
+[map] 0 buildings, 213 doors, 163 containers, 779 props, #55dd752c on PC
+[nav] levels: 56959 points, 32 links, 133 ms
+[nav] r21: 1424 cells closed by the physics check, main walk 49517 of 55567 points (6050 in pockets), 244 ms
+[botnav] malasugue_mall: walk check and 1230 spots from user://botnav/malasugue_mall.json { "hide": 308, "snipe": 618, "cover": 194, "open": 110 }
+[bots] learned from 74 cells, 0 stuck spots, 0 spots learned from play, 0 spot records (user://bot_memory_malasugue_mall.json)
+[game] autotest navtour
+[autotest] PASS navtour_analysis: malasugue_mall: 1230 spots { "hide": 308, "snipe": 618, "cover": 194, "open": 110 } from user://botnav/malasugue_mall.json, walk check closed 1424 cells, analysis 0 ms
+[navtour] PASS open (84.5, 0.0, -51.5) (auto): 23.7 s, 0 stalls, ended at (80.5, 0.0, -51.2)
+[navtour] FAIL snipe (30.5, 15.0, -37.5) (auto): 57.1 s, 2 stalls, ended at (56.4, 0.0, -39.6)
+[navtour] PASS snipe (56.5, 15.0, 16.5) (auto): 13.0 s, 0 stalls, ended at (52.9, 15.0, 15.1)
+[navtour] PASS snipe (-59.5, 10.0, 14.5) (auto): 28.1 s, 0 stalls, ended at (-56.2, 10.0, 15.4)
+[navtour] PASS cover (56.5, 15.0, -39.5) (auto): 29.9 s, 0 stalls, ended at (54.6, 14.1, -41.2)
+[navtour] PASS open (48.5, 10.0, 24.5) (auto): 19.4 s, 1 stalls, ended at (49.7, 10.0, 21.3)
+[navtour] PASS cover (-25.5, 20.0, -35.5) (auto): 33.2 s, 0 stalls, ended at (-22.0, 20.0, -33.6)
+[navtour] PASS snipe (44.5, 5.0, -9.5) (auto): 40.1 s, 1 stalls, ended at (45.8, 5.0, -12.8)
+[navtour] PASS cover (4.5, 15.0, 34.5) (auto): 28.1 s, 0 stalls, ended at (8.1, 15.0, 34.4)
+[navtour] PASS snipe (32.5, 0.0, -63.5) (auto): 47.2 s, 1 stalls, ended at (36.1, 0.4, -62.0)
+[navtour] PASS open (84.5, 0.0, -11.5) (auto): 13.5 s, 0 stalls, ended at (84.5, 0.4, -15.0)
+[navtour] PASS open (60.5, 0.0, -55.5) (auto): 8.2 s, 0 stalls, ended at (63.3, 0.0, -53.5)
+[navtour] FAIL snipe (-16.5, 15.0, -8.5) (Grand Atrium balcony, Level 4): 76.5 s, 3 stalls, ended at (-54.7, 10.2, -39.9)
+[navtour] PASS snipe (-43.5, 15.0, -14.5) (West Court balcony, Level 4): 6.4 s, 0 stalls, ended at (-40.2, 15.0, -16.2)
+[navtour] PASS open (8.5, 0.0, 56.5) (auto): 53.1 s, 0 stalls, ended at (5.5, 0.0, 54.7)
+[navtour] PASS cover (-69.5, 0.0, -21.5) (auto): 25.0 s, 0 stalls, ended at (-69.5, 0.0, -18.1)
+[navtour] PASS open (0.5, 0.0, 52.5) (auto): 19.9 s, 0 stalls, ended at (0.0, 0.0, 48.5)
+[navtour] PASS cover (50.5, 10.0, -39.5) (auto): 30.9 s, 0 stalls, ended at (54.6, 9.8, -40.1)
+[navtour] PASS cover (-69.5, 0.0, -13.5) (auto): 28.6 s, 0 stalls, ended at (-67.7, 0.0, -16.8)
+[navtour] PASS snipe (-51.5, 5.0, 34.5) (auto): 35.0 s, 0 stalls, ended at (-55.0, 5.0, 34.0)
+[navtour] PASS snipe (-31.5, 20.0, 14.5) (auto): 34.2 s, 0 stalls, ended at (-34.5, 20.0, 16.9)
+[navtour] PASS snipe (2.5, 0.0, 44.5) (auto): 31.6 s, 0 stalls, ended at (0.6, 0.0, 41.3)
+[navtour] PASS snipe (-25.5, 0.0, 62.5) (auto): 6.1 s, 0 stalls, ended at (-22.6, 0.4, 59.9)
+[navtour] PASS snipe (56.5, 20.0, 24.5) (auto): 49.2 s, 0 stalls, ended at (54.5, 20.0, 28.1)
+[autotest] PASS navtour_route: bot reached 22 of 24 waypoints across the map, 8 stalls
+[autotest] FAIL navtour_no_wall_stalls: 8 stalls over 24 legs (no progress for 2 s or more)
+[autotest] done: 3 checks, 1 failed
+exit=1

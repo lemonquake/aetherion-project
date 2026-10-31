@@ -1309,7 +1309,8 @@ func corpse_steps_near(p: Vector3) -> void:
 		if _corpse_steps.has(i) or Vector2(foot.x - p.x, foot.z - p.z).length() > 7.0 or absf(foot.y - p.y) > 6.0:
 			continue
 		var top: Vector3 = f.top
-		var dir: Vector3 = (f.dir as Vector3).normalized()
+		# (r21) the mall's flights record only foot and top: their direction is the flat line between them
+		var dir: Vector3 = (f.dir as Vector3).normalized() if f.has("dir") else Vector3(top.x - foot.x, 0.0, top.z - foot.z).normalized()
 		var across := Vector3.UP.cross(dir).normalized()
 		var sw: float = absf((top - foot).dot(across))
 		var run: float = (top - foot).dot(dir) - 0.05

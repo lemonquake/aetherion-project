@@ -49,6 +49,7 @@ var _budget: Dictionary = {}     # eid -> commands that may still be simulated (
 var _acked: Dictionary = {}      # eid -> last processed seq
 var _history: Dictionary = {}    # eid -> {ticks: Array, states: Array, i: next slot}, a ring per character
 var _bot_dt: Dictionary = {}     # eid -> seconds a bot simulates this tick, 0 on a skipped tick (_bot_lod)
+var navwatch = null              # --navwatch: debug/nav_watch.gd (bots stalled against walls, counted)
 var _bot_last: Dictionary = {}   # eid -> tick of the bot's last step
 var _snap_accum := 0
 var _owner_sync_t := 0.0
@@ -495,6 +496,12 @@ func _physics_process(dt: float) -> void:
 	for eid in bots.keys():
 		if characters.has(eid) and float(_bot_dt.get(eid, dt)) > 0.0:
 			server_queue_cmds(eid, [bots[eid].think(float(_bot_dt.get(eid, dt)), tick)])
+	if not bots.is_empty():
+		preload("res://src/ai/bot_team.gd").tick(dt)   # r21: the map analysis (a few ms a tick until done), players watched
+	if Game.arg("navwatch") != null and match_server.phase == "playing":
+		if navwatch == null:
+			navwatch = preload("res://src/debug/nav_watch.gd").new(self)
+		navwatch.tick(dt)
 	for eid in characters.keys():
 		var ch: Character = characters[eid]
 		if ch.mode in [Motor.DEAD, Motor.SPECTATE]:
@@ -1253,7 +1260,7 @@ func radio_sources(from_pid: int) -> Array:
 func server_bot_radio(ch: Character, line: String, voice: String, k: int) -> void:
 	## A bot's callout. Teammates hear it on their radios (with what was said on screen); anyone near the bot hears
 	## its voice, enemies included, and so does anyone near a teammate's radio (radio.eavesdrop_radius).
-	var sid := BotBrain.radio_sid(line, voice, k)
+	var sid = BotBrain.radio_sid(line, voice, k)
 	radio_trace.append([Time.get_ticks_msec(), ch.eid, line])
 	server_radio_static(ch)
 	if radio_trace.size() > 200:

@@ -24,6 +24,11 @@ UNICODES = "U+0020-007E,U+00A0-00FF,U+2010-2027,U+2030-203A,U+2190-2193,U+2212,U
 
 # (output name, source, caption is in index.html)
 SCREENS = [
+    # 0.21.0: Freight Delight, always night (tools/map_preview.tscn --map=freight_delight --cams=..., docs/FREIGHT_DELIGHT.md)
+    ("freight", SHOTS / "freight" / "crane2.png"),
+    ("freight-canyon", SHOTS / "freight" / "canyon.png"),
+    ("freight-alley", SHOTS / "freight" / "alley.png"),
+    ("freight-taas", SHOTS / "freight" / "taas.png"),
     # r17: the mall stays dark all match, so its shots are taken at night (map_preview --times=30)
     ("mall", SHOTS / "mall_night" / "west_escalators_t30.png"),
     ("mall-shops", SHOTS / "mall_night" / "atrium_l1_t30.png"),

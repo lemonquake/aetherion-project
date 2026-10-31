@@ -518,7 +518,9 @@ final class LauncherView: NSView {
         for s in list {
             let dm = s["game_mode"] as? String == "deathmatch"
             drawText(dm ? "Deathmatch" : "Classic", fBodyB, Theme.text, r.minX + 20, y)
-            drawText((dm ? "Lawless Sub" : "Sitio Kalinaw") + " · " + (s["region"] as? String ?? ""), fSmall, Theme.dim, r.minX + 20, y + 20)
+            let maps = ["malasugue_mall": "Malasugue Mall", "freight_delight": "Freight Delight", "lawless_sub": "Lawless Sub", "kalinaw": "Sitio Kalinaw"]
+            let mapId = s["map"] as? String ?? ""
+            drawText((maps[mapId] ?? (dm ? "Malasugue Mall" : "Sitio Kalinaw")) + " · " + (s["region"] as? String ?? ""), fSmall, Theme.dim, r.minX + 20, y + 20)
             drawRight("\((s["players"] as? NSNumber)?.intValue ?? 0) / \((s["max"] as? NSNumber)?.intValue ?? 0)", fBodyB, Theme.text, r.maxX - 20, y)
             let lobby = s["state"] as? String == "lobby"
             drawRight(lobby ? "in the lobby" : "match in progress", fSmall, lobby ? Theme.accent2 : Theme.accent, r.maxX - 20, y + 20)

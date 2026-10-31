@@ -9,9 +9,9 @@
 
   const MODES = {
     classic: { name: "Classic", map: "Sitio Kalinaw" },
-    deathmatch: { name: "Deathmatch", map: "Lawless Sub" },
+    deathmatch: { name: "Deathmatch", map: "Malasugue Mall" },
   };
-  const MAPS = { kalinaw: "Sitio Kalinaw", lawless_sub: "Lawless Sub", malasugue_mall: "Malasugue Mall" };
+  const MAPS = { kalinaw: "Sitio Kalinaw", lawless_sub: "Lawless Sub", malasugue_mall: "Malasugue Mall", freight_delight: "Freight Delight" };
   const STATES = {
     lobby: ["Waiting in the lobby", (n) => n > 0
       ? "Join now: the match starts within a minute."

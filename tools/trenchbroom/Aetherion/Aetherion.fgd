@@ -1,0 +1,67 @@
+// Aetherion brush maps (Freight Delight). Units: 32 per metre; the second floor is at 102 units (3.2 m).
+// Read by game/addons/aetherion_map/map_scene.gd when Godot imports the .map.
+
+@SolidClass = worldspawn : "World (drawn and solid)"
+[
+	message(string) : "Map name" : "Freight Delight"
+	map_id(string) : "Game map id" : "freight_delight"
+	night_only(choices) : "Always night" : 1 =
+	[
+		0 : "No"
+		1 : "Yes"
+	]
+	levels(integer) : "Walkable levels (bots)" : 2
+	level_height(string) : "Second floor height (metres)" : "3.2"
+]
+
+@SolidClass = func_detail : "Detail: drawn and solid, like the world" []
+
+@SolidClass = func_illusionary : "Drawn only, no collision (wires, laundry, banners overhead, scenery past the play area)" []
+
+@SolidClass = func_stairs : "A stair flight: its steps, drawn only. The game finds its foot and top and links the floors there for bots and the map. Walk on it with a ramp brush over the nosings in freight/clip_concrete, clip_wood or clip_steel (outside this entity)."
+[
+	targetname(string) : "Name" : "Stair"
+]
+
+@PointClass size(-6 -6 -6, 6 6 6) color(255 200 80) = light : "Lamp. In a match the game runs it: faults, flicker, distance fade, shadows when there is budget."
+[
+	kind(choices) : "Fitting" : "bulb" =
+	[
+		"bulb" : "Bare bulb"
+		"tube" : "Fluorescent tube (axis along Yaw)"
+		"lamp" : "Caged lamp / neon"
+		"flood" : "Floodlight (spot: Yaw, Pitch, Cone)"
+		"street" : "Street lamp (spot)"
+		"candle" : "Candle"
+	]
+	_color(color255) : "Colour" : "255 186 120"
+	energy(string) : "Energy" : "1.2"
+	range(string) : "Range (metres)" : "9"
+	fault(choices) : "Fault" : "" =
+	[
+		"" : "None"
+		"flicker" : "Flickers"
+		"dying" : "Dying"
+		"starter" : "Bad starter (tubes)"
+		"sag" : "Voltage sag"
+		"candle" : "Candle flame"
+	]
+	angle(integer) : "Yaw (tube axis, spot direction)" : 0
+	pitch(integer) : "Spot: degrees below the horizon" : 45
+	cone(integer) : "Spot: cone angle" : 45
+]
+
+@PointClass size(-10 -10 0, 10 10 57) color(80 160 255) = info_team_spawn : "Team spawn point (put 12 or more per team, 2 m apart)"
+[
+	team(choices) : "Team" : 1 =
+	[
+		1 : "West Team"
+		2 : "East Team"
+	]
+	angle(integer) : "Facing (yaw)" : 0
+]
+
+@PointClass size(-8 -8 -8, 8 8 8) color(0 230 230) = info_landmark : "A named place on the SmarTab map"
+[
+	name(string) : "Name" : ""
+]

@@ -489,8 +489,20 @@ namespace Aetherion.Launcher
             Ui.Fill(g, pill, 14, Color.FromArgb(40, Ui.Accent2));
             Ui.Stroke(g, pill, 14, Color.FromArgb(150, Ui.Accent2));
             Ui.Draw(g, tag, _fHead, Ui.Accent2, pill.X + 13, pill.Y + 6, 3.2f);
-            Ui.Wrap(g, "Battle royale and team deathmatch in the Philippines. Explore the rebuilt Malasugue Mall: open elevators, failing lights, damaged shops and dark galleries. PC, Mac and phones share matches.",
+            Ui.Wrap(g, "Battle royale and team deathmatch in the Philippines. New map: Freight Delight, a container-yard slum by the port at night, 12 against 12 with a second floor. PC, Mac and phones share matches.",
                 _fBody, Ui.Dim, new RectangleF(x + 4, y + 254, 500, 70));
+        }
+
+        static string MapName(string id)
+        {
+            switch (id)
+            {
+                case "malasugue_mall": return "Malasugue Mall";
+                case "freight_delight": return "Freight Delight";
+                case "lawless_sub": return "Lawless Sub";
+                case "kalinaw": case "": return "Sitio Kalinaw";
+                default: return id;
+            }
         }
 
         void DrawNews(Graphics g)
@@ -541,7 +553,7 @@ namespace Aetherion.Launcher
             foreach (var s in _servers)
             {
                 var mode = Json.Str(s, "game_mode") == "deathmatch" ? "Deathmatch" : "Classic";
-                var map = Json.Str(s, "map") == "lawless_sub" ? "Lawless Sub" : "Sitio Kalinaw";
+                var map = MapName(Json.Str(s, "map"));
                 Ui.Draw(g, mode, _fBodyB, Ui.Text, r.X + 20, y);
                 Ui.Draw(g, map + " · " + Json.Str(s, "region"), _fSmall, Ui.Dim, r.X + 20, y + 20);
                 Ui.DrawRight(g, Json.Long(s, "players") + " / " + Json.Long(s, "max"), _fBodyB, Ui.Text, r.Right - 20, y);

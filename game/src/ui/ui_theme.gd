@@ -330,7 +330,7 @@ static func bar(value: float, max_value: float, color: Color = ACCENT, h: int = 
 const GUN_CLASS_NAMES := {"rifle": "Assault rifle", "smg": "Submachine gun", "marksman": "Marksman rifle", "precision": "Sniper rifle",
 	"lmg": "Light machine gun", "shotgun": "Shotgun", "handgun": "Handgun"}
 const MODE_NAMES := {"classic": "Classic", "deathmatch": "Deathmatch"}
-const MAP_NAMES := {"kalinaw": "Sitio Kalinaw", "lawless_sub": "Lawless Sub", "malasugue_mall": "Malasugue Mall"}
+const MAP_NAMES := {"kalinaw": "Sitio Kalinaw", "lawless_sub": "Lawless Sub", "malasugue_mall": "Malasugue Mall", "freight_delight": "Freight Delight"}
 
 
 static func gun_picture(id: String) -> Texture2D:

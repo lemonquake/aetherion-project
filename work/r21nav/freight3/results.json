@@ -1,0 +1,32 @@
+[
+  [
+    "freight_build",
+    true,
+    "spawns 16 / 18, stair links 3, walk cells [32176, 2714], waypoints 791 (272 upstairs), lamps 98"
+  ],
+  [
+    "freight_stair_stair_a",
+    true,
+    "Stair A: walked up to y 3.08 in 2.0 s"
+  ],
+  [
+    "freight_stair_stair_b",
+    true,
+    "Stair B: walked up to y 3.10 in 2.0 s"
+  ],
+  [
+    "freight_stair_stair_c",
+    true,
+    "Stair C: walked up to y 3.07 in 2.0 s"
+  ],
+  [
+    "freight_bot_routes",
+    false,
+    "bot reached 25 of 26 places across both floors, 2 stalls"
+  ],
+  [
+    "freight_bot_no_wall_stalls",
+    true,
+    "2 stalls over the tour (no progress for 2 s or more)"
+  ]
+]

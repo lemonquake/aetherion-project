@@ -1,0 +1,12 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+[world] map built in 615 ms
+[map] 0 buildings, 0 doors, 0 containers, 0 props, #00000000 on PC
+[nav] levels: 34886 points, 3 links, 106 ms
+[bots] learned from 45 cells, 4 stuck spots (user://bot_memory_freight_delight.json)
+[game] autotest freight
+[autotest] PASS freight_build: spawns 16 / 18, stair links 3, walk cells [32176, 2710], waypoints 791 (272 upstairs), lamps 98
+[autotest] PASS freight_stair_stair_a: Stair A: walked up to y 3.08 in 2.0 s
+[autotest] PASS freight_stair_stair_b: Stair B: walked up to y 3.10 in 2.0 s
+[autotest] PASS freight_stair_stair_c: Stair C: walked up to y 3.07 in 2.0 s
+[autotest] done: 4 checks, 0 failed

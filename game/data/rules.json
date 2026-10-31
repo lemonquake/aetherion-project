@@ -9,13 +9,13 @@
   },
   "game_modes": {
     "classic": {"name": "Classic", "map": "kalinaw", "maps": ["kalinaw"]},
-    "deathmatch": {"name": "Deathmatch", "map": "lawless_sub", "maps": ["lawless_sub", "malasugue_mall"]}
+    "deathmatch": {"name": "Deathmatch", "map": "malasugue_mall", "maps": ["malasugue_mall", "freight_delight", "lawless_sub"]}
   },
   "deathmatch": {
     "_doc": "Team Wipe is the default: last team standing earns one point, first to 10/20/30/50 wins. Players and field reset each round. Kill-score, timer and single-round elimination are also available. Malasugue Mall's field is disabled by default; enabled fields use the usual schedule and stop at half the initial radius.",
     "teams": 3, "team_size": 7, "max_team_size": 7, "max_teams": 3,
     "team_names": ["North Team", "East Team", "South Team"],
-    "team_names_2": ["West Team", "East Team"],
+    "team_names_2": ["West Team", "East Team"], "map_limits": {"_doc": "Freight Delight: two teams only, up to 12 a side (12 by default when the map is picked).", "freight_delight": {"max_teams": 2, "max_team_size": 12, "team_size": 12}}, "field_optional_maps": ["malasugue_mall", "freight_delight"],
     "primary": ["rifle_m416", "rifle_556", "rifle_scar", "rifle_762", "rifle_m762", "smg_9", "smg_ump45", "smg_vector",
                 "smg_tommy", "machine_pistol", "marksman_308", "dmr_mini14", "dmr_sks", "bolt_308", "bolt_awp", "bolt_kar98",
                 "lmg_m249", "shotgun_pump", "shotgun_saiga", "shotgun_double"],
@@ -74,7 +74,7 @@
   },
   "radio": {"cue_radius": 14.0, "static": true, "static_radius": 14.0, "static_interval_s": 1.5, "min_cue_gap_s": 0.35, "eavesdrop": true, "eavesdrop_radius": 12.0, "voice_radius": 9.0},
   "day_cycle": {"night_s": 300, "day_s": 300, "_doc": "r17: every match starts at night; the lobby host picks the length of one night and one day (Net.config.day_len: 120, 300 or 600 s). Maps listed here stay dark all match.",
-                "night_only_maps": ["malasugue_mall"]},
+                "night_only_maps": ["malasugue_mall", "freight_delight"]},
   "text_chat": {"tap_radius": 4.0},
   "corpse_ragdoll_sync_hz": 12,
   "relevance": {"enemy_radius": 180.0, "prop_radius": 70.0, "sound_radius_scale": 1.0},

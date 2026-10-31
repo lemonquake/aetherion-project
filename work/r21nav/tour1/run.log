@@ -1,0 +1,39 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+[world] map built in 1639 ms
+[map] 0 buildings, 213 doors, 163 containers, 779 props, #55dd752c on PC
+[nav] levels: 56959 points, 32 links, 128 ms
+[nav] pocket 600 points, (60.0, 15.0, -45.0) .. (71.0, 15.0, 45.0)
+[nav] pocket 232 points, (60.0, 20.0, -11.0) .. (71.0, 20.0, 11.0)
+[nav] pocket 142 points, (24.0, 15.0, -18.0) .. (30.0, 15.0, 18.0)
+[nav] pocket 119 points, (-37.0, 10.0, -45.0) .. (-20.0, 10.0, -37.0)
+[nav] pocket 107 points, (-71.0, 5.0, 13.0) .. (-60.0, 5.0, 22.0)
+[nav] pocket 107 points, (-71.0, 5.0, -22.0) .. (-60.0, 5.0, -13.0)
+[nav] pocket 105 points, (-71.0, 5.0, 36.0) .. (-60.0, 5.0, 45.0)
+[nav] pocket 105 points, (-71.0, 5.0, -45.0) .. (-60.0, 5.0, -36.0)
+[nav] pocket 93 points, (-71.0, 5.0, 25.0) .. (-60.0, 5.0, 33.0)
+[nav] pocket 93 points, (-71.0, 5.0, -33.0) .. (-60.0, 5.0, -25.0)
+[nav] pocket 83 points, (7.0, 15.0, 38.0) .. (19.0, 15.0, 45.0)
+[nav] pocket 78 points, (-18.0, 15.0, -45.0) .. (-8.0, 15.0, -38.0)
+[nav] pocket 78 points, (33.0, 10.0, 38.0) .. (43.0, 10.0, 45.0)
+[nav] pocket 78 points, (-18.0, 0.0, 38.0) .. (-8.0, 0.0, 45.0)
+[nav] pocket 76 points, (33.0, 5.0, -45.0) .. (43.0, 5.0, -38.0)
+[nav] pocket 75 points, (-18.0, 0.0, -45.0) .. (-8.0, 0.0, -38.0)
+[nav] pocket 75 points, (-43.0, 5.0, -45.0) .. (-33.0, 5.0, -38.0)
+[nav] pocket 75 points, (8.0, 0.0, 38.0) .. (18.0, 0.0, 45.0)
+[nav] pocket 70 points, (-50.0, 10.0, -44.0) .. (-39.0, 10.0, -37.0)
+[nav] pocket 69 points, (-18.0, 10.0, -45.0) .. (-8.0, 10.0, -38.0)
+[nav] pocket 69 points, (-18.0, 10.0, 38.0) .. (-8.0, 10.0, 45.0)
+[nav] pocket 69 points, (-30.0, 15.0, -45.0) .. (-21.0, 15.0, -38.0)
+[nav] pocket 68 points, (-30.0, 0.0, -45.0) .. (-21.0, 0.0, -38.0)
+[nav] pocket 68 points, (-5.0, 15.0, -45.0) .. (5.0, 15.0, -38.0)
+[nav] pocket 65 points, (-5.0, 10.0, -45.0) .. (5.0, 10.0, -38.0)
+[nav] r21: 1424 cells closed by the physics check, main walk 51529 of 55567 points (4038 in pockets), 250 ms
+[botnav] malasugue_mall: walk check and 1194 spots from user://botnav/malasugue_mall.json { "hide": 322, "snipe": 557, "cover": 192, "open": 123 }
+[bots] learned from 74 cells, 0 stuck spots, 0 spots learned from play, 0 spot records (user://bot_memory_malasugue_mall.json)
+[game] autotest navtour
+[autotest] PASS navtour_analysis: malasugue_mall: 1194 spots { "hide": 322, "snipe": 557, "cover": 192, "open": 123 } from user://botnav/malasugue_mall.json, walk check closed 1424 cells, analysis 0 ms
+[navtour] FAIL snipe (56.5, 10.0, -15.5) (auto): 79.9 s, 5 stalls, ended at (55.7, 10.0, -18.3)
+[navtour] FAIL open (20.5, 0.0, 56.5) (auto): 70.7 s, 18 stalls, ended at (52.9, 10.0, 34.2)
+[navtour] FAIL cover (-51.5, 20.0, -0.5) (top of the West Court escalator, Level 5): 77.1 s, 5 stalls, ended at (-51.0, 0.0, 40.0)
+exit=127

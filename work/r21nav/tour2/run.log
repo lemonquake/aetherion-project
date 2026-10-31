@@ -1,0 +1,23 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+[world] map built in 1563 ms
+[map] 0 buildings, 213 doors, 163 containers, 779 props, #55dd752c on PC
+[nav] levels: 56959 points, 32 links, 144 ms
+[nav] r21: 1424 cells closed by the physics check, main walk 49517 of 55567 points (6050 in pockets), 230 ms
+[botnav] malasugue_mall: walk check and 1219 spots from user://botnav/malasugue_mall.json { "hide": 301, "snipe": 618, "cover": 190, "open": 110 }
+[bots] learned from 74 cells, 0 stuck spots, 0 spots learned from play, 0 spot records (user://bot_memory_malasugue_mall.json)
+[game] autotest navtour
+[autotest] PASS navtour_analysis: malasugue_mall: 1219 spots { "hide": 301, "snipe": 618, "cover": 190, "open": 110 } from user://botnav/malasugue_mall.json, walk check closed 1424 cells, analysis 0 ms
+[navtour] PASS snipe (66.5, 10.0, -17.5) (auto): 45.2 s, 1 stalls, ended at (63.1, 10.0, -16.0)
+[navtour] PASS snipe (-33.5, 5.0, 34.5) (auto): 31.6 s, 1 stalls, ended at (-30.2, 5.0, 34.4)
+[navtour] PASS hide (-35.5, 10.0, -33.5) (auto): 24.8 s, 0 stalls, ended at (-39.0, 10.0, -33.8)
+[navtour] PASS hide (-69.5, 10.0, -31.5) (auto): 5.4 s, 0 stalls, ended at (-65.8, 10.0, -32.0)
+[navtour] FAIL cover (-7.5, 20.0, -0.5) (top of the Grand Atrium escalator, Level 5): 63.5 s, 5 stalls, ended at (-52.5, 20.0, -35.6)
+[navtour] FAIL snipe (-87.5, 0.0, -43.5) (auto): 76.6 s, 9 stalls, ended at (-55.8, 20.0, -34.7)
+[navtour] PASS open (-11.5, 0.0, -3.5) (auto): 22.7 s, 0 stalls, ended at (-13.4, 0.0, -7.0)
+[navtour] PASS snipe (-31.5, 5.0, -1.5) (auto): 19.4 s, 0 stalls, ended at (-35.3, 5.0, -2.2)
+[navtour] PASS snipe (-51.5, 5.0, -13.5) (auto): 5.6 s, 0 stalls, ended at (-48.4, 5.0, -14.7)
+[navtour] PASS snipe (-43.5, 20.0, 38.5) (auto): 36.7 s, 0 stalls, ended at (-40.9, 20.0, 40.9)
+[navtour] PASS snipe (-87.5, 0.0, 38.5) (auto): 32.1 s, 0 stalls, ended at (-86.8, 0.2, 34.9)
+[navtour] FAIL hide (54.5, 20.0, -5.5) (auto): 104.4 s, 8 stalls, ended at (53.3, 2.5, -45.2)
+exit=127

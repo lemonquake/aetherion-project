@@ -95,6 +95,10 @@ func _ready() -> void:
 		return
 	var build_ms := Time.get_ticks_msec() - t0
 	print("[preview] map built in %d ms: %s" % [build_ms, JSON.stringify(map.stats)])
+	if args.has("mapimg"):
+		# --mapimg=<png>: the map's minimap / SmarTab image (Freight Delight draws its walk grids into it)
+		map.map_image.save_png(str(args.mapimg))
+		print("[preview] map image saved to %s" % args.mapimg)
 	if args.has("mmstats"):
 		_mm_stats()
 		get_tree().quit()

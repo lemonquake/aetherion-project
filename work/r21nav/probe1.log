@@ -1,0 +1,24 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+[server] dedicated server listening on 27632
+[world] map built in 1957 ms
+[map] 0 buildings, 213 doors, 163 containers, 779 props, #55dd752c on PC
+[nav] levels: 56959 points, 32 links, 141 ms
+[nav] r21: 1424 cells closed by the physics check, main walk 51529 of 55567 points (4038 in pockets), 249 ms
+[botnav] malasugue_mall: walk check and 1194 spots from user://botnav/malasugue_mall.json { "hide": 322, "snipe": 557, "cover": 192, "open": 123 }
+[bots] learned from 74 cells, 0 stuck spots, 0 spots learned from play, 0 spot records (user://bot_memory_malasugue_mall.json)
+[match    0.0] deathmatch start on malasugue_mall: 2 players, 2 teams; spawns (42.0, 10.0, -26.0), (-40.0, 0.0, -27.0), (0.0, 20.0, 27.0) (82/67/68 m apart, floors); day offset 0 s; zone centre (17.0, 6.0) r=134; win by wipe
+[probe] (55.7, 10.0, -18.3) walkable true clearance 5.50; a body there touches []
+[probe] (56.5, 10.0, -15.5) walkable true clearance 3.50; a body there touches []
+[probe] path (55.7, 10.0, -18.3) -> (56.5, 10.0, -15.5): 2 points
+[probe]   (55.5, 10.0, -18.5) band true sweep true
+[probe]   (56.5, 10.0, -15.5) band true sweep true
+[probe]   ray at 0.3 m: nothing
+[probe]   ray at 0.6 m: nothing
+[probe]   ray at 1.0 m: nothing
+[probe]   ray at 1.5 m: nothing
+[match    0.0] status: { "ground": 2 }; armed 2; shots 0; zone -1 hold r=134; corpses 0; levels { "L1": 1, "L3": 1 }
+[match    0.0] dm teams: North Team 1 at (42.0, -26.0) spread 0 m; East Team 1 at (-40.0, -27.0) spread 0 m; gap 83 m; zone centre (17.0, 6.0)
+[match    0.0] bots: { "roam": 2 }; containers searched by bots 0 (all players 0); plan steps done 0; guns carried 4
+[match    0.0] roles: { "looter": { "roam": 1 }, "rusher": { "roam": 1 } }; stuck now 0; waypoints 1194; team { "lines": 0, "pings": 0, "laser_follow": 0, "learned_cells": 74, "blocked_cells": 0, "squads": 0, "following_humans": 0, &"learned_spots": 0 }
+[match    0.0] [lootstats] bots on the ground 2 (in water 0); armed 2; armed with ammo for a gun 2; long guns 2; attachments fitted 0; rounds of unusable ammo carried 0; items on the ground 403; bot pickups { "detours": 0, "detour_taken": 0, "fetches": 0, "fetch_done": 0, "items_taken": 0 }

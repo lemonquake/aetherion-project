@@ -69,12 +69,14 @@ the other players finish loading and fades into the match.
 
 - **Classic** is the battle royale: parachute in from the plane, loot weapons and gear, stay ahead of the haze, and
   live through the 5-minute nights and days on Sitio Kalinaw.
-- **Deathmatch** supports two or three teams on Lawless Sub or Malasugue Mall. **Team Wipe** is the default:
+- **Deathmatch** supports two or three teams on Malasugue Mall (the default) or Lawless Sub, or two teams of up to 12
+  on Freight Delight. The maps are offered in that order: Malasugue Mall, Freight Delight, Lawless Sub, and the
+  official server plays them in turn. **Team Wipe** is the default:
   the last team standing earns **1 point**, and the host chooses a race to **10, 20, 30 or 50 points** (10 by
   default). There are no respawns during a round. After a short round break, every player returns with full
   health and their chosen loadout; the field resets too. A simultaneous wipe is a draw with no point awarded.
   Game Setup also offers kill-score, timed-score and single-round last-team-standing rules.
-  Malasugue Mall's **field is disabled by default**. The host can enable it: it follows the existing countdown
+  Malasugue Mall's and Freight Delight's **field is disabled by default**. The host can enable it: it follows the existing countdown
   and closing schedule, then stops at half its starting radius. The mall stays at night; other maps keep the
   day/night cycle. Players start with primary and secondary guns, spare magazines, armour and a heavy helmet.
   Dead players can watch teammates until the next round (Fire or Space for the next, right-click for the previous).
@@ -85,7 +87,7 @@ The **Match Results** screen stays open until the player chooses an action. It s
 stats. Restarting begins a new match with the room's settings.
 
 ```bash
-godot --path game -- --host --game_mode=deathmatch --bots=19 --autostart=1     # a practice round on Lawless Sub
+godot --path game -- --host --game_mode=deathmatch --bots=19 --autostart=1     # a practice round on Malasugue Mall (the default)
 ```
 
 ### Levels, XP and the stats server
@@ -208,7 +210,9 @@ lower left. A bot's callouts can be overheard like yours.
 
 Every bot thinks for itself and has a role:
 
-- **Looters / campers** hurry into a house, search it, shut the door behind them and hold the room facing the door.
+- **Looters / campers** hurry into a house, search it, shut the door behind them and hold the room facing the door. In
+  Deathmatch, with no houses to search, they are **ambushers**: they take a hiding spot (popular ones first) and watch
+  its approach, then move to another.
 - **Rushers** are fearless: they hunt in the open toward the latest sighting, noise or ping, at a sprint.
 - **Snipers** take a waypoint with cover beside it and a long sightline (or one the team learned is good), watch through
   the scope, and move on after a kill or when shot at.
@@ -220,12 +224,34 @@ the run to the next circle takes and leave in time (campers walk out by their do
 where the far side is open ground (never over a bridge parapet or into a canal), open a door in the way, back off and
 sidestep, and report the spot.
 
-Waypoints: when a match starts the map's walk grid is surveyed on a worker thread for tactical spots every 8 m (cover
-beside, the longest clear sightline). **Bots learn** (Settings > Gameplay, on by default): they mark spots where kills
-were scored (good, and sniping spots past 45 m), where they stayed unhurt (safe) and where bots died (danger); the whole
-team uses those marks at once, and they are saved per map (`user://bot_memory_<map>.json`, fading by a fifth each
-match) for the next match. Spots where bots kept getting stuck against something the walk grid called open are closed
-on the grid (three reports from two bots, at most 60 per map).
+**How bots know a map (0.21.0, the same system on every map; details in [docs/BOT_NAV.md](docs/BOT_NAV.md)).** Before
+bots play a map they work it out once, and the result is saved:
+
+- **The walk check.** On the storeyed maps (Malasugue Mall, Freight Delight) every cell of the walk grid is tried
+  against the real collision: there is floor under it and a standing body fits there. Counters, kiosks, wreckage,
+  planters and shelving the grid did not know about close their cells; pockets no path can reach are dropped; paths keep
+  to the middle of corridors and only cut a corner where a body-wide sweep through the real collision is clear.
+- **Waypoints and hiding spots.** Places along walls every couple of metres (sparser in the open) and the places a map
+  designates (the mall: the back corner of every shop, the top of every escalator, the atrium and court balconies;
+  Freight Delight: the decks, the crane platform, the Taas rooms, the container homes) are looked round in 16
+  directions. Each becomes a **hiding** spot (enclosed, watching an approach), a **sniping** spot (long view, cover
+  beside), a **cover** spot or open ground, and faces the way it watches, never a wall.
+- **Saved.** `game/data/botnav/<map>.json` ships with the game (`bash tools/bake_botnav.sh`); on a build that file does
+  not match, the server works it out in its first match (the walk check in about a second, the spots a few milliseconds a
+  tick) and keeps it in `user://botnav/<map>.json`.
+
+On the move, a goal off the walk becomes the nearest waypoint, a path that ends short of its goal ends the walk (no more
+pushing at a wall toward a goal behind it), and whiskers either side steer bots off walls, pillars and corners. A
+bot standing by its leader takes an open place beside it and looks down open floor.
+
+**Bots learn** (Settings > Gameplay, on by default): they mark spots where kills were scored (good, and sniping spots
+past 45 m), where they stayed unhurt (safe) and where bots died (danger). Every waypoint keeps how often it was held and
+for how long, the kills scored from it and the deaths in it, and bots pick the **popular** ones. Bots also learn from
+you: where a player camps for 8 s or scores from, away from every known spot, becomes a learned spot of its own. Bots
+claim the spot they head for, so two do not stack on one. All of it is saved per map (`user://bot_memory_<map>.json`,
+fading by a fifth each match) for the next match. Spots where bots kept getting stuck against something are closed on
+the walk grid (three reports from two bots, at most 60 per map, per floor on storeyed maps, forgotten when the map's
+build changes).
 
 ### The map
 
@@ -257,6 +283,20 @@ the clubhouse with its empty pool and covered court, the chapel, Lawless Mart (a
 shop strip, the gas station, the plastics factory (machine lines, offices under a mezzanine), the warehouse, the tanks
 and the container yard. Parked cars and burnt wrecks fill the lots and streets. Bots climb out of the canals by its
 ladders.
+
+### Freight Delight (Deathmatch)
+
+A squatter settlement grown inside an old container yard by the port, always at night, for two teams of up to 12.
+West Team starts on the fish pier, East Team at the truck gate. Three lanes run between them: the Container Canyon,
+then Bodega, crane plaza and Talyer, then the Eskinita shanties. Above them is a second floor: the container deck, the
+bridges over the plaza, the crane platform, the Bodega mezzanine and the Taas. Three stairs reach it (in the Bodega, up
+the stack by the Talyer, and in the Eskinita). It is the first map made in a mapping tool: the source is
+`game/assets/maps/freight_delight.map` (TrenchBroom), imported into Godot by `game/addons/aetherion_map`. Editing,
+conventions and tests are in [docs/FREIGHT_DELIGHT.md](docs/FREIGHT_DELIGHT.md).
+
+```bash
+godot --path game -- --host --game_mode=deathmatch --map=freight_delight --bots=23 --autostart=1
+```
 
 ### Loot, weapons and attachments
 
@@ -350,7 +390,7 @@ the spawn, the intersection, a house street, the mart lot, the factory yard, the
 spots by day:
 
 ```bash
-godot --path game -- --host --game_mode=deathmatch --bots=19 --autostart=1 --autotest=dm --shots=<folder>
+godot --path game -- --host --game_mode=deathmatch --map=lawless_sub --bots=19 --autostart=1 --autotest=dm --shots=<folder>
 ```
 
 r10 checks (`--autotest=r10`, `--r10_only=loading,bridge,laser,names,ping,kick,kerb,roles`), measured from captures
@@ -373,8 +413,8 @@ move. Explosion look on its own: `godot --path game res://tools/fx_lab.tscn -- -
 loot outline).
 
 ```bash
-godot --path game -- --host --game_mode=deathmatch --bots=20 --autostart=1 --autotest=r14 --shots=<folder>
-godot --path game -- --host --game_mode=deathmatch --bots=19 --autostart=1 --autotest=r10 --shots=<folder> --loadshot=<folder>/loading.png
+godot --path game -- --host --game_mode=deathmatch --map=lawless_sub --bots=20 --autostart=1 --autotest=r14 --shots=<folder>
+godot --path game -- --host --game_mode=deathmatch --map=lawless_sub --bots=19 --autostart=1 --autotest=r10 --shots=<folder> --loadshot=<folder>/loading.png
 godot --path game -- --menu_test --shots=<folder> --loadshot=<folder>/loading.png
 godot --headless --path game res://tools/step_lab.tscn      # every ledge height x approach angle x gait: climbed or not
 godot --headless --path game res://tools/ray_probe.tscn -- --map=lawless_sub --rect=x0,z0,x1,z1 [--top=5]   # what the ground is made of
@@ -385,7 +425,19 @@ lines, waypoints and what the bots learned; `--radiolog` adds every callout, `[s
 `[canal]` falls with the trail that led there, and `[haze death]` with the bot's state, goal and path:
 
 ```bash
-godot --headless --path game -- --server --game_mode=deathmatch --bots=20 --expect_players=0 --autostart=1 --matchlog --radiolog --end_after=440 --quit_after_results
+godot --headless --path game -- --server --game_mode=deathmatch --map=lawless_sub --bots=20 --expect_players=0 --autostart=1 --matchlog --radiolog --end_after=440 --quit_after_results
+```
+
+Bots and walls (0.21.0, any map; [docs/BOT_NAV.md](docs/BOT_NAV.md)): `--navwatch[=<file.json>]` counts, in any match,
+bots that want to go somewhere but stand still for 2 s (stalls) and bots standing facing a wall, with the worst places;
+`--autotest=navtour` sends one bot waypoint to waypoint across the whole map, every floor, and fails on a leg it does
+not finish or a stall; `--navprobe` shows the path and what is in the way between two points. Before a release, remake
+the bots' map files the game ships with:
+
+```bash
+godot --headless --path game -- --server --game_mode=deathmatch --map=malasugue_mall --bots=21 --expect_players=0 --autostart=1 --dm_win=time --dm_time=10 --navwatch=<file.json> --quit_after_results=1
+godot --headless --path game -- --host --game_mode=deathmatch --map=malasugue_mall --bots=11 --autostart=1 --dm_win=time --dm_time=30 --autotest=navtour --shots=<folder>
+bash tools/bake_botnav.sh
 ```
 
 Z-fighting (two surfaces in the same place flickering through each other) is checked over the map's geometry: dump

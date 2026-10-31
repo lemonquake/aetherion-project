@@ -1,0 +1,17 @@
+[
+  [
+    "navtour_analysis",
+    true,
+    "lawless_sub: 564 spots { \"hide\": 38, \"snipe\": 95, \"cover\": 56, \"open\": 375 } from res://data/botnav/lawless_sub.json, walk check closed 0 cells, analysis 0 ms"
+  ],
+  [
+    "navtour_route",
+    false,
+    "bot reached 9 of 12 waypoints across the map, 22 stalls"
+  ],
+  [
+    "navtour_no_wall_stalls",
+    false,
+    "22 stalls over 12 legs (no progress for 2 s or more)"
+  ]
+]

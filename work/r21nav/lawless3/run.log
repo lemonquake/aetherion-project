@@ -1,0 +1,28 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+[world] map built in 9845 ms
+[map] 243 buildings, 1951 doors, 2617 containers, 2745 props, #b1fba961 on PC
+[botnav] lawless_sub: walk check and 564 spots from res://data/botnav/lawless_sub.json { "hide": 38, "snipe": 95, "cover": 56, "open": 375 }
+[bots] learned from 241 cells, 0 stuck spots, 0 spots learned from play, 0 spot records (user://bot_memory_lawless_sub.json)
+[game] autotest navtour
+[toast] The field moves in 60 seconds. Check the map.
+[autotest] PASS navtour_analysis: lawless_sub: 564 spots { "hide": 38, "snipe": 95, "cover": 56, "open": 375 } from res://data/botnav/lawless_sub.json, walk check closed 0 cells, analysis 0 ms
+[toast] The field moves in 30 seconds. Check the map.
+[toast] The field moves in 10 seconds. Check the map.
+[toast] The field is closing in. It pushes you inward: don't get pinned against a wall.
+[navtour] PASS snipe (77.0, 1.0, 109.0) (auto): 67.1 s, 1 stalls, ended at (73.5, 1.0, 109.0)
+[navtour] PASS snipe (37.0, 0.8, -123.0) (auto): 48.2 s, 1 stalls, ended at (35.9, 0.8, -119.8)
+[navtour] PASS open (-43.0, 0.9, 29.0) (auto): 28.1 s, 0 stalls, ended at (-41.7, 0.9, 25.5)
+[navtour] FAIL open (181.0, 0.9, 189.0) (auto): 168.1 s, 0 stalls, ended at (173.4, 1.7, 182.2)
+[navtour] PASS open (-163.0, 0.9, -115.0) (auto): 83.2 s, 0 stalls, ended at (-160.1, 0.9, -113.0)
+[navtour] PASS open (-131.0, 0.9, 197.0) (auto): 54.9 s, 0 stalls, ended at (-131.0, 0.9, 193.1)
+[navtour] FAIL open (-83.0, 1.0, 109.0) (auto): 78.6 s, 20 stalls, ended at (-97.6, 1.1, 141.2)
+[navtour] PASS open (53.0, 0.9, 53.0) (auto): 27.0 s, 0 stalls, ended at (49.8, 0.9, 53.0)
+[navtour] PASS open (-83.0, 0.8, 197.0) (auto): 38.5 s, 0 stalls, ended at (-80.3, 0.9, 194.9)
+[navtour] PASS open (-3.0, 1.0, 125.0) (auto): 17.1 s, 0 stalls, ended at (-5.9, 1.0, 127.7)
+[navtour] PASS open (181.0, 1.0, 5.0) (auto): 44.9 s, 0 stalls, ended at (179.1, 1.2, 7.6)
+[navtour] FAIL open (189.0, 1.0, 213.0) (auto): 132.9 s, 0 stalls, ended at (169.8, 0.8, 192.3)
+[autotest] FAIL navtour_route: bot reached 9 of 12 waypoints across the map, 22 stalls
+[autotest] FAIL navtour_no_wall_stalls: 22 stalls over 12 legs (no progress for 2 s or more)
+[autotest] done: 3 checks, 2 failed
+exit=1

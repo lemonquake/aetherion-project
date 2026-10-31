@@ -29,6 +29,7 @@ const SubDress := preload("res://src/world/maps/lawless_sub/sub_dress.gd")
 const SubBuildings := preload("res://src/world/maps/lawless_sub/buildings.gd")
 const MallLayout := preload("res://src/world/maps/malasugue_mall/mall_layout.gd")
 const MallBuilder := preload("res://src/world/maps/malasugue_mall/mall_builder.gd")
+const FreightLayout := preload("res://src/world/maps/freight_delight/freight_layout.gd")
 
 const GROUND_SHADER := preload("res://src/world/ground.gdshader")
 const WATER_SHADER := preload("res://src/world/water.gdshader")
@@ -77,6 +78,9 @@ func build(world_node: Node3D, map_seed: int, match_seed: int, opts: Dictionary 
 		return
 	if str(opts.get("map", "kalinaw")) == "malasugue_mall":
 		_build_mall(world_node, map_seed, match_seed, opts)
+		return
+	if str(opts.get("map", "kalinaw")) == "freight_delight":
+		_build_freight(world_node, map_seed, match_seed, opts)
 		return
 	var t0 := Time.get_ticks_msec()
 	_progress(0.02, "Surveying Sitio Kalinaw")
@@ -193,6 +197,98 @@ func _build_mall(world_node: Node3D, map_seed: int, match_seed: int, opts: Dicti
 	dyn.place_deferred()
 	stats.towns_ms = Time.get_ticks_msec() - t0
 	finalize(world_node)
+
+
+func _build_freight(world_node: Node3D, map_seed: int, match_seed: int, opts: Dictionary) -> void:
+	## Freight Delight, the third Deathmatch map. Its geometry is authored in TrenchBroom (assets/maps/
+	## freight_delight.map) and arrives as a scene (FreightLayout loads it): this puts it under the map root, hands its
+	## lights to Lighting (managed, faulty, flickering like every other lamp), and on a dedicated server keeps only
+	## the collision.
+	var t0 := Time.get_ticks_msec()
+	_progress(0.02, "Unloading the containers")
+	var lay = FreightLayout.new(map_seed)
+	stats.layout_ms = Time.get_ticks_msec() - t0
+	setup(world_node, lay, map_seed, match_seed, opts)
+	t0 = Time.get_ticks_msec()
+	var sc: Node3D = lay.scene
+	if sc == null:
+		push_error("[freight] the map scene is missing: building an empty yard")
+		sc = Node3D.new()
+	_progress(0.3, "Stringing up the bulbs (and the ones that buzz)")
+	var stack: Array = [sc]
+	var drop: Array = []
+	while not stack.is_empty():
+		var n: Node = stack.pop_back()
+		stack.append_array(n.get_children())
+		if n.is_in_group("editor_only") or n is WorldEnvironment:
+			drop.append(n)   # the scene's own preview sky and moon: the match has Lighting's
+		elif n is DirectionalLight3D:
+			drop.append(n)
+		elif n is Light3D:
+			dyn.lights.append(_freight_light(lay, n as Light3D))
+			drop.append(n)
+		elif n is MeshInstance3D:
+			if not sink.visual:
+				drop.append(n)
+			else:
+				var mesh: Mesh = (n as MeshInstance3D).mesh
+				for si in (mesh.get_surface_count() if mesh else 0):
+					var m: Material = mesh.surface_get_material(si)
+					if m:
+						mats._cache["freight:" + str(m.resource_name)] = m   # shaders compile behind the loading screen
+	for n in drop:
+		if is_instance_valid(n) and n.get_parent():
+			n.get_parent().remove_child(n)
+			n.free()
+	_progress(0.6, "Stacking the containers three high")
+	root.add_child(sc)
+	_safety_floor(-3.0)
+	stats.freight = lay.stats
+	_progress(0.78, "Sweeping the eskinita")
+	dyn.place_deferred()
+	stats.towns_ms = Time.get_ticks_msec() - t0
+	finalize(world_node)
+	map_image = lay.map_image()
+
+
+func _freight_light(lay, l: Light3D) -> Dictionary:
+	## A light from the map (a light entity, or any Light3D added to the scene in Godot) as a Lighting spec.
+	var kind := str(l.get_meta("kind", "flood" if l is SpotLight3D else "bulb"))
+	var spec := {"pos": lay._local_to_scene(l), "kind": kind, "color": l.light_color, "energy": l.light_energy,
+		"fault": str(l.get_meta("fault", ""))}
+	if l is OmniLight3D:
+		spec.range = (l as OmniLight3D).omni_range
+	elif l is SpotLight3D:
+		var sl := l as SpotLight3D
+		spec.range = sl.spot_range
+		spec.angle = sl.spot_angle
+		var xf := sl.transform
+		var p := sl.get_parent()
+		while p != null and p != lay.scene:
+			if p is Node3D:
+				xf = (p as Node3D).transform * xf
+			p = p.get_parent()
+		spec.dir = -xf.basis.z.normalized()
+	if kind == "tube" and l.has_meta("axis"):
+		spec.axis = l.get_meta("axis")
+	if kind == "candle":
+		spec.fault = "candle"
+	return spec
+
+
+func _safety_floor(y: float) -> void:
+	## Under an authored map: whatever falls through a gap in the brushes (a ragdoll, a dropped gun) stops here.
+	var body := StaticBody3D.new()
+	body.name = "SafetyFloor"
+	body.collision_layer = Defs.PHYS_WORLD
+	body.collision_mask = 0
+	body.set_meta("mat", "concrete")
+	var cs := CollisionShape3D.new()
+	var ws := WorldBoundaryShape3D.new()
+	ws.plane = Plane(Vector3.UP, y)
+	cs.shape = ws
+	body.add_child(cs)
+	root.add_child(body)
 
 
 func _flat_ground() -> void:

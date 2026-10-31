@@ -1,0 +1,31 @@
+{
+  "analysis": {
+    "bake_ms": 0.0,
+    "candidates": 0,
+    "closed": 1424,
+    "cut": 3752,
+    "kinds": {
+      "cover": 190,
+      "hide": 307,
+      "open": 186,
+      "snipe": 619
+    },
+    "source": "user://botnav/malasugue_mall.json",
+    "spots_ms": 0.0
+  },
+  "legs": [
+    {
+      "end": [
+        31.5,
+        15.0,
+        -33.5
+      ],
+      "leg": "given (30.5, 15.0, -37.5)",
+      "metres": 54.0,
+      "ok": true,
+      "seconds": 36.2,
+      "stalled_at": [],
+      "stalls": 0
+    }
+  ]
+}

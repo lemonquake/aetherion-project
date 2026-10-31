@@ -52,7 +52,7 @@ const MAX_TEAM_SIZE := 4      # Classic squads
 const DM_MAX_TEAM_SIZE := 7   # Deathmatch: two or three teams of up to 7 (r11)
 const DM_MAX_TEAMS := 3
 const GAME_MODES := ["classic", "deathmatch"]
-const MAPS := ["kalinaw", "lawless_sub", "malasugue_mall"]
+const MAPS := ["kalinaw", "lawless_sub", "malasugue_mall", "freight_delight"]
 
 ## Server tick (authoritative on the server, estimated on clients).
 var tick: int = 0
@@ -520,12 +520,32 @@ func is_dm() -> bool:
 
 
 func max_team_size() -> int:
-	return DM_MAX_TEAM_SIZE if is_dm() else MAX_TEAM_SIZE
+	return dm_max_team_size() if is_dm() else MAX_TEAM_SIZE
 
 
 func dm_teams() -> int:
-	## Deathmatch team count: 2 or 3.
-	return clampi(int(config.get("teams", 3)), 2, DM_MAX_TEAMS)
+	## Deathmatch team count: 2 or 3 (2 on a map that allows only two, Freight Delight).
+	return clampi(int(config.get("teams", 3)), 2, dm_max_teams())
+
+
+static func map_limit(map_id: String, key: String, fallback: int) -> int:
+	## A Deathmatch map's own cap (rules.json deathmatch.map_limits.<map>.<key>), or fallback.
+	var lim = Defs.rule("deathmatch.map_limits.%s" % map_id, {})
+	return int(lim.get(key, fallback)) if lim is Dictionary else fallback
+
+
+func dm_max_teams(map_id: String = "") -> int:
+	return map_limit(map_id if map_id != "" else str(config.get("map", "")), "max_teams", DM_MAX_TEAMS)
+
+
+func dm_max_team_size(map_id: String = "") -> int:
+	## Deathmatch players per team: 7, or the map's own limit (Freight Delight: 12).
+	return map_limit(map_id if map_id != "" else str(config.get("map", "")), "max_team_size", DM_MAX_TEAM_SIZE)
+
+
+func dm_field_optional(map_id: String = "") -> bool:
+	## Maps whose Deathmatch field is off unless the host turns it on (and then stops at half its radius).
+	return (map_id if map_id != "" else str(config.get("map", ""))) in Defs.rule("deathmatch.field_optional_maps", ["malasugue_mall"])
 
 
 func set_config(key: String, value) -> void:
@@ -547,14 +567,24 @@ func set_config(key: String, value) -> void:
 				config.team_size = int(Defs.rule("modes.squad.team_size", 4))
 		key = "teams"  # re-seat players for the new team layout
 	elif key == "map":
-		# (r15) Each mode has its own maps (rules.json game_modes.<mode>.maps): Deathmatch picks Lawless Sub or Malasugue Mall.
+		# (r15) Each mode has its own maps (rules.json game_modes.<mode>.maps): Deathmatch picks Malasugue Mall (the default), Freight Delight or Lawless Sub.
 		var mode := str(config.get("game_mode", "classic"))
 		var allowed: Array = Defs.rule("game_modes.%s.maps" % mode, [Defs.rule("game_modes.%s.map" % mode, "kalinaw")])
+		var was_map := str(config.get("map", ""))
 		config.map = str(value) if str(value) in MAPS and str(value) in allowed else str(Defs.rule("game_modes.%s.map" % mode, "kalinaw"))
+		if is_dm():
+			# A map with its own team layout (Freight Delight: two teams, 12 a side) sets it when picked; leaving it
+			# brings the sizes back within the other maps' limits.
+			var def_size := map_limit(str(config.map), "team_size", 0)
+			if def_size > 0 and str(config.map) != was_map:
+				config.team_size = def_size
+			config.teams = clampi(int(config.get("teams", 3)), 2, dm_max_teams())
+			config.team_size = clampi(int(config.get("team_size", DM_MAX_TEAM_SIZE)), 1, dm_max_team_size())
+			key = "teams"   # re-seat players for the new team layout
 	elif is_dm() and key == "teams":
-		config.teams = clampi(int(value), 2, DM_MAX_TEAMS)
+		config.teams = clampi(int(value), 2, dm_max_teams())
 	elif is_dm() and key == "team_size":
-		config.team_size = clampi(int(value), 1, DM_MAX_TEAM_SIZE)
+		config.team_size = clampi(int(value), 1, dm_max_team_size())
 	elif is_dm() and key == "mode":
 		pass  # solo/duo/squad is a Classic setting
 	elif key == "day_len":

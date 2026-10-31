@@ -1,0 +1,52 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+[server] dedicated server listening on 27656
+[world] map built in 2140 ms
+[map] 0 buildings, 213 doors, 163 containers, 779 props, #55dd752c on PC
+[nav] levels: 56959 points, 32 links, 172 ms
+[nav] r21: 1424 cells closed by the physics check, main walk 49517 of 55567 points (6050 in pockets), 295 ms
+[botnav] malasugue_mall: walk check and 1230 spots from user://botnav/malasugue_mall.json { "hide": 308, "snipe": 618, "cover": 194, "open": 110 }
+[bots] learned from 74 cells, 0 stuck spots, 0 spots learned from play, 0 spot records (user://bot_memory_malasugue_mall.json)
+[match    0.0] deathmatch start on malasugue_mall: 2 players, 2 teams; spawns (-40.0, 0.0, -27.0), (42.0, 10.0, -26.0), (0.0, 20.0, 27.0) (82/68/67 m apart, floors); day offset 0 s; zone centre (5.0, 4.0) r=123; win by wipe
+[grid] level 2, x 48..59 (cols), z -47..-33 (rows), cell 1.00
+[grid] z -46.50 ____________
+[grid] z -45.50 ##_______###
+[grid] z -44.50 ##_______...
+[grid] z -43.50 #o_______...
+[grid] z -42.50 oo_______...
+[grid] z -41.50 oo_______...
+[grid] z -40.50 oo__#_#__...
+[grid] z -39.50 #o..........
+[grid] z -38.50 ##..........
+[grid] z -37.50 #o..........
+[grid] z -36.50 ##..........
+[grid] z -35.50 ............
+[grid] z -34.50 ............
+[grid] z -33.50 ............
+[grid] z -32.50 ............
+[probe] (56.5, 7.5, -44.9) walkable false clearance 0.00; a body there touches ["@StaticBody3D@182 /root/Game/World/Map/Chunk_1_0/@StaticBody3D@182 layer 1 at ", "@StaticBody3D@182 /root/Game/World/Map/Chunk_1_0/@StaticBody3D@182 layer 1 at ", "@StaticBody3D@182 /root/Game/World/Map/Chunk_1_0/@StaticBody3D@182 layer 1 at ", "@StaticBody3D@182 /root/Game/World/Map/Chunk_1_0/@StaticBody3D@182 layer 1 at "]
+[probe] (57.5, 10.0, -44.5) walkable true clearance 0.50; a body there touches []
+[probe] path (56.5, 7.5, -44.9) -> (57.5, 10.0, -44.5): 14 points
+[probe]   (57.5, 5.0, -44.5) band false sweep false
+[probe]   (58.7, 5.0, -39.2) band true sweep true
+[probe]   (57.5, 5.0, -31.5) band true sweep true
+[probe]   (51.0, 5.0, -33.6) band true sweep true
+[probe]   (51.0, 5.0, -35.8) band true sweep true
+[probe]   (52.5, 5.0, -38.5) band true sweep true
+[probe]   (52.7, 7.5, -44.1) band false sweep false
+[probe]   (54.3, 7.5, -44.1) band false sweep true
+[probe]   (54.5, 10.0, -38.5) band false sweep false
+[probe]   (51.0, 10.0, -36.4) band true sweep true
+[probe]   (51.0, 10.0, -34.2) band true sweep true
+[probe]   (56.5, 10.0, -30.5) band true sweep true
+[probe]   (57.5, 10.0, -30.5) band true sweep false
+[probe]   (57.5, 10.0, -44.5) band true sweep true
+[probe]   ray at 0.3 m: @StaticBody3D@182 /root/Game/World/Map/Chunk_1_0/@StaticBody3D@182 layer 1 at (56.8, 8.55, -44.78)
+[probe]   ray at 0.6 m: @StaticBody3D@182 /root/Game/World/Map/Chunk_1_0/@StaticBody3D@182 layer 1 at (56.8, 8.849999, -44.78)
+[probe]   ray at 1.0 m: @StaticBody3D@92 /root/Game/World/Map/Chunk_1_-1/@StaticBody3D@92 layer 1 at (56.88, 9.44, -44.75)
+[probe]   ray at 1.5 m: @StaticBody3D@92 /root/Game/World/Map/Chunk_1_-1/@StaticBody3D@92 layer 1 at (56.88, 9.94, -44.75)
+[match    0.0] status: { "ground": 2 }; armed 2; shots 0; zone -1 hold r=123; corpses 0; levels { "L3": 1, "L1": 1 }
+[match    0.0] dm teams: North Team 1 at (-40.0, -27.0) spread 0 m; East Team 1 at (42.0, -26.0) spread 0 m; gap 83 m; zone centre (5.0, 4.0)
+[match    0.0] bots: { "roam": 2 }; containers searched by bots 0 (all players 0); plan steps done 0; guns carried 4
+[match    0.0] roles: { "rusher": { "roam": 2 } }; stuck now 0; waypoints 1230; team { "lines": 0, "pings": 0, "laser_follow": 0, "learned_cells": 74, "blocked_cells": 0, "squads": 0, "following_humans": 0, &"learned_spots": 0 }
+[match    0.0] [lootstats] bots on the ground 2 (in water 0); armed 2; armed with ammo for a gun 2; long guns 2; attachments fitted 0; rounds of unusable ammo carried 0; items on the ground 426; bot pickups { "detours": 0, "detour_taken": 0, "fetches": 0, "fetch_done": 0, "items_taken": 0 }

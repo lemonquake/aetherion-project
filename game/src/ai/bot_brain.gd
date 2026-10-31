@@ -17,6 +17,12 @@ extends RefCounted
 ##
 ## Perception is darkness-aware: a player is seen within ~14 m in the dark, ~30 m in moonlight on open ground,
 ## and up to 70 m when their flashlight is on or they just fired. Gunshots and nearby running are heard.
+##
+## (r21) Moving through the map: every goal is put on the walk first (a goal off it, in a wall or a sealed pocket,
+## becomes the nearest waypoint), a path that ends short of its goal is the end of the walk (no more pushing straight at
+## a goal behind a wall), and whiskers either side of the way the bot walks steer it off walls, pillars and corners.
+## Holding a spot or standing by its leader it faces open floor, never a wall. In Deathmatch the looters, with no houses
+## to search, become ambushers: they take a hiding spot (bot_nav.gd), popular ones first, and watch its approach.
 const DayCycle := preload("res://src/world/day_cycle.gd")
 
 const NavGrid := preload("res://src/ai/nav_grid.gd")
@@ -98,6 +104,7 @@ var _dm_hold := 0.0               # the first seconds of a round: everyone gets 
 static var team_intel := {}
 # --- r10: roles, squads, radio, waypoints
 const BotTeam := preload("res://src/ai/bot_team.gd")
+const BotNav := preload("res://src/ai/bot_nav.gd")
 const ROLES := ["looter", "rusher", "sniper", "stalker"]
 static var lines := {}            # data/bot_radio.json: line -> phrasings
 static var recorded := {}         # r13: data/bot_radio.json "recorded": line -> {name, n}: the user's recordings (vox_<name>_<k>)
@@ -140,6 +147,18 @@ var _house_way: Array = []        # r12: [{p, door}] through the rooms to it, wh
 var _house_exit_bid := -1         # r12: the building it belongs to
 var _exit_tried := {}             # r12: door id -> match time this bot last set off for it on its way out
 const EXIT_IN := 1.6              # r12: the way out starts this far inside its door (clear of a door swinging in)
+var _spot_i := -1                 # r21: the waypoint this bot is heading for or holding (claimed)
+var _hold_len := 0.0              # r21: how long the current hold was meant to last (for the spot's record)
+var _feel_t := 0.0                # r21: whiskers
+var _feel_mx := 0.0
+var _slot := Vector3.INF          # r21: the place beside the leader this bot keeps
+var _slot_t := 0.0
+var _idle_yaw := INF              # r21: where to look while standing by the leader
+var _idle_t := 0.0
+var _sweep_amp := 1.0             # r21: how far a holding bot looks round (shrinks while that swings into a wall)
+var _sweep_t := 0.0
+var _face_t := 0.0                # r21: standing with nowhere to go: turned away from a wall in front
+var _face_yaw := INF
 
 
 func _init(w, c) -> void:
@@ -150,6 +169,7 @@ func _init(w, c) -> void:
 	if fresh_nav:
 		# (r15) A storeyed map (Malasugue Mall) has a walk grid per level joined by escalators and stairs.
 		nav = NavLevels.new(world.map.layout) if world.map.layout.get("nav_open") != null else NavGrid.new(world.map.layout)
+		BotNav.prepare(world, nav)   # r21: the walk checked against the real collision; waypoints and hiding spots
 	if _index_layout != world.map.layout:
 		_build_index()
 	BotTeam.begin(world)
@@ -297,6 +317,7 @@ func hear(pos: Vector3, loudness: float) -> void:
 # ------------------------------------------------------------------ main
 
 var test_idle := false   # autotests: stand still, think nothing (a dummy for the field crush check)
+var test_blind := false  # r21 autotests: sees and hears nobody (a route test walks without fighting)
 
 
 func think(dt: float, tick: int) -> Dictionary:
@@ -761,6 +782,10 @@ func _deploy(cmd: Dictionary, dt: float) -> Dictionary:
 
 
 func _perceive() -> void:
+	if test_blind:
+		target_eid = -1
+		investigate = Vector3.INF
+		return
 	var best := -1
 	var best_d := INF
 	var eye: Vector3 = ch.eye_position()
@@ -1079,6 +1104,17 @@ func _set_goal(g: Vector3) -> void:
 	_goal_raw = g
 	if g != Vector3.INF and nav != null:
 		g = nav.reachable_near(ch.global_position, g)
+		if g != Vector3.INF and not nav.walkable_at(g):
+			# r21: still off the walk (outside the building, inside a sealed shop): the nearest waypoint instead
+			var best := Vector3.INF
+			var bd := INF
+			for i in BotTeam.spots_near(g, 48.0):
+				var q: Vector3 = BotTeam.spots[i].p
+				var d := q.distance_to(g) + absf(q.y - g.y) * 2.0
+				if d < bd:
+					bd = d
+					best = q
+			g = best
 	goal = g
 	_no_prog = 0.0
 	_best_wp = INF
@@ -1119,16 +1155,30 @@ func _move(cmd: Dictionary, dt: float, slow: bool) -> void:
 		_plan_step(cmd, dt)
 		return
 	if goal == Vector3.INF:
+		_idle_face(cmd, dt)
 		return
+	_face_yaw = INF
 	var target := goal
 	if path_i < path.size():
 		target = path[path_i]
-		if Vector2(target.x - ch.global_position.x, target.z - ch.global_position.z).length() < 1.2:
+		# (r21) on to the next waypoint only when right at this one, or when the next is in plain sight from here: a
+		# waypoint just through a doorway counted as reached from inside the room sent bots along the inside of the
+		# wall toward the one after it. (Stair and escalator points, off the floor's walk grid, keep the loose reach.)
+		var dw := Vector2(target.x - ch.global_position.x, target.z - ch.global_position.z).length()
+		if dw < 0.45 or (dw < 1.2 and (path_i + 1 >= path.size() or absf((path[path_i + 1] as Vector3).y - target.y) > 0.5
+				or not nav.walkable_at(target) or nav.line_clear(ch.global_position, path[path_i + 1]))):
 			path_i += 1
 			_best_wp = INF
 	var to = target - ch.global_position
 	var flat := Vector2(to.x, to.z)
 	if flat.length() < 0.6 and path_i >= path.size():
+		goal = Vector3.INF
+		return
+	# r21: the path is walked and the goal is still off, behind something: that path ended as near as the walk gets
+	# (the goal is in a pocket or on another floor with no way there). Done, rather than pushing at the wall. (On a
+	# storeyed map only: on the flat maps a long search stops early on purpose and the next one carries on from its end.)
+	if path_i >= path.size() and not _path_pending and _path_req == 0 and flat.length() > 1.5 and nav.get("levels") != null \
+			and not nav.line_clear(ch.global_position, goal):
 		goal = Vector3.INF
 		return
 	var want_yaw := atan2(-flat.x, -flat.y)
@@ -1141,10 +1191,15 @@ func _move(cmd: Dictionary, dt: float, slow: bool) -> void:
 		cmd.my = 0.0
 		return
 	_gait(cmd, flat.length(), slow)
+	_feel_walls(cmd, dt, flat.length())
 	_unstick(cmd, dt, target, flat.length())
 	_repath_t -= dt
 	if _repath_t <= 0.0 and goal != Vector3.INF:
-		_set_goal(goal)
+		if _off_floor():
+			_repath_t = 1.0   # (r21) on a stair or an escalator: finish it on the path in hand (a new one from
+			                  # mid-flight could start at a stair point behind the bot and walk it back down)
+		else:
+			_set_goal(goal)
 
 
 func _gait(cmd: Dictionary, dist: float, slow: bool) -> void:
@@ -1204,9 +1259,11 @@ func _unstick(cmd: Dictionary, dt: float, target: Vector3, dist: float) -> void:
 		_vault_cd = 1.6
 		match _ahead():
 			"low", "":
-				# A vault or a hop, only where the walk grid has open ground beyond (not onto a parapet or a wall top).
+				# A vault or a hop, only where the walk grid has open ground beyond (not onto a parapet or a wall top);
+				# (r21) and on a storeyed map only from a floor: from a stair's half landing the grid "ahead" is the
+				# floor below, and the hop went over the stair's railing into the space under the flights.
 				var fwd0 := -Basis(Vector3.UP, yaw).z
-				if nav.walkable_at(ch.global_position + fwd0 * 1.6):
+				if not _off_floor() and nav.walkable_at(ch.global_position + fwd0 * 1.6):
 					cmd.btn |= Motor.B_JUMP
 			"char":
 				_unstick_t = 0.5           # a teammate in the way: step round, do not hop on them
@@ -1235,6 +1292,79 @@ func _unstick(cmd: Dictionary, dt: float, target: Vector3, dist: float) -> void:
 
 
 var _stuck_hits := 0
+
+
+func _idle_face(cmd: Dictionary, dt: float) -> void:
+	## r21: standing with nowhere to go for the moment (between objectives, the start of a round, a walk that ended
+	## at a wall): a wall within 1.5 m in front turns the bot to the most open way instead of leaving it staring at it.
+	_face_t -= dt
+	if _face_t <= 0.0:
+		_face_t = 1.0
+		_face_yaw = _open_yaw(yaw, PI) if _wall_close(yaw, 1.5) else INF
+	if _face_yaw != INF:
+		cmd.yaw = lerp_angle(yaw, _face_yaw, 0.12)
+
+
+func _off_floor() -> bool:
+	## r21: on a storeyed map, between floors (a stair, its half landing, an escalator).
+	if nav == null or nav.get("levels") == null:
+		return false
+	var p: Vector3 = ch.global_position
+	return absf(p.y - float(world.map.layout.level_y(nav.level_of(p)))) > 0.7
+
+
+func _feel_walls(cmd: Dictionary, dt: float, dist: float) -> void:
+	## r21: whiskers. Two short rays at knee height, 30 degrees either side of the way the bot walks: a wall, pillar
+	## or counter edge closing in on one side pushes it to the other, so it slides past corners instead of grinding
+	## into them. In a doorway both sides touch and the pushes cancel.
+	if ch.mode != Motor.GROUND or float(cmd.my) <= 0.0 or dist < 0.9 or _unstick_t > 0.0:
+		_feel_mx = 0.0
+		return
+	_feel_t -= dt
+	if _feel_t <= 0.0:
+		_feel_t = 0.1
+		var space: PhysicsDirectSpaceState3D = world.get_world_3d().direct_space_state
+		var p: Vector3 = ch.global_position + Vector3.UP * 0.55
+		var push := 0.0
+		for side in [-1.0, 1.0]:
+			var d: Vector3 = Basis(Vector3.UP, float(cmd.yaw) - side * 0.52) * Vector3.FORWARD
+			var q := PhysicsRayQueryParameters3D.create(p, p + d * 1.1, Defs.MOVE_MASK)
+			q.exclude = [ch.get_rid()]
+			var r := space.intersect_ray(q)
+			if not r.is_empty():
+				push -= side * (1.0 - Vector2((r.position as Vector3).x - p.x, (r.position as Vector3).z - p.z).length() / 1.1)
+		_feel_mx = clampf(push * 1.5, -0.9, 0.9)
+	if absf(_feel_mx) > 0.05:
+		cmd.mx = clampf(float(cmd.mx) + _feel_mx, -1.0, 1.0)
+
+
+func _open_yaw(pref: float, spread: float) -> float:
+	## r21: of nine directions within spread of pref, the one with the most open floor ahead at eye height (ties go
+	## to the one nearest pref): where to face while standing still.
+	var space: PhysicsDirectSpaceState3D = world.get_world_3d().direct_space_state
+	var eye: Vector3 = ch.eye_position()
+	var best := pref
+	var bs := -INF
+	for k in 9:
+		var a := pref + spread * (float(k) / 4.0 - 1.0)
+		var d: Vector3 = Basis(Vector3.UP, a) * Vector3.FORWARD
+		var q := PhysicsRayQueryParameters3D.create(eye, eye + d * 20.0, Defs.SIGHT_MASK)
+		q.exclude = [ch.get_rid()]
+		var r := space.intersect_ray(q)
+		var dist := 20.0 if r.is_empty() else eye.distance_to(r.position)
+		var sc := minf(dist, 12.0) - absf(wrapf(a - pref, -PI, PI)) * 1.5
+		if sc > bs:
+			bs = sc
+			best = a
+	return best
+
+
+func _wall_close(a: float, reach: float = 2.0) -> bool:
+	var space: PhysicsDirectSpaceState3D = world.get_world_3d().direct_space_state
+	var eye: Vector3 = ch.eye_position()
+	var q := PhysicsRayQueryParameters3D.create(eye, eye + (Basis(Vector3.UP, a) * Vector3.FORWARD) * reach, Defs.SIGHT_MASK)
+	q.exclude = [ch.get_rid()]
+	return not space.intersect_ray(q).is_empty()
 
 
 func _ahead() -> String:
@@ -1866,6 +1996,8 @@ func _social(dt: float) -> void:
 func _role_objective() -> void:
 	_obj_t -= 0.25
 	match role:
+		"looter" when dm:
+			_ambush()
 		"looter":
 			if state == "camp" and _hold_t > 0.0:
 				return
@@ -1890,12 +2022,7 @@ func _role_objective() -> void:
 			if sp < 0:
 				sp = _pick_spot("cover")
 			if sp >= 0:
-				var s: Dictionary = BotTeam.spots[sp]
-				_obj = s.p
-				_look_at = (s.p as Vector3) + Vector3((s.dir as Vector2).x, 0, (s.dir as Vector2).y) * 40.0
-				_set_goal(_obj)
-				state = "roam"
-				_obj_t = 25.0
+				_head_for_spot(sp, 25.0)
 				if _leads() and Time.get_ticks_msec() - _chat_t > 60000:
 					_chat_t = Time.get_ticks_msec()
 					say("sniping")
@@ -1909,6 +2036,46 @@ func _role_objective() -> void:
 			if state == "hunt" and goal != Vector3.INF and _obj_t > 0.0:
 				return
 			_hunt_target(false)
+
+
+func _ambush() -> void:
+	## r21 Deathmatch looter (no houses to search): an ambusher. Takes a hiding spot (a popular one first), crouches
+	## there watching its approach, and after a while moves to another.
+	if state == "camp" and _hold_t > 0.0:
+		return
+	if state == "camp":
+		state = "roam"
+		_obj = Vector3.INF
+		_obj_t = 0.0
+	if state == "roam" and _obj != Vector3.INF and goal == Vector3.INF:
+		if ch.global_position.distance_to(_obj) < 3.0:
+			_start_hold("camp", rng.randf_range(25.0, 50.0) * (0.5 + patience))
+			return
+		_obj = Vector3.INF   # the walk ended short of it: pick again
+	if state == "roam" and goal != Vector3.INF and _obj_t > 0.0:
+		return
+	var sp := _pick_spot("hide")
+	if sp < 0:
+		sp = _pick_spot("cover")
+	if sp < 0:
+		_hunt_target(false)
+		return
+	_head_for_spot(sp, 40.0)
+	if _leads() and Time.get_ticks_msec() - _chat_t > 60000 and rng.randf() < 0.5:
+		_chat_t = Time.get_ticks_msec()
+		say("sneaking")
+
+
+func _head_for_spot(sp: int, secs: float) -> void:
+	var s: Dictionary = BotTeam.spots[sp]
+	_obj = s.p
+	_look_at = (s.p as Vector3) + Vector3((s.dir as Vector2).x, 0, (s.dir as Vector2).y) * 25.0 + Vector3.UP * 1.2
+	BotTeam.release(ch.eid)
+	BotTeam.claim(sp, ch.eid, secs + 60.0)
+	_spot_i = sp
+	_set_goal(_obj)
+	state = "roam"
+	_obj_t = secs
 
 
 func _intel() -> Vector3:
@@ -1982,11 +2149,14 @@ func _pick_spot(kind: String) -> int:
 		if str(s.kind) != kind:
 			continue
 		var p: Vector3 = s.p
-		if _inside_zone(p).distance_to(p) > 1.0:
+		if _inside_zone(p).distance_to(p) > 1.0 or BotTeam.claimed(i, ch.eid):
 			continue
 		var l: Array = BotTeam.lesson(p)
+		# (r21) what the team learned of this very spot: held often, scored from, not died in; a spot the map
+		# designates gets a little extra
 		var sc = float(s.sight) * 0.05 + float(s.cover) * 0.6 + float(l[0]) * 1.5 + float(l[1]) * (3.0 if role == "sniper" else 0.5) \
-			+ float(l[2]) * 0.4 - float(l[3]) * 1.2 - me.distance_to(p) * 0.03 + rng.randf_range(0.0, 2.5)
+			+ float(l[2]) * 0.4 - float(l[3]) * 1.2 - me.distance_to(p) * 0.03 + rng.randf_range(0.0, 2.5) \
+			+ clampf(BotTeam.popularity(i), -4.0, 6.0) + (1.0 if str(s.get("src", "")) == "map" else 0.0) - float(s.get("expo", 0.5)) * 2.0
 		if sc > bs:
 			bs = sc
 			best = i
@@ -1996,11 +2166,23 @@ func _pick_spot(kind: String) -> int:
 func _start_hold(kind: String, secs: float) -> void:
 	state = kind
 	_hold_t = secs
+	_hold_len = secs
 	_hold_said = false
 	goal = Vector3.INF
 	var fv: Vector3 = (_look_at - ch.global_position) if _look_at != Vector3.INF else -Basis(Vector3.UP, yaw).z
 	_hold_base_yaw = atan2(-fv.x, -fv.z)
+	# r21: never hold a spot staring at a wall: the most open way near the one asked for (all round if need be)
+	if _wall_close(_hold_base_yaw, 2.5):
+		_hold_base_yaw = _open_yaw(_hold_base_yaw, PI)
+		_look_at = Vector3.INF
 	_safe_t = 0.0
+	if _spot_i >= 0 and _spot_i < BotTeam.spots.size() and (BotTeam.spots[_spot_i].p as Vector3).distance_to(ch.global_position) < 3.5:
+		BotTeam.spot_used(_spot_i)
+	else:
+		_spot_i = BotTeam.spot_at(ch.global_position, 2.5)
+		if _spot_i >= 0:
+			BotTeam.claim(_spot_i, ch.eid, secs + 5.0)
+			BotTeam.spot_used(_spot_i)
 
 
 func _hold_step(cmd: Dictionary, dt: float) -> void:
@@ -2016,6 +2198,12 @@ func _hold_step(cmd: Dictionary, dt: float) -> void:
 		var fv = _look_at - ch.eye_position()
 		_hold_base_yaw = lerp_angle(_hold_base_yaw, atan2(-fv.x, -fv.z), 0.08)
 	var sweep := (0.35 if state == "overwatch" else 0.6) * sin(Time.get_ticks_msec() * 0.00045 + ch.eid)
+	# (r21) in a corner the sweep swung the view onto the wall beside it: look round less there
+	_sweep_t -= dt
+	if _sweep_t <= 0.0:
+		_sweep_t = 0.4
+		_sweep_amp = maxf(_sweep_amp * 0.6, 0.1) if _wall_close(yaw, 1.5) else minf(_sweep_amp + 0.1, 1.0)
+	sweep *= _sweep_amp
 	cmd.yaw = lerp_angle(yaw, _hold_base_yaw + sweep, 0.06)
 	cmd.pitch = lerpf(pitch, -0.03, 0.05)
 	if state == "overwatch":
@@ -2030,6 +2218,10 @@ func _hold_step(cmd: Dictionary, dt: float) -> void:
 		_obj = Vector3.INF
 	if _hold_t <= 0.0:
 		_look_at = Vector3.INF
+		if _spot_i >= 0:
+			BotTeam.spot_used(_spot_i, _hold_len - maxf(_hold_t, 0.0))
+			BotTeam.release(ch.eid)
+			_spot_i = -1
 		if state == "camp":
 			# Walk back out of the house.
 			state = "roam"
@@ -2047,8 +2239,7 @@ func _follow_step(cmd: Dictionary, dt: float) -> void:
 		state = "roam"
 		return
 	var lp: Vector3 = le.global_position
-	var lb := Basis(Vector3.UP, le.yaw)
-	var spot := lp + lb * _follow_off
+	var spot := _follow_slot(le, dt)
 	var d = ch.global_position.distance_to(lp)
 	if d > 80.0:
 		_follow_far_t += dt
@@ -2078,10 +2269,35 @@ func _follow_step(cmd: Dictionary, dt: float) -> void:
 		if _look_at != Vector3.INF:
 			var fv = _look_at - ch.eye_position()
 			face = atan2(-fv.x, -fv.z)
+		# r21: covering an angle means looking down open floor, not at the wall beside the leader
+		_idle_t -= dt
+		if _idle_t <= 0.0 or _idle_yaw == INF:
+			_idle_t = 1.5
+			_idle_yaw = _open_yaw(face, 1.4) if _wall_close(face, 3.0) else face
+		face = _idle_yaw
 		cmd.yaw = lerp_angle(yaw, face, 0.08)
 		cmd.pitch = lerpf(pitch, 0.0, 0.1)
 		if (le.flags & Character.F_CROUCH) != 0:
 			cmd.btn |= Motor.B_CROUCH
+
+
+func _follow_slot(le, dt: float) -> Vector3:
+	## r21: this bot's place by the leader: its own offset behind and to one side when that is open floor the leader
+	## could walk to in a straight line; else the mirror of it, or straight behind, or the leader's own spot. (A slot
+	## inside a wall used to leave the follower standing against that wall.)
+	_slot_t -= dt
+	if _slot_t > 0.0 and _slot != Vector3.INF and _slot.distance_to(le.global_position) < 7.0:
+		return _slot
+	_slot_t = 0.8
+	var lp: Vector3 = le.global_position
+	var lb := Basis(Vector3.UP, le.yaw)
+	for o in [_follow_off, Vector3(-_follow_off.x, 0, _follow_off.z), Vector3(0, 0, 3.0), Vector3(_follow_off.x * 0.5, 0, 1.8)]:
+		var q: Vector3 = lp + lb * o
+		if nav.walkable_at(q) and nav.line_clear(lp, q):
+			_slot = q
+			return q
+	_slot = lp
+	return lp
 
 
 func _haze() -> Dictionary:
@@ -2335,15 +2551,18 @@ func _order_step(cmd: Dictionary, dt: float) -> void:
 	var reach := {"help": 6.0, "go": 4.0, "fall_back": 4.0, "check": 3.5}.get(str(order.kind), 4.0)
 	# There, or at the end of the path to the nearest reachable point (the spot itself may be on a wall or a roof).
 	var path_done := path_i >= path.size() and not path.is_empty() and goal != Vector3.INF 		and Vector2(goal.x - ch.global_position.x, goal.z - ch.global_position.z).length() < 1.5
-	# (r15) On a storeyed map the spot must be on this floor too (a point straight above is not "there").
+	# (r15) On a storeyed map the spot must be on this floor too (a point straight above is not "there"); (r21) and
+	# not half way up the stairs to it (Freight Delight's floors are 3.2 m apart: 2.5 m let a bot stop mid-flight).
 	var vy := absf(p.y - ch.global_position.y) if world.map.layout.has_method("level_of") else 0.0
-	if not bool(order.arrived) and vy < 2.5 and (flat < reach or (path_done and flat < 12.0)):
+	if not bool(order.arrived) and vy < 0.6 and (flat < reach or (path_done and flat < 12.0)):
 		order.arrived = true
 		order.t_arr = Time.get_ticks_msec() / 1000.0
 		goal = Vector3.INF
 		say("clear" if str(order.kind) == "check" else "in_position", true)
 		var src2 = world.characters.get(int(order.from))
 		_hold_base_yaw = src2.yaw if src2 != null else yaw
+		if _wall_close(_hold_base_yaw, 2.5):
+			_hold_base_yaw = _open_yaw(_hold_base_yaw, PI)   # (r21) not facing a wall where it was sent
 	if bool(order.arrived):
 		# Hold here: still, scanning round the way the caller faces (or the checked spot).
 		cmd.my = 0.0

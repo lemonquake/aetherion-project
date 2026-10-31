@@ -1,0 +1,15 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+[server] dedicated server listening on 27666
+[world] map built in 2021 ms
+[map] 0 buildings, 213 doors, 163 containers, 779 props, #55dd752c on PC
+[nav] levels: 56959 points, 32 links, 177 ms
+[nav] r21: 1424 cells closed by the physics check, main walk 49517 of 55567 points (6050 in pockets), 308 ms
+[botnav] malasugue_mall: walk check and 1304 spots from res://data/botnav/malasugue_mall.json { "hide": 301, "snipe": 618, "cover": 190, "open": 195 }
+[bots] learned from 89 cells, 48 stuck spots, 0 spots learned from play, 25 spot records (user://bot_memory_malasugue_mall.json)
+[match    0.0] deathmatch start on malasugue_mall: 2 players, 2 teams; spawns (42.0, 10.0, -26.0), (0.0, 20.0, 27.0), (-40.0, 0.0, -27.0) (68/67/82 m apart, floors); day offset 0 s; zone centre (-6.0, 15.0) r=132; win by wipe
+[match    0.0] status: { "ground": 2 }; armed 2; shots 0; zone -1 hold r=132; corpses 0; levels { "between": 1, "L3": 1 }
+[match    0.0] dm teams: North Team 1 at (42.0, -26.0) spread 0 m; East Team 1 at (-1.0, 28.0) spread 0 m; gap 69 m; zone centre (-6.0, 15.0)
+[match    0.0] bots: { "roam": 2 }; containers searched by bots 0 (all players 0); plan steps done 0; guns carried 4
+[match    0.0] roles: { "looter": { "roam": 2 } }; stuck now 0; waypoints 1304; team { "lines": 0, "pings": 0, "laser_follow": 0, "learned_cells": 89, "blocked_cells": 26, "squads": 0, "following_humans": 0, &"learned_spots": 0 }
+[match    0.0] [lootstats] bots on the ground 2 (in water 0); armed 2; armed with ammo for a gun 2; long guns 2; attachments fitted 0; rounds of unusable ammo carried 0; items on the ground 428; bot pickups { "detours": 0, "detour_taken": 0, "fetches": 0, "fetch_done": 0, "items_taken": 0 }

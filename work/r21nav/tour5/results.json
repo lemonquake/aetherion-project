@@ -1,0 +1,17 @@
+[
+  [
+    "navtour_analysis",
+    true,
+    "malasugue_mall: 1230 spots { \"hide\": 308, \"snipe\": 618, \"cover\": 194, \"open\": 110 } from user://botnav/malasugue_mall.json, walk check closed 1424 cells, analysis 0 ms"
+  ],
+  [
+    "navtour_route",
+    true,
+    "bot reached 22 of 24 waypoints across the map, 8 stalls"
+  ],
+  [
+    "navtour_no_wall_stalls",
+    false,
+    "8 stalls over 24 legs (no progress for 2 s or more)"
+  ]
+]

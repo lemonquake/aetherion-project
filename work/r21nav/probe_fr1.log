@@ -1,0 +1,146 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+[server] dedicated server listening on 27638
+[world] map built in 665 ms
+[map] 0 buildings, 0 doors, 0 containers, 0 props, #00000000 on PC
+[nav] levels: 34886 points, 3 links, 82 ms
+[nav] r21: 617 cells closed by the physics check, main walk 34223 of 34278 points (55 in pockets), 158 ms
+[botnav] freight_delight: walk check and 249 spots from user://botnav/freight_delight.json { "hide": 102, "snipe": 80, "cover": 42, "open": 25 }
+[bots] learned from 45 cells, 0 stuck spots, 0 spots learned from play, 0 spot records (user://bot_memory_freight_delight.json)
+[match    0.0] deathmatch start on freight_delight: 2 players, 2 teams; spawns (-52.0, 0.0, 0.0), (50.0, 0.0, 0.0) (103/103 m apart, layout); day offset 0 s; zone centre (1.0, -6.0) r=96; win by wipe
+[probe] (38.9, 3.2, -19.0) walkable true clearance 0.25; a body there touches []
+[probe] (33.5, 3.2, -28.4) walkable true clearance 2.25; a body there touches []
+[probe] (40.0, 0.0, -36.0) walkable true clearance 0.25; a body there touches []
+[probe] path (38.9, 3.2, -19.0) -> (33.5, 3.2, -28.4): 61 points
+[probe]   (38.7, 3.2, -18.7) band true sweep true
+[probe]   (39.2, 3.2, -19.2) band false sweep true
+[probe]   (39.7, 3.2, -19.7) band false sweep true
+[probe]   (39.7, 2.5, -18.3) band false sweep true
+[probe]   (39.7, 1.8, -16.9) band false sweep true
+[probe]   (39.7, 1.0, -15.5) band false sweep true
+[probe]   (39.7, 0.0, -14.2) band false sweep true
+[probe]   (44.7, 0.0, -13.7) band true sweep true
+[probe]   (44.7, 0.0, -1.7) band true sweep true
+[probe]   (32.7, 0.0, -0.2) band true sweep true
+[probe]   (20.7, 0.0, 1.7) band true sweep true
+[probe]   (8.7, 0.0, 1.7) band true sweep true
+[probe]   (-0.2, 0.0, 4.2) band true sweep true
+[probe]   (-5.2, 0.0, 2.7) band true sweep true
+[probe]   (-17.2, 0.0, -0.7) band true sweep true
+[probe]   (-27.7, 0.0, -1.2) band true sweep true
+[probe]   (-29.2, 0.0, -3.2) band true sweep true
+[probe]   (-29.2, 0.0, -6.7) band true sweep true
+[probe]   (-35.7, 0.0, -7.7) band true sweep true
+[probe]   (-39.2, 0.0, -6.7) band true sweep true
+[probe]   (-41.2, 0.0, -4.2) band true sweep true
+[probe]   (-41.7, 0.0, -4.7) band true sweep true
+[probe]   (-41.9, 0.9, -6.0) band false sweep false
+[probe]   (-41.9, 1.7, -7.4) band false sweep false
+[probe]   (-41.9, 2.5, -8.8) band false sweep false
+[probe]   (-41.7, 3.2, -10.2) band false sweep false
+[probe]   (-31.7, 3.2, -14.2) band true sweep true
+[probe]   (-31.2, 3.2, -14.7) band true sweep true
+[probe]   (-30.7, 3.2, -15.2) band false sweep true
+[probe]   (-30.7, 3.2, -15.7) band false sweep true
+[probe]   (-30.7, 3.2, -16.2) band false sweep true
+[probe]   (-30.7, 3.2, -16.7) band false sweep true
+[probe]   (-30.7, 3.2, -17.2) band false sweep true
+[probe]   (-30.7, 3.2, -17.7) band false sweep true
+[probe]   (-30.7, 3.2, -18.2) band false sweep true
+[probe]   (-30.7, 3.2, -18.7) band false sweep true
+[probe]   (-30.7, 3.2, -19.2) band false sweep true
+[probe]   (-30.7, 3.2, -19.7) band false sweep true
+[probe]   (-30.7, 3.2, -20.2) band false sweep true
+[probe]   (-30.7, 3.2, -20.7) band false sweep true
+[probe]   (-30.7, 3.2, -21.2) band false sweep true
+[probe]   (-30.7, 3.2, -21.7) band false sweep true
+[probe]   (-30.7, 3.2, -22.2) band false sweep true
+[probe]   (-30.7, 3.2, -22.7) band false sweep true
+[probe]   (-30.7, 3.2, -23.2) band false sweep true
+[probe]   (-30.7, 3.2, -23.7) band false sweep true
+[probe]   (-30.7, 3.2, -24.2) band false sweep true
+[probe]   (-30.7, 3.2, -24.7) band false sweep true
+[probe]   (-30.7, 3.2, -25.2) band false sweep true
+[probe]   (-30.7, 3.2, -25.7) band false sweep true
+[probe]   (-30.2, 3.2, -26.2) band false sweep true
+[probe]   (-29.7, 3.2, -26.7) band false sweep true
+[probe]   (-29.2, 3.2, -26.7) band false sweep true
+[probe]   (-28.7, 3.2, -26.7) band false sweep true
+[probe]   (-16.7, 3.2, -27.7) band true sweep true
+[probe]   (-9.2, 3.2, -28.7) band true sweep true
+[probe]   (2.7, 3.2, -28.2) band true sweep true
+[probe]   (12.2, 3.2, -28.7) band true sweep true
+[probe]   (15.7, 3.2, -26.7) band true sweep true
+[probe]   (21.7, 3.2, -26.7) band true sweep true
+[probe]   (33.7, 3.2, -28.2) band true sweep true
+[probe]   ray at 0.3 m: nothing
+[probe]   ray at 0.6 m: nothing
+[probe]   ray at 1.0 m: nothing
+[probe]   ray at 1.5 m: nothing
+[probe] path (33.5, 3.2, -28.4) -> (40.0, 0.0, -36.0): 57 points
+[probe]   (33.7, 3.2, -28.2) band true sweep true
+[probe]   (21.7, 3.2, -26.7) band true sweep true
+[probe]   (14.7, 3.2, -26.7) band true sweep true
+[probe]   (11.7, 3.2, -28.7) band true sweep true
+[probe]   (-0.2, 3.2, -28.2) band true sweep true
+[probe]   (-12.2, 3.2, -28.7) band true sweep true
+[probe]   (-24.2, 3.2, -27.2) band true sweep true
+[probe]   (-24.7, 3.2, -27.2) band false sweep true
+[probe]   (-25.2, 3.2, -27.2) band false sweep true
+[probe]   (-25.7, 3.2, -26.7) band false sweep true
+[probe]   (-28.7, 3.2, -26.7) band true sweep true
+[probe]   (-29.2, 3.2, -26.7) band false sweep true
+[probe]   (-29.7, 3.2, -26.7) band false sweep true
+[probe]   (-30.2, 3.2, -26.2) band false sweep true
+[probe]   (-30.2, 3.2, -25.7) band false sweep true
+[probe]   (-30.2, 3.2, -25.2) band false sweep true
+[probe]   (-30.2, 3.2, -24.7) band false sweep true
+[probe]   (-30.2, 3.2, -24.2) band false sweep true
+[probe]   (-30.2, 3.2, -23.7) band false sweep true
+[probe]   (-30.2, 3.2, -23.2) band false sweep true
+[probe]   (-30.2, 3.2, -22.7) band false sweep true
+[probe]   (-30.2, 3.2, -22.2) band false sweep true
+[probe]   (-30.2, 3.2, -21.7) band false sweep true
+[probe]   (-30.2, 3.2, -21.2) band false sweep true
+[probe]   (-30.2, 3.2, -20.7) band false sweep true
+[probe]   (-30.2, 3.2, -20.2) band false sweep true
+[probe]   (-30.2, 3.2, -19.7) band false sweep true
+[probe]   (-30.2, 3.2, -19.2) band false sweep true
+[probe]   (-30.2, 3.2, -18.7) band false sweep true
+[probe]   (-30.2, 3.2, -18.2) band false sweep true
+[probe]   (-30.2, 3.2, -17.7) band false sweep true
+[probe]   (-30.2, 3.2, -17.2) band false sweep true
+[probe]   (-30.2, 3.2, -16.7) band false sweep true
+[probe]   (-30.2, 3.2, -16.2) band false sweep true
+[probe]   (-30.7, 3.2, -15.7) band false sweep true
+[probe]   (-30.7, 3.2, -15.2) band false sweep true
+[probe]   (-33.2, 3.2, -13.2) band true sweep true
+[probe]   (-41.7, 3.2, -10.2) band true sweep true
+[probe]   (-41.9, 2.5, -8.8) band false sweep true
+[probe]   (-41.9, 1.7, -7.4) band false sweep true
+[probe]   (-41.9, 0.9, -6.0) band false sweep true
+[probe]   (-41.7, 0.0, -4.7) band false sweep true
+[probe]   (-39.2, 0.0, -5.7) band true sweep true
+[probe]   (-33.7, 0.0, -15.2) band true sweep true
+[probe]   (-33.7, 0.0, -15.7) band false sweep true
+[probe]   (-33.7, 0.0, -16.2) band false sweep true
+[probe]   (-33.7, 0.0, -16.7) band false sweep true
+[probe]   (-31.2, 0.0, -17.7) band true sweep true
+[probe]   (-19.2, 0.0, -17.7) band true sweep true
+[probe]   (-7.2, 0.0, -18.7) band true sweep true
+[probe]   (4.7, 0.0, -19.7) band true sweep true
+[probe]   (10.7, 0.0, -26.7) band true sweep true
+[probe]   (11.7, 0.0, -32.2) band true sweep true
+[probe]   (22.2, 0.0, -33.2) band true sweep true
+[probe]   (29.2, 0.0, -38.7) band true sweep true
+[probe]   (40.2, 0.0, -36.2) band true sweep true
+[probe]   (40.2, 0.0, -35.7) band true sweep true
+[probe]   ray at 0.3 m: Col_steel_1_m2 /root/Game/World/Map/FreightDelight/Map/Collision/Col_steel_1_m2 layer 1 at (34.13, 3.19, -29.14)
+[probe]   ray at 0.6 m: Col_steel_1_m2 /root/Game/World/Map/FreightDelight/Map/Collision/Col_steel_1_m2 layer 1 at (34.74, 3.19, -29.85)
+[probe]   ray at 1.0 m: Col_steel_1_m2 /root/Game/World/Map/FreightDelight/Map/Collision/Col_steel_1_m2 layer 1 at (35.56, 3.19, -30.8)
+[probe]   ray at 1.5 m: Col_sheet_metal_1_m2 /root/Game/World/Map/FreightDelight/Map/Collision/Col_sheet_metal_1_m2 layer 1 at (35.67, 3.63, -30.94)
+[match    0.0] status: { "ground": 2 }; armed 2; shots 0; zone -1 hold r=96; corpses 0; levels { "L1": 2 }
+[match    0.0] dm teams: West Team 1 at (-49.0, 5.0) spread 0 m; East Team 1 at (53.0, 11.0) spread 0 m; gap 102 m; zone centre (1.0, -6.0)
+[match    0.0] bots: { "roam": 2 }; containers searched by bots 0 (all players 0); plan steps done 0; guns carried 4
+[match    0.0] roles: { "stalker": { "roam": 2 } }; stuck now 0; waypoints 249; team { "lines": 0, "pings": 0, "laser_follow": 0, "learned_cells": 45, "blocked_cells": 0, "squads": 0, "following_humans": 0, &"learned_spots": 0 }
+[match    0.0] [lootstats] bots on the ground 2 (in water 0); armed 2; armed with ammo for a gun 2; long guns 2; attachments fitted 0; rounds of unusable ammo carried 0; items on the ground 0; bot pickups { "detours": 0, "detour_taken": 0, "fetches": 0, "fetch_done": 0, "items_taken": 0 }

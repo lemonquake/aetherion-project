@@ -1,0 +1,429 @@
+{
+  "build": {
+    "lights": 98,
+    "links": 3,
+    "nav_open": [
+      32176,
+      2710
+    ],
+    "spawns": [
+      16,
+      18
+    ],
+    "spots": 791,
+    "spots_upstairs": 272,
+    "team_spots": 249
+  },
+  "routes": [
+    {
+      "end": [
+        -37.6,
+        3.2,
+        -11.5
+      ],
+      "leg": "Stair A top: Bodega mezzanine",
+      "metres": 22.2,
+      "ok": true,
+      "seconds": 5.6,
+      "stalled_at": [],
+      "stalls": 0,
+      "worst_stall": 0.1
+    },
+    {
+      "end": [
+        -30.8,
+        3.2,
+        -26.1
+      ],
+      "leg": "Deck, west end",
+      "metres": 17.2,
+      "ok": true,
+      "seconds": 4.1,
+      "stalled_at": [],
+      "stalls": 0,
+      "worst_stall": 0.0
+    },
+    {
+      "end": [
+        -14.9,
+        3.2,
+        -28.1
+      ],
+      "leg": "Deck, over the west passage",
+      "metres": 20.3,
+      "ok": true,
+      "seconds": 3.3,
+      "stalled_at": [],
+      "stalls": 0,
+      "worst_stall": 0.2
+    },
+    {
+      "end": [
+        -2.5,
+        3.2,
+        -28.2
+      ],
+      "leg": "Deck, middle",
+      "metres": 16.5,
+      "ok": true,
+      "seconds": 2.0,
+      "stalled_at": [],
+      "stalls": 0,
+      "worst_stall": 0.0
+    },
+    {
+      "end": [
+        -0.1,
+        3.2,
+        -3.4
+      ],
+      "leg": "Crane platform",
+      "metres": 28.7,
+      "ok": true,
+      "seconds": 5.9,
+      "stalled_at": [],
+      "stalls": 0,
+      "worst_stall": 0.0
+    },
+    {
+      "end": [
+        4.3,
+        3.2,
+        17.4
+      ],
+      "leg": "Taas corridor",
+      "metres": 22.3,
+      "ok": true,
+      "seconds": 5.4,
+      "stalled_at": [],
+      "stalls": 0,
+      "worst_stall": 0.1
+    },
+    {
+      "end": [
+        7.7,
+        3.2,
+        17.6
+      ],
+      "leg": "Taas east room",
+      "metres": 7.1,
+      "ok": true,
+      "seconds": 0.8,
+      "stalled_at": [],
+      "stalls": 0,
+      "worst_stall": 0.0
+    },
+    {
+      "end": [
+        -3.9,
+        3.2,
+        19.7
+      ],
+      "leg": "Taas balcony (Stair C top)",
+      "metres": 13.2,
+      "ok": true,
+      "seconds": 3.8,
+      "stalled_at": [],
+      "stalls": 0,
+      "worst_stall": 0.7
+    },
+    {
+      "end": [
+        2.9,
+        0.0,
+        25.7
+      ],
+      "leg": "Courtyard",
+      "metres": 10.6,
+      "ok": true,
+      "seconds": 4.1,
+      "stalled_at": [],
+      "stalls": 0,
+      "worst_stall": 0.3
+    },
+    {
+      "end": [
+        26.1,
+        0.0,
+        35.3
+      ],
+      "leg": "Alley C, east",
+      "metres": 28.5,
+      "ok": true,
+      "seconds": 7.1,
+      "stalled_at": [],
+      "stalls": 0,
+      "worst_stall": 0.7
+    },
+    {
+      "end": [
+        35.7,
+        0.1,
+        22.8
+      ],
+      "leg": "Through-shanty, east",
+      "metres": 19.2,
+      "ok": true,
+      "seconds": 5.9,
+      "stalled_at": [],
+      "stalls": 0,
+      "worst_stall": 0.2
+    },
+    {
+      "end": [
+        30.9,
+        0.0,
+        3.8
+      ],
+      "leg": "Talyer floor",
+      "metres": 23.0,
+      "ok": true,
+      "seconds": 6.1,
+      "stalled_at": [],
+      "stalls": 0,
+      "worst_stall": 0.7
+    },
+    {
+      "end": [
+        38.6,
+        0.0,
+        4.6
+      ],
+      "leg": "Talyer office",
+      "metres": 10.0,
+      "ok": true,
+      "seconds": 5.4,
+      "stalled_at": [
+        [
+          31.1,
+          0.0,
+          1.0,
+          ""
+        ]
+      ],
+      "stalls": 1,
+      "worst_stall": 3.0
+    },
+    {
+      "end": [
+        40.2,
+        1.6,
+        -16.7
+      ],
+      "leg": "Stair B landing",
+      "metres": 24.8,
+      "ok": false,
+      "seconds": 36.5,
+      "stalled_at": [],
+      "stalls": 0,
+      "worst_stall": 0.1
+    },
+    {
+      "end": [
+        38.9,
+        3.2,
+        -19.0
+      ],
+      "leg": "Container leg by the Talyer",
+      "metres": 5.4,
+      "ok": true,
+      "seconds": 0.5,
+      "stalled_at": [],
+      "stalls": 0,
+      "worst_stall": 0.1
+    },
+    {
+      "end": [
+        -30.7,
+        3.2,
+        -19.0
+      ],
+      "leg": "Deck, east end",
+      "metres": 10.9,
+      "ok": false,
+      "seconds": 30.1,
+      "stalled_at": [
+        [
+          42.0,
+          0.0,
+          -18.6,
+          ""
+        ]
+      ],
+      "stalls": 1,
+      "worst_stall": 3.2
+    },
+    {
+      "end": [
+        10.9,
+        0.0,
+        -27.6
+      ],
+      "leg": "Canyon, east",
+      "metres": 10.5,
+      "ok": false,
+      "seconds": 29.9,
+      "stalled_at": [],
+      "stalls": 0,
+      "worst_stall": 0.3
+    },
+    {
+      "end": [
+        22.3,
+        0.0,
+        -32.7
+      ],
+      "leg": "Through-home in the inner row",
+      "metres": 20.2,
+      "ok": true,
+      "seconds": 4.1,
+      "stalled_at": [],
+      "stalls": 0,
+      "worst_stall": 0.1
+    },
+    {
+      "end": [
+        12.0,
+        0.0,
+        -4.5
+      ],
+      "leg": "Plaza, videoke",
+      "metres": 30.4,
+      "ok": true,
+      "seconds": 7.7,
+      "stalled_at": [],
+      "stalls": 0,
+      "worst_stall": 0.0
+    },
+    {
+      "end": [
+        -39.0,
+        0.0,
+        -32.1
+      ],
+      "leg": "Canyon, west",
+      "metres": 60.8,
+      "ok": true,
+      "seconds": 11.7,
+      "stalled_at": [],
+      "stalls": 0,
+      "worst_stall": 0.7
+    },
+    {
+      "end": [
+        -35.7,
+        0.0,
+        -24.9
+      ],
+      "leg": "Container home",
+      "metres": 8.1,
+      "ok": true,
+      "seconds": 2.6,
+      "stalled_at": [],
+      "stalls": 0,
+      "worst_stall": 0.7
+    },
+    {
+      "end": [
+        -22.0,
+        0.0,
+        3.7
+      ],
+      "leg": "Sari-sari store",
+      "metres": 34.7,
+      "ok": true,
+      "seconds": 6.4,
+      "stalled_at": [],
+      "stalls": 0,
+      "worst_stall": 0.0
+    },
+    {
+      "end": [
+        -36.2,
+        0.1,
+        15.3
+      ],
+      "leg": "Through-shanty, west",
+      "metres": 20.9,
+      "ok": true,
+      "seconds": 4.6,
+      "stalled_at": [],
+      "stalls": 0,
+      "worst_stall": 0.0
+    },
+    {
+      "end": [
+        -34.6,
+        0.0,
+        3.5
+      ],
+      "leg": "Bodega floor",
+      "metres": 15.4,
+      "ok": true,
+      "seconds": 3.1,
+      "stalled_at": [],
+      "stalls": 0,
+      "worst_stall": 0.6
+    },
+    {
+      "end": [
+        -47.8,
+        0.0,
+        1.1
+      ],
+      "leg": "West spawn",
+      "metres": 17.8,
+      "ok": true,
+      "seconds": 3.1,
+      "stalled_at": [],
+      "stalls": 0,
+      "worst_stall": 0.1
+    },
+    {
+      "end": [
+        48.0,
+        0.0,
+        4.6
+      ],
+      "leg": "East spawn",
+      "metres": 99.1,
+      "ok": true,
+      "seconds": 18.9,
+      "stalled_at": [],
+      "stalls": 0,
+      "worst_stall": 0.6
+    }
+  ],
+  "stairs": [
+    {
+      "end": [
+        -41.9,
+        3.1,
+        -9.2
+      ],
+      "ok": true,
+      "seconds": 1.967,
+      "stair": "Stair A"
+    },
+    {
+      "end": [
+        39.7,
+        3.1,
+        -18.8
+      ],
+      "ok": true,
+      "seconds": 1.966,
+      "stair": "Stair B"
+    },
+    {
+      "end": [
+        0.8,
+        3.1,
+        23.8
+      ],
+      "ok": true,
+      "seconds": 1.966,
+      "stair": "Stair C"
+    }
+  ]
+}

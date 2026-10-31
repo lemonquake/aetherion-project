@@ -1,0 +1,775 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+[server] dedicated server listening on 27622
+[world] map built in 2118 ms
+[map] 0 buildings, 213 doors, 163 containers, 779 props, #55dd752c on PC
+[nav] levels: 56959 points, 32 links, 175 ms
+[nav] r21: 1424 cells closed by the physics check, main walk 49517 of 55567 points (6050 in pockets), 247 ms
+[botnav] malasugue_mall: walk check and 1230 spots from user://botnav/malasugue_mall.json { "hide": 308, "snipe": 618, "cover": 194, "open": 110 }
+[bots] learned from 74 cells, 0 stuck spots, 0 spots learned from play, 0 spot records (user://bot_memory_malasugue_mall.json)
+[match    0.0] deathmatch start on malasugue_mall: 21 players, 3 teams; spawns (-40.0, 0.0, -27.0), (42.0, 10.0, -26.0), (0.0, 20.0, 27.0) (82/68/67 m apart, floors); day offset 0 s; zone centre (-7.0, 13.0) r=131; win by time 10 min, field holds at r=75
+[match    0.0] status: { "ground": 21 }; armed 21; shots 0; zone -1 hold r=131; corpses 0; levels { "between": 1, "L3": 7, "L1": 7, "L5": 6 }
+[match    0.0] dm teams: North Team 7 at (-40.0, -27.0) spread 2 m; East Team 7 at (42.0, -26.0) spread 2 m; South Team 7 at (-1.0, 29.0) spread 2 m; gap 83 m; zone centre (-7.0, 13.0)
+[match    0.0] bots: { "roam": 21 }; containers searched by bots 0 (all players 0); plan steps done 0; guns carried 42
+[match    0.0] roles: { "stalker": { "roam": 3 }, "rusher": { "roam": 6 }, "sniper": { "roam": 6 }, "looter": { "roam": 6 } }; stuck now 0; waypoints 1230; team { "lines": 0, "pings": 0, "laser_follow": 0, "learned_cells": 74, "blocked_cells": 0, "squads": 0, "following_humans": 0, &"learned_spots": 0 }
+[match    0.0] [lootstats] bots on the ground 21 (in water 0); armed 21; armed with ammo for a gun 21; long guns 21; attachments fitted 0; rounds of unusable ammo carried 0; items on the ground 418; bot pickups { "detours": 0, "detour_taken": 0, "fetches": 0, "fetch_done": 0, "items_taken": 0 }
+[match    4.5] [radio] Kuya Fishball (stalker): sneaking
+[match    4.8] [radio] Toto Pancit (rusher): hunting
+[match    4.8] [radio] Tatay Kulas (rusher): hunting
+[match    6.3] Ka Pedring (team 2) landed at (-4.0, 20.0, 26.0), 3.1 m/s, health 100; teammates -
+[match    7.1] Kuya Fishball (team 2) landed at (-2.0, 20.0, 27.0), 4.4 m/s, health 100; teammates 6 m
+[match   10.5] Bayaw Erning (team 2) landed at (-8.0, 20.0, 35.0), 4.9 m/s, health 100; teammates 4 m, 7 m
+[match   11.4] Junjun Tisoy (team 1) landed at (50.0, 5.0, -40.0), 7.0 m/s, health 100; teammates -
+[match   12.7] Tatay Kulas (team 1) landed at (56.0, 0.0, -43.0), 15.5 m/s, health 100; teammates 7 m
+[match   12.7] Tito Boy (team 0) landed at (-57.0, 0.0, -42.0), 6.4 m/s, health 100; teammates -
+[match   12.9] Aling Nena (team 0) landed at (-57.0, 0.0, -41.0), 5.7 m/s, health 100; teammates 1 m
+[match   13.0] Kapitan Tikoy (team 1) landed at (56.0, 7.0, -44.0), 10.3 m/s, health 100; teammates 8 m, 7 m
+[match   13.3] Toto Pancit (team 0) landed at (-55.0, 0.0, -40.0), 4.9 m/s, health 100; teammates 1 m, 1 m
+[match   14.3] Ate Siomai (team 1) landed at (56.0, 0.0, -40.0), 15.5 m/s, health 100; teammates 9 m, 7 m, 4 m
+[match   14.5] Bossing Dodong (team 1) landed at (52.0, 10.0, -36.0), 4.9 m/s, health 100; teammates 11 m, 13 m, 14 m, 11 m
+[match   15.0] status: { "ground": 21 }; armed 21; shots 0; zone -1 hold r=131; corpses 0; levels { "L5": 7, "between": 5, "L1": 8, "L3": 1 }; server tick avg 3.23 ms, p99 29.16 ms, max 61.96 ms over 900 ticks
+[match   15.0] dm teams: North Team 7 at (-29.0, -38.0) spread 29 m; East Team 7 at (55.0, -42.0) spread 6 m; South Team 7 at (-4.0, 24.0) spread 30 m; gap 84 m; zone centre (-7.0, 13.0)
+[match   15.0] bots: { "follow": 6, "hunt": 6, "roam": 7, "heal": 2 }; containers searched by bots 0 (all players 0); plan steps done 0; guns carried 42
+[match   15.0] [stuck] Kapitan Tikoy (rusher, hunt) at (56.5, 7.5, -44.9) -> (57.5, 10.0, -44.5), ahead wall, no_prog 2.5
+[match   15.0] [stuck] Junjun Tisoy (looter, roam) at (50.5, 0.0, -43.6) -> (49.5, 5.0, -43.5), ahead wall, no_prog 3.1
+[match   15.0] [stuck] Tito Boy (looter, roam) at (-55.8, 0.7, -39.6) -> (-54.5, 0.0, -38.5), ahead , no_prog 2.7
+[match   15.0] roles: { "stalker": { "follow": 2, "hunt": 1 }, "rusher": { "hunt": 5, "heal": 1 }, "sniper": { "follow": 3, "roam": 2, "heal": 1 }, "looter": { "roam": 5, "follow": 1 } }; stuck now 3; waypoints 1230; team { "lines": 3, "pings": 0, "laser_follow": 0, "learned_cells": 74, "blocked_cells": 0, "squads": 6, "following_humans": 0, &"learned_spots": 0 }
+[match   15.0] [lootstats] bots on the ground 21 (in water 0); armed 21; armed with ammo for a gun 21; long guns 21; attachments fitted 0; rounds of unusable ammo carried 0; items on the ground 418; bot pickups { "detours": 0, "detour_taken": 0, "fetches": 0, "fetch_done": 0, "items_taken": 0 }
+[match   16.9] Bebot Karaoke (team 1) landed at (56.0, 0.0, -43.0), 12.3 m/s, health 100; teammates 8 m, 11 m, 6 m, 1 m, 5 m
+[match   17.0] Pareng Pandesal (team 0) landed at (-56.0, 0.0, -37.0), 4.9 m/s, health 100; teammates 4 m, 6 m, 8 m
+[match   18.2] Tsong Ramil (team 1) landed at (55.0, 5.0, -39.0), 12.3 m/s, health 100; teammates 7 m, 5 m, 8 m, 5 m, 6 m, 6 m
+[match   18.5] [radio] Kapitan Tikoy (rusher): hunting
+[match   18.6] Pareng Jun (team 2) landed at (53.0, 18.0, 44.0), 7.0 m/s, health 100; teammates 86 m, 109 m, 102 m
+[match   19.9] Kulot Sabaw (team 2) landed at (-5.0, 20.0, 2.0), 2.5 m/s, health 100; teammates 47 m, 60 m, 59 m, 71 m
+[match   21.6] [radio] Bunso Badong (sniper): contact
+[match   21.7] [radio] Tatay Kulas (rusher): contact
+[match   22.3] [radio] Totoy Kulot (sniper): taking_fire
+[match   22.5] Totoy Kulot killed by Tatay Kulas (gunshot); 3 teams left
+[match   22.5] alive: North Team 6, East Team 7; score { 0: 0, 1: 1, 2: 0 }
+[match   22.9] [radio] Tatay Kulas (rusher): need_help
+[match   23.0] [radio] Ate Load (sniper): taking_fire
+[match   23.1] Ate Load killed by Bunso Badong (gunshot); 3 teams left
+[match   23.1] alive: North Team 5, East Team 7; score { 0: 0, 1: 1, 2: 0 }
+[match   23.3] Mang Jolo (team 2) landed at (-54.0, 18.0, 44.0), 7.0 m/s, health 100; teammates 10 m, 65 m, 6 m, 1 m, 109 m
+[match   23.5] Tatay Kulas killed by Bunso Badong (gunshot); 3 teams left
+[match   23.5] alive: North Team 5, East Team 6; score { 0: 1, 1: 1, 2: 0 }
+[match   23.8] [radio] Tsong Ramil (looter): affirmative
+[match   23.8] [radio] Toto Pancit (rusher): affirmative
+SCRIPT ERROR: Invalid access to property or key 'dir' on a base object of type 'Dictionary'.
+   at: corpse_steps_near (res://src/world/dynamics.gd:1312)
+   GDScript backtrace (most recent call first):
+       [0] corpse_steps_near (res://src/world/dynamics.gd:1312)
+       [1] server_spawn_corpse (res://src/world/dynamics.gd:1278)
+       [2] server_spawn_corpse (res://src/world/map_builder.gd:1084)
+       [3] _after_damage (res://src/match/world.gd:944)
+       [4] _server_motion_event (res://src/match/world.gd:794)
+       [5] _server_apply (res://src/match/world.gd:592)
+       [6] _physics_process (res://src/match/world.gd:539)
+[match   24.4] Bayaw Erning killed by the world (fall); 3 teams left
+[match   24.4] alive: North Team 5, East Team 6; score { 0: 1, 1: 1, 2: 0 }
+[match   24.6] [radio] Pareng Pandesal (sniper): affirmative
+[match   24.8] [radio] Mang Jolo (sniper): sniping
+[match   24.9] [radio] Kapitan Tikoy (rusher): down
+[match   25.4] [radio] Tito Boy (looter): affirmative
+[match   25.9] [radio] Kuya Fishball (stalker): down
+[match   25.9] [radio] Bebot Karaoke (stalker): affirmative
+[match   26.2] [radio] Bunso Badong (sniper): taking_fire
+[match   26.3] Kapitan Tikoy killed by Bunso Badong (gunshot); 3 teams left
+[match   26.3] alive: North Team 5, East Team 5; score { 0: 2, 1: 1, 2: 0 }
+[match   26.8] [radio] Bossing Dodong (looter): down
+SCRIPT ERROR: Invalid access to property or key 'dir' on a base object of type 'Dictionary'.
+   at: corpse_steps_near (res://src/world/dynamics.gd:1312)
+   GDScript backtrace (most recent call first):
+       [0] corpse_steps_near (res://src/world/dynamics.gd:1312)
+       [1] server_spawn_corpse (res://src/world/dynamics.gd:1278)
+       [2] server_spawn_corpse (res://src/world/map_builder.gd:1084)
+       [3] _after_damage (res://src/match/world.gd:944)
+       [4] _server_motion_event (res://src/match/world.gd:794)
+       [5] _server_apply (res://src/match/world.gd:592)
+       [6] _physics_process (res://src/match/world.gd:539)
+[match   27.0] Mang Jolo killed by the world (fall); 3 teams left
+[match   27.0] alive: North Team 5, East Team 5; score { 0: 2, 1: 1, 2: 0 }
+[match   27.3] [radio] Bunso Badong (sniper): down
+SCRIPT ERROR: Invalid access to property or key 'dir' on a base object of type 'Dictionary'.
+   at: corpse_steps_near (res://src/world/dynamics.gd:1312)
+   GDScript backtrace (most recent call first):
+       [0] corpse_steps_near (res://src/world/dynamics.gd:1312)
+       [1] server_spawn_corpse (res://src/world/dynamics.gd:1278)
+       [2] server_spawn_corpse (res://src/world/map_builder.gd:1084)
+       [3] _after_damage (res://src/match/world.gd:944)
+       [4] _server_motion_event (res://src/match/world.gd:794)
+       [5] _server_apply (res://src/match/world.gd:592)
+       [6] _physics_process (res://src/match/world.gd:539)
+[match   27.3] Ka Pedring killed by the world (fall); 3 teams left
+[match   27.3] alive: North Team 5, East Team 5; score { 0: 2, 1: 1, 2: 0 }
+[match   27.5] Totoy Kulot respawned at (-43.0, 0.0, -29.0) (nearest enemy 53 m)
+[match   27.5] [radio] Kuya Fishball (stalker): down
+[match   27.8] [radio] Tsong Ramil (looter): affirmative
+[match   28.1] Ate Load respawned at (-43.0, 0.0, -27.0) (nearest enemy 52 m)
+[match   28.3] [radio] Bunso Badong (sniper): kill
+[match   28.3] [radio] Kuya Fishball (stalker): down
+[match   28.5] Tatay Kulas respawned at (45.0, 10.0, -26.0) (nearest enemy 19 m)
+SCRIPT ERROR: Invalid access to property or key 'dir' on a base object of type 'Dictionary'.
+   at: corpse_steps_near (res://src/world/dynamics.gd:1312)
+   GDScript backtrace (most recent call first):
+       [0] corpse_steps_near (res://src/world/dynamics.gd:1312)
+       [1] server_spawn_corpse (res://src/world/dynamics.gd:1278)
+       [2] server_spawn_corpse (res://src/world/map_builder.gd:1084)
+       [3] _after_damage (res://src/match/world.gd:944)
+       [4] _server_motion_event (res://src/match/world.gd:794)
+       [5] _server_apply (res://src/match/world.gd:592)
+       [6] _physics_process (res://src/match/world.gd:539)
+[match   28.5] Kuya Fishball killed by the world (fall); 3 teams left
+[match   28.5] alive: North Team 7, East Team 6; score { 0: 2, 1: 1, 2: 0 }
+[match   28.9] [radio] Junjun Tisoy (looter): affirmative
+[match   29.0] [radio] Kulot Sabaw (looter): down
+[match   29.3] [radio] Bunso Badong (sniper): kill
+[match   29.4] Bayaw Erning respawned at (0.0, 20.0, 32.0) (nearest enemy 64 m)
+[match   30.0] status: { "ground": 17 }; armed 17; shots 63; zone -1 hold r=131; corpses 8; levels { "L1": 11, "L4": 1, "L5": 2, "between": 2, "L3": 1 }; server tick avg 4.01 ms, p99 26.43 ms, max 41.32 ms over 900 ticks
+[match   30.0] dm teams: North Team 7 at (-26.0, -31.0) spread 21 m; East Team 6 at (50.0, -35.0) spread 5 m; South Team 4 at (25.0, 9.0) spread 41 m; gap 77 m; zone centre (-7.0, 13.0)
+[match   30.0] bots: { "follow": 2, "roam": 9, "order": 3, "hunt": 3 }; containers searched by bots 0 (all players 0); plan steps done 0; guns carried 34
+[match   30.0] [stuck] Kulot Sabaw (looter, roam) at (-4.8, 20.0, 2.8) -> (6.5, 15.0, 0.5), ahead wall, no_prog 2.9
+[match   30.0] roles: { "sniper": { "follow": 1, "roam": 3 }, "looter": { "roam": 4, "follow": 1, "order": 2 }, "rusher": { "hunt": 2, "roam": 1 }, "stalker": { "order": 1, "hunt": 1, "roam": 1 } }; stuck now 1; waypoints 1230; team { "lines": 27, "pings": 0, "laser_follow": 0, "learned_cells": 79, "blocked_cells": 0, "squads": 6, "following_humans": 0, &"learned_spots": 0 }
+[match   30.0] [lootstats] bots on the ground 17 (in water 0); armed 17; armed with ammo for a gun 17; long guns 17; attachments fitted 0; rounds of unusable ammo carried 0; items on the ground 418; bot pickups { "detours": 0, "detour_taken": 0, "fetches": 0, "fetch_done": 0, "items_taken": 0 }
+[match   31.3] Kapitan Tikoy respawned at (40.0, 10.0, -28.0) (nearest enemy 18 m)
+[match   32.0] Mang Jolo respawned at (-1.0, 20.0, 30.0) (nearest enemy 58 m)
+[match   32.3] Ka Pedring respawned at (1.0, 20.0, 32.0) (nearest enemy 60 m)
+[match   32.8] [radio] Lola Basyang (looter): contact
+[match   32.8] [radio] Ate Siomai (sniper): contact
+[match   32.8] Lola Basyang (team 2) landed at (55.0, 7.0, -44.0), 12.3 m/s, health 100; teammates 75 m, 77 m
+[match   33.5] Kuya Fishball respawned at (-3.0, 20.0, 32.0) (nearest enemy 57 m)
+[match   33.8] [radio] Ate Load (stalker): sneaking
+[match   33.8] [radio] Kulot Sabaw (looter): affirmative
+[match   34.0] [radio] Ate Siomai (sniper): need_help
+SCRIPT ERROR: Invalid access to property or key 'dir' on a base object of type 'Dictionary'.
+   at: corpse_steps_near (res://src/world/dynamics.gd:1312)
+   GDScript backtrace (most recent call first):
+       [0] corpse_steps_near (res://src/world/dynamics.gd:1312)
+       [1] server_spawn_corpse (res://src/world/dynamics.gd:1278)
+       [2] server_spawn_corpse (res://src/world/map_builder.gd:1084)
+       [3] _after_damage (res://src/match/world.gd:944)
+       [4] server_projectile_hit_character (res://src/match/world.gd:894)
+       [5] _advance (res://src/weapons/projectile_server.gd:103)
+       [6] step (res://src/weapons/projectile_server.gd:68)
+       [7] _physics_process (res://src/match/world.gd:553)
+[match   34.2] Ate Siomai killed by Lola Basyang (gunshot); 3 teams left
+[match   34.2] alive: North Team 7, East Team 6; score { 0: 2, 1: 1, 2: 1 }
+[match   34.7] [radio] Lola Basyang (looter): kill
+[match   35.1] [radio] Bebot Karaoke (stalker): affirmative
+[match   35.8] [radio] Pareng Jun (stalker): affirmative
+[match   35.9] [radio] Bossing Dodong (looter): affirmative
+[match   36.9] [radio] Bossing Dodong (looter): down
+[match   39.1] [radio] Bebot Karaoke (stalker): clear
+[match   39.2] Ate Siomai respawned at (44.0, 10.0, -26.0) (nearest enemy 14 m)
+[match   39.5] Ka Pedring (team 2) landed at (11.0, 20.0, 32.0), 3.1 m/s, health 100; teammates 90 m, 34 m, 49 m
+[match   40.4] [radio] Junjun Tisoy (looter): taking_fire
+[match   40.5] [radio] Aling Nena (rusher): contact
+SCRIPT ERROR: Invalid access to property or key 'dir' on a base object of type 'Dictionary'.
+   at: corpse_steps_near (res://src/world/dynamics.gd:1312)
+   GDScript backtrace (most recent call first):
+       [0] corpse_steps_near (res://src/world/dynamics.gd:1312)
+       [1] server_spawn_corpse (res://src/world/dynamics.gd:1278)
+       [2] server_spawn_corpse (res://src/world/map_builder.gd:1084)
+       [3] _after_damage (res://src/match/world.gd:944)
+       [4] server_projectile_hit_character (res://src/match/world.gd:894)
+       [5] _advance (res://src/weapons/projectile_server.gd:103)
+       [6] step (res://src/weapons/projectile_server.gd:68)
+       [7] _physics_process (res://src/match/world.gd:553)
+[match   40.8] Lola Basyang killed by Tsong Ramil (gunshot); 3 teams left
+[match   40.8] alive: North Team 7, East Team 7; score { 0: 2, 1: 2, 2: 1 }
+[match   41.3] [radio] Tsong Ramil (looter): kill
+[match   42.3] [radio] Aling Nena (rusher): need_help
+[match   42.6] [radio] Junjun Tisoy (looter): need_help
+SCRIPT ERROR: Invalid access to property or key 'dir' on a base object of type 'Dictionary'.
+   at: corpse_steps_near (res://src/world/dynamics.gd:1312)
+   GDScript backtrace (most recent call first):
+       [0] corpse_steps_near (res://src/world/dynamics.gd:1312)
+       [1] server_spawn_corpse (res://src/world/dynamics.gd:1278)
+       [2] server_spawn_corpse (res://src/world/map_builder.gd:1084)
+       [3] _after_damage (res://src/match/world.gd:944)
+       [4] server_projectile_hit_character (res://src/match/world.gd:894)
+       [5] _advance (res://src/weapons/projectile_server.gd:103)
+       [6] step (res://src/weapons/projectile_server.gd:68)
+       [7] _physics_process (res://src/match/world.gd:553)
+[match   42.7] Junjun Tisoy killed by Bebot Karaoke (gunshot); 3 teams left
+[match   42.7] alive: North Team 7, East Team 6; score { 0: 2, 1: 2, 2: 1 }
+[match   43.2] [radio] Toto Pancit (rusher): affirmative
+[match   43.6] [radio] Tsong Ramil (looter): affirmative
+[match   43.7] Aling Nena killed by Bebot Karaoke (gunshot); 3 teams left
+[match   43.7] alive: North Team 6, East Team 6; score { 0: 2, 1: 3, 2: 1 }
+[match   44.2] [radio] Totoy Kulot (rusher): affirmative
+[match   44.6] [radio] Kapitan Tikoy (looter): affirmative
+[match   45.0] status: { "ground": 18 }; armed 18; shots 122; zone -1 hold r=131; corpses 12; levels { "L1": 9, "L5": 5, "between": 2, "L3": 2 }; server tick avg 4.02 ms, p99 23.19 ms, max 41.75 ms over 900 ticks
+[match   45.0] dm teams: North Team 6 at (1.0, -30.0) spread 41 m; East Team 6 at (46.0, -37.0) spread 11 m; South Team 6 at (31.0, 19.0) spread 23 m; gap 46 m; zone centre (-7.0, 13.0)
+[match   45.0] bots: { "fight": 2, "order": 2, "roam": 5, "hunt": 6, "overwatch": 1, "investigate": 2 }; containers searched by bots 0 (all players 0); plan steps done 0; guns carried 37
+[match   45.0] [stuck] Tito Boy (looter, roam) at (-51.9, 0.0, -45.2) -> (-52.5, 0.0, -46.5), ahead wall, no_prog 1.7
+[match   45.0] [stuck] Tatay Kulas (sniper, roam) at (24.2, 10.0, -41.3) -> (24.5, 10.0, -35.5), ahead , no_prog 2.1
+[match   45.0] roles: { "sniper": { "fight": 1, "overwatch": 1, "roam": 1 }, "looter": { "fight": 1, "order": 1, "roam": 4, "investigate": 1 }, "rusher": { "order": 1, "hunt": 3, "investigate": 1 }, "stalker": { "hunt": 3 } }; stuck now 2; waypoints 1230; team { "lines": 47, "pings": 0, "laser_follow": 0, "learned_cells": 80, "blocked_cells": 0, "squads": 6, "following_humans": 0, &"learned_spots": 0 }
+[match   45.0] [lootstats] bots on the ground 18 (in water 0); armed 18; armed with ammo for a gun 18; long guns 19; attachments fitted 0; rounds of unusable ammo carried 0; items on the ground 416; bot pickups { "detours": 3, "detour_taken": 2, "fetches": 0, "fetch_done": 0, "items_taken": 2 }
+[match   45.2] [radio] Pareng Pandesal (sniper): down
+[match   45.6] [radio] Bebot Karaoke (stalker): kill
+[match   45.9] Lola Basyang respawned at (1.0, 20.0, 32.0) (nearest enemy 39 m)
+[match   46.1] Tatay Kulas (team 1) landed at (27.0, 10.0, -40.0), 4.9 m/s, health 100; teammates 27 m, 26 m, 28 m
+[match   46.5] Kapitan Tikoy (team 1) landed at (51.0, 0.0, -40.0), 12.3 m/s, health 100; teammates 5 m, 4 m, 4 m, 26 m
+[match   47.3] [radio] Bossing Dodong (looter): taking_fire
+[match   47.8] Junjun Tisoy respawned at (44.0, 10.0, -24.0) (nearest enemy 11 m)
+SCRIPT ERROR: Invalid access to property or key 'dir' on a base object of type 'Dictionary'.
+   at: corpse_steps_near (res://src/world/dynamics.gd:1312)
+   GDScript backtrace (most recent call first):
+       [0] corpse_steps_near (res://src/world/dynamics.gd:1312)
+       [1] server_spawn_corpse (res://src/world/dynamics.gd:1278)
+       [2] server_spawn_corpse (res://src/world/map_builder.gd:1084)
+       [3] _after_damage (res://src/match/world.gd:944)
+       [4] server_projectile_hit_character (res://src/match/world.gd:894)
+       [5] _advance (res://src/weapons/projectile_server.gd:103)
+       [6] step (res://src/weapons/projectile_server.gd:68)
+       [7] _physics_process (res://src/match/world.gd:553)
+[match   48.0] Bossing Dodong killed by Totoy Kulot (gunshot); 3 teams left
+[match   48.0] alive: North Team 6, East Team 6; score { 0: 3, 1: 3, 2: 1 }
+[match   48.4] [radio] Tsong Ramil (looter): affirmative
+[match   48.4] [radio] Totoy Kulot (rusher): kill
+[match   48.7] Aling Nena respawned at (-43.0, 0.0, -29.0) (nearest enemy 51 m)
+[match   49.2] [radio] Bebot Karaoke (stalker): taking_fire
+[match   49.5] [radio] Toto Pancit (rusher): taking_fire
+[match   50.0] [radio] Kapitan Tikoy (looter): affirmative
+SCRIPT ERROR: Invalid access to property or key 'dir' on a base object of type 'Dictionary'.
+   at: corpse_steps_near (res://src/world/dynamics.gd:1312)
+   GDScript backtrace (most recent call first):
+       [0] corpse_steps_near (res://src/world/dynamics.gd:1312)
+       [1] server_spawn_corpse (res://src/world/dynamics.gd:1278)
+       [2] server_spawn_corpse (res://src/world/map_builder.gd:1084)
+       [3] _after_damage (res://src/match/world.gd:944)
+       [4] server_projectile_hit_character (res://src/match/world.gd:894)
+       [5] _advance (res://src/weapons/projectile_server.gd:103)
+       [6] step (res://src/weapons/projectile_server.gd:68)
+       [7] _physics_process (res://src/match/world.gd:553)
+[match   50.3] Bebot Karaoke killed by Pareng Pandesal (gunshot); 3 teams left
+[match   50.3] alive: North Team 7, East Team 5; score { 0: 4, 1: 3, 2: 1 }
+[match   50.7] [radio] Kapitan Tikoy (looter): affirmative
+[match   51.0] [radio] Pareng Pandesal (sniper): kill
+[match   51.1] Ate Siomai (team 1) landed at (51.0, 0.0, -40.0), 12.3 m/s, health 100; teammates 4 m, 23 m, 4 m
+[match   51.2] [radio] Lola Basyang (sniper): sniping
+[match   51.4] [radio] Tsong Ramil (looter): affirmative
+[match   52.4] [radio] Tsong Ramil (looter): down
+[match   53.0] Bossing Dodong respawned at (39.0, 10.0, -26.0) (nearest enemy 13 m)
+[match   53.0] [radio] Totoy Kulot (rusher): clear
+SCRIPT ERROR: Invalid access to property or key 'dir' on a base object of type 'Dictionary'.
+   at: corpse_steps_near (res://src/world/dynamics.gd:1312)
+   GDScript backtrace (most recent call first):
+       [0] corpse_steps_near (res://src/world/dynamics.gd:1312)
+       [1] server_spawn_corpse (res://src/world/dynamics.gd:1278)
+       [2] server_spawn_corpse (res://src/world/map_builder.gd:1084)
+       [3] _after_damage (res://src/match/world.gd:944)
+       [4] _server_motion_event (res://src/match/world.gd:794)
+       [5] _server_apply (res://src/match/world.gd:592)
+       [6] _physics_process (res://src/match/world.gd:539)
+[match   53.2] Ka Pedring killed by the world (fall); 3 teams left
+[match   53.2] alive: North Team 7, East Team 6; score { 0: 4, 1: 3, 2: 1 }
+[match   53.4] [radio] Tsong Ramil (looter): need_help
+[match   53.8] [radio] Pareng Jun (stalker): down
+[match   53.8] Lola Basyang (team 2) landed at (11.0, 20.0, 32.0), 3.1 m/s, health 100; teammates 33 m, 47 m
+[match   54.3] [radio] Ate Siomai (rusher): affirmative
+[match   54.7] [radio] Pareng Pandesal (sniper): need_help
+[match   55.2] [radio] Ate Siomai (rusher): affirmative
+SCRIPT ERROR: Invalid access to property or key 'dir' on a base object of type 'Dictionary'.
+   at: corpse_steps_near (res://src/world/dynamics.gd:1312)
+   GDScript backtrace (most recent call first):
+       [0] corpse_steps_near (res://src/world/dynamics.gd:1312)
+       [1] server_spawn_corpse (res://src/world/dynamics.gd:1278)
+       [2] server_spawn_corpse (res://src/world/map_builder.gd:1084)
+       [3] _after_damage (res://src/match/world.gd:944)
+       [4] server_projectile_hit_character (res://src/match/world.gd:894)
+       [5] _advance (res://src/weapons/projectile_server.gd:103)
+       [6] step (res://src/weapons/projectile_server.gd:68)
+       [7] _physics_process (res://src/match/world.gd:553)
+[match   55.3] Ate Siomai killed by Pareng Pandesal (gunshot); 3 teams left
+[match   55.3] alive: North Team 7, East Team 5; score { 0: 5, 1: 3, 2: 1 }
+[match   55.4] Bebot Karaoke respawned at (40.0, 10.0, -26.0) (nearest enemy 12 m)
+SCRIPT ERROR: Invalid access to property or key 'dir' on a base object of type 'Dictionary'.
+   at: corpse_steps_near (res://src/world/dynamics.gd:1312)
+   GDScript backtrace (most recent call first):
+       [0] corpse_steps_near (res://src/world/dynamics.gd:1312)
+       [1] server_spawn_corpse (res://src/world/dynamics.gd:1278)
+       [2] server_spawn_corpse (res://src/world/map_builder.gd:1084)
+       [3] _after_damage (res://src/match/world.gd:944)
+       [4] server_projectile_hit_character (res://src/match/world.gd:894)
+       [5] _advance (res://src/weapons/projectile_server.gd:103)
+       [6] step (res://src/weapons/projectile_server.gd:68)
+       [7] _physics_process (res://src/match/world.gd:553)
+[match   55.4] Totoy Kulot killed by Tsong Ramil (gunshot); 3 teams left
+[match   55.4] alive: North Team 6, East Team 6; score { 0: 5, 1: 4, 2: 1 }
+[match   55.7] [radio] Bunso Badong (sniper): affirmative
+[match   55.9] [radio] Bayaw Erning (looter): contact
+[match   56.0] Bayaw Erning (team 2) landed at (51.0, 0.0, -40.0), 18.3 m/s, health 100; teammates 63 m, 85 m, 81 m
+SCRIPT ERROR: Invalid access to property or key 'dir' on a base object of type 'Dictionary'.
+   at: corpse_steps_near (res://src/world/dynamics.gd:1312)
+   GDScript backtrace (most recent call first):
+       [0] corpse_steps_near (res://src/world/dynamics.gd:1312)
+       [1] server_spawn_corpse (res://src/world/dynamics.gd:1278)
+       [2] server_spawn_corpse (res://src/world/map_builder.gd:1084)
+       [3] _after_damage (res://src/match/world.gd:944)
+       [4] _server_motion_event (res://src/match/world.gd:794)
+       [5] _server_apply (res://src/match/world.gd:592)
+       [6] _physics_process (res://src/match/world.gd:539)
+[match   56.0] Bayaw Erning killed by the world (fall); 3 teams left
+[match   56.0] alive: North Team 6, East Team 6; score { 0: 5, 1: 4, 2: 1 }
+[match   56.2] [radio] Tatay Kulas (sniper): affirmative
+[match   56.6] [radio] Kulot Sabaw (looter): down
+[match   56.7] [radio] Bunso Badong (sniper): affirmative
+[match   57.1] Pareng Pandesal killed by Kapitan Tikoy (gunshot); 3 teams left
+[match   57.1] alive: North Team 5, East Team 6; score { 0: 5, 1: 5, 2: 1 }
+[match   57.2] [radio] Tsong Ramil (looter): affirmative
+[match   57.7] [radio] Aling Nena (stalker): affirmative
+[match   58.0] [radio] Kapitan Tikoy (looter): kill
+[match   58.2] Ka Pedring respawned at (0.0, 20.0, 32.0) (nearest enemy 37 m)
+[match   58.6] [radio] Toto Pancit (rusher): down
+[match   58.7] [radio] Mang Jolo (looter): contact
+[match   59.0] Bunso Badong (team 0) landed at (2.0, 0.0, 2.0), 4.9 m/s, health 88; teammates 59 m, 72 m
+[match   59.1] [radio] Tsong Ramil (looter): down
+[match   59.1] Mang Jolo (team 2) landed at (51.0, 0.0, -40.0), 18.5 m/s, health 100; teammates 70 m, 85 m, 78 m
+SCRIPT ERROR: Invalid access to property or key 'dir' on a base object of type 'Dictionary'.
+   at: corpse_steps_near (res://src/world/dynamics.gd:1312)
+   GDScript backtrace (most recent call first):
+       [0] corpse_steps_near (res://src/world/dynamics.gd:1312)
+       [1] server_spawn_corpse (res://src/world/dynamics.gd:1278)
+       [2] server_spawn_corpse (res://src/world/map_builder.gd:1084)
+       [3] _after_damage (res://src/match/world.gd:944)
+       [4] _server_motion_event (res://src/match/world.gd:794)
+       [5] _server_apply (res://src/match/world.gd:592)
+       [6] _physics_process (res://src/match/world.gd:539)
+[match   59.1] Mang Jolo killed by the world (fall); 3 teams left
+[match   59.1] alive: North Team 5, East Team 6; score { 0: 5, 1: 5, 2: 1 }
+[match   59.6] [radio] Aling Nena (stalker): affirmative
+[match   59.8] [radio] Kulot Sabaw (looter): down
+[match   60.0] status: { "ground": 16 }; armed 16; shots 226; zone -1 hold r=131; corpses 20; levels { "between": 5, "L3": 3, "L1": 6, "L5": 2 }; server tick avg 4.32 ms, p99 25.17 ms, max 49.35 ms over 900 ticks
+[match   60.0] dm teams: North Team 5 at (-23.0, -32.0) spread 43 m; East Team 6 at (50.0, -36.0) spread 8 m; South Team 5 at (27.0, 14.0) spread 39 m; gap 73 m; zone centre (-7.0, 13.0)
+[match   60.0] bots: { "heal": 2, "investigate": 6, "order": 1, "roam": 4, "hunt": 3 }; containers searched by bots 0 (all players 0); plan steps done 0; guns carried 33
+[match   60.0] [stuck] Tsong Ramil (looter, heal) at (50.7, 1.0, -35.7) -> (51.0, 0.0, -34.2), ahead wall, no_prog 1.6
+[match   60.0] [stuck] Tito Boy (looter, roam) at (-53.5, 0.0, -45.0) -> (-54.5, 0.0, -46.5), ahead wall, no_prog 3.1
+[match   60.0] roles: { "looter": { "heal": 2, "investigate": 1, "roam": 3 }, "rusher": { "order": 1, "investigate": 1 }, "stalker": { "hunt": 3, "investigate": 1 }, "sniper": { "investigate": 3, "roam": 1 } }; stuck now 2; waypoints 1230; team { "lines": 79, "pings": 0, "laser_follow": 0, "learned_cells": 83, "blocked_cells": 1, "squads": 6, "following_humans": 0, &"learned_spots": 0 }
+[match   60.0] [lootstats] bots on the ground 16 (in water 0); armed 16; armed with ammo for a gun 16; long guns 17; attachments fitted 0; rounds of unusable ammo carried 0; items on the ground 416; bot pickups { "detours": 3, "detour_taken": 2, "fetches": 0, "fetch_done": 0, "items_taken": 2 }
+[match   60.0] [radio] Tsong Ramil (looter): kill
+[match   60.3] Ate Siomai respawned at (40.0, 10.0, -24.0) (nearest enemy 16 m)
+[match   60.4] Totoy Kulot respawned at (-42.0, 0.0, -29.0) (nearest enemy 46 m)
+[navwatch] malasugue_mall: 1157 bot-s (816 moving), stalls 4 (0.2/bot-min, 0.9% of moving time), facing a wall 4 (0.2/bot-min)
+[match   61.0] Bayaw Erning respawned at (-4.0, 20.0, 30.0) (nearest enemy 38 m)
+[match   61.7] Kuya Fishball (team 2) landed at (50.0, 0.0, -40.0), 18.5 m/s, health 100; teammates 66 m, 84 m, 76 m
+SCRIPT ERROR: Invalid access to property or key 'dir' on a base object of type 'Dictionary'.
+   at: corpse_steps_near (res://src/world/dynamics.gd:1312)
+   GDScript backtrace (most recent call first):
+       [0] corpse_steps_near (res://src/world/dynamics.gd:1312)
+       [1] server_spawn_corpse (res://src/world/dynamics.gd:1278)
+       [2] server_spawn_corpse (res://src/world/map_builder.gd:1084)
+       [3] _after_damage (res://src/match/world.gd:944)
+       [4] _server_motion_event (res://src/match/world.gd:794)
+       [5] _server_apply (res://src/match/world.gd:592)
+       [6] _physics_process (res://src/match/world.gd:539)
+[match   61.7] Kuya Fishball killed by the world (fall); 3 teams left
+[match   61.7] alive: North Team 6, East Team 7; score { 0: 5, 1: 5, 2: 1 }
+[match   62.1] Pareng Pandesal respawned at (-43.0, 0.0, -27.0) (nearest enemy 52 m)
+[match   62.2] [radio] Kulot Sabaw (looter): down
+[match   62.3] [radio] Toto Pancit (rusher): need_help
+[match   62.7] Aling Nena (team 0) landed at (-56.0, 0.0, -40.0), 4.4 m/s, health 100; teammates 106 m, 4 m, 75 m
+[match   63.2] [radio] Bunso Badong (sniper): affirmative
+[match   63.9] [radio] Totoy Kulot (rusher): affirmative
+[match   64.1] Mang Jolo respawned at (-3.0, 20.0, 32.0) (nearest enemy 48 m)
+[match   64.7] [radio] Tsong Ramil (looter): taking_fire
+[match   64.7] Junjun Tisoy (team 1) landed at (51.0, 0.0, -43.0), 12.3 m/s, health 100; teammates 9 m, 6 m, 8 m
+[match   65.7] Bossing Dodong (team 1) landed at (51.0, 0.0, -40.0), 12.3 m/s, health 100; teammates 7 m, 5 m, 4 m, 4 m
+[match   66.0] Toto Pancit killed by Tsong Ramil (gunshot); 3 teams left
+[match   66.0] alive: North Team 6, East Team 7; score { 0: 5, 1: 6, 2: 1 }
+[match   66.5] [radio] Tsong Ramil (looter): kill
+[match   66.5] [radio] Bunso Badong (sniper): down
+[match   66.7] Kuya Fishball respawned at (1.0, 20.0, 32.0) (nearest enemy 58 m)
+[match   67.2] Bebot Karaoke (team 1) landed at (50.0, 0.0, -39.0), 12.3 m/s, health 100; teammates 8 m, 2 m, 3 m, 5 m, 4 m
+SCRIPT ERROR: Invalid access to property or key 'dir' on a base object of type 'Dictionary'.
+   at: corpse_steps_near (res://src/world/dynamics.gd:1312)
+   GDScript backtrace (most recent call first):
+       [0] corpse_steps_near (res://src/world/dynamics.gd:1312)
+       [1] server_spawn_corpse (res://src/world/dynamics.gd:1278)
+       [2] server_spawn_corpse (res://src/world/map_builder.gd:1084)
+       [3] _after_damage (res://src/match/world.gd:944)
+       [4] _server_motion_event (res://src/match/world.gd:794)
+       [5] _server_apply (res://src/match/world.gd:592)
+       [6] _physics_process (res://src/match/world.gd:539)
+[match   68.8] Lola Basyang killed by the world (fall); 3 teams left
+[match   68.8] alive: North Team 6, East Team 7; score { 0: 5, 1: 6, 2: 1 }
+[match   69.2] [radio] Kulot Sabaw (looter): down
+[match   69.3] [radio] Bunso Badong (sniper): taking_fire
+[match   69.7] Kulot Sabaw killed by Bunso Badong (gunshot); 3 teams left
+[match   69.7] alive: North Team 6, East Team 7; score { 0: 6, 1: 6, 2: 1 }
+[match   70.1] [radio] Totoy Kulot (rusher): affirmative
+[match   70.1] [radio] Mang Jolo (sniper): affirmative
+[match   71.0] Toto Pancit respawned at (-40.0, 0.0, -29.0) (nearest enemy 76 m)
+[match   71.1] [radio] Aling Nena (stalker): affirmative
+[match   71.2] [radio] Pareng Jun (stalker): down
+[match   71.2] [radio] Bossing Dodong (sniper): sniping
+[match   72.2] [radio] Kuya Fishball (sniper): affirmative
+[match   72.2] [radio] Bunso Badong (sniper): kill
+[match   73.2] [radio] Junjun Tisoy (stalker): sneaking
+[match   73.8] Lola Basyang respawned at (0.0, 20.0, 30.0) (nearest enemy 40 m)
+[match   74.8] Kulot Sabaw respawned at (-3.0, 20.0, 32.0) (nearest enemy 38 m)
+[match   75.0] status: { "ground": 21 }; armed 21; shots 251; zone -1 hold r=131; corpses 24; levels { "L1": 12, "between": 2, "L5": 6, "L3": 1 }; server tick avg 3.84 ms, p99 29.78 ms, max 47.70 ms over 900 ticks
+[match   75.0] dm teams: North Team 7 at (-32.0, -29.0) spread 26 m; East Team 7 at (52.0, -36.0) spread 5 m; South Team 7 at (20.0, 27.0) spread 25 m; gap 84 m; zone centre (-7.0, 13.0)
+[match   75.0] bots: { "order": 3, "roam": 11, "hunt": 6, "investigate": 1 }; containers searched by bots 0 (all players 0); plan steps done 0; guns carried 43
+[match   75.0] [stuck] Pareng Jun (stalker, hunt) at (54.5, 0.0, 44.7) -> (52.5, 0.0, 46.5), ahead wall, no_prog 2.3
+[match   75.0] [stuck] Pareng Pandesal (stalker, hunt) at (-52.9, 2.5, -45.2) -> (-52.5, 0.0, -46.5), ahead wall, no_prog 1.6
+[match   75.0] roles: { "looter": { "order": 1, "roam": 3, "investigate": 1 }, "stalker": { "hunt": 6, "order": 1 }, "sniper": { "roam": 6 }, "rusher": { "order": 1, "roam": 2 } }; stuck now 2; waypoints 1230; team { "lines": 97, "pings": 0, "laser_follow": 0, "learned_cells": 84, "blocked_cells": 3, "squads": 6, "following_humans": 0, &"learned_spots": 0 }
+[match   75.0] [lootstats] bots on the ground 21 (in water 0); armed 21; armed with ammo for a gun 21; long guns 22; attachments fitted 0; rounds of unusable ammo carried 0; items on the ground 416; bot pickups { "detours": 3, "detour_taken": 2, "fetches": 0, "fetch_done": 0, "items_taken": 2 }
+[match   75.0] [radio] Tsong Ramil (looter): in_position
+[match   75.7] [radio] Bunso Badong (sniper): in_position
+[match   77.1] [radio] Totoy Kulot (rusher): in_position
+[match   77.8] [radio] Bayaw Erning (stalker): sneaking
+[match   80.4] Ate Siomai (team 1) landed at (53.0, 6.0, -42.0), 5.7 m/s, health 100; teammates 12 m, 7 m, 7 m, 9 m, 30 m, 10 m
+[match   81.0] [radio] Bossing Dodong (sniper): in_position
+[match   81.8] [radio] Aling Nena (stalker): in_position
+[match   82.4] Kulot Sabaw (team 2) landed at (11.0, 20.0, 31.0), 3.1 m/s, health 100; teammates 48 m
+[match   83.6] Toto Pancit (team 0) landed at (-57.0, 0.0, -42.0), 5.7 m/s, health 100; teammates 4 m, 68 m, 68 m
+[match   85.4] Ka Pedring (team 2) landed at (53.0, 17.0, -43.0), 4.4 m/s, health 100; teammates 89 m, 80 m
+[match   88.0] [radio] Bossing Dodong (sniper): in_position
+[match   88.2] Bayaw Erning (team 2) landed at (51.0, 10.0, 39.0), 12.3 m/s, health 100; teammates 12 m, 81 m, 14 m
+[match   88.2] [radio] Lola Basyang (rusher): hunting
+SCRIPT ERROR: Invalid access to property or key 'dir' on a base object of type 'Dictionary'.
+   at: corpse_steps_near (res://src/world/dynamics.gd:1312)
+   GDScript backtrace (most recent call first):
+       [0] corpse_steps_near (res://src/world/dynamics.gd:1312)
+       [1] server_spawn_corpse (res://src/world/dynamics.gd:1278)
+       [2] server_spawn_corpse (res://src/world/map_builder.gd:1084)
+       [3] _after_damage (res://src/match/world.gd:944)
+       [4] _server_motion_event (res://src/match/world.gd:794)
+       [5] _server_apply (res://src/match/world.gd:592)
+       [6] _physics_process (res://src/match/world.gd:539)
+[match   89.4] Ka Pedring killed by the world (fall); 3 teams left
+[match   89.4] alive: North Team 7, East Team 7; score { 0: 6, 1: 6, 2: 1 }
+[match   89.7] Kuya Fishball (team 2) landed at (-57.0, 15.0, 40.0), 7.0 m/s, health 100; teammates 110 m, 108 m, 107 m
+[match   89.9] [radio] Mang Jolo (sniper): down
+[match   90.0] status: { "ground": 20 }; armed 20; shots 251; zone -1 hold r=131; corpses 25; levels { "L1": 11, "between": 3, "L2": 1, "L3": 1, "L5": 3, "L4": 1 }; server tick avg 3.34 ms, p99 20.47 ms, max 39.51 ms over 900 ticks
+[match   90.0] dm teams: North Team 7 at (-30.0, -26.0) spread 33 m; East Team 7 at (49.0, -38.0) spread 9 m; South Team 6 at (30.0, 25.0) spread 42 m; gap 80 m; zone centre (-7.0, 13.0)
+[match   90.0] bots: { "order": 3, "roam": 5, "hunt": 7, "overwatch": 1, "investigate": 2, "fight": 1, "camp": 1 }; containers searched by bots 0 (all players 0); plan steps done 0; guns carried 42
+[match   90.0] [stuck] Tito Boy (looter, roam) at (-53.9, 0.0, -44.6) -> (-51.5, 0.0, -46.5), ahead , no_prog 2.7
+[match   90.0] [stuck] Ate Load (stalker, hunt) at (-53.7, 2.5, -44.6) -> (-54.5, 0.0, -46.5), ahead wall, no_prog 2.1
+[match   90.0] [stuck] Pareng Pandesal (stalker, hunt) at (-51.6, 2.5, -45.2) -> (-51.5, 0.0, -46.5), ahead wall, no_prog 1.6
+[match   90.0] roles: { "looter": { "order": 1, "roam": 1, "investigate": 1, "camp": 1 }, "stalker": { "hunt": 5, "investigate": 1, "order": 1 }, "sniper": { "overwatch": 1, "roam": 4, "fight": 1 }, "rusher": { "order": 1, "hunt": 2 } }; stuck now 3; waypoints 1230; team { "lines": 106, "pings": 0, "laser_follow": 0, "learned_cells": 84, "blocked_cells": 5, "squads": 6, "following_humans": 0, &"learned_spots": 0 }
+[match   90.0] [lootstats] bots on the ground 20 (in water 0); armed 20; armed with ammo for a gun 20; long guns 22; attachments fitted 1; rounds of unusable ammo carried 0; items on the ground 415; bot pickups { "detours": 5, "detour_taken": 3, "fetches": 0, "fetch_done": 0, "items_taken": 3 }
+[match   90.4] [radio] Bossing Dodong (sniper): in_position
+[match   90.5] [radio] Tito Boy (looter): sneaking
+[match   91.6] Mang Jolo (team 2) landed at (28.0, 20.0, -38.0), 2.5 m/s, health 100; teammates 88 m, 78 m, 114 m, 81 m
+[match   92.2] Lola Basyang (team 2) landed at (49.0, 20.0, 35.0), 4.9 m/s, health 100; teammates 23 m, 12 m, 77 m, 104 m, 7 m
+[match   94.5] Ka Pedring respawned at (0.0, 20.0, 32.0) (nearest enemy 38 m)
+[match   99.8] [radio] Ka Pedring (sniper): sniping
+[match  100.9] [radio] Tsong Ramil (looter): clear
+SCRIPT ERROR: Invalid access to property or key 'dir' on a base object of type 'Dictionary'.
+   at: corpse_steps_near (res://src/world/dynamics.gd:1312)
+   GDScript backtrace (most recent call first):
+       [0] corpse_steps_near (res://src/world/dynamics.gd:1312)
+       [1] server_spawn_corpse (res://src/world/dynamics.gd:1278)
+       [2] server_spawn_corpse (res://src/world/map_builder.gd:1084)
+       [3] _after_damage (res://src/match/world.gd:944)
+       [4] _server_motion_event (res://src/match/world.gd:794)
+       [5] _server_apply (res://src/match/world.gd:592)
+       [6] _physics_process (res://src/match/world.gd:539)
+[match  102.9] Lola Basyang killed by the world (fall); 3 teams left
+[match  102.9] alive: North Team 7, East Team 7; score { 0: 6, 1: 6, 2: 1 }
+[match  103.4] [radio] Pareng Jun (stalker): down
+[match  105.0] status: { "ground": 20 }; armed 20; shots 251; zone -1 hold r=131; corpses 26; levels { "between": 6, "L1": 11, "L2": 1, "L5": 2 }; server tick avg 3.31 ms, p99 25.25 ms, max 39.06 ms over 900 ticks
+[match  105.0] dm teams: North Team 7 at (-32.0, -26.0) spread 33 m; East Team 7 at (53.0, -40.0) spread 5 m; South Team 6 at (27.0, 22.0) spread 43 m; gap 86 m; zone centre (-7.0, 13.0)
+[match  105.0] bots: { "roam": 7, "hunt": 7, "overwatch": 1, "investigate": 2, "order": 1, "camp": 1, "heal": 1 }; containers searched by bots 0 (all players 1); plan steps done 0; guns carried 43
+[match  105.0] [stuck] Pareng Jun (stalker, hunt) at (53.6, 0.0, 44.4) -> (51.5, 0.0, 46.5), ahead , no_prog 2.6
+[match  105.0] [stuck] Ate Load (stalker, hunt) at (-50.9, 2.5, -45.0) -> (-52.5, 0.0, -47.5), ahead wall, no_prog 2.6
+[match  105.0] [stuck] Kapitan Tikoy (looter, investigate) at (53.0, 2.5, -45.2) -> (53.5, 0.0, -46.5), ahead wall, no_prog 1.7
+[match  105.0] [stuck] Junjun Tisoy (stalker, investigate) at (53.3, 2.5, -44.7) -> (53.5, 0.0, -46.5), ahead wall, no_prog 2.3
+[match  105.0] [stuck] Pareng Pandesal (stalker, hunt) at (-56.1, 2.5, -44.7) -> (-54.5, 0.0, -46.5), ahead wall, no_prog 2.7
+[match  105.0] roles: { "looter": { "roam": 2, "investigate": 1, "camp": 1 }, "stalker": { "hunt": 5, "investigate": 1, "order": 1 }, "sniper": { "overwatch": 1, "roam": 5, "heal": 1 }, "rusher": { "hunt": 2 } }; stuck now 5; waypoints 1230; team { "lines": 111, "pings": 0, "laser_follow": 0, "learned_cells": 84, "blocked_cells": 7, "squads": 6, "following_humans": 0, &"learned_spots": 0 }
+[match  105.0] [lootstats] bots on the ground 20 (in water 0); armed 20; armed with ammo for a gun 20; long guns 23; attachments fitted 2; rounds of unusable ammo carried 0; items on the ground 412; bot pickups { "detours": 7, "detour_taken": 6, "fetches": 0, "fetch_done": 0, "items_taken": 6 }
+[match  105.8] [radio] Ate Load (stalker): sneaking
+[match  107.0] [radio] Kapitan Tikoy (looter): sneaking
+[match  107.9] Lola Basyang respawned at (-4.0, 20.0, 30.0) (nearest enemy 36 m)
+[match  112.2] Totoy Kulot (team 0) landed at (-2.0, 0.0, -1.0), 4.9 m/s, health 100; teammates 66 m, 1 m, 12 m, 68 m
+[match  114.0] [radio] Totoy Kulot (rusher): hunting
+[match  114.0] [radio] Tatay Kulas (sniper): sniping
+SCRIPT ERROR: Invalid access to property or key 'dir' on a base object of type 'Dictionary'.
+   at: corpse_steps_near (res://src/world/dynamics.gd:1312)
+   GDScript backtrace (most recent call first):
+       [0] corpse_steps_near (res://src/world/dynamics.gd:1312)
+       [1] server_spawn_corpse (res://src/world/dynamics.gd:1278)
+       [2] server_spawn_corpse (res://src/world/map_builder.gd:1084)
+       [3] _after_damage (res://src/match/world.gd:944)
+       [4] _server_motion_event (res://src/match/world.gd:794)
+       [5] _server_apply (res://src/match/world.gd:592)
+       [6] _physics_process (res://src/match/world.gd:539)
+[match  115.2] Tsong Ramil killed by the world (fall); 3 teams left
+[match  115.2] alive: North Team 7, East Team 6; score { 0: 6, 1: 6, 2: 1 }
+[match  115.7] [radio] Tatay Kulas (sniper): down
+[match  117.7] [radio] Aling Nena (stalker): sneaking
+[match  119.4] Ate Load (team 0) landed at (-51.0, 0.0, -43.0), 7.0 m/s, health 100; teammates 2 m, 64 m, 71 m, 69 m, 3 m
+[match  120.0] status: { "ground": 20 }; armed 20; shots 251; zone -1 hold r=131; corpses 27; levels { "L1": 13, "between": 2, "L2": 2, "L5": 3 }; server tick avg 3.62 ms, p99 24.05 ms, max 35.94 ms over 900 ticks
+[match  120.0] dm teams: North Team 7 at (-29.0, -26.0) spread 34 m; East Team 6 at (49.0, -38.0) spread 7 m; South Team 7 at (31.0, 9.0) spread 47 m; gap 79 m; zone centre (-7.0, 13.0)
+[match  120.0] bots: { "roam": 7, "hunt": 10, "overwatch": 2, "camp": 1 }; containers searched by bots 0 (all players 1); plan steps done 0; guns carried 44
+[match  120.0] [stuck] Tito Boy (looter, roam) at (-51.9, 0.0, -45.2) -> (-49.5, 0.0, -46.5), ahead wall, no_prog 2.2
+[match  120.0] [stuck] Mang Jolo (sniper, roam) at (28.7, 20.0, -38.2) -> (27.5, 20.0, -35.5), ahead low, no_prog 2.1
+[match  120.0] [stuck] Toto Pancit (sniper, roam) at (-52.1, 0.0, -44.6) -> (-54.5, 0.0, -46.5), ahead , no_prog 2.7
+[match  120.0] [stuck] Kulot Sabaw (rusher, hunt) at (56.4, 0.0, 42.8) -> (57.5, 0.0, 42.5), ahead wall, no_prog 1.9
+[match  120.0] roles: { "looter": { "roam": 2, "camp": 1 }, "stalker": { "hunt": 7 }, "sniper": { "overwatch": 2, "roam": 5 }, "rusher": { "hunt": 3 } }; stuck now 4; waypoints 1230; team { "lines": 117, "pings": 0, "laser_follow": 0, "learned_cells": 84, "blocked_cells": 10, "squads": 6, "following_humans": 0, &"learned_spots": 0 }
+[match  120.0] [lootstats] bots on the ground 20 (in water 0); armed 20; armed with ammo for a gun 20; long guns 24; attachments fitted 2; rounds of unusable ammo carried 0; items on the ground 411; bot pickups { "detours": 10, "detour_taken": 8, "fetches": 0, "fetch_done": 0, "items_taken": 8 }
+[match  120.0] [radio] Kapitan Tikoy (looter): in_position
+[match  120.2] Tsong Ramil respawned at (42.0, 10.0, -23.0) (nearest enemy 22 m)
+[navwatch] malasugue_mall: 2382 bot-s (1806 moving), stalls 10 (0.3/bot-min, 2.2% of moving time), facing a wall 5 (0.1/bot-min)
+[match  123.6] [radio] Lola Basyang (rusher): hunting
+[match  125.4] Ka Pedring (team 2) landed at (27.0, 20.0, -38.0), 2.5 m/s, health 100; teammates 89 m, 35 m, 1 m, 114 m, 88 m
+[match  125.6] [radio] Tsong Ramil (rusher): hunting
+[match  129.0] [radio] Bebot Karaoke (looter): in_position
+[match  129.0] [radio] Bayaw Erning (stalker): contact
+[match  129.7] [radio] Ate Siomai (stalker): taking_fire
+SCRIPT ERROR: Invalid access to property or key 'dir' on a base object of type 'Dictionary'.
+   at: corpse_steps_near (res://src/world/dynamics.gd:1312)
+   GDScript backtrace (most recent call first):
+       [0] corpse_steps_near (res://src/world/dynamics.gd:1312)
+       [1] server_spawn_corpse (res://src/world/dynamics.gd:1278)
+       [2] server_spawn_corpse (res://src/world/map_builder.gd:1084)
+       [3] _after_damage (res://src/match/world.gd:944)
+       [4] server_projectile_hit_character (res://src/match/world.gd:894)
+       [5] _advance (res://src/weapons/projectile_server.gd:103)
+       [6] step (res://src/weapons/projectile_server.gd:68)
+       [7] _physics_process (res://src/match/world.gd:553)
+[match  130.5] Bayaw Erning killed by Ate Siomai (gunshot); 3 teams left
+[match  130.5] alive: North Team 7, East Team 7; score { 0: 6, 1: 7, 2: 1 }
+[match  130.5] [radio] Tatay Kulas (sniper): affirmative
+[match  131.0] [radio] Mang Jolo (sniper): down
+[match  131.4] [radio] Tsong Ramil (rusher): affirmative
+[match  132.1] Lola Basyang (team 2) landed at (54.0, 18.0, -44.0), 7.0 m/s, health 100; teammates 91 m, 28 m, 137 m, 89 m, 29 m
+[match  132.4] [radio] Ate Siomai (stalker): headshot_kill
+[match  133.1] Tsong Ramil (team 1) landed at (51.0, 0.0, -39.0), 12.3 m/s, health 100; teammates 4 m, 5 m, 7 m, 13 m, 5 m, 6 m
+[match  133.2] [radio] Lola Basyang (rusher): contact
+[match  134.8] [radio] Bebot Karaoke (looter): clear
+[match  135.0] status: { "ground": 20 }; armed 20; shots 272; zone -1 hold r=131; corpses 28; levels { "L1": 12, "between": 3, "L2": 2, "L5": 2, "L4": 1 }; server tick avg 3.76 ms, p99 28.75 ms, max 41.30 ms over 900 ticks
+[match  135.0] dm teams: North Team 7 at (-28.0, -23.0) spread 39 m; East Team 7 at (51.0, -39.0) spread 6 m; South Team 6 at (28.0, 2.0) spread 54 m; gap 80 m; zone centre (-7.0, 13.0)
+[match  135.0] bots: { "roam": 5, "hunt": 7, "overwatch": 2, "order": 2, "investigate": 3, "heal": 1 }; containers searched by bots 0 (all players 1); plan steps done 0; guns carried 44
+[match  135.0] [stuck] Pareng Jun (stalker, hunt) at (50.5, 0.0, 44.4) -> (52.5, 0.0, 46.5), ahead , no_prog 2.4
+[match  135.0] [stuck] Ate Load (stalker, hunt) at (-51.1, 0.0, -44.7) -> (-49.5, 0.0, -46.5), ahead char, no_prog 1.6
+[match  135.0] [stuck] Pareng Pandesal (stalker, hunt) at (-55.4, 2.5, -45.0) -> (-54.5, 0.0, -46.5), ahead wall, no_prog 2.9
+[match  135.0] [stuck] Kuya Fishball (sniper, roam) at (-50.5, 0.0, 42.9) -> (-48.5, 0.0, 42.5), ahead wall, no_prog 3.1
+[match  135.0] [stuck] Ka Pedring (sniper, roam) at (25.2, 20.0, -38.4) -> (26.5, 20.0, -35.5), ahead low, no_prog 2.5
+[match  135.0] roles: { "looter": { "roam": 1, "investigate": 2 }, "stalker": { "hunt": 5, "heal": 1 }, "sniper": { "overwatch": 2, "order": 1, "roam": 4 }, "rusher": { "hunt": 2, "investigate": 1, "order": 1 } }; stuck now 5; waypoints 1230; team { "lines": 129, "pings": 0, "laser_follow": 0, "learned_cells": 84, "blocked_cells": 11, "squads": 6, "following_humans": 0, &"learned_spots": 0 }
+[match  135.0] [lootstats] bots on the ground 20 (in water 0); armed 20; armed with ammo for a gun 20; long guns 24; attachments fitted 2; rounds of unusable ammo carried 0; items on the ground 409; bot pickups { "detours": 12, "detour_taken": 10, "fetches": 0, "fetch_done": 0, "items_taken": 10 }
+[match  135.5] Bayaw Erning respawned at (-2.0, 20.0, 29.0) (nearest enemy 33 m)
+SCRIPT ERROR: Invalid access to property or key 'dir' on a base object of type 'Dictionary'.
+   at: corpse_steps_near (res://src/world/dynamics.gd:1312)
+   GDScript backtrace (most recent call first):
+       [0] corpse_steps_near (res://src/world/dynamics.gd:1312)
+       [1] server_spawn_corpse (res://src/world/dynamics.gd:1278)
+       [2] server_spawn_corpse (res://src/world/map_builder.gd:1084)
+       [3] _after_damage (res://src/match/world.gd:944)
+       [4] _server_motion_event (res://src/match/world.gd:794)
+       [5] _server_apply (res://src/match/world.gd:592)
+       [6] _physics_process (res://src/match/world.gd:539)
+[match  136.7] Lola Basyang killed by the world (fall); 3 teams left
+[match  136.7] alive: North Team 7, East Team 7; score { 0: 6, 1: 7, 2: 1 }
+[match  137.3] [radio] Mang Jolo (sniper): down
+[match  137.9] [radio] Ate Siomai (stalker): clear
+[match  138.5] [radio] Totoy Kulot (rusher): contact
+[match  139.7] [radio] Totoy Kulot (rusher): need_help
+[match  139.9] Totoy Kulot killed by Kulot Sabaw (gunshot); 3 teams left
+[match  139.9] alive: North Team 6, East Team 7; score { 0: 6, 1: 7, 2: 2 }
+[match  140.1] [radio] Bayaw Erning (rusher): hunting
+[match  140.6] [radio] Kapitan Tikoy (looter): clear
+[match  140.8] [radio] Bunso Badong (sniper): affirmative
+[match  140.9] [radio] Kulot Sabaw (rusher): kill
+[match  141.7] Lola Basyang respawned at (-3.0, 20.0, 32.0) (nearest enemy 38 m)
+[match  141.8] [radio] Bunso Badong (sniper): down
+[match  142.7] [radio] Aling Nena (stalker): affirmative
+[match  144.9] Totoy Kulot respawned at (-41.0, 0.0, -30.0) (nearest enemy 73 m)
+[match  147.4] [radio] Junjun Tisoy (stalker): sneaking
+[match  148.6] [radio] Pareng Pandesal (stalker): sneaking
+[match  149.7] [radio] Ate Siomai (stalker): contact
+[match  150.0] status: { "ground": 21 }; armed 21; shots 289; zone -1 hold r=131; corpses 30; levels { "L1": 13, "between": 3, "L2": 1, "L5": 4 }; server tick avg 3.86 ms, p99 26.68 ms, max 39.74 ms over 900 ticks
+[match  150.0] dm teams: North Team 7 at (-34.0, -27.0) spread 33 m; East Team 7 at (51.0, -39.0) spread 6 m; South Team 7 at (26.0, 11.0) spread 45 m; gap 85 m; zone centre (-7.0, 13.0)
+[match  150.0] bots: { "roam": 9, "hunt": 6, "overwatch": 2, "order": 2, "fight": 2 }; containers searched by bots 0 (all players 1); plan steps done 0; guns carried 46
+[match  150.0] [stuck] Tito Boy (looter, roam) at (-51.0, 0.0, -45.2) -> (-49.5, 0.0, -46.5), ahead wall, no_prog 1.9
+[match  150.0] [stuck] Kapitan Tikoy (looter, roam) at (50.5, 0.5, -35.4) -> (51.0, 0.0, -34.2), ahead , no_prog 2.5
+[match  150.0] [stuck] Junjun Tisoy (stalker, hunt) at (54.5, 2.5, -44.4) -> (52.5, 0.0, -46.5), ahead , no_prog 2.6
+[match  150.0] [stuck] Bebot Karaoke (looter, roam) at (56.6, 0.0, -44.8) -> (57.5, 0.0, -42.5), ahead wall, no_prog 2.6
+[match  150.0] roles: { "looter": { "roam": 4 }, "stalker": { "hunt": 5, "fight": 1 }, "sniper": { "overwatch": 2, "order": 1, "roam": 4 }, "rusher": { "fight": 1, "order": 1, "hunt": 1, "roam": 1 } }; stuck now 4; waypoints 1230; team { "lines": 142, "pings": 0, "laser_follow": 0, "learned_cells": 85, "blocked_cells": 12, "squads": 6, "following_humans": 0, &"learned_spots": 0 }
+[match  150.0] [lootstats] bots on the ground 21 (in water 0); armed 21; armed with ammo for a gun 21; long guns 25; attachments fitted 2; rounds of unusable ammo carried 0; items on the ground 409; bot pickups { "detours": 12, "detour_taken": 10, "fetches": 0, "fetch_done": 0, "items_taken": 10 }
+[match  150.5] [radio] Kapitan Tikoy (looter): taking_fire
+[match  150.9] [radio] Kulot Sabaw (rusher): taking_fire
+[match  151.3] [radio] Tito Boy (looter): sneaking
+[match  153.9] Kulot Sabaw killed by Kapitan Tikoy (gunshot); 3 teams left
+[match  153.9] alive: North Team 7, East Team 7; score { 0: 6, 1: 8, 2: 2 }
+[match  154.4] [radio] Pareng Jun (stalker): down
+[match  154.5] [radio] Kapitan Tikoy (looter): kill
+[match  155.1] Bayaw Erning (team 2) landed at (51.0, 0.0, 40.0), 18.8 m/s, health 100; teammates 6 m, 84 m, 102 m, 83 m
+SCRIPT ERROR: Invalid access to property or key 'dir' on a base object of type 'Dictionary'.
+   at: corpse_steps_near (res://src/world/dynamics.gd:1312)
+   GDScript backtrace (most recent call first):
+       [0] corpse_steps_near (res://src/world/dynamics.gd:1312)
+       [1] server_spawn_corpse (res://src/world/dynamics.gd:1278)
+       [2] server_spawn_corpse (res://src/world/map_builder.gd:1084)
+       [3] _after_damage (res://src/match/world.gd:944)
+       [4] _server_motion_event (res://src/match/world.gd:794)
+       [5] _server_apply (res://src/match/world.gd:592)
+       [6] _physics_process (res://src/match/world.gd:539)
+[match  155.1] Bayaw Erning killed by the world (fall); 3 teams left
+[match  155.1] alive: North Team 7, East Team 7; score { 0: 6, 1: 8, 2: 2 }
+[match  155.6] [radio] Pareng Jun (stalker): down
+[match  158.9] Kulot Sabaw respawned at (0.0, 20.0, 32.0) (nearest enemy 37 m)
+[match  160.2] Bayaw Erning respawned at (-3.0, 20.0, 32.0) (nearest enemy 36 m)
+[match  160.7] [radio] Toto Pancit (sniper): sniping
+[match  163.7] [radio] Kulot Sabaw (sniper): sniping
+[match  165.0] status: { "ground": 21 }; armed 21; shots 329; zone -1 hold r=131; corpses 32; levels { "L1": 12, "between": 3, "L2": 1, "L5": 5 }; server tick avg 4.12 ms, p99 25.19 ms, max 47.08 ms over 900 ticks
+[match  165.0] dm teams: North Team 7 at (-21.0, -18.0) spread 48 m; East Team 7 at (52.0, -39.0) spread 9 m; South Team 7 at (13.0, 5.0) spread 48 m; gap 77 m; zone centre (-7.0, 13.0)
+[match  165.0] bots: { "roam": 10, "hunt": 7, "overwatch": 2, "investigate": 1, "camp": 1 }; containers searched by bots 0 (all players 1); plan steps done 0; guns carried 46
+[match  165.0] [stuck] Ate Load (stalker, hunt) at (-55.5, 0.0, -44.5) -> (-54.5, 0.0, -46.5), ahead , no_prog 2.1
+[match  165.0] [stuck] Kapitan Tikoy (looter, roam) at (54.9, 2.5, -45.0) -> (52.5, 0.0, -46.5), ahead wall, no_prog 2.4
+[match  165.0] [stuck] Junjun Tisoy (stalker, hunt) at (53.0, 2.5, -45.1) -> (52.5, 0.0, -46.5), ahead wall, no_prog 3.0
+[match  165.0] [stuck] Pareng Pandesal (stalker, hunt) at (-56.0, 2.5, -44.9) -> (-54.5, 0.0, -46.5), ahead wall, no_prog 2.7
+[match  165.0] [stuck] Mang Jolo (sniper, roam) at (30.1, 20.0, -38.6) -> (29.5, 20.0, -35.5), ahead , no_prog 3.0
+[match  165.0] [stuck] Kuya Fishball (sniper, roam) at (-50.5, 0.0, 41.7) -> (-48.5, 0.0, 42.5), ahead wall, no_prog 2.9
+[match  165.0] [stuck] Ka Pedring (sniper, roam) at (30.6, 20.0, -37.9) -> (30.5, 20.0, -35.5), ahead , no_prog 2.9
+[match  165.0] roles: { "looter": { "roam": 3, "camp": 1 }, "stalker": { "hunt": 6, "roam": 1 }, "sniper": { "overwatch": 2, "roam": 6 }, "rusher": { "investigate": 1, "hunt": 1 } }; stuck now 7; waypoints 1230; team { "lines": 150, "pings": 0, "laser_follow": 0, "learned_cells": 86, "blocked_cells": 14, "squads": 6, "following_humans": 0, &"learned_spots": 0 }
+[match  165.0] [lootstats] bots on the ground 21 (in water 0); armed 21; armed with ammo for a gun 21; long guns 25; attachments fitted 2; rounds of unusable ammo carried 0; items on the ground 409; bot pickups { "detours": 12, "detour_taken": 10, "fetches": 0, "fetch_done": 0, "items_taken": 10 }
+[match  166.3] [radio] Ate Load (stalker): sneaking
+[match  168.1] Bayaw Erning (team 2) landed at (11.0, 20.0, 31.0), 2.5 m/s, health 100; teammates 49 m, 72 m, 66 m, 72 m
+[match  168.7] [radio] Ka Pedring (sniper): sniping
+[match  168.7] Kulot Sabaw (team 2) landed at (-9.0, 20.0, 29.0), 2.5 m/s, health 100; teammates 66 m, 77 m, 48 m, 78 m, 20 m
+[match  171.7] [radio] Bossing Dodong (sniper): sniping
+[match  173.0] [radio] Totoy Kulot (rusher): contact
+[match  173.4] [radio] Pareng Jun (stalker): contact
+[match  174.8] [radio] Bebot Karaoke (looter): clear
+[match  174.8] [radio] Totoy Kulot (rusher): clear
+[match  175.9] [radio] Pareng Jun (stalker): taking_fire
+[match  178.1] [radio] Tatay Kulas (sniper): sniping
+[match  178.6] [radio] Bayaw Erning (stalker): sneaking
+[match  180.0] status: { "ground": 21 }; armed 21; shots 355; zone -1 hold r=131; corpses 32; levels { "L1": 12, "between": 3, "L2": 1, "L5": 5 }; server tick avg 4.17 ms, p99 31.18 ms, max 46.39 ms over 900 ticks
+[match  180.0] dm teams: North Team 7 at (-15.0, -20.0) spread 53 m; East Team 7 at (49.0, -34.0) spread 15 m; South Team 7 at (13.0, 7.0) spread 56 m; gap 65 m; zone centre (-7.0, 13.0)
+[match  180.0] bots: { "roam": 9, "hunt": 6, "overwatch": 2, "fight": 2, "investigate": 1, "camp": 1 }; containers searched by bots 0 (all players 1); plan steps done 0; guns carried 46
+[match  180.0] [stuck] Tito Boy (looter, roam) at (-50.4, 0.0, -45.2) -> (-49.5, 0.0, -46.5), ahead wall, no_prog 1.6
+[match  180.0] [stuck] Tatay Kulas (sniper, roam) at (54.6, 0.0, -45.2) -> (54.5, 0.0, -46.5), ahead wall, no_prog 1.7
+[match  180.0] [stuck] Junjun Tisoy (stalker, hunt) at (54.0, 2.5, -45.1) -> (54.5, 0.0, -46.5), ahead wall, no_prog 1.7
+[match  180.0] roles: { "looter": { "roam": 3, "camp": 1 }, "stalker": { "hunt": 6, "fight": 1 }, "sniper": { "overwatch": 2, "roam": 6 }, "rusher": { "investigate": 1, "fight": 1 } }; stuck now 3; waypoints 1230; team { "lines": 160, "pings": 0, "laser_follow": 0, "learned_cells": 86, "blocked_cells": 15, "squads": 6, "following_humans": 0, &"learned_spots": 0 }
+[match  180.0] [lootstats] bots on the ground 21 (in water 0); armed 21; armed with ammo for a gun 21; long guns 25; attachments fitted 2; rounds of unusable ammo carried 0; items on the ground 409; bot pickups { "detours": 12, "detour_taken": 10, "fetches": 0, "fetch_done": 0, "items_taken": 10 }
+[match  180.7] [radio] Ate Siomai (stalker): need_help
+[match  180.8] Ate Siomai killed by Totoy Kulot (gunshot); 3 teams left
+[match  180.8] alive: North Team 7, East Team 6; score { 0: 7, 1: 8, 2: 2 }
+[navwatch] malasugue_mall: 3622 bot-s (2808 moving), stalls 26 (0.4/bot-min, 3.0% of moving time), facing a wall 5 (0.1/bot-min)
+[match  181.4] [radio] Totoy Kulot (rusher): headshot_kill
+[match  181.6] [radio] Tsong Ramil (rusher): affirmative
+[match  182.6] [radio] Tatay Kulas (sniper): down
+[match  183.6] [radio] Bebot Karaoke (looter): affirmative
+[match  185.8] Ate Siomai respawned at (45.0, 10.0, -26.0) (nearest enemy 19 m)
+[match  188.0] [radio] Totoy Kulot (rusher): taking_fire
+[match  188.1] [radio] Tsong Ramil (rusher): taking_fire
+[match  188.8] [radio] Aling Nena (stalker): taking_fire
+[match  189.1] [radio] Kapitan Tikoy (looter): affirmative
+[match  189.6] [radio] Aling Nena (stalker): affirmative
+[match  190.0] [radio] Tatay Kulas (sniper): affirmative
+[match  190.0] Totoy Kulot killed by Tsong Ramil (gunshot); 3 teams left
+[match  190.0] alive: North Team 6, East Team 7; score { 0: 7, 1: 9, 2: 2 }
+[match  190.2] Bunso Badong killed by Bebot Karaoke (gunshot); 3 teams left
+[match  190.2] alive: North Team 5, East Team 7; score { 0: 7, 1: 10, 2: 2 }
+[match  190.7] [radio] Tito Boy (looter): down
+[match  190.7] [radio] Bebot Karaoke (looter): kill
+[match  191.5] [radio] Tsong Ramil (rusher): kill
+[match  192.6] [radio] Tatay Kulas (sniper): in_position
+[match  195.0] Totoy Kulot respawned at (-41.0, 0.0, -30.0) (nearest enemy 46 m)
+[match  195.0] status: { "ground": 20 }; armed 20; shots 404; zone -1 hold r=131; corpses 35; levels { "L1": 11, "between": 4, "L2": 1, "L5": 3, "L4": 1 }; server tick avg 3.82 ms, p99 23.58 ms, max 54.57 ms over 900 ticks
+[match  195.0] dm teams: North Team 6 at (-35.0, -30.0) spread 33 m; East Team 7 at (42.0, -35.0) spread 19 m; South Team 7 at (12.0, 8.0) spread 57 m; gap 77 m; zone centre (-7.0, 13.0)
+[match  195.0] bots: { "roam": 9, "hunt": 6, "order": 2, "overwatch": 1, "heal": 1, "camp": 1 }; containers searched by bots 0 (all players 1); plan steps done 0; guns carried 44
+[match  195.0] [stuck] Tito Boy (looter, roam) at (-52.2, 0.0, -45.0) -> (-49.5, 0.0, -46.5), ahead , no_prog 2.9
+[match  195.0] [stuck] Ate Load (stalker, hunt) at (-55.1, 0.0, -45.0) -> (-54.5, 0.0, -46.5), ahead wall, no_prog 2.0
+[match  195.0] [stuck] Junjun Tisoy (stalker, hunt) at (53.4, 2.5, -45.0) -> (52.5, 0.0, -46.5), ahead wall, no_prog 3.1
+[match  195.0] [stuck] Mang Jolo (sniper, roam) at (27.6, 20.0, -38.0) -> (27.5, 20.0, -35.5), ahead low, no_prog 1.7
+[match  195.0] [stuck] Ka Pedring (sniper, roam) at (25.0, 20.0, -38.1) -> (26.5, 20.0, -35.5), ahead low, no_prog 2.9
+[match  195.0] roles: { "looter": { "roam": 3, "order": 1, "camp": 1 }, "stalker": { "hunt": 6 }, "sniper": { "order": 1, "overwatch": 1, "roam": 6 }, "rusher": { "heal": 1 } }; stuck now 5; waypoints 1230; team { "lines": 175, "pings": 0, "laser_follow": 0, "learned_cells": 89, "blocked_cells": 16, "squads": 6, "following_humans": 0, &"learned_spots": 0 }
+[match  195.0] [lootstats] bots on the ground 20 (in water 0); armed 20; armed with ammo for a gun 20; long guns 24; attachments fitted 2; rounds of unusable ammo carried 0; items on the ground 409; bot pickups { "detours": 12, "detour_taken": 10, "fetches": 0, "fetch_done": 0, "items_taken": 10 }
+[match  195.2] Bunso Badong respawned at (-43.0, 0.0, -29.0) (nearest enemy 47 m)
+[match  197.9] Ate Siomai (team 1) landed at (56.0, 5.0, -39.0), 12.3 m/s, health 100; teammates 9 m, 6 m, 6 m, 18 m, 77 m, 6 m
+[match  198.2] Pareng Pandesal (team 0) landed at (-51.0, 0.0, -41.0), 7.0 m/s, health 100; teammates 5 m, 6 m, 109 m, 6 m
+[match  199.8] [radio] Mang Jolo (sniper): sniping
+[match  200.6] [radio] Totoy Kulot (looter): sneaking
+[match  207.8] Bunso Badong (team 0) landed at (-50.0, 0.0, -42.0), 7.0 m/s, health 100; teammates 1 m, 5 m, 93 m, 4 m, 4 m
+[match  208.4] [radio] Kuya Fishball (sniper): sniping
+[match  210.0] status: { "ground": 21 }; armed 21; shots 404; zone -1 hold r=131; corpses 35; levels { "L1": 14, "between": 3, "L2": 1, "L5": 3 }; server tick avg 3.15 ms, p99 21.41 ms, max 34.70 ms over 900 ticks
+[match  210.0] dm teams: North Team 7 at (-29.0, -38.0) spread 33 m; East Team 7 at (43.0, -36.0) spread 19 m; South Team 7 at (15.0, 7.0) spread 55 m; gap 73 m; zone centre (-7.0, 13.0)
+[match  210.0] bots: { "roam": 8, "hunt": 7, "order": 2, "overwatch": 1, "camp": 2, "investigate": 1 }; containers searched by bots 0 (all players 1); plan steps done 0; guns carried 46
+[match  210.0] [stuck] Pareng Jun (stalker, hunt) at (52.4, 0.0, 44.7) -> (51.5, 0.0, 46.5), ahead wall, no_prog 2.2
+[match  210.0] [stuck] Bebot Karaoke (looter, camp) at (-4.5, 0.0, 0.8) -> -, ahead , no_prog 2.1
+[match  210.0] [stuck] Kuya Fishball (sniper, roam) at (-50.4, 0.0, 42.3) -> (-48.5, 0.0, 42.5), ahead wall, no_prog 1.6
+[match  210.0] [stuck] Toto Pancit (sniper, roam) at (-50.4, 0.0, -45.2) -> (-49.5, 0.0, -46.5), ahead wall, no_prog 2.7
+[match  210.0] [stuck] Tsong Ramil (rusher, investigate) at (54.6, 0.0, -44.9) -> (52.5, 0.0, -46.5), ahead , no_prog 3.1
+[match  210.0] [stuck] Bayaw Erning (stalker, hunt) at (52.9, 2.5, 44.7) -> (54.5, 0.0, 46.5), ahead wall, no_prog 2.6
+[match  210.0] [stuck] Ate Siomai (sniper, roam) at (56.3, 0.0, -43.9) -> (57.5, 0.0, -43.5), ahead wall, no_prog 1.9
+[match  210.0] [stuck] Bunso Badong (stalker, hunt) at (-50.4, 0.0, -44.0) -> (-49.5, 0.0, -46.5), ahead wall, no_prog 1.6
+[match  210.0] roles: { "looter": { "roam": 2, "order": 1, "camp": 2 }, "stalker": { "hunt": 7 }, "sniper": { "order": 1, "overwatch": 1, "roam": 6 }, "rusher": { "investigate": 1 } }; stuck now 8; waypoints 1230; team { "lines": 178, "pings": 0, "laser_follow": 0, "learned_cells": 89, "blocked_cells": 17, "squads": 6, "following_humans": 0, &"learned_spots": 0 }
+[match  210.0] [lootstats] bots on the ground 21 (in water 0); armed 21; armed with ammo for a gun 21; long guns 25; attachments fitted 2; rounds of unusable ammo carried 0; items on the ground 409; bot pickups { "detours": 12, "detour_taken": 10, "fetches": 0, "fetch_done": 0, "items_taken": 10 }
+[match  212.1] [radio] Tito Boy (looter): sneaking
+[match  216.7] [radio] Bebot Karaoke (looter): contact
+[match  216.8] [radio] Kulot Sabaw (sniper): contact
+[match  217.7] [radio] Bossing Dodong (sniper): affirmative
+[match  217.9] [radio] Totoy Kulot (looter): contact
+[match  218.8] [radio] Kapitan Tikoy (looter): affirmative
+[match  219.8] [radio] Ate Siomai (sniper): need_help
+[match  220.8] [radio] Tsong Ramil (rusher): affirmative
+[match  221.1] [radio] Totoy Kulot (looter): need_help
+[match  221.2] Totoy Kulot killed by Ate Siomai (gunshot); 3 teams left
+[match  221.2] alive: North Team 6, East Team 7; score { 0: 7, 1: 11, 2: 2 }
+[match  221.3] [radio] Kulot Sabaw (sniper): taking_fire
+[match  221.6] [radio] Tatay Kulas (sniper): affirmative
+[match  222.1] [radio] Aling Nena (stalker): affirmative
+[match  222.3] [radio] Ate Siomai (sniper): kill
+[match  222.3] [radio] Kulot Sabaw (sniper): need_help
+[match  223.1] [radio] Aling Nena (stalker): down
+[match  223.2] Kulot Sabaw killed by Bebot Karaoke (gunshot); 3 teams left
+[match  223.2] alive: North Team 6, East Team 7; score { 0: 7, 1: 12, 2: 2 }
+[match  223.3] [radio] Kuya Fishball (sniper): affirmative
+[match  223.6] [radio] Bebot Karaoke (looter): headshot_kill
+[match  224.1] [radio] Toto Pancit (sniper): affirmative
+[match  224.2] [radio] Kuya Fishball (sniper): down
+[match  225.0] status: { "ground": 19 }; armed 19; shots 444; zone -1 hold r=131; corpses 37; levels { "L1": 14, "between": 2, "L5": 3 }; server tick avg 4.56 ms, p99 32.14 ms, max 62.70 ms over 900 ticks
+[match  225.0] dm teams: North Team 6 at (-40.0, -40.0) spread 23 m; East Team 7 at (43.0, -35.0) spread 20 m; South Team 6 at (24.0, 3.0) spread 52 m; gap 83 m; zone centre (-7.0, 13.0)
+[match  225.0] bots: { "roam": 5, "hunt": 7, "order": 4, "heal": 2, "camp": 1 }; containers searched by bots 0 (all players 1); plan steps done 0; guns carried 42
+[match  225.0] [stuck] Tito Boy (looter, roam) at (-54.8, 0.0, -45.2) -> (-54.5, 0.0, -46.5), ahead wall, no_prog 1.7
+[match  225.0] [stuck] Ate Load (stalker, hunt) at (-54.2, 0.0, -45.0) -> (-54.5, 0.0, -46.5), ahead wall, no_prog 1.9
+[match  225.0] [stuck] Mang Jolo (sniper, roam) at (27.3, 20.0, -37.9) -> (26.5, 20.0, -35.5), ahead low, no_prog 1.5
+[match  225.0] [stuck] Kuya Fishball (sniper, roam) at (-50.4, 0.0, 42.3) -> (-48.5, 0.0, 42.5), ahead wall, no_prog 1.5
+[match  225.0] [stuck] Ka Pedring (sniper, roam) at (30.0, 20.0, -38.8) -> (27.5, 20.0, -35.5), ahead , no_prog 2.7
+[match  225.0] roles: { "looter": { "roam": 1, "order": 1, "heal": 1, "camp": 1 }, "stalker": { "hunt": 7 }, "sniper": { "order": 2, "roam": 4, "heal": 1 }, "rusher": { "order": 1 } }; stuck now 5; waypoints 1230; team { "lines": 197, "pings": 0, "laser_follow": 0, "learned_cells": 90, "blocked_cells": 18, "squads": 6, "following_humans": 0, &"learned_spots": 0 }
+[match  225.0] [lootstats] bots on the ground 19 (in water 0); armed 19; armed with ammo for a gun 19; long guns 23; attachments fitted 2; rounds of unusable ammo carried 0; items on the ground 409; bot pickups { "detours": 12, "detour_taken": 10, "fetches": 0, "fetch_done": 0, "items_taken": 10 }
+[match  225.2] [radio] Mang Jolo (sniper): affirmative
+[match  226.0] [radio] Aling Nena (stalker): need_help
+[match  226.2] Totoy Kulot respawned at (-43.0, 0.0, -29.0) (nearest enemy 49 m)
+[match  226.9] [radio] Bunso Badong (stalker): affirmative
+[match  227.5] [radio] Pareng Jun (stalker): sneaking
+[match  227.6] [radio] Toto Pancit (sniper): affirmative
+[match  228.3] Kulot Sabaw respawned at (-3.0, 20.0, 32.0) (nearest enemy 35 m)
+[match  228.4] [radio] Junjun Tisoy (stalker): sneaking
+[match  230.9] [radio] Bossing Dodong (sniper): contact
+[match  232.2] Aling Nena killed by Kapitan Tikoy (gunshot); 3 teams left
+[match  232.2] alive: North Team 6, East Team 7; score { 0: 7, 1: 13, 2: 2 }
+[match  232.7] [radio] Kapitan Tikoy (looter): kill
+[match  232.8] [radio] Kulot Sabaw (sniper): sniping
+[match  232.8] [radio] Totoy Kulot (rusher): down
+[match  237.2] Aling Nena respawned at (-43.0, 0.0, -27.0) (nearest enemy 48 m)
+[match  238.0] [radio] Bebot Karaoke (looter): contact
+[match  238.8] [radio] Aling Nena (sniper): contact
+[match  240.0] status: { "ground": 21 }; armed 21; shots 472; zone -1 hold r=131; corpses 38; levels { "L1": 15, "between": 2, "L5": 4 }; server tick avg 3.72 ms, p99 24.92 ms, max 51.28 ms over 900 ticks
+[match  240.0] dm teams: North Team 7 at (-45.0, -38.0) spread 15 m; East Team 7 at (34.0, -30.0) spread 28 m; South Team 7 at (22.0, 5.0) spread 47 m; gap 79 m; zone centre (-7.0, 13.0)
+[match  240.0] bots: { "roam": 8, "hunt": 6, "order": 2, "fight": 4, "camp": 1 }; containers searched by bots 0 (all players 1); plan steps done 0; guns carried 46
+[match  240.0] [stuck] Tito Boy (looter, roam) at (-51.8, 0.0, -45.2) -> (-51.5, 0.0, -47.5), ahead wall, no_prog 1.9
+[match  240.0] [stuck] Pareng Jun (stalker, hunt) at (50.5, 0.0, 44.3) -> (52.5, 0.0, 46.5), ahead , no_prog 2.6
+[match  240.0] [stuck] Junjun Tisoy (stalker, hunt) at (51.4, 2.5, -45.2) -> (51.5, 0.0, -46.5), ahead wall, no_prog 1.7
+[match  240.0] [stuck] Bayaw Erning (stalker, hunt) at (51.1, 2.5, 44.5) -> (52.5, 0.0, 46.5), ahead , no_prog 2.2
+[match  240.0] [stuck] Ate Siomai (sniper, roam) at (56.1, 0.0, -44.7) -> (57.5, 0.0, -43.5), ahead wall, no_prog 2.8
+[match  240.0] roles: { "looter": { "roam": 1, "fight": 2, "camp": 1 }, "stalker": { "hunt": 6 }, "sniper": { "order": 1, "fight": 1, "roam": 7 }, "rusher": { "order": 1, "fight": 1 } }; stuck now 5; waypoints 1230; team { "lines": 209, "pings": 0, "laser_follow": 0, "learned_cells": 90, "blocked_cells": 18, "squads": 6, "following_humans": 0, &"learned_spots": 0 }
+[match  240.0] [lootstats] bots on the ground 21 (in water 0); armed 21; armed with ammo for a gun 21; long guns 25; attachments fitted 2; rounds of unusable ammo carried 0; items on the ground 409; bot pickups { "detours": 12, "detour_taken": 10, "fetches": 0, "fetch_done": 0, "items_taken": 10 }
+[match  240.9] [radio] Totoy Kulot (rusher): taking_fire
+[navwatch] malasugue_mall: 4860 bot-s (3773 moving), stalls 37 (0.5/bot-min, 3.9% of moving time), facing a wall 12 (0.1/bot-min)
+[match  242.0] [radio] Aling Nena (sniper): affirmative
+[match  242.3] [radio] Bossing Dodong (sniper): taking_fire
+[match  243.2] [radio] Ate Load (stalker): affirmative
+[match  245.2] [radio] Tatay Kulas (sniper): sniping
+[match  246.5] Totoy Kulot killed by Kapitan Tikoy (gunshot); 3 teams left
+[match  246.5] alive: North Team 6, East Team 7; score { 0: 7, 1: 14, 2: 2 }
+[match  247.1] [radio] Tito Boy (looter): down
+[match  247.1] [radio] Kapitan Tikoy (looter): kill
+[match  247.7] [radio] Bayaw Erning (stalker): sneaking
+exit=127

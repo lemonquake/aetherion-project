@@ -1,0 +1,383 @@
+{
+  "analysis": {
+    "bake_ms": 0.0,
+    "candidates": 0,
+    "closed": 1424,
+    "cut": 3752,
+    "kinds": {
+      "cover": 194,
+      "hide": 308,
+      "open": 110,
+      "snipe": 618
+    },
+    "source": "user://botnav/malasugue_mall.json",
+    "spots_ms": 0.0
+  },
+  "legs": [
+    {
+      "end": [
+        80.5,
+        0.0,
+        -51.2
+      ],
+      "leg": "open (84.5, 0.0, -51.5) (auto)",
+      "metres": 128.5,
+      "ok": true,
+      "seconds": 23.7,
+      "stalled_at": [],
+      "stalls": 0
+    },
+    {
+      "end": [
+        56.4,
+        0.0,
+        -39.6
+      ],
+      "leg": "snipe (30.5, 15.0, -37.5) (auto)",
+      "metres": 54.0,
+      "ok": false,
+      "seconds": 57.1,
+      "stalled_at": [
+        [
+          54.0,
+          11.3,
+          -41.7,
+          ""
+        ],
+        [
+          56.0,
+          0.0,
+          -39.4,
+          "wall"
+        ]
+      ],
+      "stalls": 2
+    },
+    {
+      "end": [
+        52.9,
+        15.0,
+        15.1
+      ],
+      "leg": "snipe (56.5, 15.0, 16.5) (auto)",
+      "metres": 59.9,
+      "ok": true,
+      "seconds": 13.0,
+      "stalled_at": [],
+      "stalls": 0
+    },
+    {
+      "end": [
+        -56.2,
+        10.0,
+        15.4
+      ],
+      "leg": "snipe (-59.5, 10.0, 14.5) (auto)",
+      "metres": 112.6,
+      "ok": true,
+      "seconds": 28.1,
+      "stalled_at": [],
+      "stalls": 0
+    },
+    {
+      "end": [
+        54.6,
+        14.1,
+        -41.2
+      ],
+      "leg": "cover (56.5, 15.0, -39.5) (auto)",
+      "metres": 125.4,
+      "ok": true,
+      "seconds": 29.9,
+      "stalled_at": [],
+      "stalls": 0
+    },
+    {
+      "end": [
+        49.7,
+        10.0,
+        21.3
+      ],
+      "leg": "open (48.5, 10.0, 24.5) (auto)",
+      "metres": 66.1,
+      "ok": true,
+      "seconds": 19.4,
+      "stalled_at": [
+        [
+          54.5,
+          13.6,
+          -42.0,
+          ""
+        ]
+      ],
+      "stalls": 1
+    },
+    {
+      "end": [
+        -22.0,
+        20.0,
+        -33.6
+      ],
+      "leg": "cover (-25.5, 20.0, -35.5) (auto)",
+      "metres": 94.8,
+      "ok": true,
+      "seconds": 33.2,
+      "stalled_at": [],
+      "stalls": 0
+    },
+    {
+      "end": [
+        45.8,
+        5.0,
+        -12.8
+      ],
+      "leg": "snipe (44.5, 5.0, -9.5) (auto)",
+      "metres": 72.3,
+      "ok": true,
+      "seconds": 40.1,
+      "stalled_at": [
+        [
+          50.7,
+          0.0,
+          -44.4,
+          "wall"
+        ]
+      ],
+      "stalls": 1
+    },
+    {
+      "end": [
+        8.1,
+        15.0,
+        34.4
+      ],
+      "leg": "cover (4.5, 15.0, 34.5) (auto)",
+      "metres": 63.6,
+      "ok": true,
+      "seconds": 28.1,
+      "stalled_at": [],
+      "stalls": 0
+    },
+    {
+      "end": [
+        36.1,
+        0.4,
+        -62.0
+      ],
+      "leg": "snipe (32.5, 0.0, -63.5) (auto)",
+      "metres": 102.0,
+      "ok": true,
+      "seconds": 47.2,
+      "stalled_at": [
+        [
+          53.2,
+          1.5,
+          42.0,
+          ""
+        ]
+      ],
+      "stalls": 1
+    },
+    {
+      "end": [
+        84.5,
+        0.4,
+        -15.0
+      ],
+      "leg": "open (84.5, 0.0, -11.5) (auto)",
+      "metres": 69.9,
+      "ok": true,
+      "seconds": 13.5,
+      "stalled_at": [],
+      "stalls": 0
+    },
+    {
+      "end": [
+        63.3,
+        0.0,
+        -53.5
+      ],
+      "leg": "open (60.5, 0.0, -55.5) (auto)",
+      "metres": 47.1,
+      "ok": true,
+      "seconds": 8.2,
+      "stalled_at": [],
+      "stalls": 0
+    },
+    {
+      "end": [
+        -54.7,
+        10.2,
+        -39.9
+      ],
+      "leg": "snipe (-16.5, 15.0, -8.5) (Grand Atrium balcony, Level 4)",
+      "metres": 92.8,
+      "ok": false,
+      "seconds": 76.5,
+      "stalled_at": [
+        [
+          -54.3,
+          2.6,
+          -42.0,
+          ""
+        ],
+        [
+          -52.7,
+          3.3,
+          -42.4,
+          ""
+        ],
+        [
+          -52.0,
+          0.8,
+          -39.6,
+          ""
+        ]
+      ],
+      "stalls": 3
+    },
+    {
+      "end": [
+        -40.2,
+        15.0,
+        -16.2
+      ],
+      "leg": "snipe (-43.5, 15.0, -14.5) (West Court balcony, Level 4)",
+      "metres": 27.7,
+      "ok": true,
+      "seconds": 6.4,
+      "stalled_at": [],
+      "stalls": 0
+    },
+    {
+      "end": [
+        5.5,
+        0.0,
+        54.7
+      ],
+      "leg": "open (8.5, 0.0, 56.5) (auto)",
+      "metres": 88.8,
+      "ok": true,
+      "seconds": 53.1,
+      "stalled_at": [],
+      "stalls": 0
+    },
+    {
+      "end": [
+        -69.5,
+        0.0,
+        -18.1
+      ],
+      "leg": "cover (-69.5, 0.0, -21.5) (auto)",
+      "metres": 106.9,
+      "ok": true,
+      "seconds": 25.0,
+      "stalled_at": [],
+      "stalls": 0
+    },
+    {
+      "end": [
+        0.0,
+        0.0,
+        48.5
+      ],
+      "leg": "open (0.5, 0.0, 52.5) (auto)",
+      "metres": 99.4,
+      "ok": true,
+      "seconds": 19.9,
+      "stalled_at": [],
+      "stalls": 0
+    },
+    {
+      "end": [
+        54.6,
+        9.8,
+        -40.1
+      ],
+      "leg": "cover (50.5, 10.0, -39.5) (auto)",
+      "metres": 102.0,
+      "ok": true,
+      "seconds": 30.9,
+      "stalled_at": [],
+      "stalls": 0
+    },
+    {
+      "end": [
+        -67.7,
+        0.0,
+        -16.8
+      ],
+      "leg": "cover (-69.5, 0.0, -13.5) (auto)",
+      "metres": 127.3,
+      "ok": true,
+      "seconds": 28.6,
+      "stalled_at": [],
+      "stalls": 0
+    },
+    {
+      "end": [
+        -55.0,
+        5.0,
+        34.0
+      ],
+      "leg": "snipe (-51.5, 5.0, 34.5) (auto)",
+      "metres": 54.0,
+      "ok": true,
+      "seconds": 35.0,
+      "stalled_at": [],
+      "stalls": 0
+    },
+    {
+      "end": [
+        -34.5,
+        20.0,
+        16.9
+      ],
+      "leg": "snipe (-31.5, 20.0, 14.5) (auto)",
+      "metres": 34.0,
+      "ok": true,
+      "seconds": 34.2,
+      "stalled_at": [],
+      "stalls": 0
+    },
+    {
+      "end": [
+        0.6,
+        0.0,
+        41.3
+      ],
+      "leg": "snipe (2.5, 0.0, 44.5) (auto)",
+      "metres": 50.3,
+      "ok": true,
+      "seconds": 31.6,
+      "stalled_at": [],
+      "stalls": 0
+    },
+    {
+      "end": [
+        -22.6,
+        0.4,
+        59.9
+      ],
+      "leg": "snipe (-25.5, 0.0, 62.5) (auto)",
+      "metres": 33.7,
+      "ok": true,
+      "seconds": 6.1,
+      "stalled_at": [],
+      "stalls": 0
+    },
+    {
+      "end": [
+        54.5,
+        20.0,
+        28.1
+      ],
+      "leg": "snipe (56.5, 20.0, 24.5) (auto)",
+      "metres": 88.9,
+      "ok": true,
+      "seconds": 49.2,
+      "stalled_at": [],
+      "stalls": 0
+    }
+  ]
+}

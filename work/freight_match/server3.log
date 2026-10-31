@@ -1,0 +1,769 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+[server] dedicated server listening on 27415
+[world] map built in 803 ms
+[map] 0 buildings, 0 doors, 0 containers, 0 props, #00000000 on PC
+[nav] levels: 34894 points, 3 links, 87 ms
+[bots] learned from 45 cells, 4 stuck spots (user://bot_memory_freight_delight.json)
+[match    0.0] deathmatch start on freight_delight: 24 players, 2 teams; spawns (-52.0, 0.0, 0.0), (50.0, 0.0, 0.0) (103/103 m apart, layout); day offset 0 s; zone centre (-5.0, 0.0) r=94; win by wipe
+[match    0.0] status: { "ground": 24 }; armed 24; shots 0; zone -1 hold r=94; corpses 0; levels { "L1": 24 }
+[match    0.0] dm teams: West Team 12 at (-51.0, 0.0) spread 4 m; East Team 12 at (51.0, 0.0) spread 8 m; gap 103 m; zone centre (-5.0, 0.0)
+[match    0.0] bots: { "roam": 24 }; containers searched by bots 0 (all players 0); plan steps done 0; guns carried 48
+[match    0.0] roles: { "sniper": { "roam": 11 }, "looter": { "roam": 3 }, "rusher": { "roam": 5 }, "stalker": { "roam": 5 } }; stuck now 0; waypoints 792; team { "lines": 0, "pings": 0, "laser_follow": 0, "learned_cells": 45, "blocked_cells": 1, "squads": 0, "following_humans": 0 }
+[match    0.0] [lootstats] bots on the ground 24 (in water 0); armed 24; armed with ammo for a gun 24; long guns 24; attachments fitted 0; rounds of unusable ammo carried 0; items on the ground 0; bot pickups { "detours": 0, "detour_taken": 0, "fetches": 0, "fetch_done": 0, "items_taken": 0 }
+[match    4.8] [radio] Mang Tomas Ketchup (sniper): sniping
+[match    4.8] [radio] Kapitan Tikoy (sniper): sniping
+[match    7.1] Kuya Fishball (team 1) landed at (47.0, 0.0, -3.0), 2.5 m/s, health 100; teammates -
+[match    7.6] Tsong Ramil (team 1) landed at (48.0, 0.0, -2.0), 2.5 m/s, health 100; teammates 2 m
+[match   10.7] Ka Pedring (team 0) landed at (-39.0, 0.0, -6.0), 4.4 m/s, health 100; teammates -
+[match   11.0] Kapitbahay Lito (team 0) landed at (-40.0, 0.0, -6.0), 5.1 m/s, health 100; teammates 1 m
+[match   13.3] [radio] Kuya Wifi (stalker): contact
+[match   14.2] [radio] Inday Rice Cooker (rusher): contact
+[match   15.0] status: { "ground": 24 }; armed 24; shots 22; zone -1 hold r=94; corpses 0; levels { "L1": 23, "between": 1 }; server tick avg 2.82 ms, p99 14.88 ms, max 28.49 ms over 900 ticks
+[match   15.0] dm teams: West Team 12 at (-20.0, -1.0) spread 11 m; East Team 12 at (17.0, 11.0) spread 8 m; gap 39 m; zone centre (-5.0, 0.0)
+[match   15.0] bots: { "fight": 9, "roam": 4, "investigate": 5, "hunt": 3, "follow": 3 }; containers searched by bots 0 (all players 0); plan steps done 0; guns carried 48
+[match   15.0] roles: { "sniper": { "fight": 4, "roam": 4, "investigate": 2, "follow": 1 }, "looter": { "fight": 1, "follow": 1, "investigate": 1 }, "rusher": { "investigate": 2, "hunt": 2, "fight": 1 }, "stalker": { "fight": 3, "hunt": 1, "follow": 1 } }; stuck now 0; waypoints 792; team { "lines": 4, "pings": 0, "laser_follow": 0, "learned_cells": 45, "blocked_cells": 1, "squads": 6, "following_humans": 0 }
+[match   15.0] [lootstats] bots on the ground 24 (in water 0); armed 24; armed with ammo for a gun 24; long guns 24; attachments fitted 0; rounds of unusable ammo carried 0; items on the ground 0; bot pickups { "detours": 0, "detour_taken": 0, "fetches": 0, "fetch_done": 0, "items_taken": 0 }
+[match   15.1] [radio] Bayaw Erning (looter): taking_fire
+[match   15.2] [radio] Lola Basyang Jr (rusher): clear
+[match   15.8] Lola Basyang Jr (team 1) landed at (9.0, 0.0, 1.0), 4.9 m/s, health 100; teammates 14 m, 17 m
+[match   16.0] Mang Tomas Ketchup killed by Kuya Fishball (gunshot); 2 teams left
+[match   16.0] alive: West Team 12, East Team 11; score { 0: 0, 1: 0 }
+[match   16.0] [radio] Boy Pickup (sniper): taking_fire
+[match   16.7] [radio] Kapitan Tikoy (sniper): taking_fire
+[match   16.8] [radio] Tsong Ramil (stalker): affirmative
+[match   16.9] Bayaw Erning killed by Lola Basyang Jr (gunshot); 2 teams left
+[match   16.9] alive: West Team 11, East Team 11; score { 0: 0, 1: 0 }
+[match   17.4] [radio] Kapitan Tikoy (sniper): down
+[match   17.5] [radio] Kuya Bert (sniper): down
+[match   18.0] Lola Basyang Jr killed by Nanay Kakanin (gunshot); 2 teams left
+[match   18.0] alive: West Team 11, East Team 10; score { 0: 0, 1: 0 }
+[match   18.1] [radio] Inday Rice Cooker (rusher): taking_fire
+[match   18.2] Kuya Wifi killed by Inday Tsismis (gunshot); 2 teams left
+[match   18.2] alive: West Team 11, East Team 9; score { 0: 0, 1: 0 }
+[match   18.2] [radio] Bunso Badong (sniper): affirmative
+[match   18.9] [radio] Kapitan Tikoy (sniper): need_help
+[match   19.0] [radio] Boy Pickup (sniper): need_help
+[match   19.3] Kapitan Tikoy killed by Bunso Badong (gunshot); 2 teams left
+[match   19.3] alive: West Team 10, East Team 9; score { 0: 0, 1: 0 }
+[match   19.7] [radio] Inday Tsismis (rusher): kill
+[match   19.9] [radio] Lolo Kalesa (sniper): affirmative
+[match   20.2] Boy Pickup killed by Nanay Kakanin (gunshot); 2 teams left
+[match   20.2] alive: West Team 10, East Team 8; score { 0: 0, 1: 0 }
+[match   20.4] [radio] Lola Basyang (sniper): affirmative
+[match   20.5] Bossing Barbecue killed by Kumareng Marites (gunshot); 2 teams left
+[match   20.5] alive: West Team 10, East Team 7; score { 0: 0, 1: 0 }
+[match   20.9] [radio] Mang Kanor (stalker): affirmative
+[match   21.1] [radio] Kumareng Marites (stalker): affirmative
+[match   21.8] Kumareng Marites killed by Tito Boy (gunshot); 2 teams left
+[match   21.8] alive: West Team 9, East Team 7; score { 0: 0, 1: 0 }
+[match   21.9] [radio] Ate Load (sniper): affirmative
+[match   21.9] [radio] Nanay Kakanin (rusher): kill
+[match   22.5] Mang Kanor (team 1) landed at (4.0, 0.0, 24.0), 2.5 m/s, health 100; teammates 26 m, 19 m
+[match   22.7] Nanay Kakanin killed by Kuya Bert (gunshot); 2 teams left
+[match   22.7] alive: West Team 8, East Team 7; score { 0: 0, 1: 0 }
+[match   22.7] [radio] Ka Pedring (sniper): taking_fire
+[match   22.7] [radio] Mang Kanor (stalker): affirmative
+[match   22.8] Inday Rice Cooker killed by Ate Load (gunshot); 2 teams left
+[match   22.8] alive: West Team 7, East Team 7; score { 0: 0, 1: 0 }
+[match   23.2] Inday Tsismis killed by Kuya Bert (gunshot); 2 teams left
+[match   23.2] alive: West Team 6, East Team 7; score { 0: 0, 1: 0 }
+[match   23.4] [radio] Ate Load (sniper): affirmative
+[match   23.4] [radio] Tito Boy (looter): taking_fire
+[match   24.1] [radio] Tito Boy (looter): headshot_kill
+[match   24.2] [radio] Kuya Bert (sniper): down
+[match   24.9] [radio] Ate Load (sniper): kill
+[match   24.9] [radio] Lola Basyang (sniper): affirmative
+[match   25.6] [radio] Tito Boy (looter): down
+[match   25.7] [radio] Bunso Badong (sniper): affirmative
+[match   26.3] Kuya Fishball killed by Kumpare Ambo (gunshot); 2 teams left
+[match   26.3] alive: West Team 6, East Team 6; score { 0: 0, 1: 0 }
+[match   26.4] [radio] Kumpare Ambo (looter): affirmative
+[match   26.5] [radio] Kuya Bert (sniper): kill
+[match   27.3] [radio] Kumpare Ambo (looter): affirmative
+[match   27.4] [radio] Kuya Bert (sniper): kill
+[match   28.1] [radio] Tito Boy (looter): down
+[match   28.3] [radio] Kuya Bert (sniper): down
+[match   29.0] [radio] Tito Boy (looter): down
+[match   30.0] status: { "ground": 12 }; armed 12; shots 404; zone -1 hold r=94; corpses 12; levels { "L1": 10, "between": 2 }; server tick avg 8.48 ms, p99 23.96 ms, max 58.02 ms over 900 ticks
+[match   30.0] dm teams: West Team 6 at (-11.0, 3.0) spread 14 m; East Team 6 at (16.0, 13.0) spread 8 m; gap 29 m; zone centre (-5.0, 0.0)
+[match   30.0] bots: { "fight": 4, "roam": 1, "order": 3, "heal": 1, "follow": 1, "hunt": 1, "investigate": 1 }; containers searched by bots 0 (all players 0); plan steps done 0; guns carried 24
+[match   30.0] roles: { "sniper": { "fight": 2, "roam": 1, "order": 2, "follow": 1, "investigate": 1 }, "looter": { "fight": 2 }, "rusher": { "heal": 1 }, "stalker": { "hunt": 1, "order": 1 } }; stuck now 0; waypoints 792; team { "lines": 39, "pings": 0, "laser_follow": 0, "learned_cells": 46, "blocked_cells": 1, "squads": 6, "following_humans": 0 }
+[match   30.0] [lootstats] bots on the ground 12 (in water 0); armed 12; armed with ammo for a gun 12; long guns 12; attachments fitted 0; rounds of unusable ammo carried 0; items on the ground 0; bot pickups { "detours": 0, "detour_taken": 0, "fetches": 0, "fetch_done": 0, "items_taken": 0 }
+[match   30.7] Toto Pancit (team 0) landed at (2.0, 0.0, 6.0), 4.9 m/s, health 3; teammates 46 m, 19 m
+[match   31.1] [radio] Lolo Kalesa (sniper): contact
+[match   31.2] [radio] Toto Pancit (rusher): contact
+[match   31.4] Toto Pancit killed by Kuya Bert (gunshot); 2 teams left
+[match   31.4] alive: West Team 5, East Team 6; score { 0: 0, 1: 0 }
+[match   31.9] [radio] Kuya Bert (sniper): kill
+[match   32.0] Bunso Badong killed by Kumpare Ambo (gunshot); 2 teams left
+[match   32.0] alive: West Team 5, East Team 5; score { 0: 0, 1: 0 }
+[match   32.1] [radio] Tito Boy (looter): down
+[match   32.8] [radio] Kumpare Ambo (looter): kill
+[match   32.9] [radio] Kuya Bert (sniper): down
+[match   33.8] [radio] Ka Pedring (sniper): affirmative
+[match   34.7] [radio] Lola Basyang (sniper): affirmative
+[match   35.9] [radio] Mang Kanor (stalker): contact
+[match   36.2] [radio] Tito Boy (looter): taking_fire
+[match   36.5] Tito Boy killed by Lolo Kalesa (gunshot); 2 teams left
+[match   36.5] alive: West Team 4, East Team 5; score { 0: 0, 1: 0 }
+[match   36.8] [radio] Ate Load (sniper): affirmative
+[match   37.2] [radio] Ka Pedring (sniper): affirmative
+[match   37.5] [radio] Lolo Kalesa (sniper): kill
+[match   37.7] Mang Kanor killed by Lola Basyang (gunshot); 2 teams left
+[match   37.7] alive: West Team 4, East Team 4; score { 0: 0, 1: 0 }
+[match   38.0] [radio] Lola Basyang (sniper): taking_fire
+[match   38.2] [radio] Tsong Ramil (stalker): affirmative
+[match   38.7] [radio] Kapitbahay Lito (sniper): affirmative
+[match   39.1] [radio] Kuya Bert (sniper): down
+[match   39.2] Lolo Kalesa killed by Ka Pedring (gunshot); 2 teams left
+[match   39.2] alive: West Team 4, East Team 3; score { 0: 0, 1: 0 }
+[match   39.4] [radio] Lola Basyang (sniper): kill
+[match   40.1] [radio] Kuya Bert (sniper): down
+[match   40.2] [radio] Kapitbahay Lito (sniper): down
+[match   40.8] Kumpare Ambo killed by Kuya Bert (gunshot); 2 teams left
+[match   40.8] alive: West Team 3, East Team 3; score { 0: 0, 1: 0 }
+[match   40.9] [radio] Ka Pedring (sniper): taking_fire
+[match   41.2] [radio] Ate Load (sniper): affirmative
+[match   41.7] [radio] Ka Pedring (sniper): kill
+[match   42.0] [radio] Kuya Bert (sniper): need_help
+[match   42.6] [radio] Lola Basyang (sniper): taking_fire
+[match   42.9] [radio] Tsong Ramil (stalker): affirmative
+[match   43.1] Kuya Bert killed by Ka Pedring (gunshot); 2 teams left
+[match   43.1] alive: West Team 3, East Team 2; score { 0: 0, 1: 0 }
+[match   43.7] [radio] Ka Pedring (sniper): kill
+[match   43.8] [radio] Ate Load (sniper): affirmative
+[match   44.8] [radio] Ate Load (sniper): down
+[match   45.0] status: { "ground": 5 }; armed 5; shots 519; zone -1 hold r=94; corpses 19; levels { "L1": 5 }; server tick avg 2.34 ms, p99 11.68 ms, max 30.88 ms over 900 ticks
+[match   45.0] dm teams: West Team 3 at (-11.0, 2.0) spread 13 m; East Team 2 at (9.0, 18.0) spread 7 m; gap 26 m; zone centre (-5.0, 0.0)
+[match   45.0] bots: { "roam": 3, "heal": 1, "investigate": 1 }; containers searched by bots 0 (all players 0); plan steps done 0; guns carried 10
+[match   45.0] roles: { "sniper": { "roam": 3, "heal": 1 }, "stalker": { "investigate": 1 } }; stuck now 0; waypoints 792; team { "lines": 68, "pings": 0, "laser_follow": 0, "learned_cells": 46, "blocked_cells": 1, "squads": 6, "following_humans": 0 }
+[match   45.0] [lootstats] bots on the ground 5 (in water 0); armed 5; armed with ammo for a gun 5; long guns 5; attachments fitted 0; rounds of unusable ammo carried 0; items on the ground 0; bot pickups { "detours": 0, "detour_taken": 0, "fetches": 0, "fetch_done": 0, "items_taken": 0 }
+[match   46.4] [radio] Ka Pedring (sniper): need_help
+[match   46.6] Ka Pedring killed by Tsong Ramil (gunshot); 2 teams left
+[match   46.6] alive: West Team 2, East Team 2; score { 0: 0, 1: 0 }
+[match   47.2] [radio] Tsong Ramil (stalker): kill
+[match   47.4] Ate Load (team 1) landed at (5.0, 0.0, 25.0), 3.8 m/s, health 100; teammates 13 m
+[match   47.4] [radio] Lola Basyang (sniper): affirmative
+[match   48.2] [radio] Kapitbahay Lito (sniper): affirmative
+[match   49.2] [radio] Lola Basyang (sniper): need_help
+[match   49.7] [radio] Tsong Ramil (stalker): taking_fire
+[match   50.1] [radio] Kapitbahay Lito (sniper): down
+[match   51.0] [radio] Kapitbahay Lito (sniper): negative
+[match   51.5] Lola Basyang (team 0) landed at (0.0, 0.0, 8.0), 4.5 m/s, health 2; teammates 21 m
+[match   51.7] Lola Basyang killed by Tsong Ramil (gunshot); 2 teams left
+[match   51.7] alive: West Team 1, East Team 2; score { 0: 0, 1: 0 }
+[match   52.1] [radio] Tsong Ramil (stalker): kill
+[match   52.2] [radio] Kapitbahay Lito (sniper): down
+[match   54.8] [radio] Kapitbahay Lito (sniper): need_help
+[match   55.3] Kapitbahay Lito killed by Tsong Ramil (gunshot); 1 teams left
+[match   55.3] alive: West Team 0, East Team 2; score { 0: 0, 1: 0 }
+[match   55.3] round 1 over: winner 1, scores { 0: 0, 1: 1 }
+[match   59.3] Inday Tsismis respawned at (-51.0, 0.0, -2.0) (nearest enemy 1000 m)
+[match   59.3] Tsong Ramil respawned at (53.0, 0.0, -11.0) (nearest enemy 104 m)
+[match   59.3] Bayaw Erning respawned at (-56.0, 0.0, 5.0) (nearest enemy 110 m)
+[match   59.3] Kuya Wifi respawned at (53.0, 0.0, -8.0) (nearest enemy 104 m)
+[match   59.3] Kumpare Ambo respawned at (-56.0, 0.0, -2.0) (nearest enemy 109 m)
+[match   59.3] Boy Pickup respawned at (53.0, 0.0, 11.0) (nearest enemy 105 m)
+[match   59.3] Lola Basyang respawned at (-56.0, 0.0, -5.0) (nearest enemy 109 m)
+[match   59.3] Mang Kanor respawned at (50.0, 0.0, 8.0) (nearest enemy 102 m)
+[match   59.3] Inday Rice Cooker respawned at (-54.0, 0.0, -2.0) (nearest enemy 104 m)
+[match   59.3] Ate Load respawned at (53.0, 0.0, 5.0) (nearest enemy 104 m)
+[match   59.3] Kumareng Marites respawned at (-54.0, 0.0, 5.0) (nearest enemy 104 m)
+[match   59.3] Lolo Kalesa respawned at (53.0, 0.0, 8.0) (nearest enemy 104 m)
+[match   59.3] Toto Pancit respawned at (-51.0, 0.0, 2.0) (nearest enemy 102 m)
+[match   59.3] Bossing Barbecue respawned at (53.0, 0.0, -5.0) (nearest enemy 104 m)
+[match   59.3] Ka Pedring respawned at (-51.0, 0.0, -5.0) (nearest enemy 102 m)
+[match   59.3] Mang Tomas Ketchup respawned at (50.0, 0.0, -11.0) (nearest enemy 102 m)
+[match   59.3] Nanay Kakanin respawned at (-49.0, 0.0, -2.0) (nearest enemy 99 m)
+[match   59.3] Kuya Fishball respawned at (50.0, 0.0, 11.0) (nearest enemy 100 m)
+[match   59.3] Kapitbahay Lito respawned at (-54.0, 0.0, -5.0) (nearest enemy 104 m)
+[match   59.3] Lola Basyang Jr respawned at (50.0, 0.0, 5.0) (nearest enemy 99 m)
+[match   59.3] Tito Boy respawned at (-51.0, 0.0, 5.0) (nearest enemy 101 m)
+[match   59.3] Bunso Badong respawned at (50.0, 0.0, -8.0) (nearest enemy 99 m)
+[match   59.3] Kapitan Tikoy respawned at (-49.0, 0.0, 5.0) (nearest enemy 99 m)
+[match   59.3] Kuya Bert respawned at (48.0, 0.0, -8.0) (nearest enemy 97 m)
+[match   59.3] round 2 started; scores { 0: 0, 1: 1 }
+[match   60.0] status: { "ground": 24 }; armed 24; shots 542; zone -1 hold r=93; corpses 0; levels { "L1": 24 }; server tick avg 1.23 ms, p99 5.73 ms, max 18.15 ms over 660 ticks
+[match   60.0] dm teams: West Team 12 at (-53.0, 0.0) spread 4 m; East Team 12 at (51.0, 0.0) spread 8 m; gap 104 m; zone centre (-2.0, 3.0)
+[match   60.0] bots: { "roam": 24 }; containers searched by bots 0 (all players 0); plan steps done 0; guns carried 48
+[match   60.0] roles: { "sniper": { "roam": 5 }, "rusher": { "roam": 10 }, "looter": { "roam": 5 }, "stalker": { "roam": 4 } }; stuck now 0; waypoints 792; team { "lines": 79, "pings": 0, "laser_follow": 0, "learned_cells": 46, "blocked_cells": 1, "squads": 6, "following_humans": 0 }
+[match   60.0] [lootstats] bots on the ground 24 (in water 0); armed 24; armed with ammo for a gun 24; long guns 24; attachments fitted 0; rounds of unusable ammo carried 0; items on the ground 0; bot pickups { "detours": 0, "detour_taken": 0, "fetches": 0, "fetch_done": 0, "items_taken": 0 }
+[match   63.9] [radio] Lola Basyang Jr (sniper): sniping
+[match   64.2] [radio] Kapitan Tikoy (sniper): sniping
+[match   69.6] Kapitan Tikoy (team 0) landed at (-42.0, 0.0, -5.0), 2.5 m/s, health 100; teammates -
+[match   69.8] Kuya Fishball (team 1) landed at (46.0, 0.0, 14.0), 2.5 m/s, health 100; teammates -
+[match   71.9] [radio] Toto Pancit (looter): contact
+[match   71.9] [radio] Lolo Kalesa (rusher): contact
+[match   72.4] Bossing Barbecue (team 1) landed at (18.0, 0.0, 11.0), 2.5 m/s, health 100; teammates 14 m
+[match   73.2] [radio] Bossing Barbecue (looter): taking_fire
+[match   73.3] [radio] Bayaw Erning (rusher): taking_fire
+[match   73.5] Lolo Kalesa killed by Bayaw Erning (gunshot); 2 teams left
+[match   73.5] alive: West Team 12, East Team 11; score { 0: 0, 1: 1 }
+[match   73.6] Lola Basyang (team 0) landed at (-61.0, 0.0, -36.0), 3.1 m/s, health 100; teammates 37 m
+[match   74.1] [radio] Bossing Barbecue (looter): need_help
+[match   74.3] [radio] Kumpare Ambo (rusher): taking_fire
+[match   74.6] Kuya Bert killed by Bunso Badong (gunshot); 2 teams left
+[match   74.6] alive: West Team 12, East Team 10; score { 0: 0, 1: 1 }
+[match   74.8] [radio] Tsong Ramil (rusher): affirmative
+[match   75.0] status: { "ground": 22 }; armed 22; shots 672; zone -1 hold r=93; corpses 2; levels { "L1": 22 }; server tick avg 3.52 ms, p99 16.06 ms, max 32.62 ms over 900 ticks
+[match   75.0] dm teams: West Team 12 at (-27.0, 7.0) spread 15 m; East Team 10 at (16.0, 8.0) spread 8 m; gap 43 m; zone centre (-2.0, 3.0)
+[match   75.0] bots: { "order": 2, "fight": 16, "roam": 1, "investigate": 2, "hunt": 1 }; containers searched by bots 0 (all players 0); plan steps done 0; guns carried 44
+[match   75.0] roles: { "sniper": { "order": 1, "fight": 3, "investigate": 1 }, "rusher": { "fight": 7, "investigate": 1 }, "looter": { "fight": 4, "roam": 1 }, "stalker": { "fight": 2, "order": 1, "hunt": 1 } }; stuck now 0; waypoints 792; team { "lines": 88, "pings": 0, "laser_follow": 0, "learned_cells": 46, "blocked_cells": 1, "squads": 12, "following_humans": 0 }
+[match   75.0] [lootstats] bots on the ground 22 (in water 0); armed 22; armed with ammo for a gun 22; long guns 22; attachments fitted 0; rounds of unusable ammo carried 0; items on the ground 0; bot pickups { "detours": 0, "detour_taken": 0, "fetches": 0, "fetch_done": 0, "items_taken": 0 }
+[match   75.1] Ka Pedring killed by Kuya Wifi (gunshot); 2 teams left
+[match   75.1] alive: West Team 11, East Team 10; score { 0: 0, 1: 1 }
+[match   75.3] [radio] Bayaw Erning (rusher): need_help
+[match   75.7] [radio] Kuya Wifi (looter): headshot_kill
+[match   76.1] Kumpare Ambo killed by Tsong Ramil (gunshot); 2 teams left
+[match   76.1] alive: West Team 10, East Team 10; score { 0: 0, 1: 1 }
+[match   76.1] [radio] Toto Pancit (looter): taking_fire
+[match   76.2] Toto Pancit killed by Inday Tsismis (gunshot); 2 teams left
+[match   76.2] alive: West Team 9, East Team 10; score { 0: 0, 1: 1 }
+[match   76.6] [radio] Bunso Badong (rusher): kill
+[match   76.8] Bayaw Erning killed by Tsong Ramil (gunshot); 2 teams left
+[match   76.8] alive: West Team 8, East Team 10; score { 0: 0, 1: 1 }
+[match   76.9] [radio] Inday Tsismis (sniper): affirmative
+[match   77.3] [radio] Mang Kanor (rusher): affirmative
+[match   77.7] Tsong Ramil killed by Inday Tsismis (gunshot); 2 teams left
+[match   77.7] alive: West Team 8, East Team 9; score { 0: 0, 1: 1 }
+[match   77.8] [radio] Inday Tsismis (sniper): down
+[match   77.8] Bossing Barbecue killed by Lola Basyang Jr (gunshot); 2 teams left
+[match   77.8] alive: West Team 8, East Team 8; score { 0: 0, 1: 1 }
+[match   78.1] [radio] Kuya Wifi (looter): down
+[match   78.8] [radio] Inday Tsismis (sniper): affirmative
+[match   78.8] [radio] Mang Kanor (rusher): affirmative
+[match   79.6] [radio] Kuya Wifi (looter): down
+[match   79.7] [radio] Inday Tsismis (sniper): affirmative
+[match   80.4] Nanay Kakanin (team 0) landed at (-26.0, 0.0, 16.0), 3.9 m/s, health 85; teammates 36 m, 31 m
+[match   80.4] [radio] Lola Basyang Jr (sniper): kill
+[match   80.7] [radio] Inday Tsismis (sniper): down
+[match   81.5] [radio] Boy Pickup (stalker): taking_fire
+[match   81.7] [radio] Inday Tsismis (sniper): kill
+[match   82.3] Inday Rice Cooker (team 0) landed at (-23.0, 0.0, 12.0), 4.9 m/s, health 79; teammates 30 m, 5 m, 35 m
+[match   82.7] [radio] Inday Tsismis (sniper): down
+[match   83.0] Bunso Badong (team 1) landed at (10.0, 0.0, 2.0), 4.9 m/s, health 93; teammates 9 m
+[match   83.6] [radio] Inday Tsismis (sniper): down
+[match   83.9] Kuya Wifi (team 1) landed at (15.0, 0.0, 8.0), 4.9 m/s, health 100; teammates 1 m, 9 m
+[match   84.5] [radio] Inday Tsismis (sniper): kill
+[match   84.5] [radio] Lola Basyang Jr (sniper): taking_fire
+[match   85.2] Kapitbahay Lito killed by Nanay Kakanin (gunshot); 2 teams left
+[match   85.2] alive: West Team 7, East Team 8; score { 0: 0, 1: 1 }
+[match   85.5] [radio] Kumareng Marites (stalker): affirmative
+[match   86.1] [radio] Lola Basyang Jr (sniper): need_help
+[match   86.2] [radio] Inday Rice Cooker (rusher): taking_fire
+[match   86.9] [radio] Tito Boy (stalker): affirmative
+[match   87.0] [radio] Kuya Fishball (looter): affirmative
+[match   87.7] [radio] Nanay Kakanin (stalker): taking_fire
+[match   87.9] [radio] Bunso Badong (rusher): taking_fire
+[match   88.5] [radio] Tito Boy (stalker): affirmative
+[match   88.7] [radio] Mang Tomas Ketchup (rusher): taking_fire
+[match   89.4] [radio] Kumareng Marites (stalker): affirmative
+[match   89.4] Inday Tsismis killed by Kuya Wifi (gunshot); 2 teams left
+[match   89.4] alive: West Team 6, East Team 8; score { 0: 0, 1: 1 }
+[match   89.5] Inday Rice Cooker killed by Kuya Wifi (gunshot); 2 teams left
+[match   89.5] alive: West Team 5, East Team 8; score { 0: 0, 1: 1 }
+[match   89.7] [radio] Kuya Fishball (looter): affirmative
+[match   90.0] status: { "ground": 13 }; armed 13; shots 1008; zone -1 hold r=93; corpses 11; levels { "L1": 11, "between": 1, "L2": 1 }; server tick avg 7.17 ms, p99 16.38 ms, max 25.72 ms over 900 ticks
+[match   90.0] dm teams: West Team 5 at (-19.0, 8.0) spread 14 m; East Team 8 at (6.0, 12.0) spread 8 m; gap 25 m; zone centre (-2.0, 3.0)
+[match   90.0] bots: { "investigate": 1, "fight": 7, "roam": 3, "order": 1, "follow": 1 }; containers searched by bots 0 (all players 0); plan steps done 0; guns carried 26
+[match   90.0] [stuck] Ate Load (sniper, roam) at (3.6, 1.0, 23.4) -> (1.2, 2.5, 23.7), ahead low, no_prog 2.9
+[match   90.0] roles: { "looter": { "investigate": 1, "roam": 1, "fight": 1 }, "stalker": { "fight": 4 }, "rusher": { "order": 1, "follow": 1, "fight": 1 }, "sniper": { "roam": 2, "fight": 1 } }; stuck now 1; waypoints 792; team { "lines": 119, "pings": 0, "laser_follow": 0, "learned_cells": 46, "blocked_cells": 1, "squads": 12, "following_humans": 0 }
+[match   90.0] [lootstats] bots on the ground 13 (in water 0); armed 13; armed with ammo for a gun 13; long guns 13; attachments fitted 0; rounds of unusable ammo carried 0; items on the ground 0; bot pickups { "detours": 0, "detour_taken": 0, "fetches": 0, "fetch_done": 0, "items_taken": 0 }
+[match   90.4] [radio] Lola Basyang (looter): down
+[match   90.7] [radio] Kuya Wifi (looter): kill
+[match   91.1] [radio] Kumareng Marites (stalker): need_help
+[match   91.7] [radio] Kuya Wifi (looter): kill
+[match   92.3] [radio] Lola Basyang (looter): down
+[match   92.5] Bunso Badong killed by Mang Tomas Ketchup (gunshot); 2 teams left
+[match   92.5] alive: West Team 5, East Team 7; score { 0: 0, 1: 1 }
+[match   92.8] [radio] Mang Tomas Ketchup (rusher): need_help
+[match   93.1] Mang Tomas Ketchup killed by Kapitan Tikoy (gunshot); 2 teams left
+[match   93.1] alive: West Team 5, East Team 6; score { 0: 0, 1: 1 }
+[match   93.1] [radio] Kapitan Tikoy (sniper): affirmative
+[match   93.7] [radio] Boy Pickup (stalker): affirmative
+[match   94.0] Kumareng Marites killed by Tito Boy (bleeding); 2 teams left
+[match   94.0] alive: West Team 4, East Team 6; score { 0: 0, 1: 1 }
+[match   94.1] [radio] Kapitan Tikoy (sniper): kill
+[match   94.1] Ate Load (team 1) landed at (4.0, 1.0, 23.0), 3.0 m/s, health 92; teammates 34 m, 12 m
+[match   94.4] [radio] Mang Kanor (rusher): affirmative
+[match   94.9] [radio] Tito Boy (stalker): taking_fire
+[match   95.3] [radio] Kuya Wifi (looter): down
+[match   95.6] [radio] Lola Basyang (looter): in_position
+[match   95.8] Lola Basyang Jr killed by Kuya Fishball (gunshot); 2 teams left
+[match   95.8] alive: West Team 4, East Team 5; score { 0: 0, 1: 1 }
+[match   96.3] [radio] Kuya Wifi (looter): down
+[match   96.3] [radio] Lola Basyang (looter): down
+[match   97.2] [radio] Kapitan Tikoy (sniper): affirmative
+[match   97.3] [radio] Kuya Fishball (looter): kill
+[match   98.0] [radio] Kuya Wifi (looter): affirmative
+[match   98.2] [radio] Lola Basyang (looter): affirmative
+[match   98.8] [radio] Ate Load (sniper): affirmative
+[match   99.4] Tito Boy killed by Mang Kanor (gunshot); 2 teams left
+[match   99.4] alive: West Team 3, East Team 5; score { 0: 0, 1: 1 }
+[match   99.8] [radio] Lola Basyang (looter): down
+[match   99.9] [radio] Mang Kanor (rusher): kill
+[match  100.6] Mang Kanor killed by Nanay Kakanin (gunshot); 2 teams left
+[match  100.6] alive: West Team 3, East Team 4; score { 0: 0, 1: 1 }
+[match  100.7] [radio] Boy Pickup (stalker): taking_fire
+[match  101.0] [radio] Nanay Kakanin (stalker): kill
+[match  101.5] [radio] Kuya Wifi (looter): in_position
+[match  102.5] [radio] Kuya Wifi (looter): down
+[match  103.5] [radio] Ate Load (sniper): affirmative
+[match  104.5] [radio] Kuya Wifi (looter): affirmative
+[match  105.0] status: { "ground": 7 }; armed 7; shots 1232; zone -1 hold r=93; corpses 17; levels { "L1": 7 }; server tick avg 5.14 ms, p99 13.96 ms, max 18.16 ms over 900 ticks
+[match  105.0] dm teams: West Team 3 at (-22.0, 5.0) spread 12 m; East Team 4 at (5.0, 14.0) spread 3 m; gap 28 m; zone centre (-2.0, 3.0)
+[match  105.0] bots: { "order": 3, "fight": 3, "roam": 1 }; containers searched by bots 0 (all players 0); plan steps done 0; guns carried 14
+[match  105.0] roles: { "looter": { "order": 2, "fight": 1 }, "stalker": { "fight": 2 }, "sniper": { "order": 1, "roam": 1 } }; stuck now 0; waypoints 792; team { "lines": 147, "pings": 0, "laser_follow": 0, "learned_cells": 46, "blocked_cells": 1, "squads": 12, "following_humans": 0 }
+[match  105.0] [lootstats] bots on the ground 7 (in water 0); armed 7; armed with ammo for a gun 7; long guns 7; attachments fitted 0; rounds of unusable ammo carried 0; items on the ground 0; bot pickups { "detours": 0, "detour_taken": 0, "fetches": 0, "fetch_done": 0, "items_taken": 0 }
+[match  106.6] [radio] Boy Pickup (stalker): taking_fire
+[match  106.8] [radio] Kapitan Tikoy (sniper): contact
+[match  107.9] [radio] Lola Basyang (looter): affirmative
+[match  108.9] [radio] Kapitan Tikoy (sniper): affirmative
+[match  110.2] [radio] Boy Pickup (stalker): taking_fire
+[match  111.2] [radio] Kuya Fishball (looter): taking_fire
+[match  113.9] [radio] Kuya Fishball (looter): clear
+[match  114.4] [radio] Kapitan Tikoy (sniper): taking_fire
+[match  114.8] [radio] Boy Pickup (stalker): taking_fire
+[match  116.6] Boy Pickup killed by Kapitan Tikoy (bleeding); 2 teams left
+[match  116.6] alive: West Team 3, East Team 3; score { 0: 0, 1: 1 }
+[match  116.9] [radio] Nanay Kakanin (stalker): reloading
+[match  117.0] [radio] Kuya Wifi (looter): down
+[match  117.3] Nanay Kakanin killed by Kuya Fishball (bleeding); 2 teams left
+[match  117.3] alive: West Team 2, East Team 3; score { 0: 0, 1: 1 }
+[match  117.9] [radio] Kuya Fishball (looter): kill
+[match  117.9] [radio] Lola Basyang (looter): down
+[match  118.4] Kuya Wifi killed by Kapitan Tikoy (gunshot); 2 teams left
+[match  118.4] alive: West Team 2, East Team 2; score { 0: 0, 1: 1 }
+[match  118.8] [radio] Ate Load (sniper): affirmative
+[match  118.9] [radio] Kapitan Tikoy (sniper): kill
+[match  119.8] [radio] Kapitan Tikoy (sniper): kill
+[match  119.9] [radio] Ate Load (sniper): down
+[match  120.0] status: { "ground": 4 }; armed 4; shots 1310; zone -1 hold r=93; corpses 20; levels { "L1": 4 }; server tick avg 1.89 ms, p99 3.81 ms, max 16.30 ms over 900 ticks
+[match  120.0] dm teams: West Team 2 at (-17.0, 5.0) spread 11 m; East Team 2 at (7.0, 16.0) spread 2 m; gap 26 m; zone centre (-2.0, 3.0)
+[match  120.0] bots: { "order": 2, "fight": 2 }; containers searched by bots 0 (all players 0); plan steps done 0; guns carried 8
+[match  120.0] roles: { "looter": { "order": 1, "fight": 1 }, "sniper": { "order": 1, "fight": 1 } }; stuck now 0; waypoints 792; team { "lines": 164, "pings": 0, "laser_follow": 0, "learned_cells": 46, "blocked_cells": 1, "squads": 12, "following_humans": 0 }
+[match  120.0] [lootstats] bots on the ground 4 (in water 0); armed 4; armed with ammo for a gun 4; long guns 4; attachments fitted 0; rounds of unusable ammo carried 0; items on the ground 0; bot pickups { "detours": 0, "detour_taken": 0, "fetches": 0, "fetch_done": 0, "items_taken": 0 }
+[match  120.7] [radio] Ate Load (sniper): affirmative
+[match  122.1] [radio] Kapitan Tikoy (sniper): need_help
+[match  123.1] [radio] Lola Basyang (looter): affirmative
+[match  128.6] [radio] Kuya Fishball (looter): taking_fire
+[match  129.1] [radio] Lola Basyang (looter): taking_fire
+[match  129.8] Kuya Fishball killed by Kapitan Tikoy (gunshot); 2 teams left
+[match  129.8] alive: West Team 2, East Team 1; score { 0: 0, 1: 1 }
+[match  130.4] [radio] Ate Load (sniper): down
+[match  130.4] [radio] Kapitan Tikoy (sniper): kill
+[match  133.6] [radio] Lola Basyang (looter): in_position
+[match  135.0] status: { "ground": 3 }; armed 3; shots 1355; zone -1 hold r=93; corpses 21; levels { "L1": 3 }; server tick avg 1.09 ms, p99 2.23 ms, max 9.10 ms over 900 ticks
+[match  135.0] dm teams: West Team 2 at (-13.0, 0.0) spread 2 m; East Team 1 at (7.0, 17.0) spread 0 m; gap 27 m; zone centre (-2.0, 3.0)
+[match  135.0] bots: { "order": 2, "roam": 1 }; containers searched by bots 0 (all players 0); plan steps done 0; guns carried 6
+[match  135.0] roles: { "looter": { "order": 1 }, "sniper": { "order": 1, "roam": 1 } }; stuck now 0; waypoints 792; team { "lines": 172, "pings": 0, "laser_follow": 0, "learned_cells": 46, "blocked_cells": 1, "squads": 12, "following_humans": 0 }
+[match  135.0] [lootstats] bots on the ground 3 (in water 0); armed 3; armed with ammo for a gun 3; long guns 3; attachments fitted 0; rounds of unusable ammo carried 0; items on the ground 0; bot pickups { "detours": 0, "detour_taken": 0, "fetches": 0, "fetch_done": 0, "items_taken": 0 }
+[match  144.3] [radio] Kapitan Tikoy (sniper): contact
+[match  144.3] [radio] Ate Load (sniper): contact
+[match  145.2] [radio] Ate Load (sniper): need_help
+[match  145.5] Ate Load killed by Kapitan Tikoy (gunshot); 1 teams left
+[match  145.5] alive: West Team 2, East Team 0; score { 0: 0, 1: 1 }
+[match  145.5] round 2 over: winner 0, scores { 0: 1, 1: 1 }
+[match  149.5] Inday Tsismis respawned at (-54.0, 0.0, -5.0) (nearest enemy 1000 m)
+[match  149.5] Tsong Ramil respawned at (53.0, 0.0, 11.0) (nearest enemy 107 m)
+[match  149.5] Bayaw Erning respawned at (-56.0, 0.0, -2.0) (nearest enemy 109 m)
+[match  149.5] Kuya Wifi respawned at (53.0, 0.0, 8.0) (nearest enemy 107 m)
+[match  149.5] Kumpare Ambo respawned at (-56.0, 0.0, 2.0) (nearest enemy 109 m)
+[match  149.5] Boy Pickup respawned at (53.0, 0.0, -5.0) (nearest enemy 106 m)
+[match  149.5] Lola Basyang respawned at (-56.0, 0.0, -5.0) (nearest enemy 109 m)
+[match  149.5] Mang Kanor respawned at (53.0, 0.0, 5.0) (nearest enemy 107 m)
+[match  149.5] Inday Rice Cooker respawned at (-51.0, 0.0, -2.0) (nearest enemy 104 m)
+[match  149.5] Ate Load respawned at (48.0, 0.0, 11.0) (nearest enemy 100 m)
+[match  149.5] Kumareng Marites respawned at (-56.0, 0.0, 5.0) (nearest enemy 104 m)
+[match  149.5] Lolo Kalesa respawned at (53.0, 0.0, -8.0) (nearest enemy 104 m)
+[match  149.5] Toto Pancit respawned at (-54.0, 0.0, -2.0) (nearest enemy 102 m)
+[match  149.5] Bossing Barbecue respawned at (53.0, 0.0, -11.0) (nearest enemy 104 m)
+[match  149.5] Ka Pedring respawned at (-54.0, 0.0, 2.0) (nearest enemy 102 m)
+[match  149.5] Mang Tomas Ketchup respawned at (50.0, 0.0, 11.0) (nearest enemy 102 m)
+[match  149.5] Nanay Kakanin respawned at (-54.0, 0.0, 5.0) (nearest enemy 102 m)
+[match  149.5] Kuya Fishball respawned at (50.0, 0.0, 8.0) (nearest enemy 102 m)
+[match  149.5] Kapitbahay Lito respawned at (-51.0, 0.0, -5.0) (nearest enemy 100 m)
+[match  149.5] Lola Basyang Jr respawned at (50.0, 0.0, -8.0) (nearest enemy 101 m)
+[match  149.5] Tito Boy respawned at (-49.0, 0.0, 2.0) (nearest enemy 97 m)
+[match  149.5] Bunso Badong respawned at (50.0, 0.0, -5.0) (nearest enemy 99 m)
+[match  149.5] Kapitan Tikoy respawned at (-51.0, 0.0, 2.0) (nearest enemy 99 m)
+[match  149.5] Kuya Bert respawned at (50.0, 0.0, 5.0) (nearest enemy 99 m)
+[match  149.5] round 3 started; scores { 0: 1, 1: 1 }
+[match  150.0] status: { "ground": 24 }; armed 24; shots 1360; zone -1 hold r=94; corpses 0; levels { "L1": 24 }; server tick avg 0.63 ms, p99 2.19 ms, max 6.54 ms over 660 ticks
+[match  150.0] dm teams: West Team 12 at (-53.0, 0.0) spread 4 m; East Team 12 at (51.0, 2.0) spread 8 m; gap 105 m; zone centre (3.0, -2.0)
+[match  150.0] bots: { "roam": 24 }; containers searched by bots 0 (all players 0); plan steps done 0; guns carried 48
+[match  150.0] roles: { "stalker": { "roam": 5 }, "looter": { "roam": 5 }, "rusher": { "roam": 9 }, "sniper": { "roam": 5 } }; stuck now 0; waypoints 792; team { "lines": 175, "pings": 0, "laser_follow": 0, "learned_cells": 46, "blocked_cells": 1, "squads": 12, "following_humans": 0 }
+[match  150.0] [lootstats] bots on the ground 24 (in water 0); armed 24; armed with ammo for a gun 24; long guns 24; attachments fitted 0; rounds of unusable ammo carried 0; items on the ground 0; bot pickups { "detours": 0, "detour_taken": 0, "fetches": 0, "fetch_done": 0, "items_taken": 0 }
+[match  154.0] [radio] Inday Tsismis (stalker): sneaking
+[match  154.0] [radio] Lola Basyang Jr (rusher): hunting
+[match  162.3] [radio] Tito Boy (looter): contact
+[match  162.3] [radio] Mang Kanor (rusher): contact
+[match  163.3] [radio] Lola Basyang Jr (rusher): taking_fire
+[match  163.3] [radio] Kumpare Ambo (rusher): taking_fire
+[match  164.1] [radio] Kapitan Tikoy (rusher): taking_fire
+[match  164.1] Mang Kanor killed by Kapitbahay Lito (gunshot); 2 teams left
+[match  164.1] alive: West Team 12, East Team 11; score { 0: 1, 1: 1 }
+[match  164.2] [radio] Kuya Bert (stalker): taking_fire
+[match  164.2] Inday Rice Cooker killed by Toto Pancit (gunshot); 2 teams left
+[match  164.2] alive: West Team 11, East Team 11; score { 0: 1, 1: 1 }
+[match  164.3] Kapitan Tikoy killed by Bossing Barbecue (gunshot); 2 teams left
+[match  164.3] alive: West Team 10, East Team 11; score { 0: 1, 1: 1 }
+[match  164.4] Kuya Bert killed by Kuya Wifi (gunshot); 2 teams left
+[match  164.4] alive: West Team 10, East Team 10; score { 0: 1, 1: 1 }
+[match  164.8] [radio] Toto Pancit (stalker): headshot_kill
+[match  164.9] [radio] Bossing Barbecue (rusher): headshot_kill
+[match  164.9] Tito Boy killed by Lolo Kalesa (gunshot); 2 teams left
+[match  164.9] alive: West Team 9, East Team 10; score { 0: 1, 1: 1 }
+[match  165.0] status: { "ground": 19 }; armed 19; shots 1489; zone -1 hold r=94; corpses 5; levels { "L1": 18, "between": 1 }; server tick avg 3.05 ms, p99 15.09 ms, max 22.14 ms over 900 ticks
+[match  165.0] dm teams: West Team 9 at (-18.0, 9.0) spread 9 m; East Team 10 at (21.0, 2.0) spread 12 m; gap 40 m; zone centre (3.0, -2.0)
+[match  165.0] bots: { "fight": 15, "roam": 1, "investigate": 1, "follow": 1, "order": 1 }; containers searched by bots 0 (all players 0); plan steps done 0; guns carried 38
+[match  165.0] roles: { "stalker": { "fight": 3, "order": 1 }, "looter": { "fight": 3 }, "rusher": { "fight": 6, "follow": 1 }, "sniper": { "fight": 3, "roam": 1, "investigate": 1 } }; stuck now 0; waypoints 792; team { "lines": 185, "pings": 0, "laser_follow": 0, "learned_cells": 47, "blocked_cells": 1, "squads": 18, "following_humans": 0 }
+[match  165.0] [lootstats] bots on the ground 19 (in water 0); armed 19; armed with ammo for a gun 19; long guns 19; attachments fitted 0; rounds of unusable ammo carried 0; items on the ground 0; bot pickups { "detours": 0, "detour_taken": 0, "fetches": 0, "fetch_done": 0, "items_taken": 0 }
+[match  165.1] Kapitbahay Lito killed by Toto Pancit (gunshot); 2 teams left
+[match  165.1] alive: West Team 8, East Team 10; score { 0: 1, 1: 1 }
+[match  165.6] [radio] Toto Pancit (stalker): headshot_kill
+[match  165.7] Bossing Barbecue killed by Ka Pedring (bleeding); 2 teams left
+[match  165.7] alive: West Team 8, East Team 9; score { 0: 1, 1: 1 }
+[match  165.8] [radio] Kuya Wifi (stalker): headshot_kill
+[match  166.4] [radio] Lola Basyang (sniper): affirmative
+[match  166.5] [radio] Tsong Ramil (looter): down
+[match  167.1] [radio] Ka Pedring (rusher): kill
+[match  167.3] [radio] Lolo Kalesa (sniper): kill
+[match  167.8] Lola Basyang Jr killed by Kumpare Ambo (bleeding); 2 teams left
+[match  167.8] alive: West Team 8, East Team 8; score { 0: 1, 1: 1 }
+[match  167.8] [radio] Inday Tsismis (stalker): down
+[match  168.0] [radio] Tsong Ramil (looter): down
+[match  168.5] Kumareng Marites (team 0) landed at (-39.0, 0.0, -7.0), 5.7 m/s, health 100; teammates -
+[match  168.8] [radio] Tsong Ramil (looter): down
+[match  168.8] [radio] Kumpare Ambo (rusher): kill
+[match  169.1] Ka Pedring killed by Bunso Badong (gunshot); 2 teams left
+[match  169.1] alive: West Team 7, East Team 8; score { 0: 1, 1: 1 }
+[match  169.5] [radio] Kuya Wifi (stalker): affirmative
+[match  169.7] [radio] Bayaw Erning (rusher): taking_fire
+[match  170.3] [radio] Bunso Badong (looter): kill
+[match  170.6] [radio] Lola Basyang (sniper): affirmative
+[match  170.8] Lolo Kalesa killed by Kumpare Ambo (gunshot); 2 teams left
+[match  170.8] alive: West Team 7, East Team 7; score { 0: 1, 1: 1 }
+[match  171.0] Kumpare Ambo killed by Kuya Wifi (gunshot); 2 teams left
+[match  171.0] alive: West Team 6, East Team 7; score { 0: 1, 1: 1 }
+[match  171.3] [radio] Boy Pickup (sniper): affirmative
+[match  171.7] [radio] Lola Basyang (sniper): affirmative
+[match  172.2] [radio] Kuya Wifi (stalker): taking_fire
+[match  172.5] [radio] Nanay Kakanin (rusher): affirmative
+[match  173.2] [radio] Tsong Ramil (looter): down
+[match  173.7] [radio] Inday Tsismis (stalker): down
+[match  174.1] [radio] Boy Pickup (sniper): taking_fire
+[match  174.1] Lola Basyang killed by Toto Pancit (gunshot); 2 teams left
+[match  174.1] alive: West Team 5, East Team 7; score { 0: 1, 1: 1 }
+[match  174.6] [radio] Toto Pancit (stalker): headshot_kill
+[match  175.0] [radio] Boy Pickup (sniper): need_help
+[match  175.5] [radio] Bayaw Erning (rusher): need_help
+[match  176.0] [radio] Kuya Fishball (stalker): affirmative
+[match  176.6] Bayaw Erning killed by Tsong Ramil (gunshot); 2 teams left
+[match  176.6] alive: West Team 4, East Team 7; score { 0: 1, 1: 1 }
+[match  176.6] [radio] Nanay Kakanin (rusher): affirmative
+[match  176.9] [radio] Bunso Badong (looter): affirmative
+[match  177.5] [radio] Inday Tsismis (stalker): down
+[match  177.9] [radio] Ate Load (sniper): taking_fire
+[match  178.4] [radio] Inday Tsismis (stalker): affirmative
+[match  178.9] [radio] Tsong Ramil (looter): kill
+[match  179.4] [radio] Inday Tsismis (stalker): down
+[match  180.0] status: { "ground": 11 }; armed 11; shots 1775; zone -1 hold r=94; corpses 13; levels { "L1": 10, "between": 1 }; server tick avg 8.50 ms, p99 22.70 ms, max 34.04 ms over 900 ticks
+[match  180.0] dm teams: West Team 4 at (-17.0, 7.0) spread 15 m; East Team 7 at (21.0, 9.0) spread 10 m; gap 37 m; zone centre (3.0, -2.0)
+[match  180.0] bots: { "fight": 5, "investigate": 1, "heal": 1, "order": 3, "roam": 1 }; containers searched by bots 0 (all players 0); plan steps done 0; guns carried 22
+[match  180.0] roles: { "stalker": { "fight": 2, "investigate": 1, "order": 1 }, "looter": { "fight": 1, "roam": 1, "order": 1 }, "sniper": { "fight": 1, "heal": 1, "order": 1 }, "rusher": { "fight": 1 } }; stuck now 0; waypoints 792; team { "lines": 217, "pings": 0, "laser_follow": 0, "learned_cells": 47, "blocked_cells": 1, "squads": 18, "following_humans": 0 }
+[match  180.0] [lootstats] bots on the ground 11 (in water 0); armed 11; armed with ammo for a gun 11; long guns 11; attachments fitted 0; rounds of unusable ammo carried 0; items on the ground 0; bot pickups { "detours": 0, "detour_taken": 0, "fetches": 0, "fetch_done": 0, "items_taken": 0 }
+[match  180.5] [radio] Kumareng Marites (sniper): affirmative
+[match  181.4] [radio] Kuya Wifi (stalker): contact
+[match  182.5] Toto Pancit (team 0) landed at (-10.0, 0.0, 16.0), 4.7 m/s, health 33; teammates 31 m
+[match  182.8] [radio] Nanay Kakanin (rusher): taking_fire
+[match  183.3] [radio] Tsong Ramil (looter): taking_fire
+[match  183.6] [radio] Inday Tsismis (stalker): taking_fire
+[match  184.1] [radio] Tsong Ramil (looter): need_help
+[match  184.4] Tsong Ramil killed by Nanay Kakanin (gunshot); 2 teams left
+[match  184.4] alive: West Team 4, East Team 6; score { 0: 1, 1: 1 }
+[match  184.8] [radio] Nanay Kakanin (rusher): kill
+[match  184.8] [radio] Kuya Wifi (stalker): down
+[match  185.6] [radio] Kuya Fishball (stalker): affirmative
+[match  186.5] [radio] Bunso Badong (looter): affirmative
+[match  186.6] [radio] Toto Pancit (stalker): reloading
+[match  186.9] Boy Pickup killed by Kuya Wifi (gunshot); 2 teams left
+[match  186.9] alive: West Team 4, East Team 5; score { 0: 1, 1: 1 }
+[match  187.4] [radio] Kuya Wifi (stalker): kill
+[match  187.9] [radio] Kumareng Marites (sniper): in_position
+[match  188.3] [radio] Kuya Fishball (stalker): taking_fire
+[match  188.4] Mang Tomas Ketchup (team 1) landed at (21.0, 0.0, -24.0), 2.6 m/s, health 100; teammates -
+[match  188.7] [radio] Nanay Kakanin (rusher): taking_fire
+[match  189.0] Nanay Kakanin killed by Bunso Badong (gunshot); 2 teams left
+[match  189.0] alive: West Team 3, East Team 5; score { 0: 1, 1: 1 }
+[match  189.3] [radio] Kuya Wifi (stalker): down
+[match  189.6] [radio] Inday Tsismis (stalker): taking_fire
+[match  190.0] [radio] Bunso Badong (looter): kill
+[match  190.3] [radio] Inday Tsismis (stalker): down
+[match  190.9] [radio] Bunso Badong (looter): need_help
+[match  191.2] [radio] Kumareng Marites (sniper): negative
+[match  191.9] [radio] Kuya Wifi (stalker): affirmative
+[match  192.6] [radio] Kuya Fishball (stalker): in_position
+[match  193.5] Kumareng Marites killed by Bunso Badong (gunshot); 2 teams left
+[match  193.5] alive: West Team 2, East Team 5; score { 0: 1, 1: 1 }
+[match  193.7] [radio] Kuya Fishball (stalker): affirmative
+[match  194.0] [radio] Inday Tsismis (stalker): down
+[match  194.5] [radio] Bunso Badong (looter): headshot_kill
+[match  195.0] status: { "ground": 7 }; armed 7; shots 1935; zone -1 hold r=94; corpses 17; levels { "L1": 7 }; server tick avg 3.92 ms, p99 7.07 ms, max 11.90 ms over 900 ticks
+[match  195.0] dm teams: West Team 2 at (-10.0, 15.0) spread 2 m; East Team 5 at (18.0, 12.0) spread 5 m; gap 28 m; zone centre (3.0, -2.0)
+[match  195.0] bots: { "fight": 4, "order": 2, "roam": 1 }; containers searched by bots 0 (all players 0); plan steps done 0; guns carried 14
+[match  195.0] roles: { "stalker": { "fight": 2, "order": 2 }, "sniper": { "fight": 1 }, "looter": { "roam": 1, "fight": 1 } }; stuck now 0; waypoints 792; team { "lines": 243, "pings": 0, "laser_follow": 0, "learned_cells": 47, "blocked_cells": 1, "squads": 18, "following_humans": 0 }
+[match  195.0] [lootstats] bots on the ground 7 (in water 0); armed 7; armed with ammo for a gun 7; long guns 7; attachments fitted 0; rounds of unusable ammo carried 0; items on the ground 0; bot pickups { "detours": 0, "detour_taken": 0, "fetches": 0, "fetch_done": 0, "items_taken": 0 }
+[match  196.1] [radio] Toto Pancit (stalker): contact
+[match  198.6] [radio] Ate Load (sniper): clear
+[match  200.2] [radio] Bunso Badong (looter): taking_fire
+[match  202.2] Bunso Badong (team 1) landed at (17.0, 0.0, 13.0), 4.9 m/s, health 11; teammates 42 m
+[match  202.7] [radio] Inday Tsismis (stalker): taking_fire
+[match  202.9] Inday Tsismis (team 0) landed at (-7.0, 0.0, 11.0), 4.9 m/s, health 15; teammates 2 m
+[match  206.1] Inday Tsismis killed by Toto Pancit (gunshot); 2 teams left
+[match  206.1] alive: West Team 1, East Team 5; score { 0: 1, 1: 1 }
+[match  206.6] [radio] Toto Pancit (stalker): kill
+[match  207.5] [radio] Toto Pancit (stalker): down
+[match  207.6] [radio] Ate Load (sniper): reloading
+[match  210.0] status: { "ground": 6 }; armed 6; shots 1969; zone -1 hold r=94; corpses 18; levels { "L1": 6 }; server tick avg 2.04 ms, p99 4.64 ms, max 8.60 ms over 900 ticks
+[match  210.0] dm teams: West Team 1 at (-8.0, 13.0) spread 0 m; East Team 5 at (17.0, 5.0) spread 13 m; gap 27 m; zone centre (3.0, -2.0)
+[match  210.0] bots: { "order": 2, "roam": 3, "heal": 1 }; containers searched by bots 0 (all players 0); plan steps done 0; guns carried 12
+[match  210.0] [stuck] Toto Pancit (stalker, heal) at (-8.2, 0.0, 12.7) -> (-8.2, 0.0, 15.2), ahead , no_prog 2.2
+[match  210.0] roles: { "stalker": { "order": 2, "heal": 1 }, "sniper": { "roam": 1 }, "looter": { "roam": 2 } }; stuck now 1; waypoints 792; team { "lines": 250, "pings": 0, "laser_follow": 0, "learned_cells": 47, "blocked_cells": 1, "squads": 18, "following_humans": 0 }
+[match  210.0] [lootstats] bots on the ground 6 (in water 0); armed 6; armed with ammo for a gun 5; long guns 6; attachments fitted 0; rounds of unusable ammo carried 0; items on the ground 0; bot pickups { "detours": 0, "detour_taken": 0, "fetches": 0, "fetch_done": 0, "items_taken": 0 }
+[match  213.6] [radio] Ate Load (sniper): taking_fire
+[match  216.6] [radio] Kuya Wifi (stalker): contact
+[match  217.3] [radio] Ate Load (sniper): taking_fire
+[match  217.6] [radio] Toto Pancit (stalker): reloading
+[match  219.4] [radio] Kuya Fishball (stalker): need_help
+[match  220.3] [radio] Bunso Badong (looter): affirmative
+[match  221.0] [radio] Kuya Wifi (stalker): in_position
+[match  221.9] [radio] Mang Tomas Ketchup (looter): affirmative
+[match  222.7] [radio] Toto Pancit (stalker): need_help
+[match  222.7] Ate Load killed by Toto Pancit (gunshot); 2 teams left
+[match  222.7] alive: West Team 1, East Team 4; score { 0: 1, 1: 1 }
+[match  222.8] [radio] Kuya Wifi (stalker): affirmative
+[match  223.7] [radio] Toto Pancit (stalker): kill
+[match  223.8] [radio] Kuya Wifi (stalker): down
+[match  225.0] status: { "ground": 5 }; armed 5; shots 2045; zone -1 hold r=94; corpses 19; levels { "L1": 5 }; server tick avg 1.74 ms, p99 3.90 ms, max 6.36 ms over 900 ticks
+[match  225.0] dm teams: West Team 1 at (-12.0, 14.0) spread 0 m; East Team 4 at (17.0, 5.0) spread 11 m; gap 30 m; zone centre (3.0, -2.0)
+[match  225.0] bots: { "order": 3, "fight": 2 }; containers searched by bots 0 (all players 0); plan steps done 0; guns carried 10
+[match  225.0] [stuck] Bunso Badong (looter, order) at (29.5, 0.6, 1.3) -> (25.7, 0.0, 6.7), ahead , no_prog 1.9
+[match  225.0] roles: { "stalker": { "order": 1, "fight": 2 }, "looter": { "order": 2 } }; stuck now 1; waypoints 792; team { "lines": 262, "pings": 0, "laser_follow": 0, "learned_cells": 47, "blocked_cells": 1, "squads": 18, "following_humans": 0 }
+[match  225.0] [lootstats] bots on the ground 5 (in water 0); armed 5; armed with ammo for a gun 4; long guns 5; attachments fitted 0; rounds of unusable ammo carried 0; items on the ground 0; bot pickups { "detours": 0, "detour_taken": 0, "fetches": 0, "fetch_done": 0, "items_taken": 0 }
+[match  225.2] Toto Pancit killed by Kuya Fishball (gunshot); 1 teams left
+[match  225.2] alive: West Team 0, East Team 4; score { 0: 1, 1: 1 }
+[match  225.2] round 3 over: winner 1, scores { 0: 1, 1: 2 }
+[match  229.2] Inday Tsismis respawned at (-49.0, 0.0, 5.0) (nearest enemy 1000 m)
+[match  229.2] Tsong Ramil respawned at (53.0, 0.0, -8.0) (nearest enemy 102 m)
+[match  229.2] Bayaw Erning respawned at (-56.0, 0.0, 2.0) (nearest enemy 109 m)
+[match  229.2] Kuya Wifi respawned at (53.0, 0.0, 5.0) (nearest enemy 101 m)
+[match  229.2] Kumpare Ambo respawned at (-56.0, 0.0, -2.0) (nearest enemy 109 m)
+[match  229.2] Boy Pickup respawned at (53.0, 0.0, -5.0) (nearest enemy 102 m)
+[match  229.2] Lola Basyang respawned at (-54.0, 0.0, 2.0) (nearest enemy 106 m)
+[match  229.2] Mang Kanor respawned at (53.0, 0.0, 8.0) (nearest enemy 101 m)
+[match  229.2] Inday Rice Cooker respawned at (-54.0, 0.0, 5.0) (nearest enemy 106 m)
+[match  229.2] Ate Load respawned at (50.0, 0.0, -5.0) (nearest enemy 100 m)
+[match  229.2] Kumareng Marites respawned at (-54.0, 0.0, -2.0) (nearest enemy 104 m)
+[match  229.2] Lolo Kalesa respawned at (53.0, 0.0, -11.0) (nearest enemy 103 m)
+[match  229.2] Toto Pancit respawned at (-54.0, 0.0, -5.0) (nearest enemy 104 m)
+[match  229.2] Bossing Barbecue respawned at (53.0, 0.0, 11.0) (nearest enemy 102 m)
+[match  229.2] Ka Pedring respawned at (-49.0, 0.0, 2.0) (nearest enemy 99 m)
+[match  229.2] Mang Tomas Ketchup respawned at (48.0, 0.0, -11.0) (nearest enemy 97 m)
+[match  229.2] Nanay Kakanin respawned at (-56.0, 0.0, -5.0) (nearest enemy 104 m)
+[match  229.2] Kuya Fishball respawned at (50.0, 0.0, -11.0) (nearest enemy 100 m)
+[match  229.2] Kapitbahay Lito respawned at (-51.0, 0.0, 5.0) (nearest enemy 100 m)
+[match  229.2] Lola Basyang Jr respawned at (50.0, 0.0, -8.0) (nearest enemy 99 m)
+[match  229.2] Tito Boy respawned at (-56.0, 0.0, 5.0) (nearest enemy 105 m)
+[match  229.2] Bunso Badong respawned at (48.0, 0.0, -5.0) (nearest enemy 97 m)
+[match  229.2] Kapitan Tikoy respawned at (-51.0, 0.0, 2.0) (nearest enemy 99 m)
+[match  229.2] Kuya Bert respawned at (50.0, 0.0, 11.0) (nearest enemy 99 m)
+[match  229.2] round 4 started; scores { 0: 1, 1: 2 }
+[match  233.8] [radio] Lola Basyang Jr (sniper): sniping
+[match  234.1] [radio] Toto Pancit (sniper): sniping
+[match  235.6] Lola Basyang Jr (team 1) landed at (48.0, 0.0, -2.0), 2.5 m/s, health 100; teammates -
+[match  237.4] Tsong Ramil (team 1) landed at (47.0, 0.0, -2.0), 2.5 m/s, health 100; teammates 5 m
+[match  238.1] Bossing Barbecue (team 1) landed at (47.0, 0.0, 12.0), 4.9 m/s, health 100; teammates 12 m, 9 m
+[match  240.0] status: { "ground": 24 }; armed 24; shots 2047; zone -1 hold r=94; corpses 0; levels { "L1": 22, "between": 2 }; server tick avg 2.65 ms, p99 7.65 ms, max 17.11 ms over 660 ticks
+[match  240.0] dm teams: West Team 12 at (-38.0, 2.0) spread 14 m; East Team 12 at (34.0, 3.0) spread 8 m; gap 72 m; zone centre (1.0, -4.0)
+[match  240.0] bots: { "roam": 5, "follow": 7, "hunt": 12 }; containers searched by bots 0 (all players 0); plan steps done 0; guns carried 48
+[match  240.0] [stuck] Toto Pancit (sniper, roam) at (-42.1, 1.6, -7.2) -> (-41.9, 2.5, -8.8), ahead low, no_prog 1.7
+[match  240.0] roles: { "looter": { "roam": 4, "follow": 3 }, "rusher": { "follow": 2, "hunt": 9 }, "stalker": { "hunt": 3 }, "sniper": { "roam": 1, "follow": 2 } }; stuck now 1; waypoints 792; team { "lines": 264, "pings": 0, "laser_follow": 0, "learned_cells": 47, "blocked_cells": 1, "squads": 24, "following_humans": 0 }
+[match  240.0] [lootstats] bots on the ground 24 (in water 0); armed 24; armed with ammo for a gun 24; long guns 24; attachments fitted 0; rounds of unusable ammo carried 0; items on the ground 0; bot pickups { "detours": 0, "detour_taken": 0, "fetches": 0, "fetch_done": 0, "items_taken": 0 }
+[match  242.1] Toto Pancit (team 0) landed at (-41.0, 0.0, -5.0), 7.5 m/s, health 100; teammates -
+[match  242.3] [radio] Ate Load (looter): contact
+[match  242.3] [radio] Inday Tsismis (looter): contact
+[match  243.8] [radio] Lola Basyang (rusher): taking_fire
+[match  243.8] [radio] Tsong Ramil (rusher): need_help
+[match  244.5] [radio] Bayaw Erning (rusher): taking_fire
+[match  244.7] [radio] Lola Basyang Jr (sniper): affirmative
+[match  245.1] Nanay Kakanin killed by Ate Load (gunshot); 2 teams left
+[match  245.1] alive: West Team 11, East Team 12; score { 0: 1, 1: 2 }
+[match  245.2] Bayaw Erning killed by Lola Basyang (gunshot); 2 teams left
+[match  245.2] alive: West Team 10, East Team 12; score { 0: 1, 1: 2 }
+[match  245.4] [radio] Inday Tsismis (looter): affirmative
+[match  245.5] [radio] Mang Tomas Ketchup (rusher): taking_fire
+[match  245.8] Lola Basyang killed by Kuya Wifi (gunshot); 2 teams left
+[match  245.8] alive: West Team 9, East Team 12; score { 0: 1, 1: 2 }
+[match  246.1] [radio] Inday Tsismis (looter): down
+[match  246.2] [radio] Kuya Wifi (rusher): taking_fire
+[match  246.9] [radio] Tito Boy (rusher): affirmative
+[match  247.0] [radio] Ate Load (looter): kill
+[match  247.6] Inday Rice Cooker (team 0) landed at (-39.0, 0.0, -8.0), 5.1 m/s, health 100; teammates 4 m
+[match  247.7] [radio] Mang Kanor (rusher): affirmative
+[match  247.9] [radio] Tito Boy (rusher): affirmative
+[match  248.0] Kuya Wifi killed by Ka Pedring (gunshot); 2 teams left
+[match  248.0] alive: West Team 9, East Team 11; score { 0: 1, 1: 2 }
+[match  248.4] [radio] Mang Tomas Ketchup (rusher): need_help
+[match  248.6] [radio] Ka Pedring (rusher): need_help
+[match  249.1] Mang Tomas Ketchup killed by Tito Boy (gunshot); 2 teams left
+[match  249.1] alive: West Team 9, East Team 10; score { 0: 1, 1: 2 }
+[match  249.3] [radio] Tsong Ramil (rusher): affirmative
+[match  249.3] [radio] Kapitbahay Lito (looter): taking_fire
+[match  249.4] Kapitbahay Lito (team 0) landed at (-56.0, 0.0, 8.0), 2.5 m/s, health 98; teammates 23 m, 22 m
+[match  249.5] Ka Pedring killed by Kuya Bert (gunshot); 2 teams left
+[match  249.5] alive: West Team 8, East Team 10; score { 0: 1, 1: 2 }
+[match  250.0] [radio] Lolo Kalesa (looter): affirmative
+[match  250.1] [radio] Inday Rice Cooker (stalker): affirmative
+[match  250.1] Kuya Fishball killed by Kapitan Tikoy (gunshot); 2 teams left
+[match  250.1] alive: West Team 8, East Team 9; score { 0: 1, 1: 2 }
+[match  250.7] [radio] Tsong Ramil (rusher): down
+[match  250.9] [radio] Tito Boy (rusher): kill
+[match  251.1] Mang Kanor killed by Bunso Badong (gunshot); 2 teams left
+[match  251.1] alive: West Team 8, East Team 8; score { 0: 1, 1: 2 }
+[match  251.7] [radio] Kuya Bert (looter): kill
+[match  251.7] [radio] Inday Tsismis (looter): down
+[match  252.0] Tito Boy killed by Boy Pickup (gunshot); 2 teams left
+[match  252.0] alive: West Team 7, East Team 8; score { 0: 1, 1: 2 }
+[match  252.5] [radio] Kapitan Tikoy (sniper): kill
+[match  252.5] [radio] Boy Pickup (rusher): kill
+[match  252.6] Tsong Ramil killed by Bunso Badong (gunshot); 2 teams left
+[match  252.6] alive: West Team 7, East Team 7; score { 0: 1, 1: 2 }
+[match  253.2] [radio] Kumpare Ambo (looter): affirmative
+[match  253.2] [radio] Bunso Badong (stalker): kill
+[match  253.5] Kapitan Tikoy killed by Bunso Badong (gunshot); 2 teams left
+[match  253.5] alive: West Team 6, East Team 7; score { 0: 1, 1: 2 }
+[match  254.0] [radio] Boy Pickup (rusher): down
+[match  254.1] [radio] Inday Tsismis (looter): down
+[match  254.8] [radio] Toto Pancit (sniper): affirmative
+[match  255.0] Ate Load (team 1) landed at (8.0, 0.0, -14.0), 4.7 m/s, health 68; teammates 23 m, 24 m
+[match  255.0] status: { "ground": 13 }; armed 13; shots 2351; zone -1 hold r=94; corpses 11; levels { "L1": 11, "L2": 2 }; server tick avg 7.34 ms, p99 16.44 ms, max 26.35 ms over 900 ticks
+[match  255.0] dm teams: West Team 6 at (-33.0, -4.0) spread 17 m; East Team 7 at (11.0, 6.0) spread 11 m; gap 46 m; zone centre (1.0, -4.0)
+[match  255.0] bots: { "fight": 4, "follow": 2, "hunt": 1, "roam": 3, "order": 2, "heal": 1 }; containers searched by bots 0 (all players 0); plan steps done 0; guns carried 26
+[match  255.0] roles: { "looter": { "fight": 2, "follow": 2, "roam": 2 }, "rusher": { "fight": 1, "order": 1 }, "stalker": { "hunt": 1, "fight": 1, "heal": 1 }, "sniper": { "roam": 1, "order": 1 } }; stuck now 0; waypoints 792; team { "lines": 295, "pings": 0, "laser_follow": 0, "learned_cells": 47, "blocked_cells": 1, "squads": 24, "following_humans": 0 }
+[match  255.0] [lootstats] bots on the ground 13 (in water 0); armed 13; armed with ammo for a gun 13; long guns 13; attachments fitted 0; rounds of unusable ammo carried 0; items on the ground 0; bot pickups { "detours": 0, "detour_taken": 0, "fetches": 0, "fetch_done": 0, "items_taken": 0 }
+[match  255.1] [radio] Bunso Badong (stalker): kill
+[match  255.9] [radio] Inday Tsismis (looter): affirmative
+[match  256.1] [radio] Bunso Badong (stalker): headshot_kill
+[match  256.9] [radio] Inday Tsismis (looter): down
+[match  257.0] [radio] Boy Pickup (rusher): need_help
+[match  257.7] [radio] Kumareng Marites (stalker): taking_fire
+[match  258.0] [radio] Bunso Badong (stalker): affirmative
+[match  258.3] Kumpare Ambo (team 0) landed at (-38.0, 0.0, -9.0), 6.4 m/s, health 100; teammates 4 m, 22 m, 25 m
+[match  258.5] Kumareng Marites killed by Kapitbahay Lito (gunshot); 2 teams left
+[match  258.5] alive: West Team 5, East Team 7; score { 0: 1, 1: 2 }
+[match  258.6] Boy Pickup killed by Kapitbahay Lito (gunshot); 2 teams left
+[match  258.6] alive: West Team 5, East Team 6; score { 0: 1, 1: 2 }
+[match  258.8] [radio] Kumpare Ambo (looter): affirmative
+[match  259.0] [radio] Bossing Barbecue (rusher): affirmative
+[match  259.6] [radio] Kapitbahay Lito (looter): kill
+[match  259.7] [radio] Bossing Barbecue (rusher): affirmative
+[match  260.4] [radio] Inday Tsismis (looter): down
+[match  260.6] [radio] Ate Load (looter): down
+[match  261.1] [radio] Inday Rice Cooker (stalker): affirmative
+[match  261.4] [radio] Bossing Barbecue (rusher): in_position
+[match  262.2] Kuya Bert (team 1) landed at (53.0, 0.0, 14.0), 4.9 m/s, health 71; teammates 58 m, 56 m, 45 m
+[match  262.4] [radio] Lola Basyang Jr (sniper): affirmative
+[match  263.9] [radio] Lola Basyang Jr (sniper): in_position
+[match  264.5] [radio] Toto Pancit (sniper): contact
+[match  265.1] [radio] Bunso Badong (stalker): taking_fire
+[match  266.9] [radio] Kuya Bert (looter): contact
+[match  267.5] Lolo Kalesa (team 1) landed at (46.0, 1.0, 12.0), 2.2 m/s, health 100; teammates 46 m, 54 m, 46 m, 1 m
+[match  268.5] [radio] Bunso Badong (stalker): taking_fire
+[match  268.5] [radio] Toto Pancit (sniper): taking_fire
+[match  269.8] [radio] Bossing Barbecue (rusher): need_help
+[match  270.0] Inday Tsismis (team 0) landed at (-42.0, 3.0, -9.0), 2.2 m/s, health 100; teammates 8 m, 5 m, 32 m, 30 m
+[match  270.0] status: { "ground": 11 }; armed 11; shots 2505; zone -1 hold r=94; corpses 13; levels { "L2": 2, "L1": 9 }; server tick avg 4.61 ms, p99 9.17 ms, max 13.95 ms over 900 ticks
+[match  270.0] dm teams: West Team 5 at (-33.0, -6.0) spread 16 m; East Team 6 at (16.0, 2.0) spread 21 m; gap 49 m; zone centre (1.0, -4.0)
+[match  270.0] bots: { "investigate": 1, "follow": 2, "hunt": 1, "fight": 5, "order": 2 }; containers searched by bots 0 (all players 0); plan steps done 0; guns carried 22
+[match  270.0] [stuck] Inday Rice Cooker (stalker, hunt) at (-42.4, 0.0, -4.9) -> (-41.9, 1.7, -7.4), ahead low, no_prog 2.3
+[match  270.0] roles: { "looter": { "investigate": 1, "follow": 2, "fight": 2, "order": 1 }, "stalker": { "hunt": 1, "fight": 1 }, "sniper": { "fight": 1, "order": 1 }, "rusher": { "fight": 1 } }; stuck now 1; waypoints 792; team { "lines": 318, "pings": 0, "laser_follow": 0, "learned_cells": 47, "blocked_cells": 1, "squads": 24, "following_humans": 0 }
+[match  270.0] [lootstats] bots on the ground 11 (in water 0); armed 11; armed with ammo for a gun 11; long guns 11; attachments fitted 0; rounds of unusable ammo carried 0; items on the ground 0; bot pickups { "detours": 0, "detour_taken": 0, "fetches": 0, "fetch_done": 0, "items_taken": 0 }
+[match  270.1] [radio] Kapitbahay Lito (looter): taking_fire
+[match  270.5] Bossing Barbecue killed by Toto Pancit (gunshot); 2 teams left
+[match  270.5] alive: West Team 5, East Team 5; score { 0: 1, 1: 2 }
+[match  270.8] [radio] Lola Basyang Jr (sniper): affirmative
+[match  271.0] [radio] Toto Pancit (sniper): kill
+[match  271.5] Bunso Badong killed by Kapitbahay Lito (gunshot); 2 teams left
+[match  271.5] alive: West Team 5, East Team 4; score { 0: 1, 1: 2 }
+[match  271.6] [radio] Kuya Bert (looter): affirmative
+[match  272.0] [radio] Kapitbahay Lito (looter): kill
+[match  272.5] [radio] Kuya Bert (looter): affirmative
+[match  273.3] [radio] Ate Load (looter): down
+[match  274.4] [radio] Lolo Kalesa (looter): affirmative
+[match  274.9] [radio] Toto Pancit (sniper): need_help
+[match  276.0] [radio] Inday Tsismis (looter): affirmative
+[match  276.8] [radio] Inday Rice Cooker (stalker): affirmative
+[match  278.8] [radio] Kuya Bert (looter): in_position
+[match  279.5] [radio] Toto Pancit (sniper): taking_fire
+[match  283.2] [radio] Toto Pancit (sniper): taking_fire
+[match  284.8] [radio] Kuya Bert (looter): taking_fire
+[match  285.0] status: { "ground": 9 }; armed 9; shots 2603; zone -1 hold r=94; corpses 15; levels { "between": 2, "L2": 2, "L1": 5 }; server tick avg 4.33 ms, p99 7.71 ms, max 10.59 ms over 900 ticks
+[match  285.0] dm teams: West Team 5 at (-33.0, -11.0) spread 18 m; East Team 4 at (6.0, -6.0) spread 3 m; gap 39 m; zone centre (1.0, -4.0)
+[match  285.0] bots: { "order": 2, "follow": 1, "fight": 5, "roam": 1 }; containers searched by bots 0 (all players 0); plan steps done 0; guns carried 18
+[match  285.0] roles: { "looter": { "order": 1, "follow": 1, "fight": 3, "roam": 1 }, "stalker": { "order": 1 }, "sniper": { "fight": 2 } }; stuck now 0; waypoints 792; team { "lines": 333, "pings": 0, "laser_follow": 0, "learned_cells": 48, "blocked_cells": 1, "squads": 24, "following_humans": 0 }
+[match  285.0] [lootstats] bots on the ground 9 (in water 0); armed 9; armed with ammo for a gun 9; long guns 9; attachments fitted 0; rounds of unusable ammo carried 0; items on the ground 0; bot pickups { "detours": 0, "detour_taken": 0, "fetches": 0, "fetch_done": 0, "items_taken": 0 }
+[match  285.3] Lola Basyang Jr killed by Toto Pancit (gunshot); 2 teams left
+[match  285.3] alive: West Team 5, East Team 3; score { 0: 1, 1: 2 }
+[match  285.6] [radio] Inday Rice Cooker (stalker): in_position
+[match  285.7] [radio] Ate Load (looter): down
+[match  286.1] Toto Pancit killed by Ate Load (bleeding); 2 teams left
+[match  286.1] alive: West Team 4, East Team 3; score { 0: 1, 1: 2 }
+[match  286.5] [radio] Inday Tsismis (looter): down
+[match  286.7] [radio] Ate Load (looter): kill
+[match  288.2] [radio] Lolo Kalesa (looter): taking_fire
+[match  288.5] [radio] Inday Rice Cooker (stalker): taking_fire
+[match  289.6] [radio] Kumpare Ambo (looter): affirmative
+[match  289.7] Inday Rice Cooker killed by Kuya Bert (bleeding); 2 teams left
+[match  289.7] alive: West Team 3, East Team 3; score { 0: 1, 1: 2 }
+[match  290.2] [radio] Kuya Bert (looter): kill
+[match  290.5] [radio] Inday Tsismis (looter): affirmative
+[match  291.5] [radio] Inday Tsismis (looter): down
+[match  293.9] [radio] Inday Tsismis (looter): clear
+[match  296.4] [radio] Kapitbahay Lito (looter): taking_fire
+[match  296.5] [radio] Ate Load (looter): contact
+[match  296.9] Kapitbahay Lito killed by Lolo Kalesa (gunshot); 2 teams left
+[match  296.9] alive: West Team 2, East Team 3; score { 0: 1, 1: 2 }
+[match  297.3] [radio] Inday Tsismis (looter): down
+[match  297.4] [radio] Lolo Kalesa (looter): kill
+[match  300.0] status: { "ground": 5 }; armed 5; shots 2662; zone -1 hold r=94; corpses 19; levels { "L1": 5 }; server tick avg 2.14 ms, p99 6.74 ms, max 11.76 ms over 900 ticks
+[match  300.0] dm teams: West Team 2 at (-29.0, 5.0) spread 4 m; East Team 3 at (9.0, -5.0) spread 8 m; gap 39 m; zone centre (1.0, -4.0)
+[match  300.0] bots: { "roam": 3, "order": 2 }; containers searched by bots 0 (all players 0); plan steps done 0; guns carried 10
+[match  300.0] roles: { "looter": { "roam": 3, "order": 2 } }; stuck now 0; waypoints 792; team { "lines": 348, "pings": 0, "laser_follow": 0, "learned_cells": 48, "blocked_cells": 1, "squads": 24, "following_humans": 0 }
+[match  300.0] [lootstats] bots on the ground 5 (in water 0); armed 5; armed with ammo for a gun 5; long guns 5; attachments fitted 0; rounds of unusable ammo carried 0; items on the ground 0; bot pickups { "detours": 0, "detour_taken": 0, "fetches": 0, "fetch_done": 0, "items_taken": 0 }
+[match  301.3] [radio] Kumpare Ambo (looter): contact
+[match  301.9] [radio] Kuya Bert (looter): taking_fire
+[match  302.7] [radio] Lolo Kalesa (looter): in_position
+[match  302.7] Kuya Bert killed by Kumpare Ambo (gunshot); 2 teams left
+[match  302.7] alive: West Team 2, East Team 2; score { 0: 1, 1: 2 }
+[match  303.1] [radio] Kumpare Ambo (looter): headshot_kill
+[match  303.5] [radio] Lolo Kalesa (looter): affirmative
+[match  304.2] [radio] Ate Load (looter): affirmative
+[match  305.2] [radio] Ate Load (looter): down
+[match  306.6] [radio] Lolo Kalesa (looter): taking_fire
+[match  309.4] [radio] Lolo Kalesa (looter): taking_fire
+[match  312.8] [radio] Lolo Kalesa (looter): need_help
+[match  313.7] [radio] Ate Load (looter): affirmative
+[match  313.8] [radio] Kumpare Ambo (looter): reloading
+[match  315.0] status: { "ground": 4 }; armed 4; shots 2722; zone -1 hold r=94; corpses 20; levels { "L1": 4 }; server tick avg 1.57 ms, p99 3.77 ms, max 48.97 ms over 900 ticks
+[match  315.0] dm teams: West Team 2 at (-21.0, 13.0) spread 16 m; East Team 2 at (9.0, 11.0) spread 18 m; gap 31 m; zone centre (1.0, -4.0)
+[match  315.0] bots: { "roam": 1, "fight": 2, "order": 1 }; containers searched by bots 0 (all players 0); plan steps done 0; guns carried 8
+[match  315.0] roles: { "looter": { "roam": 1, "fight": 2, "order": 1 } }; stuck now 0; waypoints 792; team { "lines": 360, "pings": 0, "laser_follow": 0, "learned_cells": 48, "blocked_cells": 1, "squads": 24, "following_humans": 0 }
+[match  315.0] [lootstats] bots on the ground 4 (in water 0); armed 4; armed with ammo for a gun 4; long guns 4; attachments fitted 0; rounds of unusable ammo carried 0; items on the ground 0; bot pickups { "detours": 0, "detour_taken": 0, "fetches": 0, "fetch_done": 0, "items_taken": 0 }
+[match  316.4] [radio] Kumpare Ambo (looter): taking_fire
+[match  316.8] [radio] Lolo Kalesa (looter): taking_fire
+[match  318.1] Lolo Kalesa killed by Kumpare Ambo (gunshot); 2 teams left
+[match  318.1] alive: West Team 2, East Team 1; score { 0: 1, 1: 2 }
+[match  318.6] [radio] Ate Load (looter): down
+[match  318.7] [radio] Kumpare Ambo (looter): kill

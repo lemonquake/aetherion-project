@@ -634,6 +634,59 @@ func open_rect(level: int, c: Vector2, half: Vector2) -> void:
 	nav_open[level] = g
 
 
+func designated_spots() -> Array:
+	## (r21) The places this mall offers bots by design (BotNav looks each one round and keeps the facing given):
+	##   hide  a back corner of every shop, watching its front (the camper's corner), and inside each restroom block;
+	##   cover the top of every escalator, watching the people riding up it;
+	##   snipe the balconies round the Grand Atrium, the East Court and the West Court on Levels 2-5, looking across.
+	var out := []
+	for u in units:
+		var r: Rect2 = u.rect
+		var f: Vector2 = u.face
+		var along := Vector2(-f.y, f.x)
+		var depth := absf(r.size.x * f.x) + absf(r.size.y * f.y)
+		var width := absf(r.size.x * along.x) + absf(r.size.y * along.y)
+		if depth < 4.0 or width < 4.0:
+			continue
+		var c := r.get_center()
+		var side := 1.0 if (int(c.x * 7.0 + c.y * 3.0) % 2) == 0 else -1.0
+		var p := c - f * (depth * 0.5 - 1.2) + along * side * (width * 0.5 - 1.2)
+		var front := c + f * depth * 0.5
+		var lv := int(u.level)
+		var shop: Dictionary = u.get("shop", {})
+		out.append({"p": Vector3(p.x, level_y(lv), p.y), "kind": "hide", "face": Vector3(front.x, level_y(lv) + 1.2, front.y),
+			"name": "%s, Level %d (back corner)" % [str(shop.get("name", "a shop")), lv + 1]})
+	for rr in RESTROOMS:
+		var rc := (rr as Rect2).get_center()
+		for lv2 in LEVELS:
+			out.append({"p": Vector3(rc.x, level_y(lv2), rc.y), "kind": "hide", "name": "restrooms, Level %d" % (lv2 + 1)})
+	for e in escalators:
+		var b: Vector3 = e.b
+		var d: Vector3 = e.dir
+		var flat := Vector3(d.x, 0.0, d.z).normalized()
+		var top := b + flat * (ESC_FLAT + 1.8)
+		out.append({"p": top, "kind": "cover", "face": b - flat * 8.0 + Vector3.UP * 1.0,
+			"name": "top of the %s escalator, Level %d" % [str(e.bank), int(e.t) + 2]})
+	for lv3 in range(1, LEVELS):
+		for k in 12:
+			var a := TAU * k / 12.0
+			var dv := Vector2(cos(a), sin(a))
+			var g := GRAND_C + Vector2(dv.x * (GRAND_R.x + 1.6), dv.y * (GRAND_R.y + 1.6))
+			out.append({"p": Vector3(g.x, level_y(lv3), g.y), "kind": "snipe", "face": Vector3(GRAND_C.x, level_y(lv3), GRAND_C.y),
+				"name": "Grand Atrium balcony, Level %d" % (lv3 + 1)})
+			if k % 2 == 0:
+				var e2 := EAST_C + dv * (EAST_R + 1.6)
+				out.append({"p": Vector3(e2.x, level_y(lv3), e2.y), "kind": "snipe", "face": Vector3(EAST_C.x, level_y(lv3), EAST_C.y),
+					"name": "East Court balcony, Level %d" % (lv3 + 1)})
+		var wc := WEST_COURT.get_center()
+		for o in [Vector2(0, WEST_COURT.size.y * 0.5 + 1.6), Vector2(0, -WEST_COURT.size.y * 0.5 - 1.6), Vector2(WEST_COURT.size.x * 0.5 + 1.6, 6.0),
+				Vector2(WEST_COURT.size.x * 0.5 + 1.6, -6.0)]:
+			var w2: Vector2 = wc + o
+			out.append({"p": Vector3(w2.x, level_y(lv3), w2.y), "kind": "snipe", "face": Vector3(wc.x, level_y(lv3), wc.y),
+				"name": "West Court balcony, Level %d" % (lv3 + 1)})
+	return out
+
+
 func add_link(a: Vector3, b: Vector3, via: Array = [], cost: float = 1.0, both: bool = false) -> void:
 	## A way between levels for bots: a -> (via...) -> b, one way unless both.
 	nav_links.append({"a": a, "b": b, "via": via, "cost": cost, "both": both})

@@ -318,7 +318,7 @@ func _page_home() -> Control:
 
 const MODE_TEXT := {
 	"classic": "Battle royale on Sitio Kalinaw. Parachute in, loot weapons and gear, and stay ahead of the closing forcefield. Every match starts at night; night and day take turns. The last team standing wins.",
-	"deathmatch": "Up to three teams of 7 on Lawless Sub or Malasugue Mall. Pick a primary and a secondary gun; everyone starts with armour and a heavy-plate helmet. Win on team score, on the clock, or as the last team standing. The forcefield squeezes anyone it pins; the mall stays dark all match.",
+	"deathmatch": "Up to three teams of 7 in Malasugue Mall or Lawless Sub, or two teams of up to 12 in Freight Delight, the container-yard slum. Pick a primary and a secondary gun; everyone starts with armour and a heavy-plate helmet. Win on team score, on the clock, or as the last team standing. The forcefield squeezes anyone it pins; the mall and the yard stay dark all match.",
 }
 
 
@@ -327,7 +327,7 @@ func _map_for(mode: String) -> String:
 	if Game.arg("map"):
 		return str(Game.arg("map"))
 	if Profile.dm_map in Defs.rule("game_modes.%s.maps" % mode, []):
-		return Profile.dm_map   # (r16) Deathmatch: the map chosen on Home or Host a game (Lawless Sub or Malasugue Mall)
+		return Profile.dm_map   # (r16) Deathmatch: the map chosen on Home or Host a game (Malasugue Mall, Freight Delight, Lawless Sub)
 	return str(Defs.rule("game_modes.%s.map" % mode, "lawless_sub" if mode == "deathmatch" else "kalinaw"))
 
 
@@ -426,7 +426,7 @@ func _match_opt_rows(box: Container, dm: bool, home: bool) -> void:
 			rows.append(["Points to win" if win == "wipe" else "Kills to win", UITheme.segmented([[10, "10"], [20, "20"], [30, "30"], [50, "50"]], int(Profile.match_opt("dm_score")), func(v): _pick_opt("dm_score", v, false))])
 		elif win == "time":
 			rows.append(["Timer", UITheme.segmented([[10, "10 min"], [14, "14 min"], [30, "30 min"]], int(Profile.match_opt("dm_time")), func(v): _pick_opt("dm_time", v, false))])
-	if dm and _map_for("deathmatch") == "malasugue_mall":
+	if dm and Net.dm_field_optional(_map_for("deathmatch")):
 		rows.append(["Field", UITheme.toggle("Enable field (closes up to 50%)", bool(Profile.match_opt("dm_field")), func(v): _pick_opt("dm_field", v, false))])
 	if not (dm and _map_for("deathmatch") in Defs.rule("day_cycle.night_only_maps", [])):
 		rows.append(["Night/day", UITheme.segmented([[120, "2 min"], [300, "5 min"], [600, "10 min"]], int(Profile.match_opt("day_len")), func(v): _pick_opt("day_len", v, false))])
@@ -459,6 +459,7 @@ func _pick_opt(k: String, v, rebuild: bool) -> void:
 func _pick_dm_map(m: String, rebuild: bool) -> void:
 	## (r16) The Deathmatch map for Play Now and Host a game, saved in the profile.
 	Profile.set_dm_map(m)
+	_create.dm_team_size = Net.map_limit(m, "team_size", int(Defs.rule("deathmatch.team_size", 10)))   # Freight Delight: 12 a side
 	_update_summary()
 	_rebuild_pages.call_deferred()   # (r17) Host a game too: a night-only map hides the night/day choice
 
@@ -495,7 +496,7 @@ func _apply_mode_config(mode: String, team_size: int) -> void:
 		Net.set_config(k, Profile.match_opt(k))
 	if mode == "deathmatch":
 		Net.set_config("teams", 2)
-		Net.set_config("team_size", clampi(team_size, 1, 10))
+		Net.set_config("team_size", clampi(team_size, 1, Net.dm_max_team_size()))
 
 
 func _last_match_card() -> Control:
@@ -643,12 +644,12 @@ func _page_play() -> Control:
 			maps.append([str(m), str(UITheme.MAP_NAMES.get(str(m), str(m)))])
 		cv.add_child(_field("Map", UITheme.segmented(maps, _map_for("deathmatch"), func(v): _pick_dm_map(v, false))))
 		cv.add_child(_field("Players per team (%s and %s)" % [UITheme.dm_team_name(0), UITheme.dm_team_name(1)],
-			UITheme.stepper(int(_create.dm_team_size), 1, 10, func(v): _create.dm_team_size = v; _update_summary())))
+			UITheme.stepper(clampi(int(_create.dm_team_size), 1, Net.dm_max_team_size(_map_for("deathmatch"))), 1, Net.dm_max_team_size(_map_for("deathmatch")), func(v): _create.dm_team_size = v; _update_summary())))
 	else:
 		cv.add_child(_field("Teams", UITheme.stepper(int(_create.teams), 2, Net.MAX_TEAMS, func(v): _create.teams = v; _update_summary())))
 		cv.add_child(_field("Squad size", UITheme.segmented([[1, "Solo"], [2, "Duo"], [3, "Trio"], [4, "Squad"]], int(_create.team_size), func(v): _create.team_size = v; _update_summary())))
 	cv.add_child(UITheme.toggle("Fill empty slots with bots", bool(_create.bots), func(v): _create.bots = v; _update_summary()))
-	if str(_create.game_mode) == "deathmatch" and _map_for("deathmatch") != "malasugue_mall":
+	if str(_create.game_mode) == "deathmatch" and not Net.dm_field_optional(_map_for("deathmatch")):
 		cv.add_child(_field("Safe zone", UITheme.label("Fast  ·  fixed in Deathmatch", 21, UITheme.TEXT, UITheme.font_semibold)))
 	elif str(_create.game_mode) != "deathmatch":
 		cv.add_child(_field("Safe zone", UITheme.segmented([[1.0, "Normal"], [1.6, "Fast"], [2.5, "Rapid"]], float(_create.zone_speed), func(v): _create.zone_speed = v)))
@@ -930,7 +931,7 @@ func _quick_match() -> void:
 	var mode := Profile.game_mode
 	Net.set_config("name", "%s's practice" % Settings.player_name())
 	Net.set_config("practice", true)   # on your Wi-Fi only: not listed on the stats server
-	_apply_mode_config(mode, int(Defs.rule("deathmatch.team_size", 10)))
+	_apply_mode_config(mode, Net.map_limit(_map_for(mode), "team_size", int(Defs.rule("deathmatch.team_size", 10))))
 	if mode != "deathmatch":
 		Net.set_config("teams", 5)
 		Net.set_config("team_size", 4)

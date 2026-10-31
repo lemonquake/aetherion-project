@@ -407,6 +407,8 @@ func end_match_to_results(summary: Dictionary) -> void:
 	## Server: called by the world when a winner is decided. Every human's row carries the XP it earned; the host
 	## reports the match to the stats server.
 	preload("res://src/ai/bot_team.gd").save()   # what the bots learned on this map (Settings > Bots learn)
+	if world and world.navwatch:
+		world.navwatch.finish()
 	for r in summary.get("rows", []):
 		r.xp = 0 if r.get("bot", false) else Profile.match_xp(r)
 		var p: Dictionary = Net.players.get(int(r.get("pid", 0)), {})

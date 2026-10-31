@@ -1,0 +1,17 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+[world] map built in 11087 ms
+[map] 243 buildings, 1951 doors, 2617 containers, 2745 props, #b1fba961 on PC
+[botnav] lawless_sub: analysing 2075 candidate spots (walk check 0 ms)
+[bots] learned from 241 cells, 0 stuck spots, 0 spots learned from play, 0 spot records (user://bot_memory_lawless_sub.json)
+[game] autotest navtour
+[toast] The field moves in 60 seconds. Check the map.
+[botnav] saved user://botnav/lawless_sub.json (567 spots)
+[botnav] lawless_sub: 567 spots from 2075 candidates in 170 ms of ticks { "hide": 38, "snipe": 95, "cover": 56, "open": 378 }
+[autotest] PASS navtour_analysis: lawless_sub: 567 spots { "hide": 38, "snipe": 95, "cover": 56, "open": 378 } from analysed, walk check closed 0 cells, analysis 170 ms
+[toast] The field moves in 30 seconds. Check the map.
+[toast] The field moves in 10 seconds. Check the map.
+[navtour] PASS open (-67.0, 0.9, 13.0) (auto): 30.6 s, 0 stalls, ended at (-63.6, 0.9, 13.1)
+[toast] The field is closing in. It pushes you inward: don't get pinned against a wall.
+[navtour] FAIL open (-219.0, 1.1, 117.0) (auto): 123.5 s, 0 stalls, ended at (-196.8, 1.1, 94.0)
+exit=127

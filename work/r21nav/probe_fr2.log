@@ -1,0 +1,54 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+[server] dedicated server listening on 27639
+[world] map built in 708 ms
+[map] 0 buildings, 0 doors, 0 containers, 0 props, #00000000 on PC
+[nav] levels: 34886 points, 3 links, 97 ms
+[nav] r21: 617 cells closed by the physics check, main walk 34223 of 34278 points (55 in pockets), 147 ms
+[botnav] freight_delight: walk check and 249 spots from user://botnav/freight_delight.json { "hide": 102, "snipe": 80, "cover": 42, "open": 25 }
+[bots] learned from 45 cells, 0 stuck spots, 0 spots learned from play, 0 spot records (user://bot_memory_freight_delight.json)
+[match    0.0] deathmatch start on freight_delight: 2 players, 2 teams; spawns (-52.0, 0.0, 0.0), (50.0, 0.0, 0.0) (103/103 m apart, layout); day offset 0 s; zone centre (3.0, -2.0) r=93; win by wipe
+[grid] level 1, x 28..43 (cols), z -31..-13 (rows), cell 0.50
+[grid] z -30.75 ####.....########______________
+[grid] z -30.25 .................______________
+[grid] z -29.75 .................______________
+[grid] z -29.25 .................______________
+[grid] z -28.75 .................______________
+[grid] z -28.25 .................______________
+[grid] z -27.75 .................______________
+[grid] z -27.25 .................______________
+[grid] z -26.75 .................______________
+[grid] z -26.25 #####............______________
+[grid] z -25.75 _________________....._________
+[grid] z -25.25 _________________....._________
+[grid] z -24.75 _________________....._________
+[grid] z -24.25 _________________....._________
+[grid] z -23.75 _________________....._________
+[grid] z -23.25 _________________....._________
+[grid] z -22.75 _________________....._________
+[grid] z -22.25 _________________....._________
+[grid] z -21.75 _________________....._________
+[grid] z -21.25 _________________....#_________
+[grid] z -20.75 _________________....####______
+[grid] z -20.25 _________________.......#______
+[grid] z -19.75 _________________.......#______
+[grid] z -19.25 _________________.......#______
+[grid] z -18.75 _________________........______
+[grid] z -18.25 _________________.....###______
+[grid] z -17.75 _________________.....###______
+[grid] z -17.25 _________________....._________
+[grid] z -16.75 _________________....._________
+[grid] z -16.25 _________________....._________
+[grid] z -15.75 _________________....._________
+[grid] z -15.25 _________________....._________
+[grid] z -14.75 _________________....._________
+[grid] z -14.25 _________________....._________
+[grid] z -13.75 _______________________________
+[grid] z -13.25 ____________####_______________
+[grid] z -12.75 _______________________________
+[probe] (38.9, 3.2, -19.0) walkable true clearance 0.25; a body there touches []
+[match    0.0] status: { "ground": 2 }; armed 2; shots 0; zone -1 hold r=93; corpses 0; levels { "L1": 2 }
+[match    0.0] dm teams: West Team 1 at (-49.0, 5.0) spread 0 m; East Team 1 at (53.0, 11.0) spread 0 m; gap 102 m; zone centre (3.0, -2.0)
+[match    0.0] bots: { "roam": 2 }; containers searched by bots 0 (all players 0); plan steps done 0; guns carried 4
+[match    0.0] roles: { "stalker": { "roam": 1 }, "looter": { "roam": 1 } }; stuck now 0; waypoints 249; team { "lines": 0, "pings": 0, "laser_follow": 0, "learned_cells": 45, "blocked_cells": 0, "squads": 0, "following_humans": 0, &"learned_spots": 0 }
+[match    0.0] [lootstats] bots on the ground 2 (in water 0); armed 2; armed with ammo for a gun 2; long guns 2; attachments fitted 0; rounds of unusable ammo carried 0; items on the ground 0; bot pickups { "detours": 0, "detour_taken": 0, "fetches": 0, "fetch_done": 0, "items_taken": 0 }

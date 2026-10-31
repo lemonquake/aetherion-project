@@ -59,6 +59,9 @@ var _gen := 0
 ## from its ceilings (steady, warm white, no shadow), the ambient is bright; the day cycle still turns the sky seen
 ## through the skylights and doors.
 var _indoor: Dictionary = {}
+## (Freight Delight) An outdoor map's darker night (layout.night_grade): less moon and ambient, thicker haze, the
+## port's brown glow on the clouds; its own lamps carry the light.
+var _night: Dictionary = {}
 var _sky_lamps: Array = []   # (r16) [SpotLight3D, base energy]: skylight shafts, dimmer by night
 var _buzzing := {}           # (r16) sound loop keys of the faulty fittings humming now
 var _buzz_t := 0.0
@@ -153,6 +156,7 @@ func build(parent: Node3D) -> void:
 	sky_fill.global_transform = Transform3D(Basis.looking_at(-FILL_DIR.normalized(), Vector3.UP), Vector3.ZERO)
 	sm.set_shader_parameter("sun_direction", SUN_DIR.normalized())
 	_indoor = mb.layout.get("indoor_light") if mb.layout.get("indoor_light") is Dictionary else {}
+	_night = mb.layout.get("night_grade") if mb.layout.get("night_grade") is Dictionary else {}
 	_headless = DisplayServer.get_name() == "headless"
 	if not _headless and _indoor.get("horror_grade", false):
 		var grade := CanvasLayer.new()
@@ -221,6 +225,7 @@ func _apply_settings() -> void:
 		moon.directional_shadow_max_distance = moon_shadow_distance()
 		moon.light_energy = lerpf(0.62 * _moon_k(), 2.0, daylight)
 	_apply_indoor()
+	_apply_night()
 	if not _shadowed.is_empty() and air_tier > 0:
 		_shadow_budget()
 
@@ -305,6 +310,10 @@ func _add_light(parent: Node3D, spec: Dictionary) -> void:
 			sl.spot_range = rng_range
 			sl.spot_attenuation = 0.9 if kind in ["street", "flood"] else float(spec.get("attenuation", 1.1))
 			sl.rotation = Vector3(-0.9 if kind == "flood" else -PI * 0.5, 0, 0)
+			if spec.has("dir"):
+				# (Freight Delight) aimed by the map (a floodlight on a pole points at the yard, not north)
+				var aim: Vector3 = (spec.dir as Vector3).normalized()
+				sl.basis = Basis.looking_at(aim, Vector3.UP if absf(aim.y) < 0.99 else Vector3.FORWARD)
 			light = sl
 		else:
 			var ol := OmniLight3D.new()
@@ -549,6 +558,23 @@ func set_daylight(k: float) -> void:
 		(sk[0] as Light3D).light_energy = float(sk[1]) * lerpf(0.3, 1.0, k)
 		(sk[0] as Light3D).light_color = MOON_COL.lerp(SUN_COL, k)
 	_apply_settings()
+
+
+func _apply_night() -> void:
+	if _night.is_empty() or moon == null or not _indoor.is_empty() or daylight > 0.0:
+		return
+	moon.light_energy = 0.62 * _moon_k() * float(_night.get("moon_k", 1.0))
+	env.ambient_light_color = _night.get("ambient", NIGHT_AMB)
+	env.ambient_light_energy = float(_night.get("ambient_energy", 0.2))
+	env.fog_density = float(_night.get("fog", 0.0042))
+	env.fog_light_color = _night.get("fog_color", Color(0.018, 0.024, 0.035))
+	env.volumetric_fog_density = float(_night.get("vol_fog", 0.007))
+	env.adjustment_saturation = float(_night.get("saturation", 0.85))
+	env.adjustment_contrast = float(_night.get("contrast", 1.06))
+	env.tonemap_exposure *= float(_night.get("exposure_k", 1.0))
+	if sky_mat:
+		sky_mat.set_shader_parameter("city_glow", _night.get("sky_glow", Color(0.09, 0.055, 0.03)))
+		sky_mat.set_shader_parameter("cloud_cover", float(_night.get("sky_cloud", 0.55)))
 
 
 func _apply_indoor() -> void:

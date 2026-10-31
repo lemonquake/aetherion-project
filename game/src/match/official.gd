@@ -88,13 +88,30 @@ func _next_map() -> void:
 	var nxt := str(maps[(maps.find(str(Net.config.get("map", ""))) + 1) % maps.size()])
 	_defaults.map = nxt
 	Net.set_config("map", nxt)
-	print("[official] next map: %s" % nxt)
+	_team_layout()
+	print("[official] next map: %s (%d teams of %d)" % [nxt, Net.dm_teams() if Net.is_dm() else int(Net.config.get("teams", 5)), Net.team_size()])
 
 
 func _restore_defaults() -> void:
 	for k in Net.ROOM_KEYS:
+		if k in ["teams", "team_size"]:
+			continue
 		if _defaults.has(k) and str(Net.config.get(k)) != str(_defaults[k]):
 			print("[official] lobby empty: %s back to %s" % [k, str(_defaults[k])])
+			Net.set_config(k, _defaults[k])
+	_team_layout()
+
+
+func _team_layout() -> void:
+	## A map with its own team layout (Freight Delight: two teams of 12) keeps it; on every other map the server's own
+	## teams and team size come back (a turn on Freight Delight must not leave the mall at two teams).
+	var own := Net.map_limit(str(Net.config.get("map", "")), "team_size", 0) if Net.is_dm() else 0
+	if own > 0:
+		if Net.team_size() != own:
+			Net.set_config("team_size", own)
+		return
+	for k in ["teams", "team_size"]:
+		if _defaults.has(k) and str(Net.config.get(k)) != str(_defaults[k]):
 			Net.set_config(k, _defaults[k])
 
 

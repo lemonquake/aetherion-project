@@ -1,0 +1,27 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+[world] map built in 1654 ms
+[map] 0 buildings, 213 doors, 163 containers, 779 props, #55dd752c on PC
+[nav] levels: 56959 points, 32 links, 138 ms
+[botnav] walk check: 1424 of 56959 cells closed by the real collision, 836 ms
+[botnav] link check: 4148 links between open cells cross a wall, 2152 ms
+[nav] r21: 1424 cells closed by the physics check, main walk 49517 of 55567 points (6050 in pockets), 236 ms
+[botnav] malasugue_mall: analysing 6164 candidate spots (walk check 836 ms)
+[bots] learned from 74 cells, 0 stuck spots, 0 spots learned from play, 0 spot records (user://bot_memory_malasugue_mall.json)
+[game] autotest navtour
+[botnav] saved user://botnav/malasugue_mall.json (1230 spots)
+[botnav] malasugue_mall: 1230 spots from 6164 candidates in 629 ms of ticks { "hide": 308, "snipe": 618, "cover": 194, "open": 110 }
+[autotest] PASS navtour_analysis: malasugue_mall: 1230 spots { "hide": 308, "snipe": 618, "cover": 194, "open": 110 } from analysed, walk check closed 1424 cells, analysis 629 ms
+[navtour] PASS open (84.5, 0.0, -51.5) (auto): 35.4 s, 1 stalls, ended at (83.8, 0.4, -48.3)
+[navtour] PASS snipe (30.5, 15.0, -37.5) (auto): 45.7 s, 0 stalls, ended at (31.0, 15.0, -33.6)
+[navtour] PASS snipe (56.5, 15.0, 16.5) (auto): 10.2 s, 0 stalls, ended at (52.6, 15.0, 15.0)
+[navtour] PASS snipe (-59.5, 10.0, 14.5) (auto): 43.9 s, 1 stalls, ended at (-56.4, 10.0, 16.5)
+[navtour] FAIL cover (56.5, 15.0, -39.5) (auto): 93.1 s, 0 stalls, ended at (54.3, 13.4, -42.2)
+[navtour] PASS open (48.5, 10.0, 24.5) (auto): 27.6 s, 0 stalls, ended at (49.8, 10.0, 21.2)
+[navtour] PASS cover (-25.5, 20.0, -35.5) (auto): 44.9 s, 0 stalls, ended at (-22.3, 20.0, -33.6)
+[navtour] PASS snipe (44.5, 5.0, -9.5) (auto): 34.2 s, 0 stalls, ended at (45.3, 5.0, -12.7)
+[navtour] PASS cover (4.5, 15.0, 34.5) (auto): 28.3 s, 0 stalls, ended at (7.9, 15.0, 34.4)
+[navtour] FAIL snipe (32.5, 0.0, -63.5) (auto): 81.1 s, 19 stalls, ended at (51.0, 0.0, 45.2)
+[navtour] PASS open (84.5, 0.0, -11.5) (auto): 13.3 s, 0 stalls, ended at (84.4, 0.4, -14.9)
+[navtour] PASS open (60.5, 0.0, -55.5) (auto): 8.2 s, 0 stalls, ended at (63.3, 0.0, -53.4)
+exit=127

@@ -1,0 +1,40 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+[server] dedicated server listening on 27635
+[world] map built in 1864 ms
+[map] 0 buildings, 213 doors, 163 containers, 779 props, #55dd752c on PC
+[nav] levels: 56959 points, 32 links, 148 ms
+[nav] pocket 600 points, (60.0, 15.0, -45.0) .. (71.0, 15.0, 45.0)
+[nav] pocket 184 points, (60.0, 20.0, -9.0) .. (71.0, 20.0, 9.0)
+[nav] pocket 142 points, (24.0, 15.0, -18.0) .. (30.0, 15.0, 18.0)
+[nav] pocket 135 points, (-31.0, 20.0, -18.0) .. (-23.0, 20.0, 18.0)
+[nav] pocket 130 points, (32.0, 5.0, 36.0) .. (44.0, 5.0, 45.0)
+[nav] pocket 130 points, (32.0, 15.0, 36.0) .. (44.0, 15.0, 45.0)
+[nav] pocket 120 points, (20.0, 5.0, 36.0) .. (31.0, 5.0, 45.0)
+[nav] pocket 107 points, (-71.0, 5.0, 13.0) .. (-60.0, 5.0, 22.0)
+[nav] pocket 107 points, (-71.0, 5.0, -22.0) .. (-60.0, 5.0, -13.0)
+[nav] pocket 105 points, (-71.0, 5.0, 36.0) .. (-60.0, 5.0, 45.0)
+[nav] pocket 105 points, (-71.0, 5.0, -45.0) .. (-60.0, 5.0, -36.0)
+[nav] pocket 93 points, (-71.0, 5.0, 25.0) .. (-60.0, 5.0, 33.0)
+[nav] pocket 93 points, (-71.0, 5.0, -33.0) .. (-60.0, 5.0, -25.0)
+[nav] pocket 83 points, (7.0, 15.0, 38.0) .. (19.0, 15.0, 45.0)
+[nav] pocket 82 points, (23.0, 20.0, 8.0) .. (31.0, 20.0, 17.0)
+[nav] pocket 82 points, (23.0, 20.0, -17.0) .. (31.0, 20.0, -8.0)
+[nav] pocket 79 points, (-31.0, 10.0, -45.0) .. (-20.0, 10.0, -38.0)
+[nav] pocket 78 points, (-19.0, 20.0, 39.0) .. (-7.0, 20.0, 44.0)
+[nav] pocket 78 points, (-44.0, 20.0, -44.0) .. (-32.0, 20.0, -39.0)
+[nav] pocket 78 points, (-19.0, 20.0, -44.0) .. (-7.0, 20.0, -39.0)
+[nav] pocket 78 points, (-18.0, 15.0, -45.0) .. (-8.0, 15.0, -38.0)
+[nav] pocket 78 points, (-18.0, 0.0, 38.0) .. (-8.0, 0.0, 45.0)
+[nav] pocket 78 points, (33.0, 10.0, 38.0) .. (43.0, 10.0, 45.0)
+[nav] pocket 78 points, (32.0, 20.0, -44.0) .. (44.0, 20.0, -39.0)
+[nav] pocket 76 points, (33.0, 5.0, -45.0) .. (43.0, 5.0, -38.0)
+[nav] r21: 1424 cells closed by the physics check, main walk 49517 of 55567 points (6050 in pockets), 278 ms
+[botnav] malasugue_mall: walk check and 1219 spots from user://botnav/malasugue_mall.json { "hide": 301, "snipe": 618, "cover": 190, "open": 110 }
+[bots] learned from 74 cells, 0 stuck spots, 0 spots learned from play, 0 spot records (user://bot_memory_malasugue_mall.json)
+[match    0.0] deathmatch start on malasugue_mall: 2 players, 2 teams; spawns (42.0, 10.0, -26.0), (-40.0, 0.0, -27.0), (0.0, 20.0, 27.0) (82/67/68 m apart, floors); day offset 0 s; zone centre (3.0, 9.0) r=126; win by wipe
+[match    0.0] status: { "ground": 2 }; armed 2; shots 0; zone -1 hold r=126; corpses 0; levels { "L1": 1, "L3": 1 }
+[match    0.0] dm teams: North Team 1 at (42.0, -26.0) spread 0 m; East Team 1 at (-40.0, -27.0) spread 0 m; gap 83 m; zone centre (3.0, 9.0)
+[match    0.0] bots: { "roam": 2 }; containers searched by bots 0 (all players 0); plan steps done 0; guns carried 4
+[match    0.0] roles: { "looter": { "roam": 1 }, "sniper": { "roam": 1 } }; stuck now 0; waypoints 1219; team { "lines": 0, "pings": 0, "laser_follow": 0, "learned_cells": 74, "blocked_cells": 0, "squads": 0, "following_humans": 0, &"learned_spots": 0 }
+[match    0.0] [lootstats] bots on the ground 2 (in water 0); armed 2; armed with ammo for a gun 2; long guns 2; attachments fitted 0; rounds of unusable ammo carried 0; items on the ground 413; bot pickups { "detours": 0, "detour_taken": 0, "fetches": 0, "fetch_done": 0, "items_taken": 0 }

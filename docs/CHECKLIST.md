@@ -10,6 +10,33 @@ Evidence folders (not committed, regenerate with the commands in the README): `w
 play-through), `work/screens/net/` (two clients), `work/screens/L1`, `L2` (lighting previews), `work/items/`
 (model checks), bot-match logs from `--matchlog`, `work/scale/` (map size, benchmarks, 40-bot matches).
 
+## 2026-11-01 r21 run (version 0.21.0): bots and walls, BotNav
+
+Evidence: `work/r21nav/` (`base_mall` before, `final2_mall` after: 10-minute 21-bot matches with `--navwatch`; route
+tests `tour*`, `freight*`, `lawless*`; probes `probe*.log`). Design and causes: `docs/BOT_NAV.md`.
+
+- **Tested** Bots stall against walls far less on Malasugue Mall. In the same 10-minute, 21-bot match (`--navwatch`,
+  about 200 bot-minutes each): stall events (a bot that wants to go somewhere and covers under 0.25 m/s for 2 s) 160
+  before, 48 after (0.81 to 0.24 per bot-minute); time bots spent standing facing a wall 330 s before, 121 s after,
+  and the facing fix made after that run cut wall-facing events from 0.22 to about 0.07 per bot-minute in a third run.
+  The old repeat hotspots (fire-stair cores, shop fronts, followers inside walls) are gone.
+- **Tested** Causes found and fixed: walls on whole-metre lines invisible to the 1 m grid (link check cut 4,148 links);
+  1,424 cells blocked by props the grid did not know (walk check); partial paths into sealed pockets; follow slots in
+  walls; waypoints past doorways counted as reached from inside; paths started outside the wall from a stair half
+  landing or from under a stair; re-planning on stairs.
+- **Tested** Route test (`--autotest=navtour`): one bot through 24 waypoints on every floor of the mall: 0 of 3 legs at
+  the start of the run, 22 of 24 after the main fixes (both misses were fire-stair cases fixed after; their replays
+  pass in 36 and 30 s). Freight Delight's route test: 26 of 26 (was 23 of 26; a tread plate now joins the deck's east
+  end to the Stair B container stack, which met it only at a corner).
+- **Tested** Hiding and sniping spots analysed on all four maps and shipped (`game/data/botnav/`, loaded at match
+  start without re-analysis): mall 1,304 spots (301 hiding, 618 sniping), Freight 258, Lawless Sub 564, Kalinaw 1,275.
+- **Implemented** Popular spots and spots learned from players (camping 8 s, scoring from a new place), ambushers in
+  Deathmatch, spot claims: run in matches, but their effect on how well bots play is not measured.
+- **Incomplete** A few long stalls remain inside fire-stair cores (bots meeting on a single-file flight, bots that end
+  up in the dead end under a flight; a two-step escape for the latter went in after the last measured match) and
+  on long Lawless Sub legs (240 m and more run out of time with no stall). Total stall *time* on the mall is about the
+  same as before (358 s vs 384 s) although stalls are three times rarer: the ones left last longer.
+
 ## 2026-10-30 r16 run (version 0.17.0)
 
 Evidence: `work/r16/` (suite `t1`, store recheck `t2`, server/client fingerprint `net/`, same-view captures `before/`

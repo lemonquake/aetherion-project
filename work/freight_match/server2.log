@@ -1,0 +1,226 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+[server] dedicated server listening on 27415
+[world] map built in 757 ms
+[map] 0 buildings, 0 doors, 0 containers, 0 props, #00000000 on PC
+[nav] levels: 34894 points, 3 links, 117 ms
+[bots] learned from 25 cells, 0 stuck spots (user://bot_memory_freight_delight.json)
+[match    0.0] deathmatch start on freight_delight: 24 players, 2 teams; spawns (-52.0, 0.0, 0.0), (50.0, 0.0, 0.0) (103/103 m apart, layout); day offset 0 s; zone centre (-2.0, 0.0) r=92; win by wipe
+[match    0.0] status: { "ground": 24 }; armed 24; shots 0; zone -1 hold r=92; corpses 0; levels { "L1": 24 }
+[match    0.0] dm teams: West Team 12 at (-51.0, 0.0) spread 4 m; East Team 12 at (51.0, 0.0) spread 8 m; gap 103 m; zone centre (-2.0, 0.0)
+[match    0.0] bots: { "roam": 24 }; containers searched by bots 0 (all players 0); plan steps done 0; guns carried 48
+[match    0.0] roles: { "rusher": { "roam": 5 }, "stalker": { "roam": 8 }, "looter": { "roam": 7 }, "sniper": { "roam": 4 } }; stuck now 0; waypoints 792; team { "lines": 0, "pings": 0, "laser_follow": 0, "learned_cells": 25, "blocked_cells": 0, "squads": 0, "following_humans": 0 }
+[match    0.0] [lootstats] bots on the ground 24 (in water 0); armed 24; armed with ammo for a gun 24; long guns 24; attachments fitted 0; rounds of unusable ammo carried 0; items on the ground 0; bot pickups { "detours": 0, "detour_taken": 0, "fetches": 0, "fetch_done": 0, "items_taken": 0 }
+[match    6.3] Totoy Bibo (team 1) landed at (47.0, 0.0, 1.0), 2.5 m/s, health 100; teammates -
+[match    7.5] Kuya Tricycle (team 1) landed at (48.0, 0.0, 0.0), 2.5 m/s, health 100; teammates 8 m
+[match    8.8] Inday Rice Cooker (team 1) landed at (48.0, 0.0, 3.0), 2.5 m/s, health 100; teammates 17 m, 4 m
+[match   11.0] Kuya Wifi (team 0) landed at (-42.0, 0.0, -5.0), 2.5 m/s, health 100; teammates -
+[match   12.4] Kuya Fishball (team 0) landed at (-42.0, 0.0, -4.0), 4.9 m/s, health 100; teammates 2 m
+[match   12.5] Aling Puring (team 0) landed at (-42.0, 0.0, -3.0), 4.9 m/s, health 100; teammates 3 m, 1 m
+[match   14.8] Tito Boy killed by Kapitan Tikoy (gunshot); 2 teams left
+[match   14.8] alive: West Team 12, East Team 11; score { 0: 0, 1: 0 }
+[match   15.0] status: { "ground": 23 }; armed 23; shots 144; zone -1 hold r=92; corpses 1; levels { "L1": 22, "between": 1 }; server tick avg 4.52 ms, p99 22.47 ms, max 68.33 ms over 900 ticks
+[match   15.0] dm teams: West Team 12 at (-30.0, -3.0) spread 16 m; East Team 11 at (18.0, 3.0) spread 14 m; gap 49 m; zone centre (-2.0, 0.0)
+[match   15.0] bots: { "order": 4, "fight": 12, "hunt": 1, "roam": 1, "investigate": 2, "follow": 3 }; containers searched by bots 0 (all players 0); plan steps done 0; guns carried 46
+[match   15.0] roles: { "rusher": { "order": 1, "fight": 3 }, "stalker": { "fight": 4, "hunt": 1, "order": 3 }, "looter": { "fight": 4, "investigate": 1, "follow": 2 }, "sniper": { "roam": 1, "fight": 1, "investigate": 1, "follow": 1 } }; stuck now 2; waypoints 792; team { "lines": 8, "pings": 0, "laser_follow": 0, "learned_cells": 27, "blocked_cells": 0, "squads": 6, "following_humans": 0 }
+[match   15.0] [lootstats] bots on the ground 23 (in water 0); armed 23; armed with ammo for a gun 23; long guns 23; attachments fitted 0; rounds of unusable ammo carried 0; items on the ground 0; bot pickups { "detours": 0, "detour_taken": 0, "fetches": 0, "fetch_done": 0, "items_taken": 0 }
+[match   15.1] Mang Isko (team 0) landed at (-42.0, 0.0, -5.0), 2.5 m/s, health 100; teammates 2 m, 1 m, 2 m
+[match   15.4] Inday Tsismis killed by Bossing Dodong (gunshot); 2 teams left
+[match   15.4] alive: West Team 11, East Team 11; score { 0: 0, 1: 0 }
+[match   16.2] Kapitan Tikoy killed by Mang Tani (gunshot); 2 teams left
+[match   16.2] alive: West Team 10, East Team 11; score { 0: 0, 1: 0 }
+[match   16.9] Bossing Dodong (team 1) landed at (7.0, 0.0, 7.0), 4.9 m/s, health 86; teammates 18 m, 15 m, 26 m
+[match   20.6] Tsong Balut (team 1) landed at (25.0, 0.0, -9.0), 4.9 m/s, health 93; teammates 17 m, 26 m, 29 m, 22 m
+[match   22.0] Kapitbahay Lito killed by Inday Rice Cooker (gunshot); 2 teams left
+[match   22.0] alive: West Team 10, East Team 10; score { 0: 0, 1: 0 }
+[match   22.9] Tita Baby killed by Bossing Dodong (gunshot); 2 teams left
+[match   22.9] alive: West Team 9, East Team 10; score { 0: 0, 1: 0 }
+[match   23.4] Kulot Sabaw killed by Kuya Fishball (gunshot); 2 teams left
+[match   23.4] alive: West Team 9, East Team 9; score { 0: 0, 1: 0 }
+[match   23.5] Nanay Kakanin killed by Ate Siomai (gunshot); 2 teams left
+[match   23.5] alive: West Team 9, East Team 8; score { 0: 0, 1: 0 }
+[match   25.0] Totoy Bibo killed by Ate Load Dito (gunshot); 2 teams left
+[match   25.0] alive: West Team 9, East Team 7; score { 0: 0, 1: 0 }
+[match   28.1] Bossing Dodong killed by Ate Siomai (gunshot); 2 teams left
+[match   28.1] alive: West Team 9, East Team 6; score { 0: 0, 1: 0 }
+[match   28.5] Lolo Pepe killed by Ate Siomai (gunshot); 2 teams left
+[match   28.5] alive: West Team 9, East Team 5; score { 0: 0, 1: 0 }
+[match   30.0] status: { "ground": 14 }; armed 14; shots 391; zone -1 hold r=92; corpses 10; levels { "L1": 11, "between": 3 }; server tick avg 10.25 ms, p99 25.82 ms, max 51.83 ms over 900 ticks
+[match   30.0] dm teams: West Team 9 at (-36.0, 0.0) spread 7 m; East Team 5 at (5.0, 3.0) spread 14 m; gap 41 m; zone centre (-2.0, 0.0)
+[match   30.0] bots: { "order": 3, "hunt": 3, "roam": 3, "fight": 2, "follow": 2, "investigate": 1 }; containers searched by bots 0 (all players 0); plan steps done 0; guns carried 28
+[match   30.0] roles: { "stalker": { "order": 1, "hunt": 3, "follow": 1, "investigate": 1 }, "sniper": { "roam": 1, "fight": 2, "follow": 1 }, "looter": { "roam": 2, "order": 2 } }; stuck now 0; waypoints 792; team { "lines": 38, "pings": 0, "laser_follow": 0, "learned_cells": 29, "blocked_cells": 0, "squads": 6, "following_humans": 0 }
+[match   30.0] [lootstats] bots on the ground 14 (in water 0); armed 14; armed with ammo for a gun 14; long guns 14; attachments fitted 0; rounds of unusable ammo carried 0; items on the ground 0; bot pickups { "detours": 0, "detour_taken": 0, "fetches": 0, "fetch_done": 0, "items_taken": 0 }
+[match   32.6] Ate Load (team 0) landed at (-40.0, 0.0, -7.0), 4.4 m/s, health 100; teammates 14 m, 2 m, 5 m, 14 m
+[match   33.6] Ate Siomai killed by Inday Rice Cooker (gunshot); 2 teams left
+[match   33.6] alive: West Team 8, East Team 5; score { 0: 0, 1: 0 }
+[match   35.2] Ate Load Dito (team 1) landed at (7.0, 0.0, 6.0), 4.9 m/s, health 82; teammates 18 m, 58 m, 8 m
+[match   43.2] Kuya Wifi killed by Tsong Balut (gunshot); 2 teams left
+[match   43.2] alive: West Team 7, East Team 5; score { 0: 0, 1: 0 }
+[match   45.0] status: { "ground": 12 }; armed 12; shots 437; zone -1 hold r=92; corpses 12; levels { "L1": 12 }; server tick avg 2.23 ms, p99 6.86 ms, max 12.79 ms over 900 ticks
+[match   45.0] dm teams: West Team 7 at (-33.0, 3.0) spread 10 m; East Team 5 at (-14.0, 12.0) spread 18 m; gap 21 m; zone centre (-2.0, 0.0)
+[match   45.0] bots: { "fight": 2, "order": 3, "investigate": 3, "heal": 2, "roam": 1, "follow": 1 }; containers searched by bots 0 (all players 0); plan steps done 0; guns carried 24
+[match   45.0] roles: { "stalker": { "fight": 2, "order": 1, "investigate": 2 }, "sniper": { "investigate": 1, "roam": 1, "follow": 1 }, "looter": { "heal": 2, "order": 2 } }; stuck now 0; waypoints 792; team { "lines": 52, "pings": 0, "laser_follow": 0, "learned_cells": 31, "blocked_cells": 0, "squads": 6, "following_humans": 0 }
+[match   45.0] [lootstats] bots on the ground 12 (in water 0); armed 12; armed with ammo for a gun 12; long guns 12; attachments fitted 0; rounds of unusable ammo carried 0; items on the ground 0; bot pickups { "detours": 0, "detour_taken": 0, "fetches": 0, "fetch_done": 0, "items_taken": 0 }
+[match   45.1] Inday Rice Cooker killed by Mang Isko (gunshot); 2 teams left
+[match   45.1] alive: West Team 7, East Team 4; score { 0: 0, 1: 0 }
+[match   46.4] Kuya Fishball killed by Ate Load (gunshot); 2 teams left
+[match   46.4] alive: West Team 6, East Team 4; score { 0: 0, 1: 0 }
+[match   46.5] Tsong Balut killed by Aling Puring (gunshot); 2 teams left
+[match   46.5] alive: West Team 6, East Team 3; score { 0: 0, 1: 0 }
+[match   47.5] Pareng Jun killed by Kuya Tricycle (gunshot); 2 teams left
+[match   47.5] alive: West Team 5, East Team 3; score { 0: 0, 1: 0 }
+[match   49.6] Mang Tomas (team 0) landed at (-33.0, 0.0, -3.0), 4.9 m/s, health 100; teammates 17 m, 16 m, 12 m
+[match   55.9] Mang Isko killed by Mang Tomas (gunshot); 2 teams left
+[match   55.9] alive: West Team 4, East Team 3; score { 0: 0, 1: 0 }
+[match   60.0] status: { "ground": 7 }; armed 7; shots 542; zone -1 hold r=92; corpses 17; levels { "L1": 6, "between": 1 }; server tick avg 2.54 ms, p99 8.54 ms, max 20.04 ms over 900 ticks
+[match   60.0] dm teams: West Team 4 at (-32.0, 6.0) spread 10 m; East Team 3 at (-8.0, 19.0) spread 9 m; gap 28 m; zone centre (-2.0, 0.0)
+[match   60.0] bots: { "fight": 4, "roam": 1, "order": 1, "hunt": 1 }; containers searched by bots 0 (all players 0); plan steps done 0; guns carried 14
+[match   60.0] roles: { "stalker": { "fight": 1, "hunt": 1 }, "sniper": { "roam": 1, "order": 1, "fight": 1 }, "looter": { "fight": 2 } }; stuck now 2; waypoints 792; team { "lines": 76, "pings": 0, "laser_follow": 0, "learned_cells": 33, "blocked_cells": 0, "squads": 6, "following_humans": 0 }
+[match   60.0] [lootstats] bots on the ground 7 (in water 0); armed 7; armed with ammo for a gun 7; long guns 7; attachments fitted 0; rounds of unusable ammo carried 0; items on the ground 0; bot pickups { "detours": 0, "detour_taken": 0, "fetches": 0, "fetch_done": 0, "items_taken": 0 }
+[match   66.0] Bebot Karaoke (team 0) landed at (-27.0, 0.0, 12.0), 3.1 m/s, health 57; teammates 23 m, 2 m, 6 m
+[match   68.8] Mang Tomas killed by Kuya Tricycle (gunshot); 2 teams left
+[match   68.8] alive: West Team 3, East Team 3; score { 0: 0, 1: 0 }
+[match   68.9] Mang Tani killed by Ate Load (gunshot); 2 teams left
+[match   68.9] alive: West Team 3, East Team 2; score { 0: 0, 1: 0 }
+[match   69.6] Bebot Karaoke killed by Ate Load Dito (gunshot); 2 teams left
+[match   69.6] alive: West Team 2, East Team 2; score { 0: 0, 1: 0 }
+[match   73.5] Kuya Tricycle killed by Ate Load (gunshot); 2 teams left
+[match   73.5] alive: West Team 2, East Team 1; score { 0: 0, 1: 0 }
+[match   75.0] status: { "ground": 3 }; armed 3; shots 696; zone -1 hold r=92; corpses 21; levels { "between": 1, "L1": 2 }; server tick avg 2.87 ms, p99 10.14 ms, max 24.98 ms over 900 ticks
+[match   75.0] dm teams: West Team 2 at (-37.0, 4.0) spread 12 m; East Team 1 at (-8.0, 16.0) spread 0 m; gap 32 m; zone centre (-2.0, 0.0)
+[match   75.0] bots: { "roam": 2, "hunt": 1 }; containers searched by bots 0 (all players 0); plan steps done 0; guns carried 6
+[match   75.0] roles: { "sniper": { "roam": 2 }, "stalker": { "hunt": 1 } }; stuck now 0; waypoints 792; team { "lines": 95, "pings": 0, "laser_follow": 0, "learned_cells": 35, "blocked_cells": 0, "squads": 6, "following_humans": 0 }
+[match   75.0] [lootstats] bots on the ground 3 (in water 0); armed 3; armed with ammo for a gun 3; long guns 3; attachments fitted 0; rounds of unusable ammo carried 0; items on the ground 0; bot pickups { "detours": 0, "detour_taken": 0, "fetches": 0, "fetch_done": 0, "items_taken": 0 }
+[match   90.0] status: { "ground": 3 }; armed 3; shots 710; zone -1 hold r=92; corpses 21; levels { "between": 1, "L2": 1, "L1": 1 }; server tick avg 0.73 ms, p99 1.72 ms, max 9.14 ms over 900 ticks
+[match   90.0] dm teams: West Team 2 at (-25.0, 9.0) spread 22 m; East Team 1 at (0.0, 16.0) spread 0 m; gap 26 m; zone centre (-2.0, 0.0)
+[match   90.0] bots: { "roam": 2, "hunt": 1 }; containers searched by bots 0 (all players 0); plan steps done 0; guns carried 6
+[match   90.0] roles: { "sniper": { "roam": 2 }, "stalker": { "hunt": 1 } }; stuck now 0; waypoints 792; team { "lines": 97, "pings": 0, "laser_follow": 0, "learned_cells": 35, "blocked_cells": 0, "squads": 6, "following_humans": 0 }
+[match   90.0] [lootstats] bots on the ground 3 (in water 0); armed 3; armed with ammo for a gun 3; long guns 3; attachments fitted 0; rounds of unusable ammo carried 0; items on the ground 0; bot pickups { "detours": 0, "detour_taken": 0, "fetches": 0, "fetch_done": 0, "items_taken": 0 }
+[match  105.0] status: { "ground": 3 }; armed 3; shots 710; zone -1 hold r=92; corpses 21; levels { "between": 1, "L2": 1, "L1": 1 }; server tick avg 0.65 ms, p99 2.25 ms, max 10.51 ms over 900 ticks
+[match  105.0] dm teams: West Team 2 at (-19.0, 13.0) spread 31 m; East Team 1 at (3.0, 0.0) spread 0 m; gap 26 m; zone centre (-2.0, 0.0)
+[match  105.0] bots: { "roam": 1, "overwatch": 1, "hunt": 1 }; containers searched by bots 0 (all players 0); plan steps done 0; guns carried 6
+[match  105.0] roles: { "sniper": { "roam": 1, "overwatch": 1 }, "stalker": { "hunt": 1 } }; stuck now 1; waypoints 792; team { "lines": 98, "pings": 0, "laser_follow": 0, "learned_cells": 35, "blocked_cells": 0, "squads": 6, "following_humans": 0 }
+[match  105.0] [lootstats] bots on the ground 3 (in water 0); armed 3; armed with ammo for a gun 3; long guns 3; attachments fitted 0; rounds of unusable ammo carried 0; items on the ground 0; bot pickups { "detours": 0, "detour_taken": 0, "fetches": 0, "fetch_done": 0, "items_taken": 0 }
+[match  120.0] status: { "ground": 3 }; armed 3; shots 710; zone -1 hold r=92; corpses 21; levels { "L2": 2, "L1": 1 }; server tick avg 0.75 ms, p99 2.67 ms, max 11.51 ms over 900 ticks
+[match  120.0] dm teams: West Team 2 at (-11.0, -1.0) spread 30 m; East Team 1 at (3.0, 0.0) spread 0 m; gap 14 m; zone centre (-2.0, 0.0)
+[match  120.0] bots: { "roam": 1, "overwatch": 1, "hunt": 1 }; containers searched by bots 0 (all players 0); plan steps done 0; guns carried 6
+[match  120.0] roles: { "sniper": { "roam": 1, "overwatch": 1 }, "stalker": { "hunt": 1 } }; stuck now 0; waypoints 792; team { "lines": 99, "pings": 0, "laser_follow": 0, "learned_cells": 35, "blocked_cells": 0, "squads": 6, "following_humans": 0 }
+[match  120.0] [lootstats] bots on the ground 3 (in water 0); armed 3; armed with ammo for a gun 3; long guns 3; attachments fitted 0; rounds of unusable ammo carried 0; items on the ground 0; bot pickups { "detours": 0, "detour_taken": 0, "fetches": 0, "fetch_done": 0, "items_taken": 0 }
+[match  131.6] Ate Load killed by Ate Load Dito (gunshot); 2 teams left
+[match  131.6] alive: West Team 1, East Team 1; score { 0: 0, 1: 0 }
+[match  135.0] status: { "ground": 2 }; armed 2; shots 742; zone -1 hold r=92; corpses 22; levels { "L1": 1, "L2": 1 }; server tick avg 1.06 ms, p99 2.45 ms, max 11.37 ms over 900 ticks
+[match  135.0] dm teams: West Team 1 at (-8.0, -23.0) spread 0 m; East Team 1 at (3.0, 1.0) spread 0 m; gap 26 m; zone centre (-2.0, 0.0)
+[match  135.0] bots: { "fight": 2 }; containers searched by bots 0 (all players 0); plan steps done 0; guns carried 4
+[match  135.0] roles: { "sniper": { "fight": 2 } }; stuck now 0; waypoints 792; team { "lines": 105, "pings": 0, "laser_follow": 0, "learned_cells": 36, "blocked_cells": 0, "squads": 6, "following_humans": 0 }
+[match  135.0] [lootstats] bots on the ground 2 (in water 0); armed 2; armed with ammo for a gun 2; long guns 2; attachments fitted 0; rounds of unusable ammo carried 0; items on the ground 0; bot pickups { "detours": 0, "detour_taken": 0, "fetches": 0, "fetch_done": 0, "items_taken": 0 }
+[match  136.1] Ate Load Dito killed by Aling Puring (gunshot); 1 teams left
+[match  136.1] alive: West Team 1, East Team 0; score { 0: 0, 1: 0 }
+[match  136.1] round 1 over: winner 0, scores { 0: 1, 1: 0 }
+[match  140.1] Kuya Fishball respawned at (-51.0, 0.0, -2.0) (nearest enemy 1000 m)
+[match  140.1] Inday Rice Cooker respawned at (53.0, 0.0, -5.0) (nearest enemy 104 m)
+[match  140.1] Mang Tomas respawned at (-56.0, 0.0, 5.0) (nearest enemy 109 m)
+[match  140.1] Tito Boy respawned at (53.0, 0.0, -11.0) (nearest enemy 104 m)
+[match  140.1] Pareng Jun respawned at (-56.0, 0.0, 2.0) (nearest enemy 109 m)
+[match  140.1] Mang Tani respawned at (53.0, 0.0, 8.0) (nearest enemy 104 m)
+[match  140.1] Bebot Karaoke respawned at (-54.0, 0.0, 2.0) (nearest enemy 106 m)
+[match  140.1] Kapitbahay Lito respawned at (53.0, 0.0, 11.0) (nearest enemy 105 m)
+[match  140.1] Ate Load respawned at (-56.0, 0.0, -5.0) (nearest enemy 109 m)
+[match  140.1] Ate Load Dito respawned at (50.0, 0.0, 8.0) (nearest enemy 102 m)
+[match  140.1] Ate Siomai respawned at (-51.0, 0.0, 2.0) (nearest enemy 102 m)
+[match  140.1] Bossing Dodong respawned at (50.0, 0.0, -8.0) (nearest enemy 102 m)
+[match  140.1] Kuya Wifi respawned at (-51.0, 0.0, -5.0) (nearest enemy 101 m)
+[match  140.1] Tsong Balut respawned at (48.0, 0.0, -11.0) (nearest enemy 99 m)
+[match  140.1] Aling Puring respawned at (-56.0, 0.0, -2.0) (nearest enemy 104 m)
+[match  140.1] Kuya Tricycle respawned at (53.0, 0.0, -8.0) (nearest enemy 104 m)
+[match  140.1] Mang Isko respawned at (-54.0, 0.0, -5.0) (nearest enemy 102 m)
+[match  140.1] Kulot Sabaw respawned at (53.0, 0.0, 5.0) (nearest enemy 104 m)
+[match  140.1] Kapitan Tikoy respawned at (-49.0, 0.0, 2.0) (nearest enemy 97 m)
+[match  140.1] Totoy Bibo respawned at (48.0, 0.0, 11.0) (nearest enemy 97 m)
+[match  140.1] Tita Baby respawned at (-54.0, 0.0, -2.0) (nearest enemy 102 m)
+[match  140.1] Nanay Kakanin respawned at (50.0, 0.0, 11.0) (nearest enemy 99 m)
+[match  140.1] Inday Tsismis respawned at (-51.0, 0.0, 5.0) (nearest enemy 99 m)
+[match  140.1] Lolo Pepe respawned at (50.0, 0.0, -5.0) (nearest enemy 99 m)
+[match  140.1] round 2 started; scores { 0: 1, 1: 0 }
+[match  148.8] Inday Rice Cooker (team 1) landed at (42.0, 0.0, -2.0), 4.9 m/s, health 100; teammates -
+[match  149.0] Kapitbahay Lito (team 1) landed at (46.0, 0.0, 12.0), 4.9 m/s, health 100; teammates 15 m
+[match  150.0] status: { "ground": 24 }; armed 24; shots 745; zone -1 hold r=91; corpses 0; levels { "L1": 23, "between": 1 }; server tick avg 2.55 ms, p99 11.11 ms, max 35.60 ms over 660 ticks
+[match  150.0] dm teams: West Team 12 at (-41.0, 0.0) spread 6 m; East Team 12 at (40.0, 1.0) spread 8 m; gap 81 m; zone centre (-1.0, 1.0)
+[match  150.0] bots: { "follow": 7, "hunt": 11, "roam": 6 }; containers searched by bots 0 (all players 0); plan steps done 0; guns carried 48
+[match  150.0] roles: { "sniper": { "follow": 2, "roam": 4 }, "rusher": { "hunt": 6 }, "stalker": { "hunt": 5, "follow": 2 }, "looter": { "roam": 2, "follow": 3 } }; stuck now 1; waypoints 792; team { "lines": 108, "pings": 0, "laser_follow": 0, "learned_cells": 37, "blocked_cells": 0, "squads": 12, "following_humans": 0 }
+[match  150.0] [lootstats] bots on the ground 24 (in water 0); armed 24; armed with ammo for a gun 24; long guns 24; attachments fitted 0; rounds of unusable ammo carried 0; items on the ground 0; bot pickups { "detours": 0, "detour_taken": 0, "fetches": 0, "fetch_done": 0, "items_taken": 0 }
+[match  151.0] Inday Tsismis (team 0) landed at (-40.0, 0.0, -6.0), 3.8 m/s, health 100; teammates -
+[match  151.9] Tsong Balut (team 1) landed at (41.0, 0.0, 0.0), 4.9 m/s, health 100; teammates 16 m, 14 m
+[match  154.6] Lolo Pepe (team 1) landed at (19.0, 0.0, 11.0), 2.5 m/s, health 100; teammates 26 m, 5 m, 22 m
+[match  155.7] Pareng Jun (team 0) landed at (-12.0, 0.0, 11.0), 4.9 m/s, health 100; teammates 33 m
+[match  157.8] Mang Tomas (team 0) landed at (-40.0, 0.0, -6.0), 5.7 m/s, health 100; teammates 21 m, 16 m
+[match  158.6] Ate Load Dito (team 1) landed at (5.0, 0.0, -21.0), 4.7 m/s, health 100; teammates 4 m, 44 m, 14 m, 35 m
+[match  158.9] Tita Baby killed by Lolo Pepe (gunshot); 2 teams left
+[match  158.9] alive: West Team 11, East Team 12; score { 0: 1, 1: 0 }
+[match  160.3] Kuya Wifi (team 0) landed at (-45.0, 0.0, -8.0), 4.9 m/s, health 100; teammates 6 m, 18 m, 19 m
+[match  160.4] Kuya Fishball (team 0) landed at (-40.0, 0.0, -6.0), 5.7 m/s, health 100; teammates 5 m, 13 m, 6 m, 16 m
+[match  160.6] Inday Tsismis killed by Inday Rice Cooker (gunshot); 2 teams left
+[match  160.6] alive: West Team 10, East Team 12; score { 0: 1, 1: 0 }
+[match  161.6] Aling Puring (team 0) landed at (-40.0, 0.0, -6.0), 2.5 m/s, health 100; teammates 1 m, 3 m, 12 m, 5 m
+[match  162.4] Kapitan Tikoy (team 0) landed at (-41.0, 0.0, -4.0), 4.9 m/s, health 100; teammates 2 m, 1 m, 13 m, 2 m, 3 m
+[match  162.9] Bebot Karaoke killed by Kuya Tricycle (gunshot); 2 teams left
+[match  162.9] alive: West Team 9, East Team 12; score { 0: 1, 1: 0 }
+[match  163.1] Ate Load (team 0) landed at (-40.0, 0.0, -7.0), 4.4 m/s, health 100; teammates 3 m, 2 m, 12 m, 4 m, 4 m, 4 m
+[match  164.8] Totoy Bibo killed by Ate Siomai (gunshot); 2 teams left
+[match  164.8] alive: West Team 9, East Team 11; score { 0: 1, 1: 0 }
+[match  165.0] status: { "ground": 20 }; armed 20; shots 1088; zone -1 hold r=91; corpses 4; levels { "between": 3, "L1": 17 }; server tick avg 13.10 ms, p99 35.81 ms, max 54.32 ms over 900 ticks
+[match  165.0] dm teams: West Team 9 at (-33.0, -1.0) spread 11 m; East Team 11 at (2.0, 2.0) spread 18 m; gap 35 m; zone centre (-1.0, 1.0)
+[match  165.0] bots: { "roam": 3, "fight": 11, "heal": 1, "hunt": 3, "investigate": 1, "follow": 1 }; containers searched by bots 0 (all players 0); plan steps done 0; guns carried 40
+[match  165.0] roles: { "sniper": { "roam": 3, "fight": 2, "follow": 1 }, "rusher": { "fight": 4, "investigate": 1 }, "stalker": { "fight": 3, "hunt": 3 }, "looter": { "heal": 1, "fight": 2 } }; stuck now 2; waypoints 792; team { "lines": 131, "pings": 0, "laser_follow": 0, "learned_cells": 40, "blocked_cells": 1, "squads": 12, "following_humans": 0 }
+[match  165.0] [lootstats] bots on the ground 20 (in water 0); armed 20; armed with ammo for a gun 20; long guns 20; attachments fitted 0; rounds of unusable ammo carried 0; items on the ground 0; bot pickups { "detours": 0, "detour_taken": 0, "fetches": 0, "fetch_done": 0, "items_taken": 0 }
+[match  166.2] Kuya Tricycle killed by Pareng Jun (gunshot); 2 teams left
+[match  166.2] alive: West Team 9, East Team 10; score { 0: 1, 1: 0 }
+[match  169.3] Inday Rice Cooker killed by Ate Siomai (gunshot); 2 teams left
+[match  169.3] alive: West Team 9, East Team 9; score { 0: 1, 1: 0 }
+[match  170.0] Tito Boy killed by Nanay Kakanin (gunshot); 2 teams left
+[match  170.0] alive: West Team 9, East Team 8; score { 0: 1, 1: 0 }
+[match  170.0] Tsong Balut killed by Ate Siomai (gunshot); 2 teams left
+[match  170.0] alive: West Team 9, East Team 7; score { 0: 1, 1: 0 }
+[match  170.3] Ate Siomai killed by Nanay Kakanin (gunshot); 2 teams left
+[match  170.3] alive: West Team 8, East Team 7; score { 0: 1, 1: 0 }
+[match  171.2] Mang Isko killed by Kulot Sabaw (gunshot); 2 teams left
+[match  171.2] alive: West Team 7, East Team 7; score { 0: 1, 1: 0 }
+[match  172.4] Mang Tani killed by Kuya Wifi (gunshot); 2 teams left
+[match  172.4] alive: West Team 7, East Team 6; score { 0: 1, 1: 0 }
+[match  172.9] Kuya Wifi killed by Bossing Dodong (gunshot); 2 teams left
+[match  172.9] alive: West Team 6, East Team 6; score { 0: 1, 1: 0 }
+[match  178.3] Kulot Sabaw (team 1) landed at (4.0, 0.0, 25.0), 2.5 m/s, health 100; teammates 2 m, 37 m, 1 m
+[match  179.5] Pareng Jun killed by Ate Load Dito (gunshot); 2 teams left
+[match  179.5] alive: West Team 5, East Team 6; score { 0: 1, 1: 0 }
+[match  180.0] status: { "ground": 11 }; armed 11; shots 1297; zone -1 hold r=91; corpses 13; levels { "L1": 8, "L2": 1, "between": 2 }; server tick avg 6.71 ms, p99 19.97 ms, max 30.81 ms over 900 ticks
+[match  180.0] dm teams: West Team 5 at (-37.0, -10.0) spread 8 m; East Team 6 at (-1.0, 9.0) spread 22 m; gap 40 m; zone centre (-1.0, 1.0)
+[match  180.0] bots: { "roam": 4, "order": 2, "hunt": 2, "heal": 1, "follow": 2 }; containers searched by bots 0 (all players 0); plan steps done 0; guns carried 22
+[match  180.0] roles: { "sniper": { "roam": 3, "order": 1, "follow": 1 }, "stalker": { "hunt": 2, "order": 1, "follow": 1 }, "rusher": { "heal": 1 }, "looter": { "roam": 1 } }; stuck now 0; waypoints 792; team { "lines": 160, "pings": 0, "laser_follow": 0, "learned_cells": 42, "blocked_cells": 1, "squads": 12, "following_humans": 0 }
+[match  180.0] [lootstats] bots on the ground 11 (in water 0); armed 11; armed with ammo for a gun 11; long guns 11; attachments fitted 0; rounds of unusable ammo carried 0; items on the ground 0; bot pickups { "detours": 0, "detour_taken": 0, "fetches": 0, "fetch_done": 0, "items_taken": 0 }
+[match  182.5] Nanay Kakanin (team 1) landed at (9.0, 0.0, 16.0), 4.9 m/s, health 100; teammates 10 m, 40 m, 18 m, 11 m
+[match  182.9] Ate Load Dito killed by Mang Tomas (gunshot); 2 teams left
+[match  182.9] alive: West Team 5, East Team 5; score { 0: 1, 1: 0 }
+[match  192.8] Kulot Sabaw killed by Ate Load (gunshot); 2 teams left
+[match  192.8] alive: West Team 5, East Team 4; score { 0: 1, 1: 0 }
+[match  195.0] status: { "ground": 9 }; armed 9; shots 1318; zone -1 hold r=91; corpses 15; levels { "L1": 9 }; server tick avg 2.47 ms, p99 7.22 ms, max 14.31 ms over 900 ticks
+[match  195.0] dm teams: West Team 5 at (-36.0, -7.0) spread 6 m; East Team 4 at (4.0, 6.0) spread 28 m; gap 42 m; zone centre (-1.0, 1.0)
+[match  195.0] bots: { "order": 2, "investigate": 1, "roam": 3, "heal": 1, "follow": 1, "hunt": 1 }; containers searched by bots 0 (all players 0); plan steps done 0; guns carried 18
+[match  195.0] roles: { "sniper": { "order": 1, "investigate": 1, "roam": 2, "follow": 1 }, "stalker": { "order": 1, "heal": 1, "hunt": 1 }, "looter": { "roam": 1 } }; stuck now 2; waypoints 792; team { "lines": 176, "pings": 0, "laser_follow": 0, "learned_cells": 45, "blocked_cells": 1, "squads": 12, "following_humans": 0 }
+[match  195.0] [lootstats] bots on the ground 9 (in water 0); armed 9; armed with ammo for a gun 9; long guns 9; attachments fitted 0; rounds of unusable ammo carried 0; items on the ground 0; bot pickups { "detours": 0, "detour_taken": 0, "fetches": 0, "fetch_done": 0, "items_taken": 0 }
+[match  200.6] Nanay Kakanin killed by Aling Puring (gunshot); 2 teams left
+[match  200.6] alive: West Team 5, East Team 3; score { 0: 1, 1: 0 }
+[match  203.0] Bossing Dodong (team 1) landed at (18.0, 0.0, -34.0), 4.4 m/s, health 88; teammates 59 m, 60 m
+[match  210.0] status: { "ground": 8 }; armed 8; shots 1357; zone -1 hold r=91; corpses 16; levels { "L1": 6, "L2": 1, "between": 1 }; server tick avg 1.83 ms, p99 5.35 ms, max 18.12 ms over 900 ticks
+[match  210.0] dm teams: West Team 5 at (-32.0, -12.0) spread 8 m; East Team 3 at (13.0, 15.0) spread 20 m; gap 52 m; zone centre (-1.0, 1.0)
+[match  210.0] bots: { "order": 2, "roam": 4, "hunt": 1, "follow": 1 }; containers searched by bots 0 (all players 0); plan steps done 0; guns carried 16
+[match  210.0] roles: { "sniper": { "order": 1, "roam": 3, "follow": 1 }, "stalker": { "order": 1, "hunt": 1 }, "looter": { "roam": 1 } }; stuck now 0; waypoints 792; team { "lines": 182, "pings": 0, "laser_follow": 0, "learned_cells": 45, "blocked_cells": 1, "squads": 12, "following_humans": 0 }
+[match  210.0] [lootstats] bots on the ground 8 (in water 0); armed 8; armed with ammo for a gun 8; long guns 8; attachments fitted 0; rounds of unusable ammo carried 0; items on the ground 0; bot pickups { "detours": 0, "detour_taken": 0, "fetches": 0, "fetch_done": 0, "items_taken": 0 }
+[match  225.0] status: { "ground": 8 }; armed 8; shots 1384; zone -1 hold r=91; corpses 16; levels { "L1": 7, "between": 1 }; server tick avg 1.60 ms, p99 7.31 ms, max 13.39 ms over 900 ticks
+[match  225.0] dm teams: West Team 5 at (-26.0, -4.0) spread 13 m; East Team 3 at (4.0, 20.0) spread 5 m; gap 38 m; zone centre (-1.0, 1.0)
+[match  225.0] bots: { "roam": 5, "hunt": 2, "follow": 1 }; containers searched by bots 0 (all players 0); plan steps done 0; guns carried 16
+[match  225.0] roles: { "sniper": { "roam": 4, "follow": 1 }, "stalker": { "hunt": 2 }, "looter": { "roam": 1 } }; stuck now 0; waypoints 792; team { "lines": 188, "pings": 0, "laser_follow": 0, "learned_cells": 45, "blocked_cells": 1, "squads": 12, "following_humans": 0 }
+[match  225.0] [lootstats] bots on the ground 8 (in water 0); armed 8; armed with ammo for a gun 8; long guns 8; attachments fitted 0; rounds of unusable ammo carried 0; items on the ground 0; bot pickups { "detours": 0, "detour_taken": 0, "fetches": 0, "fetch_done": 0, "items_taken": 0 }
+[match  235.7] Mang Tomas killed by Lolo Pepe (gunshot); 2 teams left
+[match  235.7] alive: West Team 4, East Team 3; score { 0: 1, 1: 0 }
+[match  240.0] match ended early (test): winner team 0 after 240 s
+[bots] saved 45 learned cells to user://bot_memory_freight_delight.json
+[game] results: {}

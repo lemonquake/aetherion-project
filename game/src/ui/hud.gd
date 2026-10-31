@@ -65,7 +65,7 @@ var _goal_label: Label = null
 var _goal_text := ""
 var _respawn_label: Label = null
 var _died_at := -1.0
-const MAP_TITLES := {"kalinaw": "Sitio Kalinaw", "lawless_sub": "Lawless Sub", "malasugue_mall": "Malasugue Mall"}
+const MAP_TITLES := {"kalinaw": "Sitio Kalinaw", "lawless_sub": "Lawless Sub", "malasugue_mall": "Malasugue Mall", "freight_delight": "Freight Delight"}
 
 
 func setup(w) -> void:

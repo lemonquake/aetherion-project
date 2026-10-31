@@ -1,0 +1,20 @@
+[export] Linux Server -> ../builds/release/linux/aetherion_server.x86_64
+[export] Linux Server exit 0 in 77 s
+total 2028384
+drwxr-xr-x 1 Azrin Azrael 197121          0 Nov  1 00:59 .
+drwxr-xr-x 1 Azrin Azrael 197121          0 Oct 31 07:19 ..
+-rw-r--r-- 1 Azrin Azrael 197121 2003535716 Nov  1 00:59 aetherion_server.pck
+-rw-r--r-- 1 Azrin Azrael 197121   73519416 Nov  1 00:58 aetherion_server.x86_64
+[export] Windows Release -> ../builds/release/windows/Aetherion.exe
+[export] Windows Release exit 0 in 34 s
+total 2063292
+drwxr-xr-x 1 Azrin Azrael 197121          0 Nov  1 01:00 .
+drwxr-xr-x 1 Azrin Azrael 197121          0 Oct 31 07:19 ..
+-rwxr-xr-x 1 Azrin Azrael 197121  109268480 Nov  1 00:59 Aetherion.exe
+-rw-r--r-- 1 Azrin Azrael 197121 2003535716 Nov  1 01:00 Aetherion.pck
+[export] macOS -> ../builds/release/macos/Aetherion.zip
+[export] macOS exit 0 in 181 s
+total 1290276
+drwxr-xr-x 1 Azrin Azrael 197121          0 Nov  1 01:01 .
+drwxr-xr-x 1 Azrin Azrael 197121          0 Oct 31 07:19 ..
+-rw-r--r-- 1 Azrin Azrael 197121 1321237958 Nov  1 01:03 Aetherion.zip

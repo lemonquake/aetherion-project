@@ -83,6 +83,14 @@ func _run() -> void:
 		await preload("res://src/debug/autotest_mall.gd").new(self).run()
 		_finish()
 		return
+	if str(Game.arg("autotest", "")) == "freight":
+		await preload("res://src/debug/autotest_freight.gd").new(self).run()
+		_finish()
+		return
+	if str(Game.arg("autotest", "")) == "navtour":
+		await preload("res://src/debug/autotest_navtour.gd").new(self).run()
+		_finish()
+		return
 	if str(Game.arg("autotest", "")) == "horror":
 		await preload("res://src/debug/autotest_horror.gd").new(self).run()
 		_finish()

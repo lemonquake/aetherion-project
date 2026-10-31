@@ -1,0 +1,38 @@
+== malasugue_mall exit 0
+[nav] levels: 56959 points, 32 links, 124 ms
+[botnav] walk check: 1424 of 56959 cells closed by the real collision, 823 ms
+[botnav] link check: 4148 links between open cells cross a wall, 2006 ms
+[nav] r21: 1424 cells closed by the physics check, main walk 49517 of 55567 points (6050 in pockets), 230 ms
+[botnav] malasugue_mall: analysing 6164 candidate spots (walk check 823 ms)
+[botnav] saved user://botnav/malasugue_mall.json (1304 spots)
+[botnav] malasugue_mall: 1304 spots from 6164 candidates in 552 ms of ticks { "hide": 301, "snipe": 618, "cover": 190, "open": 195 }
+[botnav] saved res://data/botnav/malasugue_mall.json (1304 spots)
+== freight_delight exit 0
+[nav] levels: 34890 points, 3 links, 78 ms
+[botnav] walk check: 617 of 34890 cells closed by the real collision, 176 ms
+[botnav] link check: 0 links between open cells cross a wall, 310 ms
+[nav] r21: 617 cells closed by the physics check, main walk 34227 of 34282 points (55 in pockets), 140 ms
+[botnav] freight_delight: analysing 1241 candidate spots (walk check 176 ms)
+[botnav] saved user://botnav/freight_delight.json (258 spots)
+[botnav] freight_delight: 258 spots from 1241 candidates in 72 ms of ticks { "hide": 102, "snipe": 83, "cover": 45, "open": 28 }
+[botnav] saved res://data/botnav/freight_delight.json (258 spots)
+== lawless_sub exit 0
+[botnav] lawless_sub: analysing 2075 candidate spots (walk check 0 ms)
+[botnav] saved user://botnav/lawless_sub.json (564 spots)
+[botnav] lawless_sub: 564 spots from 2075 candidates in 181 ms of ticks { "hide": 38, "snipe": 95, "cover": 56, "open": 375 }
+[botnav] saved res://data/botnav/lawless_sub.json (564 spots)
+[botnav] baked lawless_sub: { "source": "analysed", "bake_ms": 0.0, "closed": 0, "candidates": 2075, "spots_ms": 180.963, "kinds": { "hide": 38, "snipe": 95, "cover": 56, "open": 375 } }
+== kalinaw exit 0
+[botnav] kalinaw: analysing 4336 candidate spots (walk check 0 ms)
+[botnav] saved user://botnav/kalinaw.json (1275 spots)
+[botnav] kalinaw: 1275 spots from 4336 candidates in 413 ms of ticks { "hide": 137, "snipe": 262, "cover": 307, "open": 569 }
+[botnav] saved res://data/botnav/kalinaw.json (1275 spots)
+[botnav] baked kalinaw: { "source": "analysed", "bake_ms": 0.0, "closed": 0, "candidates": 4336, "spots_ms": 413.453, "kinds": { "hide": 137, "snipe": 262, "cover": 307, "open": 569 } }
+total 480
+drwxr-xr-x 1 Azrin Azrael 197121      0 Nov  1 00:57 .
+drwxr-xr-x 1 Azrin Azrael 197121      0 Nov  1 00:43 ..
+-rw-r--r-- 1 Azrin Azrael 197121  35620 Nov  1 00:57 freight_delight.json
+-rw-r--r-- 1 Azrin Azrael 197121 156134 Nov  1 00:57 kalinaw.json
+-rw-r--r-- 1 Azrin Azrael 197121  68586 Nov  1 00:57 lawless_sub.json
+-rw-r--r-- 1 Azrin Azrael 197121 218003 Nov  1 00:57 malasugue_mall.json
+exit=0

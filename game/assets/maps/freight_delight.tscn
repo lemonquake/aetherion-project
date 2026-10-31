@@ -1,0 +1,33 @@
+[gd_scene load_steps=3 format=3]
+
+[ext_resource type="PackedScene" path="res://assets/maps/freight_delight.map" id="1_map"]
+
+[sub_resource type="Environment" id="Environment_night"]
+background_mode = 1
+background_color = Color(0.02, 0.022, 0.03, 1)
+ambient_light_source = 2
+ambient_light_color = Color(0.11, 0.12, 0.17, 1)
+ambient_light_energy = 0.3
+tonemap_mode = 4
+ssao_enabled = true
+glow_enabled = true
+fog_enabled = true
+fog_light_color = Color(0.024, 0.022, 0.026, 1)
+fog_density = 0.006
+
+[node name="FreightDelight" type="Node3D"]
+
+[node name="Map" parent="." instance=ExtResource("1_map")]
+
+[node name="Extras" type="Node3D" parent="."]
+
+[node name="EditorPreview" type="Node3D" parent="." groups=["editor_only"]]
+
+[node name="NightSky" type="WorldEnvironment" parent="EditorPreview"]
+environment = SubResource("Environment_night")
+
+[node name="Moon" type="DirectionalLight3D" parent="EditorPreview"]
+transform = Transform3D(0.819, -0.329, 0.47, 0, 0.819, 0.574, -0.574, -0.47, 0.671, 0, 30, 0)
+light_color = Color(0.62, 0.72, 1, 1)
+light_energy = 0.26
+shadow_enabled = true

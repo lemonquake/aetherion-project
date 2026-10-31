@@ -11,6 +11,16 @@ extends RefCounted
 ## things happen, so a spot one bot found is known to its whole team at once; when a match ends they are saved per map
 ## (user://bot_memory_<map>.json, older lessons fading by a fifth each match) and loaded by the next match. Cells where
 ## bots kept getting stuck are remembered too and closed on the walk grid from the start.
+##
+## (r21) The waypoints now come from BotNav (bot_nav.gd), the same way on every map: hiding spots, sniping spots, cover
+## and open ground, looked round with the real collision, each facing the way it watches, worked out once per map build
+## and saved. The quick grid survey below only stands in until that is done. Learning grew with it:
+##   popular spots   every spot keeps uses (held by a bot, or camped by a player), time held, kills scored from it and
+##                   deaths in it; bots pick spots by that as well as by what the spot is;
+##   learned spots   where a human player camps (still for 8 s) or scores from, away from every known spot, becomes a
+##                   spot of its own (looked round like the others), so bots learn the places players like;
+##   stuck cells     now kept per floor on storeyed maps, and dropped when the map's build changes.
+## Bots claim the spot they are heading for, so two do not stack on one.
 
 const CELL := 8.0
 const STEP := 4                  # walk-grid cells between samples
@@ -29,6 +39,15 @@ static var stuck_cells := {}     # "x,z" (walk-grid cell) -> times bots got stuc
 static var squads := {}          # id -> {team, leader: eid, members: [eid], human: bool}
 static var radio_t := {}         # team -> msec of the last callout
 static var stats := {"lines": 0, "pings": 0, "laser_follow": 0, "learned_cells": 0, "blocked_cells": 0, "squads": 0, "following_humans": 0}
+# r21
+const BotNav := preload("res://src/ai/bot_nav.gd")
+static var learned: Array = []     # spots learned from play (appended to spots)
+static var spot_stats := {}        # spot key -> [uses, held_s, kills, deaths]
+static var claims := {}            # spot index -> [eid, msec until]
+static var _watch := {}            # human eid -> [anchor Vector3, seconds still]
+static var _watch_t := 0.0
+const LEARNED_MAX := 150
+const CAMP_S := 8.0
 
 
 static func begin(w) -> void:
@@ -44,8 +63,13 @@ static func begin(w) -> void:
 	laser_claims = {}
 	memory = {}
 	stuck_cells = {}
+	learned = []
+	spot_stats = {}
+	claims = {}
+	_watch = {}
 	if learning():
 		_load()
+	set_spots(BotNav.spots if BotNav.phase == "done" else [])
 
 
 static func learning() -> bool:
@@ -60,25 +84,42 @@ static func map_id() -> String:
 
 static func ensure_spots(nav) -> void:
 	## Starts the survey on a worker thread the first time; until it is done spots stays empty.
+	if BotNav.phase == "done":
+		_spots_layout = nav.layout   # (r21) the map's analysis is in (a stand-in survey still running is let finish)
+		if _spots_task >= 0:
+			WorkerThreadPool.wait_for_task_completion(_spots_task)
+			_spots_task = -1
+		return
 	if _spots_layout == nav.layout:
 		if _spots_task >= 0 and WorkerThreadPool.is_task_completed(_spots_task):
 			WorkerThreadPool.wait_for_task_completion(_spots_task)
 			_spots_task = -1
-			spots = _spots_tmp
-			spot_grid = {}
-			for i in spots.size():
-				var k := _sg(spots[i].p)
-				if not spot_grid.has(k):
-					spot_grid[k] = []
-				spot_grid[k].append(i)
+			if BotNav.phase != "done":
+				set_spots(_spots_tmp)
 		return
 	_spots_layout = nav.layout
-	spots = []
-	spot_grid = {}
+	set_spots([])
 	_spots_tmp = []
 	if nav.get("levels") != null:
-		return   # (r15) a storeyed map: no waypoint survey (it reads one square grid)
+		# (r15) a storeyed map: no waypoint survey (it reads one square grid). A map that knows its own vantage points
+		# on every floor hands them over instead (Freight Delight: its decks, bridges and windows).
+		if nav.layout.has_method("bot_spots"):
+			set_spots(nav.layout.bot_spots())
+		return
 	_spots_task = WorkerThreadPool.add_task(func(): _survey(nav), false, "bot waypoints")
+
+
+static func set_spots(arr: Array) -> void:
+	## The waypoints in use: the map's (BotNav's analysis, or the stand-in survey) and the ones learned from play.
+	spots = arr.duplicate()
+	spots.append_array(learned)
+	spot_grid = {}
+	claims = {}
+	for i in spots.size():
+		var k := _sg(spots[i].p)
+		if not spot_grid.has(k):
+			spot_grid[k] = []
+		spot_grid[k].append(i)
 
 
 static func _sg(p: Vector3) -> Vector2i:
@@ -183,6 +224,8 @@ static func note_stuck(nav, p: Vector3, eid: int) -> bool:
 	## two different bots close the cell (up to MAX_BLOCKED per map).
 	var c: Vector2i = nav._idx(p)
 	var k := "%d,%d" % [c.x, c.y]
+	if nav.get("levels") != null:
+		k += ",%d" % int(nav._last_lv)   # (r21) a storeyed map: the cell on this floor
 	var e: Array = stuck_cells.get(k, [0, []])
 	e[0] = int(e[0]) + 1
 	if not eid in (e[1] as Array):
@@ -196,10 +239,15 @@ static func note_stuck(nav, p: Vector3, eid: int) -> bool:
 
 
 static func apply_blocked(nav) -> void:
+	var levels: bool = nav.get("levels") != null
 	for k in stuck_cells:
 		var e = stuck_cells[k]
 		if typeof(e) == TYPE_ARRAY and int(e[0]) >= BLOCK_AT and (e[1] as Array).size() >= 2 and stats.blocked_cells < MAX_BLOCKED:
 			var s := str(k).split(",")
+			if levels != (s.size() == 3):
+				continue   # a file from before r21 (no floor in the key) or from another kind of map
+			if levels:
+				nav._last_lv = int(s[2])
 			nav.block_cell(Vector2i(int(s[0]), int(s[1])))
 			stats.blocked_cells += 1
 
@@ -215,6 +263,21 @@ static func _load() -> void:
 	var d = JSON.parse_string(f.get_as_text())
 	if typeof(d) != TYPE_DICTIONARY:
 		return
+	# (r21) stuck cells belong to one build of the map: a new build (a fixed wall, a moved shop) starts them afresh.
+	var same_build: bool = str(d.get("key", "")) == BotNav.key
+	if not same_build:
+		d["stuck"] = {}
+	for k3 in d.get("spot_stats", {}):
+		var v3: Array = d.spot_stats[k3]
+		if v3.size() == 4:
+			spot_stats[str(k3)] = [float(v3[0]) * 0.8, float(v3[1]) * 0.8, float(v3[2]) * 0.8, float(v3[3]) * 0.8]
+	for s0 in d.get("learned", []):
+		var sp := _spot_in(s0)
+		if sp.is_empty():
+			continue
+		if BotNav.nav != null and not BotNav.nav.walkable_at(sp.p):
+			continue
+		learned.append(sp)
 	for k in d.get("cells", {}):
 		var v: Array = d.cells[k]
 		if v.size() == 4:
@@ -227,7 +290,9 @@ static func _load() -> void:
 			if n > 0:
 				stuck_cells[str(k2)] = [n, (e[1] as Array).slice(0, 2).map(func(x): return -1 - int(x) if int(x) >= 0 else int(x))]
 	stats.learned_cells = memory.size()
-	print("[bots] learned from %d cells, %d stuck spots (%s)" % [memory.size(), stuck_cells.size(), _path()])
+	stats.learned_spots = learned.size()
+	print("[bots] learned from %d cells, %d stuck spots, %d spots learned from play, %d spot records (%s)" % [memory.size(),
+		stuck_cells.size(), learned.size(), spot_stats.size(), _path()])
 
 
 static func save() -> void:
@@ -238,10 +303,179 @@ static func save() -> void:
 		var v: Array = memory[k]
 		if float(v[0]) + float(v[1]) + float(v[2]) + float(v[3]) > 0.05:
 			cells[k] = [snappedf(float(v[0]), 0.01), snappedf(float(v[1]), 0.01), snappedf(float(v[2]), 0.01), snappedf(float(v[3]), 0.01)]
+	var ss := {}
+	for k2 in spot_stats:
+		var v2: Array = spot_stats[k2]
+		if float(v2[0]) + float(v2[1]) / 60.0 + float(v2[2]) + float(v2[3]) > 0.05:
+			ss[k2] = [snappedf(float(v2[0]), 0.01), snappedf(float(v2[1]), 0.1), snappedf(float(v2[2]), 0.01), snappedf(float(v2[3]), 0.01)]
+	var ls := []
+	for s in learned:
+		ls.append(_spot_out(s))
 	var f := FileAccess.open(_path(), FileAccess.WRITE)
 	if f:
-		f.store_string(JSON.stringify({"map": map_id(), "cells": cells, "stuck": stuck_cells}))
-		print("[bots] saved %d learned cells to %s" % [cells.size(), _path()])
+		f.store_string(JSON.stringify({"version": 2, "map": map_id(), "key": BotNav.key, "cells": cells, "stuck": stuck_cells,
+			"spot_stats": ss, "learned": ls}))
+		print("[bots] saved %d learned cells, %d spot records, %d spots learned from play to %s" % [cells.size(), ss.size(), ls.size(), _path()])
+
+
+# ------------------------------------------------------------------ r21: popular spots, spots learned from play
+
+static func skey(p: Vector3) -> String:
+	return "%d,%d,%d" % [roundi(p.x), roundi(p.y), roundi(p.z)]
+
+
+static func _st(p: Vector3) -> Array:
+	var k := skey(p)
+	if not spot_stats.has(k):
+		spot_stats[k] = [0.0, 0.0, 0.0, 0.0]
+	return spot_stats[k]
+
+
+static func popularity(i: int) -> float:
+	## How much the bots (and the players they watched) like a spot: held often and long, scored from, not died in.
+	var v = spot_stats.get(skey(spots[i].p))
+	if v == null:
+		return 0.0
+	return float(v[0]) * 0.6 + float(v[1]) / 45.0 + float(v[2]) * 2.0 - float(v[3]) * 1.5
+
+
+static func spot_at(p: Vector3, r: float) -> int:
+	## The nearest spot within r of p on p's floor, or -1.
+	var best := -1
+	var bd := r
+	for i in spots_near(p, r):
+		var q: Vector3 = spots[i].p
+		if absf(q.y - p.y) > 1.6:
+			continue
+		var d := q.distance_to(p)
+		if d < bd:
+			bd = d
+			best = i
+	return best
+
+
+static func spot_used(i: int, secs: float = 0.0) -> void:
+	if i < 0 or i >= spots.size():
+		return
+	var v := _st(spots[i].p)
+	if secs <= 0.0:
+		v[0] = float(v[0]) + 1.0
+	else:
+		v[1] = float(v[1]) + secs
+
+
+static func claim(i: int, eid: int, secs: float) -> void:
+	claims[i] = [eid, Time.get_ticks_msec() + int(secs * 1000.0)]
+
+
+static func claimed(i: int, eid: int) -> bool:
+	## Another bot is heading for (or holding) this spot, or one within 3 m of it.
+	var now := Time.get_ticks_msec()
+	var p: Vector3 = spots[i].p
+	for j in claims:
+		var c: Array = claims[j]
+		if int(c[0]) == eid or int(c[1]) < now or j >= spots.size():
+			continue
+		if j == i or (spots[j].p as Vector3).distance_to(p) < 3.0:
+			return true
+	return false
+
+
+static func release(eid: int) -> void:
+	for j in claims.keys():
+		if int(claims[j][0]) == eid:
+			claims.erase(j)
+
+
+static func _learn_spot(p: Vector3, why: String) -> int:
+	## A place a player camped or scored from: counted on the spot there, or a new learned spot when none is near.
+	var i := spot_at(p, 2.2)
+	if i >= 0:
+		return i
+	if learned.size() >= LEARNED_MAX or BotNav.nav == null or not BotNav.nav.walkable_at(p):
+		return -1
+	var s: Dictionary = BotNav.look_round(p)
+	if s.is_empty() or str(s.kind) == "open":
+		return -1
+	s.src = "learned"
+	s.name = why
+	learned.append(s)
+	spots.append(s)
+	var k := _sg(s.p)
+	if not spot_grid.has(k):
+		spot_grid[k] = []
+	spot_grid[k].append(spots.size() - 1)
+	stats.learned_spots = learned.size()
+	return spots.size() - 1
+
+
+static func tick(dt: float) -> void:
+	## Every server tick while bots play: the map analysis, and (twice a second) where the human players camp.
+	if world == null:
+		return
+	if Game.arg("navdebug_quit") != null or Game.arg("navprobe") != null:
+		# --navdebug / --navprobe runs that only want the nav report (debug/nav_probe.gd), then quit
+		BotNav.finish_now()
+		if Game.arg("navprobe") != null:
+			preload("res://src/debug/nav_probe.gd").run(world, BotNav.nav)
+		_quit()
+		return
+	if Game.arg("botnav_bake") != null and BotNav.phase == "spots":
+		# Making the file the game ships with: the whole analysis now, written under res://data/botnav, then quit.
+		BotNav.bake_to_res()
+		print("[botnav] baked %s: %s" % [BotNav.map_id, str(BotNav.stats)])
+		_quit()
+		return
+	BotNav.pump()
+	_watch_t += dt
+	if _watch_t < 0.5 or not learning():
+		return
+	var step := _watch_t
+	_watch_t = 0.0
+	for eid in world.characters:
+		var c = world.characters[eid]
+		if world.bots.has(eid) or c.mode != Motor.GROUND:
+			_watch.erase(eid)
+			continue
+		var p: Vector3 = c.global_position
+		var w: Array = _watch.get(eid, [p, 0.0])
+		if (w[0] as Vector3).distance_to(p) > 1.2:
+			w = [p, 0.0]
+		else:
+			w[1] = float(w[1]) + step
+			if float(w[1]) >= CAMP_S:
+				var i := _learn_spot(p, "camped by players")
+				if i >= 0:
+					var v := _st(spots[i].p)
+					v[0] = float(v[0]) + 1.0
+					v[1] = float(v[1]) + float(w[1])
+				w = [p, -30.0]   # the same stay counts again only after another half minute
+		_watch[eid] = w
+
+
+static func _quit() -> void:
+	## Debug and bake runs: let the stand-in survey's worker thread finish first (quitting under it crashed).
+	if _spots_task >= 0:
+		WorkerThreadPool.wait_for_task_completion(_spots_task)
+		_spots_task = -1
+	world.get_tree().quit()
+
+
+static func _spot_out(s: Dictionary) -> Dictionary:
+	var p: Vector3 = s.p
+	return {"p": [snappedf(p.x, 0.01), snappedf(p.y, 0.01), snappedf(p.z, 0.01)], "lv": int(s.get("lv", 0)), "kind": str(s.kind),
+		"cover": int(s.cover), "sight": float(s.sight), "dir": [snappedf((s.dir as Vector2).x, 0.001), snappedf((s.dir as Vector2).y, 0.001)],
+		"expo": float(s.get("expo", 0.5)), "src": "learned", "name": str(s.get("name", ""))}
+
+
+static func _spot_in(d) -> Dictionary:
+	if typeof(d) != TYPE_DICTIONARY or not d.has("p") or not d.has("dir"):
+		return {}
+	var p: Array = d.p
+	var dv: Array = d.dir
+	return {"p": Vector3(float(p[0]), float(p[1]), float(p[2])), "lv": int(d.get("lv", 0)), "kind": str(d.get("kind", "cover")),
+		"cover": int(d.get("cover", 0)), "sight": float(d.get("sight", 0.0)), "dir": Vector2(float(dv[0]), float(dv[1])),
+		"expo": float(d.get("expo", 0.5)), "src": "learned", "name": str(d.get("name", ""))}
 
 
 # ------------------------------------------------------------------ squads
@@ -439,6 +673,16 @@ static func on_killed(victim, attacker: int) -> void:
 			world.match_server.log_event("[field death]   %s" % line)
 	var k = world.characters.get(attacker)
 	mark(victim.global_position, "danger", 1.0)
+	# (r21) the spots: died in, scored from (a player's kill from a new place teaches the bots that place)
+	var vi := spot_at(victim.global_position, 2.0)
+	if vi >= 0:
+		var vv := _st(spots[vi].p)
+		vv[3] = float(vv[3]) + 1.0
+	if k != null and k != victim and k.team != victim.team and learning():
+		var ki := spot_at(k.global_position, 2.2) if world.bots.has(attacker) else _learn_spot(k.global_position, "players scored from here")
+		if ki >= 0:
+			var kv := _st(spots[ki].p)
+			kv[2] = float(kv[2]) + 1.0
 	var kh: Array = victim.get_meta("killing_hit", [])
 	var headshot: bool = not kh.is_empty() and str(kh[0]) == "head" and str(victim.health.last_cause) == "gunshot"
 	if k != null and k != victim:

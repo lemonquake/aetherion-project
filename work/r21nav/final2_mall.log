@@ -1,0 +1,1488 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+[server] dedicated server listening on 27624
+[world] map built in 2507 ms
+[map] 0 buildings, 213 doors, 163 containers, 779 props, #55dd752c on PC
+[nav] levels: 56959 points, 32 links, 174 ms
+[nav] r21: 1424 cells closed by the physics check, main walk 49517 of 55567 points (6050 in pockets), 361 ms
+[botnav] malasugue_mall: walk check and 1304 spots from res://data/botnav/malasugue_mall.json { "hide": 301, "snipe": 618, "cover": 190, "open": 195 }
+[bots] learned from 89 cells, 48 stuck spots, 0 spots learned from play, 25 spot records (user://bot_memory_malasugue_mall.json)
+[match    0.0] deathmatch start on malasugue_mall: 21 players, 3 teams; spawns (-40.0, 0.0, -27.0), (42.0, 10.0, -26.0), (0.0, 20.0, 27.0) (82/68/67 m apart, floors); day offset 0 s; zone centre (-7.0, 13.0) r=131; win by time 10 min, field holds at r=75
+[match    0.0] status: { "ground": 21 }; armed 21; shots 0; zone -1 hold r=131; corpses 0; levels { "between": 1, "L3": 7, "L1": 7, "L5": 6 }
+[match    0.0] dm teams: North Team 7 at (-40.0, -27.0) spread 2 m; East Team 7 at (42.0, -26.0) spread 2 m; South Team 7 at (-1.0, 29.0) spread 2 m; gap 83 m; zone centre (-7.0, 13.0)
+[match    0.0] bots: { "roam": 21 }; containers searched by bots 0 (all players 0); plan steps done 0; guns carried 42
+[match    0.0] roles: { "stalker": { "roam": 3 }, "rusher": { "roam": 6 }, "sniper": { "roam": 6 }, "looter": { "roam": 6 } }; stuck now 0; waypoints 1304; team { "lines": 0, "pings": 0, "laser_follow": 0, "learned_cells": 89, "blocked_cells": 26, "squads": 0, "following_humans": 0, &"learned_spots": 0 }
+[match    0.0] [lootstats] bots on the ground 21 (in water 0); armed 21; armed with ammo for a gun 21; long guns 21; attachments fitted 0; rounds of unusable ammo carried 0; items on the ground 418; bot pickups { "detours": 0, "detour_taken": 0, "fetches": 0, "fetch_done": 0, "items_taken": 0 }
+[match    4.5] [radio] Kuya Fishball (stalker): sneaking
+[match    4.8] [radio] Lola Basyang Jr (rusher): hunting
+[match    4.8] [radio] Tito Videoke (looter): sneaking
+[match    6.3] Ka Pedring (team 2) landed at (-4.0, 20.0, 26.0), 3.1 m/s, health 100; teammates -
+[match    7.1] Kuya Fishball (team 2) landed at (-2.0, 20.0, 27.0), 4.4 m/s, health 100; teammates 6 m
+[match    7.7] Aling Puring (team 2) landed at (-7.0, 20.0, 29.0), 3.1 m/s, health 100; teammates 5 m, 2 m
+[match   10.5] Kapitan Tikoy (team 2) landed at (-8.0, 20.0, 35.0), 4.9 m/s, health 100; teammates 4 m, 15 m, 7 m
+[match   12.1] Totoy Bibo (team 1) landed at (51.0, 0.0, -40.0), 12.3 m/s, health 100; teammates -
+[match   12.6] Manong Guard (team 1) landed at (56.0, 0.0, -40.0), 15.5 m/s, health 100; teammates 6 m
+[match   13.3] Lola Basyang Jr (team 0) landed at (-55.0, 0.0, -40.0), 4.9 m/s, health 100; teammates -
+[match   13.4] Mang Jolo (team 1) landed at (56.0, 2.0, -40.0), 14.9 m/s, health 100; teammates 7 m, 2 m
+[match   14.1] Tito Boy (team 0) landed at (-51.0, 0.0, -40.0), 7.0 m/s, health 100; teammates 6 m
+[match   15.0] status: { "ground": 21 }; armed 21; shots 0; zone -1 hold r=131; corpses 0; levels { "L5": 7, "L1": 10, "L3": 4 }; server tick avg 3.24 ms, p99 24.87 ms, max 47.02 ms over 900 ticks
+[match   15.0] dm teams: North Team 7 at (-20.0, -35.0) spread 29 m; East Team 7 at (42.0, -33.0) spread 18 m; South Team 7 at (-16.0, 28.0) spread 25 m; gap 62 m; zone centre (-7.0, 13.0)
+[match   15.0] bots: { "follow": 6, "heal": 2, "roam": 7, "hunt": 5, "overwatch": 1 }; containers searched by bots 0 (all players 0); plan steps done 0; guns carried 42
+[match   15.0] roles: { "stalker": { "follow": 2, "hunt": 1 }, "rusher": { "heal": 2, "hunt": 4 }, "sniper": { "follow": 3, "roam": 2, "overwatch": 1 }, "looter": { "roam": 5, "follow": 1 } }; stuck now 0; waypoints 1304; team { "lines": 3, "pings": 0, "laser_follow": 0, "learned_cells": 89, "blocked_cells": 26, "squads": 6, "following_humans": 0, &"learned_spots": 0 }
+[match   15.0] [lootstats] bots on the ground 21 (in water 0); armed 21; armed with ammo for a gun 21; long guns 21; attachments fitted 0; rounds of unusable ammo carried 0; items on the ground 418; bot pickups { "detours": 0, "detour_taken": 0, "fetches": 0, "fetch_done": 0, "items_taken": 0 }
+[match   15.8] Kulot Sabaw (team 0) landed at (-51.0, 0.0, -38.0), 4.9 m/s, health 100; teammates 6 m, 4 m
+[match   16.0] [radio] Totoy Bibo (looter): contact
+[match   16.0] [radio] Bebot Karaoke (sniper): contact
+[match   16.3] [radio] Aling Taho (looter): in_position
+[match   18.5] Boy Pickup (team 2) landed at (53.0, 18.0, 44.0), 7.0 m/s, health 100; teammates 86 m, 106 m, 109 m, 101 m
+[match   19.0] [radio] Totoy Bibo (looter): need_help
+[match   19.3] [radio] Ate Load Dito (sniper): taking_fire
+[match   19.9] [radio] Mang Tomas Ketchup (looter): affirmative
+[match   20.3] Totoy Bibo killed by Kumareng Marites (gunshot); 3 teams left
+[match   20.3] alive: North Team 7, East Team 6; score { 0: 1, 1: 0, 2: 0 }
+[match   20.5] Kapitbahay Lito (team 1) landed at (52.0, 8.0, -45.0), 3.1 m/s, health 100; teammates 9 m, 9 m
+[match   20.8] [radio] Kumareng Marites (looter): kill
+[match   20.9] [radio] Mang Jolo (rusher): down
+[match   21.9] [radio] Tatay Kulas (sniper): affirmative
+[match   22.9] [radio] Bossing Barbecue (sniper): contact
+[match   23.1] Pareng Jun (team 2) landed at (-54.0, 18.0, 44.0), 7.0 m/s, health 100; teammates 10 m, 11 m, 6 m, 1 m, 107 m
+[match   23.6] [radio] Manong Guard (rusher): taking_fire
+[match   23.7] [radio] Bebot Karaoke (sniper): taking_fire
+[match   24.0] Kumareng Marites killed by Manong Guard (gunshot); 3 teams left
+[match   24.0] alive: North Team 6, East Team 6; score { 0: 1, 1: 1, 2: 0 }
+[match   24.4] [radio] Tito Videoke (looter): taking_fire
+[match   24.5] [radio] Ate Load Dito (sniper): down
+[match   24.9] Bebot Karaoke killed by Manong Guard (gunshot); 3 teams left
+[match   24.9] alive: North Team 5, East Team 6; score { 0: 1, 1: 2, 2: 0 }
+[match   25.3] Totoy Bibo respawned at (45.0, 10.0, -26.0) (nearest enemy 29 m)
+[match   25.4] [radio] Lola Basyang Jr (rusher): affirmative
+[match   25.5] [radio] Manong Guard (rusher): kill
+[match   26.0] Aling Taho killed by Tito Videoke (gunshot); 3 teams left
+[match   26.0] alive: North Team 5, East Team 7; score { 0: 1, 1: 3, 2: 0 }
+[match   26.4] [radio] Ate Load Dito (sniper): down
+[match   26.4] [radio] Mang Jolo (rusher): affirmative
+[match   26.5] [radio] Ka Pedring (rusher): down
+[match   27.3] [radio] Manong Guard (rusher): kill
+[match   27.3] [radio] Lola Basyang Jr (rusher): affirmative
+[match   28.2] Manong Guard killed by Bossing Barbecue (gunshot); 3 teams left
+[match   28.2] alive: North Team 5, East Team 6; score { 0: 2, 1: 3, 2: 0 }
+[match   28.3] [radio] Tito Videoke (looter): headshot_kill
+[match   28.3] [radio] Tito Boy (rusher): affirmative
+[match   29.0] Kumareng Marites respawned at (-43.0, 0.0, -29.0) (nearest enemy 50 m)
+[match   29.2] [radio] Mang Jolo (rusher): down
+[match   29.2] [radio] Bossing Barbecue (sniper): kill
+[match   29.9] Bebot Karaoke respawned at (-41.0, 0.0, -30.0) (nearest enemy 49 m)
+[match   30.0] Ate Load Dito (team 0) landed at (20.0, 0.0, -34.0), 4.9 m/s, health 59; teammates 62 m, 52 m, 27 m
+[match   30.0] status: { "ground": 19 }; armed 19; shots 175; zone -1 hold r=131; corpses 5; levels { "between": 1, "L1": 12, "L2": 2, "L3": 4 }; server tick avg 6.45 ms, p99 24.18 ms, max 53.51 ms over 900 ticks
+[match   30.0] dm teams: North Team 7 at (-17.0, -32.0) spread 25 m; East Team 6 at (40.0, -28.0) spread 19 m; South Team 6 at (-36.0, 39.0) spread 30 m; gap 57 m; zone centre (-7.0, 13.0)
+[match   30.0] bots: { "follow": 3, "order": 2, "roam": 5, "heal": 4, "hunt": 3, "camp": 1, "overwatch": 1 }; containers searched by bots 0 (all players 0); plan steps done 0; guns carried 38
+[match   30.0] roles: { "stalker": { "follow": 1, "order": 1, "heal": 1, "roam": 1 }, "rusher": { "order": 1, "hunt": 3, "heal": 1, "roam": 1 }, "sniper": { "follow": 1, "heal": 2, "overwatch": 1, "roam": 2 }, "looter": { "roam": 1, "follow": 1, "camp": 1 } }; stuck now 0; waypoints 1304; team { "lines": 28, "pings": 0, "laser_follow": 0, "learned_cells": 89, "blocked_cells": 26, "squads": 6, "following_humans": 0, &"learned_spots": 0 }
+[match   30.0] [lootstats] bots on the ground 19 (in water 0); armed 19; armed with ammo for a gun 19; long guns 19; attachments fitted 0; rounds of unusable ammo carried 0; items on the ground 418; bot pickups { "detours": 0, "detour_taken": 0, "fetches": 0, "fetch_done": 0, "items_taken": 0 }
+[match   30.1] Kuya Fishball killed by the world (fall); 3 teams left
+[match   30.1] alive: North Team 7, East Team 6; score { 0: 2, 1: 3, 2: 0 }
+[match   30.7] [radio] Aling Puring (looter): down
+[match   31.0] Aling Taho respawned at (0.0, 20.0, 32.0) (nearest enemy 31 m)
+[match   33.2] Manong Guard respawned at (44.0, 10.0, -26.0) (nearest enemy 14 m)
+[match   34.7] [radio] Kumareng Marites (stalker): sneaking
+[match   35.1] Kuya Fishball respawned at (-1.0, 20.0, 30.0) (nearest enemy 30 m)
+[match   36.0] [radio] Kapitbahay Lito (stalker): contact
+[match   36.4] [radio] Bossing Barbecue (sniper): taking_fire
+[match   36.7] [radio] Aling Taho (looter): sneaking
+[match   37.0] Kapitbahay Lito killed by Bossing Barbecue (gunshot); 3 teams left
+[match   37.0] alive: North Team 7, East Team 6; score { 0: 3, 1: 3, 2: 0 }
+[match   37.0] Bossing Barbecue killed by Kapitbahay Lito (gunshot); 3 teams left
+[match   37.0] alive: North Team 6, East Team 6; score { 0: 3, 1: 4, 2: 0 }
+[match   37.0] [radio] Totoy Bibo (rusher): affirmative
+[match   37.4] Totoy Bibo (team 1) landed at (51.0, 0.0, -40.0), 12.3 m/s, health 100; teammates 4 m
+[match   37.4] [radio] Tito Boy (rusher): affirmative
+[match   37.9] [radio] Mang Tomas Ketchup (looter): affirmative
+[match   38.3] [radio] Kulot Sabaw (sniper): affirmative
+[match   38.9] [radio] Mang Jolo (rusher): down
+[match   39.3] [radio] Kulot Sabaw (sniper): down
+[match   39.5] [radio] Boy Pickup (stalker): contact
+[match   39.6] Ate Load Dito killed by Totoy Bibo (gunshot); 3 teams left
+[match   39.6] alive: North Team 5, East Team 6; score { 0: 3, 1: 5, 2: 0 }
+[match   39.9] [radio] Tatay Kulas (sniper): affirmative
+[match   40.1] [radio] Kulot Sabaw (sniper): down
+[match   40.8] [radio] Lola Basyang Jr (rusher): affirmative
+[match   40.9] [radio] Totoy Bibo (rusher): kill
+[match   41.3] Mang Jolo killed by Tito Boy (gunshot); 3 teams left
+[match   41.3] alive: North Team 5, East Team 5; score { 0: 4, 1: 5, 2: 0 }
+[match   41.5] Kumareng Marites (team 0) landed at (-50.0, 0.0, -41.0), 7.0 m/s, health 100; teammates 69 m, 78 m, 99 m
+[match   41.9] [radio] Mang Tomas Ketchup (looter): affirmative
+[match   42.0] [radio] Tito Boy (rusher): affirmative
+[match   42.0] Kapitbahay Lito respawned at (39.0, 10.0, -26.0) (nearest enemy 15 m)
+[match   42.0] Bossing Barbecue respawned at (-43.0, 0.0, -29.0) (nearest enemy 42 m)
+[match   42.8] Tatay Kulas (team 1) landed at (51.0, 0.0, -40.0), 12.3 m/s, health 100; teammates 6 m
+[match   42.9] [radio] Mang Tomas Ketchup (looter): down
+[match   42.9] [radio] Tito Boy (rusher): kill
+[match   43.4] Totoy Bibo killed by Kulot Sabaw (gunshot); 3 teams left
+[match   43.4] alive: North Team 6, East Team 5; score { 0: 5, 1: 5, 2: 0 }
+[match   43.7] [radio] Tatay Kulas (sniper): affirmative
+[match   44.0] [radio] Kulot Sabaw (sniper): kill
+[match   44.6] Ate Load Dito respawned at (-42.0, 0.0, -29.0) (nearest enemy 46 m)
+[match   44.6] [radio] Mang Tomas Ketchup (looter): affirmative
+[match   45.0] status: { "ground": 19 }; armed 19; shots 221; zone -1 hold r=131; corpses 11; levels { "L1": 11, "L2": 1, "L3": 3, "between": 2, "L5": 2 }; server tick avg 3.37 ms, p99 20.78 ms, max 38.69 ms over 900 ticks
+[match   45.0] dm teams: North Team 7 at (-4.0, -27.0) spread 40 m; East Team 5 at (38.0, -28.0) spread 23 m; South Team 7 at (-17.0, 29.0) spread 40 m; gap 43 m; zone centre (-7.0, 13.0)
+[match   45.0] bots: { "follow": 3, "investigate": 4, "camp": 1, "heal": 1, "hunt": 4, "roam": 6 }; containers searched by bots 0 (all players 0); plan steps done 0; guns carried 38
+[match   45.0] [stuck] Pareng Jun (sniper, follow) at (-54.1, 0.0, 34.6) -> (-54.5, 0.0, 38.5), ahead wall, no_prog 1.5
+[match   45.0] roles: { "sniper": { "follow": 2, "investigate": 1, "roam": 1 }, "looter": { "investigate": 2, "follow": 1, "camp": 1, "roam": 2 }, "rusher": { "investigate": 1, "heal": 1, "hunt": 2, "roam": 3 }, "stalker": { "hunt": 2 } }; stuck now 1; waypoints 1304; team { "lines": 51, "pings": 0, "laser_follow": 0, "learned_cells": 90, "blocked_cells": 26, "squads": 6, "following_humans": 0, &"learned_spots": 0 }
+[match   45.0] [lootstats] bots on the ground 19 (in water 0); armed 19; armed with ammo for a gun 19; long guns 19; attachments fitted 0; rounds of unusable ammo carried 0; items on the ground 418; bot pickups { "detours": 0, "detour_taken": 0, "fetches": 0, "fetch_done": 0, "items_taken": 0 }
+[match   45.4] Manong Guard (team 1) landed at (51.0, 0.0, -40.0), 12.3 m/s, health 100; teammates 2 m
+[match   45.6] [radio] Mang Tomas Ketchup (looter): down
+[match   46.3] Mang Jolo respawned at (42.0, 10.0, -23.0) (nearest enemy 12 m)
+[match   47.6] [radio] Manong Guard (looter): taking_fire
+[match   47.6] Lola Basyang Jr killed by Tatay Kulas (gunshot); 3 teams left
+[match   47.6] alive: North Team 6, East Team 6; score { 0: 5, 1: 6, 2: 0 }
+[match   48.0] [radio] Kulot Sabaw (sniper): down
+[match   48.4] Totoy Bibo respawned at (44.0, 10.0, -24.0) (nearest enemy 11 m)
+[match   48.5] [radio] Mang Tomas Ketchup (looter): affirmative
+[match   48.9] Tatay Kulas killed by Tito Boy (gunshot); 3 teams left
+[match   48.9] alive: North Team 6, East Team 6; score { 0: 6, 1: 6, 2: 0 }
+[match   49.3] [radio] Mang Tomas Ketchup (looter): down
+[match   49.4] [radio] Tito Boy (rusher): kill
+[match   50.4] [radio] Kapitbahay Lito (rusher): affirmative
+[match   51.2] [radio] Manong Guard (looter): need_help
+[match   51.2] Mang Tomas Ketchup (team 1) landed at (53.0, 7.0, -43.0), 4.4 m/s, health 100; teammates 8 m
+[match   51.2] [radio] Aling Puring (looter): contact
+[match   51.8] [radio] Kulot Sabaw (sniper): need_help
+[match   52.1] Manong Guard killed by Kulot Sabaw (gunshot); 3 teams left
+[match   52.1] alive: North Team 6, East Team 5; score { 0: 7, 1: 6, 2: 0 }
+[match   52.1] [radio] Aling Puring (looter): need_help
+[match   52.1] [radio] Mang Tomas Ketchup (looter): affirmative
+[match   52.6] [radio] Kulot Sabaw (sniper): kill
+[match   52.6] Lola Basyang Jr respawned at (-43.0, 0.0, -29.0) (nearest enemy 52 m)
+[match   53.0] [radio] Kapitbahay Lito (rusher): affirmative
+[match   53.1] [radio] Ka Pedring (rusher): affirmative
+[match   53.3] [radio] Tito Boy (rusher): affirmative
+[match   53.9] Tatay Kulas respawned at (42.0, 10.0, -23.0) (nearest enemy 12 m)
+[match   54.0] [radio] Mang Tomas Ketchup (looter): down
+[match   54.0] [radio] Boy Pickup (stalker): affirmative
+[match   54.1] [radio] Bebot Karaoke (sniper): affirmative
+[match   54.2] Kapitbahay Lito (team 1) landed at (51.0, 0.0, -40.0), 12.3 m/s, health 100; teammates 5 m
+[match   54.8] Tito Videoke killed by Aling Puring (gunshot); 3 teams left
+[match   54.8] alive: North Team 7, East Team 5; score { 0: 7, 1: 6, 2: 1 }
+[match   55.2] Kuya Fishball (team 2) landed at (-55.0, 10.0, 40.0), 12.3 m/s, health 100; teammates 77 m, 18 m, 26 m, 48 m, 97 m
+[match   55.2] [radio] Aling Puring (looter): headshot_kill
+[match   55.2] [radio] Tatay Kulas (sniper): affirmative
+[match   56.1] [radio] Totoy Bibo (stalker): affirmative
+[match   57.1] [radio] Mang Jolo (sniper): taking_fire
+[match   57.1] Manong Guard respawned at (40.0, 10.0, -26.0) (nearest enemy 12 m)
+[match   57.7] [radio] Ate Load Dito (rusher): contact
+[match   57.9] Aling Taho (team 2) landed at (50.0, 0.0, -40.0), 18.5 m/s, health 100; teammates 58 m, 108 m, 98 m, 74 m, 73 m, 126 m
+[match   57.9] Aling Taho killed by the world (fall); 3 teams left
+[match   57.9] alive: North Team 7, East Team 6; score { 0: 7, 1: 6, 2: 1 }
+[match   58.2] [radio] Ka Pedring (rusher): taking_fire
+[match   59.0] [radio] Ka Pedring (rusher): need_help
+[match   59.7] [radio] Bossing Barbecue (rusher): contact
+[match   59.8] Tito Videoke respawned at (40.0, 10.0, -24.0) (nearest enemy 12 m)
+[match   59.8] [radio] Aling Puring (looter): down
+[match   60.0] status: { "ground": 20 }; armed 20; shots 351; zone -1 hold r=131; corpses 16; levels { "L1": 12, "L2": 2, "between": 3, "L3": 3 }; server tick avg 4.51 ms, p99 17.45 ms, max 56.40 ms over 900 ticks
+[match   60.0] dm teams: North Team 7 at (4.0, -27.0) spread 36 m; East Team 7 at (48.0, -35.0) spread 11 m; South Team 6 at (-11.0, 16.0) spread 28 m; gap 45 m; zone centre (-7.0, 13.0)
+[match   60.0] bots: { "fight": 5, "heal": 1, "roam": 5, "follow": 1, "order": 3, "hunt": 3, "investigate": 2 }; containers searched by bots 0 (all players 0); plan steps done 0; guns carried 40
+[match   60.0] roles: { "sniper": { "fight": 1, "follow": 1, "order": 1, "roam": 1, "investigate": 1 }, "looter": { "heal": 1, "roam": 4 }, "rusher": { "fight": 4, "order": 1, "hunt": 1 }, "stalker": { "order": 1, "hunt": 2, "investigate": 1 } }; stuck now 0; waypoints 1304; team { "lines": 79, "pings": 0, "laser_follow": 0, "learned_cells": 90, "blocked_cells": 26, "squads": 6, "following_humans": 0, &"learned_spots": 0 }
+[match   60.0] [lootstats] bots on the ground 20 (in water 0); armed 20; armed with ammo for a gun 20; long guns 20; attachments fitted 0; rounds of unusable ammo carried 0; items on the ground 418; bot pickups { "detours": 0, "detour_taken": 0, "fetches": 0, "fetch_done": 0, "items_taken": 0 }
+[navwatch] malasugue_mall: 1173 bot-s (799 moving), stalls 3 (0.2/bot-min, 2.3% of moving time), facing a wall 3 (0.2/bot-min)
+[match   60.5] [radio] Kapitan Tikoy (rusher): affirmative
+[match   60.8] [radio] Mang Tomas Ketchup (looter): clear
+[match   60.9] Mang Jolo (team 1) landed at (52.0, 12.0, -43.0), 3.8 m/s, health 92; teammates 13 m, 15 m
+[match   61.5] [radio] Aling Puring (looter): affirmative
+[match   61.6] [radio] Kulot Sabaw (sniper): contact
+[match   61.7] Totoy Bibo (team 1) landed at (51.0, 0.0, -40.0), 12.3 m/s, health 100; teammates 4 m, 5 m, 14 m
+[match   62.3] [radio] Kapitbahay Lito (rusher): taking_fire
+[match   62.5] [radio] Ka Pedring (rusher): taking_fire
+[match   62.5] [radio] Tito Boy (rusher): taking_fire
+[match   62.7] Kapitbahay Lito killed by Totoy Bibo (gunshot); 3 teams left
+[match   62.7] alive: North Team 7, East Team 6; score { 0: 7, 1: 6, 2: 1 }
+[match   62.9] Aling Taho respawned at (0.0, 20.0, 32.0) (nearest enemy 51 m)
+[match   63.1] Ka Pedring killed by Ate Load Dito (gunshot); 3 teams left
+[match   63.1] alive: North Team 7, East Team 6; score { 0: 8, 1: 6, 2: 1 }
+[match   63.2] [radio] Totoy Bibo (stalker): kill
+[match   63.3] Ate Load Dito killed by Pareng Jun (gunshot); 3 teams left
+[match   63.3] alive: North Team 6, East Team 6; score { 0: 8, 1: 6, 2: 2 }
+[match   63.4] [radio] Aling Puring (looter): affirmative
+[match   63.9] [radio] Kulot Sabaw (sniper): down
+[match   63.9] Tito Boy killed by Bebot Karaoke (gunshot); 3 teams left
+[match   63.9] alive: North Team 5, East Team 6; score { 0: 8, 1: 6, 2: 2 }
+[match   64.2] Tatay Kulas (team 1) landed at (53.0, 10.0, -40.0), 2.5 m/s, health 100; teammates 10 m, 7 m, 10 m
+[match   64.3] [radio] Pareng Jun (sniper): kill
+[match   64.4] [radio] Mang Tomas Ketchup (looter): affirmative
+[match   64.8] [radio] Bebot Karaoke (sniper): kill
+[match   65.0] [radio] Aling Taho (stalker): affirmative
+[match   65.3] [radio] Tatay Kulas (sniper): affirmative
+[match   65.5] Lola Basyang Jr (team 0) landed at (-51.0, 0.0, -40.0), 7.0 m/s, health 100; teammates 99 m, 7 m
+[match   65.9] [radio] Kulot Sabaw (sniper): down
+[match   66.1] [radio] Aling Puring (looter): in_position
+[match   66.2] [radio] Mang Tomas Ketchup (looter): down
+[match   66.9] [radio] Totoy Bibo (stalker): taking_fire
+[match   67.7] Kapitbahay Lito respawned at (42.0, 10.0, -29.0) (nearest enemy 13 m)
+[match   68.2] Ka Pedring respawned at (-4.0, 20.0, 30.0) (nearest enemy 67 m)
+[match   68.3] Ate Load Dito respawned at (-41.0, 0.0, -30.0) (nearest enemy 42 m)
+[match   68.9] Tito Boy respawned at (-43.0, 0.0, -29.0) (nearest enemy 43 m)
+[match   69.2] Manong Guard (team 1) landed at (51.0, 0.0, -40.0), 12.3 m/s, health 100; teammates 5 m, 16 m, 6 m, 5 m
+[match   69.4] Kapitan Tikoy killed by Pareng Jun (bleeding); 3 teams left
+[match   69.4] alive: North Team 7, East Team 7; score { 0: 8, 1: 6, 2: 2 }
+[match   69.6] [radio] Manong Guard (looter): contact
+[match   69.8] [radio] Pareng Jun (sniper): kill
+[match   70.1] [radio] Bossing Barbecue (rusher): contact
+[match   70.4] [radio] Mang Tomas Ketchup (looter): taking_fire
+[match   70.7] Kulot Sabaw killed by Manong Guard (gunshot); 3 teams left
+[match   70.7] alive: North Team 6, East Team 7; score { 0: 8, 1: 7, 2: 2 }
+[match   70.9] [radio] Aling Puring (looter): down
+[match   71.1] [radio] Bebot Karaoke (sniper): down
+[match   71.2] [radio] Manong Guard (looter): kill
+[match   71.9] [radio] Totoy Bibo (stalker): affirmative
+[match   72.6] Tito Videoke (team 1) landed at (51.0, 0.0, -40.0), 12.3 m/s, health 100; teammates 6 m, 17 m, 6 m, 9 m, 4 m
+[match   72.8] [radio] Manong Guard (looter): affirmative
+[match   73.5] [radio] Tito Videoke (looter): affirmative
+[match   73.7] Manong Guard killed by Bossing Barbecue (gunshot); 3 teams left
+[match   73.7] alive: North Team 6, East Team 6; score { 0: 9, 1: 7, 2: 2 }
+[match   73.8] [radio] Bossing Barbecue (rusher): clear
+[match   74.0] [radio] Boy Pickup (stalker): in_position
+[match   74.4] Kapitan Tikoy respawned at (1.0, 20.0, 32.0) (nearest enemy 68 m)
+[match   74.5] [radio] Mang Tomas Ketchup (looter): affirmative
+[match   74.7] [radio] Bossing Barbecue (rusher): kill
+[match   74.9] Bossing Barbecue killed by Totoy Bibo (gunshot); 3 teams left
+[match   74.9] alive: North Team 5, East Team 6; score { 0: 9, 1: 8, 2: 2 }
+[match   75.0] status: { "ground": 18 }; armed 18; shots 449; zone -1 hold r=131; corpses 24; levels { "L1": 11, "between": 1, "L4": 1, "L2": 1, "L5": 3, "L3": 1 }; server tick avg 5.02 ms, p99 27.14 ms, max 39.59 ms over 900 ticks
+[match   75.0] dm teams: North Team 5 at (-32.0, -32.0) spread 30 m; East Team 6 at (52.0, -37.0) spread 7 m; South Team 7 at (-19.0, 23.0) spread 24 m; gap 84 m; zone centre (-7.0, 13.0)
+[match   75.0] bots: { "order": 2, "heal": 2, "roam": 4, "hunt": 5, "fight": 3, "investigate": 2 }; containers searched by bots 0 (all players 0); plan steps done 0; guns carried 36
+[match   75.0] [stuck] Mang Jolo (sniper, roam) at (49.4, 15.0, -34.7) -> (51.5, 15.0, -37.5), ahead wall, no_prog 1.5
+[match   75.0] roles: { "looter": { "order": 1, "heal": 2, "fight": 1 }, "sniper": { "roam": 4, "fight": 1, "investigate": 1 }, "stalker": { "order": 1, "hunt": 5, "fight": 1 }, "rusher": { "investigate": 1 } }; stuck now 1; waypoints 1304; team { "lines": 112, "pings": 0, "laser_follow": 0, "learned_cells": 92, "blocked_cells": 26, "squads": 6, "following_humans": 0, &"learned_spots": 0 }
+[match   75.0] [lootstats] bots on the ground 18 (in water 0); armed 18; armed with ammo for a gun 18; long guns 18; attachments fitted 0; rounds of unusable ammo carried 0; items on the ground 418; bot pickups { "detours": 0, "detour_taken": 0, "fetches": 0, "fetch_done": 0, "items_taken": 0 }
+[match   75.5] [radio] Mang Tomas Ketchup (looter): down
+[match   75.5] [radio] Bebot Karaoke (sniper): down
+[match   75.6] Tito Boy (team 0) landed at (-47.0, 0.0, -31.0), 2.5 m/s, health 100; teammates 13 m, 13 m
+[match   75.7] Kulot Sabaw respawned at (-40.0, 0.0, -29.0) (nearest enemy 44 m)
+[match   76.4] [radio] Totoy Bibo (stalker): headshot_kill
+[match   77.9] Mang Tomas Ketchup killed by Bebot Karaoke (gunshot); 3 teams left
+[match   77.9] alive: North Team 6, East Team 5; score { 0: 10, 1: 8, 2: 2 }
+[match   78.5] [radio] Mang Jolo (sniper): down
+[match   78.5] [radio] Bebot Karaoke (sniper): kill
+[match   78.7] Manong Guard respawned at (42.0, 10.0, -29.0) (nearest enemy 14 m)
+[match   79.7] [radio] Kapitan Tikoy (sniper): sniping
+[match   79.9] Bossing Barbecue respawned at (-43.0, 0.0, -29.0) (nearest enemy 46 m)
+[match   80.0] Kapitbahay Lito (team 1) landed at (51.0, 2.0, -40.0), 10.3 m/s, health 100; teammates 14 m, 2 m, 5 m, 2 m
+[match   80.5] Ate Load Dito (team 0) landed at (-51.0, 0.0, -40.0), 7.0 m/s, health 100; teammates 10 m, 4 m, 5 m
+[match   81.1] [radio] Bebot Karaoke (sniper): taking_fire
+[match   81.7] Bebot Karaoke killed by Tatay Kulas (gunshot); 3 teams left
+[match   81.7] alive: North Team 6, East Team 6; score { 0: 10, 1: 9, 2: 2 }
+[match   81.8] [radio] Kulot Sabaw (sniper): affirmative
+[match   82.3] [radio] Tatay Kulas (sniper): kill
+[match   82.8] [radio] Kumareng Marites (stalker): affirmative
+[match   82.9] Mang Tomas Ketchup respawned at (44.0, 10.0, -26.0) (nearest enemy 55 m)
+[match   83.3] Aling Taho (team 2) landed at (-56.0, 10.0, 40.0), 11.6 m/s, health 100; teammates 58 m, 67 m, 64 m, 11 m
+[match   84.3] [radio] Kapitbahay Lito (rusher): hunting
+[match   84.8] [radio] Bossing Barbecue (rusher): hunting
+[match   86.7] Bebot Karaoke respawned at (-43.0, 0.0, -29.0) (nearest enemy 46 m)
+[match   87.3] Mang Jolo killed by the world (fall); 3 teams left
+[match   87.3] alive: North Team 7, East Team 6; score { 0: 10, 1: 9, 2: 2 }
+[match   87.8] [radio] Totoy Bibo (stalker): down
+[match   89.5] [radio] Boy Pickup (stalker): contact
+[match   90.0] status: { "ground": 20 }; armed 20; shots 467; zone -1 hold r=131; corpses 27; levels { "L1": 13, "between": 5, "L5": 1, "L3": 1 }; server tick avg 3.76 ms, p99 28.08 ms, max 63.28 ms over 900 ticks
+[match   90.0] dm teams: North Team 7 at (-46.0, -35.0) spread 12 m; East Team 6 at (49.0, -33.0) spread 11 m; South Team 7 at (-33.0, 24.0) spread 30 m; gap 95 m; zone centre (-7.0, 13.0)
+[match   90.0] bots: { "fight": 3, "overwatch": 1, "hunt": 6, "roam": 7, "order": 2, "heal": 1 }; containers searched by bots 0 (all players 0); plan steps done 0; guns carried 40
+[match   90.0] roles: { "looter": { "fight": 1, "roam": 1, "order": 1 }, "sniper": { "overwatch": 1, "roam": 5 }, "stalker": { "fight": 1, "hunt": 4, "order": 1, "heal": 1 }, "rusher": { "hunt": 2, "fight": 1, "roam": 1 } }; stuck now 0; waypoints 1304; team { "lines": 126, "pings": 0, "laser_follow": 0, "learned_cells": 93, "blocked_cells": 26, "squads": 6, "following_humans": 0, &"learned_spots": 0 }
+[match   90.0] [lootstats] bots on the ground 20 (in water 0); armed 20; armed with ammo for a gun 20; long guns 20; attachments fitted 0; rounds of unusable ammo carried 0; items on the ground 418; bot pickups { "detours": 0, "detour_taken": 0, "fetches": 0, "fetch_done": 0, "items_taken": 0 }
+[match   90.7] Manong Guard (team 1) landed at (51.0, 2.0, -40.0), 10.3 m/s, health 100; teammates 2 m, 4 m, 2 m, 32 m
+[match   91.0] [radio] Bossing Barbecue (rusher): need_help
+[match   91.2] Bossing Barbecue killed by Pareng Jun (gunshot); 3 teams left
+[match   91.2] alive: North Team 6, East Team 6; score { 0: 10, 1: 9, 2: 3 }
+[match   91.6] Ka Pedring (team 2) landed at (-56.0, 0.0, 40.0), 18.8 m/s, health 100; teammates 58 m, 66 m, 63 m, 3 m, 4 m
+[match   91.6] Ka Pedring killed by the world (fall); 3 teams left
+[match   91.6] alive: North Team 6, East Team 6; score { 0: 10, 1: 9, 2: 3 }
+[match   91.6] Kulot Sabaw (team 0) landed at (-50.0, 0.0, -41.0), 7.0 m/s, health 100; teammates 7 m, 5 m, 7 m, 9 m
+[match   91.7] [radio] Pareng Jun (sniper): kill
+[match   92.1] [radio] Kumareng Marites (stalker): down
+[match   92.3] Mang Jolo respawned at (42.0, 10.0, -29.0) (nearest enemy 55 m)
+[match   92.5] [radio] Aling Puring (looter): down
+[match   92.9] [radio] Ate Load Dito (stalker): affirmative
+[match   93.1] [radio] Manong Guard (rusher): hunting
+[match   95.6] Mang Tomas Ketchup (team 1) landed at (56.0, 5.0, -39.0), 12.3 m/s, health 100; teammates 7 m, 9 m, 8 m, 33 m, 14 m
+[match   96.2] Bossing Barbecue respawned at (-43.0, 0.0, -27.0) (nearest enemy 47 m)
+[match   96.4] [radio] Bebot Karaoke (rusher): contact
+[match   96.6] Ka Pedring respawned at (1.0, 20.0, 32.0) (nearest enemy 60 m)
+[match   96.8] [radio] Boy Pickup (stalker): taking_fire
+[match   97.0] Kapitan Tikoy (team 2) landed at (-56.0, 15.0, 40.0), 7.0 m/s, health 100; teammates 79 m, 68 m, 65 m, 13 m, 18 m
+[match   97.8] [radio] Tito Videoke (looter): clear
+[match   98.9] [radio] Bebot Karaoke (rusher): taking_fire
+[match   99.7] [radio] Bossing Barbecue (rusher): affirmative
+[match   99.8] [radio] Pareng Jun (sniper): taking_fire
+[match  100.0] Bebot Karaoke killed by Pareng Jun (gunshot); 3 teams left
+[match  100.0] alive: North Team 6, East Team 7; score { 0: 10, 1: 9, 2: 4 }
+[match  100.4] [radio] Kumareng Marites (stalker): down
+[match  101.0] [radio] Pareng Jun (sniper): kill
+[match  101.3] [radio] Tito Boy (sniper): affirmative
+[match  103.8] [radio] Manong Guard (rusher): contact
+[match  104.1] [radio] Ate Load Dito (stalker): sneaking
+[match  104.5] Mang Jolo (team 1) landed at (51.0, 0.0, -40.0), 12.3 m/s, health 100; teammates 28 m, 6 m, 6 m, 49 m, 42 m, 6 m
+[match  104.8] [radio] Boy Pickup (stalker): taking_fire
+[match  105.0] Bebot Karaoke respawned at (-41.0, 0.0, -30.0) (nearest enemy 34 m)
+[match  105.0] status: { "ground": 21 }; armed 21; shots 543; zone -1 hold r=131; corpses 30; levels { "L2": 3, "L1": 13, "between": 4, "L5": 1 }; server tick avg 4.73 ms, p99 24.66 ms, max 40.39 ms over 900 ticks
+[match  105.0] dm teams: North Team 7 at (-45.0, -31.0) spread 12 m; East Team 7 at (36.0, -32.0) spread 21 m; South Team 7 at (-23.0, 17.0) spread 31 m; gap 81 m; zone centre (-7.0, 13.0)
+[match  105.0] bots: { "roam": 10, "heal": 1, "fight": 6, "hunt": 3, "investigate": 1 }; containers searched by bots 0 (all players 0); plan steps done 0; guns carried 42
+[match  105.0] roles: { "looter": { "roam": 4 }, "sniper": { "heal": 1, "roam": 5 }, "stalker": { "fight": 3, "hunt": 2, "investigate": 1 }, "rusher": { "fight": 3, "hunt": 1, "roam": 1 } }; stuck now 0; waypoints 1304; team { "lines": 144, "pings": 0, "laser_follow": 0, "learned_cells": 93, "blocked_cells": 26, "squads": 6, "following_humans": 0, &"learned_spots": 0 }
+[match  105.0] [lootstats] bots on the ground 21 (in water 0); armed 21; armed with ammo for a gun 21; long guns 21; attachments fitted 0; rounds of unusable ammo carried 0; items on the ground 418; bot pickups { "detours": 0, "detour_taken": 0, "fetches": 0, "fetch_done": 0, "items_taken": 0 }
+[match  105.3] [radio] Kapitbahay Lito (rusher): taking_fire
+[match  106.0] [radio] Lola Basyang Jr (stalker): clear
+[match  107.5] [radio] Mang Jolo (rusher): contact
+[match  107.8] [radio] Boy Pickup (stalker): need_help
+[match  108.0] [radio] Bossing Barbecue (rusher): need_help
+[match  108.3] Bossing Barbecue killed by Pareng Jun (gunshot); 3 teams left
+[match  108.3] alive: North Team 6, East Team 7; score { 0: 10, 1: 9, 2: 5 }
+[match  108.8] [radio] Pareng Jun (sniper): kill
+[match  108.8] [radio] Kumareng Marites (stalker): down
+[match  109.5] [radio] Tito Boy (sniper): affirmative
+[match  109.5] Ka Pedring (team 2) landed at (22.0, 20.0, 13.0), 4.9 m/s, health 100; teammates 21 m, 36 m, 38 m, 85 m, 73 m, 79 m
+[match  109.8] [radio] Ka Pedring (looter): affirmative
+[match  110.0] [radio] Manong Guard (rusher): taking_fire
+[match  110.0] Boy Pickup killed by Manong Guard (gunshot); 3 teams left
+[match  110.0] alive: North Team 6, East Team 7; score { 0: 10, 1: 10, 2: 5 }
+[match  110.4] [radio] Bebot Karaoke (rusher): affirmative
+[match  110.9] [radio] Aling Puring (looter): down
+[match  111.1] [radio] Manong Guard (rusher): kill
+[match  112.3] Kapitbahay Lito killed by Pareng Jun (gunshot); 3 teams left
+[match  112.3] alive: North Team 6, East Team 6; score { 0: 10, 1: 10, 2: 6 }
+[match  112.6] [radio] Manong Guard (rusher): need_help
+[match  112.6] [radio] Pareng Jun (sniper): kill
+[match  113.3] Bossing Barbecue respawned at (-37.0, 0.0, -27.0) (nearest enemy 27 m)
+[match  113.3] [radio] Totoy Bibo (stalker): down
+[match  113.3] [radio] Bossing Barbecue (sniper): contact
+[match  114.0] [radio] Mang Jolo (rusher): affirmative
+[match  114.5] [radio] Bebot Karaoke (rusher): taking_fire
+[match  114.9] Manong Guard killed by Bossing Barbecue (gunshot); 3 teams left
+[match  114.9] alive: North Team 7, East Team 5; score { 0: 11, 1: 10, 2: 6 }
+[match  115.0] [radio] Aling Taho (stalker): contact
+[match  115.0] Boy Pickup respawned at (-3.0, 20.0, 32.0) (nearest enemy 62 m)
+[match  115.1] [radio] Totoy Bibo (stalker): affirmative
+[match  115.3] [radio] Bossing Barbecue (sniper): kill
+[match  115.8] [radio] Totoy Bibo (stalker): down
+[match  116.2] [radio] Tito Boy (sniper): affirmative
+[match  117.2] [radio] Lola Basyang Jr (stalker): affirmative
+[match  117.3] [radio] Mang Jolo (rusher): taking_fire
+[match  117.3] Kapitbahay Lito respawned at (45.0, 10.0, -26.0) (nearest enemy 49 m)
+[match  117.9] [radio] Aling Taho (stalker): need_help
+[match  118.6] [radio] Bebot Karaoke (rusher): taking_fire
+[match  119.0] [radio] Kuya Fishball (looter): affirmative
+[match  119.4] Bebot Karaoke killed by Pareng Jun (gunshot); 3 teams left
+[match  119.4] alive: North Team 6, East Team 6; score { 0: 11, 1: 10, 2: 7 }
+[match  119.5] Aling Taho killed by Bossing Barbecue (gunshot); 3 teams left
+[match  119.5] alive: North Team 6, East Team 6; score { 0: 12, 1: 10, 2: 7 }
+[match  119.9] Manong Guard respawned at (44.0, 10.0, -28.0) (nearest enemy 46 m)
+[match  119.9] [radio] Pareng Jun (sniper): kill
+[match  119.9] [radio] Kumareng Marites (stalker): down
+[match  120.0] status: { "ground": 19 }; armed 19; shots 727; zone -1 hold r=131; corpses 36; levels { "L2": 2, "L1": 12, "between": 2, "L5": 1, "L3": 2 }; server tick avg 8.41 ms, p99 52.23 ms, max 168.68 ms over 900 ticks
+[match  120.0] dm teams: North Team 6 at (-48.0, -36.0) spread 11 m; East Team 7 at (38.0, -32.0) spread 18 m; South Team 6 at (-8.0, 25.0) spread 39 m; gap 86 m; zone centre (-7.0, 13.0)
+[match  120.0] bots: { "roam": 12, "heal": 2, "hunt": 4, "camp": 1 }; containers searched by bots 0 (all players 0); plan steps done 0; guns carried 38
+[match  120.0] roles: { "looter": { "roam": 4, "camp": 1 }, "sniper": { "heal": 1, "roam": 7 }, "stalker": { "hunt": 4, "roam": 1 }, "rusher": { "heal": 1 } }; stuck now 0; waypoints 1304; team { "lines": 175, "pings": 0, "laser_follow": 0, "learned_cells": 94, "blocked_cells": 26, "squads": 6, "following_humans": 0, &"learned_spots": 0 }
+[match  120.0] [lootstats] bots on the ground 19 (in water 0); armed 19; armed with ammo for a gun 19; long guns 19; attachments fitted 0; rounds of unusable ammo carried 0; items on the ground 418; bot pickups { "detours": 0, "detour_taken": 0, "fetches": 0, "fetch_done": 0, "items_taken": 0 }
+[match  120.8] [radio] Kapitan Tikoy (sniper): affirmative
+[navwatch] malasugue_mall: 2338 bot-s (1664 moving), stalls 10 (0.3/bot-min, 5.4% of moving time), facing a wall 8 (0.2/bot-min)
+[match  120.9] [radio] Bossing Barbecue (sniper): kill
+[match  121.9] [radio] Aling Puring (looter): down
+[match  122.4] [radio] Kapitbahay Lito (sniper): sniping
+[match  124.5] Bebot Karaoke respawned at (-43.0, 0.0, -29.0) (nearest enemy 34 m)
+[match  124.5] Aling Taho respawned at (0.0, 20.0, 32.0) (nearest enemy 62 m)
+[match  125.3] [radio] Mang Jolo (rusher): need_help
+[match  126.2] Mang Jolo killed by Pareng Jun (gunshot); 3 teams left
+[match  126.2] alive: North Team 7, East Team 6; score { 0: 12, 1: 10, 2: 8 }
+[match  126.3] [radio] Tatay Kulas (sniper): affirmative
+[match  126.6] [radio] Pareng Jun (sniper): kill
+[match  127.1] [radio] Manong Guard (looter): affirmative
+[match  128.1] [radio] Totoy Bibo (stalker): down
+[match  129.7] Kapitbahay Lito (team 1) landed at (56.0, 2.0, -40.0), 14.9 m/s, health 100; teammates 2 m, 36 m, 12 m, 4 m
+[match  130.3] [radio] Bebot Karaoke (stalker): sneaking
+[match  131.2] Mang Jolo respawned at (45.0, 10.0, -26.0) (nearest enemy 32 m)
+[match  132.0] Manong Guard (team 1) landed at (51.0, 0.0, -40.0), 12.3 m/s, health 100; teammates 7 m, 27 m, 6 m, 7 m, 5 m
+[match  133.5] [radio] Boy Pickup (stalker): sneaking
+[match  134.5] Boy Pickup (team 2) landed at (-56.0, 10.0, 39.0), 12.3 m/s, health 100; teammates 63 m, 66 m, 12 m, 9 m, 110 m
+[match  135.0] Aling Taho (team 2) landed at (-9.0, 20.0, 26.0), 4.9 m/s, health 100; teammates 25 m, 33 m, 49 m, 51 m, 64 m, 50 m
+[match  135.0] status: { "ground": 21 }; armed 21; shots 738; zone -1 hold r=131; corpses 37; levels { "L5": 2, "L1": 11, "between": 4, "L2": 2, "L3": 2 }; server tick avg 3.91 ms, p99 21.19 ms, max 45.47 ms over 900 ticks
+[match  135.0] dm teams: North Team 7 at (-35.0, -27.0) spread 29 m; East Team 7 at (50.0, -37.0) spread 8 m; South Team 7 at (-18.0, 26.0) spread 38 m; gap 86 m; zone centre (-7.0, 13.0)
+[match  135.0] bots: { "camp": 2, "heal": 2, "hunt": 7, "roam": 8, "investigate": 2 }; containers searched by bots 0 (all players 0); plan steps done 0; guns carried 42
+[match  135.0] [stuck] Boy Pickup (stalker, hunt) at (-55.9, 10.0, 38.9) -> (-52.7, 12.5, 44.1), ahead , no_prog 1.5
+[match  135.0] roles: { "looter": { "camp": 2, "roam": 3 }, "sniper": { "heal": 2, "investigate": 2, "roam": 5 }, "stalker": { "hunt": 6 }, "rusher": { "hunt": 1 } }; stuck now 1; waypoints 1304; team { "lines": 186, "pings": 0, "laser_follow": 0, "learned_cells": 94, "blocked_cells": 27, "squads": 6, "following_humans": 0, &"learned_spots": 0 }
+[match  135.0] [lootstats] bots on the ground 21 (in water 0); armed 21; armed with ammo for a gun 21; long guns 21; attachments fitted 0; rounds of unusable ammo carried 0; items on the ground 418; bot pickups { "detours": 0, "detour_taken": 0, "fetches": 0, "fetch_done": 0, "items_taken": 0 }
+[match  135.3] [radio] Tito Boy (sniper): contact
+[match  135.8] [radio] Mang Jolo (sniper): sniping
+[match  135.8] Pareng Jun killed by Tito Boy (gunshot); 3 teams left
+[match  135.8] alive: North Team 7, East Team 7; score { 0: 13, 1: 10, 2: 8 }
+[match  136.4] [radio] Aling Puring (looter): down
+[match  136.5] [radio] Tito Boy (sniper): kill
+[match  138.4] [radio] Bossing Barbecue (sniper): contact
+[match  138.4] [radio] Manong Guard (looter): contact
+[match  140.0] [radio] Manong Guard (looter): need_help
+[match  140.5] [radio] Aling Taho (rusher): hunting
+[match  140.8] Pareng Jun respawned at (0.0, 20.0, 32.0) (nearest enemy 36 m)
+[match  140.9] [radio] Kapitbahay Lito (sniper): affirmative
+[match  141.8] [radio] Tito Videoke (looter): affirmative
+[match  143.2] Mang Jolo (team 1) landed at (56.0, 0.0, -40.0), 15.5 m/s, health 100; teammates 7 m, 5 m, 9 m, 7 m, 4 m, 10 m
+[match  144.2] [radio] Kulot Sabaw (sniper): sniping
+[match  144.6] Bebot Karaoke (team 0) landed at (-51.0, 0.0, -41.0), 7.0 m/s, health 100; teammates 10 m, 34 m, 7 m, 48 m, 6 m
+[match  145.7] [radio] Totoy Bibo (stalker): clear
+[match  145.7] [radio] Ka Pedring (looter): contact
+[match  147.1] Manong Guard killed by Bossing Barbecue (gunshot); 3 teams left
+[match  147.1] alive: North Team 7, East Team 6; score { 0: 14, 1: 10, 2: 8 }
+[match  147.2] [radio] Bossing Barbecue (sniper): clear
+[match  147.7] [radio] Totoy Bibo (stalker): down
+[match  148.0] [radio] Bossing Barbecue (sniper): kill
+[match  148.6] Tito Boy killed by Ka Pedring (gunshot); 3 teams left
+[match  148.6] alive: North Team 6, East Team 6; score { 0: 14, 1: 10, 2: 9 }
+[match  149.1] [radio] Ka Pedring (looter): headshot_kill
+[match  149.1] [radio] Kumareng Marites (stalker): down
+[match  150.0] status: { "ground": 19 }; armed 19; shots 750; zone -1 hold r=131; corpses 40; levels { "L5": 2, "L2": 3, "between": 3, "L1": 10, "L3": 1 }; server tick avg 4.49 ms, p99 32.66 ms, max 57.60 ms over 900 ticks
+[match  150.0] dm teams: North Team 6 at (-36.0, -35.0) spread 23 m; East Team 6 at (52.0, -40.0) spread 3 m; South Team 7 at (-31.0, 26.0) spread 31 m; gap 88 m; zone centre (-7.0, 13.0)
+[match  150.0] bots: { "camp": 1, "hunt": 7, "roam": 7, "investigate": 1, "order": 2, "heal": 1 }; containers searched by bots 0 (all players 0); plan steps done 0; guns carried 38
+[match  150.0] [stuck] Pareng Jun (sniper, roam) at (-8.1, 20.0, 31.4) -> (-56.0, 20.0, 33.6), ahead , no_prog 1.9
+[match  150.0] roles: { "looter": { "camp": 1, "roam": 2, "order": 1 }, "stalker": { "hunt": 6 }, "sniper": { "investigate": 1, "roam": 5, "order": 1, "heal": 1 }, "rusher": { "hunt": 1 } }; stuck now 1; waypoints 1304; team { "lines": 204, "pings": 0, "laser_follow": 0, "learned_cells": 94, "blocked_cells": 27, "squads": 6, "following_humans": 0, &"learned_spots": 0 }
+[match  150.0] [lootstats] bots on the ground 19 (in water 0); armed 19; armed with ammo for a gun 19; long guns 19; attachments fitted 0; rounds of unusable ammo carried 0; items on the ground 418; bot pickups { "detours": 0, "detour_taken": 0, "fetches": 0, "fetch_done": 0, "items_taken": 0 }
+[match  151.4] Pareng Jun (team 2) landed at (-8.0, 20.0, 35.0), 4.9 m/s, health 100; teammates 33 m, 47 m, 50 m, 41 m, 40 m, 45 m
+[match  152.1] Manong Guard respawned at (42.0, 10.0, -23.0) (nearest enemy 15 m)
+[match  153.1] [radio] Tito Videoke (looter): contact
+[match  153.6] Tito Boy respawned at (-42.0, 0.0, -29.0) (nearest enemy 43 m)
+[match  154.6] [radio] Tito Videoke (looter): need_help
+[match  155.5] [radio] Tatay Kulas (sniper): affirmative
+[match  156.1] [radio] Bossing Barbecue (sniper): taking_fire
+[match  156.6] [radio] Kapitbahay Lito (sniper): affirmative
+[match  156.8] [radio] Bossing Barbecue (sniper): need_help
+[match  157.1] Bossing Barbecue killed by Tatay Kulas (gunshot); 3 teams left
+[match  157.1] alive: North Team 6, East Team 7; score { 0: 14, 1: 11, 2: 9 }
+[match  157.6] [radio] Tatay Kulas (sniper): kill
+[match  157.7] [radio] Kumareng Marites (stalker): affirmative
+[match  158.8] [radio] Tito Boy (rusher): affirmative
+[match  162.1] Bossing Barbecue respawned at (-42.0, 0.0, -29.0) (nearest enemy 21 m)
+[match  163.8] Manong Guard (team 1) landed at (51.0, 0.0, -40.0), 12.3 m/s, health 100; teammates 4 m, 5 m, 4 m, 2 m, 3 m, 4 m
+[match  165.0] status: { "ground": 21 }; armed 21; shots 766; zone -1 hold r=131; corpses 41; levels { "L5": 1, "L2": 2, "L1": 14, "between": 4 }; server tick avg 4.00 ms, p99 19.82 ms, max 50.08 ms over 900 ticks
+[match  165.0] dm teams: North Team 7 at (-36.0, -35.0) spread 18 m; East Team 7 at (51.0, -37.0) spread 2 m; South Team 7 at (-35.0, 21.0) spread 34 m; gap 87 m; zone centre (-7.0, 13.0)
+[match  165.0] bots: { "camp": 1, "hunt": 8, "roam": 7, "order": 3, "investigate": 2 }; containers searched by bots 0 (all players 0); plan steps done 0; guns carried 43
+[match  165.0] [stuck] Ka Pedring (looter, roam) at (7.3, 5.7, -3.2) -> (-6.5, 10.0, -0.5), ahead , no_prog 2.6
+[match  165.0] [stuck] Mang Jolo (sniper, investigate) at (51.7, 0.0, -36.9) -> (51.0, 0.0, -34.2), ahead , no_prog 2.1
+[match  165.0] roles: { "looter": { "camp": 1, "roam": 2, "order": 1, "investigate": 1 }, "stalker": { "hunt": 6 }, "sniper": { "order": 2, "roam": 5, "investigate": 1 }, "rusher": { "hunt": 2 } }; stuck now 2; waypoints 1304; team { "lines": 213, "pings": 0, "laser_follow": 0, "learned_cells": 94, "blocked_cells": 27, "squads": 6, "following_humans": 0, &"learned_spots": 0 }
+[match  165.0] [lootstats] bots on the ground 21 (in water 0); armed 21; armed with ammo for a gun 21; long guns 22; attachments fitted 1; rounds of unusable ammo carried 0; items on the ground 416; bot pickups { "detours": 2, "detour_taken": 2, "fetches": 0, "fetch_done": 0, "items_taken": 2 }
+[match  166.2] [radio] Tito Videoke (looter): clear
+[match  167.2] [radio] Kumareng Marites (stalker): sneaking
+[match  168.9] [radio] Mang Jolo (sniper): contact
+[match  169.2] [radio] Lola Basyang Jr (stalker): contact
+[match  170.4] [radio] Tito Boy (rusher): need_help
+[match  171.3] [radio] Lola Basyang Jr (stalker): affirmative
+[match  171.6] [radio] Manong Guard (looter): contact
+[match  171.9] Tito Boy killed by Tito Videoke (gunshot); 3 teams left
+[match  171.9] alive: North Team 6, East Team 7; score { 0: 14, 1: 12, 2: 9 }
+[match  172.4] [radio] Tito Videoke (looter): kill
+[match  172.4] [radio] Kumareng Marites (stalker): affirmative
+[match  172.9] [radio] Ka Pedring (looter): in_position
+[match  173.4] [radio] Kumareng Marites (stalker): down
+[match  174.5] Bossing Barbecue (team 0) landed at (-62.0, 0.0, -35.0), 4.9 m/s, health 97; teammates 70 m, 68 m, 5 m, 11 m, 14 m
+[match  176.6] [radio] Manong Guard (looter): clear
+[match  176.8] [radio] Bebot Karaoke (stalker): contact
+[match  176.8] [radio] Aling Taho (rusher): contact
+[match  177.0] Tito Boy respawned at (-40.0, 0.0, -24.0) (nearest enemy 7 m)
+[match  178.5] [radio] Tito Boy (sniper): taking_fire
+[match  178.5] [radio] Aling Taho (rusher): need_help
+[match  178.9] Mang Jolo killed by Lola Basyang Jr (gunshot); 3 teams left
+[match  178.9] alive: North Team 7, East Team 6; score { 0: 15, 1: 12, 2: 9 }
+[match  179.3] [radio] Totoy Bibo (stalker): down
+[match  179.3] Aling Taho killed by Tito Boy (gunshot); 3 teams left
+[match  179.3] alive: North Team 7, East Team 6; score { 0: 16, 1: 12, 2: 9 }
+[match  179.4] [radio] Lola Basyang Jr (stalker): headshot_kill
+[match  179.5] [radio] Boy Pickup (stalker): affirmative
+[match  180.0] status: { "ground": 19 }; armed 19; shots 833; zone -1 hold r=131; corpses 44; levels { "L5": 1, "L2": 3, "L1": 14, "L3": 1 }; server tick avg 6.47 ms, p99 42.22 ms, max 68.35 ms over 900 ticks
+[match  180.0] dm teams: North Team 7 at (-34.0, -33.0) spread 28 m; East Team 6 at (49.0, -37.0) spread 6 m; South Team 6 at (-35.0, 16.0) spread 35 m; gap 83 m; zone centre (-7.0, 13.0)
+[match  180.0] bots: { "camp": 1, "hunt": 3, "roam": 8, "fight": 2, "order": 1, "heal": 2, "investigate": 2 }; containers searched by bots 0 (all players 0); plan steps done 0; guns carried 39
+[match  180.0] [stuck] Kuya Fishball (looter, roam) at (-52.7, 0.0, 40.9) -> (-52.7, 2.5, 44.1), ahead , no_prog 2.3
+[match  180.0] [stuck] Mang Tomas Ketchup (sniper, roam) at (51.4, 0.0, -43.2) -> (54.5, 5.0, -38.5), ahead , no_prog 2.2
+[match  180.0] roles: { "looter": { "camp": 1, "roam": 3, "fight": 1 }, "stalker": { "hunt": 3, "fight": 1, "heal": 1, "investigate": 1 }, "sniper": { "order": 1, "roam": 5, "investigate": 1, "heal": 1 } }; stuck now 2; waypoints 1304; team { "lines": 232, "pings": 0, "laser_follow": 0, "learned_cells": 94, "blocked_cells": 27, "squads": 6, "following_humans": 0, &"learned_spots": 0 }
+[match  180.0] [lootstats] bots on the ground 19 (in water 0); armed 19; armed with ammo for a gun 19; long guns 20; attachments fitted 1; rounds of unusable ammo carried 0; items on the ground 416; bot pickups { "detours": 2, "detour_taken": 2, "fetches": 0, "fetch_done": 0, "items_taken": 2 }
+[match  180.2] [radio] Tito Boy (sniper): kill
+[match  180.4] [radio] Ka Pedring (looter): affirmative
+[navwatch] malasugue_mall: 3562 bot-s (2640 moving), stalls 15 (0.3/bot-min, 4.6% of moving time), facing a wall 11 (0.2/bot-min)
+[match  181.4] [radio] Aling Puring (looter): down
+[match  181.5] [radio] Lola Basyang Jr (stalker): need_help
+[match  181.6] [radio] Tatay Kulas (sniper): clear
+[match  182.5] [radio] Kumareng Marites (stalker): affirmative
+[match  183.6] [radio] Tito Boy (sniper): affirmative
+[match  183.9] Mang Jolo respawned at (42.0, 10.0, -23.0) (nearest enemy 12 m)
+[match  184.3] Aling Taho respawned at (0.0, 20.0, 32.0) (nearest enemy 62 m)
+[match  186.0] [radio] Manong Guard (looter): contact
+[match  186.2] [radio] Lola Basyang Jr (stalker): taking_fire
+[match  186.9] [radio] Tito Videoke (looter): need_help
+[match  187.7] [radio] Tatay Kulas (sniper): affirmative
+[match  188.3] Tito Videoke killed by Tatay Kulas (gunshot); 3 teams left
+[match  188.3] alive: North Team 7, East Team 6; score { 0: 16, 1: 12, 2: 9 }
+[match  188.4] [radio] Mang Tomas Ketchup (sniper): affirmative
+[match  188.8] Tito Boy killed by Tatay Kulas (gunshot); 3 teams left
+[match  188.8] alive: North Team 6, East Team 6; score { 0: 16, 1: 13, 2: 9 }
+[match  188.9] [radio] Boy Pickup (stalker): contact
+[match  189.0] [radio] Bebot Karaoke (stalker): contact
+[match  189.2] [radio] Tatay Kulas (sniper): kill
+[match  189.5] Kapitbahay Lito killed by Kumareng Marites (gunshot); 3 teams left
+[match  189.5] alive: North Team 6, East Team 5; score { 0: 17, 1: 13, 2: 9 }
+[match  189.8] [radio] Kumareng Marites (stalker): down
+[match  190.2] [radio] Mang Jolo (rusher): affirmative
+[match  190.6] [radio] Kumareng Marites (stalker): kill
+[match  190.6] [radio] Boy Pickup (stalker): need_help
+[match  191.1] Bebot Karaoke killed by Boy Pickup (gunshot); 3 teams left
+[match  191.1] alive: North Team 5, East Team 5; score { 0: 17, 1: 13, 2: 10 }
+[match  191.2] [radio] Totoy Bibo (stalker): down
+[match  191.5] [radio] Lola Basyang Jr (stalker): down
+[match  191.6] [radio] Pareng Jun (sniper): affirmative
+[match  192.4] [radio] Kulot Sabaw (sniper): affirmative
+[match  192.6] [radio] Ka Pedring (looter): affirmative
+[match  193.1] [radio] Ate Load Dito (stalker): affirmative
+[match  193.3] Tito Videoke respawned at (42.0, 10.0, -23.0) (nearest enemy 23 m)
+[match  193.5] [radio] Boy Pickup (stalker): kill
+[match  193.8] Tito Boy respawned at (-38.0, 0.0, -25.0) (nearest enemy 22 m)
+[match  194.5] Kapitbahay Lito respawned at (42.0, 10.0, -26.0) (nearest enemy 25 m)
+[match  194.5] [radio] Kumareng Marites (stalker): taking_fire
+[match  194.7] Kumareng Marites killed by Totoy Bibo (gunshot); 3 teams left
+[match  194.7] alive: North Team 5, East Team 7; score { 0: 17, 1: 14, 2: 10 }
+[match  194.8] [radio] Totoy Bibo (stalker): clear
+[match  195.0] status: { "ground": 19 }; armed 19; shots 912; zone -1 hold r=131; corpses 49; levels { "L5": 2, "L1": 11, "L3": 3, "between": 2, "L2": 1 }; server tick avg 6.06 ms, p99 39.03 ms, max 69.71 ms over 900 ticks
+[match  195.0] dm teams: North Team 5 at (-28.0, -31.0) spread 25 m; East Team 7 at (50.0, -36.0) spread 10 m; South Team 7 at (-36.0, 9.0) spread 33 m; gap 78 m; zone centre (-7.0, 13.0)
+[match  195.0] bots: { "camp": 1, "roam": 6, "investigate": 7, "heal": 2, "order": 2, "hunt": 1 }; containers searched by bots 0 (all players 0); plan steps done 0; guns carried 38
+[match  195.0] roles: { "looter": { "camp": 1, "roam": 3, "order": 1, "investigate": 1 }, "stalker": { "investigate": 2, "heal": 2 }, "sniper": { "investigate": 3, "roam": 3, "order": 1 }, "rusher": { "investigate": 1, "hunt": 1 } }; stuck now 0; waypoints 1304; team { "lines": 260, "pings": 0, "laser_follow": 0, "learned_cells": 94, "blocked_cells": 27, "squads": 6, "following_humans": 0, &"learned_spots": 0 }
+[match  195.0] [lootstats] bots on the ground 19 (in water 0); armed 19; armed with ammo for a gun 19; long guns 19; attachments fitted 0; rounds of unusable ammo carried 0; items on the ground 416; bot pickups { "detours": 2, "detour_taken": 2, "fetches": 0, "fetch_done": 0, "items_taken": 2 }
+[match  195.6] [radio] Lola Basyang Jr (stalker): affirmative
+[match  195.6] [radio] Totoy Bibo (stalker): kill
+[match  195.9] Boy Pickup killed by Kulot Sabaw (gunshot); 3 teams left
+[match  195.9] alive: North Team 5, East Team 7; score { 0: 18, 1: 14, 2: 10 }
+[match  196.1] Bebot Karaoke respawned at (-43.0, 0.0, -29.0) (nearest enemy 26 m)
+[match  196.3] [radio] Aling Puring (looter): down
+[match  196.4] [radio] Kulot Sabaw (sniper): kill
+[match  196.6] Mang Jolo (team 1) landed at (51.0, 0.0, -38.0), 12.3 m/s, health 100; teammates 5 m, 4 m, 3 m, 3 m
+[match  197.4] [radio] Bossing Barbecue (sniper): affirmative
+[match  197.6] [radio] Tatay Kulas (sniper): clear
+[match  199.0] [radio] Lola Basyang Jr (stalker): taking_fire
+[match  199.4] [radio] Manong Guard (looter): taking_fire
+[match  199.8] Kumareng Marites respawned at (-40.0, 0.0, -29.0) (nearest enemy 11 m)
+[match  200.9] Boy Pickup respawned at (-3.0, 20.0, 32.0) (nearest enemy 66 m)
+[match  201.6] [radio] Mang Jolo (rusher): contact
+[match  201.8] [radio] Lola Basyang Jr (stalker): taking_fire
+[match  203.7] [radio] Tatay Kulas (sniper): clear
+[match  204.3] [radio] Bebot Karaoke (rusher): contact
+[match  204.5] Tito Videoke (team 1) landed at (57.0, 10.0, -39.0), 7.0 m/s, health 100; teammates 13 m, 15 m, 5 m, 15 m, 18 m
+[match  204.5] Kapitbahay Lito (team 1) landed at (45.0, 10.0, -37.0), 2.5 m/s, health 100; teammates 12 m, 13 m, 10 m, 14 m, 12 m, 12 m
+[match  204.9] [radio] Mang Jolo (rusher): taking_fire
+[match  206.3] [radio] Ka Pedring (looter): contact
+[match  206.8] [radio] Bossing Barbecue (sniper): taking_fire
+[match  207.3] [radio] Totoy Bibo (stalker): contact
+[match  207.3] Tatay Kulas killed by Totoy Bibo (gunshot); 3 teams left
+[match  207.3] alive: North Team 7, East Team 6; score { 0: 18, 1: 14, 2: 10 }
+[match  207.4] [radio] Aling Taho (rusher): affirmative
+[match  208.3] [radio] Totoy Bibo (stalker): kill
+[match  208.4] [radio] Pareng Jun (sniper): affirmative
+[match  208.6] Mang Jolo killed by Lola Basyang Jr (gunshot); 3 teams left
+[match  208.6] alive: North Team 7, East Team 5; score { 0: 19, 1: 14, 2: 10 }
+[match  208.6] Ka Pedring killed by Bossing Barbecue (bleeding); 3 teams left
+[match  208.6] alive: North Team 7, East Team 5; score { 0: 20, 1: 14, 2: 10 }
+[match  209.1] [radio] Bossing Barbecue (sniper): kill
+[match  209.2] [radio] Pareng Jun (sniper): down
+[match  209.3] [radio] Mang Tomas Ketchup (sniper): affirmative
+[match  210.0] status: { "ground": 18 }; armed 18; shots 1002; zone -1 hold r=131; corpses 53; levels { "L5": 3, "L1": 12, "L2": 2, "L3": 1 }; server tick avg 5.84 ms, p99 33.29 ms, max 63.81 ms over 900 ticks
+[match  210.0] dm teams: North Team 7 at (-37.0, -36.0) spread 27 m; East Team 5 at (48.0, -37.0) spread 7 m; South Team 6 at (-30.0, 13.0) spread 39 m; gap 84 m; zone centre (-7.0, 13.0)
+[match  210.0] bots: { "camp": 1, "roam": 9, "fight": 2, "investigate": 3, "heal": 1, "hunt": 2 }; containers searched by bots 0 (all players 0); plan steps done 0; guns carried 37
+[match  210.0] [stuck] Kulot Sabaw (sniper, investigate) at (-52.8, 0.0, -44.4) -> (-52.5, 5.0, -38.5), ahead char, no_prog 2.7
+[match  210.0] roles: { "looter": { "camp": 1, "roam": 5 }, "stalker": { "fight": 2, "investigate": 1 }, "sniper": { "roam": 4, "investigate": 2, "heal": 1 }, "rusher": { "hunt": 2 } }; stuck now 1; waypoints 1304; team { "lines": 282, "pings": 0, "laser_follow": 0, "learned_cells": 95, "blocked_cells": 27, "squads": 6, "following_humans": 0, &"learned_spots": 0 }
+[match  210.0] [lootstats] bots on the ground 18 (in water 0); armed 18; armed with ammo for a gun 18; long guns 19; attachments fitted 0; rounds of unusable ammo carried 0; items on the ground 414; bot pickups { "detours": 4, "detour_taken": 4, "fetches": 0, "fetch_done": 0, "items_taken": 4 }
+[match  210.0] [radio] Lola Basyang Jr (stalker): kill
+[match  210.2] [radio] Totoy Bibo (stalker): down
+[match  210.5] Aling Taho (team 2) landed at (-54.0, 18.0, -44.0), 7.0 m/s, health 100; teammates 67 m, 89 m, 86 m, 46 m
+[match  211.1] [radio] Totoy Bibo (stalker): down
+[match  212.3] Tatay Kulas respawned at (44.0, 10.0, -28.0) (nearest enemy 31 m)
+[match  212.7] [radio] Bebot Karaoke (rusher): taking_fire
+[match  213.6] Mang Jolo respawned at (44.0, 10.0, -26.0) (nearest enemy 27 m)
+[match  213.6] Ka Pedring respawned at (-3.0, 20.0, 32.0) (nearest enemy 60 m)
+[match  213.8] [radio] Totoy Bibo (stalker): taking_fire
+[match  214.4] Totoy Bibo killed by Bebot Karaoke (gunshot); 3 teams left
+[match  214.4] alive: North Team 7, East Team 6; score { 0: 21, 1: 14, 2: 10 }
+[match  214.9] [radio] Mang Tomas Ketchup (sniper): down
+[match  214.9] [radio] Bebot Karaoke (rusher): kill
+[match  215.7] Kumareng Marites (team 0) landed at (-55.0, 0.0, -33.0), 4.9 m/s, health 100; teammates 72 m, 6 m, 12 m, 17 m
+[match  216.0] Tito Boy (team 0) landed at (-50.0, 0.0, -40.0), 7.0 m/s, health 100; teammates 69 m, 3 m, 5 m, 19 m, 7 m
+[match  216.7] [radio] Ate Load Dito (stalker): contact
+[match  216.9] [radio] Aling Taho (rusher): contact
+[match  217.4] Aling Taho killed by Tito Boy (gunshot); 3 teams left
+[match  217.4] alive: North Team 7, East Team 6; score { 0: 22, 1: 14, 2: 10 }
+[match  217.7] [radio] Pareng Jun (sniper): affirmative
+[match  217.8] [radio] Tito Boy (sniper): kill
+[match  218.1] [radio] Mang Jolo (rusher): hunting
+[match  218.8] [radio] Aling Puring (looter): affirmative
+[match  219.4] Totoy Bibo respawned at (45.0, 10.0, -26.0) (nearest enemy 17 m)
+[match  219.8] [radio] Aling Puring (looter): down
+[match  221.7] [radio] Manong Guard (looter): contact
+[match  221.7] [radio] Lola Basyang Jr (stalker): contact
+[match  222.2] Lola Basyang Jr killed by Manong Guard (gunshot); 3 teams left
+[match  222.2] alive: North Team 6, East Team 7; score { 0: 22, 1: 15, 2: 10 }
+[match  222.4] Aling Taho respawned at (-4.0, 20.0, 30.0) (nearest enemy 61 m)
+[match  222.6] [radio] Bebot Karaoke (rusher): affirmative
+[match  222.8] [radio] Manong Guard (looter): kill
+[match  223.6] [radio] Kumareng Marites (sniper): affirmative
+[match  223.8] Tatay Kulas (team 1) landed at (51.0, 0.0, -40.0), 12.3 m/s, health 100; teammates 4 m, 7 m, 4 m, 12 m
+[match  223.9] Bebot Karaoke (team 0) landed at (5.0, 0.0, -30.0), 4.9 m/s, health 73; teammates 62 m, 58 m, 61 m, 61 m, 63 m
+[match  224.4] [radio] Kapitan Tikoy (sniper): sniping
+[match  224.5] [radio] Bebot Karaoke (rusher): down
+[match  224.7] Mang Jolo (team 1) landed at (51.0, 0.0, -40.0), 12.3 m/s, health 100; teammates 4 m, 7 m, 3 m, 12 m, 2 m
+[match  225.0] status: { "ground": 20 }; armed 20; shots 1037; zone -1 hold r=131; corpses 56; levels { "L5": 4, "L1": 12, "L2": 1, "between": 1, "L3": 2 }; server tick avg 4.12 ms, p99 29.45 ms, max 71.95 ms over 900 ticks
+[match  225.0] dm teams: North Team 6 at (-42.0, -39.0) spread 19 m; East Team 7 at (49.0, -37.0) spread 7 m; South Team 7 at (-17.0, 8.0) spread 39 m; gap 92 m; zone centre (-7.0, 13.0)
+[match  225.0] bots: { "camp": 2, "roam": 8, "hunt": 3, "investigate": 7 }; containers searched by bots 0 (all players 0); plan steps done 0; guns carried 41
+[match  225.0] roles: { "looter": { "camp": 2, "roam": 2, "investigate": 3 }, "stalker": { "hunt": 1, "roam": 1 }, "sniper": { "roam": 5, "investigate": 3 }, "rusher": { "hunt": 2, "investigate": 1 } }; stuck now 0; waypoints 1304; team { "lines": 303, "pings": 0, "laser_follow": 0, "learned_cells": 95, "blocked_cells": 27, "squads": 6, "following_humans": 0, &"learned_spots": 0 }
+[match  225.0] [lootstats] bots on the ground 20 (in water 0); armed 20; armed with ammo for a gun 20; long guns 21; attachments fitted 0; rounds of unusable ammo carried 0; items on the ground 414; bot pickups { "detours": 4, "detour_taken": 4, "fetches": 0, "fetch_done": 0, "items_taken": 4 }
+[match  227.2] Lola Basyang Jr respawned at (-37.0, 0.0, -27.0) (nearest enemy 10 m)
+[match  227.4] [radio] Totoy Bibo (sniper): contact
+[match  227.6] [radio] Boy Pickup (looter): contact
+[match  228.4] Boy Pickup (team 2) landed at (51.0, 0.0, -40.0), 18.3 m/s, health 100; teammates 73 m, 116 m, 135 m, 99 m
+[match  228.4] Boy Pickup killed by the world (fall); 3 teams left
+[match  228.4] alive: North Team 7, East Team 7; score { 0: 22, 1: 15, 2: 10 }
+[match  231.2] [radio] Mang Jolo (rusher): contact
+[match  231.5] [radio] Ka Pedring (rusher): hunting
+[match  231.6] Aling Taho (team 2) landed at (12.0, 20.0, 33.0), 3.1 m/s, health 100; teammates 36 m, 71 m, 70 m, 94 m
+[match  231.6] Totoy Bibo (team 1) landed at (51.0, 0.0, -40.0), 12.3 m/s, health 100; teammates 4 m, 7 m, 4 m, 11 m, 4 m, 5 m
+[match  231.7] [radio] Bebot Karaoke (rusher): taking_fire
+[match  231.9] [radio] Totoy Bibo (sniper): in_position
+[match  232.1] Mang Jolo killed by Bebot Karaoke (gunshot); 3 teams left
+[match  232.1] alive: North Team 7, East Team 6; score { 0: 23, 1: 15, 2: 10 }
+[match  232.4] [radio] Lola Basyang Jr (stalker): affirmative
+[match  232.9] [radio] Tito Videoke (looter): affirmative
+[match  233.3] [radio] Kulot Sabaw (sniper): taking_fire
+[match  233.4] Boy Pickup respawned at (1.0, 20.0, 32.0) (nearest enemy 70 m)
+[match  233.7] [radio] Totoy Bibo (sniper): affirmative
+[match  233.7] [radio] Pareng Jun (sniper): taking_fire
+[match  234.2] [radio] Bebot Karaoke (rusher): taking_fire
+[match  234.2] Kulot Sabaw killed by Pareng Jun (gunshot); 3 teams left
+[match  234.2] alive: North Team 6, East Team 6; score { 0: 23, 1: 15, 2: 11 }
+[match  234.3] Bebot Karaoke killed by Manong Guard (gunshot); 3 teams left
+[match  234.3] alive: North Team 5, East Team 6; score { 0: 23, 1: 16, 2: 11 }
+[match  234.5] [radio] Mang Tomas Ketchup (sniper): down
+[match  234.5] Pareng Jun killed by Kulot Sabaw (bleeding); 3 teams left
+[match  234.5] alive: North Team 5, East Team 6; score { 0: 24, 1: 16, 2: 11 }
+[match  234.9] [radio] Ka Pedring (rusher): affirmative
+[match  235.2] [radio] Manong Guard (looter): kill
+[match  235.3] [radio] Ate Load Dito (stalker): down
+[match  235.7] [radio] Aling Puring (looter): affirmative
+[match  236.3] [radio] Tito Boy (sniper): affirmative
+[match  236.7] [radio] Aling Puring (looter): down
+[match  237.1] Mang Jolo respawned at (45.0, 10.0, -26.0) (nearest enemy 59 m)
+[match  237.3] [radio] Bossing Barbecue (sniper): affirmative
+[match  238.0] [radio] Tatay Kulas (looter): clear
+[match  238.5] [radio] Boy Pickup (stalker): sneaking
+[match  239.3] Kulot Sabaw respawned at (-40.0, 0.0, -24.0) (nearest enemy 23 m)
+[match  239.3] Bebot Karaoke respawned at (-37.0, 0.0, -27.0) (nearest enemy 23 m)
+[match  239.5] Pareng Jun respawned at (1.0, 20.0, 32.0) (nearest enemy 72 m)
+[match  240.0] status: { "ground": 21 }; armed 21; shots 1085; zone -1 hold r=131; corpses 61; levels { "L5": 5, "L1": 11, "between": 4, "L3": 1 }; server tick avg 4.07 ms, p99 34.14 ms, max 83.96 ms over 900 ticks
+[match  240.0] dm teams: North Team 7 at (-48.0, -36.0) spread 10 m; East Team 7 at (49.0, -35.0) spread 7 m; South Team 7 at (-16.0, 21.0) spread 40 m; gap 97 m; zone centre (-7.0, 13.0)
+[match  240.0] bots: { "camp": 2, "roam": 9, "investigate": 4, "order": 3, "hunt": 3 }; containers searched by bots 0 (all players 0); plan steps done 0; guns carried 43
+[match  240.0] roles: { "looter": { "camp": 2, "roam": 5, "order": 1, "investigate": 1 }, "stalker": { "investigate": 2, "hunt": 2 }, "sniper": { "roam": 4, "order": 2, "investigate": 1 }, "rusher": { "hunt": 1 } }; stuck now 0; waypoints 1304; team { "lines": 325, "pings": 0, "laser_follow": 0, "learned_cells": 96, "blocked_cells": 27, "squads": 6, "following_humans": 0, &"learned_spots": 0 }
+[match  240.0] [lootstats] bots on the ground 21 (in water 0); armed 21; armed with ammo for a gun 21; long guns 22; attachments fitted 0; rounds of unusable ammo carried 0; items on the ground 414; bot pickups { "detours": 4, "detour_taken": 4, "fetches": 0, "fetch_done": 0, "items_taken": 4 }
+[navwatch] malasugue_mall: 4732 bot-s (3489 moving), stalls 16 (0.2/bot-min, 3.5% of moving time), facing a wall 15 (0.2/bot-min)
+[match  242.0] [radio] Kuya Fishball (looter): sneaking
+[match  242.2] [radio] Mang Jolo (looter): sneaking
+[match  244.1] [radio] Bebot Karaoke (looter): sneaking
+[match  244.9] [radio] Pareng Jun (sniper): sniping
+[match  246.0] [radio] Ate Load Dito (stalker): contact
+[match  246.5] Ka Pedring (team 2) landed at (-56.0, 0.0, -40.0), 18.5 m/s, health 100; teammates 68 m, 75 m, 81 m, 136 m
+[match  246.5] Ka Pedring killed by the world (fall); 3 teams left
+[match  246.5] alive: North Team 7, East Team 7; score { 0: 24, 1: 16, 2: 11 }
+[match  247.0] [radio] Aling Puring (looter): down
+[match  249.4] Mang Jolo (team 1) landed at (56.0, 0.0, -40.0), 15.5 m/s, health 100; teammates 4 m, 13 m, 7 m, 6 m, 11 m, 5 m
+[match  250.7] Lola Basyang Jr (team 0) landed at (-53.0, 0.0, -41.0), 4.4 m/s, health 100; teammates 5 m, 5 m, 2 m, 3 m
+[match  251.5] Ka Pedring respawned at (-4.0, 20.0, 30.0) (nearest enemy 67 m)
+[match  254.5] [radio] Bebot Karaoke (looter): contact
+[match  254.5] [radio] Tatay Kulas (looter): contact
+[match  255.0] status: { "ground": 21 }; armed 21; shots 1088; zone -1 hold r=131; corpses 62; levels { "L5": 4, "L1": 14, "L2": 1, "between": 2 }; server tick avg 3.28 ms, p99 36.72 ms, max 64.47 ms over 900 ticks
+[match  255.0] dm teams: North Team 7 at (-33.0, -39.0) spread 31 m; East Team 7 at (51.0, -38.0) spread 3 m; South Team 7 at (-20.0, 23.0) spread 40 m; gap 84 m; zone centre (-7.0, 13.0)
+[match  255.0] bots: { "camp": 2, "roam": 7, "hunt": 3, "order": 3, "investigate": 3, "fight": 2, "heal": 1 }; containers searched by bots 0 (all players 0); plan steps done 0; guns carried 43
+[match  255.0] [stuck] Kapitbahay Lito (looter, investigate) at (51.0, 0.0, -40.5) -> (51.0, 0.0, -36.4), ahead char, no_prog 2.1
+[match  255.0] [stuck] Kumareng Marites (sniper, investigate) at (-55.2, 0.3, -33.1) -> (-54.5, 0.0, -38.5), ahead , no_prog 2.4
+[match  255.0] roles: { "looter": { "camp": 2, "roam": 3, "order": 1, "investigate": 1, "fight": 2, "heal": 1 }, "stalker": { "hunt": 3, "investigate": 1 }, "sniper": { "roam": 4, "order": 2, "investigate": 1 } }; stuck now 2; waypoints 1304; team { "lines": 333, "pings": 0, "laser_follow": 0, "learned_cells": 96, "blocked_cells": 27, "squads": 6, "following_humans": 0, &"learned_spots": 0 }
+[match  255.0] [lootstats] bots on the ground 21 (in water 0); armed 21; armed with ammo for a gun 21; long guns 22; attachments fitted 0; rounds of unusable ammo carried 0; items on the ground 414; bot pickups { "detours": 4, "detour_taken": 4, "fetches": 0, "fetch_done": 0, "items_taken": 4 }
+[match  255.3] [radio] Kulot Sabaw (looter): taking_fire
+[match  256.3] [radio] Ka Pedring (looter): sneaking
+[match  256.9] [radio] Tito Videoke (looter): clear
+[match  259.2] [radio] Bossing Barbecue (sniper): sniping
+[match  260.4] [radio] Manong Guard (looter): contact
+[match  260.5] Pareng Jun (team 2) landed at (-51.0, 18.0, 44.0), 6.4 m/s, health 100; teammates 62 m, 20 m, 19 m, 106 m
+[match  260.8] [radio] Bebot Karaoke (looter): taking_fire
+[match  261.5] [radio] Kulot Sabaw (looter): taking_fire
+[match  262.1] Kulot Sabaw killed by Tatay Kulas (gunshot); 3 teams left
+[match  262.1] alive: North Team 6, East Team 7; score { 0: 24, 1: 17, 2: 11 }
+[match  262.5] [radio] Bebot Karaoke (looter): down
+[match  262.5] [radio] Tatay Kulas (looter): kill
+[match  263.2] [radio] Tito Boy (sniper): affirmative
+[match  263.5] Bebot Karaoke killed by Tatay Kulas (gunshot); 3 teams left
+[match  263.5] alive: North Team 5, East Team 7; score { 0: 24, 1: 18, 2: 11 }
+[match  264.0] [radio] Kumareng Marites (sniper): affirmative
+[match  264.0] [radio] Tatay Kulas (looter): kill
+[match  264.8] [radio] Tito Boy (sniper): affirmative
+[match  267.1] Kulot Sabaw respawned at (-40.0, 0.0, -24.0) (nearest enemy 28 m)
+[match  268.5] Bebot Karaoke respawned at (-40.0, 0.0, -25.0) (nearest enemy 27 m)
+[match  270.0] status: { "ground": 21 }; armed 21; shots 1122; zone -1 hold r=131; corpses 64; levels { "L5": 2, "L1": 15, "between": 3, "L2": 1 }; server tick avg 4.47 ms, p99 39.09 ms, max 53.77 ms over 900 ticks
+[match  270.0] dm teams: North Team 7 at (-46.0, -32.0) spread 12 m; East Team 7 at (52.0, -39.0) spread 5 m; South Team 7 at (-17.0, 13.0) spread 52 m; gap 98 m; zone centre (-7.0, 13.0)
+[match  270.0] bots: { "camp": 1, "roam": 15, "hunt": 2, "investigate": 2, "heal": 1 }; containers searched by bots 0 (all players 0); plan steps done 0; guns carried 43
+[match  270.0] roles: { "looter": { "camp": 1, "roam": 6, "investigate": 1 }, "stalker": { "hunt": 2, "heal": 1, "investigate": 1 }, "sniper": { "roam": 8 }, "rusher": { "roam": 1 } }; stuck now 0; waypoints 1304; team { "lines": 346, "pings": 0, "laser_follow": 0, "learned_cells": 96, "blocked_cells": 27, "squads": 6, "following_humans": 0, &"learned_spots": 0 }
+[match  270.0] [lootstats] bots on the ground 21 (in water 0); armed 21; armed with ammo for a gun 21; long guns 22; attachments fitted 0; rounds of unusable ammo carried 0; items on the ground 412; bot pickups { "detours": 6, "detour_taken": 6, "fetches": 0, "fetch_done": 0, "items_taken": 6 }
+[match  270.2] [radio] Manong Guard (looter): sneaking
+[match  273.0] [radio] Kulot Sabaw (sniper): sniping
+[match  277.9] [radio] Bossing Barbecue (sniper): in_position
+[match  278.2] [radio] Pareng Jun (sniper): contact
+[match  279.4] [radio] Kulot Sabaw (sniper): taking_fire
+[match  280.0] Ka Pedring (team 2) landed at (53.0, 18.0, -44.0), 2.5 m/s, health 100; teammates 74 m, 135 m, 136 m, 82 m, 122 m
+[match  280.1] Boy Pickup (team 2) landed at (-54.0, 11.0, -42.0), 5.7 m/s, health 100; teammates 65 m, 80 m, 82 m, 132 m, 66 m, 107 m
+[match  281.3] [radio] Kumareng Marites (sniper): contact
+[match  281.6] [radio] Mang Jolo (looter): contact
+[match  281.6] [radio] Ka Pedring (looter): contact
+[match  283.5] Kuya Fishball killed by Kulot Sabaw (gunshot); 3 teams left
+[match  283.5] alive: North Team 7, East Team 7; score { 0: 25, 1: 18, 2: 11 }
+[match  284.1] [radio] Kulot Sabaw (sniper): headshot_kill
+[match  284.1] [radio] Aling Puring (looter): down
+[match  285.0] status: { "ground": 20 }; armed 20; shots 1196; zone -1 hold r=131; corpses 65; levels { "L5": 1, "L1": 12, "between": 4, "L2": 2, "L3": 1 }; server tick avg 4.45 ms, p99 36.00 ms, max 72.89 ms over 900 ticks
+[match  285.0] dm teams: North Team 7 at (-34.0, -27.0) spread 33 m; East Team 7 at (52.0, -41.0) spread 5 m; South Team 6 at (-12.0, 3.0) spread 51 m; gap 87 m; zone centre (-7.0, 13.0)
+[match  285.0] bots: { "camp": 2, "investigate": 11, "roam": 1, "overwatch": 1, "hunt": 2, "fight": 3 }; containers searched by bots 0 (all players 0); plan steps done 0; guns carried 41
+[match  285.0] roles: { "looter": { "camp": 2, "investigate": 4, "fight": 1 }, "stalker": { "investigate": 3, "hunt": 1 }, "sniper": { "roam": 1, "investigate": 4, "overwatch": 1, "fight": 2 }, "rusher": { "hunt": 1 } }; stuck now 0; waypoints 1304; team { "lines": 356, "pings": 0, "laser_follow": 0, "learned_cells": 97, "blocked_cells": 27, "squads": 6, "following_humans": 0, &"learned_spots": 0 }
+[match  285.0] [lootstats] bots on the ground 20 (in water 0); armed 20; armed with ammo for a gun 20; long guns 21; attachments fitted 0; rounds of unusable ammo carried 0; items on the ground 412; bot pickups { "detours": 6, "detour_taken": 6, "fetches": 0, "fetch_done": 0, "items_taken": 6 }
+[match  285.7] [radio] Ka Pedring (looter): taking_fire
+[match  285.9] [radio] Lola Basyang Jr (stalker): clear
+[match  287.1] [radio] Kapitbahay Lito (looter): sneaking
+[match  287.9] [radio] Boy Pickup (stalker): clear
+[match  287.9] [radio] Manong Guard (looter): taking_fire
+[match  288.2] Manong Guard killed by Bebot Karaoke (gunshot); 3 teams left
+[match  288.2] alive: North Team 7, East Team 6; score { 0: 26, 1: 18, 2: 11 }
+[match  288.5] Kuya Fishball respawned at (-3.0, 20.0, 32.0) (nearest enemy 37 m)
+[match  288.5] [radio] Tito Boy (sniper): contact
+[match  288.6] Pareng Jun killed by Kulot Sabaw (gunshot); 3 teams left
+[match  288.6] alive: North Team 7, East Team 6; score { 0: 27, 1: 18, 2: 11 }
+[match  288.7] [radio] Kapitan Tikoy (sniper): affirmative
+[match  288.8] [radio] Mang Tomas Ketchup (sniper): down
+[match  289.6] [radio] Tatay Kulas (looter): affirmative
+[match  289.6] Ka Pedring killed by Mang Jolo (gunshot); 3 teams left
+[match  289.6] alive: North Team 7, East Team 6; score { 0: 27, 1: 19, 2: 11 }
+[match  289.6] [radio] Bebot Karaoke (rusher): kill
+[match  289.8] [radio] Aling Taho (stalker): affirmative
+[match  290.6] [radio] Kapitbahay Lito (looter): affirmative
+[match  290.6] [radio] Kulot Sabaw (sniper): headshot_kill
+[match  290.8] [radio] Aling Puring (looter): affirmative
+[match  291.5] [radio] Mang Jolo (looter): kill
+[match  291.8] [radio] Aling Puring (looter): down
+[match  292.8] [radio] Aling Puring (looter): affirmative
+[match  292.8] Kulot Sabaw (team 0) landed at (-52.0, 0.0, -3.0), 4.9 m/s, health 68; teammates 41 m, 53 m, 37 m, 34 m, 39 m
+[match  293.2] [radio] Lola Basyang Jr (stalker): taking_fire
+[match  293.3] Manong Guard respawned at (42.0, 10.0, -26.0) (nearest enemy 27 m)
+[match  293.6] Pareng Jun respawned at (0.0, 20.0, 32.0) (nearest enemy 37 m)
+[match  293.8] [radio] Boy Pickup (stalker): taking_fire
+[match  294.1] [radio] Ate Load Dito (stalker): taking_fire
+[match  294.6] Ka Pedring respawned at (0.0, 20.0, 30.0) (nearest enemy 36 m)
+[match  295.1] [radio] Lola Basyang Jr (stalker): affirmative
+[match  295.6] [radio] Boy Pickup (stalker): need_help
+[match  295.9] [radio] Kumareng Marites (sniper): taking_fire
+[match  296.5] Kumareng Marites killed by Boy Pickup (gunshot); 3 teams left
+[match  296.5] alive: North Team 6, East Team 7; score { 0: 27, 1: 19, 2: 12 }
+[match  296.6] [radio] Aling Puring (looter): affirmative
+[match  296.7] [radio] Lola Basyang Jr (stalker): affirmative
+[match  297.4] [radio] Ate Load Dito (stalker): down
+[match  297.5] [radio] Boy Pickup (stalker): headshot_kill
+[match  297.8] [radio] Manong Guard (sniper): sniping
+[match  297.8] Boy Pickup killed by Lola Basyang Jr (gunshot); 3 teams left
+[match  297.8] alive: North Team 6, East Team 7; score { 0: 28, 1: 19, 2: 12 }
+[match  298.3] [radio] Lola Basyang Jr (stalker): kill
+[match  298.4] [radio] Aling Puring (looter): down
+[match  299.1] [radio] Kapitan Tikoy (sniper): affirmative
+[match  299.5] [radio] Tito Boy (sniper): affirmative
+[match  300.0] status: { "ground": 19 }; armed 19; shots 1284; zone -1 hold r=131; corpses 70; levels { "L5": 4, "L1": 12, "L2": 1, "L3": 2 }; server tick avg 4.78 ms, p99 37.13 ms, max 74.53 ms over 900 ticks
+[match  300.0] dm teams: North Team 6 at (-37.0, -26.0) spread 29 m; East Team 7 at (48.0, -36.0) spread 11 m; South Team 6 at (-15.0, 21.0) spread 22 m; gap 85 m; zone centre (-7.0, 13.0)
+[match  300.0] bots: { "roam": 10, "heal": 1, "overwatch": 1, "investigate": 4, "order": 2, "hunt": 1 }; containers searched by bots 0 (all players 0); plan steps done 0; guns carried 39
+[match  300.0] [stuck] Aling Puring (looter, roam) at (-16.9, 20.0, -4.4) -> (-5.5, 20.0, 2.5), ahead low, no_prog 1.9
+[match  300.0] [stuck] Kapitan Tikoy (sniper, roam) at (-53.9, 0.0, 34.5) -> (-54.5, 0.0, 38.5), ahead wall, no_prog 1.8
+[match  300.0] roles: { "looter": { "roam": 3, "investigate": 1, "order": 2 }, "stalker": { "heal": 1, "investigate": 2, "roam": 1 }, "sniper": { "roam": 6, "overwatch": 1, "investigate": 1 }, "rusher": { "hunt": 1 } }; stuck now 2; waypoints 1304; team { "lines": 388, "pings": 0, "laser_follow": 0, "learned_cells": 98, "blocked_cells": 27, "squads": 6, "following_humans": 0, &"learned_spots": 0 }
+[match  300.0] [lootstats] bots on the ground 19 (in water 0); armed 19; armed with ammo for a gun 19; long guns 20; attachments fitted 0; rounds of unusable ammo carried 0; items on the ground 412; bot pickups { "detours": 6, "detour_taken": 6, "fetches": 0, "fetch_done": 0, "items_taken": 6 }
+[match  301.5] Kumareng Marites respawned at (-40.0, 0.0, -29.0) (nearest enemy 39 m)
+[navwatch] malasugue_mall: 5953 bot-s (4428 moving), stalls 19 (0.2/bot-min, 3.1% of moving time), facing a wall 20 (0.2/bot-min)
+[match  302.9] Boy Pickup respawned at (-4.0, 20.0, 30.0) (nearest enemy 36 m)
+[match  302.9] [radio] Kuya Fishball (sniper): in_position
+[match  305.2] Manong Guard (team 1) landed at (51.0, 0.0, -39.0), 12.3 m/s, health 100; teammates 3 m, 4 m, 2 m, 2 m, 7 m, 56 m
+[match  305.8] [radio] Aling Puring (looter): in_position
+[match  306.9] [radio] Kumareng Marites (rusher): hunting
+[match  307.7] [radio] Boy Pickup (stalker): sneaking
+[match  313.2] [radio] Tatay Kulas (looter): clear
+[match  314.5] Kumareng Marites (team 0) landed at (-51.0, 0.0, -40.0), 7.0 m/s, health 100; teammates 3 m, 66 m, 1 m, 4 m, 8 m
+[match  314.9] Ka Pedring (team 2) landed at (-56.0, 10.0, 39.0), 12.3 m/s, health 100; teammates 64 m, 13 m, 74 m
+[match  315.0] status: { "ground": 21 }; armed 21; shots 1284; zone -1 hold r=131; corpses 70; levels { "L5": 4, "L1": 12, "L2": 2, "L3": 2, "between": 1 }; server tick avg 3.39 ms, p99 29.20 ms, max 63.80 ms over 900 ticks
+[match  315.0] dm teams: North Team 7 at (-45.0, -34.0) spread 17 m; East Team 7 at (44.0, -34.0) spread 19 m; South Team 7 at (-18.0, 13.0) spread 38 m; gap 89 m; zone centre (-7.0, 13.0)
+[match  315.0] bots: { "camp": 1, "hunt": 6, "roam": 8, "overwatch": 2, "investigate": 4 }; containers searched by bots 0 (all players 0); plan steps done 0; guns carried 43
+[match  315.0] roles: { "looter": { "camp": 1, "investigate": 2, "roam": 3 }, "stalker": { "hunt": 4, "investigate": 1 }, "sniper": { "roam": 5, "overwatch": 2, "investigate": 1 }, "rusher": { "hunt": 2 } }; stuck now 0; waypoints 1304; team { "lines": 393, "pings": 0, "laser_follow": 0, "learned_cells": 98, "blocked_cells": 29, "squads": 6, "following_humans": 0, &"learned_spots": 0 }
+[match  315.0] [lootstats] bots on the ground 21 (in water 0); armed 21; armed with ammo for a gun 21; long guns 22; attachments fitted 0; rounds of unusable ammo carried 0; items on the ground 412; bot pickups { "detours": 6, "detour_taken": 6, "fetches": 0, "fetch_done": 0, "items_taken": 6 }
+[match  317.5] Bebot Karaoke (team 0) landed at (-51.0, 0.0, -40.0), 7.0 m/s, health 100; teammates 2 m, 66 m, 3 m, 2 m, 9 m, 4 m
+[match  317.9] [radio] Mang Jolo (looter): in_position
+[match  318.7] [radio] Pareng Jun (looter): contact
+[match  319.8] Pareng Jun (team 2) landed at (51.0, 10.0, -39.0), 12.3 m/s, health 100; teammates 69 m, 140 m, 73 m, 131 m
+[match  320.4] [radio] Bossing Barbecue (sniper): taking_fire
+[match  321.1] [radio] Aling Taho (stalker): taking_fire
+[match  322.1] [radio] Aling Puring (looter): affirmative
+[match  322.1] Boy Pickup (team 2) landed at (-56.0, 10.0, 40.0), 12.3 m/s, health 100; teammates 74 m, 13 m, 61 m, 138 m, 8 m
+[match  323.1] [radio] Kuya Fishball (sniper): affirmative
+[match  323.1] [radio] Bossing Barbecue (sniper): taking_fire
+[match  323.8] [radio] Mang Jolo (looter): taking_fire
+[match  324.1] [radio] Bossing Barbecue (sniper): need_help
+[match  324.5] [radio] Aling Puring (looter): need_help
+[match  324.8] [radio] Mang Jolo (looter): need_help
+[match  324.9] Mang Jolo killed by Aling Puring (gunshot); 3 teams left
+[match  324.9] alive: North Team 7, East Team 6; score { 0: 28, 1: 19, 2: 13 }
+[match  325.2] [radio] Kulot Sabaw (sniper): affirmative
+[match  325.5] [radio] Aling Puring (looter): headshot_kill
+[match  325.8] [radio] Manong Guard (sniper): affirmative
+[match  326.2] [radio] Ate Load Dito (stalker): affirmative
+[match  326.2] Pareng Jun killed by Kapitbahay Lito (gunshot); 3 teams left
+[match  326.2] alive: North Team 7, East Team 6; score { 0: 28, 1: 20, 2: 13 }
+[match  326.5] [radio] Kuya Fishball (sniper): affirmative
+[match  326.7] [radio] Kapitbahay Lito (looter): kill
+[match  326.7] Aling Taho killed by Bossing Barbecue (gunshot); 3 teams left
+[match  326.7] alive: North Team 7, East Team 6; score { 0: 29, 1: 20, 2: 13 }
+[match  327.1] [radio] Bossing Barbecue (sniper): headshot_kill
+[match  327.2] [radio] Aling Puring (looter): affirmative
+[match  327.7] [radio] Mang Tomas Ketchup (sniper): affirmative
+[match  328.0] [radio] Kuya Fishball (sniper): affirmative
+[match  328.7] [radio] Mang Tomas Ketchup (sniper): down
+[match  329.1] [radio] Aling Puring (looter): down
+[match  329.9] Mang Jolo respawned at (44.0, 10.0, -28.0) (nearest enemy 42 m)
+[match  330.0] status: { "ground": 19 }; armed 19; shots 1319; zone -1 hold r=131; corpses 73; levels { "L4": 1, "L1": 12, "between": 2, "L3": 3, "L5": 1 }; server tick avg 4.28 ms, p99 35.23 ms, max 52.19 ms over 900 ticks
+[match  330.0] dm teams: North Team 7 at (-40.0, -30.0) spread 20 m; East Team 7 at (51.0, -37.0) spread 6 m; South Team 5 at (-37.0, 19.0) spread 31 m; gap 92 m; zone centre (-7.0, 13.0)
+[match  330.0] bots: { "heal": 2, "order": 2, "roam": 9, "hunt": 5, "investigate": 1 }; containers searched by bots 0 (all players 0); plan steps done 0; guns carried 39
+[match  330.0] [stuck] Kapitan Tikoy (sniper, roam) at (-65.4, 0.0, 35.2) -> (-64.5, 0.0, 30.5), ahead wall, no_prog 3.1
+[match  330.0] [stuck] Bossing Barbecue (sniper, heal) at (7.1, 0.8, -1.9) -> (6.5, 5.0, -2.5), ahead , no_prog 3.1
+[match  330.0] [stuck] Tito Videoke (looter, roam) at (56.0, 0.0, -40.9) -> (57.5, 0.0, -43.5), ahead , no_prog 2.7
+[match  330.0] [stuck] Manong Guard (sniper, investigate) at (49.6, 0.0, -34.0) -> (52.5, 0.0, -38.5), ahead wall, no_prog 2.4
+[match  330.0] [stuck] Kumareng Marites (rusher, hunt) at (-53.5, 0.0, -43.7) -> (-52.5, 5.0, -38.5), ahead , no_prog 2.1
+[match  330.0] roles: { "looter": { "heal": 1, "roam": 4 }, "stalker": { "order": 1, "hunt": 3 }, "sniper": { "roam": 5, "heal": 1, "order": 1, "investigate": 1 }, "rusher": { "hunt": 2 } }; stuck now 5; waypoints 1304; team { "lines": 416, "pings": 0, "laser_follow": 0, "learned_cells": 99, "blocked_cells": 30, "squads": 6, "following_humans": 0, &"learned_spots": 0 }
+[match  330.0] [lootstats] bots on the ground 19 (in water 0); armed 19; armed with ammo for a gun 19; long guns 20; attachments fitted 0; rounds of unusable ammo carried 0; items on the ground 412; bot pickups { "detours": 6, "detour_taken": 6, "fetches": 0, "fetch_done": 0, "items_taken": 6 }
+[match  330.1] [radio] Aling Puring (looter): down
+[match  331.2] Pareng Jun respawned at (-1.0, 20.0, 30.0) (nearest enemy 39 m)
+[match  331.7] Aling Taho respawned at (0.0, 20.0, 32.0) (nearest enemy 39 m)
+[match  335.3] [radio] Tito Videoke (looter): sneaking
+[match  336.3] [radio] Aling Taho (rusher): hunting
+[match  336.3] Aling Puring killed by Mang Jolo (bleeding); 3 teams left
+[match  336.3] alive: North Team 7, East Team 7; score { 0: 29, 1: 21, 2: 13 }
+[match  337.3] [radio] Kuya Fishball (sniper): down
+[match  337.9] [radio] Ate Load Dito (stalker): in_position
+[match  340.0] [radio] Kuya Fishball (sniper): in_position
+[match  340.9] Aling Taho (team 2) landed at (10.0, 20.0, 33.0), 3.1 m/s, health 100; teammates 44 m, 58 m, 65 m
+[match  341.3] Aling Puring respawned at (0.0, 20.0, 32.0) (nearest enemy 34 m)
+[match  342.0] Mang Jolo (team 1) landed at (50.0, 0.0, -39.0), 12.3 m/s, health 100; teammates 7 m, 7 m, 7 m, 7 m, 5 m, 5 m
+[match  344.0] [radio] Bebot Karaoke (rusher): contact
+[match  344.1] [radio] Kapitan Tikoy (sniper): contact
+[match  344.8] [radio] Ate Load Dito (stalker): need_help
+[match  345.0] status: { "ground": 21 }; armed 21; shots 1331; zone -1 hold r=131; corpses 74; levels { "L1": 12, "between": 3, "L2": 2, "L5": 4 }; server tick avg 3.20 ms, p99 22.78 ms, max 67.73 ms over 900 ticks
+[match  345.0] dm teams: North Team 7 at (-26.0, -17.0) spread 29 m; East Team 7 at (52.0, -37.0) spread 4 m; South Team 7 at (-12.0, 12.0) spread 34 m; gap 80 m; zone centre (-7.0, 13.0)
+[match  345.0] bots: { "heal": 1, "fight": 3, "roam": 10, "order": 2, "hunt": 4, "overwatch": 1 }; containers searched by bots 0 (all players 0); plan steps done 0; guns carried 43
+[match  345.0] [stuck] Kapitbahay Lito (looter, roam) at (51.1, 5.0, -33.7) -> (51.5, 5.0, -37.5), ahead , no_prog 2.1
+[match  345.0] roles: { "stalker": { "heal": 1, "hunt": 3 }, "sniper": { "fight": 1, "roam": 4, "order": 2, "overwatch": 1 }, "looter": { "roam": 5 }, "rusher": { "fight": 2, "hunt": 1, "roam": 1 } }; stuck now 1; waypoints 1304; team { "lines": 425, "pings": 0, "laser_follow": 0, "learned_cells": 99, "blocked_cells": 30, "squads": 6, "following_humans": 0, &"learned_spots": 0 }
+[match  345.0] [lootstats] bots on the ground 21 (in water 0); armed 21; armed with ammo for a gun 21; long guns 22; attachments fitted 0; rounds of unusable ammo carried 0; items on the ground 412; bot pickups { "detours": 6, "detour_taken": 6, "fetches": 0, "fetch_done": 0, "items_taken": 6 }
+[match  345.5] [radio] Kapitan Tikoy (sniper): need_help
+[match  345.6] [radio] Manong Guard (sniper): clear
+[match  345.7] Ate Load Dito killed by Kapitan Tikoy (bleeding); 3 teams left
+[match  345.7] alive: North Team 6, East Team 7; score { 0: 29, 1: 21, 2: 14 }
+[match  345.7] [radio] Bossing Barbecue (sniper): affirmative
+[match  346.2] [radio] Kapitan Tikoy (sniper): kill
+[match  346.3] Kapitan Tikoy killed by Kumareng Marites (gunshot); 3 teams left
+[match  346.3] alive: North Team 6, East Team 7; score { 0: 30, 1: 21, 2: 14 }
+[match  346.4] Bebot Karaoke killed by Kapitan Tikoy (bleeding); 3 teams left
+[match  346.4] alive: North Team 5, East Team 7; score { 0: 30, 1: 21, 2: 15 }
+[match  346.7] [radio] Kulot Sabaw (sniper): affirmative
+[match  347.0] [radio] Ka Pedring (stalker): affirmative
+[match  347.7] [radio] Kumareng Marites (rusher): headshot_kill
+[match  347.8] [radio] Aling Puring (rusher): affirmative
+[match  348.6] [radio] Kuya Fishball (sniper): down
+[match  348.7] [radio] Bossing Barbecue (sniper): affirmative
+[match  349.7] [radio] Bossing Barbecue (sniper): down
+[match  350.7] [radio] Bossing Barbecue (sniper): down
+[match  350.7] Ate Load Dito respawned at (-42.0, 0.0, -27.0) (nearest enemy 13 m)
+[match  351.3] Kapitan Tikoy respawned at (7.0, 20.0, 25.0) (nearest enemy 31 m)
+[match  351.4] Bebot Karaoke respawned at (-40.0, 0.0, -29.0) (nearest enemy 13 m)
+[match  354.1] Aling Taho killed by the world (fall); 3 teams left
+[match  354.1] alive: North Team 7, East Team 7; score { 0: 30, 1: 21, 2: 15 }
+[match  354.1] [radio] Pareng Jun (looter): in_position
+[match  355.1] [radio] Kapitan Tikoy (looter): down
+[match  356.5] [radio] Bebot Karaoke (stalker): sneaking
+[match  359.1] Aling Taho respawned at (0.0, 20.0, 30.0) (nearest enemy 31 m)
+[match  360.0] status: { "ground": 21 }; armed 21; shots 1366; zone -1 hold r=131; corpses 78; levels { "L1": 13, "L3": 1, "between": 2, "L5": 4, "L2": 1 }; server tick avg 3.07 ms, p99 19.74 ms, max 34.19 ms over 900 ticks
+[match  360.0] dm teams: North Team 7 at (-25.0, -23.0) spread 31 m; East Team 7 at (51.0, -38.0) spread 5 m; South Team 7 at (-18.0, 9.0) spread 42 m; gap 78 m; zone centre (-7.0, 13.0)
+[match  360.0] bots: { "roam": 9, "overwatch": 2, "camp": 3, "hunt": 7 }; containers searched by bots 0 (all players 0); plan steps done 0; guns carried 43
+[match  360.0] [stuck] Tito Videoke (looter, roam) at (52.5, 0.5, -32.9) -> (52.5, 0.0, -38.5), ahead , no_prog 2.5
+[match  360.0] [stuck] Boy Pickup (stalker, hunt) at (-57.7, 0.3, 36.4) -> (-56.0, 0.0, 35.8), ahead wall, no_prog 1.8
+[match  360.0] roles: { "sniper": { "roam": 5, "overwatch": 2 }, "looter": { "roam": 3, "camp": 3 }, "stalker": { "hunt": 4 }, "rusher": { "hunt": 3, "roam": 1 } }; stuck now 2; waypoints 1304; team { "lines": 440, "pings": 0, "laser_follow": 0, "learned_cells": 100, "blocked_cells": 30, "squads": 6, "following_humans": 0, &"learned_spots": 0 }
+[match  360.0] [lootstats] bots on the ground 21 (in water 0); armed 21; armed with ammo for a gun 21; long guns 22; attachments fitted 0; rounds of unusable ammo carried 0; items on the ground 412; bot pickups { "detours": 6, "detour_taken": 6, "fetches": 0, "fetch_done": 0, "items_taken": 6 }
+[match  361.6] [radio] Aling Puring (rusher): hunting
+[match  361.6] [radio] Kulot Sabaw (sniper): contact
+[match  361.7] [radio] Tito Videoke (looter): contact
+[match  362.2] Aling Puring (team 2) landed at (-56.0, 0.0, 40.0), 18.8 m/s, health 100; teammates 77 m, 11 m
+[match  362.2] Aling Puring killed by the world (fall); 3 teams left
+[match  362.2] alive: North Team 7, East Team 7; score { 0: 30, 1: 21, 2: 15 }
+[navwatch] malasugue_mall: 7176 bot-s (5406 moving), stalls 19 (0.2/bot-min, 2.5% of moving time), facing a wall 22 (0.2/bot-min)
+[match  362.7] [radio] Bossing Barbecue (sniper): affirmative
+[match  362.7] [radio] Kuya Fishball (sniper): down
+[match  362.9] Kulot Sabaw killed by Tito Videoke (bleeding); 3 teams left
+[match  362.9] alive: North Team 6, East Team 7; score { 0: 30, 1: 22, 2: 15 }
+[match  363.4] [radio] Bossing Barbecue (sniper): down
+[match  363.5] [radio] Tito Videoke (looter): kill
+[match  364.2] Bebot Karaoke (team 0) landed at (-51.0, 0.0, -40.0), 7.0 m/s, health 100; teammates 65 m, 3 m, 4 m, 68 m
+[match  364.5] [radio] Ate Load Dito (rusher): affirmative
+[match  367.2] Aling Puring respawned at (-4.0, 20.0, 30.0) (nearest enemy 36 m)
+[match  367.5] [radio] Mang Jolo (looter): in_position
+[match  367.9] Kulot Sabaw respawned at (-43.0, 0.0, -29.0) (nearest enemy 21 m)
+[match  370.6] [radio] Ka Pedring (stalker): sneaking
+[match  371.1] [radio] Kumareng Marites (rusher): contact
+[match  372.1] [radio] Mang Jolo (looter): clear
+[match  372.5] [radio] Aling Puring (looter): sneaking
+[match  372.7] Mang Jolo killed by Kumareng Marites (gunshot); 3 teams left
+[match  372.7] alive: North Team 7, East Team 6; score { 0: 31, 1: 22, 2: 15 }
+[match  372.8] [radio] Tito Videoke (looter): need_help
+[match  373.1] [radio] Kulot Sabaw (rusher): hunting
+[match  373.3] Tito Videoke killed by Kumareng Marites (gunshot); 3 teams left
+[match  373.3] alive: North Team 7, East Team 5; score { 0: 32, 1: 22, 2: 15 }
+[match  373.6] [radio] Mang Tomas Ketchup (sniper): down
+[match  373.9] Ate Load Dito (team 0) landed at (10.0, 0.0, -47.0), 4.9 m/s, health 100; teammates 49 m, 65 m, 66 m, 30 m, 64 m
+[match  374.1] [radio] Kumareng Marites (rusher): headshot_kill
+[match  374.4] [radio] Tatay Kulas (looter): affirmative
+[match  375.0] status: { "ground": 19 }; armed 19; shots 1397; zone -1 hold r=131; corpses 82; levels { "L1": 11, "L3": 1, "L5": 4, "L2": 1, "between": 2 }; server tick avg 3.07 ms, p99 26.69 ms, max 40.22 ms over 900 ticks
+[match  375.0] dm teams: North Team 7 at (-22.0, -32.0) spread 35 m; East Team 5 at (52.0, -38.0) spread 6 m; South Team 7 at (-7.0, -5.0) spread 44 m; gap 74 m; zone centre (-7.0, 13.0)
+[match  375.0] bots: { "order": 2, "overwatch": 2, "roam": 5, "camp": 2, "hunt": 8 }; containers searched by bots 0 (all players 0); plan steps done 0; guns carried 40
+[match  375.0] roles: { "sniper": { "order": 1, "overwatch": 2, "roam": 3 }, "looter": { "camp": 2, "order": 1, "roam": 2 }, "stalker": { "hunt": 4 }, "rusher": { "hunt": 4 } }; stuck now 0; waypoints 1304; team { "lines": 458, "pings": 0, "laser_follow": 0, "learned_cells": 100, "blocked_cells": 30, "squads": 6, "following_humans": 0, &"learned_spots": 0 }
+[match  375.0] [lootstats] bots on the ground 19 (in water 0); armed 19; armed with ammo for a gun 19; long guns 21; attachments fitted 1; rounds of unusable ammo carried 0; items on the ground 410; bot pickups { "detours": 7, "detour_taken": 7, "fetches": 0, "fetch_done": 0, "items_taken": 8 }
+[match  375.1] [radio] Kumareng Marites (rusher): kill
+[match  375.5] [radio] Mang Tomas Ketchup (sniper): affirmative
+[match  376.5] [radio] Mang Tomas Ketchup (sniper): down
+[match  377.4] [radio] Tatay Kulas (looter): taking_fire
+[match  377.6] Aling Taho (team 2) landed at (51.0, 10.0, 38.0), 12.3 m/s, health 100; teammates 102 m, 117 m
+[match  377.7] Mang Jolo respawned at (42.0, 10.0, -23.0) (nearest enemy 16 m)
+[match  378.2] [radio] Totoy Bibo (sniper): affirmative
+[match  378.3] Tito Videoke respawned at (40.0, 10.0, -26.0) (nearest enemy 15 m)
+[match  379.1] [radio] Ka Pedring (stalker): clear
+[match  379.2] [radio] Mang Tomas Ketchup (sniper): affirmative
+[match  380.0] [radio] Kumareng Marites (rusher): taking_fire
+[match  381.0] [radio] Boy Pickup (stalker): contact
+[match  381.3] [radio] Manong Guard (sniper): contact
+[match  382.0] [radio] Kumareng Marites (rusher): need_help
+[match  382.0] Kumareng Marites killed by Mang Tomas Ketchup (gunshot); 3 teams left
+[match  382.0] alive: North Team 6, East Team 7; score { 0: 32, 1: 23, 2: 15 }
+[match  382.5] [radio] Mang Tomas Ketchup (sniper): kill
+[match  382.7] Kapitan Tikoy (team 2) landed at (-56.0, 10.0, -39.0), 12.3 m/s, health 100; teammates 23 m, 27 m, 135 m
+[match  383.0] [radio] Ate Load Dito (rusher): affirmative
+[match  383.9] [radio] Kulot Sabaw (rusher): affirmative
+[match  386.2] [radio] Bebot Karaoke (stalker): taking_fire
+[match  386.9] [radio] Aling Taho (rusher): contact
+[match  387.0] Kumareng Marites respawned at (-38.0, 0.0, -29.0) (nearest enemy 7 m)
+[match  387.1] [radio] Tatay Kulas (looter): reloading
+[match  390.0] status: { "ground": 21 }; armed 21; shots 1504; zone -1 hold r=131; corpses 83; levels { "L1": 11, "between": 2, "L3": 3, "L5": 3, "L2": 2 }; server tick avg 4.07 ms, p99 29.98 ms, max 46.40 ms over 900 ticks
+[match  390.0] dm teams: North Team 7 at (-18.0, -31.0) spread 39 m; East Team 7 at (51.0, -35.0) spread 6 m; South Team 7 at (-7.0, -19.0) spread 49 m; gap 70 m; zone centre (-7.0, 13.0)
+[match  390.0] bots: { "order": 2, "overwatch": 2, "investigate": 4, "roam": 3, "heal": 1, "hunt": 4, "fight": 4, "camp": 1 }; containers searched by bots 0 (all players 0); plan steps done 0; guns carried 44
+[match  390.0] roles: { "sniper": { "order": 2, "overwatch": 2, "investigate": 1, "fight": 1 }, "looter": { "roam": 3, "heal": 1, "camp": 1, "investigate": 1 }, "stalker": { "hunt": 3, "fight": 1, "investigate": 2 }, "rusher": { "fight": 2, "hunt": 1 } }; stuck now 0; waypoints 1304; team { "lines": 475, "pings": 0, "laser_follow": 0, "learned_cells": 100, "blocked_cells": 30, "squads": 6, "following_humans": 0, &"learned_spots": 0 }
+[match  390.0] [lootstats] bots on the ground 21 (in water 0); armed 21; armed with ammo for a gun 21; long guns 23; attachments fitted 1; rounds of unusable ammo carried 0; items on the ground 410; bot pickups { "detours": 7, "detour_taken": 7, "fetches": 0, "fetch_done": 0, "items_taken": 8 }
+[match  390.8] [radio] Kulot Sabaw (rusher): taking_fire
+[match  391.1] [radio] Boy Pickup (stalker): reloading
+[match  391.2] [radio] Mang Tomas Ketchup (sniper): taking_fire
+[match  391.7] [radio] Bossing Barbecue (sniper): affirmative
+[match  392.0] Kulot Sabaw killed by Manong Guard (gunshot); 3 teams left
+[match  392.0] alive: North Team 6, East Team 7; score { 0: 32, 1: 24, 2: 15 }
+[match  392.2] [radio] Mang Tomas Ketchup (sniper): affirmative
+[match  392.4] [radio] Bossing Barbecue (sniper): down
+[match  393.0] [radio] Manong Guard (sniper): kill
+[match  393.3] [radio] Ate Load Dito (rusher): taking_fire
+[match  393.4] Manong Guard killed by Ate Load Dito (gunshot); 3 teams left
+[match  393.4] alive: North Team 6, East Team 6; score { 0: 33, 1: 24, 2: 15 }
+[match  393.8] [radio] Boy Pickup (stalker): taking_fire
+[match  394.0] [radio] Mang Tomas Ketchup (sniper): down
+[match  394.3] [radio] Kumareng Marites (looter): affirmative
+[match  394.3] Aling Puring (team 2) landed at (51.0, 0.0, -40.0), 18.5 m/s, health 100; teammates 104 m, 113 m, 105 m, 52 m
+[match  394.3] Aling Puring killed by the world (fall); 3 teams left
+[match  394.3] alive: North Team 6, East Team 6; score { 0: 33, 1: 24, 2: 15 }
+[match  394.7] [radio] Pareng Jun (looter): down
+[match  395.0] [radio] Totoy Bibo (sniper): affirmative
+[match  395.3] [radio] Ate Load Dito (rusher): kill
+[match  395.7] [radio] Kapitan Tikoy (looter): affirmative
+[match  396.7] [radio] Ka Pedring (stalker): affirmative
+[match  397.1] Kulot Sabaw respawned at (-37.0, 0.0, -27.0) (nearest enemy 20 m)
+[match  397.5] [radio] Kapitbahay Lito (looter): clear
+[match  397.8] [radio] Tito Boy (sniper): clear
+[match  398.2] Lola Basyang Jr killed by Kapitan Tikoy (gunshot); 3 teams left
+[match  398.2] alive: North Team 6, East Team 6; score { 0: 33, 1: 24, 2: 16 }
+[match  398.4] Manong Guard respawned at (40.0, 10.0, -24.0) (nearest enemy 16 m)
+[match  398.7] [radio] Kapitan Tikoy (looter): kill
+[match  398.8] [radio] Bebot Karaoke (stalker): taking_fire
+[match  398.9] Ate Load Dito killed by Mang Tomas Ketchup (gunshot); 3 teams left
+[match  398.9] alive: North Team 5, East Team 7; score { 0: 33, 1: 25, 2: 16 }
+[match  399.3] Bebot Karaoke killed by Ka Pedring (gunshot); 3 teams left
+[match  399.3] alive: North Team 4, East Team 7; score { 0: 33, 1: 25, 2: 17 }
+[match  399.3] Aling Puring respawned at (-3.0, 20.0, 32.0) (nearest enemy 42 m)
+[match  399.4] Kapitan Tikoy killed by Tito Boy (gunshot); 3 teams left
+[match  399.4] alive: North Team 4, East Team 7; score { 0: 34, 1: 25, 2: 17 }
+[match  399.4] [radio] Mang Tomas Ketchup (sniper): kill
+[match  399.6] [radio] Tito Boy (sniper): affirmative
+[match  399.8] [radio] Kuya Fishball (sniper): affirmative
+[match  400.3] [radio] Bossing Barbecue (sniper): affirmative
+[match  400.7] [radio] Pareng Jun (looter): affirmative
+[match  401.1] [radio] Kumareng Marites (looter): affirmative
+[match  401.2] Tito Videoke (team 1) landed at (53.0, 6.0, -42.0), 5.7 m/s, health 100; teammates 9 m, 6 m, 10 m, 7 m
+[match  401.4] [radio] Kuya Fishball (sniper): down
+[match  402.1] [radio] Kumareng Marites (looter): affirmative
+[match  402.2] [radio] Aling Taho (rusher): need_help
+[match  402.5] Aling Taho killed by Tatay Kulas (gunshot); 3 teams left
+[match  402.5] alive: North Team 4, East Team 7; score { 0: 34, 1: 26, 2: 17 }
+[match  402.8] [radio] Bossing Barbecue (sniper): down
+[match  403.0] [radio] Tatay Kulas (looter): sneaking
+[match  403.2] Lola Basyang Jr respawned at (-37.0, 0.0, -27.0) (nearest enemy 21 m)
+[match  403.2] [radio] Pareng Jun (looter): affirmative
+[match  403.6] [radio] Tito Boy (sniper): kill
+[match  403.9] Ate Load Dito respawned at (-38.0, 0.0, -29.0) (nearest enemy 22 m)
+[match  404.0] [radio] Tatay Kulas (looter): kill
+[match  404.2] [radio] Pareng Jun (looter): down
+[match  404.3] Bebot Karaoke respawned at (-40.0, 0.0, -25.0) (nearest enemy 20 m)
+[match  404.4] Kapitan Tikoy respawned at (0.0, 20.0, 32.0) (nearest enemy 37 m)
+[match  405.0] status: { "ground": 20 }; armed 20; shots 1652; zone -1 hold r=131; corpses 91; levels { "L1": 10, "between": 4, "L5": 4, "L2": 1, "L3": 1 }; server tick avg 5.03 ms, p99 28.17 ms, max 51.98 ms over 900 ticks
+[match  405.0] dm teams: North Team 7 at (-30.0, -22.0) spread 20 m; East Team 7 at (52.0, -38.0) spread 6 m; South Team 6 at (-22.0, -1.0) spread 38 m; gap 84 m; zone centre (-7.0, 13.0)
+[match  405.0] bots: { "heal": 1, "overwatch": 2, "investigate": 4, "roam": 9, "order": 2, "fight": 2 }; containers searched by bots 0 (all players 0); plan steps done 0; guns carried 42
+[match  405.0] roles: { "sniper": { "heal": 1, "overwatch": 2, "investigate": 1, "order": 1, "roam": 1 }, "looter": { "roam": 6, "fight": 1 }, "stalker": { "order": 1, "fight": 1, "investigate": 2, "roam": 2 }, "rusher": { "investigate": 1 } }; stuck now 0; waypoints 1304; team { "lines": 510, "pings": 0, "laser_follow": 0, "learned_cells": 100, "blocked_cells": 30, "squads": 6, "following_humans": 0, &"learned_spots": 0 }
+[match  405.0] [lootstats] bots on the ground 20 (in water 0); armed 20; armed with ammo for a gun 20; long guns 22; attachments fitted 1; rounds of unusable ammo carried 0; items on the ground 410; bot pickups { "detours": 7, "detour_taken": 7, "fetches": 0, "fetch_done": 0, "items_taken": 8 }
+[match  405.2] [radio] Aling Puring (sniper): affirmative
+[match  405.9] [radio] Boy Pickup (stalker): taking_fire
+[match  407.1] Boy Pickup killed by Tito Boy (gunshot); 3 teams left
+[match  407.1] alive: North Team 7, East Team 7; score { 0: 35, 1: 26, 2: 17 }
+[match  407.5] Aling Taho respawned at (-1.0, 20.0, 30.0) (nearest enemy 36 m)
+[match  407.7] [radio] Tito Boy (sniper): kill
+[match  407.7] [radio] Kuya Fishball (sniper): down
+[match  408.2] Mang Jolo (team 1) landed at (53.0, 2.0, -42.0), 6.4 m/s, health 100; teammates 6 m, 2 m, 8 m, 5 m, 2 m
+[match  410.2] Manong Guard (team 1) landed at (51.0, 0.0, -40.0), 12.3 m/s, health 100; teammates 3 m, 4 m, 6 m, 2 m, 2 m, 2 m
+[match  412.0] [radio] Tito Videoke (stalker): clear
+[match  412.1] Boy Pickup respawned at (1.0, 20.0, 29.0) (nearest enemy 32 m)
+[match  412.3] [radio] Aling Taho (sniper): sniping
+[match  414.0] [radio] Mang Jolo (stalker): sneaking
+[match  414.8] Kapitan Tikoy (team 2) landed at (-8.0, 20.0, 35.0), 4.9 m/s, health 100; teammates 84 m
+[match  416.6] Bebot Karaoke (team 0) landed at (-51.0, 0.0, -40.0), 7.0 m/s, health 100; teammates 65 m, 12 m
+[match  416.8] [radio] Ka Pedring (stalker): contact
+[match  416.8] [radio] Lola Basyang Jr (looter): contact
+[match  417.2] [radio] Totoy Bibo (sniper): sniping
+[match  417.8] [radio] Lola Basyang Jr (looter): need_help
+[match  418.3] [radio] Ka Pedring (stalker): need_help
+[match  418.8] [radio] Bebot Karaoke (looter): affirmative
+[match  419.4] [radio] Kuya Fishball (sniper): affirmative
+[match  419.8] Lola Basyang Jr (team 0) landed at (-51.0, 0.0, -42.0), 7.0 m/s, health 5; teammates 67 m, 3 m, 9 m
+[match  419.9] [radio] Kulot Sabaw (looter): affirmative
+[match  420.0] status: { "ground": 21 }; armed 21; shots 1682; zone -1 hold r=131; corpses 92; levels { "L1": 10, "between": 4, "L5": 6, "L2": 1 }; server tick avg 3.39 ms, p99 25.13 ms, max 49.19 ms over 900 ticks
+[match  420.0] dm teams: North Team 7 at (-35.0, -27.0) spread 25 m; East Team 7 at (50.0, -36.0) spread 6 m; South Team 7 at (-28.0, 8.0) spread 34 m; gap 86 m; zone centre (-7.0, 13.0)
+[match  420.0] bots: { "heal": 3, "overwatch": 1, "investigate": 3, "roam": 6, "order": 4, "hunt": 4 }; containers searched by bots 0 (all players 0); plan steps done 0; guns carried 44
+[match  420.0] [stuck] Kapitbahay Lito (looter, roam) at (52.0, 0.0, -38.3) -> (51.0, 0.0, -36.4), ahead , no_prog 1.7
+[match  420.0] [stuck] Tatay Kulas (looter, roam) at (48.4, 0.2, -35.8) -> (52.5, 0.0, -38.5), ahead , no_prog 2.9
+[match  420.0] [stuck] Totoy Bibo (sniper, roam) at (53.6, 0.0, -35.8) -> (51.0, 0.0, -34.2), ahead wall, no_prog 2.3
+[match  420.0] roles: { "sniper": { "heal": 1, "overwatch": 1, "investigate": 1, "roam": 4, "order": 1 }, "looter": { "roam": 2, "order": 3, "investigate": 1, "heal": 1 }, "stalker": { "heal": 1, "hunt": 3, "investigate": 1 }, "rusher": { "hunt": 1 } }; stuck now 3; waypoints 1304; team { "lines": 525, "pings": 0, "laser_follow": 0, "learned_cells": 101, "blocked_cells": 30, "squads": 6, "following_humans": 0, &"learned_spots": 0 }
+[match  420.0] [lootstats] bots on the ground 21 (in water 0); armed 21; armed with ammo for a gun 21; long guns 23; attachments fitted 1; rounds of unusable ammo carried 0; items on the ground 410; bot pickups { "detours": 7, "detour_taken": 7, "fetches": 0, "fetch_done": 0, "items_taken": 8 }
+[match  420.3] [radio] Pareng Jun (looter): affirmative
+[match  422.1] [radio] Tito Boy (sniper): contact
+[match  422.2] Aling Puring (team 2) landed at (-56.0, 15.0, 40.0), 7.0 m/s, health 100; teammates 80 m, 9 m
+[match  422.4] [radio] Ka Pedring (stalker): taking_fire
+[match  422.5] Ka Pedring killed by Tito Boy (gunshot); 3 teams left
+[match  422.5] alive: North Team 7, East Team 7; score { 0: 36, 1: 26, 2: 17 }
+[match  423.1] [radio] Tito Boy (sniper): kill
+[navwatch] malasugue_mall: 8368 bot-s (6198 moving), stalls 24 (0.2/bot-min, 2.8% of moving time), facing a wall 26 (0.2/bot-min)
+[match  423.4] [radio] Kuya Fishball (sniper): down
+[match  424.3] Pareng Jun (team 2) landed at (-18.0, 20.0, -9.0), 4.9 m/s, health 100; teammates 63 m, 59 m
+[match  424.3] Kumareng Marites (team 0) landed at (7.0, 15.0, 0.0), 2.5 m/s, health 100; teammates 16 m, 76 m, 75 m, 73 m
+[match  424.5] [radio] Bebot Karaoke (looter): in_position
+[match  426.2] [radio] Kulot Sabaw (looter): in_position
+[match  427.4] [radio] Kumareng Marites (looter): taking_fire
+[match  427.5] Ka Pedring respawned at (0.0, 20.0, 30.0) (nearest enemy 32 m)
+[match  427.8] [radio] Ka Pedring (sniper): contact
+[match  428.3] Kumareng Marites killed by Pareng Jun (gunshot); 3 teams left
+[match  428.3] alive: North Team 6, East Team 7; score { 0: 36, 1: 26, 2: 18 }
+[match  428.6] Kapitan Tikoy killed by the world (fall); 3 teams left
+[match  428.6] alive: North Team 6, East Team 7; score { 0: 36, 1: 26, 2: 18 }
+[match  428.6] [radio] Bossing Barbecue (sniper): down
+[match  428.7] [radio] Pareng Jun (looter): kill
+[match  429.4] [radio] Kuya Fishball (sniper): down
+[match  431.1] [radio] Kapitbahay Lito (looter): sneaking
+[match  433.3] Kumareng Marites respawned at (-43.0, 0.0, -29.0) (nearest enemy 26 m)
+[match  433.3] [radio] Kumareng Marites (rusher): contact
+[match  433.6] Kapitan Tikoy respawned at (-3.0, 20.0, 32.0) (nearest enemy 37 m)
+[match  433.6] Bossing Barbecue killed by Totoy Bibo (gunshot); 3 teams left
+[match  433.6] alive: North Team 6, East Team 7; score { 0: 36, 1: 27, 2: 18 }
+[match  434.0] [radio] Totoy Bibo (sniper): kill
+[match  434.4] [radio] Kumareng Marites (rusher): affirmative
+[match  434.5] Ate Load Dito (team 0) landed at (-55.0, 0.0, -40.0), 3.1 m/s, health 100; teammates 1 m, 6 m, 3 m
+[match  435.0] status: { "ground": 20 }; armed 20; shots 1718; zone -1 hold r=131; corpses 96; levels { "L1": 7, "between": 5, "L5": 6, "L2": 2 }; server tick avg 3.75 ms, p99 24.61 ms, max 45.65 ms over 900 ticks
+[match  435.0] dm teams: North Team 6 at (-52.0, -37.0) spread 5 m; East Team 7 at (45.0, -26.0) spread 19 m; South Team 7 at (-9.0, 11.0) spread 31 m; gap 98 m; zone centre (-7.0, 13.0)
+[match  435.0] bots: { "heal": 1, "roam": 10, "overwatch": 2, "camp": 1, "hunt": 4, "order": 2 }; containers searched by bots 0 (all players 0); plan steps done 0; guns carried 43
+[match  435.0] [stuck] Tatay Kulas (looter, roam) at (49.0, 1.0, -34.6) -> (52.5, 0.0, -38.5), ahead , no_prog 2.7
+[match  435.0] roles: { "sniper": { "heal": 1, "roam": 5, "overwatch": 2 }, "looter": { "roam": 3, "camp": 1, "order": 2 }, "stalker": { "hunt": 3 }, "rusher": { "hunt": 1, "roam": 2 } }; stuck now 1; waypoints 1304; team { "lines": 541, "pings": 0, "laser_follow": 0, "learned_cells": 101, "blocked_cells": 30, "squads": 6, "following_humans": 0, &"learned_spots": 0 }
+[match  435.0] [lootstats] bots on the ground 20 (in water 0); armed 20; armed with ammo for a gun 20; long guns 23; attachments fitted 0; rounds of unusable ammo carried 0; items on the ground 407; bot pickups { "detours": 11, "detour_taken": 11, "fetches": 0, "fetch_done": 0, "items_taken": 12 }
+[match  435.4] [radio] Tito Boy (sniper): affirmative
+[match  436.4] [radio] Tito Boy (sniper): down
+[match  438.6] Bossing Barbecue respawned at (-41.0, 0.0, -30.0) (nearest enemy 25 m)
+[match  442.2] [radio] Totoy Bibo (sniper): in_position
+[match  443.4] [radio] Kumareng Marites (rusher): contact
+[match  445.1] [radio] Manong Guard (rusher): contact
+[match  445.5] [radio] Ate Load Dito (stalker): contact
+[match  446.3] [radio] Kumareng Marites (rusher): taking_fire
+[match  446.9] [radio] Manong Guard (rusher): need_help
+[match  447.3] Kumareng Marites killed by Manong Guard (gunshot); 3 teams left
+[match  447.3] alive: North Team 6, East Team 7; score { 0: 36, 1: 28, 2: 18 }
+[match  447.4] [radio] Bossing Barbecue (sniper): affirmative
+[match  447.8] [radio] Manong Guard (rusher): kill
+[match  448.3] [radio] Lola Basyang Jr (looter): affirmative
+[match  448.3] [radio] Kapitan Tikoy (rusher): hunting
+[match  448.9] [radio] Tatay Kulas (looter): affirmative
+[match  449.2] [radio] Tito Boy (sniper): down
+[match  450.0] status: { "ground": 20 }; armed 20; shots 1751; zone -1 hold r=131; corpses 97; levels { "L1": 14, "L5": 6 }; server tick avg 3.68 ms, p99 22.93 ms, max 48.53 ms over 900 ticks
+[match  450.0] dm teams: North Team 6 at (-54.0, -38.0) spread 2 m; East Team 7 at (28.0, -26.0) spread 28 m; South Team 7 at (-4.0, -3.0) spread 34 m; gap 83 m; zone centre (-7.0, 13.0)
+[match  450.0] bots: { "heal": 2, "roam": 6, "order": 3, "overwatch": 3, "camp": 1, "hunt": 4, "investigate": 1 }; containers searched by bots 0 (all players 0); plan steps done 0; guns carried 43
+[match  450.0] roles: { "sniper": { "heal": 1, "roam": 4, "order": 1, "overwatch": 3 }, "looter": { "roam": 2, "order": 2, "camp": 1, "investigate": 1 }, "stalker": { "hunt": 3 }, "rusher": { "heal": 1, "hunt": 1 } }; stuck now 0; waypoints 1304; team { "lines": 555, "pings": 0, "laser_follow": 0, "learned_cells": 101, "blocked_cells": 30, "squads": 6, "following_humans": 0, &"learned_spots": 0 }
+[match  450.0] [lootstats] bots on the ground 20 (in water 0); armed 20; armed with ammo for a gun 20; long guns 23; attachments fitted 0; rounds of unusable ammo carried 0; items on the ground 407; bot pickups { "detours": 11, "detour_taken": 11, "fetches": 0, "fetch_done": 0, "items_taken": 12 }
+[match  452.4] Kumareng Marites respawned at (-43.0, 0.0, -29.0) (nearest enemy 26 m)
+[match  452.4] [radio] Totoy Bibo (sniper): in_position
+[match  454.0] Bossing Barbecue (team 0) landed at (-51.0, 0.0, -41.0), 7.0 m/s, health 100; teammates 5 m, 5 m, 6 m, 4 m
+[match  454.5] [radio] Kapitbahay Lito (looter): in_position
+[match  455.2] Kulot Sabaw (team 0) landed at (-50.0, 0.0, -41.0), 7.0 m/s, health 100; teammates 4 m, 5 m, 9 m, 2 m, 4 m
+[match  457.1] [radio] Kulot Sabaw (looter): sneaking
+[match  457.6] Ka Pedring (team 2) landed at (51.0, 10.0, -39.0), 12.3 m/s, health 100; teammates 70 m, 130 m
+[match  460.5] [radio] Tito Boy (sniper): sniping
+[match  461.2] [radio] Ka Pedring (sniper): contact
+[match  461.6] [radio] Manong Guard (rusher): contact
+[match  462.2] [radio] Bebot Karaoke (looter): taking_fire
+[match  462.4] [radio] Tito Videoke (stalker): taking_fire
+[match  463.5] [radio] Bebot Karaoke (looter): need_help
+[match  464.3] [radio] Tatay Kulas (looter): contact
+[match  464.3] [radio] Bossing Barbecue (sniper): affirmative
+[match  465.0] status: { "ground": 21 }; armed 21; shots 1833; zone -1 hold r=131; corpses 97; levels { "L1": 14, "L5": 5, "between": 1, "L2": 1 }; server tick avg 4.54 ms, p99 33.88 ms, max 50.41 ms over 900 ticks
+[match  465.0] dm teams: North Team 7 at (-51.0, -35.0) spread 6 m; East Team 7 at (20.0, -29.0) spread 31 m; South Team 7 at (-5.0, -7.0) spread 40 m; gap 71 m; zone centre (-7.0, 13.0)
+[match  465.0] bots: { "heal": 2, "fight": 5, "camp": 2, "overwatch": 3, "hunt": 2, "investigate": 2, "roam": 3, "order": 2 }; containers searched by bots 0 (all players 0); plan steps done 0; guns carried 45
+[match  465.0] [stuck] Mang Jolo (stalker, hunt) at (53.0, 0.0, -43.5) -> (54.5, 5.0, -38.5), ahead , no_prog 2.0
+[match  465.0] [stuck] Aling Puring (sniper, roam) at (-52.7, 0.0, 44.2) -> (-52.5, 5.0, 38.5), ahead , no_prog 2.8
+[match  465.0] roles: { "sniper": { "heal": 1, "fight": 2, "overwatch": 3, "roam": 2, "order": 1 }, "looter": { "camp": 2, "fight": 2, "investigate": 2, "roam": 1 }, "stalker": { "hunt": 1, "heal": 1, "order": 1 }, "rusher": { "fight": 1, "hunt": 1 } }; stuck now 2; waypoints 1304; team { "lines": 566, "pings": 0, "laser_follow": 0, "learned_cells": 101, "blocked_cells": 30, "squads": 6, "following_humans": 0, &"learned_spots": 0 }
+[match  465.0] [lootstats] bots on the ground 21 (in water 0); armed 21; armed with ammo for a gun 21; long guns 24; attachments fitted 0; rounds of unusable ammo carried 0; items on the ground 407; bot pickups { "detours": 11, "detour_taken": 11, "fetches": 0, "fetch_done": 0, "items_taken": 12 }
+[match  465.3] [radio] Ate Load Dito (stalker): affirmative
+[match  465.5] [radio] Aling Puring (sniper): sniping
+[match  467.6] [radio] Kumareng Marites (looter): contact
+[match  467.7] Bebot Karaoke killed by Ate Load Dito (gunshot); 3 teams left
+[match  467.7] alive: North Team 6, East Team 7; score { 0: 36, 1: 28, 2: 18 }
+[match  467.8] [radio] Totoy Bibo (sniper): contact
+[match  468.5] Manong Guard killed by Bossing Barbecue (gunshot); 3 teams left
+[match  468.5] alive: North Team 6, East Team 6; score { 0: 37, 1: 28, 2: 18 }
+[match  468.6] [radio] Ate Load Dito (stalker): kill
+[match  469.0] [radio] Kapitbahay Lito (looter): down
+[match  469.5] [radio] Bossing Barbecue (sniper): kill
+[match  471.3] [radio] Kumareng Marites (looter): clear
+[match  471.4] [radio] Tito Videoke (stalker): clear
+[match  472.7] Bebot Karaoke respawned at (-40.0, 0.0, -29.0) (nearest enemy 24 m)
+[match  472.9] Kapitan Tikoy (team 2) landed at (-54.0, 18.0, -44.0), 7.0 m/s, health 100; teammates 67 m, 87 m, 107 m
+[match  473.6] Manong Guard respawned at (42.0, 10.0, -23.0) (nearest enemy 15 m)
+[match  475.2] [radio] Bebot Karaoke (looter): contact
+[match  475.9] Kumareng Marites killed by Totoy Bibo (gunshot); 3 teams left
+[match  475.9] alive: North Team 6, East Team 7; score { 0: 37, 1: 29, 2: 18 }
+[match  476.4] [radio] Totoy Bibo (sniper): headshot_kill
+[match  476.4] [radio] Tito Boy (sniper): down
+[match  477.3] [radio] Kapitan Tikoy (rusher): contact
+[match  477.7] Tito Boy killed by Kapitan Tikoy (gunshot); 3 teams left
+[match  477.7] alive: North Team 5, East Team 7; score { 0: 37, 1: 29, 2: 19 }
+[match  478.1] [radio] Kulot Sabaw (looter): down
+[match  478.1] [radio] Kapitan Tikoy (rusher): headshot_kill
+[match  478.6] Kapitan Tikoy killed by Bossing Barbecue (gunshot); 3 teams left
+[match  478.6] alive: North Team 5, East Team 7; score { 0: 38, 1: 29, 2: 19 }
+[match  479.1] [radio] Kuya Fishball (sniper): down
+[match  479.2] [radio] Bossing Barbecue (sniper): kill
+[match  479.5] [radio] Manong Guard (looter): sneaking
+[match  480.0] status: { "ground": 18 }; armed 18; shots 1868; zone -1 hold r=131; corpses 102; levels { "L1": 10, "L5": 4, "between": 2, "L2": 1, "L3": 1 }; server tick avg 4.39 ms, p99 25.82 ms, max 65.79 ms over 900 ticks
+[match  480.0] dm teams: North Team 5 at (-50.0, -40.0) spread 6 m; East Team 7 at (28.0, -26.0) spread 29 m; South Team 6 at (-3.0, -6.0) spread 42 m; gap 79 m; zone centre (-7.0, 13.0)
+[match  480.0] bots: { "heal": 1, "camp": 2, "order": 1, "roam": 6, "overwatch": 3, "investigate": 4, "hunt": 1 }; containers searched by bots 0 (all players 0); plan steps done 0; guns carried 39
+[match  480.0] roles: { "sniper": { "heal": 1, "roam": 3, "overwatch": 3, "investigate": 1 }, "looter": { "camp": 2, "order": 1, "investigate": 1, "roam": 3 }, "stalker": { "investigate": 2, "hunt": 1 } }; stuck now 0; waypoints 1304; team { "lines": 584, "pings": 0, "laser_follow": 0, "learned_cells": 104, "blocked_cells": 30, "squads": 6, "following_humans": 0, &"learned_spots": 0 }
+[match  480.0] [lootstats] bots on the ground 18 (in water 0); armed 18; armed with ammo for a gun 18; long guns 21; attachments fitted 0; rounds of unusable ammo carried 0; items on the ground 407; bot pickups { "detours": 11, "detour_taken": 11, "fetches": 0, "fetch_done": 0, "items_taken": 12 }
+[match  480.9] Kumareng Marites respawned at (-43.0, 0.0, -29.0) (nearest enemy 26 m)
+[match  482.7] Tito Boy respawned at (-42.0, 0.0, -29.0) (nearest enemy 25 m)
+[match  483.3] [radio] Ka Pedring (sniper): in_position
+[match  483.5] [radio] Bossing Barbecue (sniper): clear
+[navwatch] malasugue_mall: 9583 bot-s (6971 moving), stalls 33 (0.2/bot-min, 3.6% of moving time), facing a wall 33 (0.2/bot-min)
+[match  483.7] Kapitan Tikoy respawned at (0.0, 20.0, 32.0) (nearest enemy 36 m)
+[match  483.7] [radio] Tito Videoke (stalker): clear
+[match  487.3] Manong Guard (team 1) landed at (51.0, 0.0, -40.0), 12.3 m/s, health 100; teammates 3 m, 70 m, 11 m, 66 m, 6 m, 8 m
+[match  488.4] [radio] Tito Videoke (stalker): taking_fire
+[match  488.4] [radio] Ka Pedring (sniper): need_help
+[match  488.7] Tito Videoke killed by Ka Pedring (gunshot); 3 teams left
+[match  488.7] alive: North Team 7, East Team 6; score { 0: 38, 1: 29, 2: 20 }
+[match  489.1] [radio] Tatay Kulas (looter): affirmative
+[match  489.3] [radio] Ka Pedring (sniper): kill
+[match  490.2] [radio] Mang Tomas Ketchup (sniper): affirmative
+[match  490.4] [radio] Pareng Jun (looter): affirmative
+[match  491.2] [radio] Mang Tomas Ketchup (sniper): down
+[match  493.7] Tito Videoke respawned at (40.0, 10.0, -24.0) (nearest enemy 15 m)
+[match  493.7] Kumareng Marites (team 0) landed at (-51.0, 0.0, -41.0), 7.0 m/s, health 100; teammates 3 m, 44 m, 11 m, 4 m
+[match  494.1] Kapitan Tikoy (team 2) landed at (-8.0, 20.0, 35.0), 4.9 m/s, health 100; teammates 43 m, 49 m, 92 m
+[match  494.3] [radio] Kuya Fishball (sniper): sniping
+[match  495.0] status: { "ground": 21 }; armed 21; shots 1873; zone -1 hold r=131; corpses 103; levels { "L2": 2, "L1": 12, "L5": 3, "L4": 1, "between": 2, "L3": 1 }; server tick avg 3.36 ms, p99 24.13 ms, max 51.08 ms over 900 ticks
+[match  495.0] dm teams: North Team 7 at (-39.0, -38.0) spread 16 m; East Team 7 at (35.0, -25.0) spread 28 m; South Team 7 at (1.0, -2.0) spread 44 m; gap 76 m; zone centre (-7.0, 13.0)
+[match  495.0] bots: { "heal": 2, "camp": 1, "investigate": 3, "overwatch": 3, "order": 2, "roam": 8, "hunt": 2 }; containers searched by bots 0 (all players 0); plan steps done 0; guns carried 44
+[match  495.0] roles: { "sniper": { "heal": 2, "overwatch": 3, "roam": 2, "order": 1 }, "looter": { "camp": 1, "investigate": 2, "order": 1, "roam": 5 }, "stalker": { "investigate": 1, "hunt": 2, "roam": 1 } }; stuck now 0; waypoints 1304; team { "lines": 595, "pings": 0, "laser_follow": 0, "learned_cells": 104, "blocked_cells": 30, "squads": 6, "following_humans": 0, &"learned_spots": 0 }
+[match  495.0] [lootstats] bots on the ground 21 (in water 0); armed 21; armed with ammo for a gun 21; long guns 23; attachments fitted 0; rounds of unusable ammo carried 0; items on the ground 407; bot pickups { "detours": 11, "detour_taken": 11, "fetches": 0, "fetch_done": 0, "items_taken": 12 }
+[match  495.5] Bebot Karaoke (team 0) landed at (-51.0, 0.0, -40.0), 7.0 m/s, health 100; teammates 6 m, 55 m, 13 m, 2 m, 4 m
+[match  496.2] [radio] Boy Pickup (sniper): contact
+[match  496.4] [radio] Mang Jolo (stalker): contact
+[match  496.7] Boy Pickup (team 2) landed at (51.0, 0.0, -40.0), 18.3 m/s, health 100; teammates 44 m, 134 m, 8 m, 107 m
+[match  496.7] Boy Pickup killed by the world (fall); 3 teams left
+[match  496.7] alive: North Team 7, East Team 7; score { 0: 38, 1: 29, 2: 20 }
+[match  497.1] [radio] Pareng Jun (looter): down
+[match  498.3] [radio] Mang Tomas Ketchup (sniper): need_help
+[match  498.4] [radio] Ka Pedring (sniper): taking_fire
+[match  498.7] Mang Tomas Ketchup killed by Ka Pedring (gunshot); 3 teams left
+[match  498.7] alive: North Team 7, East Team 6; score { 0: 38, 1: 29, 2: 21 }
+[match  498.9] [radio] Lola Basyang Jr (looter): contact
+[match  499.2] [radio] Tatay Kulas (looter): affirmative
+[match  499.2] [radio] Ka Pedring (sniper): kill
+[match  500.0] Lola Basyang Jr killed by Tatay Kulas (gunshot); 3 teams left
+[match  500.0] alive: North Team 6, East Team 6; score { 0: 38, 1: 30, 2: 21 }
+[match  500.1] [radio] Kapitbahay Lito (looter): down
+[match  500.5] [radio] Ate Load Dito (stalker): down
+[match  500.9] [radio] Tatay Kulas (looter): headshot_kill
+[match  501.7] Boy Pickup respawned at (-1.0, 20.0, 30.0) (nearest enemy 34 m)
+[match  503.7] Mang Tomas Ketchup respawned at (40.0, 10.0, -24.0) (nearest enemy 13 m)
+[match  505.1] Lola Basyang Jr respawned at (-43.0, 0.0, -29.0) (nearest enemy 26 m)
+[match  505.7] [radio] Ka Pedring (sniper): in_position
+[match  507.8] [radio] Bossing Barbecue (sniper): contact
+[match  508.6] [radio] Mang Jolo (stalker): contact
+[match  508.8] [radio] Pareng Jun (looter): in_position
+[match  509.6] Tito Boy (team 0) landed at (21.0, 0.0, -35.0), 2.1 m/s, health 100; teammates 75 m, 65 m, 44 m, 78 m, 71 m
+[match  510.0] status: { "ground": 21 }; armed 21; shots 1926; zone -1 hold r=131; corpses 106; levels { "L1": 13, "L5": 3, "L2": 2, "L3": 3 }; server tick avg 3.98 ms, p99 28.27 ms, max 55.23 ms over 900 ticks
+[match  510.0] dm teams: North Team 7 at (-35.0, -34.0) spread 22 m; East Team 7 at (31.0, -25.0) spread 28 m; South Team 7 at (-5.0, 5.0) spread 50 m; gap 67 m; zone centre (-7.0, 13.0)
+[match  510.0] bots: { "investigate": 3, "roam": 7, "overwatch": 4, "order": 1, "fight": 3, "hunt": 2, "camp": 1 }; containers searched by bots 0 (all players 1); plan steps done 0; guns carried 46
+[match  510.0] [stuck] Manong Guard (looter, investigate) at (53.3, 0.0, -43.1) -> (54.5, 5.0, -38.5), ahead , no_prog 1.9
+[match  510.0] roles: { "looter": { "investigate": 2, "roam": 5, "order": 1, "camp": 1 }, "sniper": { "overwatch": 4, "roam": 2, "fight": 1 }, "stalker": { "fight": 2, "hunt": 2, "investigate": 1 } }; stuck now 1; waypoints 1304; team { "lines": 610, "pings": 0, "laser_follow": 0, "learned_cells": 104, "blocked_cells": 30, "squads": 6, "following_humans": 0, &"learned_spots": 0 }
+[match  510.0] [lootstats] bots on the ground 21 (in water 0); armed 21; armed with ammo for a gun 21; long guns 25; attachments fitted 0; rounds of unusable ammo carried 0; items on the ground 403; bot pickups { "detours": 15, "detour_taken": 15, "fetches": 0, "fetch_done": 0, "items_taken": 16 }
+[match  510.3] Tito Boy killed by Mang Jolo (gunshot); 3 teams left
+[match  510.3] alive: North Team 6, East Team 7; score { 0: 38, 1: 31, 2: 21 }
+[match  510.5] [radio] Mang Jolo (stalker): clear
+[match  510.8] [radio] Ate Load Dito (stalker): down
+[match  510.9] Kapitbahay Lito killed by Bossing Barbecue (gunshot); 3 teams left
+[match  510.9] alive: North Team 6, East Team 6; score { 0: 39, 1: 31, 2: 21 }
+[match  511.2] [radio] Mang Jolo (stalker): headshot_kill
+[match  511.9] [radio] Bossing Barbecue (sniper): headshot_kill
+[match  512.1] [radio] Ka Pedring (sniper): clear
+[match  512.4] [radio] Tatay Kulas (looter): down
+[match  514.6] [radio] Mang Tomas Ketchup (looter): in_position
+[match  515.3] Tito Boy respawned at (-41.0, 0.0, -30.0) (nearest enemy 25 m)
+[match  515.9] Kapitbahay Lito respawned at (42.0, 10.0, -23.0) (nearest enemy 17 m)
+[match  516.5] [radio] Totoy Bibo (sniper): need_help
+[match  517.1] [radio] Bossing Barbecue (sniper): taking_fire
+[match  517.4] [radio] Kapitbahay Lito (stalker): affirmative
+[match  517.8] [radio] Bossing Barbecue (sniper): need_help
+[match  517.9] Bossing Barbecue killed by Totoy Bibo (gunshot); 3 teams left
+[match  517.9] alive: North Team 6, East Team 7; score { 0: 39, 1: 32, 2: 21 }
+[match  518.5] [radio] Tito Videoke (stalker): affirmative
+[match  518.8] [radio] Lola Basyang Jr (sniper): affirmative
+[match  519.5] [radio] Totoy Bibo (sniper): kill
+[match  519.7] [radio] Pareng Jun (looter): contact
+[match  519.8] [radio] Tito Boy (stalker): affirmative
+[match  520.5] [radio] Manong Guard (looter): taking_fire
+[match  520.6] [radio] Ka Pedring (sniper): affirmative
+[match  520.7] Pareng Jun killed by Mang Jolo (gunshot); 3 teams left
+[match  520.7] alive: North Team 6, East Team 7; score { 0: 39, 1: 33, 2: 21 }
+[match  521.3] [radio] Mang Jolo (stalker): kill
+[match  521.5] Boy Pickup (team 2) landed at (51.0, 0.0, 40.0), 18.8 m/s, health 100; teammates 103 m, 80 m, 80 m
+[match  521.5] Boy Pickup killed by the world (fall); 3 teams left
+[match  521.5] alive: North Team 6, East Team 7; score { 0: 39, 1: 33, 2: 21 }
+[match  521.6] [radio] Lola Basyang Jr (sniper): taking_fire
+[match  521.7] [radio] Ka Pedring (sniper): down
+[match  522.3] [radio] Tatay Kulas (looter): taking_fire
+[match  522.8] [radio] Lola Basyang Jr (sniper): need_help
+[match  522.9] Bossing Barbecue respawned at (-41.0, 0.0, -30.0) (nearest enemy 25 m)
+[match  522.9] Ka Pedring killed by Kapitbahay Lito (gunshot); 3 teams left
+[match  522.9] alive: North Team 7, East Team 7; score { 0: 39, 1: 34, 2: 21 }
+[match  523.2] [radio] Manong Guard (looter): affirmative
+[match  523.8] [radio] Tito Boy (stalker): affirmative
+[match  523.9] [radio] Kapitbahay Lito (stalker): kill
+[match  524.6] [radio] Mang Jolo (stalker): affirmative
+[match  524.7] [radio] Kumareng Marites (looter): affirmative
+[match  525.0] status: { "ground": 18 }; armed 18; shots 1998; zone -1 hold r=131; corpses 112; levels { "L1": 12, "L5": 2, "L2": 1, "between": 2, "L3": 1 }; server tick avg 5.26 ms, p99 33.02 ms, max 75.00 ms over 900 ticks
+[match  525.0] dm teams: North Team 7 at (-37.0, -34.0) spread 16 m; East Team 7 at (41.0, -32.0) spread 20 m; South Team 4 at (-29.0, 11.0) spread 25 m; gap 78 m; zone centre (-7.0, 13.0)
+[match  525.0] bots: { "fight": 2, "overwatch": 3, "order": 5, "roam": 5, "hunt": 1, "heal": 2 }; containers searched by bots 0 (all players 1); plan steps done 0; guns carried 39
+[match  525.0] [stuck] Tito Videoke (stalker, heal) at (53.8, 8.2, -42.6) -> (52.7, 7.5, -44.1), ahead , no_prog 1.8
+[match  525.0] roles: { "looter": { "fight": 1, "roam": 3, "heal": 1, "order": 2 }, "sniper": { "overwatch": 3, "roam": 2, "fight": 1 }, "stalker": { "order": 3, "hunt": 1, "heal": 1 } }; stuck now 1; waypoints 1304; team { "lines": 638, "pings": 0, "laser_follow": 0, "learned_cells": 104, "blocked_cells": 30, "squads": 6, "following_humans": 0, &"learned_spots": 0 }
+[match  525.0] [lootstats] bots on the ground 18 (in water 0); armed 18; armed with ammo for a gun 18; long guns 21; attachments fitted 0; rounds of unusable ammo carried 0; items on the ground 403; bot pickups { "detours": 15, "detour_taken": 15, "fetches": 0, "fetch_done": 0, "items_taken": 16 }
+[match  525.7] Pareng Jun respawned at (0.0, 20.0, 32.0) (nearest enemy 39 m)
+[match  525.8] [radio] Mang Tomas Ketchup (looter): affirmative
+[match  525.9] Tatay Kulas killed by Lola Basyang Jr (gunshot); 3 teams left
+[match  525.9] alive: North Team 7, East Team 6; score { 0: 40, 1: 34, 2: 21 }
+[match  526.3] [radio] Lola Basyang Jr (sniper): kill
+[match  526.5] Boy Pickup respawned at (-1.0, 20.0, 30.0) (nearest enemy 37 m)
+[match  526.9] [radio] Totoy Bibo (sniper): down
+[match  527.9] Tito Videoke (team 1) landed at (53.0, 6.0, -41.0), 7.0 m/s, health 33; teammates 69 m, 4 m, 6 m
+[match  528.0] Ka Pedring respawned at (-4.0, 20.0, 30.0) (nearest enemy 37 m)
+[match  528.8] [radio] Bossing Barbecue (sniper): sniping
+[match  530.6] [radio] Tito Boy (stalker): in_position
+[match  530.9] Tatay Kulas respawned at (45.0, 10.0, -26.0) (nearest enemy 32 m)
+[match  531.2] [radio] Mang Jolo (stalker): clear
+[match  531.9] [radio] Boy Pickup (rusher): hunting
+[match  532.9] [radio] Kumareng Marites (looter): in_position
+[match  535.6] Pareng Jun (team 2) landed at (10.0, 20.0, 33.0), 3.1 m/s, health 100; teammates 69 m, 23 m
+[match  536.0] [radio] Tatay Kulas (sniper): sniping
+[match  536.6] [radio] Aling Taho (sniper): sniping
+[match  537.1] Bossing Barbecue (team 0) landed at (-51.0, 0.0, -41.0), 7.0 m/s, health 100; teammates 6 m, 8 m, 4 m, 60 m
+[match  537.3] [radio] Lola Basyang Jr (sniper): contact
+[match  537.8] [radio] Manong Guard (looter): taking_fire
+[match  538.0] [radio] Tito Boy (stalker): taking_fire
+[match  538.1] Kapitbahay Lito (team 1) landed at (51.0, 0.0, -40.0), 12.3 m/s, health 100; teammates 67 m, 5 m, 6 m, 1 m
+[match  538.7] Lola Basyang Jr killed by Kumareng Marites (gunshot); 3 teams left
+[match  538.7] alive: North Team 6, East Team 7; score { 0: 40, 1: 34, 2: 21 }
+[match  539.2] [radio] Ate Load Dito (stalker): down
+[match  540.0] status: { "ground": 20 }; armed 20; shots 2027; zone -1 hold r=131; corpses 114; levels { "L1": 11, "L5": 5, "L2": 1, "between": 2, "L3": 1 }; server tick avg 4.17 ms, p99 24.19 ms, max 44.99 ms over 900 ticks
+[match  540.0] dm teams: North Team 6 at (-32.0, -36.0) spread 28 m; East Team 7 at (39.0, -31.0) spread 20 m; South Team 7 at (1.0, 15.0) spread 35 m; gap 71 m; zone centre (-7.0, 13.0)
+[match  540.0] bots: { "overwatch": 3, "heal": 2, "roam": 5, "hunt": 4, "order": 5, "investigate": 1 }; containers searched by bots 0 (all players 1); plan steps done 0; guns carried 43
+[match  540.0] roles: { "sniper": { "overwatch": 3, "roam": 3 }, "stalker": { "heal": 1, "hunt": 2, "order": 3 }, "looter": { "roam": 2, "heal": 1, "order": 2, "investigate": 1 }, "rusher": { "hunt": 2 } }; stuck now 0; waypoints 1304; team { "lines": 652, "pings": 0, "laser_follow": 0, "learned_cells": 104, "blocked_cells": 30, "squads": 6, "following_humans": 0, &"learned_spots": 0 }
+[match  540.0] [lootstats] bots on the ground 20 (in water 0); armed 20; armed with ammo for a gun 20; long guns 23; attachments fitted 0; rounds of unusable ammo carried 0; items on the ground 403; bot pickups { "detours": 15, "detour_taken": 15, "fetches": 0, "fetch_done": 0, "items_taken": 16 }
+[match  540.3] [radio] Kumareng Marites (looter): headshot_kill
+[match  541.8] [radio] Kapitan Tikoy (looter): contact
+[match  542.4] Totoy Bibo killed by Kapitan Tikoy (gunshot); 3 teams left
+[match  542.4] alive: North Team 6, East Team 6; score { 0: 40, 1: 34, 2: 22 }
+[match  542.8] [radio] Kapitan Tikoy (looter): kill
+[match  543.0] [radio] Mang Jolo (stalker): down
+[match  543.7] Lola Basyang Jr respawned at (-41.0, 0.0, -30.0) (nearest enemy 25 m)
+[navwatch] malasugue_mall: 10782 bot-s (7783 moving), stalls 40 (0.2/bot-min, 3.7% of moving time), facing a wall 39 (0.2/bot-min)
+[match  544.7] Boy Pickup (team 2) landed at (35.0, 20.0, 0.0), 4.9 m/s, health 100; teammates 100 m, 47 m, 41 m
+[match  545.5] [radio] Aling Puring (sniper): sniping
+[match  546.4] [radio] Bebot Karaoke (looter): sneaking
+[match  547.4] Totoy Bibo respawned at (40.0, 10.0, -28.0) (nearest enemy 14 m)
+[match  549.0] Pareng Jun killed by the world (fall); 3 teams left
+[match  549.0] alive: North Team 7, East Team 7; score { 0: 40, 1: 34, 2: 22 }
+[match  549.1] [radio] Tito Boy (stalker): contact
+[match  549.5] [radio] Kapitan Tikoy (looter): down
+[match  550.4] [radio] Mang Jolo (stalker): taking_fire
+[match  551.1] [radio] Kumareng Marites (looter): contact
+[match  552.1] [radio] Mang Jolo (stalker): need_help
+[match  552.2] Ka Pedring (team 2) landed at (53.0, 18.0, -44.0), 7.0 m/s, health 100; teammates 137 m, 52 m, 80 m
+[match  552.5] Mang Jolo killed by Tito Boy (gunshot); 3 teams left
+[match  552.5] alive: North Team 7, East Team 6; score { 0: 41, 1: 34, 2: 22 }
+[match  552.9] [radio] Tito Boy (stalker): headshot_kill
+[match  553.0] [radio] Totoy Bibo (looter): affirmative
+[match  553.9] [radio] Manong Guard (looter): affirmative
+[match  554.0] Pareng Jun respawned at (0.0, 20.0, 32.0) (nearest enemy 65 m)
+[match  554.9] [radio] Manong Guard (looter): down
+[match  555.0] status: { "ground": 20 }; armed 20; shots 2062; zone -1 hold r=131; corpses 117; levels { "L5": 3, "L1": 8, "between": 2, "L2": 3, "L4": 2, "L3": 2 }; server tick avg 3.63 ms, p99 25.67 ms, max 44.40 ms over 900 ticks
+[match  555.0] dm teams: North Team 7 at (-29.0, -35.0) spread 25 m; East Team 6 at (35.0, -35.0) spread 24 m; South Team 7 at (1.0, 7.0) spread 45 m; gap 65 m; zone centre (-7.0, 13.0)
+[match  555.0] bots: { "investigate": 4, "roam": 8, "hunt": 2, "overwatch": 1, "heal": 1, "order": 4 }; containers searched by bots 0 (all players 1); plan steps done 0; guns carried 42
+[match  555.0] [stuck] Boy Pickup (rusher, hunt) at (50.9, 15.0, 39.7) -> (52.5, 15.0, 38.5), ahead , no_prog 2.0
+[match  555.0] roles: { "sniper": { "investigate": 3, "roam": 1, "overwatch": 1 }, "looter": { "roam": 6, "heal": 1, "order": 1 }, "stalker": { "hunt": 1, "order": 3, "roam": 1 }, "rusher": { "hunt": 1, "investigate": 1 } }; stuck now 1; waypoints 1304; team { "lines": 667, "pings": 0, "laser_follow": 0, "learned_cells": 104, "blocked_cells": 30, "squads": 6, "following_humans": 0, &"learned_spots": 0 }
+[match  555.0] [lootstats] bots on the ground 20 (in water 0); armed 20; armed with ammo for a gun 20; long guns 22; attachments fitted 0; rounds of unusable ammo carried 0; items on the ground 403; bot pickups { "detours": 15, "detour_taken": 15, "fetches": 0, "fetch_done": 0, "items_taken": 16 }
+[match  556.6] Lola Basyang Jr (team 0) landed at (-50.0, 0.0, -38.0), 7.7 m/s, health 100; teammates 37 m, 4 m, 3 m, 59 m, 15 m
+[match  557.1] [radio] Ka Pedring (rusher): contact
+[match  557.5] Mang Jolo respawned at (39.0, 10.0, -26.0) (nearest enemy 23 m)
+[match  558.1] [radio] Mang Tomas Ketchup (looter): contact
+[match  558.4] [radio] Kulot Sabaw (looter): contact
+[match  558.5] Tito Boy killed by Manong Guard (gunshot); 3 teams left
+[match  558.5] alive: North Team 6, East Team 7; score { 0: 41, 1: 35, 2: 22 }
+[match  558.9] [radio] Manong Guard (looter): kill
+[match  558.9] Totoy Bibo (team 1) landed at (55.0, 8.0, -44.0), 7.7 m/s, health 100; teammates 15 m, 10 m, 9 m
+[match  559.2] [radio] Ka Pedring (rusher): need_help
+[match  559.3] [radio] Kumareng Marites (looter): affirmative
+[match  559.6] Ka Pedring killed by Mang Tomas Ketchup (gunshot); 3 teams left
+[match  559.6] alive: North Team 6, East Team 7; score { 0: 41, 1: 36, 2: 22 }
+[match  560.0] [radio] Kapitbahay Lito (stalker): affirmative
+[match  560.2] [radio] Kapitan Tikoy (looter): affirmative
+[match  560.2] [radio] Kulot Sabaw (looter): affirmative
+[match  560.2] Manong Guard killed by Kumareng Marites (gunshot); 3 teams left
+[match  560.2] alive: North Team 6, East Team 6; score { 0: 42, 1: 36, 2: 22 }
+[match  560.8] [radio] Tito Videoke (stalker): affirmative
+[match  561.1] [radio] Boy Pickup (rusher): affirmative
+[match  561.2] [radio] Kulot Sabaw (looter): down
+[match  561.5] [radio] Mang Tomas Ketchup (looter): kill
+[match  562.2] [radio] Kumareng Marites (looter): headshot_kill
+[match  562.2] Pareng Jun (team 2) landed at (11.0, 20.0, 31.0), 2.5 m/s, health 100; teammates 70 m, 48 m, 47 m
+[match  562.3] [radio] Tito Videoke (stalker): down
+[match  563.5] Tito Boy respawned at (-40.0, 0.0, -24.0) (nearest enemy 22 m)
+[match  563.7] [radio] Bossing Barbecue (sniper): taking_fire
+[match  564.0] [radio] Tatay Kulas (sniper): taking_fire
+[match  564.3] Tatay Kulas killed by Bossing Barbecue (gunshot); 3 teams left
+[match  564.3] alive: North Team 7, East Team 5; score { 0: 43, 1: 36, 2: 22 }
+[match  564.7] Ka Pedring respawned at (-1.0, 20.0, 30.0) (nearest enemy 68 m)
+[match  564.8] [radio] Bossing Barbecue (sniper): headshot_kill
+[match  565.1] [radio] Kapitan Tikoy (looter): in_position
+[match  565.3] Manong Guard respawned at (45.0, 10.0, -26.0) (nearest enemy 23 m)
+[match  565.6] Mang Tomas Ketchup (team 1) landed at (54.0, 4.0, -42.0), 7.7 m/s, health 100; teammates 5 m, 4 m, 4 m
+[match  567.0] [radio] Lola Basyang Jr (looter): contact
+[match  567.2] Kuya Fishball (team 2) landed at (-56.0, 0.0, -40.0), 18.5 m/s, health 100; teammates 78 m, 65 m, 135 m, 111 m
+[match  567.2] Kuya Fishball killed by the world (fall); 3 teams left
+[match  567.2] alive: North Team 7, East Team 6; score { 0: 43, 1: 36, 2: 22 }
+[match  567.7] [radio] Aling Taho (sniper): down
+[match  569.3] Tatay Kulas respawned at (44.0, 10.0, -26.0) (nearest enemy 16 m)
+[match  570.0] status: { "ground": 20 }; armed 20; shots 2107; zone -1 hold r=131; corpses 122; levels { "L1": 11, "L5": 3, "L2": 1, "between": 3, "L3": 2 }; server tick avg 3.84 ms, p99 25.25 ms, max 47.19 ms over 900 ticks
+[match  570.0] dm teams: North Team 7 at (-38.0, -39.0) spread 23 m; East Team 7 at (51.0, -36.0) spread 8 m; South Team 6 at (3.0, 26.0) spread 35 m; gap 88 m; zone centre (-7.0, 13.0)
+[match  570.0] bots: { "roam": 8, "investigate": 6, "overwatch": 1, "camp": 1, "hunt": 4 }; containers searched by bots 0 (all players 1); plan steps done 0; guns carried 42
+[match  570.0] roles: { "looter": { "roam": 5, "investigate": 2, "camp": 1 }, "sniper": { "roam": 1, "overwatch": 1, "investigate": 1 }, "stalker": { "investigate": 3, "hunt": 1, "roam": 1 }, "rusher": { "hunt": 3, "roam": 1 } }; stuck now 0; waypoints 1304; team { "lines": 688, "pings": 0, "laser_follow": 0, "learned_cells": 104, "blocked_cells": 30, "squads": 6, "following_humans": 0, &"learned_spots": 0 }
+[match  570.0] [lootstats] bots on the ground 20 (in water 0); armed 20; armed with ammo for a gun 20; long guns 22; attachments fitted 0; rounds of unusable ammo carried 0; items on the ground 403; bot pickups { "detours": 16, "detour_taken": 15, "fetches": 0, "fetch_done": 0, "items_taken": 16 }
+[match  570.2] Mang Jolo (team 1) landed at (51.0, 0.0, -40.0), 12.3 m/s, health 100; teammates 3 m, 4 m, 2 m, 6 m
+[match  571.5] [radio] Kumareng Marites (looter): in_position
+[match  572.2] Kuya Fishball respawned at (-3.0, 20.0, 32.0) (nearest enemy 75 m)
+[match  574.4] [radio] Tatay Kulas (rusher): hunting
+[match  574.7] [radio] Tito Boy (rusher): hunting
+[match  575.3] [radio] Mang Tomas Ketchup (looter): need_help
+[match  576.1] [radio] Totoy Bibo (looter): affirmative
+[match  576.3] [radio] Kulot Sabaw (looter): need_help
+[match  576.6] Kulot Sabaw killed by Mang Tomas Ketchup (gunshot); 3 teams left
+[match  576.6] alive: North Team 6, East Team 7; score { 0: 43, 1: 37, 2: 22 }
+[match  577.0] [radio] Mang Tomas Ketchup (looter): kill
+[match  577.1] Manong Guard (team 1) landed at (56.0, 0.0, -40.0), 15.5 m/s, health 100; teammates 5 m, 14 m, 2 m, 7 m, 15 m
+[match  577.4] [radio] Kumareng Marites (looter): affirmative
+[match  577.7] [radio] Totoy Bibo (looter): in_position
+[match  578.1] [radio] Bossing Barbecue (sniper): affirmative
+[match  578.5] [radio] Tito Videoke (stalker): affirmative
+[match  581.6] Kulot Sabaw respawned at (-41.0, 0.0, -30.0) (nearest enemy 47 m)
+[match  582.1] [radio] Mang Tomas Ketchup (looter): clear
+[match  582.7] Ka Pedring (team 2) landed at (-54.0, 17.0, 44.0), 7.0 m/s, health 100; teammates 18 m, 66 m, 103 m, 104 m
+[match  583.4] [radio] Tito Videoke (stalker): in_position
+[match  585.0] status: { "ground": 21 }; armed 21; shots 2127; zone -1 hold r=131; corpses 123; levels { "L1": 15, "L5": 2, "L2": 2, "between": 1, "L3": 1 }; server tick avg 3.63 ms, p99 25.39 ms, max 46.99 ms over 900 ticks
+[match  585.0] dm teams: North Team 7 at (-41.0, -35.0) spread 16 m; East Team 7 at (41.0, -36.0) spread 17 m; South Team 7 at (-13.0, 27.0) spread 38 m; gap 82 m; zone centre (-7.0, 13.0)
+[match  585.0] bots: { "roam": 6, "hunt": 8, "overwatch": 1, "investigate": 3, "camp": 1, "order": 2 }; containers searched by bots 0 (all players 1); plan steps done 0; guns carried 44
+[match  585.0] roles: { "sniper": { "roam": 1, "overwatch": 1, "investigate": 1 }, "stalker": { "hunt": 4, "order": 1, "investigate": 1 }, "looter": { "investigate": 1, "roam": 4, "camp": 1, "order": 1 }, "rusher": { "hunt": 4, "roam": 1 } }; stuck now 0; waypoints 1304; team { "lines": 701, "pings": 0, "laser_follow": 0, "learned_cells": 104, "blocked_cells": 30, "squads": 6, "following_humans": 0, &"learned_spots": 0 }
+[match  585.0] [lootstats] bots on the ground 21 (in water 0); armed 21; armed with ammo for a gun 21; long guns 23; attachments fitted 0; rounds of unusable ammo carried 0; items on the ground 403; bot pickups { "detours": 16, "detour_taken": 15, "fetches": 0, "fetch_done": 0, "items_taken": 16 }
+[match  586.1] [radio] Mang Tomas Ketchup (looter): in_position
+[match  587.2] [radio] Kulot Sabaw (rusher): hunting
+[match  587.8] Tito Boy (team 0) landed at (-30.0, 0.0, -25.0), 4.9 m/s, health 100; teammates 18 m, 30 m, 49 m, 31 m, 25 m
+[match  588.3] [radio] Totoy Bibo (looter): contact
+[match  589.0] [radio] Ate Load Dito (stalker): taking_fire
+[match  589.1] [radio] Mang Tomas Ketchup (looter): in_position
+[match  590.0] [radio] Manong Guard (looter): affirmative
+[match  590.2] Kulot Sabaw (team 0) landed at (-38.0, 0.0, -34.0), 4.9 m/s, health 100; teammates 11 m, 18 m, 65 m, 18 m, 17 m, 9 m
+[match  590.8] [radio] Mang Tomas Ketchup (looter): affirmative
+[match  591.5] Tito Videoke killed by Kumareng Marites (gunshot); 3 teams left
+[match  591.5] alive: North Team 7, East Team 6; score { 0: 44, 1: 37, 2: 22 }
+[match  591.5] [radio] Kumareng Marites (looter): contact
+[match  592.1] [radio] Mang Tomas Ketchup (looter): down
+[match  592.4] [radio] Kumareng Marites (looter): headshot_kill
+[match  593.0] [radio] Totoy Bibo (looter): taking_fire
+[match  593.3] Kuya Fishball (team 2) landed at (-56.0, 0.0, 40.0), 18.8 m/s, health 100; teammates 3 m, 64 m, 74 m, 85 m, 4 m
+[match  593.3] Kuya Fishball killed by the world (fall); 3 teams left
+[match  593.3] alive: North Team 7, East Team 6; score { 0: 44, 1: 37, 2: 22 }
+[match  593.6] [radio] Kumareng Marites (looter): need_help
+[match  593.7] [radio] Mang Jolo (rusher): taking_fire
+[match  593.8] [radio] Aling Puring (sniper): down
+[match  593.9] Kumareng Marites killed by Mang Jolo (gunshot); 3 teams left
+[match  593.9] alive: North Team 6, East Team 6; score { 0: 44, 1: 38, 2: 22 }
+[match  594.6] [radio] Kulot Sabaw (rusher): affirmative
+[match  594.7] [radio] Kapitbahay Lito (stalker): affirmative
+[match  595.5] [radio] Bebot Karaoke (looter): affirmative
+[match  595.6] [radio] Mang Tomas Ketchup (looter): in_position
+[match  596.5] Tito Videoke respawned at (44.0, 10.0, -28.0) (nearest enemy 36 m)
+[match  596.5] [radio] Kulot Sabaw (rusher): down
+[match  596.7] [radio] Ka Pedring (stalker): sneaking
+[match  596.8] [radio] Kapitbahay Lito (stalker): in_position
+[match  598.3] Kuya Fishball respawned at (0.0, 20.0, 32.0) (nearest enemy 73 m)
+[match  598.4] [radio] Tito Boy (rusher): contact
+[match  598.9] Kumareng Marites respawned at (-40.0, 0.0, -24.0) (nearest enemy 25 m)
+[match  599.0] [radio] Tatay Kulas (rusher): contact
+[match  599.0] Tatay Kulas (team 1) landed at (-54.0, 7.0, -43.0), 2.1 m/s, health 100; teammates 94 m, 94 m, 107 m, 84 m, 108 m
+[match  600.0] match over (time): winner team 0 (North Team) with 44 after 600 s, scores { 0: 44, 1: 38, 2: 22 }, 2178 shots fired
+[bots] saved 103 learned cells, 52 spot records, 0 spots learned from play to user://bot_memory_malasugue_mall.json
+[navwatch] malasugue_mall: 11890 bot-s (8635 moving), stalls 48 (0.2/bot-min, 4.1% of moving time), facing a wall 44 (0.2/bot-min)
+[navwatch]   0:50,-36 { "stall": 7, "wall": 7, "states": { "order": 13, "hunt": 1 } }
+[navwatch]   4:-16,12 { "stall": 0, "wall": 14, "states": { "overwatch": 14 } }
+[navwatch]   0:50,-40 { "stall": 6, "wall": 7, "states": { "order": 11, "roam": 1, "investigate": 1 } }
+[navwatch]   0:-6,2 { "stall": 1, "wall": 4, "states": { "order": 1, "camp": 4 } }
+[navwatch]   4:-6,2 { "stall": 0, "wall": 5, "states": { "camp": 5 } }
+[navwatch]   0:8,-34 { "stall": 4, "wall": 0, "states": { "order": 4 } }
+[navwatch]   0:-2,-20 { "stall": 4, "wall": 0, "states": { "order": 3, "roam": 1 } }
+[navwatch]   0:52,-44 { "stall": 2, "wall": 1, "states": { "heal": 1, "roam": 2 } }
+[navwatch]   0:10,-34 { "stall": 2, "wall": 0, "states": { "order": 2 } }
+[navwatch]   0:4,-30 { "stall": 2, "wall": 0, "states": { "order": 2 } }
+[navwatch]   0:-56,-38 { "stall": 2, "wall": 0, "states": { "order": 2 } }
+[navwatch]   2:44,-36 { "stall": 0, "wall": 2, "states": { "camp": 2 } }
+[game] results: {}
+exit=0

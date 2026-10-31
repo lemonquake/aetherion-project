@@ -1,0 +1,75 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+[server] dedicated server listening on 27636
+[world] map built in 1978 ms
+[map] 0 buildings, 213 doors, 163 containers, 779 props, #55dd752c on PC
+[nav] levels: 56959 points, 32 links, 149 ms
+[nav] r21: 1424 cells closed by the physics check, main walk 49517 of 55567 points (6050 in pockets), 274 ms
+[botnav] malasugue_mall: walk check and 1219 spots from user://botnav/malasugue_mall.json { "hide": 301, "snipe": 618, "cover": 190, "open": 110 }
+[bots] learned from 74 cells, 0 stuck spots, 0 spots learned from play, 0 spot records (user://bot_memory_malasugue_mall.json)
+[match    0.0] deathmatch start on malasugue_mall: 2 players, 2 teams; spawns (-40.0, 0.0, -27.0), (0.0, 20.0, 27.0), (42.0, 10.0, -26.0) (67/68/82 m apart, floors); day offset 0 s; zone centre (16.0, 6.0) r=133; win by wipe
+[probe] (-35.0, 20.0, 0.0) walkable true clearance 2.50; a body there touches []
+[probe] (-27.0, 20.0, 0.0) walkable false clearance 0.00; a body there touches []
+[probe] (-13.0, 20.0, 34.0) walkable true clearance 1.50; a body there touches []
+[probe] (-13.0, 20.0, 42.0) walkable false clearance 1.50; a body there touches []
+[probe] (26.0, 5.0, 32.0) walkable true clearance 2.50; a body there touches []
+[probe] (26.0, 5.0, 40.0) walkable false clearance 4.50; a body there touches []
+[probe] path (-35.0, 20.0, 0.0) -> (-27.0, 20.0, 0.0): 2 points
+[probe]   (-34.5, 20.0, 0.5) band true sweep true
+[probe]   (-31.5, 20.0, 0.5) band true sweep true
+[probe]   ray at 0.3 m: @StaticBody3D@156 /root/Game/World/Map/Chunk_-1_0/@StaticBody3D@156 layer 1 at (-31.1, 20.3, 0.0)
+[probe]   ray at 0.6 m: @StaticBody3D@156 /root/Game/World/Map/Chunk_-1_0/@StaticBody3D@156 layer 1 at (-31.1, 20.6, 0.0)
+[probe]   ray at 1.0 m: @StaticBody3D@156 /root/Game/World/Map/Chunk_-1_0/@StaticBody3D@156 layer 1 at (-31.1, 21.0, 0.0)
+[probe]   ray at 1.5 m: @StaticBody3D@156 /root/Game/World/Map/Chunk_-1_0/@StaticBody3D@156 layer 1 at (-31.1, 21.5, 0.0)
+[probe] path (-27.0, 20.0, 0.0) -> (-13.0, 20.0, 34.0): 3 points
+[probe]   (-31.5, 20.0, 0.5) band false sweep false
+[probe]   (-31.5, 20.0, 21.5) band true sweep true
+[probe]   (-12.5, 20.0, 34.5) band true sweep true
+[probe]   ray at 0.3 m: <RefCounted#-9223371736861371341>  layer -1 at (-25.84, 20.3, 2.82)
+[probe]   ray at 0.6 m: <RefCounted#-9223371736861371341>  layer -1 at (-25.84, 20.6, 2.82)
+[probe]   ray at 1.0 m: @StaticBody3D@156 /root/Game/World/Map/Chunk_-1_0/@StaticBody3D@156 layer 1 at (-22.1, 21.0, 11.9)
+[probe]   ray at 1.5 m: @StaticBody3D@156 /root/Game/World/Map/Chunk_-1_0/@StaticBody3D@156 layer 1 at (-22.1, 21.5, 11.9)
+[probe] path (-13.0, 20.0, 34.0) -> (-13.0, 20.0, 42.0): 2 points
+[probe]   (-12.5, 20.0, 34.5) band true sweep true
+[probe]   (-12.5, 20.0, 35.5) band true sweep true
+[probe]   ray at 0.3 m: @StaticBody3D@156 /root/Game/World/Map/Chunk_-1_0/@StaticBody3D@156 layer 1 at (-13.0, 20.3, 36.8)
+[probe]   ray at 0.6 m: @StaticBody3D@156 /root/Game/World/Map/Chunk_-1_0/@StaticBody3D@156 layer 1 at (-13.0, 20.6, 36.8)
+[probe]   ray at 1.0 m: @StaticBody3D@156 /root/Game/World/Map/Chunk_-1_0/@StaticBody3D@156 layer 1 at (-13.0, 21.0, 36.8)
+[probe]   ray at 1.5 m: nothing
+[probe] path (-13.0, 20.0, 42.0) -> (26.0, 5.0, 32.0): 20 points
+[probe]   (-12.5, 20.0, 35.5) band false sweep false
+[probe]   (-1.5, 20.0, 33.5) band true sweep true
+[probe]   (22.5, 20.0, 33.5) band true sweep true
+[probe]   (46.5, 20.0, 33.5) band true sweep true
+[probe]   (51.0, 20.0, 33.6) band true sweep true
+[probe]   (51.0, 20.0, 35.8) band true sweep true
+[probe]   (54.5, 20.0, 38.5) band true sweep true
+[probe]   (54.3, 17.5, 44.1) band false sweep true
+[probe]   (52.7, 17.5, 44.1) band false sweep true
+[probe]   (52.5, 15.0, 38.5) band false sweep true
+[probe]   (54.5, 15.0, 38.5) band true sweep true
+[probe]   (54.3, 12.5, 44.1) band false sweep true
+[probe]   (52.7, 12.5, 44.1) band false sweep true
+[probe]   (52.5, 10.0, 38.5) band false sweep true
+[probe]   (54.5, 10.0, 38.5) band true sweep true
+[probe]   (54.3, 7.5, 44.1) band false sweep true
+[probe]   (52.7, 7.5, 44.1) band false sweep true
+[probe]   (52.5, 5.0, 38.5) band false sweep true
+[probe]   (50.5, 5.0, 33.5) band true sweep true
+[probe]   (26.5, 5.0, 32.5) band true sweep true
+[probe]   ray at 0.3 m: @StaticBody3D@142 /root/Game/World/Map/Chunk_-1_0/@StaticBody3D@142 layer 1 at (-12.22, 20.0, 41.8)
+[probe]   ray at 0.6 m: @StaticBody3D@142 /root/Game/World/Map/Chunk_-1_0/@StaticBody3D@142 layer 1 at (-11.44, 20.0, 41.6)
+[probe]   ray at 1.0 m: @StaticBody3D@142 /root/Game/World/Map/Chunk_-1_0/@StaticBody3D@142 layer 1 at (-10.4, 20.0, 41.33)
+[probe]   ray at 1.5 m: @StaticBody3D@142 /root/Game/World/Map/Chunk_-1_0/@StaticBody3D@142 layer 1 at (-9.099999, 20.0, 41.0)
+[probe] path (26.0, 5.0, 32.0) -> (26.0, 5.0, 40.0): 2 points
+[probe]   (26.5, 5.0, 32.5) band true sweep true
+[probe]   (26.5, 5.0, 34.5) band true sweep true
+[probe]   ray at 0.3 m: @StaticBody3D@230 /root/Game/World/Map/Chunk_0_0/@StaticBody3D@230 layer 1 at (26.0, 5.3, 35.0)
+[probe]   ray at 0.6 m: @StaticBody3D@230 /root/Game/World/Map/Chunk_0_0/@StaticBody3D@230 layer 1 at (26.0, 5.6, 35.0)
+[probe]   ray at 1.0 m: @StaticBody3D@230 /root/Game/World/Map/Chunk_0_0/@StaticBody3D@230 layer 1 at (26.0, 6.0, 35.0)
+[probe]   ray at 1.5 m: @StaticBody3D@230 /root/Game/World/Map/Chunk_0_0/@StaticBody3D@230 layer 1 at (26.0, 6.5, 35.0)
+[match    0.0] status: { "ground": 2 }; armed 2; shots 0; zone -1 hold r=133; corpses 0; levels { "between": 1, "L1": 1 }
+[match    0.0] dm teams: North Team 1 at (-40.0, -27.0) spread 0 m; East Team 1 at (-1.0, 28.0) spread 0 m; gap 70 m; zone centre (16.0, 6.0)
+[match    0.0] bots: { "roam": 2 }; containers searched by bots 0 (all players 0); plan steps done 0; guns carried 4
+[match    0.0] roles: { "looter": { "roam": 1 }, "sniper": { "roam": 1 } }; stuck now 0; waypoints 1219; team { "lines": 0, "pings": 0, "laser_follow": 0, "learned_cells": 74, "blocked_cells": 0, "squads": 0, "following_humans": 0, &"learned_spots": 0 }
+[match    0.0] [lootstats] bots on the ground 2 (in water 0); armed 2; armed with ammo for a gun 2; long guns 2; attachments fitted 0; rounds of unusable ammo carried 0; items on the ground 410; bot pickups { "detours": 0, "detour_taken": 0, "fetches": 0, "fetch_done": 0, "items_taken": 0 }

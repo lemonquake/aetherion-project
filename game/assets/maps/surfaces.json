@@ -1,0 +1,1039 @@
+{
+ "freight/asphalt": {
+  "phys": "concrete",
+  "rough": 0.742,
+  "metal": 0.0,
+  "size": 4.0,
+  "normal": true,
+  "rough_map": true,
+  "px": [
+   512,
+   512
+  ]
+ },
+ "freight/banner_bigasan": {
+  "phys": "fabric",
+  "rough": 0.75,
+  "metal": 0.0,
+  "size": 3.0,
+  "fit": true,
+  "two_sided": true,
+  "normal": true,
+  "rough_map": false,
+  "px": [
+   768,
+   384
+  ]
+ },
+ "freight/banner_fiesta": {
+  "phys": "fabric",
+  "rough": 0.75,
+  "metal": 0.0,
+  "size": 3.0,
+  "fit": true,
+  "two_sided": true,
+  "normal": true,
+  "rough_map": false,
+  "px": [
+   768,
+   384
+  ]
+ },
+ "freight/banner_lechon": {
+  "phys": "fabric",
+  "rough": 0.75,
+  "metal": 0.0,
+  "size": 3.0,
+  "fit": true,
+  "two_sided": true,
+  "normal": true,
+  "rough_map": false,
+  "px": [
+   768,
+   384
+  ]
+ },
+ "freight/banner_paupahan": {
+  "phys": "fabric",
+  "rough": 0.75,
+  "metal": 0.0,
+  "size": 3.0,
+  "fit": true,
+  "two_sided": true,
+  "normal": true,
+  "rough_map": false,
+  "px": [
+   768,
+   384
+  ]
+ },
+ "freight/chain_link": {
+  "phys": "blocker",
+  "rough": 0.5,
+  "metal": 0.6,
+  "size": 2.0,
+  "alpha": "scissor",
+  "two_sided": true,
+  "normal": true,
+  "rough_map": false,
+  "px": [
+   512,
+   512
+  ]
+ },
+ "freight/chb_mint": {
+  "phys": "hollow_block",
+  "rough": 0.9,
+  "metal": 0.0,
+  "size": 2.0,
+  "normal": true,
+  "rough_map": false,
+  "px": [
+   512,
+   512
+  ]
+ },
+ "freight/chb_pink": {
+  "phys": "hollow_block",
+  "rough": 0.9,
+  "metal": 0.0,
+  "size": 2.0,
+  "normal": true,
+  "rough_map": false,
+  "px": [
+   512,
+   512
+  ]
+ },
+ "freight/chb_raw": {
+  "phys": "hollow_block",
+  "rough": 0.92,
+  "metal": 0.0,
+  "size": 2.0,
+  "normal": true,
+  "rough_map": false,
+  "px": [
+   512,
+   512
+  ]
+ },
+ "freight/chb_white": {
+  "phys": "hollow_block",
+  "rough": 0.9,
+  "metal": 0.0,
+  "size": 2.0,
+  "normal": true,
+  "rough_map": false,
+  "px": [
+   512,
+   512
+  ]
+ },
+ "freight/chb_yellow": {
+  "phys": "hollow_block",
+  "rough": 0.9,
+  "metal": 0.0,
+  "size": 2.0,
+  "normal": true,
+  "rough_map": false,
+  "px": [
+   512,
+   512
+  ]
+ },
+ "freight/clip": {
+  "phys": "none",
+  "rough": 0.8,
+  "metal": 0.0,
+  "size": 2.0,
+  "tool": true,
+  "normal": false,
+  "rough_map": false,
+  "px": [
+   128,
+   128
+  ]
+ },
+ "freight/clip_concrete": {
+  "phys": "concrete",
+  "rough": 0.8,
+  "metal": 0.0,
+  "size": 2.0,
+  "tool": true,
+  "normal": false,
+  "rough_map": false,
+  "px": [
+   128,
+   128
+  ]
+ },
+ "freight/clip_steel": {
+  "phys": "steel",
+  "rough": 0.8,
+  "metal": 0.0,
+  "size": 2.0,
+  "tool": true,
+  "normal": false,
+  "rough_map": false,
+  "px": [
+   128,
+   128
+  ]
+ },
+ "freight/clip_wood": {
+  "phys": "wood",
+  "rough": 0.8,
+  "metal": 0.0,
+  "size": 2.0,
+  "tool": true,
+  "normal": false,
+  "rough_map": false,
+  "px": [
+   128,
+   128
+  ]
+ },
+ "freight/concrete_rough": {
+  "phys": "concrete",
+  "rough": 0.9,
+  "metal": 0.0,
+  "size": 2.0,
+  "normal": true,
+  "rough_map": false,
+  "px": [
+   512,
+   512
+  ]
+ },
+ "freight/concrete_wet": {
+  "phys": "concrete",
+  "rough": 0.413,
+  "metal": 0.0,
+  "size": 4.0,
+  "normal": true,
+  "rough_map": true,
+  "px": [
+   512,
+   512
+  ]
+ },
+ "freight/container_blue": {
+  "phys": "steel",
+  "rough": 0.6,
+  "metal": 0.25,
+  "size": 2.9,
+  "normal": true,
+  "rough_map": false,
+  "px": [
+   512,
+   512
+  ]
+ },
+ "freight/container_door_blue": {
+  "phys": "steel",
+  "rough": 0.6,
+  "metal": 0.25,
+  "size": 2.9,
+  "fit": true,
+  "normal": true,
+  "rough_map": false,
+  "px": [
+   432,
+   512
+  ]
+ },
+ "freight/container_door_green": {
+  "phys": "steel",
+  "rough": 0.6,
+  "metal": 0.25,
+  "size": 2.9,
+  "fit": true,
+  "normal": true,
+  "rough_map": false,
+  "px": [
+   432,
+   512
+  ]
+ },
+ "freight/container_door_grey": {
+  "phys": "steel",
+  "rough": 0.6,
+  "metal": 0.25,
+  "size": 2.9,
+  "fit": true,
+  "normal": true,
+  "rough_map": false,
+  "px": [
+   432,
+   512
+  ]
+ },
+ "freight/container_door_orange": {
+  "phys": "steel",
+  "rough": 0.6,
+  "metal": 0.25,
+  "size": 2.9,
+  "fit": true,
+  "normal": true,
+  "rough_map": false,
+  "px": [
+   432,
+   512
+  ]
+ },
+ "freight/container_door_red": {
+  "phys": "steel",
+  "rough": 0.6,
+  "metal": 0.25,
+  "size": 2.9,
+  "fit": true,
+  "normal": true,
+  "rough_map": false,
+  "px": [
+   432,
+   512
+  ]
+ },
+ "freight/container_door_yellow": {
+  "phys": "steel",
+  "rough": 0.6,
+  "metal": 0.25,
+  "size": 2.9,
+  "fit": true,
+  "normal": true,
+  "rough_map": false,
+  "px": [
+   432,
+   512
+  ]
+ },
+ "freight/container_green": {
+  "phys": "steel",
+  "rough": 0.6,
+  "metal": 0.25,
+  "size": 2.9,
+  "normal": true,
+  "rough_map": false,
+  "px": [
+   512,
+   512
+  ]
+ },
+ "freight/container_grey": {
+  "phys": "steel",
+  "rough": 0.6,
+  "metal": 0.25,
+  "size": 2.9,
+  "normal": true,
+  "rough_map": false,
+  "px": [
+   512,
+   512
+  ]
+ },
+ "freight/container_orange": {
+  "phys": "steel",
+  "rough": 0.6,
+  "metal": 0.25,
+  "size": 2.9,
+  "normal": true,
+  "rough_map": false,
+  "px": [
+   512,
+   512
+  ]
+ },
+ "freight/container_red": {
+  "phys": "steel",
+  "rough": 0.6,
+  "metal": 0.25,
+  "size": 2.9,
+  "normal": true,
+  "rough_map": false,
+  "px": [
+   512,
+   512
+  ]
+ },
+ "freight/container_roof": {
+  "phys": "steel",
+  "rough": 0.696,
+  "metal": 0.2,
+  "size": 2.44,
+  "normal": true,
+  "rough_map": true,
+  "px": [
+   512,
+   512
+  ]
+ },
+ "freight/container_yellow": {
+  "phys": "steel",
+  "rough": 0.6,
+  "metal": 0.25,
+  "size": 2.9,
+  "normal": true,
+  "rough_map": false,
+  "px": [
+   512,
+   512
+  ]
+ },
+ "freight/curtain_blue": {
+  "phys": "fabric",
+  "rough": 0.85,
+  "metal": 0.0,
+  "size": 1.0,
+  "fit": true,
+  "two_sided": true,
+  "normal": true,
+  "rough_map": false,
+  "px": [
+   256,
+   512
+  ]
+ },
+ "freight/curtain_rose": {
+  "phys": "fabric",
+  "rough": 0.85,
+  "metal": 0.0,
+  "size": 1.0,
+  "fit": true,
+  "two_sided": true,
+  "normal": true,
+  "rough_map": false,
+  "px": [
+   256,
+   512
+  ]
+ },
+ "freight/glow_cool": {
+  "phys": "glass",
+  "rough": 0.2,
+  "metal": 0.0,
+  "size": 1.0,
+  "emit": 6.0,
+  "unshaded": true,
+  "normal": false,
+  "rough_map": false,
+  "px": [
+   64,
+   64
+  ]
+ },
+ "freight/glow_red": {
+  "phys": "glass",
+  "rough": 0.2,
+  "metal": 0.0,
+  "size": 1.0,
+  "emit": 6.0,
+  "unshaded": true,
+  "normal": false,
+  "rough_map": false,
+  "px": [
+   64,
+   64
+  ]
+ },
+ "freight/glow_warm": {
+  "phys": "glass",
+  "rough": 0.2,
+  "metal": 0.0,
+  "size": 1.0,
+  "emit": 6.0,
+  "unshaded": true,
+  "normal": false,
+  "rough_map": false,
+  "px": [
+   64,
+   64
+  ]
+ },
+ "freight/grate": {
+  "phys": "steel",
+  "rough": 0.6,
+  "metal": 0.5,
+  "size": 1.0,
+  "alpha": "scissor",
+  "two_sided": true,
+  "normal": true,
+  "rough_map": false,
+  "px": [
+   512,
+   512
+  ]
+ },
+ "freight/gravel": {
+  "phys": "sand",
+  "rough": 0.95,
+  "metal": 0.0,
+  "size": 2.0,
+  "normal": true,
+  "rough_map": false,
+  "px": [
+   512,
+   512
+  ]
+ },
+ "freight/hazard": {
+  "phys": "steel",
+  "rough": 0.6,
+  "metal": 0.2,
+  "size": 1.0,
+  "normal": true,
+  "rough_map": false,
+  "px": [
+   512,
+   512
+  ]
+ },
+ "freight/laundry": {
+  "phys": "fabric",
+  "rough": 0.85,
+  "metal": 0.0,
+  "size": 2.0,
+  "two_sided": true,
+  "normal": true,
+  "rough_map": false,
+  "px": [
+   512,
+   512
+  ]
+ },
+ "freight/mud": {
+  "phys": "dirt",
+  "rough": 0.486,
+  "metal": 0.0,
+  "size": 3.0,
+  "normal": true,
+  "rough_map": true,
+  "px": [
+   512,
+   512
+  ]
+ },
+ "freight/neon_cyan": {
+  "phys": "glass",
+  "rough": 0.2,
+  "metal": 0.0,
+  "size": 1.0,
+  "emit": 6.0,
+  "unshaded": true,
+  "normal": false,
+  "rough_map": false,
+  "px": [
+   64,
+   64
+  ]
+ },
+ "freight/neon_green": {
+  "phys": "glass",
+  "rough": 0.2,
+  "metal": 0.0,
+  "size": 1.0,
+  "emit": 6.0,
+  "unshaded": true,
+  "normal": false,
+  "rough_map": false,
+  "px": [
+   64,
+   64
+  ]
+ },
+ "freight/neon_pink": {
+  "phys": "glass",
+  "rough": 0.2,
+  "metal": 0.0,
+  "size": 1.0,
+  "emit": 6.0,
+  "unshaded": true,
+  "normal": false,
+  "rough_map": false,
+  "px": [
+   64,
+   64
+  ]
+ },
+ "freight/paint_white": {
+  "phys": "concrete",
+  "rough": 0.8,
+  "metal": 0.0,
+  "size": 1.0,
+  "normal": true,
+  "rough_map": false,
+  "px": [
+   512,
+   512
+  ]
+ },
+ "freight/pallet": {
+  "phys": "wood",
+  "rough": 0.85,
+  "metal": 0.0,
+  "size": 1.2,
+  "normal": true,
+  "rough_map": false,
+  "px": [
+   512,
+   512
+  ]
+ },
+ "freight/planks": {
+  "phys": "wood",
+  "rough": 0.82,
+  "metal": 0.0,
+  "size": 2.0,
+  "normal": true,
+  "rough_map": false,
+  "px": [
+   512,
+   512
+  ]
+ },
+ "freight/planks_dark": {
+  "phys": "wood",
+  "rough": 0.82,
+  "metal": 0.0,
+  "size": 2.0,
+  "normal": true,
+  "rough_map": false,
+  "px": [
+   512,
+   512
+  ]
+ },
+ "freight/plastic_blue": {
+  "phys": "fabric",
+  "rough": 0.45,
+  "metal": 0.0,
+  "size": 1.0,
+  "normal": true,
+  "rough_map": false,
+  "px": [
+   512,
+   512
+  ]
+ },
+ "freight/plastic_red": {
+  "phys": "fabric",
+  "rough": 0.45,
+  "metal": 0.0,
+  "size": 1.0,
+  "normal": true,
+  "rough_map": false,
+  "px": [
+   512,
+   512
+  ]
+ },
+ "freight/plastic_white": {
+  "phys": "fabric",
+  "rough": 0.45,
+  "metal": 0.0,
+  "size": 1.0,
+  "normal": true,
+  "rough_map": false,
+  "px": [
+   512,
+   512
+  ]
+ },
+ "freight/plywood": {
+  "phys": "plywood",
+  "rough": 0.85,
+  "metal": 0.0,
+  "size": 2.44,
+  "normal": true,
+  "rough_map": false,
+  "px": [
+   512,
+   512
+  ]
+ },
+ "freight/rubber": {
+  "phys": "fabric",
+  "rough": 0.8,
+  "metal": 0.0,
+  "size": 1.0,
+  "normal": true,
+  "rough_map": false,
+  "px": [
+   512,
+   512
+  ]
+ },
+ "freight/sack": {
+  "phys": "sand",
+  "rough": 0.9,
+  "metal": 0.0,
+  "size": 1.0,
+  "normal": true,
+  "rough_map": false,
+  "px": [
+   512,
+   512
+  ]
+ },
+ "freight/sign_bawal": {
+  "phys": "sheet_metal",
+  "rough": 0.7,
+  "metal": 0.0,
+  "size": 2.0,
+  "fit": true,
+  "normal": true,
+  "rough_map": false,
+  "px": [
+   640,
+   256
+  ]
+ },
+ "freight/sign_eload": {
+  "phys": "plywood",
+  "rough": 0.7,
+  "metal": 0.0,
+  "size": 2.0,
+  "fit": true,
+  "normal": true,
+  "rough_map": false,
+  "px": [
+   640,
+   256
+  ]
+ },
+ "freight/sign_pier": {
+  "phys": "sheet_metal",
+  "rough": 0.7,
+  "metal": 0.0,
+  "size": 2.0,
+  "fit": true,
+  "normal": true,
+  "rough_map": false,
+  "px": [
+   640,
+   256
+  ]
+ },
+ "freight/sign_sarisari": {
+  "phys": "sheet_metal",
+  "rough": 0.7,
+  "metal": 0.0,
+  "size": 2.0,
+  "fit": true,
+  "normal": true,
+  "rough_map": false,
+  "px": [
+   640,
+   256
+  ]
+ },
+ "freight/sign_shrine": {
+  "phys": "plywood",
+  "rough": 0.7,
+  "metal": 0.0,
+  "size": 2.0,
+  "fit": true,
+  "normal": true,
+  "rough_map": false,
+  "px": [
+   640,
+   256
+  ]
+ },
+ "freight/sign_talyer": {
+  "phys": "sheet_metal",
+  "rough": 0.7,
+  "metal": 0.0,
+  "size": 2.0,
+  "fit": true,
+  "normal": true,
+  "rough_map": false,
+  "px": [
+   640,
+   256
+  ]
+ },
+ "freight/sign_videoke": {
+  "phys": "plywood",
+  "rough": 0.7,
+  "metal": 0.0,
+  "size": 2.0,
+  "fit": true,
+  "normal": true,
+  "rough_map": false,
+  "px": [
+   640,
+   256
+  ]
+ },
+ "freight/sign_vulcanizing": {
+  "phys": "sheet_metal",
+  "rough": 0.7,
+  "metal": 0.0,
+  "size": 2.0,
+  "fit": true,
+  "normal": true,
+  "rough_map": false,
+  "px": [
+   640,
+   256
+  ]
+ },
+ "freight/sign_yard": {
+  "phys": "sheet_metal",
+  "rough": 0.7,
+  "metal": 0.0,
+  "size": 2.0,
+  "fit": true,
+  "normal": true,
+  "rough_map": false,
+  "px": [
+   640,
+   256
+  ]
+ },
+ "freight/skip": {
+  "phys": "none",
+  "rough": 0.8,
+  "metal": 0.0,
+  "size": 2.0,
+  "tool": true,
+  "normal": false,
+  "rough_map": false,
+  "px": [
+   128,
+   128
+  ]
+ },
+ "freight/steel_blue": {
+  "phys": "steel",
+  "rough": 0.65,
+  "metal": 0.3,
+  "size": 1.5,
+  "normal": true,
+  "rough_map": false,
+  "px": [
+   512,
+   512
+  ]
+ },
+ "freight/steel_grey": {
+  "phys": "steel",
+  "rough": 0.65,
+  "metal": 0.3,
+  "size": 1.5,
+  "normal": true,
+  "rough_map": false,
+  "px": [
+   512,
+   512
+  ]
+ },
+ "freight/steel_rust": {
+  "phys": "steel",
+  "rough": 0.65,
+  "metal": 0.3,
+  "size": 1.5,
+  "normal": true,
+  "rough_map": false,
+  "px": [
+   512,
+   512
+  ]
+ },
+ "freight/steel_yellow": {
+  "phys": "steel",
+  "rough": 0.65,
+  "metal": 0.3,
+  "size": 1.5,
+  "normal": true,
+  "rough_map": false,
+  "px": [
+   512,
+   512
+  ]
+ },
+ "freight/tarp_black": {
+  "phys": "fabric",
+  "rough": 0.7,
+  "metal": 0.0,
+  "size": 3.0,
+  "two_sided": true,
+  "normal": true,
+  "rough_map": false,
+  "px": [
+   512,
+   512
+  ]
+ },
+ "freight/tarp_blue": {
+  "phys": "fabric",
+  "rough": 0.7,
+  "metal": 0.0,
+  "size": 3.0,
+  "two_sided": true,
+  "normal": true,
+  "rough_map": false,
+  "px": [
+   512,
+   512
+  ]
+ },
+ "freight/tarp_green": {
+  "phys": "fabric",
+  "rough": 0.7,
+  "metal": 0.0,
+  "size": 3.0,
+  "two_sided": true,
+  "normal": true,
+  "rough_map": false,
+  "px": [
+   512,
+   512
+  ]
+ },
+ "freight/tarp_orange": {
+  "phys": "fabric",
+  "rough": 0.7,
+  "metal": 0.0,
+  "size": 3.0,
+  "two_sided": true,
+  "normal": true,
+  "rough_map": false,
+  "px": [
+   512,
+   512
+  ]
+ },
+ "freight/timber": {
+  "phys": "wood",
+  "rough": 0.85,
+  "metal": 0.0,
+  "size": 1.0,
+  "normal": true,
+  "rough_map": false,
+  "px": [
+   512,
+   512
+  ]
+ },
+ "freight/tire": {
+  "phys": "fabric",
+  "rough": 0.85,
+  "metal": 0.0,
+  "size": 1.0,
+  "normal": true,
+  "rough_map": false,
+  "px": [
+   512,
+   512
+  ]
+ },
+ "freight/trash": {
+  "phys": "fabric",
+  "rough": 0.75,
+  "metal": 0.0,
+  "size": 2.0,
+  "normal": true,
+  "rough_map": false,
+  "px": [
+   512,
+   512
+  ]
+ },
+ "freight/tread_plate": {
+  "phys": "steel",
+  "rough": 0.696,
+  "metal": 0.6,
+  "size": 1.0,
+  "normal": true,
+  "rough_map": true,
+  "px": [
+   512,
+   512
+  ]
+ },
+ "freight/water": {
+  "phys": "water",
+  "rough": 0.06,
+  "metal": 0.0,
+  "size": 6.0,
+  "normal": true,
+  "rough_map": false,
+  "px": [
+   512,
+   512
+  ]
+ },
+ "freight/wood_red": {
+  "phys": "wood",
+  "rough": 0.7,
+  "metal": 0.0,
+  "size": 1.0,
+  "normal": true,
+  "rough_map": false,
+  "px": [
+   512,
+   512
+  ]
+ },
+ "freight/yero_blue": {
+  "phys": "sheet_metal",
+  "rough": 0.55,
+  "metal": 0.15,
+  "size": 2.0,
+  "normal": true,
+  "rough_map": false,
+  "px": [
+   512,
+   512
+  ]
+ },
+ "freight/yero_green": {
+  "phys": "sheet_metal",
+  "rough": 0.55,
+  "metal": 0.15,
+  "size": 2.0,
+  "normal": true,
+  "rough_map": false,
+  "px": [
+   512,
+   512
+  ]
+ },
+ "freight/yero_old": {
+  "phys": "sheet_metal",
+  "rough": 0.55,
+  "metal": 0.35,
+  "size": 2.0,
+  "normal": true,
+  "rough_map": false,
+  "px": [
+   512,
+   512
+  ]
+ },
+ "freight/yero_red": {
+  "phys": "sheet_metal",
+  "rough": 0.55,
+  "metal": 0.15,
+  "size": 2.0,
+  "normal": true,
+  "rough_map": false,
+  "px": [
+   512,
+   512
+  ]
+ },
+ "freight/yero_rust": {
+  "phys": "sheet_metal",
+  "rough": 0.55,
+  "metal": 0.35,
+  "size": 2.0,
+  "normal": true,
+  "rough_map": false,
+  "px": [
+   512,
+   512
+  ]
+ }
+}

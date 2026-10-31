@@ -1,0 +1,332 @@
+{
+  "map": "malasugue_mall",
+  "totals": {
+    "bot_s": 11889.5333333305,
+    "moving_s": 8634.533333332,
+    "stall_events": 48,
+    "stall_s": 357.533333333333,
+    "wall_events": 44,
+    "wall_s": 120.9
+  },
+  "worst": [
+    [
+      "0:50,-36",
+      {
+        "stall": 7,
+        "states": {
+          "hunt": 1,
+          "order": 13
+        },
+        "wall": 7
+      }
+    ],
+    [
+      "4:-16,12",
+      {
+        "stall": 0,
+        "states": {
+          "overwatch": 14
+        },
+        "wall": 14
+      }
+    ],
+    [
+      "0:50,-40",
+      {
+        "stall": 6,
+        "states": {
+          "investigate": 1,
+          "order": 11,
+          "roam": 1
+        },
+        "wall": 7
+      }
+    ],
+    [
+      "0:-6,2",
+      {
+        "stall": 1,
+        "states": {
+          "camp": 4,
+          "order": 1
+        },
+        "wall": 4
+      }
+    ],
+    [
+      "4:-6,2",
+      {
+        "stall": 0,
+        "states": {
+          "camp": 5
+        },
+        "wall": 5
+      }
+    ],
+    [
+      "0:8,-34",
+      {
+        "stall": 4,
+        "states": {
+          "order": 4
+        },
+        "wall": 0
+      }
+    ],
+    [
+      "0:-2,-20",
+      {
+        "stall": 4,
+        "states": {
+          "order": 3,
+          "roam": 1
+        },
+        "wall": 0
+      }
+    ],
+    [
+      "0:52,-44",
+      {
+        "stall": 2,
+        "states": {
+          "heal": 1,
+          "roam": 2
+        },
+        "wall": 1
+      }
+    ],
+    [
+      "0:10,-34",
+      {
+        "stall": 2,
+        "states": {
+          "order": 2
+        },
+        "wall": 0
+      }
+    ],
+    [
+      "0:4,-30",
+      {
+        "stall": 2,
+        "states": {
+          "order": 2
+        },
+        "wall": 0
+      }
+    ],
+    [
+      "0:-56,-38",
+      {
+        "stall": 2,
+        "states": {
+          "order": 2
+        },
+        "wall": 0
+      }
+    ],
+    [
+      "2:44,-36",
+      {
+        "stall": 0,
+        "states": {
+          "camp": 2
+        },
+        "wall": 2
+      }
+    ],
+    [
+      "0:44,-36",
+      {
+        "stall": 0,
+        "states": {
+          "camp": 1,
+          "order": 1
+        },
+        "wall": 2
+      }
+    ],
+    [
+      "0:50,-42",
+      {
+        "stall": 2,
+        "states": {
+          "investigate": 1,
+          "order": 1
+        },
+        "wall": 0
+      }
+    ],
+    [
+      "0:52,42",
+      {
+        "stall": 1,
+        "states": {
+          "heal": 1,
+          "hunt": 1
+        },
+        "wall": 1
+      }
+    ],
+    [
+      "0:38,-34",
+      {
+        "stall": 1,
+        "states": {
+          "order": 1
+        },
+        "wall": 0
+      }
+    ],
+    [
+      "0:52,-36",
+      {
+        "stall": 1,
+        "states": {
+          "order": 1
+        },
+        "wall": 0
+      }
+    ],
+    [
+      "0:38,-38",
+      {
+        "stall": 1,
+        "states": {
+          "roam": 1
+        },
+        "wall": 0
+      }
+    ],
+    [
+      "2:-6,2",
+      {
+        "stall": 0,
+        "states": {
+          "camp": 1
+        },
+        "wall": 1
+      }
+    ],
+    [
+      "1:54,-42",
+      {
+        "stall": 1,
+        "states": {
+          "order": 1
+        },
+        "wall": 0
+      }
+    ],
+    [
+      "1:50,-40",
+      {
+        "stall": 1,
+        "states": {
+          "order": 1
+        },
+        "wall": 0
+      }
+    ],
+    [
+      "0:40,-22",
+      {
+        "stall": 1,
+        "states": {
+          "order": 1
+        },
+        "wall": 0
+      }
+    ],
+    [
+      "0:-12,4",
+      {
+        "stall": 1,
+        "states": {
+          "order": 1
+        },
+        "wall": 0
+      }
+    ],
+    [
+      "0:-54,-42",
+      {
+        "stall": 1,
+        "states": {
+          "hunt": 1
+        },
+        "wall": 0
+      }
+    ],
+    [
+      "0:56,-42",
+      {
+        "stall": 1,
+        "states": {
+          "order": 1
+        },
+        "wall": 0
+      }
+    ],
+    [
+      "0:40,-20",
+      {
+        "stall": 1,
+        "states": {
+          "order": 1
+        },
+        "wall": 0
+      }
+    ],
+    [
+      "0:58,-36",
+      {
+        "stall": 1,
+        "states": {
+          "order": 1
+        },
+        "wall": 0
+      }
+    ],
+    [
+      "0:46,-38",
+      {
+        "stall": 1,
+        "states": {
+          "order": 1
+        },
+        "wall": 0
+      }
+    ],
+    [
+      "0:52,-38",
+      {
+        "stall": 1,
+        "states": {
+          "order": 1
+        },
+        "wall": 0
+      }
+    ],
+    [
+      "2:44,-40",
+      {
+        "stall": 1,
+        "states": {
+          "investigate": 1
+        },
+        "wall": 0
+      }
+    ],
+    [
+      "0:-52,-46",
+      {
+        "stall": 1,
+        "states": {
+          "order": 1
+        },
+        "wall": 0
+      }
+    ]
+  ]
+}

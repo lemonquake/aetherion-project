@@ -1,0 +1,18 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+[server] dedicated server listening on 27660
+[lagusan] { "segments": 123, "metres": 1910.45543050766, "lights": 258, "dead": 23, "gaps": 109, "shrines": 18, "walks": 23 }
+[looban] { "loobans": 20, "crate_stacks": 60, "low_walls": 243, "sandbags": 10, "kiosks": 20, "barricades": 10, "yard_walls": 100, &"vacant": 80 }
+[dress] { "poles": 983, "wires": 5448, "laundry": 441, "clutter": 1002, "props": 2109, "tags": 0, "puddles": 168, "plants": 1125, "vehicles": 67, "floating": 6, "loot": 497, "boxes": 38 }
+[vandal] { "wall": 1348, "covered": 427, "stains": 3379, "ground": 880, "spots": 10 }
+[world] map built in 14152 ms
+[map] 2216 buildings, 4142 doors, 10058 containers, 11127 props, #2b735252 on PC
+[botnav] kalinaw: analysing 4336 candidate spots (walk check 0 ms)
+[bots] learned from 24 cells, 0 stuck spots, 0 spots learned from play, 0 spot records (user://bot_memory_kalinaw.json)
+[match    0.0] start: 8 players, 2 teams, plane (80.27291, 320.0, 433.3546) -> (-243.8967, 320.0, -499.9503)
+[botnav] saved user://botnav/kalinaw.json (1275 spots)
+[botnav] kalinaw: 1275 spots from 4336 candidates in 375 ms of ticks { "hide": 137, "snipe": 262, "cover": 307, "open": 569 }
+[match    0.0] status: { "plane": 8 }; armed 0; shots 0; zone -1 wait r=406; corpses 0
+[match    0.0] bots: { "deploy": 8 }; containers searched by bots 0 (all players 0); plan steps done 0; guns carried 0
+[match    0.0] roles: { "looter": { "deploy": 4 }, "rusher": { "deploy": 1 }, "sniper": { "deploy": 1 }, "stalker": { "deploy": 2 } }; stuck now 0; waypoints 1275; team { "lines": 0, "pings": 0, "laser_follow": 0, "learned_cells": 24, "blocked_cells": 0, "squads": 0, "following_humans": 0, &"learned_spots": 0 }
+[match    0.0] [lootstats] bots on the ground 0 (in water 0); armed 0; armed with ammo for a gun 0; long guns 0; attachments fitted 0; rounds of unusable ammo carried 0; items on the ground 17272; bot pickups { "detours": 0, "detour_taken": 0, "fetches": 0, "fetch_done": 0, "items_taken": 0 }

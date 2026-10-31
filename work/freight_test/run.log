@@ -1,0 +1,13 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+[world] map built in 805 ms
+[map] 0 buildings, 0 doors, 0 containers, 0 props, #00000000 on PC
+[nav] levels: 34894 points, 3 links, 84 ms
+[bots] learned from 45 cells, 4 stuck spots (user://bot_memory_freight_delight.json)
+[game] autotest freight
+[autotest] FAIL freight_build: spawns 16 / 18, stair links 3, walk cells [32184, 2710], waypoints 792 (272 upstairs), lamps 0
+[autotest] FAIL freight_stair_stair_a: Stair A: walked up to y 0.69 in 8.0 s
+[autotest] FAIL freight_stair_stair_b: Stair B: walked up to y 0.88 in 8.0 s
+[autotest] FAIL freight_stair_stair_c: Stair C: walked up to y 0.88 in 8.0 s
+[freight] FAIL Stair A top: Bodega mezzanine: 35.2 s, 2 stalls, ended at (-36.6, 3.2, -11.8)
+[freight] FAIL Deck, west end: 32.4 s, 0 stalls, ended at (-31.5, 3.2, -27.2)

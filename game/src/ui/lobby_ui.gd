@@ -152,14 +152,17 @@ func _setup_panel() -> void:
 		else:
 			_setup_box.add_child(_kv_row("Map", map_name))
 		if dm:
-			_setup_box.add_child(_field("Teams", UITheme.stepper(Net.dm_teams(), 2, Net.DM_MAX_TEAMS, func(v): Net.request_config("teams", v))))
-			_setup_box.add_child(_field("Players per team", UITheme.stepper(Net.team_size(), 1, Net.DM_MAX_TEAM_SIZE, func(v): Net.request_config("team_size", v))))
+			if Net.dm_max_teams() > 2:
+				_setup_box.add_child(_field("Teams", UITheme.stepper(Net.dm_teams(), 2, Net.dm_max_teams(), func(v): Net.request_config("teams", v))))
+			else:
+				_setup_box.add_child(_kv_row("Teams", "2 (this map's limit)"))
+			_setup_box.add_child(_field("Players per team", UITheme.stepper(Net.team_size(), 1, Net.dm_max_team_size(), func(v): Net.request_config("team_size", v))))
 		else:
 			_setup_box.add_child(_field("Teams", UITheme.stepper(int(cfg.get("teams", 5)), 2, Net.MAX_TEAMS, func(v): Net.request_config("teams", v))))
 			_setup_box.add_child(_field("Squad size", UITheme.segmented([[1, "Solo"], [2, "Duo"], [3, "Trio"], [4, "Squad"]], Net.team_size(), func(v): Net.request_config("team_size", v))))
 		_setup_box.add_child(UITheme.toggle("Fill empty slots with bots", bool(cfg.get("bots", true)), func(v): Net.request_config("bots", v)))
 		if dm:
-			if str(cfg.get("map", "")) == "malasugue_mall":
+			if Net.dm_field_optional():
 				_setup_box.add_child(UITheme.toggle("Enable field", bool(cfg.get("dm_field", false)), func(v): Net.request_config("dm_field", v)))
 				_setup_box.add_child(UITheme.label("Same countdown; closes up to 50% each round.", 18, UITheme.TEXT_DIM))
 			else:
@@ -184,7 +187,7 @@ func _setup_panel() -> void:
 		else:
 			rows.append_array([["Teams", str(int(cfg.get("teams", 5)))], ["Squad size", str(Net.team_size())]])
 		rows.append_array([["Bots", "Fill empty slots" if cfg.get("bots", true) else "Off"],
-				["Safe zone", ("Disabled" if not cfg.get("dm_field", false) else "Enabled · up to 50%") if dm and str(cfg.get("map", "")) == "malasugue_mall" else "Fast (fixed)" if dm else {1.0: "Normal", 1.6: "Fast", 2.5: "Rapid"}.get(float(cfg.get("zone_speed", 1.0)), "Normal")]])
+				["Safe zone", ("Disabled" if not cfg.get("dm_field", false) else "Enabled · up to 50%") if dm and Net.dm_field_optional() else "Fast (fixed)" if dm else {1.0: "Normal", 1.6: "Fast", 2.5: "Rapid"}.get(float(cfg.get("zone_speed", 1.0)), "Normal")]])
 		if dm:
 			rows.append(["Win by", win_text()])
 		rows.append(["Night and day", "Always night" if _night_only() else "%d min each" % (int(cfg.get("day_len", 300)) / 60)])
@@ -234,7 +237,7 @@ static func win_text() -> String:
 
 func _set_mode(m: String) -> void:
 	## Host: switch the lobby between Classic (5 squads of 4 on Sitio Kalinaw) and Deathmatch (3 teams of 7 on
-	## Lawless Sub or Malasugue Mall); Net.set_config resets the map and teams to the mode's defaults. The choice is
+	## Malasugue Mall, Freight Delight or Lawless Sub); Net.set_config resets the map and teams to the mode's defaults. The choice is
 	## also remembered for the menu.
 	if not Net.is_room_host() or m == str(Net.config.get("game_mode", "classic")):
 		return
