@@ -43,12 +43,22 @@ var _kicks: Array = []       # [seconds, Vector3 peak]
 const KICK_RISE := 0.05
 var _cam_roll := 0.0
 var _eye_smooth := 1.66
+## r12 body feel: the head leans with the body's acceleration (forward when setting off, back when braking, into a
+## hard turn), tips sideways in a slide, and goes over in a landing roll.
+var _prev_vel := Vector3.ZERO
+var _acc_smooth := Vector3.ZERO
+var _lean := Vector2.ZERO        # pitch, roll (radians)
+var _slide_k := 0.0
+var _roll_view_t := -1.0
+var _climb_k := 0.0
 var _last_light_toggle := -10.0
 var _mouse_delta := Vector2.ZERO
-var stats := {"corrections": 0, "replayed": 0, "acks": 0, "max_error": 0.0}
+var stats := {"corrections": 0, "replayed": 0, "acks": 0, "max_error": 0.0, "err_sum": 0.0, "err_n": 0}
 ## Taps seen as input events since the last command (bit per action); added to the next command so a press and
 ## release inside one render frame still reaches the server.
 var _latched := 0
+var cook_t := -1.0             # r14: seconds since this player pulled a grenade pin (own prediction), -1 none
+var _throw_was := false
 var _fire_release_required := false
 const LATCH := {"interact": Motor.B_USE, "reload": Motor.B_RELOAD, "heal": Motor.B_HEAL, "fire_mode": Motor.B_FIREMODE,
 	"drop_held": Motor.B_DROP, "jump": Motor.B_JUMP, "fire": Motor.B_FIRE, "flashlight": Motor.B_LIGHT,
@@ -155,9 +165,11 @@ func _unhandled_input(event: InputEvent) -> void:
 	elif event.is_action_pressed("holster"):
 		slot = 0
 	elif event.is_action_pressed("next_weapon") and not tab_held:
-		slot = _cycle_slot(1)
+		if not (ch and ch.wpn.ads > 0.5 and ch.wpn.step_zoom(-1)):
+			slot = _cycle_slot(1)
 	elif event.is_action_pressed("prev_weapon") and not tab_held:
-		slot = _cycle_slot(-1)
+		if not (ch and ch.wpn.ads > 0.5 and ch.wpn.step_zoom(1)):
+			slot = _cycle_slot(-1)
 	if event.is_action_pressed("crouch") and bool(Settings.get_value("controls", "crouch_toggle")):
 		crouch_toggled = not crouch_toggled
 	if event.is_action_pressed("sprint") and bool(Settings.get_value("controls", "sprint_toggle")):
@@ -231,10 +243,15 @@ func _look(dt: float) -> void:
 
 func _build_cmd() -> Dictionary:
 	var btn := 0
-	var can_act := not paused and not results
+	var can_act := not paused and not results and (world == null or str(world.match_info.get("phase", "")) not in ["round_end", "ended"])
 	var mv := Vector2.ZERO
 	if can_act:
 		mv = Input.get_vector("move_left", "move_right", "move_back", "move_forward")
+		var touch_sprint := false
+		if touch and touch.stick_held():
+			# (r15) The on-screen stick as it is: get_vector's dead zone remap made a phone run at walking pace.
+			mv = touch.move_vector()
+			touch_sprint = touch.sprint_wanted()
 		tab_held = Input.is_action_pressed("smartab") or Input.is_action_pressed("map")
 		map_held = Input.is_action_pressed("map")
 		if Input.is_action_pressed("jump"):
@@ -243,7 +260,7 @@ func _build_cmd() -> Dictionary:
 		if crouch_on:
 			btn |= Motor.B_CROUCH
 		var sprint_on := sprint_toggled if bool(Settings.get_value("controls", "sprint_toggle")) else Input.is_action_pressed("sprint")
-		if sprint_on:
+		if sprint_on or touch_sprint:
 			btn |= Motor.B_SPRINT
 		if mv.y <= 0.1:
 			sprint_toggled = false
@@ -268,6 +285,9 @@ func _build_cmd() -> Dictionary:
 				btn |= Motor.B_DROP
 			if Input.is_action_pressed("laser") or laser_toggled:
 				btn |= Motor.B_LASER
+			# r14: the grenade key is held while cooking (the latch below still catches a quick tap).
+			if Input.is_action_pressed("throw_grenade"):
+				btn |= Motor.B_THROW
 		if Input.is_action_pressed("flashlight"):
 			btn |= Motor.B_LIGHT
 		if tab_held:
@@ -286,6 +306,7 @@ func _build_cmd() -> Dictionary:
 		if not Input.is_action_pressed("fire"):
 			_fire_release_required = false
 	_latched = 0
+	_cook_input((btn & Motor.B_THROW) != 0)
 	laser_held = (btn & Motor.B_LASER) != 0 and ch != null and ch.mode == Motor.GROUND
 	return {"seq": seq, "mx": mv.x, "my": mv.y, "yaw": yaw, "pitch": pitch, "btn": btn, "slot": slot,
 		"view_tick": int(Net.interp_tick()), "tick": Net.tick}
@@ -294,7 +315,7 @@ func _build_cmd() -> Dictionary:
 # ------------------------------------------------------------------ prediction
 
 func _physics_process(dt: float) -> void:
-	if ch == null or not is_instance_valid(ch):
+	if results or ch == null or not is_instance_valid(ch):
 		return
 	if _snap_ack >= 0 and not world.is_server:
 		var a := _snap_ack
@@ -332,10 +353,21 @@ func _physics_process(dt: float) -> void:
 	_after_step_effects(cmd, shots)
 
 
+func _cook_input(down: bool) -> void:
+	## r14: the fuse clock the HUD and the hands show: starts when the pin is pulled (the key goes down with a grenade
+	## carried), stops when it is thrown (key up) or has gone off.
+	if down and not _throw_was and cook_t < 0.0 and ch and ch.mode == Motor.GROUND and ch.held_prop_id < 0 \
+			and ch.inv and ch.inv.count("frag_grenade") > 0 and not tab_held:
+		cook_t = 0.0
+	elif cook_t >= 0.0 and not down:
+		cook_t = -1.0
+	_throw_was = down
+
+
 func _weapon_intent(cmd: Dictionary) -> void:
 	# Reapply the same weapon blockers during prediction and authoritative replay.
 	ch.wpn.blocked = (cmd.btn & (Motor.B_TAB | Motor.B_ACTION_BLOCKED)) != 0 or ch.mode != Motor.GROUND or ch.water_depth() > 1.15 \
-		or ch.held_prop_id >= 0 or ch.light.swapping() or (ch.flags & Character.F_BUSY) != 0 or ch.vault_t >= 0.0
+		or ch.held_prop_id >= 0 or ch.light.swapping() or (ch.flags & Character.F_BUSY) != 0 or ch.vault_t >= 0.0 or ch.ledge_t >= 0.0 or ch.roll_t >= 0.0 or cook_t >= 0.0 or (ch.flags & Character.F_COOK) != 0
 	if cmd.btn & Motor.B_TAB:
 		ch.flags |= Character.F_TAB
 		ch.wpn.cancel_reload()
@@ -404,6 +436,8 @@ func _reconcile_now(ack: int, own: Dictionary) -> void:
 		return
 	var err := (predicted.pos as Vector3).distance_to(own.pos)
 	stats.max_error = maxf(stats.max_error, err)
+	stats.err_sum += err
+	stats.err_n += 1
 	var mode_diff := int(predicted.mode) != int(own.mode)
 	var w_pred: Dictionary = pending[idx].w
 	var w_diff := int(w_pred.mag) != int(own.wpn.mag) or int(w_pred.cur) != int(own.wpn.cur) or int(w_pred.state) != int(own.wpn.state) \
@@ -443,7 +477,10 @@ func _hard_set(own: Dictionary) -> void:
 	ch.set_state({"pos": own.pos, "vel": own.vel, "mode": int(own.mode), "crouch": float(own.crouch), "crouching": bool(own.crouching),
 		"jcd": float(own.jcd), "ff": float(own.ff), "ct": float(own.ct), "cy": float(own.cy), "fl": float(own.fl), "pb": int(own.pb),
 		"vt": float(own.get("vt", -1.0)), "vd": float(own.get("vd", 0.5)), "va": own.get("va", Vector3.ZERO), "vm": own.get("vm", Vector3.ZERO),
-		"vb": own.get("vb", Vector3.ZERO), "vh": float(own.get("vh", 1.78))})
+		"vb": own.get("vb", Vector3.ZERO), "vh": float(own.get("vh", 1.78)), "vs": float(own.get("vs", 0.0)),
+		"at": float(own.get("at", 0.0)), "jb": float(own.get("jb", -1.0)), "st": float(own.get("st", -1.0)), "rt": float(own.get("rt", -1.0)),
+		"lt": float(own.get("lt", -1.0)), "lp": own.get("lp", Vector3.ZERO), "ln": own.get("ln", Vector3.ZERO), "ly": float(own.get("ly", 0.0)),
+		"pk": int(own.get("pk", 0)), "pc": float(own.get("pc", 0.0))})
 	ch.wpn.set_state(own.wpn)
 
 
@@ -456,9 +493,22 @@ func on_mode_forced(mode: int) -> void:
 		slot = 0
 
 
+# r13: after dying, the camera stays on your body for a few seconds (third person) before spectating a teammate.
+const DEATH_CAM_S := 6.0
+var _death: Dictionary = {}   # {t (s), pos, yaw, killer_pos}
+
+
+func on_death_report(info: Dictionary) -> void:
+	_death = {"t": Time.get_ticks_msec() / 1000.0, "pos": info.get("pos", Vector3.ZERO), "yaw": float(info.get("yaw", yaw)),
+		"killer_pos": info.get("killer_pos", Vector3.INF)}
+
+
 func on_local_died() -> void:
 	if ch:
 		ch.wpn.cancel_burst()
+		var now := Time.get_ticks_msec() / 1000.0
+		if _death.is_empty() or now - float(_death.t) > 2.0:
+			_death = {"t": now, "pos": ch.global_position, "yaw": ch.yaw, "killer_pos": Vector3.INF}
 	ch = null
 	pending.clear()
 	if vm:
@@ -493,6 +543,11 @@ func spectate_candidates() -> Array:
 
 
 func spectate_cycle(d: int) -> void:
+	if not _death.is_empty():
+		_death = {}   # skip the camera on your body
+		if world.hud and world.hud.death_card:
+			world.hud.death_card.hide_report()
+		return
 	var list := spectate_candidates()
 	if list.is_empty():
 		spectating = -1
@@ -544,10 +599,28 @@ func on_hit(part: String, dir: Vector3, damage: float, absorbed: String) -> void
 		vm.on_hit(damage)
 
 
+func blast_shake(strength: float) -> void:
+	## r14: a grenade going off nearby shakes the view (stronger closer); a sharp jolt, then the shake dies away.
+	if strength <= 0.0:
+		return
+	_hit_shake = minf(_hit_shake + strength * 2.6, 3.0)
+	_kicks.append([Time.get_ticks_msec() / 1000.0, Vector3(-0.06 * strength, randf_range(-0.04, 0.04) * strength, randf_range(-0.05, 0.05) * strength)])
+	if _kicks.size() > 6:
+		_kicks.pop_front()
+
+
 func _on_motion_event(kind: String, value: float) -> void:
 	match kind:
 		"land":
 			_land_jolt = clampf(value / 9.0, 0.0, 1.0)
+		"land_roll":
+			_land_jolt = 0.35
+			_roll_view_t = 0.0
+		"ledge_grab":
+			_land_jolt = 0.3
+			_kicks.append([Time.get_ticks_msec() / 1000.0, Vector3(-0.035, 0.0, 0.0)])
+		"wallrun":
+			_kicks.append([Time.get_ticks_msec() / 1000.0, Vector3(0.03, 0.0, 0.0)])
 		"ladder":
 			if not world.is_server:
 				SoundSys.play_at("ladder_step", ch.global_position + Vector3.UP * 0.9)
@@ -559,12 +632,17 @@ func _on_motion_event(kind: String, value: float) -> void:
 
 func _process(dt: float) -> void:
 	if ch == null or not is_instance_valid(ch):
-		_spectate_camera(dt)
+		if not _death_camera():
+			_spectate_camera(dt)
 		return
 	if world.hud:
 		world.hud.tab_held = tab_held
 		world.hud.map_held = map_held
 	_correction = _correction.lerp(Vector3.ZERO, clampf(dt * 12.0, 0.0, 1.0))
+	if cook_t >= 0.0:
+		cook_t += dt
+		if cook_t > float(Defs.item("frag_grenade").get("fuse_s", 4.0)) + 0.25 or ch.mode != Motor.GROUND:
+			cook_t = -1.0   # it went off in the hand (or was dropped)
 	var motion := str(Settings.get_value("accessibility", "camera_motion"))
 	var motion_k := 1.0 if motion == "normal" else (0.35 if motion == "reduced" else 0.0)
 	var base: Vector3 = ch.get_global_transform_interpolated().origin + _correction
@@ -603,8 +681,34 @@ func _process(dt: float) -> void:
 		_kick += (_kicks[i][1] as Vector3) * (age / KICK_RISE) * exp(1.0 - age / KICK_RISE)
 	_kick = _kick.clamp(Vector3(-0.14, -0.14, -0.12), Vector3(0.14, 0.14, 0.12))
 	pos += Basis(Vector3.UP, yaw) * (bob * motion_k)
+	# r12 body feel: lean with the acceleration, tip into a slide, nod over the top of a climb, go over in a roll.
+	var vel: Vector3 = ch.velocity
+	if dt > 0.0:
+		var acc := (vel - _prev_vel) / dt
+		acc.y = 0.0
+		_prev_vel = vel
+		_acc_smooth = _acc_smooth.lerp(acc.limit_length(40.0), clampf(dt * 6.0, 0.0, 1.0))
+	var fwd_v := -Basis(Vector3.UP, yaw).z
+	var right_v := Basis(Vector3.UP, yaw).x
+	var lean_to := Vector2.ZERO
+	if on_floor and ch.vault_t < 0.0 and ch.ledge_t < 0.0 and ch.roll_t < 0.0:
+		lean_to = Vector2(-_acc_smooth.dot(fwd_v) * 0.0045, -_acc_smooth.dot(right_v) * 0.004).clamp(Vector2(-0.07, -0.06), Vector2(0.07, 0.06))
+	_lean = _lean.lerp(lean_to, clampf(dt * 7.0, 0.0, 1.0))
+	_slide_k = move_toward(_slide_k, 1.0 if ch.slide_t >= 0.0 else 0.0, dt * 5.0)
+	var climb_to := 0.0
+	if ch.vault_t >= 0.0 and (ch.pk_bits & Parkour.PK_CLIMB) != 0:
+		climb_to = sin(clampf(ch.vault_t / maxf(ch.vault_d, 0.05), 0.0, 1.0) * PI)
+	_climb_k = move_toward(_climb_k, climb_to, dt * 6.0)
+	var roll_pitch := 0.0
+	if _roll_view_t >= 0.0:
+		_roll_view_t += dt
+		var u := clampf(_roll_view_t / Defs.move("roll_s"), 0.0, 1.0)
+		roll_pitch = -TAU * (u * u * (3.0 - 2.0 * u)) if motion == "normal" else -sin(u * PI) * 0.9 * motion_k
+		if u >= 1.0:
+			_roll_view_t = -1.0
+	roll += _lean.y + 0.07 * _slide_k
 	_cam_roll = lerpf(_cam_roll, roll * motion_k, clampf(dt * 8.0, 0.0, 1.0))
-	var p_view := pitch
+	var p_view := pitch + (_lean.x - 0.22 * _climb_k) * motion_k + roll_pitch
 	var y_view := yaw
 	if ch.mode == Motor.PLANE:
 		_plane_camera(dt)
@@ -626,6 +730,39 @@ func _plane_camera(dt: float) -> void:
 	cam.fov = float(Settings.get_value("graphics", "fov"))
 	if vm:
 		vm.visible = false
+
+
+func _death_camera() -> bool:
+	## The camera on your own body for DEATH_CAM_S: close above it at first, pulling back and circling slowly, on the
+	## side away from whoever killed you so they are in the background. False when it is over (spectating follows).
+	if _death.is_empty() or cam == null:
+		return false
+	var age := Time.get_ticks_msec() / 1000.0 - float(_death.t)
+	if age > DEATH_CAM_S:
+		_death = {}
+		return false
+	var body: Vector3 = _death.pos
+	var focus := body + Vector3.UP * 0.35
+	var kp: Vector3 = _death.killer_pos
+	var away := Vector3(sin(float(_death.yaw)), 0.0, cos(float(_death.yaw)))   # behind where you were facing
+	if kp != Vector3.INF and Vector2(kp.x - body.x, kp.z - body.z).length() > 1.0:
+		away = Vector3(body.x - kp.x, 0.0, body.z - kp.z).normalized()
+	var u := clampf(age / DEATH_CAM_S, 0.0, 1.0)
+	var e := 1.0 - pow(1.0 - clampf(age / 2.2, 0.0, 1.0), 3.0)
+	var dir := away.rotated(Vector3.UP, 0.35 + u * 0.7)
+	var desired := focus + dir * lerpf(1.2, 4.4, e) + Vector3.UP * lerpf(2.6, 2.4, e)
+	var space = world.get_world_3d().direct_space_state
+	var q := PhysicsRayQueryParameters3D.create(focus, desired, Defs.SIGHT_MASK)
+	var r = space.intersect_ray(q)
+	if not r.is_empty():
+		desired = (r.position as Vector3).lerp(focus, 0.12)
+	var look := focus
+	if kp != Vector3.INF:
+		look = focus.lerp(kp + Vector3.UP * 1.2, 0.18 * smoothstep(0.45, 0.9, u))
+	cam.global_transform = Transform3D(Basis.looking_at(look - desired, Vector3.UP), desired)
+	if world.hud:
+		world.hud.set_spectating(null)
+	return true
 
 
 func _spectate_camera(dt: float) -> void:

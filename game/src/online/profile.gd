@@ -18,6 +18,13 @@ var history: Array = []   # newest first: {date, place, teams, kills, damage, xp
 ## r7: the mode the menu plays ("classic" | "deathmatch") and the Deathmatch guns ({"primary": id, "secondary": id}).
 var game_mode := "classic"
 var loadout: Dictionary = {}
+## r16: the Deathmatch map the menu plays (an id from rules game_modes.deathmatch.maps; "" = the default).
+var dm_map := ""
+## (r17) The match choices made on Home or Host a game (Net.config keys day_len, dm_win, dm_score, dm_time): every host
+## path starts its lobby with them, and an official lobby's host offers them.
+var match_opts := {}
+const MATCH_OPT_KEYS := ["day_len", "dm_win", "dm_score", "dm_time", "dm_field"]
+const MATCH_OPT_DEFAULTS := {"day_len": 300, "dm_win": "wipe", "dm_score": 10, "dm_time": 14, "dm_field": false}
 
 
 func _ready() -> void:
@@ -127,6 +134,23 @@ func set_game_mode(m: String) -> void:
 	changed.emit()
 
 
+func set_dm_map(m: String) -> void:
+	dm_map = m
+	save_profile()
+	changed.emit()
+
+
+func match_opt(k: String):
+	## A saved match choice, or the default.
+	return match_opts.get(k, MATCH_OPT_DEFAULTS.get(k))
+
+
+func set_match_opt(k: String, v) -> void:
+	match_opts[k] = v
+	save_profile()
+	changed.emit()
+
+
 func get_loadout() -> Dictionary:
 	## The saved Deathmatch guns, checked against the rules (anything no longer allowed falls back to the default).
 	var dm := dm_rules()
@@ -167,6 +191,12 @@ func load_profile() -> void:
 				stats[k] = s[k]
 			history = d.get("history", [])
 			game_mode = "deathmatch" if str(d.get("game_mode", "classic")) == "deathmatch" else "classic"
+			dm_map = str(d.get("dm_map", ""))
+			var mo = d.get("match_opts", {})
+			match_opts = mo if mo is Dictionary else {}
+			for k in match_opts.keys():
+				if match_opts[k] is float:
+					match_opts[k] = int(match_opts[k])   # JSON numbers come back as floats
 			var lo = d.get("loadout", {})
 			loadout = lo if lo is Dictionary else {}
 	if id == "":
@@ -181,4 +211,4 @@ func save_profile() -> void:
 	var f := FileAccess.open(path, FileAccess.WRITE)
 	if f:
 		f.store_string(JSON.stringify({"id": id, "look": look, "xp": xp, "stats": stats, "history": history,
-			"game_mode": game_mode, "loadout": loadout}, " "))
+			"game_mode": game_mode, "loadout": loadout, "dm_map": dm_map, "match_opts": match_opts}, " "))

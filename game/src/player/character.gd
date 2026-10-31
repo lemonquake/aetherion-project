@@ -38,7 +38,21 @@ var vault_a := Vector3.ZERO # start, over-the-top point, landing
 var vault_m := Vector3.ZERO
 var vault_b := Vector3.ZERO
 var vault_h := 1.78         # body height while going over (fits a window opening)
+var vault_s := 0.0          # horizontal speed going into it (a fast vault comes out fast)
+var air_t := 0.0            # seconds since last on the floor (a jump just after running off an edge still counts)
+var jump_buf := -1.0        # seconds since Jump was pressed in the air, -1 when none: it jumps on landing
+var slide_t := -1.0         # time into a slide, -1 when not sliding (Parkour)
+var roll_t := -1.0          # time into a landing roll
+var ledge_t := -1.0         # time hanging from a ledge, -1 when not hanging
+var ledge_p := Vector3.ZERO # the edge the hands hold: on the wall face, at the top
+var ledge_n := Vector3.ZERO # the wall's face normal (toward the body)
+var ledge_y := 0.0          # feet height while hanging
+var pk_bits := 0            # Parkour.PK_*: wall run-up used this jump, the jump started at a sprint
+var pk_cd := 0.0            # no new ledge grab until this runs out (just let go)
+var field_pin := 0.0        # seconds the forcefield has held this body deep in it without moving it (Field)
 var wish_h := Vector3.ZERO  # stick direction x speed of the last ground step (Motor): kerbs are climbed toward it
+static var step_trace: Array = []   # tests: [eid, moved, added, wanted, floor normal y, rise] of each step-up while step_trace_on
+static var step_trace_on := false
 var laser_on := false       # holding the laser pointer (server: from commands; drawn by everyone from F_LASER)
 
 # --- gameplay state
@@ -85,6 +99,10 @@ const F_LIMP := 32768
 const F_WLIGHT := 65536  # active light is weapon-mounted
 const F_BUSY := 131072   # swapping battery / treating / reviving
 const F_LASER := 262144  # laser pointer on (hold V): everyone draws the beam
+const F_LEDGE := 524288  # hanging from a ledge or climbing up from one
+const F_SLIDE := 1048576 # sliding
+const F_ROLL := 2097152  # landing roll
+const F_COOK := 4194304  # r14: a frag grenade cooking in the hand (pin out)
 
 
 func _init() -> void:
@@ -112,6 +130,8 @@ func height() -> float:
 	var h := lerpf(Defs.move("stand_height"), Defs.move("crouch_height"), clampf(crouch, 0.0, 1.0))
 	if vault_t >= 0.0:
 		h = minf(h, vault_h)
+	if roll_t >= 0.0:
+		h = minf(h, Defs.move("crouch_height") * 0.85)
 	return h
 
 
@@ -222,13 +242,30 @@ func _try_step(pre: Vector3, horizontal: Vector3, dt: float) -> void:
 	# with an upward normal, and after the first tick of sliding the velocity no longer points into the kerb at all.
 	# The stick still does: what the slide takes away from the way the player pushes is the way into the kerb.
 	var intent := wish_h.normalized() if wish_h.length() > 0.1 else horizontal.normalized()
-	var lost := intent * wanted - moved_v
+	# Up a walkable slope the slide covers less ground across the map (about cos^2 of its angle): that is the slope, not
+	# a kerb in the way (a bank was taken for a kerb every tick and the body was lifted up it at 15 m/s).
+	var ny := get_floor_normal().y if is_on_floor() else 1.0
+	var expect := wanted * clampf(ny * ny, 0.4, 1.0)
+	var lost := intent * expect - moved_v
 	if moved > 1e-4:
 		var md := moved_v / moved
 		lost -= md * maxf(lost.dot(md), 0.0)
-	if wall_into == Vector3.ZERO and lost.length() > wanted * 0.2:
+	if wall_into == Vector3.ZERO and lost.length() > expect * 0.2:
 		wall_into = lost.normalized()
-	if moved > wanted * 0.85 and wall_into == Vector3.ZERO:
+	# Nothing wall-like and no deflection: only a real stop is a step in the way (a slope's facets cost up to a fifth).
+	if wall_into == Vector3.ZERO and moved > expect * 0.5:
+		return
+	# (r17) Going down (off a kerb, a sidewalk's edge, a step): the round of the capsule rolling over the edge costs
+	# some ground, but that is no step up. Taken for one, the body was lifted back on to the edge it was leaving, every
+	# tick: it shook in place there and needed a jump to get off.
+	if global_position.y < pre.y - 0.004 and wall_into == Vector3.ZERO:
+		return
+	# The middle of the body already over lower ground (half over the edge at an angle, where the round of the capsule
+	# on the corner reads like a wall), and not rising: going down as well. (Rising is riding up a step's corner.)
+	var dq := PhysicsRayQueryParameters3D.create(global_position + Vector3.UP * 0.3, global_position + Vector3.DOWN * 0.5, Defs.MOVE_MASK)
+	dq.exclude = [get_rid()]
+	var under := get_world_3d().direct_space_state.intersect_ray(dq)
+	if not under.is_empty() and (under.position as Vector3).y < global_position.y - 0.03 and global_position.y <= pre.y + 0.002:
 		return
 	var step_h := Defs.move("step_height")
 	var t0 := global_transform
@@ -267,17 +304,34 @@ func _try_step(pre: Vector3, horizontal: Vector3, dt: float) -> void:
 				continue
 			var landed := t_probe.origin + down_col.get_travel()
 			var dh := landed.y - global_position.y
-			if dh >= 0.015 and dh <= step_h + 0.02:
-				# Up and a short way onto it (never the whole probe: that would be a teleport along a wall).
-				var onto: Vector3 = Vector3(probe.x, 0.0, probe.z).limit_length(maxf(wanted, 0.06))
-				var t_end := t_up
-				t_end.origin += onto
-				var d2 := KinematicCollision3D.new()
-				if test_move(t_end, Vector3.DOWN * (lift + 0.06), d2) and d2.get_normal().y > 0.65 \
-						and (t_end.origin + d2.get_travel()).y - global_position.y >= 0.015:
-					global_position = t_end.origin + d2.get_travel() + Vector3.UP * 0.005
-				else:
-					global_position = landed + Vector3.UP * 0.005
+			# (r17) Up from where the tick started, too: the edge the body is stepping down from is not a step up.
+			if dh >= 0.015 and dh <= step_h + 0.02 and landed.y - pre.y >= 0.015:
+				# Up, and on to it only as far as this tick's motion still owes that way; further only when the edge
+				# needs it to stand on, in short steps. (The whole probe, or a full tick's distance on top of the
+				# slide, was a burst of speed on every stair.)
+				var flat := Vector3(probe.x, 0.0, probe.z)
+				var fl := flat.length()
+				var owed := clampf(wanted - moved_v.dot(flat / fl), 0.01, fl)
+				var tries: Array[float] = [owed]
+				for extra in [0.05, 0.08, 0.11, 0.14, 0.18, 0.22, minf(fl, 0.26)]:
+					if float(extra) > tries[-1] + 0.005 and float(extra) <= fl:
+						tries.append(float(extra))
+				for dist in tries:
+					var t_end := t_up
+					t_end.origin += flat / fl * dist
+					var d2 := KinematicCollision3D.new()
+					if test_move(t_end, Vector3.DOWN * (lift + 0.06), d2) and d2.get_normal().y > 0.65 \
+							and (t_end.origin + d2.get_travel()).y - global_position.y >= 0.015 \
+							and (t_end.origin + d2.get_travel()).y - pre.y >= 0.015:
+						if step_trace_on:
+							step_trace.append([eid, snappedf(moved, 0.001), snappedf(dist, 0.001), snappedf(wanted, 0.001), snappedf(ny, 0.01),
+								snappedf((t_end.origin + d2.get_travel()).y - global_position.y, 0.001)])
+						global_position = t_end.origin + d2.get_travel() + Vector3.UP * 0.005
+						# (r17) Over the kerb with the run's speed: the face it met had taken it all (4.8 -> 0.4 m/s at
+						# every kerb, and the run built up again from a walk).
+						velocity.x = horizontal.x
+						velocity.z = horizontal.z
+						return
 				return
 
 
@@ -305,7 +359,9 @@ func emit_motion_event(kind: String, value: float) -> void:
 func get_state() -> Dictionary:
 	return {"pos": global_position, "vel": velocity, "mode": mode, "crouch": crouch, "crouching": crouching,
 		"jcd": jump_cooldown, "ff": freefall_t, "ct": chute_t, "cy": chute_yaw, "fl": flare_t, "pb": prev_buttons,
-		"vt": vault_t, "vd": vault_d, "va": vault_a, "vm": vault_m, "vb": vault_b, "vh": vault_h}
+		"vt": vault_t, "vd": vault_d, "va": vault_a, "vm": vault_m, "vb": vault_b, "vh": vault_h, "vs": vault_s,
+		"at": air_t, "jb": jump_buf, "st": slide_t, "rt": roll_t, "lt": ledge_t, "lp": ledge_p, "ln": ledge_n, "ly": ledge_y,
+		"pk": pk_bits, "pc": pk_cd}
 
 
 func set_state(s: Dictionary) -> void:
@@ -326,6 +382,17 @@ func set_state(s: Dictionary) -> void:
 	vault_m = s.get("vm", vault_m)
 	vault_b = s.get("vb", vault_b)
 	vault_h = s.get("vh", vault_h)
+	vault_s = s.get("vs", 0.0)
+	air_t = s.get("at", 0.0)
+	jump_buf = s.get("jb", -1.0)
+	slide_t = s.get("st", -1.0)
+	roll_t = s.get("rt", -1.0)
+	ledge_t = s.get("lt", -1.0)
+	ledge_p = s.get("lp", ledge_p)
+	ledge_n = s.get("ln", ledge_n)
+	ledge_y = s.get("ly", ledge_y)
+	pk_bits = s.get("pk", 0)
+	pk_cd = s.get("pc", 0.0)
 	apply_height()
 
 
@@ -364,7 +431,13 @@ func compute_flags() -> int:
 		f |= F_LIMP
 	if laser_on:
 		f |= F_LASER
-	f |= flags & (F_TAB | F_HEAL | F_RADIO | F_BUSY)
+	if ledge_t >= 0.0 or (vault_t >= 0.0 and (pk_bits & 4) != 0):   # 4: Parkour.PK_CLIMB
+		f |= F_LEDGE
+	if slide_t >= 0.0:
+		f |= F_SLIDE
+	if roll_t >= 0.0:
+		f |= F_ROLL
+	f |= flags & (F_TAB | F_HEAL | F_RADIO | F_BUSY | F_COOK)
 	return f
 
 

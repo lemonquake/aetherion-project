@@ -90,6 +90,8 @@ def sync() -> int:
 
 
 def cap_for(rel: str, text: str) -> int:
+    if rel.startswith("assets/mall/horror/") and 'importer="texture"' in text:
+        return 2048  # 512px per material cell; PC retains the 4096px atlas
     if 'importer="texture"' not in text or not rel.startswith(CAPPED_DIRS):
         return 0
     return CAP_SKY if rel.lower().endswith((".hdr.import", ".exr.import")) else CAP

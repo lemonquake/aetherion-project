@@ -296,7 +296,16 @@ func _animate(dt: float) -> void:
 			want = "knockdown"
 		_:
 			var airborne: bool = (not ch.is_remote and not ch.is_on_floor() and absf(v.y) > 2.4) or (ch.is_remote and absf(v.y) > 3.5 and absf(v.y) > speed * 0.75)
-			if airborne and v.y < -6.0:
+			var climbing: bool = (flags & Character.F_LEDGE) != 0 and _ledge_e != Vector3.INF and _ledge_e.y - ch.global_position.y < 1.35
+			if climbing and _ledge_e.y >= ch.global_position.y + LEDGE_LET_GO and anim.has_animation("crouch_walk"):
+				want = "crouch_walk"   # pulling up over the edge: knees up, folded over the top (hands planted by IK)
+				spd = 0.0
+			elif (flags & Character.F_LEDGE) != 0 and anim.has_animation("gate_grip") and not climbing:
+				want = "gate_grip"   # hanging: hands up on the edge
+			elif (flags & Character.F_SLIDE) != 0:
+				want = "crouch_walk"
+				spd = 0.0
+			elif airborne and v.y < -6.0:
 				want = "knockback"
 			elif (flags & Character.F_CROUCH) != 0 or ch.crouch > 0.5:
 				want = "crouch_walk"
@@ -328,6 +337,7 @@ func _animate(dt: float) -> void:
 				want = "idle_hurt" if (flags & Character.F_LIMP) != 0 else "idle"
 	if not anim.has_animation(want):
 		want = "idle"
+	_body_moves(dt, flags)
 	if want != _cur_anim:
 		anim.play(want, 0.18)
 		_cur_anim = want
@@ -346,6 +356,32 @@ func _animate(dt: float) -> void:
 			_anim_acc = 0.0
 
 
+var _roll_vis_t := -1.0
+var _slide_vis := 0.0
+const ROLL_PIVOT := Vector3(0.0, 0.55, 0.0)
+
+
+func _body_moves(dt: float, flags: int) -> void:
+	## r12: the whole body for the moves the clip library has no clip for: leaning back into a slide, and going head
+	## over heels in a landing roll (about the hips).
+	if (flags & Character.F_ROLL) != 0 and _roll_vis_t < 0.0:
+		_roll_vis_t = 0.0
+	var pitch := 0.0
+	if _roll_vis_t >= 0.0:
+		_roll_vis_t += dt
+		var u := clampf(_roll_vis_t / Defs.move("roll_s"), 0.0, 1.0)
+		pitch = TAU * u * u * (3.0 - 2.0 * u)
+		if u >= 1.0 and (flags & Character.F_ROLL) == 0:
+			_roll_vis_t = -1.0
+			pitch = 0.0
+	_slide_vis = move_toward(_slide_vis, 1.0 if (flags & Character.F_SLIDE) != 0 else 0.0, dt * 6.0)
+	pitch -= 0.45 * _slide_vis
+	if absf(pitch) < 1e-4 and model.rotation.x == 0.0:
+		return
+	model.rotation = Vector3(pitch, PI, 0.0)
+	model.position = ROLL_PIVOT - model.basis * ROLL_PIVOT
+
+
 func _weapon(dt: float) -> void:
 	var wid: String = ch.weapon_id
 	var att_mask: int = Attach.bitmask(ch.wpn.weapon()) if ch.is_local else ch.weapon_att
@@ -360,12 +396,20 @@ func _weapon(dt: float) -> void:
 			AttachVisual.build(world.map, att_root, wid, Attach.from_bitmask(att_mask),
 				Defs.RENDER_LOCAL_BODY if ch.is_local else Defs.RENDER_CHARACTERS,
 				GeometryInstance3D.SHADOW_CASTING_SETTING_SHADOWS_ONLY if ch.is_local else GeometryInstance3D.SHADOW_CASTING_SETTING_OFF)
-	var armed: bool = wid != "" and ch.mode == Motor.GROUND and (ch.flags & Character.F_TAB) == 0
-	weapon_mesh.visible = armed
-	att_root.visible = armed
+	# Hands busy (the device, treating a wound, hanging from a ledge): the gun is slung across the back. Rolling, the
+	# body turns over and the gun (not part of the body model) cannot follow it: out of sight.
+	var armed: bool = wid != "" and ch.mode == Motor.GROUND and (ch.flags & (Character.F_TAB | Character.F_HEAL | Character.F_LEDGE | Character.F_ROLL)) == 0
+	var slung: bool = not armed and wid != "" and ch.mode == Motor.GROUND and (ch.flags & Character.F_ROLL) == 0
+	weapon_mesh.visible = armed or slung
+	att_root.visible = armed or slung
+	if slung:
+		# Diagonally across the upper back, muzzle up over the right shoulder, sights facing out.
+		var up_d := Vector3(-0.42, 0.91, 0.0).normalized()
+		var sights := Vector3(0.0, 0.0, 1.0)
+		weapon_node.transform = Transform3D(Basis(sights.cross(-up_d), sights, -up_d), Vector3(0.0, ch.height() - 0.52, 0.2))
 	if ik:
 		ik.active = ch.mode == Motor.GROUND and (ch.is_local or _cam_d < 35.0)
-	if not armed or ik == null or not ik.active:
+	if not slung and (not armed or ik == null or not ik.active):
 		var h: float = ch.height()
 		var aim: bool = (ch.flags & Character.F_AIM) != 0
 		weapon_node.position = Vector3(0.11 if not aim else 0.06, h - 0.38, -0.22)
@@ -408,9 +452,59 @@ func _weapon_xf(wid: String, md: Dictionary, att_mask: int = 0) -> Transform3D:
 	return Transform3D(Basis(), -_grip_local) * xf
 
 
+var _ledge_e := Vector3.INF   # r12: the middle of the edge the hands hold (world), found as the hands catch it
+var _ledge_f := Vector3.ZERO  # toward the wall
+const LEDGE_LET_GO := 0.12    # the hands leave the edge once the feet are this close below the top
+
+
+func _ledge_hands() -> void:
+	## r12: hanging from a ledge or climbing up from it: both hands planted on the edge, so the body rises past them as
+	## it climbs (a push-up over the top), until they would be below the hips.
+	var p: Vector3 = ch.global_position
+	if _ledge_e == Vector3.INF:
+		var fwd := -Basis(Vector3.UP, ch.yaw).z
+		var a := p + fwd * 0.45
+		var q := PhysicsRayQueryParameters3D.create(a + Vector3.UP * 2.8, a + Vector3.UP * 0.8, Defs.MOVE_MASK)
+		q.exclude = [ch.get_rid()]
+		var hit := get_world_3d().direct_space_state.intersect_ray(q)
+		var top: float = (hit.position as Vector3).y if not hit.is_empty() else p.y + 1.95
+		_ledge_e = Vector3(p.x, top, p.z) + fwd * 0.33
+		_ledge_f = fwd
+	if _ledge_e.y < p.y + LEDGE_LET_GO:
+		return
+	# Pulling up past the hang the torso folds forward over the edge (positive about +X in skeleton space).
+	var lean := clampf((1.35 - (_ledge_e.y - p.y)) / 0.9, 0.0, 1.0) * 0.75
+	if lean > 0.0:
+		if _b_spine >= 0:
+			skel.set_bone_pose_rotation(_b_spine, skel.get_bone_pose_rotation(_b_spine) * Quaternion.from_euler(Vector3(lean * 0.45, 0.0, 0.0)))
+		if _b_chest >= 0:
+			skel.set_bone_pose_rotation(_b_chest, skel.get_bone_pose_rotation(_b_chest) * Quaternion.from_euler(Vector3(lean * 0.55, 0.0, 0.0)))
+	var inv := skel.global_transform.affine_inverse()
+	var to_s := func(v: Vector3) -> Vector3: return (inv.basis * v).normalized()
+	var right_w := _ledge_f.cross(Vector3.UP).normalized()
+	var up_s: Vector3 = to_s.call(Vector3.UP)
+	var fing: Vector3 = to_s.call(_ledge_f + Vector3.DOWN * 0.45)
+	var z := (up_s - fing * fing.dot(up_s)).normalized()
+	var hb := Basis(fing.cross(z).normalized(), fing, z)
+	for s in [-1.0, 1.0]:
+		var w: Vector3 = _ledge_e + right_w * 0.21 * s + Vector3.UP * 0.05 - _ledge_f * 0.04
+		var pole: Vector3 = inv * (p + Vector3.UP * 1.0 + right_w * 0.6 * s - _ledge_f * 0.3)
+		if s < 0.0:
+			_solve_arm_ik(true, _b_sh_l, _b_ua_l, _b_fa_l, _b_ha_l, _l1_l, _l2_l, inv * w, hb, pole)
+		else:
+			_solve_arm_ik(false, _b_sh_r, _b_ua_r, _b_fa_r, _b_ha_r, _l1_r, _l2_r, inv * w, hb, pole)
+
+
 func _apply_tactical_pose() -> void:
 	if skel == null or ch == null or not is_instance_valid(ch) or ch.mode != Motor.GROUND:
 		return
+	if (ch.flags & Character.F_LEDGE) == 0:
+		_ledge_e = Vector3.INF
+	elif _b_chest >= 0:
+		_ledge_hands()
+		return
+	if (ch.flags & Character.F_ROLL) != 0:
+		return   # tucked in a roll: no gun to hold
 	var wid: String = ch.weapon_id
 	var armed: bool = wid != "" and (ch.flags & Character.F_TAB) == 0
 	var aim: bool = (ch.flags & Character.F_AIM) != 0
@@ -440,6 +534,21 @@ func _apply_tactical_pose() -> void:
 		var q_hd := Quaternion.from_euler(Vector3(-pitch * 0.24 - sp * 0.12, -bladed_yaw_skel * 0.55, 0.0))
 		skel.set_bone_pose_rotation(_b_head, hr * q_hd)
 
+	if (ch.flags & Character.F_HEAL) != 0 and _b_chest >= 0:
+		# r12: treating a wound: the left forearm held across the chest, the right hand winding round it.
+		var cgp := skel.get_bone_global_pose(_b_chest)
+		var ang := Time.get_ticks_msec() / 1000.0 * TAU * 2.2
+		var lw := cgp.origin + Vector3(0.06, -0.14, 0.3)
+		var rw := lw + Vector3(-0.13, cos(ang) * 0.07, 0.02 + sin(ang) * 0.07)
+		var ly := Vector3(-1.0, 0.0, 0.35).normalized()
+		var lz := (Vector3.UP - ly * ly.y).normalized()
+		var lb := Basis(ly.cross(lz).normalized(), ly, lz)
+		var rz := (rw - (lw + Vector3(-0.13, 0.0, 0.02))).normalized()
+		var ry := (Vector3(1.0, 0.0, 0.0).cross(rz)).normalized()
+		var rb := Basis(ry.cross(rz).normalized(), ry, rz)
+		_solve_arm_ik(true, _b_sh_l, _b_ua_l, _b_fa_l, _b_ha_l, _l1_l, _l2_l, lw, lb, cgp.origin + Vector3(0.35, -0.3, 0.0))
+		_solve_arm_ik(false, _b_sh_r, _b_ua_r, _b_fa_r, _b_ha_r, _l1_r, _l2_r, rw, rb, cgp.origin + Vector3(-0.35, -0.3, 0.0))
+		return
 	if not armed:
 		if _b_sh_l >= 0:
 			skel.set_bone_pose_rotation(_b_sh_l, skel.get_bone_rest(_b_sh_l).basis.get_rotation_quaternion())
@@ -651,11 +760,13 @@ func _flashlight(dt: float) -> void:
 
 
 func _radio(dt: float) -> void:
-	## The faint static of a keyed radio while a player transmits to their team.
-	if (ch.flags & Character.F_RADIO) == 0:
+	## The faint hiss of a keyed radio while a player transmits, for their own team. Enemies near a transmitting
+	## radio get the louder recorded static from the server instead (World.server_radio_static).
+	var mine := int(Net.players.get(Net.local_pid, {}).get("team", -1))
+	if (ch.flags & Character.F_RADIO) == 0 or ch.team != mine:
 		SoundSys.stop_loop("radio_%d" % ch.eid)
 		return
-	SoundSys.start_loop("radio_%d" % ch.eid, "radio_static", ch.global_position + Vector3.UP * 1.35)
+	SoundSys.start_loop("radio_%d" % ch.eid, "radio_hiss", ch.global_position + Vector3.UP * 1.35)
 	SoundSys.update_loop("radio_%d" % ch.eid, ch.global_position + Vector3.UP * 1.35)
 
 

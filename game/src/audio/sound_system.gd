@@ -31,14 +31,19 @@ var _rng := RandomNumberGenerator.new()
 var _delayed: Array = []  # [time_left, callable]
 var _loops: Dictionary = {}  # key -> {player, id, pos, refresh}
 var _root: Node3D
-var trace: Array = []     # tests: [msec, id, "local"/"world"] of every sound started, while trace_on
+var trace: Array = []     # tests: [msec, id, "local"/"radio"/"world" (, position)] of every sound started, while trace_on
 var trace_on := false
+## r14: hearing after a blast close by: strength 0..1, seconds it lasts, seconds since it started (negative while
+## the sound is still on its way). Drives a low-pass and a dip on the world and voice buses.
+var deaf := {"s": 0.0, "dur": 0.0, "t": 0.0}
+var _deaf_fx: Array = []   # [bus index, effect index of the low-pass, effect index of the amplifier]
 
 
 func _ready() -> void:
 	process_mode = Node.PROCESS_MODE_ALWAYS
 	_rng.randomize()
 	_build_buses()
+	_build_deaf_fx()
 	_root = Node3D.new()
 	_root.name = "SoundPool"
 	add_child(_root)
@@ -124,6 +129,85 @@ func _build_buses() -> void:
 				r.predelay_msec = cfg.predelay
 				r.hipass = 0.15
 				ab.add_bus_effect(idx, r)
+
+
+func _build_deaf_fx() -> void:
+	## A low-pass and an amplifier at the end of the world, ambience and voice buses (the UI bus is left alone: the
+	## ringing in the ears plays there). Off until a blast.
+	for bus_name in ["Effects", "Ambience", "Voice"]:
+		var bi := AudioServer.get_bus_index(bus_name)
+		if bi < 0:
+			continue
+		var lp := AudioEffectLowPassFilter.new()
+		lp.cutoff_hz = 20000.0
+		lp.resonance = 0.35
+		AudioServer.add_bus_effect(bi, lp)
+		var li := AudioServer.get_bus_effect_count(bi) - 1
+		var amp := AudioEffectAmplify.new()
+		AudioServer.add_bus_effect(bi, amp)
+		var ai := AudioServer.get_bus_effect_count(bi) - 1
+		AudioServer.set_bus_effect_enabled(bi, li, false)
+		AudioServer.set_bus_effect_enabled(bi, ai, false)
+		_deaf_fx.append([bi, li, ai])
+
+
+func deafen(strength: float, seconds: float, delay: float = 0.0) -> void:
+	## r14: a grenade went off near the listener. Everything but the interface goes dull and quieter at once (when
+	## the bang arrives), and comes back over `seconds`; the ears ring meanwhile. A weaker blast during a stronger one
+	## changes nothing.
+	if strength <= 0.03 or DisplayServer.get_name() == "headless":
+		return
+	var left := float(deaf.s) * maxf(float(deaf.dur) - float(deaf.t), 0.0)
+	if strength * seconds < left:
+		return
+	deaf = {"s": clampf(strength, 0.0, 1.0), "dur": seconds, "t": -delay}
+	var ring_db := linear_to_db(clampf(strength, 0.05, 1.0)) - 4.0
+	_delayed.append([delay + 0.05, func(): play_ui("tinnitus", ring_db)])
+
+
+func deaf_cutoff() -> float:
+	## The low-pass cutoff now (Hz); 20000 when hearing is normal.
+	if float(deaf.dur) <= 0.0 or float(deaf.t) < 0.0:
+		return 20000.0
+	var u := clampf(float(deaf.t) / float(deaf.dur), 0.0, 1.0)
+	var env := 1.0 - smoothstep(0.18, 1.0, u)
+	var lo := lerpf(1400.0, 240.0, float(deaf.s))
+	return exp(lerpf(log(20000.0), log(lo), env))
+
+
+func _deaf_tick(dt: float) -> void:
+	if float(deaf.dur) <= 0.0:
+		return
+	deaf.t = float(deaf.t) + dt
+	var on := float(deaf.t) >= 0.0 and float(deaf.t) < float(deaf.dur)
+	var cut := deaf_cutoff()
+	var u := clampf(float(deaf.t) / maxf(float(deaf.dur), 0.01), 0.0, 1.0)
+	var dip := -11.0 * float(deaf.s) * (1.0 - smoothstep(0.1, 0.9, u))
+	for f in _deaf_fx:
+		AudioServer.set_bus_effect_enabled(f[0], f[1], on)
+		AudioServer.set_bus_effect_enabled(f[0], f[2], on)
+		if on:
+			(AudioServer.get_bus_effect(f[0], f[1]) as AudioEffectLowPassFilter).cutoff_hz = cut
+			(AudioServer.get_bus_effect(f[0], f[2]) as AudioEffectAmplify).volume_db = dip
+	if float(deaf.t) >= float(deaf.dur):
+		deaf = {"s": 0.0, "dur": 0.0, "t": 0.0}
+
+
+func play_ui(id: String, db: float = 0.0) -> void:
+	## Like play_local, on the UI bus (not muffled by a blast).
+	var s := _pick(id)
+	if s == null:
+		return
+	if trace_on:
+		trace.append([Time.get_ticks_msec(), id, "ui"])
+	for q in _pool_2d:
+		if not q.playing:
+			q.stream = s
+			q.bus = "UI"
+			q.volume_db = float(defs[id].get("db", 0.0)) + db
+			q.pitch_scale = 1.0
+			q.play()
+			return
 
 
 func _add_bus(name: String, send: String) -> int:
@@ -233,18 +317,6 @@ func listener_pos() -> Vector3:
 	return cam.global_position if cam else Vector3.ZERO
 
 
-func play_ui(id: String, db: float = 0.0) -> void:
-	var s := _pick(id)
-	if s == null:
-		return
-	for q in _pool_2d:
-		if not q.playing:
-			q.stream = s
-			q.volume_db = float(defs[id].get("db", 0.0)) + db
-			q.play()
-			return
-
-
 func play_radio(id: String, db: float = 0.0) -> void:
 	## A callout heard on your own team radio: non-positional, through the Radio bus (band-limited, a little grit).
 	var s := _pick(id)
@@ -291,7 +363,7 @@ func play_at(id: String, pos: Vector3, db: float = 0.0, opts: Dictionary = {}) -
 	if dist > max_d:
 		return
 	if trace_on:
-		trace.append([Time.get_ticks_msec(), id, "world"])
+		trace.append([Time.get_ticks_msec(), id, "world", pos])
 	var delay := 0.0
 	if opts.get("delay", float(d.get("dist", 40.0)) > 120.0) and dist > 25.0:
 		delay = dist / SPEED_OF_SOUND
@@ -405,6 +477,7 @@ func stop_loop(key: String) -> void:
 
 
 func _process(delta: float) -> void:
+	_deaf_tick(delta)
 	for i in range(_delayed.size() - 1, -1, -1):
 		_delayed[i][0] -= delta
 		if _delayed[i][0] <= 0.0:

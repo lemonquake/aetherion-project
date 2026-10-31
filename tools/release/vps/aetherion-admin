@@ -1,0 +1,252 @@
+#!/usr/bin/env python3
+"""Aetherion release admin on the official VPS (installed to /opt/aetherion/bin by install.sh; docs/HOSTING.md).
+
+    sudo aetherion-admin prepare <version>    rebuild the staged Linux server from the chunk store and check every staged release
+    sudo aetherion-admin activate <version>   stop the servers, switch to the prepared release and every platform's update, start
+    sudo aetherion-admin status               services, versions, players, disk
+    sudo aetherion-admin gc [keep]            delete chunks and server releases no kept release uses (default keep 3)
+    sudo aetherion-admin downloads-index      rewrite /srv/aetherion/downloads/index.json for the website
+
+Staged files arrive from tools/release/publish.py under /srv/aetherion/updates/next/. Releases are signed; the public key
+is /opt/aetherion/update-public-key.json. Python standard library only.
+"""
+import base64
+import datetime
+import hashlib
+import json
+import os
+import shutil
+import subprocess
+import sys
+import time
+import urllib.request
+import zlib
+
+WEB = "/srv/aetherion"
+UPD = WEB + "/updates"
+NEXT = UPD + "/next"
+OPT = "/opt/aetherion"
+REL = OPT + "/releases"
+PLATFORMS = ["windows", "macos", "linux"]
+SERVICES = ["aetherion-server@classic", "aetherion-server@deathmatch"]
+DIGEST_INFO = bytes.fromhex("3031300d060960864801650304020105000420")  # DER prefix of a SHA-256 DigestInfo
+
+
+def die(msg):
+    print("error: " + msg, file=sys.stderr)
+    sys.exit(1)
+
+
+def verify(data: bytes, sig_b64: str) -> bool:
+    """RSA PKCS#1 v1.5 SHA-256 signature check against the pinned public key."""
+    k = json.load(open(OPT + "/update-public-key.json"))
+    n = int.from_bytes(base64.b64decode(k["modulus"]), "big")
+    e = int.from_bytes(base64.b64decode(k["exponent"]), "big")
+    sig = int.from_bytes(base64.b64decode(sig_b64), "big")
+    size = (n.bit_length() + 7) // 8
+    em = pow(sig, e, n).to_bytes(size, "big")
+    t = DIGEST_INFO + hashlib.sha256(data).digest()
+    return em == b"\x00\x01" + b"\xff" * (size - len(t) - 3) + b"\x00" + t
+
+
+def load_release(path):
+    doc = json.load(open(path))
+    data = base64.b64decode(doc["manifest"])
+    if not verify(data, doc["sig"]):
+        die("bad signature: " + path)
+    return json.loads(data)
+
+
+def chunk_path(h):
+    return "%s/chunks/%s/%s" % (UPD, h[:2], h)
+
+
+def check_chunks(man):
+    missing = [c[0] for f in man["files"] for c in f.get("chunks", []) if not os.path.exists(chunk_path(c[0]))]
+    if missing:
+        die("%s %s: %d chunks missing, e.g. %s" % (man["platform"], man["version"], len(missing), missing[0]))
+
+
+def build(man, dest):
+    """Reassemble every file from the chunk store, checking each chunk and each file."""
+    tmp = dest + ".tmp"
+    shutil.rmtree(tmp, ignore_errors=True)
+    for f in man["files"]:
+        out = os.path.join(tmp, f["path"])
+        os.makedirs(os.path.dirname(out), exist_ok=True)
+        if "link" in f:
+            os.symlink(f["link"], out)
+            continue
+        whole = hashlib.sha256()
+        with open(out, "wb") as w:
+            for h, size, _z in f["chunks"]:
+                data = zlib.decompress(open(chunk_path(h), "rb").read(), -15)
+                if len(data) != size or hashlib.sha256(data).hexdigest() != h:
+                    die("corrupt chunk " + h)
+                whole.update(data)
+                w.write(data)
+        if whole.hexdigest() != f["sha256"]:
+            die("file hash mismatch: " + f["path"])
+        os.chmod(out, 0o755 if f.get("exec") else 0o644)
+    shutil.rmtree(dest, ignore_errors=True)
+    os.rename(tmp, dest)
+
+
+def cmd_prepare(version):
+    mans = {}
+    for p in PLATFORMS:
+        f = "%s/%s/release.json" % (NEXT, p)
+        if os.path.exists(f):
+            mans[p] = load_release(f)
+            if mans[p]["version"] != version:
+                die("%s is staged as %s, not %s" % (p, mans[p]["version"], version))
+            check_chunks(mans[p])
+            print("staged %s %s: signature ok, %d files, all chunks present" % (p, version, len(mans[p]["files"])))
+    if "linux" not in mans:
+        die("no staged linux release")
+    t = time.time()
+    build(mans["linux"], "%s/%s" % (REL, version))
+    subprocess.run(["chown", "-R", "root:root", "%s/%s" % (REL, version)], check=True)
+    print("server %s rebuilt and checked in %s/%s (%.0f s)" % (version, REL, version, time.time() - t))
+
+
+def status_json(timeout=3):
+    try:
+        with urllib.request.urlopen("http://127.0.0.1:27420/status", timeout=timeout) as r:
+            return json.load(r)
+    except Exception:
+        return None
+
+
+def cmd_activate(version):
+    if not os.path.isdir("%s/%s" % (REL, version)):
+        die("release %s is not prepared (run prepare first)" % version)
+    for p in PLATFORMS:
+        f = "%s/%s/release.json" % (NEXT, p)
+        if os.path.exists(f) and load_release(f)["version"] != version:
+            die("staged %s is not %s" % (p, version))
+    subprocess.run(["systemctl", "stop"] + SERVICES + ["aetherion-master"], check=False)
+    cur = OPT + "/current"
+    tmp = cur + ".new"
+    if os.path.lexists(tmp):
+        os.remove(tmp)
+    os.symlink("releases/" + version, tmp)
+    os.replace(tmp, cur)
+    os.makedirs(UPD + "/history", exist_ok=True)
+    for p in PLATFORMS:
+        f = "%s/%s/release.json" % (NEXT, p)
+        if os.path.exists(f):
+            os.makedirs("%s/%s" % (UPD, p), exist_ok=True)
+            shutil.copy2(f, "%s/history/%s-%s.json" % (UPD, p, version))
+            os.replace(f, "%s/%s/release.json" % (UPD, p))
+    nd = NEXT + "/downloads"
+    if os.path.isdir(nd):
+        os.makedirs(WEB + "/downloads", exist_ok=True)
+        for name in os.listdir(nd):
+            os.replace(os.path.join(nd, name), os.path.join(WEB, "downloads", name))
+    cmd_downloads_index()
+    subprocess.run(["systemctl", "start", "aetherion-master"] + SERVICES, check=True)
+    for _ in range(60):
+        s = status_json()
+        if s and s.get("version") == "aetherion-" + version and len(s.get("servers", [])) >= len(SERVICES):
+            print("live: %s, servers %s" % (s["version"], ", ".join("%s (%s)" % (x["name"], x["state"]) for x in s["servers"])))
+            return
+        time.sleep(2)
+    die("the servers did not report %s within 2 minutes; see journalctl -u 'aetherion-*'" % version)
+
+
+def cmd_downloads_index():
+    out = {"updated": datetime.datetime.now(datetime.timezone.utc).replace(microsecond=0).isoformat()}
+    for p in PLATFORMS:
+        f = "%s/%s/release.json" % (UPD, p)
+        if os.path.exists(f):
+            m = load_release(f)
+            out.setdefault("game", {"version": m["version"], "published": m["published"], "notes": m.get("notes", [])})
+            out.setdefault("platforms", {})[p] = {"version": m["version"], "size": m["size"], "download_size": m["download_size"]}
+    d = WEB + "/downloads"
+    if os.path.isdir(d):
+        for name in sorted(os.listdir(d)):
+            if name.endswith(".json") and name != "index.json":
+                meta = json.load(open(os.path.join(d, name)))
+                f = os.path.join(d, name[:-5])
+                if os.path.exists(f):
+                    meta.update({"file": name[:-5], "size": os.path.getsize(f),
+                                 "sha256": hashlib.sha256(open(f, "rb").read()).hexdigest()})
+                    out.setdefault("launchers", {})[meta.get("platform", name)] = meta
+    tmp = d + "/index.json.tmp"
+    os.makedirs(d, exist_ok=True)
+    with open(tmp, "w") as w:
+        json.dump(out, w, indent=1)
+    os.replace(tmp, d + "/index.json")
+
+
+def cmd_status():
+    for s in ["aetherion-master"] + SERVICES + ["caddy"]:
+        r = subprocess.run(["systemctl", "is-active", s], capture_output=True, text=True)
+        print("%-30s %s" % (s, r.stdout.strip()))
+    print("current release:", os.path.realpath(OPT + "/current"))
+    for p in PLATFORMS:
+        f = "%s/%s/release.json" % (UPD, p)
+        print("%-8s update: %s" % (p, load_release(f)["version"] if os.path.exists(f) else "-"))
+    s = status_json()
+    print("stats server:", json.dumps(s) if s else "not answering")
+    du = shutil.disk_usage("/")
+    print("disk: %.1f GB free of %.1f GB; chunk store %s" % (du.free / 1e9, du.total / 1e9,
+          subprocess.run(["du", "-sh", UPD + "/chunks"], capture_output=True, text=True).stdout.split("\t")[0]))
+
+
+def cmd_gc(keep):
+    hist = UPD + "/history"
+    keep_versions = set()
+    used = set()
+    for p in PLATFORMS:
+        files = sorted([f for f in os.listdir(hist) if f.startswith(p + "-")], key=lambda f: os.path.getmtime(os.path.join(hist, f)))
+        live = "%s/%s/release.json" % (UPD, p)
+        docs = [os.path.join(hist, f) for f in files[-keep:]] + ([live] if os.path.exists(live) else [])
+        staged = "%s/%s/release.json" % (NEXT, p)
+        if os.path.exists(staged):
+            docs.append(staged)
+        for d in docs:
+            m = load_release(d)
+            keep_versions.add(m["version"])
+            for f in m["files"]:
+                for c in f.get("chunks", []):
+                    used.add(c[0])
+    removed = freed = 0
+    for sub in os.listdir(UPD + "/chunks"):
+        for h in os.listdir(os.path.join(UPD, "chunks", sub)):
+            if h not in used:
+                p = os.path.join(UPD, "chunks", sub, h)
+                freed += os.path.getsize(p)
+                os.remove(p)
+                removed += 1
+    cur = os.path.basename(os.path.realpath(OPT + "/current"))
+    for v in os.listdir(REL):
+        if v not in keep_versions and v != cur:
+            shutil.rmtree(os.path.join(REL, v))
+            print("removed server release", v)
+    print("removed %d unused chunks (%.2f GB); kept releases %s" % (removed, freed / 1e9, ", ".join(sorted(keep_versions))))
+
+
+def main():
+    if os.geteuid() != 0:
+        die("run with sudo")
+    a = sys.argv[1:]
+    if not a:
+        die(__doc__)
+    if a[0] == "prepare" and len(a) == 2:
+        cmd_prepare(a[1])
+    elif a[0] == "activate" and len(a) == 2:
+        cmd_activate(a[1])
+    elif a[0] == "status":
+        cmd_status()
+    elif a[0] == "gc":
+        cmd_gc(int(a[1]) if len(a) > 1 else 3)
+    elif a[0] == "downloads-index":
+        cmd_downloads_index()
+    else:
+        die(__doc__)
+
+
+if __name__ == "__main__":
+    main()

@@ -4,9 +4,10 @@ extends Node
 ## the plane position and the zone circle from shared start ticks.
 
 const WeaponState := preload("res://src/weapons/weapon_state.gd")
+const DayCycle := preload("res://src/world/day_cycle.gd")
 
 var world = null
-var phase := "idle"          # idle, plane, playing, ended
+var phase := "idle"          # idle, plane, playing, round_end, ended
 var plane := {}              # {a: Vector3, b: Vector3, speed, t0 (tick), dur (s)}
 var zone := {}               # {i, state, t0, t1, c0: Vector2, r0, c1: Vector2, r1, dps}
 var stats: Dictionary = {}   # eid -> {kills, damage, downs, alive_t, placed}
@@ -21,15 +22,32 @@ var _status_t := 0.0
 var _tick_us := PackedInt32Array()  # server tick durations since the last status line
 var shots_fired := 0
 var landed := {}
+var landed_tick := {}   # eid -> Net.tick of the first touch-down after the jump
+const DEPLOY_GRACE_S := 4.0
 ## Match log on stdout: always on a dedicated server, or with --matchlog.
 var _log_on := false
-## r7 Deathmatch: two teams start on the ground at their spawns, armed; no plane, no downed state.
+## r7 Deathmatch: two or three teams (r11) start on the ground at their spawns, armed; no plane, no downed state.
 var dm := false
 var match_t0 := 0             # tick the match clock (day/night) counts from: the aircraft's start, or the DM start
 var day_offset := 0.0         # seconds added to the match clock (Deathmatch starts at a seeded time of day)
 var team_names: Array = []
 var spawn_info: Dictionary = {}  # team -> {pts: Array[Vector3], yaw: float, anchor: Vector3}
 var _last_dead_team := -1
+## "wipe": last team standing earns one point each round; "score" and "time" count kills with respawns;
+## "elim" ends after one elimination round. Malasugue Mall's optional field stops at half its initial radius.
+var win_by := "wipe"
+var score_limit := 10
+var time_limit_s := 840.0
+var team_score := {}          # team -> round points (wipe) or enemy kills (score/time)
+var _respawn_at := {}         # pid -> tick the player comes back
+var _pid_stats := {}          # pid -> their stats (one Dictionary shared by every life's eid)
+var _hold_r := 0.0
+var _spawn_rng := RandomNumberGenerator.new()
+var _crush_snd := {}          # eid -> seconds to the next zap while the field squeezes them
+var round_number := 1
+var _next_round_at := 0
+var _round_winner := -1
+var _field_enabled := true
 
 
 func setup(w) -> void:
@@ -103,15 +121,34 @@ func _dm_rule(key: String, default_value):
 	return Defs.rule("deathmatch." + key, default_value)
 
 
+func zone_speed() -> float:
+	## r14: Deathmatch's field is always fast (rules deathmatch.zone_speed); the lobby choice is for Classic.
+	if dm:
+		return float(_dm_rule("zone_speed", 1.6))
+	return float(Net.config.get("zone_speed", 1.0))
+
+
 func _start_dm() -> void:
 	var L = world.map.layout
 	var rng := RandomNumberGenerator.new()
 	rng.seed = Game.match_seed * 3 + 17
-	team_names = (_dm_rule("team_names", ["West Team", "East Team"]) as Array).duplicate()
+	var n_teams := Net.dm_teams()
+	team_names = UITheme.dm_team_names(n_teams).duplicate()
+	win_by = str(Net.config.get("dm_win", "wipe"))
+	if not win_by in Net.DM_WINS:
+		win_by = "wipe"
+	score_limit = maxi(int(Net.config.get("dm_score", 10)), 1)
+	time_limit_s = maxf(float(Net.config.get("dm_time", 14)), 1.0) * 60.0
+	team_score.clear()
+	for t in n_teams:
+		team_score[t] = 0
+	_respawn_at.clear()
+	_pid_stats.clear()
+	_spawn_rng.seed = Game.match_seed + 977
 	var offs: Array = _dm_rule("day_offsets", [0])
 	day_offset = float(offs[rng.randi() % offs.size()]) if not offs.is_empty() else 0.0
 	match_t0 = Net.tick
-	spawn_info = dm_spawns(Game.match_seed)
+	spawn_info = dm_spawns(Game.match_seed, n_teams)
 	var pids: Array = Net.players.keys()
 	# Humans take the front-centre places of their team's formation, bots fill around them.
 	pids.sort_custom(func(a, b): return (not Net.is_bot(a) and Net.is_bot(b)) or (Net.is_bot(a) == Net.is_bot(b) and a < b))
@@ -121,7 +158,7 @@ func _start_dm() -> void:
 	gear_rng.seed = Game.match_seed + 4441
 	for pid in pids:
 		var p: Dictionary = Net.players[pid]
-		var team := clampi(int(p.team), 0, 1)
+		var team := clampi(int(p.team), 0, n_teams - 1)
 		var k := int(idx.get(team, 0))
 		idx[team] = k + 1
 		var slot: Array = _spawn_slot(team, k)
@@ -129,33 +166,96 @@ func _start_dm() -> void:
 		_loadout(ch)
 		_dm_loadout(ch, pid, gear_rng)
 		stats[ch.eid] = {"pid": pid, "name": p.name, "team": team, "kills": 0, "damage": 0.0, "downs": 0, "alive_t": 0.0, "placed": 0, "bot": p.bot}
+		_pid_stats[pid] = stats[ch.eid]
 		teams[team] = true
 	initial_teams = teams.size()
 	phase = "playing"
-	# The haze: the first circle covers the whole play area around a centre near the middle of the map.
-	var c := _dm_centre(rng)
-	var r0: float = L.PLAY_HALF * 1.45 + c.length()
-	zone = {"i": -1, "state": "hold", "t0": Net.tick, "t1": Net.tick, "c0": c, "r0": r0, "c1": c, "r1": r0, "dps": 0.0}
-	_next_zone()
-	var a0: Vector3 = spawn_info[0].anchor
-	var a1: Vector3 = spawn_info[1].anchor
-	log_event("deathmatch start on %s: %d players, %d teams; spawns %s and %s (%.0f m apart, %s); day offset %.0f s; zone centre %s r=%.0f"
-		% [str(Net.config.get("map", "kalinaw")), stats.size(), initial_teams, str(a0.round()), str(a1.round()), a0.distance_to(a1),
-		str(spawn_info.get("source", "?")), day_offset, str(c.round()), r0])
+	_reset_dm_field(rng)
+	var c: Vector2 = zone.c0
+	var r0: float = zone.r0
+	var anchors := []
+	var gaps := []
+	for t in n_teams:
+		if spawn_info.has(t):
+			anchors.append(str((spawn_info[t].anchor as Vector3).round()))
+			var a: Vector3 = spawn_info[t].anchor
+			var b: Vector3 = spawn_info.get((t + 1) % n_teams, spawn_info[t]).anchor
+			gaps.append("%.0f" % Vector2(a.x - b.x, a.z - b.z).length())
+	log_event("deathmatch start on %s: %d players, %d teams; spawns %s (%s m apart, %s); day offset %.0f s; zone centre %s r=%.0f; win by %s%s"
+		% [str(Net.config.get("map", "kalinaw")), stats.size(), initial_teams, ", ".join(anchors), "/".join(gaps),
+		str(spawn_info.get("source", "?")), day_offset, str(c.round()), r0, win_by,
+		(" %d" % score_limit) if win_by == "score" else ((" %.0f min" % (time_limit_s / 60.0)) if win_by == "time" else "")]
+		+ ((", field holds at r=%.0f" % _hold_r) if respawns() else ""))
 	_broadcast()
 
 
-func _dm_centre(rng: RandomNumberGenerator) -> Vector2:
-	## The centre of the first circle: within centre_jitter of the map centre (or the layout's dm_centre), on dry
-	## land inside the play area.
+func _reset_dm_field(rng: RandomNumberGenerator) -> void:
+	var L = world.map.layout
+	var c := _dm_centre(rng, Net.dm_teams())
+	var r0: float = L.PLAY_HALF * 1.45 + c.length()
+	var mall := str(Net.config.get("map", "")) == "malasugue_mall"
+	_field_enabled = not mall or bool(Net.config.get("dm_field", false))
+	_hold_r = r0 * 0.5 if mall else 0.0
+	if respawns():
+		# Keep respawn positions inside the final circle.
+		for t in Net.dm_teams():
+			var si: Dictionary = spawn_info.get(t, {})
+			for sp in (si.get("pts", []) as Array) + [si.get("anchor", Vector3(c.x, 0.0, c.y))]:
+				_hold_r = maxf(_hold_r, Vector2((sp as Vector3).x, (sp as Vector3).z).distance_to(c) + float(_dm_rule("hold_margin", 10.0)))
+	zone = {"i": -1, "state": "hold", "t0": Net.tick, "t1": Net.tick, "c0": c, "r0": r0, "c1": c, "r1": r0, "dps": 0.0}
+	_warned.clear()
+	_field_watch.clear()
+	_crush_snd.clear()
+	_next_zone()
+
+
+func _start_next_round() -> void:
+	# Keep match totals while replacing every life, including the winning survivors.
+	for ch in world.characters.values():
+		world.interaction.server_drop_held(ch, false)
+		world.server_remove_character(ch)
+	var bot_team := preload("res://src/ai/bot_team.gd")
+	bot_team.squads.clear()
+	bot_team.laser_claims.clear()
+	stats.clear()
+	landed.clear()
+	landed_tick.clear()
+	_respawn_at.clear()
+	_last_dead_team = -1
+	eliminated_order.clear()
+	round_number += 1
+	_next_round_at = 0
+	_round_winner = -1
+	var rng := RandomNumberGenerator.new()
+	rng.seed = Game.match_seed + round_number * 31
+	_reset_dm_field(rng)
+	for pid in Net.players:
+		var p: Dictionary = Net.players[pid]
+		if not p.bot and not p.connected:
+			continue
+		if _pid_stats.has(pid):
+			_pid_stats[pid].placed = 0
+		_respawn(pid)
+	phase = "playing"
+	_broadcast()
+	log_event("round %d started; scores %s" % [round_number, str(team_score)])
+
+
+func _dm_centre(rng: RandomNumberGenerator, n_teams: int = 2) -> Vector2:
+	## The centre of the first circle: within centre_jitter of the map centre (or the layout's dm_centre; with three
+	## teams the middle of their spawns), on dry land inside the play area.
 	var L = world.map.layout
 	var base := Vector2.ZERO
 	var dc = L.get("dm_centre") if L is Object else null
+	if n_teams == 3 and L is Object and L.has_method("dm_centre_for"):
+		dc = L.dm_centre_for(3)
 	if dc is Vector2:
 		base = dc
 	elif dc is Vector3:
 		base = Vector2(dc.x, dc.z)
 	var jit := float(_dm_rule("zone.centre_jitter", 60.0))
+	if L is Object and L.get("zone_jitter") != null:
+		jit = float(L.get("zone_jitter"))   # (r15) a small map keeps its first circle near its middle
 	for attempt in 30:
 		var a := rng.randf() * TAU
 		var d := sqrt(rng.randf()) * jit
@@ -165,16 +265,26 @@ func _dm_centre(rng: RandomNumberGenerator) -> Vector2:
 	return base
 
 
-func dm_spawns(seed_value: int) -> Dictionary:
-	## Team spawn areas: the layout's own (Lawless Sub: layout.spawns[team], layout.spawn_yaw[team]), or two dry,
-	## open, in-play areas about 300+ m apart picked from the match seed. Each team faces the other.
-	## Returns {0: {pts, yaw, anchor}, 1: {...}, "source": "layout" | "computed"}.
+func dm_spawns(seed_value: int, n_teams: int = 2) -> Dictionary:
+	## Team spawn areas: the layout's own (Lawless Sub: layout.spawns[team], layout.spawn_yaw[team]; three teams use
+	## layout.spawns3 / spawn_yaw3), or two dry, open, in-play areas about 300+ m apart picked from the match seed.
+	## Each team faces the middle. Returns {0: {pts, yaw, anchor}, 1: {...}[, 2: ...], "source": "layout" | "computed"}.
 	var L = world.map.layout
 	var out := {}
+	if L is Object and L.has_method("dm_floor_spawns"):
+		# (r17) Malasugue Mall: each team on its own floor (1, 3 or 5, at random).
+		out = L.dm_floor_spawns(seed_value, n_teams)
+		if out.size() >= n_teams:
+			out["source"] = "floors"
+			return out
+		out = {}
 	var ls = L.get("spawns") if L is Object else null
-	if ls != null and (ls is Array or ls is Dictionary) and ls.size() >= 2:
-		var ly = L.get("spawn_yaw")
-		for t in 2:
+	var ly = L.get("spawn_yaw") if L is Object else null
+	if n_teams == 3 and L is Object and L.get("spawns3") != null and (L.get("spawns3") as Array).size() >= 3:
+		ls = L.get("spawns3")
+		ly = L.get("spawn_yaw3")
+	if ls != null and (ls is Array or ls is Dictionary) and ls.size() >= n_teams:
+		for t in n_teams:
 			var pts: Array = []
 			for q in ls[t]:
 				pts.append(q as Vector3)
@@ -188,8 +298,8 @@ func dm_spawns(seed_value: int) -> Dictionary:
 			if ly != null and (ly is Array or ly is Dictionary) and ly.size() > t:
 				yv = float(ly[t])
 			out[t] = {"pts": pts, "anchor": anchor, "yaw": yv}
-		if out.has(0) and out.has(1):
-			if ly == null:
+		if out.size() == n_teams:
+			if ly == null and n_teams == 2:
 				for t in 2:
 					var to: Vector3 = (out[1 - t].anchor as Vector3) - (out[t].anchor as Vector3)
 					out[t].yaw = atan2(-to.x, -to.z)
@@ -381,6 +491,8 @@ func _loadout(ch: Character) -> void:
 # ------------------------------------------------------------------ per tick
 
 func tick(dt: float) -> void:
+	if phase == "ended":
+		return
 	_t += dt
 	_status_t -= dt
 	if _status_t <= 0.0 and phase in ["plane", "playing"]:
@@ -393,8 +505,11 @@ func tick(dt: float) -> void:
 		"playing":
 			_zone_tick(dt)
 			_check_end()
+		"round_end":
+			if Net.tick >= _next_round_at:
+				_start_next_round()
 	for eid in stats:
-		if world.characters.has(eid):
+		if phase in ["plane", "playing"] and world.characters.has(eid) and world.characters[eid].mode != Motor.DEAD:
 			stats[eid].alive_t += dt
 
 
@@ -468,6 +583,8 @@ func zone_circle(tick: float) -> Array:
 
 
 func _next_zone() -> void:
+	if dm and not _field_enabled:
+		return
 	var phases: Array = Defs.rule("deathmatch.zone.phases", []) if dm else Defs.rule("zone.phases", [])
 	var i := int(zone.i) + 1
 	if i >= phases.size():
@@ -478,17 +595,22 @@ func _next_zone() -> void:
 	var r1: float = float(ph.radius) * L.PLAY_HALF * 1.6
 	var r0: float = cur[1]
 	r1 = minf(r1, r0 * 0.9)
+	if dm and _hold_r > 0.0:
+		# (r17) A respawn round: the field closes on its own centre and holds round the team spawns.
+		if r0 <= _hold_r + 1.0:
+			return
+		r1 = maxf(r1, _hold_r)
 	# The next centre lies inside the current circle, biased toward dry land.
 	var c1: Vector2 = cur[0]
-	for attempt in 40:
+	for attempt in (0 if dm and _hold_r > 0.0 else 40):
 		var a := _zone_rng.randf() * TAU
 		var d := sqrt(_zone_rng.randf()) * maxf(r0 - r1, 0.0)
 		var cand: Vector2 = (cur[0] as Vector2) + Vector2(cos(a), sin(a)) * d
 		if not L.is_water(cand.x, cand.y) and L.in_play_area(cand):
 			c1 = cand
 			break
-	var wait := float(ph.wait) / float(Net.config.get("zone_speed", 1.0))
-	var shrink := float(ph.shrink) / float(Net.config.get("zone_speed", 1.0))
+	var wait := float(ph.wait) / zone_speed()
+	var shrink := float(ph.shrink) / zone_speed()
 	zone = {"i": i, "state": "wait", "t0": Net.tick, "t1": Net.tick + int(wait * Defs.TICK_RATE), "c0": cur[0], "r0": r0, "c1": c1, "r1": r1,
 		"dps": float(ph.dps), "shrink_s": shrink}
 	_warned.clear()
@@ -503,53 +625,137 @@ func _zone_tick(dt: float) -> void:
 		for w in Defs.rule("zone.warning_s", [60, 30, 10]):
 			if left <= float(w) and not _warned.has(w) and left > 0.0:
 				_warned[w] = true
-				world.match_toast.rpc("The haze moves in %d seconds. Check the map." % int(w), "zone_warning")
+				world.match_toast.rpc("The field moves in %d seconds. Check the map." % int(w), "zone_warning")
 				if not world.is_server_dedicated():
-					world.match_toast("The haze moves in %d seconds. Check the map." % int(w), "zone_warning")
+					world.match_toast("The field moves in %d seconds. Check the map." % int(w), "zone_warning")
 		if now >= int(zone.t1):
 			zone.state = "shrink"
 			zone.t0 = now
 			zone.t1 = now + int(float(zone.shrink_s) * Defs.TICK_RATE)
 			_broadcast()
 			log_event("zone %d shrinking to r=%.0f at %s" % [int(zone.i), float(zone.r1), str((zone.c1 as Vector2).round())])
-			world.match_toast.rpc("The haze is closing in.", "zone_move")
+			world.match_toast.rpc("The field is closing in. It pushes you inward: don't get pinned against a wall.", "zone_move")
 			if not world.is_server_dedicated():
-				world.match_toast("The haze is closing in.", "zone_move")
+				world.match_toast("The field is closing in. It pushes you inward: don't get pinned against a wall.", "zone_move")
+			_field_watch_start()
 	elif zone.state == "shrink" and now >= int(zone.t1):
+		_field_watch_end()
 		zone.c0 = zone.c1
 		zone.r0 = zone.r1
 		zone.state = "hold"
 		_next_zone()
 		_broadcast()
-	# Damage outside the safe area.
-	var circ := zone_circle(now)
-	var dps := float(zone.get("dps", 0.0))
-	if int(zone.i) > 0 or zone.state == "shrink":
+	if not _field_watch.is_empty():
+		_field_watch_tick()
+	# r12: the forcefield does no damage to anyone it can move. It pushes (Motor, Field.apply); (r17) anyone it holds
+	# deep inside it, pinned against a wall or caught on something, is squeezed: heavy damage that grows the longer
+	# they stay pinned, until it kills them (about two seconds from full health).
+	if Field.live(zone):
 		for ch in world.characters.values():
-			if ch.mode not in [Motor.GROUND, Motor.DOWNED]:
+			if ch.mode not in [Motor.GROUND, Motor.DOWNED] or ch.field_pin < Field.CRUSH_PIN_S or ch.health.test_invulnerable:
+				_crush_snd.erase(ch.eid)
 				continue
-			var p := Vector2(ch.global_position.x, ch.global_position.z)
-			if p.distance_to(circ[0]) > float(circ[1]):
-				var res: Dictionary = ch.health.apply_simple(dps * dt, "haze")
-				world._after_damage(ch, res, -1)
+			var dmg := Field.crush_dps(ch.field_pin) * dt
+			var kill = ch.health.health - dmg <= 0.0
+			if kill:
+				ch.health.catastrophic = true   # squeezed to death: never downed
+			var res: Dictionary = ch.health.apply_simple(dmg, "field")
+			_crush_snd[ch.eid] = float(_crush_snd.get(ch.eid, 0.0)) - dt
+			if float(_crush_snd[ch.eid]) <= 0.0 and not kill:
+				_crush_snd[ch.eid] = 0.45
+				world.server_sound("field_zap", ch.global_position + Vector3.UP, -4.0, -1)
+			if kill or bool(res.get("killed", false)):
+				_crush_snd.erase(ch.eid)
+				log_event("%s crushed by the field at %s (r=%.1f, %s, %.1f m into it, pinned %.1f s)" % [ch.pname, str(ch.global_position.round()),
+					float(zone_circle(now)[1]), "indoors" if _indoors(ch) else "outdoors", float(Field.at(world, ch.global_position, float(now)).pen), ch.field_pin])
+				world.server_sound("field_crush", ch.global_position + Vector3.UP, 0.0, -1)
+			world._after_damage(ch, res, -1)
+
+
+# r12 match log (--matchlog): bots indoors in the field's path when it starts closing, and whether they got out of the
+# building before its edge reached them. eid -> {name, out (seconds to get out, -1 still in), pen (field depth then)}.
+var _field_watch := {}
+
+
+func _indoors(ch) -> bool:
+	return world.map.acoustics.zone_at(ch.global_position + Vector3.UP * 0.5) != 0
+
+
+func _field_watch_start() -> void:
+	_field_watch.clear()
+	if not _log_on:
+		return
+	for eid in world.bots:
+		var ch = world.characters.get(eid)
+		if ch == null or ch.mode != Motor.GROUND or not _indoors(ch):
+			continue
+		var p := Vector2(ch.global_position.x, ch.global_position.z)
+		if p.distance_to(zone.c1) > float(zone.r1) - 2.0:   # the field will pass over this building
+			_field_watch[eid] = {"name": ch.pname, "out": -1.0, "pen": 0.0, "t0": _t}
+
+
+func _field_watch_tick() -> void:
+	for eid in _field_watch:
+		var w: Dictionary = _field_watch[eid]
+		var ch = world.characters.get(eid)
+		if float(w.out) >= 0.0 or ch == null or ch.mode != Motor.GROUND:
+			continue
+		if not _indoors(ch):
+			w.out = _t - float(w.t0)
+			w.pen = float(Field.at(world, ch.global_position, float(Net.tick)).pen)
+
+
+func _field_watch_end() -> void:
+	if not _log_on:
+		return
+	var early := 0
+	var late := 0
+	var stayed := []
+	var dead := 0
+	for eid in _field_watch:
+		var w: Dictionary = _field_watch[eid]
+		var ch = world.characters.get(eid)
+		if ch == null or ch.mode == Motor.DEAD:
+			dead += 1
+		if float(w.out) < 0.0:
+			stayed.append(str(w.name))
+		elif float(w.pen) < 0.0:
+			early += 1
+		else:
+			late += 1
+	log_event("[field watch] zone %d: %d bots indoors in the field's path when it started closing: %d out before the edge reached them, %d out after it, %d never out (%s); %d of them dead by the end" % [
+		int(zone.i), _field_watch.size(), early, late, stayed.size(), ", ".join(stayed), dead])
+	_field_watch.clear()
 
 
 # ------------------------------------------------------------------ eliminations
 
 func on_shot(ch: Character) -> void:
 	shots_fired += 1
+	ch.health.shield_until = -1   # (r17) firing ends spawn protection
 
 
 func on_landed(ch: Character, speed: float) -> void:
 	if landed.has(ch.eid):
 		return
 	landed[ch.eid] = true
+	landed_tick[ch.eid] = Net.tick
 	var mates := []
 	for o in world.characters.values():
 		if o != ch and o.team == ch.team and landed.has(o.eid):
 			mates.append("%.0f m" % o.global_position.distance_to(ch.global_position))
 	log_event("%s (team %d) landed at %s, %.1f m/s, health %.0f; teammates %s" % [ch.pname, ch.team, str(ch.global_position.round()),
 		speed, ch.health.health, ", ".join(mates) if not mates.is_empty() else "-"])
+
+
+func deploy_safe(ch: Character) -> bool:
+	## (r15) Classic: the jump never hurts. From the aircraft until DEPLOY_GRACE_S after the first touch-down (a canopy
+	## cut a metre or two up, rolling off the roof it came down on) no fall or landing takes health or hurts a leg.
+	if dm:
+		return false
+	if not landed_tick.has(ch.eid):
+		return true
+	return Net.tick - int(landed_tick[ch.eid]) < int(DEPLOY_GRACE_S * Defs.TICK_RATE)
 
 
 func on_downed(ch: Character, attacker: int) -> void:
@@ -589,13 +795,24 @@ func _log_status() -> void:
 		if c.wpn.current_id() != "":
 			armed += 1
 	var circ := zone_circle(Net.tick)
-	log_event("status: %s; armed %d; shots %d; zone %d %s r=%.0f; corpses %d%s" % [str(modes), armed, shots_fired, int(zone.get("i", -1)),
-		str(zone.get("state", "")), float(circ[1]), world.map.dyn.corpses.size(), perf])
+	var lvls := ""
+	if world.map.layout.has_method("level_of"):
+		# (r15) a storeyed map: how many of the living stand on each level (and on escalators / stairs between)
+		var per := {}
+		for c2 in world.characters.values():
+			if c2.mode in [Motor.GROUND, Motor.DOWNED]:
+				var y: float = c2.global_position.y
+				var lv: int = world.map.layout.level_of(y)
+				var key := "L%d" % (lv + 1) if absf(y - world.map.layout.level_y(lv)) < 0.6 else "between"
+				per[key] = int(per.get(key, 0)) + 1
+		lvls = "; levels %s" % str(per)
+	log_event("status: %s; armed %d; shots %d; zone %d %s r=%.0f; corpses %d%s%s" % [str(modes), armed, shots_fired, int(zone.get("i", -1)),
+		str(zone.get("state", "")), float(circ[1]), world.map.dyn.corpses.size(), lvls, perf])
 	if dm:
-		# Where each team is: centroid, spread (mean distance from it), and how far apart the two groups are.
+		# Where each team is: centroid, spread (mean distance from it), and how far apart the first two groups are.
 		var parts := []
 		var cents := {}
-		for t in 2:
+		for t in team_names.size():
 			var sum := Vector3.ZERO
 			var n := 0
 			for c in world.characters.values():
@@ -611,7 +828,7 @@ func _log_status() -> void:
 				if c.team == t and c.mode == Motor.GROUND:
 					spread += c.global_position.distance_to(cen) / n
 			parts.append("%s %d at %s spread %.0f m" % [team_name(t), n, str(Vector2(cen.x, cen.z).round()), spread])
-		var gap := (cents[0] as Vector3).distance_to(cents[1]) if cents.size() == 2 else -1.0
+		var gap := (cents[0] as Vector3).distance_to(cents[1]) if cents.has(0) and cents.has(1) else -1.0
 		log_event("dm teams: %s; gap %.0f m; zone centre %s" % ["; ".join(parts), gap, str((zone_circle(Net.tick)[0] as Vector2).round())])
 	if not world.bots.is_empty():
 		var states := {}
@@ -702,16 +919,99 @@ func on_killed(ch: Character, attacker: int) -> void:
 	if stats.has(ch.eid):
 		stats[ch.eid].placed = _alive_team_count()
 	log_event("%s killed by %s (%s); %d teams left" % [ch.pname, _name(attacker), ch.health.last_cause, _alive_team_count()])
+	if dm and respawns() and phase == "playing":
+		var kt: int = int(stats[attacker].team) if stats.has(attacker) else world.team_of(attacker)
+		if attacker >= 0 and attacker != ch.eid and kt >= 0 and kt != ch.team:
+			team_score[kt] = int(team_score.get(kt, 0)) + 1
+		if Net.players.has(ch.pid):
+			_respawn_at[ch.pid] = Net.tick + int(float(_dm_rule("respawn_s", 5.0)) * Defs.TICK_RATE)
 	if dm:
 		_last_dead_team = ch.team
 		var killer = world.characters.get(attacker)
-		var wid: String = killer.wpn.current_id() if killer != null and killer != ch else ""
 		var cause := str(ch.health.last_cause)
+		# A grenade kill is the grenade's, not the gun the thrower happens to hold.
+		var wid: String = killer.wpn.current_id() if killer != null and killer != ch and cause != "explosion" else ""
+		if cause == "field":
+			cause = "the field"
+		elif cause == "explosion":
+			cause = Defs.item_name("frag_grenade")
 		var kname := _name(attacker) if attacker >= 0 and attacker != ch.eid else ""
 		world.server_kill_feed(kname, world.team_of(attacker) if attacker >= 0 else -1, ch.pname, ch.team, Defs.item_name(wid) if wid != "" else cause)
 		var al := alive_counts()
-		log_event("alive: %s %d, %s %d" % [team_name(0), int(al.get(0, 0)), team_name(1), int(al.get(1, 0))])
+		log_event("alive: %s %d, %s %d; score %s" % [team_name(0), int(al.get(0, 0)), team_name(1), int(al.get(1, 0)), str(team_score)])
 		_broadcast()
+
+
+func respawns() -> bool:
+	## (r17) A Deathmatch won on score or on the clock: the dead come back.
+	return dm and win_by in ["score", "time"]
+
+
+func round_time() -> float:
+	return float(Net.tick - match_t0) / Defs.TICK_RATE
+
+
+func _respawn_tick() -> void:
+	if _respawn_at.is_empty():
+		return
+	for pid in _respawn_at.keys():
+		if Net.tick < int(_respawn_at[pid]):
+			continue
+		_respawn_at.erase(pid)
+		if Net.players.has(pid) and world.char_by_pid(pid) == null:
+			_respawn(pid)
+
+
+func late_join(pid: int) -> void:
+	## (r17) Someone who joins a respawn round after it started plays too: on the smallest team, at its spawn.
+	if not respawns() or phase != "playing" or not Net.players.has(pid) or world.char_by_pid(pid) != null:
+		return
+	var p: Dictionary = Net.players[pid]
+	var n := Net.dm_teams()
+	if int(p.team) < 0 or int(p.team) >= n:
+		var counts := {}
+		for q in Net.players.values():
+			counts[int(q.team)] = int(counts.get(int(q.team), 0)) + 1
+		var best := 0
+		for t in n:
+			if int(counts.get(t, 0)) < int(counts.get(best, 0)):
+				best = t
+		p.team = best
+		Net._broadcast_lobby()
+	_respawn_at[pid] = Net.tick + int(1.5 * Defs.TICK_RATE)
+
+
+func _respawn(pid: int) -> void:
+	## (r17) Back in at the team's spawn, on the free spot farthest from the enemy, with the Deathmatch kit again and a
+	## few seconds of spawn protection (gone at the first shot).
+	var p: Dictionary = Net.players[pid]
+	var team := clampi(int(p.team), 0, maxi(Net.dm_teams() - 1, 0))
+	var n := maxi((spawn_info.get(team, {}).get("pts", []) as Array).size(), 5)
+	var best: Array = []
+	var best_d := -INF
+	for i in 8:
+		var slot: Array = _spawn_slot(team, _spawn_rng.randi() % n)
+		var d := 1000.0
+		for c in world.characters.values():
+			if c.mode in [Motor.DEAD, Motor.SPECTATE]:
+				continue
+			var dc: float = (c.global_position as Vector3).distance_to(slot[0])
+			if c.team != team:
+				d = minf(d, dc)
+			elif dc < 1.0:
+				d = minf(d, -1.0)   # someone is standing on this spot
+		if d > best_d:
+			best_d = d
+			best = slot
+	var ch: Character = world.server_spawn_character(pid, team, str(p.name), best[0], Motor.GROUND, float(best[1]))
+	_loadout(ch)
+	_dm_loadout(ch, pid, _spawn_rng)
+	ch.health.shield_until = Net.tick + int(float(_dm_rule("spawn_shield_s", 3.0)) * Defs.TICK_RATE)
+	if not _pid_stats.has(pid):
+		_pid_stats[pid] = {"pid": pid, "name": p.name, "team": team, "kills": 0, "damage": 0.0, "downs": 0, "alive_t": 0.0, "placed": 0, "bot": p.bot}
+	stats[ch.eid] = _pid_stats[pid]
+	log_event("%s respawned at %s (nearest enemy %.0f m)" % [ch.pname, str(ch.global_position.round()), best_d])
+	_broadcast()
 
 
 func _alive_team_count() -> int:
@@ -733,7 +1033,7 @@ func alive_counts() -> Dictionary:
 	## team -> characters still standing (Deathmatch has no downed state; Classic counts the downed too).
 	var out := {}
 	if dm:
-		for t in 2:
+		for t in Net.dm_teams():
 			out[t] = 0
 	for c in world.characters.values():
 		if c.mode in [Motor.GROUND, Motor.FREEFALL, Motor.CHUTE, Motor.PLANE, Motor.DOWNED]:
@@ -748,6 +1048,29 @@ func team_name(t: int) -> String:
 
 
 func _check_end_dm() -> void:
+	if respawns():
+		_respawn_tick()
+		var top := -1
+		var top_s := -1
+		var tie := false
+		for t in team_score:
+			var s := int(team_score[t])
+			if s > top_s:
+				top_s = s
+				top = int(t)
+				tie = false
+			elif s == top_s:
+				tie = true
+		var over := (win_by == "score" and top_s >= score_limit) or (win_by == "time" and round_time() >= time_limit_s)
+		if not over:
+			return
+		phase = "ended"
+		var winner := -1 if tie else top
+		log_event("match over (%s): winner team %d (%s) with %d after %.0f s, scores %s, %d shots fired" % [win_by, winner,
+			team_name(winner) if winner >= 0 else "draw", top_s, round_time(), str(team_score), shots_fired])
+		_broadcast()
+		Game.end_match_to_results(_summary(winner))
+		return
 	var al := alive_counts()
 	var standing := []
 	for t in al:
@@ -755,9 +1078,20 @@ func _check_end_dm() -> void:
 			standing.append(int(t))
 	if standing.size() > 1 or (initial_teams <= 1 and not standing.is_empty()):
 		return
-	phase = "ended"
 	# One team left; nobody left at all (the last two died together in the haze): the team that died last wins.
-	var winner: int = standing[0] if standing.size() == 1 else _last_dead_team
+	var winner: int = standing[0] if standing.size() == 1 else (-1 if win_by == "wipe" else _last_dead_team)
+	if win_by == "wipe":
+		if winner >= 0:
+			team_score[winner] = int(team_score.get(winner, 0)) + 1
+		if winner < 0 or int(team_score[winner]) < score_limit:
+			phase = "round_end"
+			_round_winner = winner
+			_next_round_at = Net.tick + int(float(_dm_rule("round_break_s", 4.0)) * Defs.TICK_RATE)
+			world.server_clear_round_actions()
+			_broadcast()
+			log_event("round %d over: winner %d, scores %s" % [round_number, winner, str(team_score)])
+			return
+	phase = "ended"
 	log_event("match over: winner team %d (%s) after %.0f s, %d shots fired" % [winner, team_name(winner), _t, shots_fired])
 	_broadcast()
 	Game.end_match_to_results(_summary(winner))
@@ -804,8 +1138,11 @@ func force_end() -> void:
 
 func _summary(winner: int) -> Dictionary:
 	var rows := []
-	for eid in stats:
-		var s: Dictionary = stats[eid]
+	var seen := {}
+	for s in (_pid_stats.values() if dm else stats.values()):
+		if seen.has(int(s.pid)):
+			continue
+		seen[int(s.pid)] = true
 		var place := 1 if int(s.team) == winner else maxi(int(s.placed), 2)
 		rows.append({"pid": int(s.pid), "name": s.name, "team": s.team, "kills": s.kills, "downs": s.downs, "time": int(s.alive_t), "winner": int(s.team) == winner,
 			"bot": s.bot, "damage": int(float(s.damage)), "place": place})
@@ -819,16 +1156,33 @@ func _summary(winner: int) -> Dictionary:
 	if dm:
 		out.team_names = team_names
 		out.winner_name = team_name(winner) if winner >= 0 else ""
+		out.win_by = win_by
+		out.score = team_score.duplicate()
+		out.rounds = round_number
 	return out
 
 
 # ------------------------------------------------------------------ replication
 
 func _state() -> Dictionary:
-	var s := {"phase": phase, "plane": plane, "zone": zone, "t0": match_t0, "day_offset": day_offset,
-		"game_mode": "deathmatch" if dm else "classic", "alive": alive_counts()}
+	var s := {"phase": phase, "plane": plane, "zone": zone if not dm or _field_enabled else {}, "t0": match_t0, "day_offset": day_offset,
+		"game_mode": "deathmatch" if dm else "classic", "alive": alive_counts(),
+		"day_len": DayCycle.phase_len, "night_only": DayCycle.night_only}
 	if dm:
 		s.team_names = team_names
+		s.win_by = win_by
+		s.field_enabled = _field_enabled
+		if win_by == "wipe":
+			s.score = team_score.duplicate()
+			s.score_limit = score_limit
+			s.round = round_number
+			s.round_winner = _round_winner
+			s.next_round_at = _next_round_at
+		if respawns():
+			s.score = team_score
+			s.score_limit = score_limit
+			s.time_limit = time_limit_s
+			s.respawn_s = float(_dm_rule("respawn_s", 5.0))
 	return s
 
 

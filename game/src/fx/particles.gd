@@ -46,10 +46,31 @@ const KINDS := {
 		"scale": [0.6, 1.2], "grow": 2.0, "color": Color(1.0, 0.55, 0.18, 0.9), "glow": 3.0},
 	"smoke": {"mesh": "puff", "amount": 16, "life": 3.6, "vel": [0.6, 2.6], "spread": 80.0, "gravity": 0.45, "damp": 1.2,
 		"scale": [0.8, 1.6], "grow": 2.6, "color": Color(0.22, 0.21, 0.2, 0.62)},
+	# r11: the after-cloud of a hit: pushed out of the surface (clear of the cards' soft-edge fade), then hanging
+	# 3-4 s, spreading and drifting up a little.
+	"haze": {"mesh": "puff", "amount": 6, "life": 3.8, "vel": [0.45, 1.0], "spread": 50.0, "gravity": 0.07, "damp": 1.7,
+		"scale": [0.3, 0.5], "grow": 3.0, "color": Color(0.66, 0.64, 0.6, 0.27), "pool": 16},
+	"haze_soil": {"mesh": "puff", "amount": 6, "life": 3.4, "vel": [0.45, 1.0], "spread": 45.0, "gravity": 0.04, "damp": 1.7,
+		"scale": [0.32, 0.52], "grow": 3.0, "color": Color(0.45, 0.37, 0.27, 0.3), "pool": 16},
+	"haze_wood": {"mesh": "puff", "amount": 5, "life": 3.2, "vel": [0.4, 0.9], "spread": 50.0, "gravity": 0.06, "damp": 1.8,
+		"scale": [0.26, 0.42], "grow": 3.0, "color": Color(0.7, 0.6, 0.45, 0.24), "pool": 16},
+	"wisp": {"mesh": "puff", "amount": 3, "life": 2.6, "vel": [0.15, 0.5], "spread": 40.0, "gravity": 0.25, "damp": 1.0,
+		"scale": [0.1, 0.18], "grow": 3.6, "color": Color(0.5, 0.5, 0.5, 0.2), "pool": 16},
 	"casing": {"mesh": "brass", "amount": 1, "life": 0.75, "vel": [1.6, 2.6], "spread": 22.0, "gravity": -9.8, "damp": 0.2,
 		"scale": [0.011, 0.011], "grow": 1.0, "color": Color(0.82, 0.62, 0.28), "pool": 12},
 	"blast_debris": {"mesh": "chip", "amount": 24, "life": 1.4, "vel": [5.0, 13.0], "spread": 85.0, "gravity": -9.8, "damp": 0.3,
 		"scale": [0.02, 0.05], "grow": 1.0, "color": Color(0.28, 0.26, 0.24)},
+	# r14 grenade: flipbook cards from tools/make_explosion_fx.py, each playing its 64 frames once over its life.
+	# The early frames fill only part of their cell, so the cards are large: a fireball about 3 m across, a cloud of
+	# dust and smoke 5-7 m that rises slowly and thins over ten seconds, dust rolling out along the ground.
+	"fireball": {"mesh": "flipfire", "amount": 10, "life": 1.5, "vel": [0.8, 3.2], "spread": 180.0, "gravity": 1.2, "damp": 3.6,
+		"scale": [2.6, 3.8], "grow": 1.5, "color": Color(1, 1, 1, 1), "pool": 4, "anim": true, "emit_r": 0.6},
+	"blast_smoke": {"mesh": "flipsmoke", "amount": 18, "life": 9.5, "vel": [0.3, 1.7], "spread": 60.0, "gravity": 0.3, "damp": 1.2,
+		"scale": [3.0, 4.6], "grow": 1.9, "color": Color(0.9, 0.88, 0.84, 0.9), "pool": 4, "anim": true, "emit_r": 1.0, "fade_in": 0.06},
+	"dust_ring": {"mesh": "flipsmoke", "amount": 18, "life": 2.9, "vel": [5.0, 9.5], "spread": 180.0, "flat": true, "gravity": 0.12,
+		"damp": 3.4, "scale": [1.6, 2.6], "grow": 2.2, "color": Color(1.0, 0.9, 0.74, 0.8), "pool": 4, "anim": true, "emit_r": 0.5, "fade_in": 0.04},
+	"embers": {"mesh": "streak", "amount": 26, "life": 1.7, "vel": [3.0, 10.0], "spread": 70.0, "gravity": -5.0, "damp": 0.7,
+		"scale": [0.012, 0.03], "grow": 0.5, "color": Color(1.0, 0.55, 0.15), "glow": 5.0, "pool": 4},
 }
 
 var pools := {}    # kind -> [GPUParticles3D]
@@ -65,7 +86,7 @@ func setup() -> void:
 	var tex_drop: Texture2D = load(FX + "fx_drop.png")
 	for kind in KINDS:
 		var k: Dictionary = KINDS[kind]
-		var draw := _draw_mesh(str(k.mesh), k, tex_smoke, tex_spark, tex_drop)
+		var draw := _flip_mesh(str(k.mesh), k) if str(k.mesh).begins_with("flip") else _draw_mesh(str(k.mesh), k, tex_smoke, tex_spark, tex_drop)
 		var pm := _process_material(k)
 		var list := []
 		for i in int(k.get("pool", POOL)):
@@ -104,12 +125,26 @@ func _process_material(k: Dictionary) -> ParticleProcessMaterial:
 	m.scale_min = float(k.scale[0])
 	m.scale_max = float(k.scale[1])
 	m.emission_shape = ParticleProcessMaterial.EMISSION_SHAPE_SPHERE
-	m.emission_sphere_radius = 0.03 if str(k.mesh) != "puff" else 0.08
+	m.emission_sphere_radius = float(k.get("emit_r", 0.03 if str(k.mesh) != "puff" else 0.08))
+	if bool(k.get("anim", false)):
+		# One pass through the flipbook over each card's life.
+		m.anim_speed_min = 1.0
+		m.anim_speed_max = 1.0
+	if bool(k.get("flat", false)):
+		# Thrown out flat along the ground in every direction.
+		m.direction = Vector3.RIGHT
+		m.flatness = 1.0
 	var c: Color = k.color
 	var grad := Gradient.new()
 	grad.set_color(0, c)
 	grad.set_color(1, Color(c.r, c.g, c.b, 0.0))
-	if str(k.mesh) == "puff":
+	if k.has("fade_in"):
+		grad.set_color(0, Color(c.r, c.g, c.b, 0.0))
+		grad.add_point(float(k.fade_in), c)
+		grad.add_point(0.55, c)
+	elif str(k.mesh).begins_with("flip"):
+		grad.add_point(0.7, c)
+	elif str(k.mesh) == "puff":
 		grad.add_point(0.15, c)
 	elif str(k.mesh) == "streak":
 		grad.set_color(0, Color(1.0, 0.95, 0.8, c.a))
@@ -130,7 +165,7 @@ func _process_material(k: Dictionary) -> ParticleProcessMaterial:
 		ct.curve = curve
 		m.scale_curve = ct
 	match str(k.mesh):
-		"puff":
+		"puff", "flipfire", "flipsmoke":
 			m.angle_min = -180.0
 			m.angle_max = 180.0
 			m.angular_velocity_min = -30.0
@@ -223,6 +258,39 @@ func _draw_mesh(kind: String, k: Dictionary, tex_smoke: Texture2D, tex_spark: Te
 	return mesh
 
 
+func _flip_mesh(kind: String, k: Dictionary) -> Mesh:
+	## r14: a billboard playing an 8 x 8 flipbook; the fireball adds its own fire light (emission texture).
+	var mat := StandardMaterial3D.new()
+	mat.vertex_color_use_as_albedo = true
+	mat.transparency = BaseMaterial3D.TRANSPARENCY_ALPHA
+	mat.billboard_mode = BaseMaterial3D.BILLBOARD_PARTICLES
+	mat.billboard_keep_scale = true   # particle billboards otherwise ignore the particle's scale (1 m cards)
+	mat.particles_anim_h_frames = 8
+	mat.particles_anim_v_frames = 8
+	mat.particles_anim_loop = false
+	mat.roughness = 1.0
+	mat.disable_receive_shadows = true
+	mat.shading_mode = BaseMaterial3D.SHADING_MODE_PER_VERTEX
+	if RenderingServer.get_current_rendering_method() != "gl_compatibility":
+		mat.proximity_fade_enabled = true
+		mat.proximity_fade_distance = 0.6
+	if kind == "flipfire":
+		mat.albedo_texture = load(FX + "explosion_albedo.png")
+		mat.emission_enabled = true
+		mat.emission = Color(1, 1, 1)
+		mat.emission_texture = load(FX + "explosion_emit.png")
+		# Multiply: the fire glows where the emission frame says (the default adds the colour to every pixel, which
+		# turned every frame, soot included, into a white disc).
+		mat.emission_operator = BaseMaterial3D.EMISSION_OP_MULTIPLY
+		mat.emission_energy_multiplier = 4.0
+	else:
+		mat.albedo_texture = load(FX + "smoke_albedo.png")
+	var q := QuadMesh.new()
+	q.size = Vector2(1, 1)
+	q.surface_set_material(0, mat)
+	return q
+
+
 func emit(kind: String, pos: Vector3, normal: Vector3 = Vector3.UP, size: float = 1.0) -> void:
 	var list: Array = pools.get(kind, [])
 	if list.is_empty():
@@ -235,7 +303,7 @@ func emit(kind: String, pos: Vector3, normal: Vector3 = Vector3.UP, size: float 
 	var x := ref.cross(up).normalized()
 	var z := x.cross(up).normalized()
 	# Clouds start a little off the surface, so their cards do not cut into it.
-	var lift := 0.12 if str(KINDS[kind].mesh) == "puff" else 0.02
+	var lift := 0.12 if str(KINDS[kind].mesh) in ["puff", "flipfire", "flipsmoke"] else 0.02
 	p.global_transform = Transform3D(Basis(x, up, z), pos + up * lift)
 	p.amount_ratio = clampf(size, 0.25, 1.0)
 	p.restart()

@@ -74,6 +74,14 @@ func _ready() -> void:
 		var c := str(args.cam).split(",")
 		extra_views[c[6] if c.size() > 6 else "cam"] = [Vector3(float(c[0]), float(c[1]), float(c[2])), Vector3(float(c[3]), float(c[4]), float(c[5]))]
 		views = [c[6] if c.size() > 6 else "cam"]
+	if args.has("cams"):
+		# --cams=name:x,y,z,tx,ty,tz;name2:...: several extra viewpoints (QA captures).
+		views = []
+		for item in str(args.cams).split(";", false):
+			var nv := item.split(":")
+			var c2 := nv[1].split(",")
+			extra_views[nv[0]] = [Vector3(float(c2[0]), float(c2[1]), float(c2[2])), Vector3(float(c2[3]), float(c2[4]), float(c2[5]))]
+			views.append(nv[0])
 	var size := str(args.get("size", "1600x900")).split("x")
 	get_window().size = Vector2i(int(size[0]), int(size[1]))
 	DirAccess.make_dir_recursive_absolute(out_dir)
@@ -104,6 +112,14 @@ func _ready() -> void:
 	cam.fov = 75.0
 	add_child(cam)
 	cam.current = true
+	if args.has("lamp"):
+		# --lamp: a work light on the camera, for looking at dark interiors (QA captures only).
+		var lamp := OmniLight3D.new()
+		lamp.omni_range = float(args.get("lamp")) if str(args.get("lamp")) != "true" else 22.0
+		lamp.light_energy = 2.2
+		lamp.omni_attenuation = 0.6
+		lamp.light_cull_mask = 0xFFFFF
+		cam.add_child(lamp)
 	await get_tree().process_frame
 	if args.has("perf"):
 		DisplayServer.window_set_vsync_mode(DisplayServer.VSYNC_DISABLED)

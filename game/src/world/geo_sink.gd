@@ -24,6 +24,15 @@ const FACES := [
 	[Vector3(0, 0, 1), Vector3(1, 0, 0), Vector3(0, 1, 0), 16],
 	[Vector3(0, 0, -1), Vector3(-1, 0, 0), Vector3(0, 1, 0), 32],
 ]
+## FACES by axis: [normal axis, sign, u axis, sign, v axis, sign, bit] (the same faces; r15 box() works from these).
+const FACES_AX := [
+	[0, 1.0, 2, -1.0, 1, 1.0, 1],
+	[0, -1.0, 2, 1.0, 1, 1.0, 2],
+	[1, 1.0, 0, 1.0, 2, -1.0, 4],
+	[1, -1.0, 0, 1.0, 2, 1.0, 8],
+	[2, 1.0, 0, 1.0, 1, 1.0, 16],
+	[2, -1.0, 0, -1.0, 1, 1.0, 32],
+]
 const NO_BOTTOM := 55
 const OUTWARD := 32
 
@@ -86,6 +95,10 @@ var _occ: Dictionary = {}
 var _far: Dictionary = {}
 var rng := RandomNumberGenerator.new()
 var stats := {"boxes": 0, "tris": 0, "meshes": 0, "colliders": 0, "far_tris": 0}
+## (r15) false on a headless server: nothing is ever drawn there, so only collision (and the duplicate check) is
+## built; faces, far blocks and occluders are skipped. Map loading on a dedicated server is that much shorter.
+var visual := true
+var y_split := 0.0   # (r15) > 0: "int" and "mid" chunks are also split into bands this tall (Malasugue Mall: one per storey)
 var draw_ext := 220.0
 var draw_int := 60.0
 var far_begin := 220.0
@@ -116,29 +129,63 @@ static func chunk_key(p: Vector3) -> Vector2i:
 	return Vector2i(floori(p.x / CHUNK), floori(p.z / CHUNK))
 
 
+## (r15) Load time: the accumulator a material last went to, per layer (string keys cost more than the geometry):
+## layer -> mat -> [cx, cz, cy, Acc, surface data]; and the same for collision, phys -> [cx, cz, TriAcc].
+var _acc_last := {}
+var _tri_last := {}
+
+
 func _acc(p: Vector3, mat: String, layer: String) -> Acc:
+	var wide := layer == "ext" or layer == "inner"
+	var cx: int
+	var cz: int
+	var cy := 0
+	if wide:
+		cx = floori(p.x / WIDE)
+		cz = floori(p.z / WIDE)
+	else:
+		cx = floori(p.x / CHUNK)
+		cz = floori(p.z / CHUNK)
+		if y_split > 0.0:
+			cy = floori(p.y / y_split)
+	var per: Dictionary = _acc_last.get(layer, {})
+	if per.is_empty():
+		_acc_last[layer] = per
+	var last = per.get(mat)
+	if last != null and last[0] == cx and last[1] == cz and last[2] == cy:
+		var a0: Acc = last[3]
+		a0.current_surface = last[4]
+		return a0
 	var batch: String = mats.batch_name(mat)
 	var key: String
-	if layer == "ext" or layer == "inner":
-		key = "w%d,%d|%s|%s" % [floori(p.x / WIDE), floori(p.z / WIDE), batch, layer]
+	if wide:
+		key = "w%d,%d|%s|%s" % [cx, cz, batch, layer]
 	else:
-		var ck := chunk_key(p)
-		key = "%d,%d|%s|%s" % [ck.x, ck.y, batch, layer]
+		# (r15) A storeyed map: detail chunks are split by height too, so a floor hidden behind its slab is culled.
+		var yb := ("y%d" % cy) if y_split > 0.0 else ""
+		key = "%d,%d%s|%s|%s" % [cx, cz, yb, batch, layer]
 	var a: Acc = _meshes.get(key)
 	if a == null:
 		a = Acc.new()
 		_meshes[key] = a
-	a.current_surface = mats.surface_data(mat)
+	var sd: PackedFloat32Array = mats.surface_data(mat)
+	a.current_surface = sd
+	per[mat] = [cx, cz, cy, a, sd]
 	return a
 
 
 func _tri(p: Vector3, phys: String) -> TriAcc:
-	var ck := chunk_key(p)
-	var key := "%d,%d|%s" % [ck.x, ck.y, phys]
+	var cx := floori(p.x / CHUNK)
+	var cz := floori(p.z / CHUNK)
+	var last = _tri_last.get(phys)
+	if last != null and last[0] == cx and last[1] == cz:
+		return last[2]
+	var key := "%d,%d|%s" % [cx, cz, phys]
 	var a: TriAcc = _cols.get(key)
 	if a == null:
 		a = TriAcc.new()
 		_cols[key] = a
+	_tri_last[phys] = [cx, cz, a]
 	return a
 
 
@@ -168,53 +215,60 @@ func box(xf: Transform3D, size: Vector3, mat: String, opt: Dictionary = {}) -> v
 	var base_y: float = opt.get("base_y", xf.origin.y - h.y)
 	var tile: float = opt.get("tile", mats.tile(mat))
 	var uvo: Vector2 = opt.get("uv_off", Vector2(rng.randf() * 4.0, rng.randf() * 4.0))
+	var bs := xf.basis
+	var o := xf.origin
 	# A box identical to one already drawn (two generators building the same fence or sheet) is not drawn again:
 	# the copies z-fought face for face. The random draws above still happen, so nothing after it shifts.
-	# The box as its three edge vectors without their signs (a copy turned 180 degrees is the same box).
-	var edges := []
+	# The box as its three edge vectors without their signs (a copy turned 180 degrees is the same box), combined
+	# in an order-free way (r15: from ints, no arrays: this key was a fifth of the time of every map build).
+	var ek := 0
 	for ai in 3:
-		var ev: Vector3 = xf.basis[ai] * size[ai]
+		var ev: Vector3 = bs[ai] * size[ai]
 		if ev.x < -1e-4 or (absf(ev.x) <= 1e-4 and (ev.y < -1e-4 or (absf(ev.y) <= 1e-4 and ev.z < 0.0))):
 			ev = -ev
-		edges.append((ev * 1000.0).round())
-	edges.sort()
-	var dkey := hash([(xf.origin * 1000.0).round(), edges, mat])
+		ek += hash(Vector3i((ev * 1000.0).round()))
+	var dkey := hash(Vector3i((o * 1000.0).round())) * 92821 + ek * 31 + mat.hash()
 	if _drawn.has(dkey):
 		faces = 0
 	else:
 		_drawn[dkey] = true
-	var outer := _acc(xf.origin, mat, layer)
-	var inner_faces: int = opt.get("inner_faces", 0)
-	var inner: Acc = _acc(xf.origin, mat, "inner") if inner_faces != 0 else null
-	var d2 := Vector2(dirt, base_y)
-	var bs := xf.basis
-	var mirrored := bs.determinant() < 0.0  # a mirroring transform reverses the winding
-	for f in FACES:
-		if (faces & int(f[3])) == 0:
-			continue
-		var a: Acc = inner if (inner_faces & int(f[3])) != 0 else outer
-		var n: Vector3 = f[0]
-		var u: Vector3 = f[1]
-		var v: Vector3 = f[2]
-		var hn: float = absf(n.dot(h))
-		var hu: float = absf(u.dot(h))
-		var hv: float = absf(v.dot(h))
-		var c := n * hn
-		var wn := (bs * n).normalized()
-		var wu := (bs * u).normalized()
-		var wv := (bs * v).normalized()
-		var sgn := 1.0 if wn.cross(wu).dot(wv) >= 0.0 else -1.0
-		var su := hu * 2.0 / tile
-		var sv := hv * 2.0 / tile
-		if mirrored:
-			a.quad(xf * (c - u * hu - v * hv), xf * (c - u * hu + v * hv), xf * (c + u * hu + v * hv), xf * (c + u * hu - v * hv),
-				wn, wu, sgn, uvo, uvo + Vector2(0.0, -sv), uvo + Vector2(su, -sv), uvo + Vector2(su, 0.0), d2, tint)
-		else:
-			a.quad(xf * (c - u * hu - v * hv), xf * (c + u * hu - v * hv), xf * (c + u * hu + v * hv), xf * (c - u * hu + v * hv),
-				wn, wu, sgn, uvo, uvo + Vector2(su, 0.0), uvo + Vector2(su, -sv), uvo + Vector2(0.0, -sv), d2, tint)
-		stats.tris += 2
-		if dump_faces:
-			_dump_face(xf * c, wn, bs * u * hu, bs * v * hv, mat, str(opt.get("what", "")) + ("|in" if a == inner else ""))
+	if faces != 0 and visual:
+		var outer := _acc(o, mat, layer)
+		var inner_faces: int = opt.get("inner_faces", 0)
+		var inner: Acc = _acc(o, mat, "inner") if inner_faces != 0 else null
+		var d2 := Vector2(dirt, base_y)
+		var mirrored := bs.determinant() < 0.0  # a mirroring transform reverses the winding
+		# World half extents and unit axes, once per box.
+		var W := [bs.x * h.x, bs.y * h.y, bs.z * h.z]
+		var N := [bs.x.normalized(), bs.y.normalized(), bs.z.normalized()]
+		var hh := [h.x, h.y, h.z]
+		var inv_tile := 2.0 / tile
+		for f in FACES_AX:
+			var bit: int = f[6]
+			if (faces & bit) == 0:
+				continue
+			var a: Acc = inner if (inner_faces & bit) != 0 else outer
+			var ns: float = f[1]
+			var us: float = f[3]
+			var vs: float = f[5]
+			var cw: Vector3 = o + (W[f[0]] as Vector3) * ns
+			var du: Vector3 = (W[f[2]] as Vector3) * us
+			var dv: Vector3 = (W[f[4]] as Vector3) * vs
+			var wn: Vector3 = (N[f[0]] as Vector3) * ns
+			var wu: Vector3 = (N[f[2]] as Vector3) * us
+			var wv: Vector3 = (N[f[4]] as Vector3) * vs
+			var sgn := 1.0 if wn.cross(wu).dot(wv) >= 0.0 else -1.0
+			var su: float = float(hh[f[2]]) * inv_tile
+			var sv: float = float(hh[f[4]]) * inv_tile
+			if mirrored:
+				a.quad(cw - du - dv, cw - du + dv, cw + du + dv, cw + du - dv,
+					wn, wu, sgn, uvo, uvo + Vector2(0.0, -sv), uvo + Vector2(su, -sv), uvo + Vector2(su, 0.0), d2, tint)
+			else:
+				a.quad(cw - du - dv, cw + du - dv, cw + du + dv, cw - du + dv,
+					wn, wu, sgn, uvo, uvo + Vector2(su, 0.0), uvo + Vector2(su, -sv), uvo + Vector2(0.0, -sv), d2, tint)
+			stats.tris += 2
+			if dump_faces:
+				_dump_face(cw, wn, du, dv, mat, str(opt.get("what", "")) + ("|in" if a == inner else ""))
 	if opt.get("collide", true):
 		_col_box(xf, size, opt.get("phys", mats.phys(mat)), str(opt.get("what", mat)))
 	if opt.get("occlude", false):
@@ -231,6 +285,11 @@ func quad(p0: Vector3, p1: Vector3, p2: Vector3, p3: Vector3, mat: String, opt: 
 			p1 = p3
 			p3 = tmp
 	var layer: String = opt.get("layer", "ext")
+	if not visual:
+		if opt.get("collide", false):
+			var ta0 := _tri(p0, opt.get("phys", mats.phys(mat)))
+			ta0.tris.append_array(PackedVector3Array([p0, p1, p2, p0, p2, p3]))
+		return
 	var a := _acc((p0 + p2) * 0.5, mat, layer)
 	var n := (p3 - p0).cross(p1 - p0).normalized()
 	var u := (p1 - p0).normalized()
@@ -269,6 +328,8 @@ func quad(p0: Vector3, p1: Vector3, p2: Vector3, p3: Vector3, mat: String, opt: 
 func atlas_quad(c: Vector3, right: Vector3, up: Vector3, w: float, h: float, uv: Rect2, mat: String, opt: Dictionary = {}) -> void:
 	## A decal quad showing one cell (uv, 0..1) of an atlas texture, upright: `right` is the viewer's right as seen
 	## from the front (the side right x up points to). opt: layer (default mid), tint (alpha = opacity).
+	if not visual:
+		return
 	var a := _acc(c, mat, opt.get("layer", "mid"))
 	var r := right.normalized() * w * 0.5
 	var u := up.normalized() * h * 0.5
@@ -294,6 +355,13 @@ func corrugated(xf: Transform3D, length: float, width: float, mat: String, opt: 
 
 func cylinder(base_pos: Vector3, axis: Vector3, length: float, radius: float, mat: String, opt: Dictionary = {}) -> void:
 	var layer: String = opt.get("layer", "ext")
+	if not visual:
+		if opt.get("collide", false):
+			var ax0 := axis.normalized()
+			var ref0 := Vector3.UP if absf(ax0.y) < 0.9 else Vector3.RIGHT
+			var side0 := ax0.cross(ref0).normalized()
+			_col_box(Transform3D(Basis(side0, ax0, side0.cross(ax0)).orthonormalized(), base_pos + ax0 * length * 0.5), Vector3(radius * 1.7, length, radius * 1.7), opt.get("phys", mats.phys(mat)), str(opt.get("what", mat)))
+		return
 	var a := _acc(base_pos, mat, layer)
 	var sides: int = opt.get("sides", 8)
 	var ax := axis.normalized()
@@ -323,6 +391,8 @@ func cylinder(base_pos: Vector3, axis: Vector3, length: float, radius: float, ma
 
 func far_block(xf: Transform3D, size: Vector3, col: Color, top_col: Color) -> void:
 	## Coarse stand-in for a whole building (or floor) seen from far away. No bottom face.
+	if not visual:
+		return
 	var a := _faracc(xf.origin)
 	var h := size * 0.5
 	var bs := xf.basis
@@ -350,12 +420,20 @@ func _col_box(xf: Transform3D, size: Vector3, phys: String, what: String = "") -
 		_record(xf, size, what if what != "" else phys)
 	var ta := _tri(xf.origin, phys)
 	var h := size * 0.5
-	var c := []
-	for i in 8:
-		c.append(xf * Vector3(h.x * (1 if i & 1 else -1), h.y * (1 if i & 2 else -1), h.z * (1 if i & 4 else -1)))
-	for q in [[0, 1, 3, 2], [4, 6, 7, 5], [0, 4, 5, 1], [2, 3, 7, 6], [0, 2, 6, 4], [1, 5, 7, 3]]:
-		ta.tris.append(c[q[0]]); ta.tris.append(c[q[1]]); ta.tris.append(c[q[2]])
-		ta.tris.append(c[q[0]]); ta.tris.append(c[q[2]]); ta.tris.append(c[q[3]])
+	var o := xf.origin
+	var hx := xf.basis.x * h.x
+	var hy := xf.basis.y * h.y
+	var hz := xf.basis.z * h.z
+	var c0 := o - hx - hy - hz
+	var c1 := o + hx - hy - hz
+	var c2 := o - hx + hy - hz
+	var c3 := o + hx + hy - hz
+	var c4 := o - hx - hy + hz
+	var c5 := o + hx - hy + hz
+	var c6 := o - hx + hy + hz
+	var c7 := o + hx + hy + hz
+	ta.tris.append_array(PackedVector3Array([c0, c1, c3, c0, c3, c2, c4, c6, c7, c4, c7, c5, c0, c4, c5, c0, c5, c1,
+		c2, c3, c7, c2, c7, c6, c0, c2, c6, c0, c6, c4, c1, c5, c7, c1, c7, c3]))
 
 
 func col_box(xf: Transform3D, size: Vector3, phys: String, what: String = "") -> void:
@@ -413,6 +491,8 @@ func recorded_near(p: Vector3) -> Array:
 
 
 func _occ_box(xf: Transform3D, size: Vector3) -> void:
+	if not visual:
+		return
 	var ck := chunk_key(xf.origin)
 	var key := "%d,%d" % [ck.x, ck.y]
 	var o: FarAcc = _occ.get(key)

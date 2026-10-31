@@ -21,10 +21,14 @@ var _indoor := 0.0
 var _next := {"dog": 0.0, "gecko": 0.0, "bird": 0.0}
 var _alarm := 0.0             # dogs are more excited for a while after shots
 var _bgrid := {}              # Vector2i (32 m) -> building origins, for the gecko's perch
+var _mall := false
 
 
 func setup(w) -> void:
 	world = w
+	_mall = world.map.layout.get("indoor_light") is Dictionary and world.map.layout.indoor_light.get("horror_grade", false)
+	if _mall:
+		return   # indoors the failing fixtures supply the hum; no field crickets or frogs
 	rng.randomize()
 	for b in BEDS:
 		var p := _looping(b[0])
@@ -81,6 +85,8 @@ func on_loud(pos: Vector3, radius: float = 160.0) -> void:
 
 
 func _process(dt: float) -> void:
+	if _mall:
+		return
 	var lp: Vector3 = SoundSys.listener_pos()
 	var inside: bool = world.map != null and world.map.acoustics.zone_at(lp) != 0
 	_indoor = move_toward(_indoor, 1.0 if inside else 0.0, dt * 1.5)

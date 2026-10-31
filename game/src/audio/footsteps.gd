@@ -29,7 +29,16 @@ func surface() -> String:
 	var mat := "dirt"
 	if r.collider and r.collider.has_meta("mat"):
 		mat = str(r.collider.get_meta("mat"))
+	# Escalators use recorded shoe-on-tread sounds, separate from steel objects.
+	if world.map and world.map.layout.has_method("belt_at") and world.map.layout.belt_at(ch.global_position) != Vector3.ZERO:
+		return "escalator"
 	match mat:
+		"escalator":
+			return "escalator"
+		"tile":
+			return "tile"
+		"rubber":
+			return "rubber"
 		"wood", "plywood":
 			return "wood"
 		"sheet_metal", "steel":
@@ -48,9 +57,15 @@ func update(dt: float) -> void:
 	if _last == Vector3.INF:
 		_last = p
 		return
-	var moved := Vector2(p.x - _last.x, p.z - _last.z).length()
+	var displacement := p - _last
+	if world.map and world.map.layout.has_method("belt_at"):
+		# A stationary passenger should not stomp as the belt carries them.
+		displacement -= world.map.layout.belt_at(p) * dt
+	var moved := Vector2(displacement.x, displacement.z).length()
 	_last = p
 	if moved > 3.0:  # teleport / correction
+		return
+	if moved < .006:
 		return
 	if not ch.is_on_floor() and ch.mode == Motor.GROUND and not ch.is_remote:
 		return

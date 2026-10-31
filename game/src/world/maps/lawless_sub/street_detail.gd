@@ -52,8 +52,8 @@ func _overpass() -> void:
 	var cz := -48.0
 	var ground: float = L.LAND_Y + L.WALK_TOP
 	var top := ground + 6.2
-	var x0 := cx - 11.1
-	var x1 := cx + 11.1
+	var x0 := cx - 11.3
+	var x1 := cx + 11.3
 	var z0 := cz - 1.2
 	var z1 := cz + 1.2
 	_box(Vector3(cx, top - 0.17, cz), Vector3(x1 - x0, 0.34, 2.4), "concrete_floor2",
@@ -75,7 +75,8 @@ func _overpass() -> void:
 		_box(Vector3(pier_x, top - 0.55, cz), Vector3(1.15, 0.3, 2.4), "concrete", {"collide": false, "dirt": 0.5})
 		_box(Vector3(pier_x, ground + 0.12, cz), Vector3(0.7, 0.24, 1.85), "concrete_dirty", {"dirt": 0.65})
 		mb.obstacles_add(Vector2(pier_x, cz), 0.8)
-	for x in [x0 + 1.1, x1 - 1.1]:
+	for x in [x0 + 1.0, x1 - 1.0]:
+		# r11: 0.3 m further out than before, so the bypass beside the curb is 1.4 m wide.
 		_stair(Vector3(x, ground, z1 + 12.0), Vector3(x, top, z1), 1.8)
 		# The landing's back and outer end are protected, while the stair entry remains open.
 		_rail(Vector3(x + (-0.9 if x < cx else 0.9), top, z0),
@@ -152,6 +153,17 @@ func _stair(foot: Vector3, landing: Vector3, width: float) -> void:
 	var length := d.length()
 	var ramp_c := (foot + landing) * 0.5 - Vector3.UP * 0.13
 	sink.col_box(Transform3D(b, ramp_c), Vector3(width, 0.26, length + 0.06), "concrete", "overpass_stair_ramp")
+	# r11: a solid base under the low end, where the flight is under head height, so nobody walks into the wedge
+	# beneath it and sticks; above 2.3 m there is headroom to pass under.
+	var slope := d.y / maxf(run, 0.01)
+	var seg := 1.5
+	var k := 1
+	while seg * k * slope < 2.3:
+		var hgt := seg * k * slope - 0.14
+		var c0 := foot + dir * (seg * (k + 0.5))
+		_box(Vector3(c0.x, foot.y + hgt * 0.5, c0.z), Vector3(width - 0.1, hgt, seg), "concrete",
+			{"dirt": 0.55, "what": "overpass_stair_base"})
+		k += 1
 	for side in [-1.0, 1.0]:
 		var off := Vector3(side * (width * 0.5 - 0.04), 0, 0)
 		_beam(foot + off - Vector3.UP * 0.16, landing + off - Vector3.UP * 0.16, 0.18, "metal_paint")

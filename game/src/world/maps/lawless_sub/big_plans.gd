@@ -10,9 +10,11 @@ extends RefCounted
 ##   factory       Lawless Plastics: 9 m hall with machine lines, offices under a mezzanine reached by a stair
 ##   warehouse     tall hall, office and stock room
 ##   guardhouse / guard_booth  one room, two doors
+##   mall          Lawless Mall (r11): two floors of shop units round an open atrium, food court, supermarket, grand
+##                 stair in the concourse, service stair core up to the roof deck, entrances on three sides
 ## Local frame: x right, z back, -z the lot's front.
 
-const KINDS := ["office_tower", "apartment", "clubhouse", "chapel", "store", "strip_shops", "factory", "warehouse", "guardhouse", "guard_booth"]
+const KINDS := ["office_tower", "apartment", "clubhouse", "chapel", "store", "strip_shops", "factory", "warehouse", "guardhouse", "guard_booth", "mall"]
 const RISER := 0.21
 const TREAD := 0.27
 
@@ -49,6 +51,8 @@ static func build(mb, lot: Dictionary) -> Dictionary:
 			plan = _warehouse(w, d, n, rng)
 		"guardhouse":
 			plan = _guardhouse(w, d, n, rng)
+		"mall":
+			plan = _mall(w, d, n, rng)
 		_:
 			plan = _guard_booth(w, d, n, rng)
 	var c: Vector2 = lot.center
@@ -77,9 +81,9 @@ static func _core_stairs(floors: Array, cx: float, z0: float, h: float) -> void:
 	## on the east lane, so no flight sits under the opening of the one below. Needs a core 2.4 m wide and
 	## 1.0 + run + 1.4 m deep.
 	var run := _run(h)
-	for f in floors.size() - 1:
+	for f in floors.size():   # r11: the top floor's flight comes up through the roof deck
 		if f % 2 == 0:
-			floors[f].stair = {"start": Vector2(cx - 0.6, z0 + 1.0), "dir": "+z", "w": 1.0, "to": f + 1, "side": Vector2(1, 0)}
+			floors[f].stair = {"start": Vector2(cx - 0.6, z0 + 1.0), "dir": "+z", "w": 1.0, "to": f + 1, "side": Vector2(1, 0)}  # to == floors.size(): the roof
 		else:
 			floors[f].stair = {"start": Vector2(cx + 0.6, z0 + 1.0 + run), "dir": "-z", "w": 1.0, "to": f + 1, "side": Vector2(-1, 0)}
 
@@ -266,6 +270,76 @@ static func _warehouse(w: float, d: float, n: int, rng: RandomNumberGenerator) -
 	}}
 	return {"kind": "warehouse", "floors": [g], "ext_mat": "factory_wall", "ext_tint": Color(0.72, 0.76, 0.72),
 		"roof": {"type": "gable", "mat": "metal_sheet", "pitch": 0.2, "over": 0.4}}
+
+
+static func _mall(w: float, d: float, n: int, rng: RandomNumberGenerator) -> Dictionary:
+	## Lawless Mall. Front (-z) on the avenue side. Each floor: a row of shop units along the front, the concourse
+	## (8 m) the length of the building, and the anchors at the back (food court and supermarket downstairs, an
+	## arcade hall and the management office upstairs), toilets and the service stair core in the back corner.
+	## The concourse floor upstairs is open over an atrium; the grand stair climbs along the concourse beside it.
+	var X := w * 0.5
+	var Z := d * 0.5
+	var zf := -Z + 7.5          # back of the front shop row
+	var zb := zf + 9.0          # back of the concourse
+	var core_x := X - 4.4       # service core: core_x..X, zb..Z
+	var wc_x := core_x - 4.6
+	var h0 := 4.4
+	var h1 := 4.0
+	var shop_w := (X - 3.0) / 3.0
+	var g_rooms := []
+	var u_rooms := []
+	var g_links := []
+	var u_links := []
+	var g_types := ["boutique", "shop", "dining", "shop", "boutique", "shop"]
+	var u_types := ["boutique", "shop", "boutique", "office", "shop", "boutique"]
+	for k in 6:
+		var x0 := (-X + shop_w * k) if k < 3 else (3.0 + shop_w * (k - 3))
+		var x1 := x0 + shop_w
+		g_rooms.append({"type": g_types[k], "rect": [x0, -Z, x1, zf], "id": "g%d" % k})
+		u_rooms.append({"type": u_types[k], "rect": [x0, -Z, x1, zf], "id": "u%d" % k})
+		g_links.append(["g%d" % k, "concourse", "front"])
+		u_links.append(["u%d" % k, "concourse", "front" if u_types[k] != "office" else "door"])
+		if k != 2 and k != 5:
+			g_links.append(["g%d" % k, "g%d" % (k + 1), "none"])
+			u_links.append(["u%d" % k, "u%d" % (k + 1), "none"])
+	g_rooms.append({"type": "foyer", "rect": [-3.0, -Z, 3.0, zf], "id": "foyer"})
+	u_rooms.append({"type": "boutique", "rect": [-3.0, -Z, 3.0, zf], "id": "u_mid"})
+	g_links.append_array([["foyer", "concourse", "open"], ["foyer", "g2", "none"], ["foyer", "g3", "none"]])
+	u_links.append_array([["u_mid", "concourse", "front"], ["u_mid", "u2", "none"], ["u_mid", "u3", "none"]])
+	g_rooms.append({"type": "concourse", "rect": [-X, zf, X, zb], "id": "concourse"})
+	u_rooms.append({"type": "concourse", "rect": [-X, zf, X, zb], "id": "concourse", "windows": 0})
+	var fc_x := -X + 14.0
+	g_rooms.append({"type": "dining", "rect": [-X, zb, fc_x, Z], "id": "food"})
+	g_rooms.append({"type": "store_aisles", "rect": [fc_x, zb, wc_x, Z], "id": "market"})
+	g_rooms.append({"type": "toilet", "rect": [wc_x, zb, core_x, Z], "id": "wc"})
+	g_rooms.append({"type": "stair", "rect": [core_x, zb, X, Z], "id": "core", "windows": 0})
+	g_links.append_array([["food", "concourse", "front"], ["market", "concourse", "front"], ["food", "market", "none"],
+		["wc", "concourse", "door"], ["core", "concourse", "open"], ["wc", "core", "none"], ["wc", "market", "none"]])
+	u_rooms.append({"type": "hall", "rect": [-X, zb, fc_x + 4.0, Z], "id": "arcade"})
+	u_rooms.append({"type": "office", "rect": [fc_x + 4.0, zb, wc_x, Z], "id": "mgmt"})
+	u_rooms.append({"type": "toilet", "rect": [wc_x, zb, core_x, Z], "id": "wc"})
+	u_rooms.append({"type": "stair", "rect": [core_x, zb, X, Z], "id": "core", "windows": 0})
+	u_links.append_array([["arcade", "concourse", "front"], ["mgmt", "concourse", "door"], ["arcade", "mgmt", "none"],
+		["wc", "concourse", "door"], ["core", "concourse", "open"], ["wc", "core", "none"], ["wc", "mgmt", "none"]])
+	var run0 := _run(h0)
+	var run1 := _run(h1)
+	# Grand stair: in the concourse, east of the atrium, climbing west along its back wall (2 m wide).
+	var gs_x := X - 5.4
+	var g := {"h": h0, "rooms": g_rooms, "links": g_links, "ext": {
+		"front": [{"type": "opening", "x": 0.0, "w": 4.2, "h": 3.2}],
+		"left": [{"type": "opening", "x": (zf + zb) * 0.5, "w": 3.2, "h": 3.0}],
+		"right": [{"type": "door", "x": (zf + zb) * 0.5, "w": 1.8, "h": 2.6, "door_mat": "metal_paint"}],
+		"back": [{"type": "door", "x": (-X + fc_x) * 0.5, "w": 1.2, "role": "back", "door_mat": "metal_paint"},
+			{"type": "door", "x": (fc_x + wc_x) * 0.5, "w": 1.6, "role": "back", "door_mat": "metal_paint"},
+			{"type": "door", "x": (core_x + X) * 0.5, "w": 1.0, "role": "back", "door_mat": "metal_paint"}],
+	}, "stair": {"start": Vector2(gs_x, zb - 1.2), "dir": "-x", "w": 2.0, "to": 1, "side": Vector2(0, -1)}}
+	var u := {"h": h1, "rooms": u_rooms, "links": u_links, "voids": [[-X + 7.0, zf + 2.0, gs_x - run0 - 1.4, zb - 4.0]],
+		"balcony": {"side": "front", "c0": -2.6, "c1": 2.6, "depth": 1.4},
+		"stair": {"start": Vector2(core_x + 1.2, zb + 1.0), "dir": "+z", "w": 1.4, "to": 2, "side": Vector2(1, 0)}}
+	# Ground floor service stair (core): up the core's west lane; the grand stair already joins the floors.
+	return {"kind": "store", "floors": [g, u], "ext_mat": "cladding", "ext_tint": Color(0.93, 0.93, 0.9), "trim_tint": Color(0.3, 0.42, 0.5),
+		"win_mix": {"glass": 0.92, "open": 0.04, "shutter": 0.04},
+		"roof": {"type": "flat", "parapet": 1.1, "ladder": {"side": "back", "x": -X + 2.0}, "tank": true}}
 
 
 static func _guardhouse(w: float, d: float, n: int, rng: RandomNumberGenerator) -> Dictionary:

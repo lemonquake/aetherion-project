@@ -24,6 +24,7 @@ var _blood_nrm: Array = []
 var _flash_pool: Array = []
 var _zone_wall: MeshInstance3D
 var _zone_mat: ShaderMaterial
+var _field_zap_t := 0.0
 var _space: PhysicsDirectSpaceState3D
 var _rng := RandomNumberGenerator.new()
 var _plane: Node3D
@@ -33,12 +34,12 @@ var particles = null
 var holes = null
 var blood = null
 ## Ballistics material -> its own impact sound where it has one (otherwise "impact_" + the material's impact kind).
-const MAT_SOUND := {"sheet_metal": "impact_metal_sheet", "steel": "impact_metal", "tile": "impact_tile"}
+const MAT_SOUND := {"sheet_metal": "impact_metal_sheet", "steel": "impact_metal", "tile": "impact_tile", "escalator": "impact_metal"}
 ## Impact kind (from the ballistics material) -> particle kinds.
 const IMPACT_FX := {
-	"metal": ["sparks"], "wood": ["splinters", "sawdust"], "glass": ["shards"], "flesh": ["blood_mist", "blood"],
-	"dirt": ["soil", "soil_dust"], "fabric": ["lint"], "plastic": ["chips", "lint"], "foliage": ["leaves"],
-	"concrete": ["dust", "chips"],
+	"metal": ["sparks", "wisp"], "wood": ["splinters", "sawdust", "haze_wood"], "glass": ["shards"], "flesh": ["blood_mist", "blood"],
+	"dirt": ["soil", "soil_dust", "haze_soil"], "fabric": ["lint"], "plastic": ["chips", "lint"], "foliage": ["leaves"],
+	"concrete": ["dust", "chips", "haze"],
 }
 
 
@@ -70,9 +71,14 @@ func setup(w) -> void:
 		_blood_nrm.append(load(BLOOD + n + "_normal.png"))
 	for i in 6:
 		var l := OmniLight3D.new()
-		l.light_color = Color(1.0, 0.78, 0.45)
-		l.omni_range = 7.0
-		l.shadow_enabled = false
+		l.light_color = Color(1.0, 0.68, 0.32)
+		l.omni_range = 11.0
+		l.omni_attenuation = 1.3
+		l.omni_shadow_mode = OmniLight3D.SHADOW_CUBE
+		l.shadow_enabled = not Settings.is_mobile() and RenderingServer.get_current_rendering_method() == "forward_plus"
+		l.shadow_caster_mask = 0xFFFFF & ~Defs.RENDER_INTERIOR_PROPS
+		l.shadow_bias = .035
+		l.light_volumetric_fog_energy = 0.0
 		l.visible = false
 		add_child(l)
 		_flash_pool.append({"light": l, "t": 0.0})
@@ -128,7 +134,8 @@ func shot(ch, origin: Vector3, dir: Vector3, velocity: float, ammo: String, weap
 	var flash_pos := origin
 	if local and world.controller and world.controller.vm:
 		flash_pos = world.controller.vm.muzzle_position()
-	_flash(flash_pos, Attach.mult(w, "flash_mult"))
+	var flash_power := clampf(sqrt(float(a.get("mass", .008)) * velocity * velocity / 2200.0), .55, 1.65)
+	_flash(flash_pos, Attach.mult(w, "flash_mult"), flash_power)
 	if world.ambience:
 		world.ambience.on_loud(origin, float(d.get("loudness", 600)) * 0.25 * Attach.mult(w, "loudness_mult"))
 	var snd := "shot_" + str(d.get("sound", "pistol_9"))
@@ -158,7 +165,7 @@ func shot(ch, origin: Vector3, dir: Vector3, velocity: float, ammo: String, weap
 	_spawn_tracer(flash_pos if local else origin, dir * velocity, float(a.get("drag_k", 0.001)), bright)
 
 
-func _flash(p: Vector3, mult: float = 1.0) -> void:
+func _flash(p: Vector3, mult: float = 1.0, power: float = 1.0) -> void:
 	if mult < 0.15:
 		return  # suppressed: no flash worth lighting a room with
 	var reduce := bool(Settings.get_value("accessibility", "reduce_flashes"))
@@ -166,9 +173,13 @@ func _flash(p: Vector3, mult: float = 1.0) -> void:
 		if f.t <= 0.0:
 			var l: OmniLight3D = f.light
 			l.global_position = p
-			l.light_energy = (2.2 if reduce else 5.0) * minf(mult, 1.3)
+			f.base = (1.8 if reduce else 13.0 * power) * minf(mult, 1.3)
+			l.light_energy = f.base
+			l.omni_range = 6.0 if reduce else (9.0 + power * 2.0)
 			l.visible = true
-			f.t = 0.055
+			f.t = .045 if reduce else .095
+			f.duration = f.t
+			f.born_frame = Engine.get_process_frames()
 			return
 
 
@@ -191,9 +202,15 @@ func _process(dt: float) -> void:
 	blood.update(dt, world.characters, bcam.global_position if bcam else Vector3.ZERO)
 	for f in _flash_pool:
 		if f.t > 0.0:
-			f.t -= dt
+			# A shot emitted in physics must reach the renderer once even when the
+			# previous frame took longer than the short pulse (loading/mobile).
+			if int(f.get("born_frame",-1)) == Engine.get_process_frames():
+				continue
+			f.t -= minf(dt,.04)
 			if f.t <= 0.0:
 				f.light.visible = false
+			else:
+				f.light.light_energy = float(f.base) * pow(float(f.t) / float(f.duration), 1.7)
 	if _space == null:
 		_space = get_world_3d().direct_space_state
 	for t in _tracers:
@@ -363,34 +380,116 @@ func flyby(pos: Vector3, speed: float, dist: float) -> void:
 # ------------------------------------------------------------------ glass and props
 
 func explosion(pos: Vector3) -> void:
-	## Frag grenade: a hard white-orange flash that lights the street or the room, sparks and a dust cloud.
+	## Frag grenade (r14): a hard white flash that lights the street or the room and a fire glow that dies over a second
+	## and a half; a fireball (volume-rendered flipbook, several cards turning to soot), a column of smoke that rises
+	## and hangs for ten seconds, dust thrown out along the ground, embers and debris, the pressure wave bending the
+	## view as it passes, and a scorch mark where it went off.
+	var calm := bool(Settings.get_value("accessibility", "reduce_flashes"))
 	var l := OmniLight3D.new()
-	l.light_color = Color(1.0, 0.72, 0.4)
-	l.omni_range = 16.0
-	l.light_energy = 6.0 if bool(Settings.get_value("accessibility", "reduce_flashes")) else 14.0
+	l.light_color = Color(1.0, 0.8, 0.55)
+	l.omni_range = 22.0
+	l.light_energy = 6.0 if calm else 16.0
 	l.shadow_enabled = false
 	add_child(l)
-	l.global_position = pos + Vector3.UP * 0.6
+	l.global_position = pos + Vector3.UP * 0.8
 	var tw := create_tween()
-	tw.tween_property(l, "light_energy", 0.0, 0.35)
+	tw.tween_property(l, "light_energy", 0.0, 0.3).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_EXPO)
 	tw.tween_callback(l.queue_free)
-	particles.emit("fire", pos + Vector3.UP * 0.3, Vector3.UP)
-	particles.emit("sparks", pos + Vector3.UP * 0.1, Vector3.UP)
-	particles.emit("blast_debris", pos + Vector3.UP * 0.1, Vector3.UP)
-	particles.emit("smoke", pos + Vector3.UP * 0.5, Vector3.UP)
-	particles.emit("chunk_dust", pos + Vector3.UP * 0.2, Vector3.UP)
+	var glow := OmniLight3D.new()
+	glow.light_color = Color(1.0, 0.5, 0.18)
+	glow.omni_range = 11.0
+	glow.light_energy = 3.5
+	glow.shadow_enabled = false
+	add_child(glow)
+	glow.global_position = pos + Vector3.UP * 1.4
+	var tw2 := create_tween()
+	tw2.tween_property(glow, "light_energy", 0.0, 1.5).set_ease(Tween.EASE_IN)
+	tw2.tween_callback(glow.queue_free)
+	var up := Vector3.UP
+	particles.emit("fireball", pos + up * 0.5, up)
+	particles.emit("blast_smoke", pos + up * 0.6, up)
+	particles.emit("dust_ring", pos + up * 0.15, up)
+	particles.emit("embers", pos + up * 0.3, up)
+	particles.emit("sparks", pos + up * 0.1, up)
+	particles.emit("blast_debris", pos + up * 0.1, up)
+	particles.emit("chunk_dust", pos + up * 0.2, up)
+	_shockwave(pos + up * 0.5)
 	# A scorch mark where it went off.
 	var q2 := PhysicsRayQueryParameters3D.create(pos + Vector3.UP * 0.5, pos + Vector3.DOWN * 2.0, Defs.PHYS_WORLD)
 	var h := get_world_3d().direct_space_state.intersect_ray(q2)
 	if not h.is_empty():
-		holes.add_mark(h.position, h.normal, 14, _rng.randf_range(2.2, 2.8), 0.9)
+		holes.add_mark(h.position, h.normal, 14, _rng.randf_range(2.6, 3.2), 0.95)
+
+
+var _shock_mat: ShaderMaterial
+var _shock_mesh: SphereMesh
+
+
+func _shockwave(at: Vector3) -> void:
+	if RenderingServer.get_current_rendering_method() == "gl_compatibility" and Settings.is_mobile():
+		return
+	if _shock_mat == null:
+		_shock_mat = ShaderMaterial.new()
+		_shock_mat.shader = load("res://src/fx/shockwave.gdshader")
+		_shock_mesh = SphereMesh.new()
+		_shock_mesh.radius = 1.0
+		_shock_mesh.height = 2.0
+		_shock_mesh.radial_segments = 32
+		_shock_mesh.rings = 16
+	var mi := MeshInstance3D.new()
+	mi.mesh = _shock_mesh
+	var m: ShaderMaterial = _shock_mat.duplicate()
+	mi.material_override = m
+	mi.cast_shadow = GeometryInstance3D.SHADOW_CASTING_SETTING_OFF
+	mi.physics_interpolation_mode = Node.PHYSICS_INTERPOLATION_MODE_OFF
+	add_child(mi)
+	mi.global_position = at
+	mi.scale = Vector3.ONE * 0.3
+	var tw := create_tween().set_parallel(true)
+	tw.tween_property(mi, "scale", Vector3.ONE * 11.0, 0.32).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_CUBIC)
+	tw.tween_method(func(v): m.set_shader_parameter("strength", v), 1.0, 0.0, 0.32)
+	tw.chain().tween_callback(mi.queue_free)
+
+
+func door_blown(d, xf: Transform3D, boxes: Array, blast: Vector3, strength: float) -> void:
+	## r14: a door right by a grenade: every panel still standing breaks in two and flies away from the blast,
+	## spinning, with splinters and a cloud of dust and paint.
+	var mname: String = "planks_paint" if d.is_shutter else str(d.spec.get("mat", "plywood"))
+	var metal := mname.contains("metal") or mname.contains("steel")
+	var m: Material = world.map.mats.get_material(mname)
+	var c := xf * Vector3(float(d.w) * 0.5, 1.0, 0.0)
+	for b in boxes:
+		var box: AABB = b
+		# Split along the longer side into two pieces.
+		var along := 0 if box.size.x >= box.size.y else 1
+		for half in 2:
+			var sz := box.size
+			sz[along] *= 0.5
+			var off := Vector3.ZERO
+			off[along] = (float(half) - 0.5) * sz[along]
+			var pc := box.get_center() + off
+			var wp := xf * pc
+			var away := (wp - blast)
+			away.y = maxf(away.y, 0.0)
+			var v := away.normalized() * _rng.randf_range(5.0, 11.0) * strength + Vector3.UP * _rng.randf_range(1.0, 4.0) * strength
+			_debris_box(xf * Transform3D(Basis(), pc), sz * _rng.randf_range(0.85, 1.0), m, v)
+	for i in 3:
+		particles.emit("sparks" if metal else "splinters", c + Vector3(_rng.randf_range(-0.4, 0.4), _rng.randf_range(-0.6, 0.6), 0), (c - blast).normalized())
+	particles.emit("sawdust" if not metal else "dust", c, (c - blast).normalized(), 1.0)
+	particles.emit("chunk_dust", c, Vector3.UP, 1.0)
+	SoundSys.play_at("door_burst", c, 3.0)
+	SoundSys.play_at("break_metal" if metal else "break_wood", c, 0.0)
 
 
 func glass_break(pos: Vector3, dir: Vector3, w: Dictionary) -> void:
 	SoundSys.play_at("glass_break", pos, 0.0)
 	var xf: Transform3D = w.xf
 	particles.emit("shards", xf.origin, dir)
-	for i in 14:
+	# (r15) A shopfront or a balustrade panel is many times a window's area: more of it comes down.
+	var n := clampi(int(float(w.w) * float(w.h) * 5.0), 14, 44)
+	if n > 20:
+		particles.emit("shards", xf * Vector3(float(w.w) * 0.25, -float(w.h) * 0.2, 0.0), dir)
+	for i in n:
 		_debris_piece(xf * Vector3(_rng.randf_range(-0.4, 0.4) * float(w.w), _rng.randf_range(-0.4, 0.4) * float(w.h), 0),
 			dir * _rng.randf_range(0.5, 2.5) + Vector3(_rng.randf_range(-1, 1), _rng.randf_range(0, 1), _rng.randf_range(-1, 1)),
 			Vector3(_rng.randf_range(0.03, 0.12), 0.004, _rng.randf_range(0.03, 0.1)), world.map.mats.get_material("glass"))
@@ -624,7 +723,7 @@ func _update_aircraft() -> void:
 		SoundSys.update_loop("aircraft", pos)
 
 
-# ------------------------------------------------------------------ the haze (zone wall)
+# ------------------------------------------------------------------ the forcefield (zone wall)
 
 func _build_zone_wall() -> void:
 	_zone_wall = MeshInstance3D.new()
@@ -632,17 +731,24 @@ func _build_zone_wall() -> void:
 	cm.top_radius = 1.0
 	cm.bottom_radius = 1.0
 	cm.height = 1.0
-	cm.radial_segments = 96
+	cm.radial_segments = 160
 	cm.rings = 1
 	cm.cap_top = false
 	cm.cap_bottom = false
 	_zone_wall.mesh = cm
 	_zone_mat = ShaderMaterial.new()
-	_zone_mat.shader = preload("res://src/fx/haze_wall.gdshader")
+	_zone_mat.shader = preload("res://src/fx/haze_wall.gdshader") if Field.legacy_haze else preload("res://src/fx/field_wall.gdshader")
 	_zone_wall.material_override = _zone_mat
 	_zone_wall.cast_shadow = GeometryInstance3D.SHADOW_CASTING_SETTING_OFF
 	_zone_wall.visible = false
 	add_child(_zone_wall)
+
+
+func refresh_zone_shader() -> void:
+	## Tests: after switching Field.legacy_haze (before/after captures of the boundary).
+	_zone_mat.shader = preload("res://src/fx/haze_wall.gdshader") if Field.legacy_haze else preload("res://src/fx/field_wall.gdshader")
+	if Field.legacy_haze:
+		SoundSys.stop_loop("field_hum")
 
 
 func on_match_state(info: Dictionary) -> void:
@@ -658,10 +764,34 @@ func _update_zone(dt: float) -> void:
 	if r > 4000.0:
 		_zone_wall.visible = false
 		return
-	_zone_wall.position = Vector3(c.x, 60.0, c.y)
-	_zone_wall.scale = Vector3(r, 160.0, r)
 	var cam := get_viewport().get_camera_3d()
+	# The wall rises from well below the eye to far above it, wherever the eye is (a roof, a parachute, the plane).
+	_zone_wall.position = Vector3(c.x, (cam.global_position.y + 40.0) if cam else 60.0, c.y)
+	_zone_wall.scale = Vector3(maxf(r, 0.05), 160.0, maxf(r, 0.05))
 	if cam:
-		var d := Vector2(cam.global_position.x, cam.global_position.z).distance_to(c)
+		var cp := cam.global_position
+		var d := Vector2(cp.x, cp.z).distance_to(c)
 		_zone_mat.set_shader_parameter("outside", 1.0 if d > r else 0.0)
+		if Field.legacy_haze:
+			return
+		var z: Dictionary = world.match_info.get("zone", {})
+		var live := Field.live(z)
+		_zone_mat.set_shader_parameter("radius", r)
+		_zone_mat.set_shader_parameter("base_y", cp.y - 1.7)
+		_zone_mat.set_shader_parameter("closing", 1.0 if str(z.get("state", "")) == "shrink" else 0.0)
+		_zone_mat.set_shader_parameter("intensity", 1.0 if live else 0.55)
+		# The hum, from the nearest point of the wall, and a crackle now and then when standing close to it.
+		var gap := absf(d - r)
+		# (Kept low and sparse: at full level the hum and a crackle every second were distracting.)
+		if gap < 28.0 and r > 0.5:
+			var dir := (Vector2(cp.x, cp.z) - c).normalized() if d > 0.01 else Vector2.RIGHT
+			var q := c + dir * r
+			var at := Vector3(q.x, cp.y, q.y)
+			SoundSys.start_loop("field_hum", "field_hum", at, 0.0 if live else -8.0)
+			_field_zap_t -= dt
+			if gap < 6.0 and live and _field_zap_t <= 0.0:
+				_field_zap_t = randf_range(1.2, 3.5)
+				SoundSys.play_at("field_zap", at + Vector3(randf_range(-3, 3), randf_range(-1, 2), randf_range(-3, 3)), (6.0 - gap) * 0.5)
+		else:
+			SoundSys.stop_loop("field_hum")
 

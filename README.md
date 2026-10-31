@@ -69,12 +69,20 @@ the other players finish loading and fades into the match.
 
 - **Classic** is the battle royale: parachute in from the plane, loot weapons and gear, stay ahead of the haze, and
   live through the 5-minute nights and days on Sitio Kalinaw.
-- **Deathmatch** is two teams of up to 10 (bots fill empty seats) on Lawless Sub. In the lobby's **Game Setup** each
-  player picks a primary and a secondary gun; everyone starts on the ground at their team's spawn with those guns,
-  spare magazines, a plate carrier and a heavy-plate helmet. Nothing is bought: loot buildings and swap guns as you
-  go. There is no downed state; the dead watch their living teammates (Fire or Space for the next, right-click for
-  the previous) until the round ends, which is when one team has nobody standing. The haze still closes in and the
-  day/night cycle still runs (a round starts at a random point in it).
+- **Deathmatch** supports two or three teams on Lawless Sub or Malasugue Mall. **Team Wipe** is the default:
+  the last team standing earns **1 point**, and the host chooses a race to **10, 20, 30 or 50 points** (10 by
+  default). There are no respawns during a round. After a short round break, every player returns with full
+  health and their chosen loadout; the field resets too. A simultaneous wipe is a draw with no point awarded.
+  Game Setup also offers kill-score, timed-score and single-round last-team-standing rules.
+  Malasugue Mall's **field is disabled by default**. The host can enable it: it follows the existing countdown
+  and closing schedule, then stops at half its starting radius. The mall stays at night; other maps keep the
+  day/night cycle. Players start with primary and secondary guns, spare magazines, armour and a heavy helmet.
+  Dead players can watch teammates until the next round (Fire or Space for the next, right-click for the previous).
+
+The **Match Results** screen stays open until the player chooses an action. It shows all players' stats and has
+**BACK TO MAIN MENU**, **RESTART MATCH** (host only), **CHANGE GAME MODE**, **CHANGE LOADOUT** (Deathmatch), and
+**CHANGE TEAM** buttons. Returning the room to its lobby keeps the other players' results open while they review
+stats. Restarting begins a new match with the room's settings.
 
 ```bash
 godot --path game -- --host --game_mode=deathmatch --bots=19 --autostart=1     # a practice round on Lawless Sub
@@ -352,7 +360,20 @@ tag and teammates show on the minimap, a ping marks the spot looked at and reach
 view and it settles, running at a sidewalk kerb 65 degrees off square gets on top of it, and the bots have mixed roles.
 The menu flow (PLAY NOW opens the lobby, START MATCH loads) has its own run:
 
+r14 checks (`--autotest=r14`, `--r14_only=zone,scopes,attach,smartab,highlight,grenade,spectate`; Deathmatch host):
+the Deathmatch field runs at its fixed fast speed whatever the lobby says; each of the twelve sights aimed at the sky,
+its reticle cut out of the capture and compared with every other (none alike), the see-through sights' windows on the
+bullet line, night vision green, thermal showing a body white hot, the 1-4x ring turned by the wheel; the new
+attachments change the numbers they list; the holographic SmarTab fills most of the view and real mouse drags on it fit
+a grip, swap two guns and take a box from the ground, rounds no gun fires show red; suitable loot is outlined green
+(captured on and off); a grenade cooked and thrown goes off on time, one by a door blows it apart, throws props, kills
+an enemy 2.5 m away outright and throws the body, badly hurts one 8.5 m away, and muffles the player's hearing; one held
+past the fuse goes off in the hand; last, the spectator's frame times and how smoothly the bots near the watched one
+move. Explosion look on its own: `godot --path game res://tools/fx_lab.tscn -- --out=<folder>` (`--outline` for the
+loot outline).
+
 ```bash
+godot --path game -- --host --game_mode=deathmatch --bots=20 --autostart=1 --autotest=r14 --shots=<folder>
 godot --path game -- --host --game_mode=deathmatch --bots=19 --autostart=1 --autotest=r10 --shots=<folder> --loadshot=<folder>/loading.png
 godot --path game -- --menu_test --shots=<folder> --loadshot=<folder>/loading.png
 godot --headless --path game res://tools/step_lab.tscn      # every ledge height x approach angle x gait: climbed or not
@@ -540,3 +561,8 @@ python -I tools/fix_texture_imports.py     # VRAM compression + mipmaps for 3D t
 | `game/src/ui/` | Menus, lobby, settings, HUD, SmarTab |
 | `game/src/debug/` | Scripted play-through and network tests |
 | `tools/` | Asset fetching and processing, audio build, checks, patches applied during development |
+
+
+### Malasugue Mall 0.19.0
+
+The mall now has a dedicated horror material set, two open elevator cabins in the Level 1 north lobby, damaged ceilings and new upper-floor cover. Working lamps provide brighter, wider pools of light; the lifts use matching white fluorescent fixtures. Unlit corners stay dark and the mall uses no fog. Tile, rubber and escalator footsteps have separate recorded sounds. Weapon flashes illuminate nearby architecture. Design, asset provenance and reproduction commands are in [docs/MALL_HORROR.md](docs/MALL_HORROR.md).

@@ -40,6 +40,9 @@ var ladder_spots: Array = [] # [[x, z, dir]]
 var spawns: Array = [[], []] # [team] -> Array[Vector3] feet positions on the walkable surface
 var spawn_yaw: Array = [0.0, 0.0]  # [team] -> rotation.y (radians) facing dm_centre
 var spawn_centres: Array = []
+var spawns3: Array = [[], [], []]  # r11: three-team spawns (plan spawn_centres_3)
+var spawn_yaw3: Array = [0.0, 0.0, 0.0]
+var spawn_centres3: Array = []
 var spawn_zone_r := 17.0
 var dm_centre := Vector2(-20, 0)
 var edge := 224.0            # the perimeter wall around the play area
@@ -79,6 +82,8 @@ func _init(seed_value: int) -> void:
 	spawn_zone_r = float(plan.get("spawn_zone_r", 17))
 	for c in plan.get("spawn_centres", []):
 		spawn_centres.append(_v2(c))
+	for c in plan.get("spawn_centres_3", []):
+		spawn_centres3.append(_v2(c))
 	_n = int(HALF * 2.0 / GRID)
 	_water = PackedByteArray()
 	_water.resize(_n * _n)
@@ -285,7 +290,16 @@ func is_water(x: float, z: float) -> bool:
 
 
 func water_height(x: float, z: float) -> float:
-	return WATER_Y if is_water(x, z) else -INF
+	## The surface over the water, -INF elsewhere. The grid cells straddling a canal wall count as dry (their centres sit
+	## on its face), so there the exact outline decides: the strip of water against the wall is as deep as the rest
+	## (wading, no jumping off the bed, and the haul-out over the coping, the same along every wall).
+	if is_water(x, z):
+		return WATER_Y
+	var ix := int((x + HALF) / GRID)
+	var iz := int((z + HALF) / GRID)
+	if ix >= 0 and iz >= 0 and ix < _n and iz < _n and _reserved[iz * _n + ix] == 4 and water_sd(Vector2(x, z)).x < 0.0:
+		return WATER_Y
+	return -INF
 
 
 func in_play_area(p: Vector2) -> bool:
@@ -541,8 +555,22 @@ func pick_spawns() -> void:
 	## Ten-plus clear standing spots per team, 3.2 m apart, around the team's spawn centre: dry, not on a wall, a
 	## building or a reserved lot, clear of the street furniture the builder recorded in `obstacles`.
 	spawns = [[], []]
-	for team in spawn_centres.size():
-		var c: Vector2 = spawn_centres[team]
+	_pick_set(spawn_centres, spawns, spawn_yaw, dm_centre)
+	spawns3 = [[], [], []]
+	_pick_set(spawn_centres3, spawns3, spawn_yaw3, dm_centre_for(3))
+
+
+func dm_centre_for(n_teams: int) -> Vector2:
+	## The middle the teams face and the first circle centres on: the plan's dm_centre for two teams, the middle of
+	## the three spawns for three.
+	if n_teams == 3 and spawn_centres3.size() == 3:
+		return (spawn_centres3[0] + spawn_centres3[1] + spawn_centres3[2]) / 3.0
+	return dm_centre
+
+
+func _pick_set(centres: Array, out_spawns: Array, out_yaw: Array, middle: Vector2) -> void:
+	for team in centres.size():
+		var c: Vector2 = centres[team]
 		var cand: Array = []
 		for i in range(-7, 8):
 			for j in range(-7, 8):
@@ -557,9 +585,9 @@ func pick_spawns() -> void:
 		for e in cand.slice(0, 14):
 			var p2: Vector2 = e[1]
 			out.append(Vector3(p2.x, surface_y(p2), p2.y))
-		spawns[team] = out
-		var to := dm_centre - c
-		spawn_yaw[team] = atan2(-to.x, -to.y)
+		out_spawns[team] = out
+		var to := middle - c
+		out_yaw[team] = atan2(-to.x, -to.y)
 
 
 func _spot_ok(p: Vector2) -> bool:
@@ -592,7 +620,7 @@ func surface_y(p: Vector2) -> float:
 
 
 func in_spawn_zone(p: Vector2, margin: float = 0.0) -> bool:
-	for c in spawn_centres:
+	for c in spawn_centres + spawn_centres3:
 		if p.distance_to(c) < spawn_zone_r + margin:
 			return true
 	return false

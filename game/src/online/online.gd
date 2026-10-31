@@ -3,8 +3,8 @@ extends Node
 ## network), match results and the leaderboard. Everything is optional: with no stats server the menus still list
 ## games on the same Wi-Fi/LAN (hosts broadcast a beacon) and the profile keeps counting XP on this device.
 ##
-## Stats server address: Settings online.server ("host" or "host:port"); else the one heard on the local network;
-## else this computer (a dedicated server started here with --master or --stats).
+## Stats server address: Settings online.server ("host", "host:port" or a full http(s):// URL); else the one heard on
+## the local network; else the official one (rules.json official.stats_url, docs/HOSTING.md).
 
 signal changed            # online players, games or connection state changed
 
@@ -41,12 +41,22 @@ func _ready() -> void:
 
 
 func server_address() -> String:
+	## Base URL of the stats server, without a trailing slash.
 	var s := str(Game.arg("stats_server", Settings.get_value("online", "server"))).strip_edges()
 	if s == "":
-		s = lan_master if lan_master != "" else "127.0.0.1"
+		s = lan_master if lan_master != "" else str(Defs.rule("official.stats_url", "127.0.0.1"))
+	if s.contains("://"):
+		return s.trim_suffix("/")
 	if not s.contains(":"):
 		s += ":%d" % MasterServer.PORT
-	return s
+	return "http://" + s
+
+
+func official_games() -> Array:
+	## The always-on official servers the stats server lists (src/match/official.gd), most players first.
+	var out := server_games.filter(func(g): return bool(g.get("official", false)))
+	out.sort_custom(func(a, b): return int(a.get("players", 0)) > int(b.get("players", 0)))
+	return out
 
 
 func _process(dt: float) -> void:
@@ -75,13 +85,14 @@ func _process(dt: float) -> void:
 		_hello_t = 5.0
 		_hello()
 	var hosting := Net.is_server and Net.online and not Net.dedicated and Game.state in ["lobby", "loading", "match"]
+	var practice := bool(Net.config.get("practice", false))
 	if hosting:
 		_beacon_t -= dt
 		if _beacon_t <= 0.0:
 			_beacon_t = 1.0
 			_send.put_packet(JSON.stringify(game_info()).to_utf8_buffer())
 		_game_t -= dt
-		if _game_t <= 0.0:
+		if _game_t <= 0.0 and not practice:
 			_game_t = 3.0
 			_post("/game", game_info(), "game")
 
@@ -187,7 +198,7 @@ func _request(path: String, method: int, body: String, tag: String, cb: Callable
 		var d = JSON.parse_string(data.get_string_from_utf8()) if ok else null
 		if cb.is_valid():
 			cb.call(ok and d is Dictionary, d if d is Dictionary else {}))
-	var err := h.request("http://%s%s" % [server_address(), path], ["Content-Type: application/json"], method, body)
+	var err := h.request(server_address() + path, ["Content-Type: application/json"], method, body)
 	if err != OK:
 		_busy[tag] = false
 		h.queue_free()

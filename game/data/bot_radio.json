@@ -1,5 +1,5 @@
 {
- "_doc": "Bot radio callouts (tools/make_bot_radio.py): line -> phrasings; sound id botr_<line>_<voice>_<index>.",
+ "_doc": "Bot radio callouts (tools/make_bot_radio.py): line -> phrasings; sound id botr_<line>_<voice>_<index>. recorded: lines the user recorded, played as vox_<name>_<k> (k < n) instead of the voices.",
  "voices": [
   "m1",
   "m2",
@@ -32,9 +32,9 @@
    "Cover me, reloading!"
   ],
   "haze": [
-   "Haze is coming. Move!",
-   "Get inside the circle, now!",
-   "We need to outrun the haze!"
+   "The field is closing. Get out of the buildings!",
+   "Move in, away from the walls!",
+   "Field is coming. Get to open ground!"
   ],
   "copy": [
    "Copy that.",
@@ -96,6 +96,88 @@
    "Moving quiet.",
    "Flanking around.",
    "Going around them."
+  ],
+  "headshot_kill": [
+   "Headshot!",
+   "Right in the head!",
+   "Clean headshot."
+  ],
+  "in_position": [
+   "In position.",
+   "I'm in position.",
+   "Set. In position."
+  ],
+  "affirmative": [
+   "Affirmative.",
+   "Copy that.",
+   "Roger."
+  ],
+  "negative": [
+   "Negative.",
+   "No can do.",
+   "Can't do that."
+  ],
+  "follow_me": [
+   "Follow me!",
+   "On me!",
+   "Stay with me."
+  ],
+  "lets_go": [
+   "Let's go!",
+   "Move up!",
+   "Go, go, go!"
+  ],
+  "fall_back": [
+   "Fall back!",
+   "Pull back!",
+   "Back off, regroup on me!"
   ]
+ },
+ "recorded": {
+  "affirmative": {
+   "name": "affirmative",
+   "n": 7,
+   "text": "Affirmative."
+  },
+  "negative": {
+   "name": "negative",
+   "n": 6,
+   "text": "Negative."
+  },
+  "contact": {
+   "name": "enemy_spotted",
+   "n": 6,
+   "text": "Enemy spotted!"
+  },
+  "in_position": {
+   "name": "in_position",
+   "n": 4,
+   "text": "In position."
+  },
+  "down": {
+   "name": "man_down",
+   "n": 4,
+   "text": "Man down!"
+  },
+  "need_help": {
+   "name": "need_help",
+   "n": 4,
+   "text": "Need help!"
+  },
+  "kill": {
+   "name": "radio_basic_kill",
+   "n": 5,
+   "text": "Enemy down!"
+  },
+  "headshot_kill": {
+   "name": "radio_headshot_kill",
+   "n": 6,
+   "text": "Headshot!"
+  },
+  "follow_me": {
+   "name": "follow_me",
+   "n": 3,
+   "text": "Follow me!"
+  }
  }
 }

@@ -6,9 +6,14 @@ class_name Vault
 ## A vault needs: something solid within reach in front, its top between MIN_H and MAX_H above the feet, enough
 ## free height above that top to get the body through (a window opening), and somewhere to land: past the obstacle
 ## when it is thin, on top of it when it is deep. The body is lowered to fit the opening while it goes through.
+## (r17) Past a balcony rail, a mall balustrade or an upper-floor window there is often no floor within reach: the
+## vault still goes over and the body falls from the far side (fall damage as usual; "drop" says how far). Bots do
+## not take a vault into a long drop (Motor). Thin railings (posts and a top rail) are found with a body-wide sweep
+## as well as the rays, which slipped between the posts.
 
 const REACH := 0.75      # from the capsule surface to the obstacle face
 const MIN_H := 0.45
+const LOW_H := 0.3       # (r17) a lower sill or kick plate is vaulted only when a drop lies past it (a French window)
 const MAX_H := 1.5
 const GAP := 0.62        # free height needed above the top (head and shoulders through a window)
 const DEEP := 1.1        # deeper than this: climb on to it instead of over it
@@ -32,6 +37,12 @@ static func find(ch) -> Dictionary:
 		if not hit.is_empty() and (hit.normal as Vector3).y < 0.6:
 			near = minf(near, p.distance_to(Vector3(hit.position.x, p.y, hit.position.z)) - r)
 	if near == INF:
+		# (r17) Posts and a top rail: rays at four heights can all pass between them, a body-wide sweep cannot.
+		for hh in [0.55, 0.85, 1.05]:
+			var d := _sweep(space, p + Vector3.UP * hh, fwd, r + REACH, ex)
+			if d >= 0.0:
+				near = minf(near, d - r)
+	if near == INF:
 		why = "nothing in front"
 		return {}
 	var face := r + maxf(near, 0.0)
@@ -39,7 +50,8 @@ static func find(ch) -> Dictionary:
 	var clear := -1.0
 	var hh2 := 0.3
 	while hh2 <= MAX_H + 0.12:
-		if _ray(space, p + Vector3.UP * hh2, p + Vector3.UP * hh2 + fwd * (face + 0.3), ex).is_empty():
+		if _ray(space, p + Vector3.UP * hh2, p + Vector3.UP * hh2 + fwd * (face + 0.3), ex).is_empty() \
+				and _sweep(space, p + Vector3.UP * hh2, fwd, face + 0.3, ex) < 0.0:
 			clear = hh2
 			break
 		hh2 += 0.08
@@ -51,7 +63,8 @@ static func find(ch) -> Dictionary:
 	var down := _ray(space, probe + Vector3.UP * (clear + 0.12), probe + Vector3.UP * 0.15, ex)
 	var top_y: float = (down.position as Vector3).y if not down.is_empty() else p.y + clear - 0.04
 	var top := top_y - p.y
-	if top < MIN_H or top > MAX_H:
+	var low := top >= LOW_H and top < MIN_H
+	if (top < MIN_H and not low) or top > MAX_H:
 		why = "top %.2f m out of range" % top
 		return {}
 	# 4. Room above the top to get through: how tall the opening is (open sky counts as tall). Low clutter just past
@@ -105,23 +118,58 @@ static func find(ch) -> Dictionary:
 			if _fits(ch, space, cand, Defs.move("crouch_height")):
 				land = cand
 				break
+	var drop := 0.0
+	if low and (climb or land != Vector3.INF):
+		why = "top %.2f m out of range" % top   # low, with floor past it: an ordinary jump or step
+		return {}
+	if land == Vector3.INF and not climb:
+		# (r17) No floor within reach past it: a drop. Over the top and out into the air beside its far face, at the
+		# height the body started from (or just under the top when that is too low to fit), then a fall.
+		for extra in [0.0, 0.15, 0.3]:
+			var beyond2 = p + fwd * (face + depth + r + 0.1 + extra)
+			for y in [p.y, top_y - 0.45]:
+				var cand2 := Vector3(beyond2.x, y, beyond2.z)
+				if _fits(ch, space, cand2, Defs.move("crouch_height")):
+					land = cand2
+					break
+			if land != Vector3.INF:
+				break
+		if land != Vector3.INF:
+			var hd := _ray(space, land + Vector3.UP * 0.1, land + Vector3.DOWN * 60.0, ex)
+			drop = land.y - (hd.position as Vector3).y if not hd.is_empty() else 60.0
 	if land == Vector3.INF or not _fits(ch, space, land, Defs.move("crouch_height")):
 		why = "no room to land (face %.2f, top %.2f, depth %.2f, climb %s)" % [face, top, depth, str(climb)]
 		return {}
-	# 6. The way over: nothing at body height between the face and the landing spot.
-	var from := Vector3(p.x, top_y + 0.2, p.z) + fwd * face
-	var to := Vector3(land.x, top_y + 0.2, land.z)
-	if not climb and not _ray(space, from, to, ex).is_empty():
-		why = "path over blocked"
-		return {}
+	# 6. The way over: nothing at body height between the face and the landing spot. (r17) A raised outer sill or a
+	# frame lip past the inner one: try a higher pass, within the opening, and carry the body over that high.
+	var lift := 0.2
+	if not climb:
+		var blk := {}
+		for l in [0.2, 0.45, 0.7]:
+			if l > 0.2 and l + 0.35 > gap:
+				break
+			var from := Vector3(p.x, top_y + l, p.z) + fwd * face
+			blk = _ray(space, from, Vector3(land.x, top_y + l, land.z), ex)
+			if blk.is_empty():
+				lift = l
+				break
+		if not blk.is_empty():
+			var col = blk.get("collider")
+			why = "path over blocked %.2f m past the face by %s" % [(blk.position as Vector3).distance_to(p + fwd * face), str(col.name) if col is Node else str(blk.get("collider_id", "?"))]
+			return {}
 	var over := p + fwd * (face + minf(depth, 0.5) * 0.5 + 0.05)
-	return {"a": p, "m": Vector3(over.x, top_y + 0.06, over.z), "b": land, "top": top, "gap": gap, "climb": climb,
-		"stand": _fits(ch, space, land, Defs.move("stand_height") - 0.05)}
+	return {"a": p, "m": Vector3(over.x, top_y + lift - 0.14, over.z), "b": land, "top": top, "gap": gap, "climb": climb,
+		"stand": _fits(ch, space, land, Defs.move("stand_height") - 0.05), "drop": drop}
 
 
 static func start(ch, v: Dictionary) -> void:
+	# A speed vault: taken at a run the move is quicker and the body comes out the far side still running.
+	var speed := Vector2(ch.velocity.x, ch.velocity.z).length()
+	ch.vault_s = speed if not v.climb else 0.0
+	ch.pk_bits &= ~Parkour.PK_CLIMB
 	ch.vault_t = 0.0
-	ch.vault_d = 0.38 + 0.2 * clampf(float(v.top) / MAX_H, 0.0, 1.0) + (0.12 if v.climb else 0.0)
+	ch.vault_d = (0.38 + 0.2 * clampf(float(v.top) / MAX_H, 0.0, 1.0)) * lerpf(1.0, 0.78, clampf(speed / 6.3, 0.0, 1.0)) \
+		+ (0.12 if v.climb else 0.0)
 	ch.vault_a = v.a
 	ch.vault_m = v.m
 	ch.vault_b = v.b
@@ -157,7 +205,9 @@ static func step(ch, dt: float) -> void:
 	if u >= 1.0:
 		ch.vault_t = -1.0
 		var dir := Vector3(b.x - a.x, 0.0, b.z - a.z)
-		ch.velocity = dir.normalized() * 2.2 if dir.length() > 0.01 else Vector3.ZERO
+		var out := 1.0 if (ch.pk_bits & Parkour.PK_CLIMB) != 0 else maxf(2.2, ch.vault_s * 0.9)
+		ch.pk_bits &= ~Parkour.PK_CLIMB
+		ch.velocity = dir.normalized() * out if dir.length() > 0.01 else Vector3.ZERO
 		ch.apply_height()
 		ch.emit_motion_event("land", 2.5)
 
@@ -166,6 +216,27 @@ static func _ray(space: PhysicsDirectSpaceState3D, from: Vector3, to: Vector3, e
 	var q := PhysicsRayQueryParameters3D.create(from, to, Defs.MOVE_MASK)
 	q.exclude = ex
 	return space.intersect_ray(q)
+
+
+static var _box: BoxShape3D = null
+
+
+static func _sweep(space: PhysicsDirectSpaceState3D, from: Vector3, fwd: Vector3, dist: float, ex: Array) -> float:
+	## A slab 0.26 m wide and 0.1 m tall pushed forward from the body's centre line at this height: how far it gets
+	## before touching something (-1: nothing within dist). Catches railing posts the rays pass between.
+	if _box == null:
+		_box = BoxShape3D.new()
+		_box.size = Vector3(0.26, 0.1, 0.04)
+	var q := PhysicsShapeQueryParameters3D.new()
+	q.shape = _box
+	q.transform = Transform3D(Basis.looking_at(fwd, Vector3.UP), from)
+	q.motion = fwd * dist
+	q.collision_mask = Defs.MOVE_MASK
+	q.exclude = ex
+	var f := space.cast_motion(q)
+	if f.is_empty() or float(f[1]) >= 1.0:
+		return -1.0
+	return float(f[0]) * dist
 
 
 static func _fits(ch, space: PhysicsDirectSpaceState3D, feet: Vector3, height: float) -> bool:

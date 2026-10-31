@@ -37,7 +37,7 @@ func _process(dt: float) -> void:
 			pings.remove_at(i)
 	var ch = world.local_char if world else null
 	visible = ch != null and is_instance_valid(ch) and ch.mode not in [Motor.DEAD, Motor.SPECTATE] \
-		and not (world.hud and world.hud.map_held)
+		and not (world.hud and (world.hud.map_held or world.hud.tab_held))   # the SmarTab hologram covers it
 	# Redrawn 15 times a second: plenty for a north-up map and a 2 Hz blink, and cheap on phones.
 	_redraw_t -= dt
 	if visible and _redraw_t <= 0.0:

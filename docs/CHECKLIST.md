@@ -10,6 +10,88 @@ Evidence folders (not committed, regenerate with the commands in the README): `w
 play-through), `work/screens/net/` (two clients), `work/screens/L1`, `L2` (lighting previews), `work/items/`
 (model checks), bot-match logs from `--matchlog`, `work/scale/` (map size, benchmarks, 40-bot matches).
 
+## 2026-10-30 r16 run (version 0.17.0)
+
+Evidence: `work/r16/` (suite `t1`, store recheck `t2`, server/client fingerprint `net/`, same-view captures `before/`
+and `after3/`, blind review packet `critic_packet/`). Report `work/r16/REPORT.md`. Checks: `--autotest=mall`.
+
+- **Tested** Malasugue Mall is dark with lit pools: mean frame brightness 38 over six views (r15 ~140-175), every view
+  >12% near-black, four with lit pools (`mall_dark`); 220 working downlight spots, 57 faulty ones, 57 emergency lamps,
+  skylight shafts through the dust.
+- **Tested** Faulty lights flicker on what the player sees: the floor under one swings 21.7 in brightness, under a
+  working one 0.5 (`mall_flicker`). They hum and crackle when near (not measured).
+- **Tested** Alex Jackie's stopped escalators climb Level 1 -> 2 -> 3 on foot, 3.8 s each (`mall_dept_stairs_*`).
+- **Tested** Level 3 public restrooms exist and are fitted out (`mall_restroom_L3`, captures).
+- **Tested** Earlier mall checks still pass (escalators, fire stairs, glass, bot L1 -> L5 in 29 s); server and client
+  build the same map (#2749db39); 89-100 fps at five spots with 20 bots (p99 up to 24.7 ms on Level 5).
+- **Incomplete** A bot sent from inside the store on Level 1 to its Level 3 stalls at the store's south end
+  (`mall_dept_bot`); bots are not linked over the stopped escalators.
+- **Implemented** Wreckage, blood, writing, set pieces, dirt, department store dressing: inspected in captures only;
+  commercial benchmark not compared (no reference image).
+
+## 2026-10-30 r14 run (version 0.14.0)
+
+Evidence: `work/r14/` (feature runs `t1`-`t4`, explosion lab `fxlab*`, outline lab `outline*`, final-tree regression
+`final/`). Checks: `--autotest=r14` (see the README).
+
+- **Tested** Spectating is smooth (user report: low FPS and clanky bots while dead): the bots near the one watched
+  now run every tick (the spectator's view counts as a viewer in the bot level of detail). Moving bots near the
+  watched one stood still in 65% of frames before (one step in four), 0% after; watching a bot ran at 229 fps, p99
+  7.4 ms, uncapped (`final/r14`).
+- **Tested** Deathmatch's safe zone is fixed at the fast speed (rules `deathmatch.zone_speed` 1.6, 250 s to nothing);
+  the lobby's Normal/Fast/Rapid is for Classic only and shows "Fast (fixed)" in Deathmatch.
+- **Tested** Attachments: twelve sights with twelve different reticles (red dot, holographic, reflex, 2x, 3x, 4x,
+  1-4x variable on the wheel, 6x, 8x, 3x night vision with automatic gain, 4x thermal showing people white hot, 15x),
+  no two captured reticles more alike than 38-56%; the see-through sights' glass centred on the bullet line (the red
+  dot used to sit on the glass's bottom edge, behind a lens that was near-opaque; it is clear glass now). New muzzle brake, duckbill, thumb/lightweight/ergonomic grips, heavy
+  stock, extended and quickdraw magazines: each changes exactly the numbers it lists (`r14_attach_numbers`).
+- **Tested** Holographic SmarTab: holding TAB raises the arm, the watch projects a panel filling 83% of the view's
+  height (scanlines, flicker, colour fringes, torn bands, boot-up sweep, beam from the watch). User feedback "too
+  transparent": now 96% opaque by default (Accessibility > SmarTab opacity), and the minimap, compass, score and kill
+  feed hide while it is up. Real mouse drags through the hologram fit an attachment, swap the two guns (the gun in hand
+  stays in hand) and take a box from the ground into the bag; rounds no carried gun fires are red.
+- **Tested** Suitable loot on the ground (rounds your guns fire, attachments that improve them, better armour) is
+  outlined green with a cel-banded rim and a scan line; unsuitable loot is not; Settings > Gameplay turns it off.
+- **Tested** Frag grenade: hold G to cook (fuse ring, grenade in hand), let go to throw with the time left; held past
+  4 s it goes off in the hand. User feedback "massive damage, kill when near, toss them like ragdolls": anyone within
+  4 m with a clear line is killed outright (no downed state), heavy damage out to 10 m (an enemy 8.8 m away lost 29 HP),
+  and the killed are thrown through the air (a body 2.5 m from it flew 22 m). The blast blows a door close by apart,
+  throws props and bodies, breaks glass, and muffles the player's hearing with ringing ears (low-pass to ~535 Hz 8 m
+  away). The explosion is a flipbook fireball turning to soot, a rising smoke cloud, dust rolling out, embers, debris,
+  a pressure ripple and a scorch mark (`work/r14/fxlab6/sheet.png`); the near blast uses the user's recording.
+- **Implemented** Bots do not throw grenades yet; they do come to look when they hear one.
+- **Tested** Graphics > Monitor (user request mid-run): the display the game uses in Fullscreen, Borderless and
+  where a window opens. `godot --path game res://tools/monitor_check.tscn` on this PC's two 1920x1080 displays: every
+  mode lands on the display chosen (Primary, 1 or 2), 9/9.
+- **Tested** Regression on the final tree (`work/r14/regress.sh`, `final/`): r14 all checks, r13 13/13, r12 17/18
+  (`r12_fieldhouse`, flaky as in 0.13.0), dm 7/7, r11 6/6, canal 4/4, bursts 3/3, step lab 132 ok / 24 blocked (as
+  before), net test 20/20 (one earlier run picked a window behind a fence; the test now picks one in clear view).
+- **Tested** Builds 0.14.0 (`work/r14/build_all.sh`): `builds/windows/Aetherion.exe` (1.82 GB),
+  `builds/android/Aetherion.apk` and `Aetherion-opengl.apk` (569 MB, SDK debug key). The built EXE over the network
+  (`work/r14/exe_net_test.sh`): dedicated server and two clients all EXE 20/20; with one client from source
+  (`MIX=1`) 20/20. The APKs were not run on a phone or emulator this run.
+
+## 2026-10-30 r12 + r13 run (version 0.13.0)
+
+Evidence: `work/lemondev/r12/`, `work/lemondev/r13/` (REPORT.md in each; final-tree runs in `r13/final2/`).
+
+- **Tested** Forcefield instead of the haze, body-like running, parkour, bandages, less fall damage (r12):
+  `--autotest=r12` 17/18 on the final tree (`r12_fieldhouse` is flaky, the test's field sometimes does not close).
+- **Tested** Death camera and killer card with the headshot badge, kill/headshot/man-down radio lines, the SmarTab
+  Voice page (bots answer and obey), teammate laser checks: `--autotest=r13` (all checks pass across runs).
+- **Tested** The user's recordings (`audio/` -> `assets/audio/r13/`): recorded radio lines including Follow me, the AWP,
+  Kar98, M24 and sumpak shots, impacts and footsteps by surface. Radio static: enemies within 14 m of a transmitting
+  radio (the speaker's and every living teammate's) hear the recorded static on voice lines and voice chat, bots
+  turn to it; teammates do not get it (`r13_static_bots`, `r13_static_player`, and over the network
+  `radio_static_from_enemy`, `radio_static_not_for_teammates`). Not checked by ear.
+- **Tested** Climbing out of the canals (user report): in water too deep to jump from, pushing into a wall catches its
+  top within arm's reach and the player climbs out. `--autotest=canal`: channel 10/10, basin 19/19 (8/19 before),
+  estero 10/10, bots 4/4.
+- **Tested** Speed bursts out of the water and on stairs (user report): the step-up no longer fires on slopes or adds
+  distance beyond the tick's motion. `--autotest=bursts`: no bursts on 13 stair runs and 8 estero exits (were 6.5 m/s
+  sustained running up stairs and 15.8 m/s up the estero bank); the step lab still climbs every kerb up to 0.46 m.
+- **Tested** Multiplayer: `tools/net_test.sh` 19/19 from source; the built EXE, see `r13/REPORT.md` (Builds).
+
 ## 2026-10-29 r10 run (version 0.10.0)
 
 Evidence: `work/r10/` (shots, autotest captures `at/`, `at2/`, menu flow `menu/`, regression `reg/`, headless match logs
@@ -255,3 +337,40 @@ Nothing in this table has been checked by ear: the test runs cannot capture audi
   background load); a dedicated server takes the server half of the frame off the player's machine.
 - Many verification scenarios in the brief (bottle distraction, furniture noise and barricades, arm and leg
   injuries, helmets, headshots, concurrent destruction under latency) have no automated test yet.
+
+
+## 0.19.0 — Malasugue Mall horror rebuild
+
+- [x] Twenty-four original material families, varied wall finishes, floor inlays, unique repairs and worn printed surfaces integrated.
+- [x] Both lift cabins reachable on foot, with matching white lights and a closed damaged lobby ceiling.
+- [x] Brighter working lights and readable paths; no depth/volumetric/local burnt-room fog.
+- [x] Six upper-floor cover/recess positions and gallery floor stances checked.
+- [x] Tile, rubber and escalator sample sets imported; physical surface ray checks pass.
+- [x] Room surfaces brighten during a muzzle flash and the light pool decays.
+- [x] Moving escalators up/down and shoot-through shopfront destruction pass.
+- [x] Final exported Windows game: 29/29 checks passed (`work/r19/exe_final/results.json`).
+- [x] Android and OpenGL APK manifests report 0.19.0.
+- [x] Website copy describes player features; new game captures and launcher 1.2.0 artwork prepared.
+
+Design and provenance: `docs/MALL_HORROR.md`. Latest map captures: `work/r19/final`.
+
+- [x] Both lift shafts pass through four upper slabs to y=27.8; upper-floor void navigation and Level 3 landing access checked.
+- [x] Latest source: 29/29 gameplay checks pass. Floor motion/overlap captures verified after replacing layered inlays.
+
+- [x] Final packaged Windows build: 29/29 checks pass (`work/r19/exe_final/results.json`). Both APK manifests and renderer selections verified; all six mobile atlases are capped at 2048px.
+
+- [x] Published 0.19.0: both official servers online; Windows launcher 1.2.0 and both Android 0.19.0 APKs match the public download hashes. Website and screenshot URLs return HTTP 200. Evidence: `work/r19/release_verification.json`.
+
+## 0.20.0 — Deathmatch rounds and persistent results
+
+- [x] Team Wipe defaults to a race to 10 points; 20, 30 and 50 remain selectable. Last team standing earns one point and simultaneous wipes draw.
+- [x] Round resets restore players, health, loadouts and the field schedule. Malasugue Mall fields are absent by default; enabled fields retain their countdown and stop at half the starting radius.
+- [x] Match Results keeps all players' cumulative stats visible with the five requested actions. Other players can open setup while a player keeps reading results.
+- [x] Source checks: 167 scripts compile; 93 match/field checks, 31 rendered UI checks, 29 server/two-client checks and 20,621 weapon regression checks pass.
+- [x] Windows standalone and launcher builds, macOS and Linux server exports, and both Android variants built as game 0.20.0. Windows launcher remains 1.2.0 and reads the new signed game release.
+- [x] Packaged Windows match starts on Malasugue Mall with Team Wipe and no field, reaches results and exits normally. Both APK signatures and version names verified; compiled gameplay matches desktop source.
+
+Release evidence and source hashes: `work/r20/`. Build and launcher-test logs: `builds/release/`.
+
+- [x] Launcher end-to-end checks: fresh install, incremental update, damaged-file repair, invalid-signature rejection and unchanged install after rejection all pass (`builds/release/test_updates_0.20.0.log`).
+- [x] Published 0.20.0: both official servers active on 0.20.0; public desktop manifests match the signed staged releases; launcher and both APK download hashes and HTTP sizes match local builds; public website matches the updated source. Evidence: `work/r20/release_verification.json`.

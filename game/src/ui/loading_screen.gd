@@ -12,7 +12,7 @@ const JOKES := [
 	"Teaching the bots that walls are not doors.",
 	"Counting balut. Lost count. Starting over.",
 	"Untangling the wires on every lamp post. Gave up. Added more.",
-	"Reminding the haze it was not invited.",
+	"Charging the forcefield.",
 	"Polishing jeepney chrome to a mirror finish.",
 	"Hiding the good loot under the bed, the way Lola would.",
 	"Bribing the guard dog with pandesal.",
@@ -44,7 +44,7 @@ const TIPS := [
 	"Hold V to point your laser. Enemies can follow the beam back to you.",
 	"Bots with a role you can guess: rushers, campers, snipers and stalkers.",
 	"Rubble, trash bags and junk heaps no longer stop you. Walls still do.",
-	"The haze shrinks the play area. Smart bots leave early; so should you.",
+	"The field shrinks the play area and pushes you in. Leave buildings before it arrives: pinned against a wall, it crushes.",
 	"Kerbs and low steps are climbed by walking into them, from any angle.",
 	"A bot that says \"I'll go with you\" follows you until you lose it.",
 ]

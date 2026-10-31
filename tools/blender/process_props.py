@@ -70,6 +70,10 @@ MODELS = {
     'modular_street_seating': dict(keep=[r'^crossbar$', r'^legs_double$', r'^legs_single$', r'^suspended_support_01$',
                                          r'^back_support_[rl]$', r'^arm_rest_0[12]$', r'^seat$', r'^seat_back$']),
     'large_iron_gate': dict(tris=7000),
+    # r15 (Malasugue Mall) plants: one variant each (the mall puts them in its own planters).
+    'pachira_aquatica_01': dict(keep=[r'_d$'], tree=dict(leaves=3600, twigs=300, trunk=900)),
+    'anthurium_botany_01': dict(keep=[r'_01_a$'], foliage=2500),
+    'calathea_orbifolia_01': dict(keep=[r'_a$'], foliage=2500),
 }
 
 

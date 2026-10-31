@@ -132,6 +132,8 @@ func _advance(p: Dictionary, dt: float, tick: int) -> bool:
 		# Glass shatters and barely slows the round.
 		if mat_id == "glass":
 			world.server_glass_hit(col, hit_pos, dir, e)
+			if col and col.has_meta("door_id"):
+				world.server_door_hit(col, hit_pos, dir, e)   # (r15) a glass door bursts (Malasugue Mall)
 			from = hit_pos + dir * 0.05
 			new_vel *= 0.92
 			p.vel = new_vel

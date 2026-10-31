@@ -82,7 +82,10 @@ func build(spec: Dictionary) -> Dictionary:
 			z_split = minf(z_split, d * 0.5 - crd - 1.2)
 	var stair := floors >= 2
 	var stair_side := 1.0 if rng.randf() < 0.5 else -1.0
-	var stair_w := 0.78
+	# (r17) As wide as the house allows, up to 0.92 m: at 0.78 m a 0.6 m body had 9 cm each side and scraped its
+	# way up through the hole in the floor above (testers: "so tight players can hardly go up or down"). At 0.98 m
+	# the climber could no longer step off the top on to the floor in the widest houses.
+	var stair_w := clampf(w * 0.27, 0.78, 0.92)
 	var stair_run := h0 * 1.05
 	# A shallow house gets a steeper flight (up to about 47 degrees, still walkable) so there is room to step on to
 	# it inside the front wall; one too shallow even for that keeps to one storey.

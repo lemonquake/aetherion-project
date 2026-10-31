@@ -18,6 +18,8 @@ uniform float streaks = 0.5;
 uniform float water_line = -0.2;
 uniform float paint_flake = 0.55;
 uniform float darken = 1.0;
+// (r16) > 0 on floors that get dirt tracked over them in patches (Malasugue Mall); 0 leaves every other map as it was.
+uniform float floor_patch = 0.0;
 uniform bool use_ao = false;
 // Baked noise (tools/make_noise.py): r = fbm, g = value noise, b = fbm, a = value noise; one period = 32 cells.
 uniform sampler2D noise_tex : filter_linear_mipmap, repeat_enable;
@@ -46,6 +48,10 @@ void fragment() {
 	float dirt_amt = UV2.x * grime;
 	float base_h = world_pos.y - UV2.y;
 	float splash = (1.0 - smoothstep(0.0, 0.9 + nz(wp * 3.0 + vec2(11.3, 7.1)).b * 0.6, base_h)) * dirt_amt;
+	if (floor_patch > 0.0 && world_nrm.y > 0.7) {
+		float pn = nz(wp * 0.32 + vec2(5.1, 2.3)).r * 0.7 + nz(wp * 1.3 + vec2(1.7, 9.2)).g * 0.3;
+		splash *= mix(1.0, smoothstep(0.38, 0.72, pn) * 1.5, floor_patch);
+	}
 	float streak = 0.0;
 	if (abs(world_nrm.y) < 0.6) {
 		float sx = dot(world_pos.xz, normalize(vec2(world_nrm.z, -world_nrm.x)));

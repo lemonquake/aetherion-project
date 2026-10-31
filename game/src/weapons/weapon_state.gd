@@ -32,6 +32,7 @@ var _prev_fire := false
 var _prev_reload := false
 var _prev_mode := false
 var burst_left := 0       # rounds still due from this trigger press (not the recoil counter above)
+var var_zoom := -1.0      # r14: a variable scope's magnification, set by the owner (mouse wheel); -1 = its highest
 
 
 func _init(owner = null) -> void:
@@ -107,7 +108,23 @@ func cancel_burst() -> void:
 
 func zoom() -> float:
 	var z := float(def().get("sight_zoom", 1.1))
-	return float(Attach.sight(weapon()).get("zoom", z))
+	var s: Dictionary = Attach.sight(weapon())
+	if s.has("zoom_min") and var_zoom > 0.0:
+		return clampf(var_zoom, float(s.zoom_min), float(s.get("zoom", z)))
+	return float(s.get("zoom", z))
+
+
+func step_zoom(d: int) -> bool:
+	## r14: the mouse wheel while aiming through a variable scope (1-4x) turns its magnification ring. False if
+	## the fitted sight is not variable (the wheel then changes weapons as usual).
+	var s: Dictionary = Attach.sight(weapon())
+	if not s.has("zoom_min"):
+		return false
+	var lo := float(s.zoom_min)
+	var hi := float(s.get("zoom", 4.0))
+	var cur := zoom()
+	var_zoom = clampf(snappedf(cur * pow(1.25, d), 0.05), lo, hi)
+	return true
 
 
 func scoped() -> bool:

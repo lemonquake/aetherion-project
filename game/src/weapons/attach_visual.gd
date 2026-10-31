@@ -190,4 +190,25 @@ static func build(map, parent: Node3D, wid: String, atts: Array, layers: int, sh
 		mi.layers = layers
 		mi.cast_shadow = shadows
 		mi.name = str(a)
+		if str(a) in CLEAR_GLASS:
+			_clear_glass(mi)
 		parent.add_child(mi)
+
+
+## Sights whose model's lens is near-opaque dark glass: looked through while aiming, the lens must be clear.
+const CLEAR_GLASS := ["sight_reddot"]
+static var _glass: StandardMaterial3D
+
+
+static func _clear_glass(mi: MeshInstance3D) -> void:
+	## Every see-through surface of the model gets a faintly tinted, glossy, clear glass.
+	if _glass == null:
+		_glass = StandardMaterial3D.new()
+		_glass.transparency = BaseMaterial3D.TRANSPARENCY_ALPHA
+		_glass.albedo_color = Color(0.55, 0.72, 0.68, 0.1)
+		_glass.roughness = 0.04
+		_glass.metallic_specular = 0.9
+	for s in mi.mesh.get_surface_count():
+		var m := mi.mesh.surface_get_material(s)
+		if m is BaseMaterial3D and (m as BaseMaterial3D).transparency != BaseMaterial3D.TRANSPARENCY_DISABLED:
+			mi.set_surface_override_material(s, _glass)

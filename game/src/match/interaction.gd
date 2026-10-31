@@ -162,18 +162,7 @@ func give(ch, e: Dictionary) -> Dictionary:
 	## the bag. Returns whatever did not fit ({} when everything was taken).
 	var id := str(e.id)
 	if Defs.is_weapon(id):
-		var slot: int = ch.wpn.slot_for(id)
-		var w: Dictionary = e.get("w", WeaponState.new_instance(id))
-		w.id = id
-		if WeaponState.has_selector(id):
-			w.mode = 0  # every newly acquired rifle/SMG starts in Auto, including dropped guns
-		ch.wpn.cancel_burst()
-		var old = ch.wpn.slots[slot]
-		ch.wpn.slots[slot] = w
-		if old != null:
-			_drop_entry(ch, {"id": old.id, "n": 1, "w": old})
-		fit_from_bag(ch, slot)
-		ch.inv.mark_dirty()
+		_put_weapon(ch, e, ch.wpn.slot_for(id))
 		return {}
 	var d := Defs.item(id)
 	var kind := str(d.get("kind", ""))
@@ -199,6 +188,43 @@ func give(ch, e: Dictionary) -> Dictionary:
 	return rest
 
 
+func _put_weapon(ch, e: Dictionary, slot: int) -> void:
+	## A gun into a weapon slot; the one that was there goes on the ground.
+	var id := str(e.id)
+	var w: Dictionary = e.get("w", WeaponState.new_instance(id))
+	w.id = id
+	if WeaponState.has_selector(id):
+		w.mode = 0  # every newly acquired rifle/SMG starts in Auto, including dropped guns
+	ch.wpn.cancel_burst()
+	var old = ch.wpn.slots[slot]
+	ch.wpn.slots[slot] = w
+	if old != null:
+		if ch.wpn.cur == slot:
+			ch.wpn.cancel_reload()
+		_drop_entry(ch, {"id": old.id, "n": 1, "w": old})
+	fit_from_bag(ch, slot)
+	ch.inv.mark_dirty()
+
+
+func _take_entry(ch, e: Dictionary, req: Dictionary) -> Dictionary:
+	## r14: an entry from the ground or a container, onto the gun mount or into the weapon slot a SmarTab drop chose
+	## (att_slot / to_slot), else wherever give() puts it. Returns what is left over ({} when all was taken).
+	var id := str(e.id)
+	var att_slot := int(req.get("att_slot", -1))
+	if Defs.is_attachment(id) and att_slot >= 1 and att_slot <= 3 and ch.wpn.slots[att_slot] != null and Attach.compatible(str(ch.wpn.slots[att_slot].id), id):
+		fit(ch, att_slot, id)
+		if int(e.get("n", 1)) <= 1:
+			return {}
+		var rest := e.duplicate(true)
+		rest.n = int(e.n) - 1
+		return rest
+	var to_slot := int(req.get("to_slot", -1))
+	if Defs.is_weapon(id) and to_slot >= 1 and to_slot <= 3 and (to_slot == 3) == (str(Defs.weapon(id).get("slot", "long")) == "handgun"):
+		_put_weapon(ch, e, to_slot)
+		return {}
+	return give(ch, e)
+
+
 func _attach_click(ch) -> void:
 	world.server_sound("attach", ch.global_position + Vector3.UP * 1.2, 0.0, -1)
 
@@ -217,16 +243,16 @@ func fit(ch, slot: int, att: String) -> void:
 	_attach_click(ch)
 
 
-func _unfit(ch, w: Dictionary, att: String) -> void:
-	## Takes an attachment off into the bag (dropped if it does not fit). Rounds beyond the magazine that is left
-	## go back into the bag as ammunition.
+func _unfit(ch, w: Dictionary, att: String, to_bag: bool = true) -> void:
+	## Takes an attachment off into the bag (dropped if it does not fit; not kept at all with to_bag false, the
+	## caller moves it on). Rounds beyond the magazine that is left go back into the bag as ammunition.
 	w.att.erase(att)
 	var cap := Attach.mag_cap(w)
 	if int(w.mag) > cap:
 		var extra := int(w.mag) - cap
 		w.mag = cap
 		ch.inv.add({"id": "ammo_" + str(Defs.weapon(str(w.id)).get("ammo", "9x19")), "n": extra}, true)
-	if ch.inv.add({"id": att, "n": 1}) == 0:
+	if to_bag and ch.inv.add({"id": att, "n": 1}) == 0:
 		_drop_entry(ch, {"id": att, "n": 1})
 	ch.inv.mark_dirty()
 	_attach_click(ch)
@@ -268,6 +294,7 @@ func _open_container(ch, kind: String, id: int) -> void:
 
 
 const TAB_REACH := 2.2
+const PICKUP_REACH := 3.0   # r14: ground items the SmarTab lists (2.6 m) and takes, with a little slack
 
 
 func server_tab_open(ch, cmd: Dictionary) -> void:
@@ -343,9 +370,69 @@ func container_pos(kind: String, id: int) -> Vector3:
 
 
 func server_inventory_request(ch, req: Dictionary) -> void:
-	## SmarTab actions. req.op: take, put, drop, equip, use, unload, attach, detach, drop_weapon, unequip
+	## SmarTab actions. req.op: take, put, drop, equip, use, unload, attach, detach, drop_weapon, unequip; r14 (drag and
+	## drop): pickup (a ground item in reach), move_att, swap_weapons, drop_att, drop_gear, equip_bag.
 	var op := str(req.get("op", ""))
 	match op:
+		"pickup":
+			var iid := int(req.get("item", -1))
+			var it: Dictionary = world.map.dyn.items.get(iid, {})
+			if it.is_empty() or ch.mode != Motor.GROUND:
+				return
+			var ip: Vector3 = (it.xf as Transform3D).origin
+			if Vector2(ip.x - ch.global_position.x, ip.z - ch.global_position.z).length() > PICKUP_REACH or absf(ip.y - ch.global_position.y) > 2.0:
+				return
+			var left2 := _take_entry(ch, (it.entry as Dictionary).duplicate(true), req)
+			if left2.is_empty():
+				world.map_item_remove(iid)
+			else:
+				it.entry = left2
+			world.server_sound("pickup", ch.global_position + Vector3.UP, 0.0, -1)
+		"move_att":
+			var a := int(req.get("from", -1))
+			var b2 := int(req.get("to", -1))
+			var att3 := str(req.get("att", ""))
+			if a in [1, 2, 3] and b2 in [1, 2, 3] and a != b2 and ch.wpn.slots[a] != null and ch.wpn.slots[b2] != null and att3 in ch.wpn.slots[a].att and Attach.compatible(str(ch.wpn.slots[b2].id), att3):
+				_unfit(ch, ch.wpn.slots[a], att3, false)
+				fit(ch, b2, att3)
+		"swap_weapons":
+			var sa := int(req.get("a", -1))
+			var sb := int(req.get("b", -1))
+			if sa in [1, 2] and sb in [1, 2] and sa != sb:
+				ch.wpn.cancel_reload()
+				ch.wpn.cancel_burst()
+				var tmp = ch.wpn.slots[sa]
+				ch.wpn.slots[sa] = ch.wpn.slots[sb]
+				ch.wpn.slots[sb] = tmp
+				# The gun in hand stays in hand.
+				if ch.wpn.cur == sa:
+					ch.wpn.cur = sb
+				elif ch.wpn.cur == sb:
+					ch.wpn.cur = sa
+				ch.wpn.want = ch.wpn.cur
+				ch.inv.mark_dirty()
+				world.server_sound("weapon_draw", ch.global_position + Vector3.UP, -6.0, -1)
+		"drop_att":
+			var s5 := int(req.get("slot", -1))
+			var att4 := str(req.get("att", ""))
+			if s5 >= 1 and s5 <= 3 and ch.wpn.slots[s5] != null and att4 in ch.wpn.slots[s5].att:
+				_unfit(ch, ch.wpn.slots[s5], att4, false)
+				_drop_entry(ch, {"id": att4, "n": 1})
+		"drop_gear":
+			var e5: Dictionary = ch.inv.unequip(str(req.get("gear", "")))
+			if not e5.is_empty():
+				_drop_entry(ch, e5)
+		"equip_bag":
+			var bi := int(req.get("index", -1))
+			if bi >= 0 and bi < ch.inv.bag.size():
+				var e6: Dictionary = ch.inv.bag[bi]
+				var kind6 := str(Defs.item(str(e6.id)).get("kind", ""))
+				if kind6 in ["armor", "backpack", "flashlight"]:
+					ch.inv.bag.remove_at(bi)
+					var old6: Dictionary = ch.inv.equip_gear(e6)
+					if not old6.is_empty() and ch.inv.add(old6) == 0:
+						_drop_entry(ch, old6)
+					ch.inv.mark_dirty()
 		"take":
 			var o: Dictionary = _open.get(ch.eid, {})
 			if o.is_empty() or container_pos(o.kind, o.id).distance_to(ch.global_position) > REACH + 1.2:
@@ -355,7 +442,7 @@ func server_inventory_request(ch, req: Dictionary) -> void:
 			if i < 0 or i >= entries.size():
 				return
 			var e: Dictionary = entries[i]
-			var left := give(ch, e.duplicate(true))
+			var left := _take_entry(ch, e.duplicate(true), req)
 			if left.is_empty():
 				entries.remove_at(i)
 			else:

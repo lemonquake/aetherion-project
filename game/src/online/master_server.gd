@@ -77,7 +77,14 @@ func _process(dt: float) -> void:
 				peer.disconnect_from_host()
 				_conns.remove_at(i)
 			continue
-		var res := _handle(req, peer.get_connected_host())
+		var from := peer.get_connected_host()
+		var local := from in ["127.0.0.1", "::1", "::ffff:127.0.0.1"]
+		if local and str(req.headers.get("x-forwarded-for", "")) != "":
+			# Behind the web server (Caddy on the official host): the player's address is the one it forwarded.
+			from = str(req.headers["x-forwarded-for"]).get_slice(",", 0).strip_edges()
+			local = false
+		req.local = local
+		var res := _handle(req, from)
 		var body := JSON.stringify(res[1]).to_utf8_buffer()
 		var head := "HTTP/1.1 %d %s\r\nContent-Type: application/json\r\nContent-Length: %d\r\nConnection: close\r\nAccess-Control-Allow-Origin: *\r\n\r\n" % [
 			res[0], "OK" if res[0] == 200 else "Error", body.size()]
@@ -110,11 +117,14 @@ func _parse(buf: PackedByteArray) -> Dictionary:
 	var lines := text.substr(0, he).split("\r\n")
 	var first := lines[0].split(" ")
 	if first.size() < 2:
-		return {"method": "BAD", "path": "/", "query": {}, "body": ""}
+		return {"method": "BAD", "path": "/", "query": {}, "body": "", "headers": {}}
 	var length := 0
-	for l in lines:
-		if l.to_lower().begins_with("content-length:"):
-			length = int(l.substr(15).strip_edges())
+	var headers := {}
+	for l in lines.slice(1):
+		var ci := l.find(":")
+		if ci > 0:
+			headers[l.substr(0, ci).strip_edges().to_lower()] = l.substr(ci + 1).strip_edges()
+	length = int(headers.get("content-length", "0"))
 	var body_bytes := buf.slice(he + 4)
 	if body_bytes.size() < length:
 		return {}
@@ -126,7 +136,7 @@ func _parse(buf: PackedByteArray) -> Dictionary:
 			var kv := pair.split("=")
 			q[kv[0].uri_decode()] = kv[1].uri_decode() if kv.size() > 1 else ""
 		url = url.substr(0, qi)
-	return {"method": first[0], "path": url, "query": q, "body": body_bytes.slice(0, length).get_string_from_utf8()}
+	return {"method": first[0], "path": url, "query": q, "body": body_bytes.slice(0, length).get_string_from_utf8(), "headers": headers}
 
 
 func _handle(req: Dictionary, from: String) -> Array:
@@ -151,7 +161,11 @@ func _handle(req: Dictionary, from: String) -> Array:
 				return [400, {"ok": false}]
 			var g: Dictionary = body.duplicate()
 			g.t = _clock
-			if str(g.get("address", "")) == "":
+			if not req.get("local", false):
+				# Only servers on this machine list themselves as official or name their own address.
+				g.official = false
+				g.address = from
+			elif str(g.get("address", "")) == "":
 				g.address = from
 			games[gid] = g
 			return [200, {"ok": true}]
@@ -166,7 +180,11 @@ func _handle(req: Dictionary, from: String) -> Array:
 		["GET", "/games"]:
 			return [200, {"ok": true, "games": _games_list()}]
 		["GET", "/status"]:
-			return [200, {"ok": true, "version": Net.VERSION, "profiles": profiles.size(), "online": online.size(), "games": games.size(), "matches": matches}]
+			var servers := _games_list().filter(func(g): return g.get("official", false)).map(func(g): return {"name": g.get("name", ""),
+				"game_mode": g.get("game_mode", ""), "map": g.get("map", ""), "players": g.get("players", 0), "max": g.get("max", 0), "state": g.get("state", ""),
+				"region": g.get("region", ""), "version": g.get("version", "")})
+			return [200, {"ok": true, "version": Net.VERSION, "profiles": profiles.size(), "online": online.size(), "games": games.size(), "matches": matches,
+				"servers": servers}]
 	return [404, {"ok": false, "error": "unknown"}]
 
 
@@ -183,6 +201,7 @@ func _games_list() -> Array:
 		g.erase("t")
 		g.game = gid
 		out.append(g)
+	out.sort_custom(func(a, b): return bool(a.get("official", false)) and not bool(b.get("official", false)))
 	return out
 
 

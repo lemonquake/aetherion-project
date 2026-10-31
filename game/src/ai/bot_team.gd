@@ -41,6 +41,7 @@ static func begin(w) -> void:
 	squads = {}
 	radio_t = {}
 	stats = {"lines": 0, "pings": 0, "laser_follow": 0, "learned_cells": 0, "blocked_cells": 0, "squads": 0, "following_humans": 0}
+	laser_claims = {}
 	memory = {}
 	stuck_cells = {}
 	if learning():
@@ -75,6 +76,8 @@ static func ensure_spots(nav) -> void:
 	spots = []
 	spot_grid = {}
 	_spots_tmp = []
+	if nav.get("levels") != null:
+		return   # (r15) a storeyed map: no waypoint survey (it reads one square grid)
 	_spots_task = WorkerThreadPool.add_task(func(): _survey(nav), false, "bot waypoints")
 
 
@@ -314,6 +317,100 @@ static func follow_human(eid: int, human_eid: int) -> void:
 	world.bots[eid].squad_id = key
 
 
+# ------------------------------------------------------------------ r13: voice commands and lasers
+
+static var laser_claims := {}   # holder eid -> [{p, eids, t}]: spots a teammate's laser picked out, and who went to check
+
+
+static func laser_claim(holder_eid: int, p: Vector3, eid: int) -> bool:
+	## A bot wants to go and check what holder's laser points at: yes for the first two bots per spot (within 6 m)
+	## in 10 s.
+	var now := Time.get_ticks_msec() / 1000.0
+	var list: Array = laser_claims.get(holder_eid, [])
+	list = list.filter(func(c): return now - float(c.t) < 10.0)
+	for c in list:
+		if (c.p as Vector3).distance_to(p) < 6.0:
+			if eid in c.eids:
+				return false
+			if (c.eids as Array).size() >= 2:
+				laser_claims[holder_eid] = list
+				return false
+			c.eids.append(eid)
+			laser_claims[holder_eid] = list
+			return true
+	list.append({"p": p, "eids": [eid], "t": now})
+	laser_claims[holder_eid] = list
+	return true
+
+
+const ORDER_OF := {"need_help": "help", "follow_me": "follow", "lets_go": "go", "fall_back": "fall_back"}
+
+
+static func on_voice(speaker, line: String, aim: Vector3) -> Dictionary:
+	## r13: speaker (a player, or a bot calling for help) said line on the team radio. The teammate bots it concerns
+	## answer: those that answer "affirmative" have taken the order and do it; if none can, one says "negative".
+	## Returns {took: [eids], refused: eid or -1}.
+	var out := {"took": [], "refused": -1}
+	if world == null or speaker == null:
+		return out
+	if line == "enemy_spotted":
+		# Everyone near looks there; hunters go and have a look.
+		for eid in world.bots:
+			var b = world.bots[eid]
+			if b.ch != speaker and b.ch.team == speaker.team and b.ch.mode == Motor.GROUND 					and (b.ch.global_position as Vector3).distance_to(speaker.global_position) < 120.0:
+				b._look_at = aim
+				if b.role in ["stalker", "rusher"] and b.target_eid < 0 and b.investigate == Vector3.INF:
+					b.investigate = aim
+		return out
+	var kind: String = ORDER_OF.get(line, "")
+	if kind == "":
+		return out
+	var reach: float = {"help": 160.0, "follow": 70.0, "go": 70.0, "fall_back": 90.0}[kind]
+	var want: int = {"help": 2, "follow": 3, "go": 4, "fall_back": 8}[kind]
+	var cands := []
+	for eid in world.bots:
+		var b = world.bots[eid]
+		if b.ch == speaker or b.ch.team != speaker.team or b.ch.mode != Motor.GROUND:
+			continue
+		var d: float = (b.ch.global_position as Vector3).distance_to(speaker.global_position)
+		if d <= reach:
+			cands.append([d, b])
+	cands.sort_custom(func(a, c): return float(a[0]) < float(c[0]))
+	var fwd: Vector3 = -Basis(Vector3.UP, speaker.yaw).z
+	var refused = null
+	for c in cands:
+		var b = c[1]
+		if (out.took as Array).size() >= want:
+			break
+		if not b.can_take(kind):
+			if refused == null:
+				refused = b
+			continue
+		match kind:
+			"follow":
+				if Net.is_bot(speaker.pid):
+					continue
+				b.order = {}
+				follow_human(b.ch.eid, speaker.eid)
+			"help":
+				b.take_order("help", speaker, speaker.global_position)
+			"go":
+				# Spread out round the point the caller is looking at.
+				var off := Vector3(fwd.z, 0.0, -fwd.x) * (((out.took as Array).size() % 3) - 1) * 3.0
+				b.take_order("go", speaker, aim + off)
+			"fall_back":
+				# Back to the caller, a few metres behind them.
+				var off2 := Vector3(fwd.z, 0.0, -fwd.x) * (((out.took as Array).size() % 3) - 1) * 2.5
+				b.take_order("fall_back", speaker, (speaker.global_position as Vector3) - fwd * 5.0 + off2)
+		(out.took as Array).append(b.ch.eid)
+		if (out.took as Array).size() <= 2:
+			b.reply("affirmative", (out.took as Array).size() - 1)
+	if (out.took as Array).is_empty() and refused != null:
+		refused.reply("negative", 0)
+		out.refused = refused.ch.eid
+	return out
+
+
 static func human_followers(human_eid: int) -> int:
 	var s: Dictionary = squads.get(10000 + human_eid, {})
 	return (s.members as Array).size() if not s.is_empty() else 0
@@ -334,25 +431,42 @@ static func can_talk(team: int, priority: bool) -> bool:
 static func on_killed(victim, attacker: int) -> void:
 	if world == null:
 		return
-	if world.bots.has(victim.eid) and str(victim.health.last_cause) == "haze" and world.match_server:
+	if world.bots.has(victim.eid) and str(victim.health.last_cause) == "field" and world.match_server:
 		var b = world.bots[victim.eid]
-		world.match_server.log_event("[haze death] %s (%s) state %s at %s goal %s path %d/%d no_prog %.1f pending %s" % [victim.pname, b.role, b.state,
+		world.match_server.log_event("[field death] %s (%s) state %s at %s goal %s path %d/%d no_prog %.1f pending %s" % [victim.pname, b.role, b.state,
 			str(victim.global_position.round()), str((b.goal as Vector3).round()) if b.goal != Vector3.INF else "-", b.path_i, b.path.size(), b._no_prog, str(b._path_req != 0)])
+		for line in b.hist:
+			world.match_server.log_event("[field death]   %s" % line)
 	var k = world.characters.get(attacker)
 	mark(victim.global_position, "danger", 1.0)
+	var kh: Array = victim.get_meta("killing_hit", [])
+	var headshot: bool = not kh.is_empty() and str(kh[0]) == "head" and str(victim.health.last_cause) == "gunshot"
 	if k != null and k != victim:
 		var d: float = (k.global_position as Vector3).distance_to(victim.global_position)
 		mark(k.global_position, "good", 1.0)
 		if d > 45.0:
 			mark(k.global_position, "snipe", 1.0)
 		if world.bots.has(attacker):
-			world.bots[attacker].on_scored(victim, d)
+			world.bots[attacker].on_scored(victim, d, headshot)
+		elif k.team != victim.team:
+			# r13: a player's kill: a teammate bot confirms it on the radio (the nearest one still standing).
+			var best = null
+			var bd := INF
+			for eid in world.bots:
+				var b0 = world.bots[eid]
+				if b0.ch.team == k.team and b0.ch.mode in [Motor.GROUND, Motor.DOWNED]:
+					var dd: float = (b0.ch.global_position as Vector3).distance_to(k.global_position)
+					if dd < bd:
+						bd = dd
+						best = b0
+			if best != null:
+				best.reply("headshot_kill" if headshot else "kill", 0)
 	# A teammate nearby says so.
 	for eid in world.bots:
 		var b = world.bots[eid]
 		if b.ch != victim and b.ch.team == victim.team and b.ch.mode == Motor.GROUND \
 				and b.ch.global_position.distance_to(victim.global_position) < 70.0:
-			b.say("down", true)
+			b.reply("down", 0)
 			break
 	leave_squad(victim.eid)
 	# Bots following a human who fell go their own way.

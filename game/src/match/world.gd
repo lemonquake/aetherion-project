@@ -19,6 +19,7 @@ const Hud := preload("res://src/ui/hud.gd")
 const Snapshot := preload("res://src/net/snapshot.gd")
 const Interaction := preload("res://src/match/interaction.gd")
 const BotBrain := preload("res://src/ai/bot_brain.gd")
+const DayCycle := preload("res://src/world/day_cycle.gd")
 
 var is_server := false
 var cfg: Dictionary = {}
@@ -31,6 +32,7 @@ var controller = null
 var projectiles = null
 var match_server = null
 var effects = null
+var loot_highlight = null   # r14: suitable loot outlined green (client)
 var lasers = null                # fx/lasers.gd (every peer with a screen)
 var hud = null
 var ambience = null
@@ -71,6 +73,8 @@ func build(config: Dictionary, seed_value: int) -> void:
 	dyn_root.name = "Dynamic"
 	add_child(dyn_root)
 	var t0 := Time.get_ticks_msec()
+	# (r17) The day/night clock for this match: the host's night/day length, and no sun at all on an indoor map.
+	DayCycle.configure(float(cfg.get("day_len", 0)), str(cfg.get("map", "kalinaw")) in Defs.rule("day_cycle.night_only_maps", []))
 	map = _new_map_builder(str(cfg.get("map", "kalinaw")))
 	map.build(self, int(cfg.get("map_seed", 1729)), match_seed, {"map": str(cfg.get("map", "kalinaw"))})
 	print("[world] map built in %d ms" % (Time.get_ticks_msec() - t0))
@@ -93,6 +97,9 @@ func build(config: Dictionary, seed_value: int) -> void:
 		lasers = preload("res://src/fx/lasers.gd").new()
 		add_child(lasers)
 		lasers.setup(self)
+		loot_highlight = preload("res://src/fx/loot_highlight.gd").new()
+		add_child(loot_highlight)
+		loot_highlight.setup(self)
 		ambience = load("res://src/audio/ambience.gd").new()
 		ambience.name = "Ambience"
 		add_child(ambience)
@@ -134,6 +141,9 @@ func teardown() -> void:
 	if map and map.dyn:
 		map.dyn.dispose()
 	if hud and is_instance_valid(hud):
+		# It lives under Game.UI; detach it before this world is freed so queued draws cannot read old state.
+		if hud.get_parent():
+			hud.get_parent().remove_child(hud)
 		hud.queue_free()
 	if controller and is_instance_valid(controller):
 		controller.queue_free()
@@ -155,6 +165,22 @@ func show_results(summary: Dictionary) -> void:
 		hud.show_results(summary)
 	if controller:
 		controller.set_results_mode(true)
+	if is_server:
+		server_clear_round_actions()
+
+
+func server_clear_round_actions() -> void:
+	projectiles.list.clear()
+	_clear_round_actions.rpc()
+	_clear_round_actions()
+
+
+@rpc("authority", "call_remote", "reliable")
+func _clear_round_actions() -> void:
+	grenades.clear_round()
+	for corpse in map.dyn.corpses.values():
+		corpse.queue_free()
+	map.dyn.corpses.clear()
 
 
 # ------------------------------------------------------------------ queries used by many systems
@@ -372,6 +398,9 @@ func _remove_char(eid: int) -> void:
 	characters.erase(eid)
 	by_pid.erase(ch.pid)
 	_queues.erase(eid)
+	_budget.erase(eid)
+	_starved.erase(eid)
+	_acked.erase(eid)
 	_history.erase(eid)
 	_bot_dt.erase(eid)
 	_bot_last.erase(eid)
@@ -457,6 +486,11 @@ func _physics_process(dt: float) -> void:
 		return
 	var t_us := Time.get_ticks_usec()
 	var tick := Net.tick
+	if match_server.phase in ["round_end", "ended"]:
+		for q in _queues.values():
+			q.clear()
+		match_server.tick(dt)
+		return
 	_bot_lod(tick)
 	for eid in bots.keys():
 		if characters.has(eid) and float(_bot_dt.get(eid, dt)) > 0.0:
@@ -508,6 +542,7 @@ func _physics_process(dt: float) -> void:
 		for ch2 in characters.values():
 			if ch2.laser_on and ch2.mode == Motor.GROUND:
 				_laser_scan(ch2)
+	_radio_static_tick(dt)
 	projectiles.step(dt, tick)
 	match_server.tick(dt)
 	_server_health(dt)
@@ -535,7 +570,7 @@ func _server_apply(ch: Character, cmd: Dictionary, dt: float, tick: int, synthet
 	else:
 		ch.flags &= ~Character.F_TAB
 	ch.wpn.blocked = tab or (cmd.btn & Motor.B_ACTION_BLOCKED) != 0 or ch.mode != Motor.GROUND or ch.water_depth() > 1.15 or ch.held_prop_id >= 0 \
-		or ch.light.swapping() or not ch.health.treatment.is_empty() or ch.vault_t >= 0.0
+		or ch.light.swapping() or not ch.health.treatment.is_empty() or ch.vault_t >= 0.0 or ch.ledge_t >= 0.0 or ch.roll_t >= 0.0 or grenades.is_cooking(ch)
 	if ch.light.swapping():
 		ch.flags |= Character.F_BUSY
 	else:
@@ -592,8 +627,7 @@ func _server_apply(ch: Character, cmd: Dictionary, dt: float, tick: int, synthet
 		interaction.server_grab(ch, cmd)
 	if pressed & Motor.B_PING:
 		server_ping(ch)
-	if pressed & Motor.B_THROW:
-		grenades.server_throw(ch)
+	grenades.server_input(ch, btn, prev, dt)
 	if pressed & Motor.B_DROP:
 		interaction.server_drop_held(ch, false)
 	if (btn & Motor.B_FIRE) and ch.held_prop_id >= 0:
@@ -624,20 +658,25 @@ func _record(ch: Character, tick: int) -> void:
 
 
 func _bot_lod(tick: int) -> void:
-	## AI level of detail. A bot within 60 m of a living human, fighting or chasing someone, or whose squad has a
-	## dead human watching, runs every tick; within 150 m every 2nd tick; farther every 4th, its step covering the
-	## ticks it missed. Spread over ticks by entity id. Bots cost the server what a player's movement costs plus
-	## their thinking, and nobody sees a bot 150 m away in the dark move at 15 steps a second.
+	## AI level of detail. A bot within 60 m of what a human sees (their character, or for a dead or late player the
+	## one they are watching), or fighting or chasing someone, runs every tick; within 150 m every 2nd tick; farther
+	## every 4th, its step covering the ticks it missed. Spread over ticks by entity id. Bots cost the server what a
+	## player's movement costs plus their thinking, and nobody sees a bot 150 m away in the dark move at 15 steps a
+	## second. r14: the spectator's view counts as a viewer: with only "the watched squad runs every tick", the
+	## enemies round it moved one step in four and stuttered on the screen of everyone who had died.
 	var humans := []
-	var watching := {}
-	for eid in characters:
-		var c: Character = characters[eid]
-		if Net.is_bot(c.pid):
+	var watching := {}   # --bot_lod_r13 (A/B): the old rule, the watched squad every tick and nothing else
+	var r13 := Game.arg("bot_lod_r13") != null
+	for pid in Net.players:
+		if Net.is_bot(int(pid)) or not bool(Net.players[pid].get("connected", true)):
 			continue
-		if c.mode in [Motor.DEAD, Motor.SPECTATE]:
-			watching[c.team] = true
-		else:
+		var c: Character = char_by_pid(int(pid))
+		if c and c.mode not in [Motor.DEAD, Motor.SPECTATE]:
 			humans.append(c.global_position)
+		elif r13:
+			watching[int(Net.players[pid].get("team", -1))] = true
+		elif characters.has(spectate_target(int(pid))):
+			humans.append((characters[spectate_target(int(pid))] as Character).global_position)
 	var dt := 1.0 / Defs.TICK_RATE
 	var lod_off := Game.arg("bot_lod_off") != null  # every bot every tick, for comparisons
 	for eid in bots:
@@ -735,28 +774,37 @@ func _ev_clip(eid: int, wid: String, phase: int, empty: bool, dur: float) -> voi
 
 func _server_motion_event(ch: Character, kind: String, value: float) -> void:
 	match kind:
-		"land":
+		"land", "land_roll":
+			# (r15) Classic: the jump itself never hurts (match_server.deploy_safe).
+			var safe: bool = match_server != null and match_server.deploy_safe(ch)
 			if match_server:
 				match_server.on_landed(ch, value)
-			var cfg_h: Dictionary = Defs.health
-			var hard := float(Defs.rule("deploy.hard_landing_speed", 6.0))
-			if value > float(cfg_h.get("fall_damage_speed", 7.5)):
-				var lethal := float(cfg_h.get("fall_lethal_speed", 18.0))
-				var dmg := pow((value - 7.5) / (lethal - 7.5), 1.6) * 100.0
-				var leg := "leg_l" if randf() < 0.5 else "leg_r"
+			var dmg := 0.0 if safe else fall_damage(value, kind == "land_roll")
+			if dmg > 0.0:
+				# Only a real fall hurts the legs (no limp from hopping off a wall).
+				var leg := ("leg_l" if randf() < 0.5 else "leg_r") if dmg >= 8.0 else ""
 				var res: Dictionary = ch.health.apply_simple(dmg, "fall", leg)
 				_after_damage(ch, res, -1)
-			if value > hard:
+			var hard := float(Defs.rule("deploy.hard_landing_speed", 6.0))
+			if kind == "land_roll":
+				server_sound("land_roll", ch.global_position, 0.0, -1)
+			elif value > hard:
 				server_sound("land_hard", ch.global_position, 0.0, -1)
 			elif value > 3.0:
 				server_sound("land_soft", ch.global_position, 0.0, -1)
+		"slide":
+			server_sound("slide", ch.global_position, 0.0, -1)
+		"wallrun", "climb":
+			server_sound("wall_step", ch.global_position + Vector3.UP * 0.8, 0.0, -1)
+		"ledge_grab":
+			server_sound("ledge_grab", ch.global_position + Vector3.UP * 2.0, 0.0, -1)
 		"chute_open":
 			server_sound("chute_open", ch.global_position + Vector3.UP * 4.0, 0.0, -1)
 		"chute_land":
 			if match_server:
 				match_server.on_landed(ch, value)
 			server_sound("chute_collapse", ch.global_position + Vector3.UP, 0.0, -1)
-			if value > float(Defs.rule("deploy.injury_landing_speed", 9.5)):
+			if value > float(Defs.rule("deploy.injury_landing_speed", 9.5)) and not (match_server and match_server.deploy_safe(ch)):
 				var res2: Dictionary = ch.health.apply_simple((value - 9.5) * 6.0, "landing", "leg_l" if randf() < 0.5 else "leg_r")
 				_after_damage(ch, res2, -1)
 		"chute_cut":
@@ -765,6 +813,24 @@ func _server_motion_event(ch: Character, kind: String, value: float) -> void:
 			server_sound("ladder_step", ch.global_position + Vector3.UP * 0.9, 0.0, ch.eid)
 		"jump":
 			pass
+
+
+static func fall_damage(speed: float, rolled: bool) -> float:
+	## Damage for landing at this speed. Nothing from drops up to fall_safe_m (a low roof, a garden wall, a jump
+	## down a storey; a 3.5 m drop lands at the speed of about 3.65 m after the 60 Hz step); from there it rises
+	## steeply to lethal at fall_lethal_m. A landing roll counts as a drop fall_roll_m lower and takes fall_roll_mult
+	## of what is left.
+	var cfg: Dictionary = Defs.health
+	var h := speed * speed / (2.0 * Defs.move("gravity"))
+	var safe := float(cfg.get("fall_safe_m", 3.8))
+	var lethal := float(cfg.get("fall_lethal_m", 14.0))
+	var mult := 1.0
+	if rolled:
+		h -= float(cfg.get("fall_roll_m", 2.5))
+		mult = float(cfg.get("fall_roll_mult", 0.6))
+	if h <= safe:
+		return 0.0
+	return pow(clampf((h - safe) / (lethal - safe), 0.0, 2.0), 1.5) * 100.0 * mult
 
 
 func _server_light_event(ch: Character, ev: String) -> void:
@@ -862,15 +928,53 @@ func _after_damage(ch: Character, res: Dictionary, attacker: int) -> void:
 		# The body falls along the killing shot (or away from the killer), hit where the round struck.
 		var impulse := Vector3.ZERO
 		if res.has("hit_dir"):
-			impulse = (res.hit_dir as Vector3).normalized() * 3.0
+			impulse = (res.hit_dir as Vector3).normalized() * float(res.get("impulse", 3.0))
 			ch.set_meta("killing_hit", [str(res.get("hit_part", "torso")), res.get("hit_pos", Vector3.INF)])
+			if res.has("blast_vel"):
+				ch.set_meta("blast_vel", res.blast_vel)   # r14: a grenade throws the whole body (corpse.gd)
 		elif attacker >= 0 and characters.has(attacker):
 			impulse = (ch.global_position - characters[attacker].global_position).normalized() * 3.0
 		map.server_spawn_corpse(ch, impulse)
+		_send_death_report(ch, res, attacker)
 		server_set_mode(ch, Motor.DEAD)
 		if match_server:
 			match_server.on_killed(ch, attacker)
 		server_remove_character(ch)
+
+
+# ------------------------------------------------------------------ r13: the death report (to the player who died)
+
+const PART_NAMES := {"head": "the head", "torso": "the chest", "arm_l": "the left arm", "arm_r": "the right arm",
+	"leg_l": "the left leg", "leg_r": "the right leg"}
+
+
+func _send_death_report(ch: Character, res: Dictionary, attacker: int) -> void:
+	## Who killed this player, with what, from how far, where the last hit landed and whether it was a headshot; the
+	## dying player's client shows it over the camera on their body.
+	if Net.is_bot(ch.pid):
+		return
+	var killer = characters.get(attacker) if attacker >= 0 and attacker != ch.eid else null
+	var cause := str(ch.health.last_cause)
+	var part := str(res.get("hit_part", ""))
+	var info := {"killer": killer.pname if killer else "", "killer_team": killer.team if killer else -1,
+		"killer_eid": killer.eid if killer else -1, "killer_pos": killer.global_position if killer else Vector3.INF,
+		"weapon": Defs.item_name(killer.wpn.current_id()) if killer and killer.wpn.current_id() != "" else "",
+		"cause": cause, "part": part, "part_name": str(PART_NAMES.get(part, "")),
+		"headshot": part == "head" and cause == "gunshot",
+		"dist": killer.global_position.distance_to(ch.global_position) if killer else 0.0,
+		"pos": ch.global_position, "yaw": ch.yaw}
+	if ch.pid == Net.local_pid and not is_server_dedicated():
+		_ev_death_report(info)
+	elif ch.pid in Net.human_peers():
+		_ev_death_report.rpc_id(ch.pid, info)
+
+
+@rpc("authority", "call_remote", "reliable")
+func _ev_death_report(info: Dictionary) -> void:
+	if controller:
+		controller.on_death_report(info)
+	if hud:
+		hud.show_death_report(info)
 
 
 # ------------------------------------------------------------------ snapshots
@@ -1149,7 +1253,11 @@ func radio_sources(from_pid: int) -> Array:
 func server_bot_radio(ch: Character, line: String, voice: String, k: int) -> void:
 	## A bot's callout. Teammates hear it on their radios (with what was said on screen); anyone near the bot hears
 	## its voice, enemies included, and so does anyone near a teammate's radio (radio.eavesdrop_radius).
-	var sid := "botr_%s_%s_%d" % [line, voice, k]
+	var sid := BotBrain.radio_sid(line, voice, k)
+	radio_trace.append([Time.get_ticks_msec(), ch.eid, line])
+	server_radio_static(ch)
+	if radio_trace.size() > 200:
+		radio_trace.pop_front()
 	var sources := radio_sources(ch.pid)
 	for pid in Net.human_peers():
 		var p: Dictionary = Net.players[pid]
@@ -1174,6 +1282,60 @@ func server_bot_radio(ch: Character, line: String, voice: String, k: int) -> voi
 		match_server.log_event("[radio] %s (%s): %s" % [ch.pname, str(bots[ch.eid].role) if bots.has(ch.eid) else "?", line])
 
 
+# ------------------------------------------------------------------ r13: voice commands (SmarTab Voice page)
+
+var radio_trace: Array = []    # [msec, eid, line]: the last radio callouts (tests read it)
+var static_trace: Array = []   # [msec, speaker eid, radios]: the last radio static bursts (tests read it)
+const VOICE_LINES := ["need_help", "follow_me", "lets_go", "fall_back", "enemy_spotted", "in_position", "affirmative", "negative"]
+var _voice_t: Dictionary = {}   # pid -> last voice command (msec)
+
+
+func request_voice(line: String) -> void:
+	if is_server:
+		if local_char:
+			server_voice(local_char, line)
+	else:
+		_voice_req.rpc_id(1, line)
+
+
+@rpc("any_peer", "reliable")
+func _voice_req(line: String) -> void:
+	if is_server:
+		var ch := char_by_pid(multiplayer.get_remote_sender_id())
+		if ch:
+			server_voice(ch, line)
+
+
+func server_voice(ch: Character, line: String) -> void:
+	## A player's voice command: said on the team radio in their voice (the recording where there is one), and the
+	## teammate bots it concerns answer it (BotTeam.on_voice).
+	if not (line in VOICE_LINES) or ch.mode not in [Motor.GROUND, Motor.DOWNED]:
+		return
+	var now := Time.get_ticks_msec()
+	if now - int(_voice_t.get(ch.pid, -10000)) < 1200:
+		return
+	_voice_t[ch.pid] = now
+	var radio_line := "contact" if line == "enemy_spotted" else line
+	var phr: Array = BotBrain.lines.get(radio_line, [])
+	var k := randi_range(0, maxi(phr.size(), 1) - 1)
+	if BotBrain.recorded.has(radio_line):
+		k = randi_range(0, int(BotBrain.recorded[radio_line].n) - 1)
+	var voice = ["m1", "m2", "f1", "f2"][absi(hash(ch.pname)) % 4]
+	server_bot_radio(ch, radio_line, voice, k)
+	# What they are looking at (for "Let's go" and "Enemy spotted"): up to 45 m ahead, short of a wall.
+	var eye := ch.eye_position()
+	var dir := ch.aim_dir()
+	var q := PhysicsRayQueryParameters3D.create(eye, eye + dir * 45.0, Defs.SIGHT_MASK)
+	q.exclude = [ch.get_rid()]
+	var r := get_world_3d().direct_space_state.intersect_ray(q)
+	var aim: Vector3 = (r.position as Vector3) - dir * 1.0 if not r.is_empty() else eye + dir * 45.0
+	if line == "lets_go" and absf(aim.y - ch.global_position.y) > 6.0:
+		aim.y = map.layout.ground_height(aim.x, aim.z)
+	var res: Dictionary = preload("res://src/ai/bot_team.gd").on_voice(ch, line, aim)
+	if match_server:
+		match_server.log_event("[voice] %s: %s; took %s, refused %d" % [ch.pname, line, str(res.took), int(res.refused)])
+
+
 @rpc("authority", "call_remote", "reliable")
 func _ev_bot_radio(src_eid: int, who: String, sid: String, line: String, k: int, kind: int) -> void:
 	## kind 0: on your own radio (and the words on screen); 1: from a nearby enemy radio; 2: the bot's own voice nearby.
@@ -1182,15 +1344,18 @@ func _ev_bot_radio(src_eid: int, who: String, sid: String, line: String, k: int,
 		SoundSys.play_local("radio_on", -6.0)
 		SoundSys.play_radio(sid)
 		if hud:
-			var phr: Array = BotBrain.lines.get(line, [])
-			if phr.is_empty():
+			if BotBrain.lines.is_empty():
 				var f := FileAccess.open("res://data/bot_radio.json", FileAccess.READ)
 				if f:
 					var d = JSON.parse_string(f.get_as_text())
 					if typeof(d) == TYPE_DICTIONARY:
 						BotBrain.lines = d.get("lines", {})
-						phr = BotBrain.lines.get(line, [])
-			hud.radio_line(who, str(phr[k]) if k < phr.size() else line)
+						BotBrain.recorded = d.get("recorded", {})
+			var phr: Array = BotBrain.lines.get(line, [])
+			var text := str(phr[k % phr.size()]) if not phr.is_empty() else line
+			if BotBrain.recorded.has(line) and BotBrain.recorded[line].has("text"):
+				text = str(BotBrain.recorded[line].text)   # a recording: its own words, not phrasing k of the voices
+			hud.radio_line(who, text)
 	elif c:
 		SoundSys.play_at(sid, c.global_position + Vector3.UP * 1.5, -4.0 if kind == 1 else 0.0)
 
@@ -1212,17 +1377,73 @@ func server_radio_event(pid: int, kind: String) -> void:
 		ch.flags &= ~Character.F_RADIO
 		if alive:
 			server_sound("radio_off", ch.global_position + Vector3.UP * 1.35, 0.0, ch.eid)
-	var heard := float(Defs.rule("radio.eavesdrop_radius", 12.0))
 	for c in characters.values():
 		if c.team != team or c == ch or c.mode in [Motor.DEAD, Motor.SPECTATE, Motor.PLANE]:
 			continue
-		var rp: Vector3 = c.global_position + Vector3.UP * 1.35
-		server_sound("radio_on" if kind == "on" else "radio_squelch", rp, 0.0, -1)
-		if kind == "on":
-			for eid in bots:
-				var b = bots[eid]
-				if b.ch.team != team and b.ch.global_position.distance_to(rp) < heard:
-					b.hear(rp, heard)
+		server_sound("radio_on" if kind == "on" else "radio_squelch", c.global_position + Vector3.UP * 1.35, 0.0, -1)
+	if kind == "on":
+		server_radio_static(ch)
+
+
+var _static_t := {}   # eid -> msec of the last radio static from that speaker
+var _static_scan := 0.0
+
+
+func server_radio_static(ch: Character, force: bool = false) -> void:
+	## The static of radios transmitting (the user's recordings): it comes out of the speaker's radio and every living
+	## teammate's, and only enemies close to one of them get it - players hear it, bots turn toward it. Voice lines
+	## (bots' callouts, players' voice commands) and voice chat (at key down, then every radio.static_interval_s while
+	## the key is held).
+	if not bool(Defs.rule("radio.static", true)) or not SoundSys.defs.has("radio_static"):
+		return
+	var now := Time.get_ticks_msec()
+	if not force and now - int(_static_t.get(ch.eid, -100000)) < 1000:
+		return
+	_static_t[ch.eid] = now
+	var r := float(Defs.rule("radio.static_radius", 14.0))
+	var radios := []
+	for c in characters.values():
+		if c.team == ch.team and c.mode not in [Motor.DEAD, Motor.SPECTATE, Motor.PLANE]:
+			radios.append(c.global_position + Vector3.UP * 1.35)
+	if radios.is_empty():
+		return
+	static_trace.append([now, ch.eid, radios.size()])
+	if static_trace.size() > 100:
+		static_trace.pop_front()
+	# Each enemy gets the burst from the radio nearest to them, if one is in reach.
+	var listeners := []
+	for c in characters.values():
+		if c.team != ch.team and c.mode not in [Motor.DEAD, Motor.SPECTATE, Motor.PLANE]:
+			listeners.append(c)
+	for c in listeners:
+		var best := Vector3.INF
+		var best_d := r
+		for rp in radios:
+			var d: float = (rp as Vector3).distance_to(c.global_position + Vector3.UP * 1.5)
+			if d < best_d:
+				best_d = d
+				best = rp
+		if best == Vector3.INF:
+			continue
+		if bots.has(c.eid):
+			bots[c.eid].hear(best, r)
+		elif c.pid == Net.local_pid and not is_server_dedicated():
+			_ev_sound("radio_static", best, 0.0)
+		elif c.pid in Net.human_peers():
+			_ev_sound.rpc_id(c.pid, "radio_static", best, 0.0)
+
+
+func _radio_static_tick(dt: float) -> void:
+	## Voice chat: the static goes on while the key is held.
+	_static_scan -= dt
+	if _static_scan > 0.0:
+		return
+	_static_scan = 0.25
+	var every := int(float(Defs.rule("radio.static_interval_s", 1.5)) * 1000.0)
+	var now := Time.get_ticks_msec()
+	for c in characters.values():
+		if (c.flags & Character.F_RADIO) != 0 and now - int(_static_t.get(c.eid, -100000)) >= every:
+			server_radio_static(c, true)
 
 
 # ------------------------------------------------------------------ events: combat
@@ -1365,6 +1586,60 @@ func _test_apply(ch: Character, cmd: Dictionary) -> void:
 		"give":
 			interaction.give(ch, (cmd.entry as Dictionary).duplicate(true))
 			ch.inv.mark_dirty()
+		"zone":
+			# r12 net test: a forcefield closing over this player only (the others and the bots do not feel it).
+			if match_server == null:
+				return
+			if not match_server.has_meta("zone_saved"):
+				match_server.set_meta("zone_saved", match_server.zone.duplicate())
+			var c: Vector2 = cmd.c
+			match_server.zone = {"i": 1, "state": "shrink", "t0": Net.tick, "t1": Net.tick + int(float(cmd.secs) * Defs.TICK_RATE), "c0": c,
+				"r0": float(cmd.r0), "c1": c, "r1": float(cmd.r1), "dps": 0.0, "shrink_s": float(cmd.secs)}
+			Field.test_only = [ch.eid]
+			match_server._broadcast()
+		"bot_say":
+			# r13 net test: the nearest enemy bot stands 7 m from this player, holds still for 5 s and calls out; its
+			# radio's static and its voice should reach this player.
+			var best = null
+			var bd := INF
+			for b in bots.values():
+				if is_instance_valid(b.ch) and b.ch.team != ch.team and b.ch.mode == Motor.GROUND:
+					var d: float = b.ch.global_position.distance_to(ch.global_position)
+					if d < bd:
+						bd = d
+						best = b
+			if best == null:
+				return
+			best.test_idle = true
+			best.ch.global_position = ch.global_position + Vector3(7.0, 0.0, 0.0)
+			best.ch.velocity = Vector3.ZERO
+			var line := str(cmd.get("line", "contact"))
+			# The call a moment later, once the clients' snapshots have the bot where it now stands.
+			get_tree().create_timer(0.6).timeout.connect(func():
+				if is_instance_valid(best.ch):
+					_static_t.erase(best.ch.eid)
+					server_bot_radio(best.ch, line, best.voice, 0))
+			get_tree().create_timer(5.0).timeout.connect(func():
+				if is_instance_valid(best.ch):
+					best.test_idle = false)
+		"die":
+			# r17 net test: this player is shot dead by the nearest enemy (a Deathmatch respawn round brings them back).
+			var killer = null
+			var kd := INF
+			for c in characters.values():
+				if c.team != ch.team and c.mode == Motor.GROUND and c.global_position.distance_to(ch.global_position) < kd:
+					kd = c.global_position.distance_to(ch.global_position)
+					killer = c
+			ch.health.shield_until = -1
+			var res: Dictionary = ch.health.apply_simple(999.0, "gunshot", "torso", killer.eid if killer else -1)
+			_after_damage(ch, res, killer.eid if killer else -1)
+		"zone_restore":
+			if match_server == null or not match_server.has_meta("zone_saved"):
+				return
+			match_server.zone = match_server.get_meta("zone_saved")
+			match_server.remove_meta("zone_saved")
+			Field.test_only = []
+			match_server._broadcast()
 
 
 func server_sync_late_peer(pid: int) -> void:
@@ -1373,6 +1648,7 @@ func server_sync_late_peer(pid: int) -> void:
 	map.server_sync_peer(pid)
 	if match_server:
 		match_server.sync_peer(pid)
+		match_server.late_join(pid)
 	_match_started.rpc_id(pid)
 
 
@@ -1516,6 +1792,58 @@ func map_prop_chunks(id: int, keys: PackedInt32Array) -> void:
 		map.dyn.client_prop_chunks(id, keys)
 
 
+func server_door_blast(door, pos: Vector3, strength: float) -> void:
+	## r14: a grenade right by a door: every panel blown out at once and the leaf gone, for everyone.
+	map_door_blast.rpc(int(door.spec.id), door.is_shutter, pos, strength)
+	_door_blast_local(door, pos, strength)
+
+
+@rpc("authority", "call_remote", "reliable")
+func map_door_blast(did: int, is_shutter: bool, pos: Vector3, strength: float) -> void:
+	var d = _door_by(did, is_shutter)
+	if d:
+		_door_blast_local(d, pos, strength)
+
+
+func _door_blast_local(d, pos: Vector3, strength: float) -> void:
+	if d.destroyed:
+		return
+	var xf: Transform3D = d.current_transform()
+	var boxes := []
+	for j in d.panels().size():
+		if not d.lost.has(j):
+			boxes.append(d.panel_box(j))
+	for j in d.panels().size():
+		if not d.destroyed and not d.lost.has(j):
+			d.lose_panel(j)
+	if not d.destroyed:
+		d.destroy()
+	if effects:
+		effects.door_blown(d, xf, boxes, pos, strength)
+
+
+func local_blast(pos: Vector3) -> void:
+	## r14: what a grenade going off does to whoever watches through this camera: hearing muffled and ringing
+	## (closer and in the open is worse, a wall between halves it; it starts when the bang arrives), the view
+	## shaken, and up close in the open whited out for a moment.
+	if controller == null or controller.cam == null:
+		return
+	var ear: Vector3 = controller.cam.global_position
+	var d := ear.distance_to(pos)
+	if d > 45.0:
+		return
+	var s := clampf(1.0 - (d - 2.5) / 19.0, 0.0, 1.0)
+	var q := PhysicsRayQueryParameters3D.create(pos + Vector3.UP * 0.3, ear, Defs.PHYS_WORLD)
+	var open := get_world_3d().direct_space_state.intersect_ray(q).is_empty()
+	if not open:
+		s *= 0.45
+	SoundSys.deafen(s, 2.0 + 6.5 * s, d / 343.0)
+	if controller.has_method("blast_shake"):
+		controller.blast_shake(clampf(1.0 - d / 40.0, 0.0, 1.0) * (1.0 if open else 0.6))
+	if hud and open and s > 0.3 and local_char and local_char.mode not in [Motor.DEAD, Motor.SPECTATE]:
+		hud.blast(s)
+
+
 func _door_by(did: int, is_shutter: bool):
 	if map == null:
 		return null
@@ -1569,7 +1897,11 @@ func _door_panel_local(d, i: int, dir: Vector3) -> void:
 			effects.holes.clear_box(d.anchor, box.grow(0.03))
 			if fell:
 				effects.holes.forget(d.anchor)
-		effects.door_panel_lost(d, xf, box, dir, standing)
+		if d.spec.get("glass", false):
+			# (r15) A glass door (Malasugue Mall) bursts whole into shards.
+			effects.glass_break(xf * Vector3(d.w * 0.5, d.h * 0.5, 0.0), dir, {"xf": xf * Transform3D(Basis(), Vector3(d.w * 0.5, d.h * 0.5, 0.0)), "w": d.w, "h": d.h})
+		else:
+			effects.door_panel_lost(d, xf, box, dir, standing)
 
 
 @rpc("authority", "call_remote", "reliable")
@@ -1615,6 +1947,14 @@ func _container_view(kind: String, id: int, entries: Array) -> void:
 
 func request_inventory(req: Dictionary) -> void:
 	## Client (or host) asks the server to change its inventory.
+	if str(req.get("op", "")) == "swap_weapons" and controller:
+		# Every command carries the slot wanted in hand: follow the gun to its new slot, or the swap would draw the other.
+		var a := int(req.get("a", -1))
+		var b := int(req.get("b", -1))
+		if controller.slot == a:
+			controller.slot = b
+		elif controller.slot == b:
+			controller.slot = a
 	if is_server:
 		if local_char:
 			interaction.server_inventory_request(local_char, req)
@@ -1639,6 +1979,8 @@ var match_info: Dictionary = {}
 @rpc("authority", "call_remote", "reliable")
 func match_state(info: Dictionary) -> void:
 	match_info = info
+	if info.has("day_len"):
+		DayCycle.configure(float(info.day_len), bool(info.get("night_only", false)))
 	if hud:
 		hud.on_match_state(info)
 	if effects:
@@ -1649,6 +1991,8 @@ func match_state(info: Dictionary) -> void:
 func match_toast(text: String, sound: String) -> void:
 	if hud:
 		hud.toast(text)
+	elif DisplayServer.get_name() == "headless":
+		print("[toast] %s" % text)   # (r17) tests: a headless client reports what the server told it (a map mismatch)
 	if sound != "":
 		SoundSys.play_local(sound)
 

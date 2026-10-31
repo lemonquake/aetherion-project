@@ -27,7 +27,7 @@ LINES = {
     "contact": ["Contact!", "Enemy spotted!", "Eyes on one!"],
     "taking_fire": ["Taking fire!", "I'm hit!", "They're shooting at me!"],
     "reloading": ["Reloading!", "Cover me, reloading!"],
-    "haze": ["Haze is coming. Move!", "Get inside the circle, now!", "We need to outrun the haze!"],
+    "haze": ["The field is closing. Get out of the buildings!", "Move in, away from the walls!", "Field is coming. Get to open ground!"],
     "copy": ["Copy that.", "On my way.", "Roger. Moving."],
     "watching": ["I'll watch it.", "Eyes on it.", "I've got that angle."],
     "laser": ["Laser! Someone's pointing at us.", "Watch it, there's a laser.", "Follow that laser!"],
@@ -41,7 +41,20 @@ LINES = {
     "sniping": ["Setting up overwatch.", "Moving to a sniping spot."],
     "hunting": ["Going hunting.", "I'm pushing up.", "Let's find them."],
     "sneaking": ["Moving quiet.", "Flanking around.", "Going around them."],
+    # r13: kill confirmations, order replies and the voice commands (SmarTab Voice page).
+    "headshot_kill": ["Headshot!", "Right in the head!", "Clean headshot."],
+    "in_position": ["In position.", "I'm in position.", "Set. In position."],
+    "affirmative": ["Affirmative.", "Copy that.", "Roger."],
+    "negative": ["Negative.", "No can do.", "Can't do that."],
+    "follow_me": ["Follow me!", "On me!", "Stay with me."],
+    "lets_go": ["Let's go!", "Move up!", "Go, go, go!"],
+    "fall_back": ["Fall back!", "Pull back!", "Back off, regroup on me!"],
 }
+# r13: lines the user recorded (audio/, converted by tools/add_r13_sounds.py to vox_<name>_<k>): these play instead
+# of the text-to-speech voices. line -> recording name.
+RECORDED = {"contact": "enemy_spotted", "kill": "radio_basic_kill", "headshot_kill": "radio_headshot_kill", "down": "man_down",
+            "need_help": "need_help", "in_position": "in_position", "affirmative": "affirmative", "negative": "negative",
+            "follow_me": "follow_me"}
 # voice id -> (installed voice, SSML pitch, SSML rate)
 VOICES = {
     "m1": ("Microsoft David Desktop", "+0%", "+8%"),
@@ -143,9 +156,22 @@ def main():
         out = out.replace("\n", "\r\n")
     with open(SOUNDS, "wb") as f:
         f.write(out.encode("utf-8"))
+    # Captions of the recordings (written by tools/add_r13_sounds.py) are kept.
+    old = {}
+    if os.path.exists(LINES_JSON):
+        with open(LINES_JSON, "rb") as f:
+            old = json.loads(f.read().decode("utf-8")).get("recorded", {})
+    recorded = {}
+    for line, name in RECORDED.items():
+        n = len([k for k in snd if k.startswith("vox_%s_" % name) and k[len("vox_%s_" % name):].isdigit()])
+        if n > 0:
+            recorded[line] = {"name": name, "n": n}
+            if "text" in old.get(line, {}):
+                recorded[line]["text"] = old[line]["text"]
     with open(LINES_JSON, "w", encoding="utf-8", newline="\n") as f:
-        json.dump({"_doc": "Bot radio callouts (tools/make_bot_radio.py): line -> phrasings; sound id botr_<line>_<voice>_<index>.",
-                   "voices": list(VOICES.keys()), "lines": LINES}, f, indent=1, ensure_ascii=False)
+        json.dump({"_doc": "Bot radio callouts (tools/make_bot_radio.py): line -> phrasings; sound id botr_<line>_<voice>_<index>. "
+                   "recorded: lines the user recorded, played as vox_<name>_<k> (k < n) instead of the voices.",
+                   "voices": list(VOICES.keys()), "lines": LINES, "recorded": recorded}, f, indent=1, ensure_ascii=False)
     print("made %d clips, %d sound ids" % (made, len([k for k in snd if k.startswith("botr_")])))
 
 

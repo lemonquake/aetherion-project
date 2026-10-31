@@ -407,7 +407,7 @@ def build_synth():
     st = highpass_fast(lowpass_fast(noise(n(2.0)), 2600), 500)
     st *= 0.25 + 0.1 * np.sin(2 * np.pi * 0.7 * t(2.0))
     st = fade(st, 30, 30)
-    define('radio_static', [synth('radio_static', st, 0.4)], db=-16.0, dist=10.0, prio=5, unit=1.0, loop=True)
+    define('radio_hiss', [synth('radio_static', st, 0.4)], db=-16.0, dist=10.0, prio=5, unit=1.0, loop=True)
     # SmarTab handling: strap rustle and a soft two-note wake chime / sleep tone.
     rust = lowpass_fast(noise(n(0.22)), 2500) * env(n(0.22), 0.04, 0.15) * 0.4
     chime = np.sin(2 * np.pi * 1320 * t(0.12)) * env(n(0.12), 0.005, 0.08) * 0.25

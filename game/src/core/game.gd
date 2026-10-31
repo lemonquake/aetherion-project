@@ -10,9 +10,12 @@ const LobbyScript := preload("res://src/ui/lobby_ui.gd")
 const Outfit := preload("res://src/player/outfit.gd")
 const MasterServer := preload("res://src/online/master_server.gd")
 const LoadingScreen := preload("res://src/ui/loading_screen.gd")
+const GfxSafety := preload("res://src/core/gfx_safety.gd")
 
 var master: Node = null      # the stats server when this process runs one (--master, or --server --stats)
 var last_xp: Dictionary = {} # {xp, level_before, level_after} from the last match, for the results screen
+var _viewing_results := false
+var _last_summary := {}
 
 const BOT_NAMES := [
 	"Kuya Bert", "Aling Nena", "Tito Boy", "Mang Kanor", "Pareng Jun", "Tsong Ramil", "Bossing Dodong",
@@ -61,8 +64,15 @@ func arg(key: String, default_value = null):
 	return args.get(key, default_value)
 
 
+func _exit_tree() -> void:
+	GfxSafety.end_session()   # (r17) a normal exit: the next start is not treated as a crash
+
+
 func boot() -> void:
 	## Called by the boot scene once autoloads are ready.
+	if GfxSafety.boot_check(args, Settings.first_run):
+		get_tree().quit()   # (r17) restarting on Safe graphics after a crash (src/core/gfx_safety.gd)
+		return
 	if Settings.is_mobile():
 		# Menus and HUD drawn half as large again: buttons laid out for a monitor are a few millimetres tall on a phone.
 		get_tree().root.content_scale_factor = 1.5
@@ -87,6 +97,9 @@ func boot() -> void:
 			get_tree().quit())
 	if arg("name"):
 		Settings.set_value("player", "name", str(arg("name")))
+	if DisplayServer.get_name() == "headless" and (arg("master") or arg("server")):
+		# A headless main loop is otherwise unthrottled: a server would spin a whole core between physics ticks.
+		Engine.max_fps = int(arg("server_fps", 60 if arg("server") else 20))
 	if arg("master") or arg("stats"):
 		master = MasterServer.new()
 		master.name = "Master"
@@ -98,9 +111,23 @@ func boot() -> void:
 	if arg("server"):
 		Net.host(int(arg("port", Net.DEFAULT_PORT)), true)
 		_apply_arg_config()
+		if arg("official"):
+			var off: Node = load("res://src/match/official.gd").new()
+			off.name = "Official"
+			add_child(off)
 		show_lobby()
 		print("[server] dedicated server listening on %d" % int(arg("port", Net.DEFAULT_PORT)))
 		return
+	if arg("room_test"):
+		# r15: the lobby's host on an official server (src/debug/room_test.gd).
+		var rt: Node = load("res://src/debug/room_test.gd").new()
+		rt.name = "RoomTest"
+		add_child(rt)
+	if arg("map_pick_test"):
+		# r16: the Deathmatch lobby's Map choice, pressed like a player does (src/debug/map_pick_test.gd).
+		var mp: Node = load("res://src/debug/map_pick_test.gd").new()
+		mp.name = "MapPickTest"
+		add_child(mp)
 	if arg("menu_test"):
 		# r10: PLAY NOW opens the lobby (not the match); START MATCH then loads it (src/debug/menu_test.gd).
 		var mt: Node = load("res://src/debug/menu_test.gd").new()
@@ -146,6 +173,9 @@ func _apply_arg_config() -> void:
 		Net.set_config("map_seed", int(arg("seed")))
 	if arg("zone_speed") != null:
 		Net.set_config("zone_speed", float(arg("zone_speed")))
+	for k in ["day_len", "dm_win", "dm_score", "dm_time", "dm_field"]:
+		if arg(k) != null:
+			Net.set_config(k, arg(k))
 	if arg("autostart"):
 		var wait := float(arg("autostart_after", 0.0)) if str(arg("autostart")) == "true" else float(arg("autostart"))
 		get_tree().create_timer(maxf(wait, 0.5)).timeout.connect(_autostart)
@@ -178,6 +208,7 @@ func show_screen(c: Control) -> void:
 
 
 func show_menu() -> void:
+	_viewing_results = false
 	_set_state("menu")
 	_hide_loading()
 	teardown_world()
@@ -186,6 +217,7 @@ func show_menu() -> void:
 
 
 func show_lobby() -> void:
+	_viewing_results = false
 	_set_state("lobby")
 	_hide_loading()
 	teardown_world()
@@ -248,6 +280,7 @@ func start_match() -> void:
 
 @rpc("authority", "call_remote", "reliable")
 func _load_match(cfg: Dictionary, seed_value: int) -> void:
+	_viewing_results = false
 	Net.config = cfg
 	match_seed = seed_value
 	_set_state("loading")
@@ -274,7 +307,7 @@ func _show_loading(cfg: Dictionary) -> void:
 	_hide_loading()
 	if DisplayServer.get_name() == "headless":
 		return
-	var titles := {"kalinaw": "Sitio Kalinaw", "lawless_sub": "Lawless Sub"}
+	var titles := UITheme.MAP_NAMES
 	var dm := str(cfg.get("game_mode", "classic")) == "deathmatch"
 	loading_screen = LoadingScreen.new(str(titles.get(str(cfg.get("map", "kalinaw")), "Sitio Kalinaw")),
 		("Deathmatch · %d a side" % int(cfg.get("team_size", 10))) if dm else ("Classic · %d teams of %d" % [int(cfg.get("teams", 5)), int(cfg.get("team_size", 4))]))
@@ -313,6 +346,10 @@ func _client_loaded(fingerprint: String = "") -> void:
 
 func _on_peer_loaded(pid: int) -> void:
 	_loaded_peers[pid] = true
+	if world and state == "results":
+		world.server_sync_late_peer(pid)
+		_show_results.rpc_id(pid, _last_summary)
+		return
 	if world and state == "match":
 		world.server_sync_late_peer(pid)
 		return
@@ -383,12 +420,12 @@ func end_match_to_results(summary: Dictionary) -> void:
 		Online.post_result(summary.get("rows", []))
 	_show_results.rpc(summary)
 	_show_results(summary)
-	var res_s := float(Defs.rule("deathmatch.results_s", 15)) if Net.is_dm() else float(Defs.rule("results_s", 25))
-	get_tree().create_timer(res_s).timeout.connect(_return_to_lobby)
 
 
 @rpc("authority", "call_remote", "reliable")
 func _show_results(summary: Dictionary) -> void:
+	_last_summary = summary.duplicate(true)
+	_viewing_results = true
 	_set_state("results")
 	last_xp = {}
 	if not Net.dedicated:
@@ -416,14 +453,58 @@ func _return_to_lobby() -> void:
 			Net.players.erase(pid)
 	Net.remove_bots()
 	_back_to_lobby.rpc()
-	show_lobby()
-	if arg("autostart") and arg("rematch"):
-		get_tree().create_timer(3.0).timeout.connect(start_match)
+	_back_to_lobby()
 
 
 @rpc("authority", "call_remote", "reliable")
 func _back_to_lobby() -> void:
+	if _viewing_results:
+		# The room can prepare another match while this player keeps reading their stats.
+		_set_state("lobby")
+		teardown_world()
+	else:
+		show_lobby()
+
+
+func results_action(action: String) -> void:
+	if not _viewing_results:
+		return
+	if action == "menu":
+		leave_to_menu()
+	elif action in ["restart", "mode", "loadout", "team"]:
+		if Net.is_server:
+			_handle_results_action(Net.local_pid, action)
+		else:
+			_request_results_action.rpc_id(1, action)
+
+
+@rpc("any_peer", "reliable")
+func _request_results_action(action: String) -> void:
+	if Net.is_server:
+		_handle_results_action(multiplayer.get_remote_sender_id(), action)
+
+
+func _handle_results_action(pid: int, action: String) -> void:
+	if not Net.is_server or state not in ["results", "lobby"] or not Net.players.has(pid):
+		return
+	if action not in ["restart", "mode", "loadout", "team"] or (action == "restart" and pid != Net.room_host()):
+		return
+	if state == "results":
+		_return_to_lobby()
+	Net._broadcast_lobby()
+	if action == "restart":
+		start_match()
+	elif pid == Net.local_pid:
+		_open_results_setup(action)
+	else:
+		_open_results_setup.rpc_id(pid, action)
+
+
+@rpc("authority", "call_remote", "reliable")
+func _open_results_setup(action: String) -> void:
 	show_lobby()
+	if screen and screen.has_method("open_results_setup"):
+		screen.call("open_results_setup", action)
 
 
 func teardown_world() -> void:

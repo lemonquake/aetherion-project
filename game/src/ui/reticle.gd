@@ -33,11 +33,20 @@ func _draw() -> void:
 		# Red dot or holographic ring projected in the sight window.
 		var lit := Color(1.0, 0.15, 0.1, clampf((ch.wpn.ads - 0.6) / 0.3, 0.0, 1.0) * 0.95)
 		var k := get_viewport_rect().size.y / 900.0
-		if str(sight.get("reticle", "dot")) == "holo":
-			draw_arc(c, 17.0 * k, 0.0, TAU, 48, lit, 1.6 * k, true)
-			for d in [Vector2.UP, Vector2.DOWN, Vector2.LEFT, Vector2.RIGHT]:
-				draw_line(c + d * 17.0 * k, c + d * 21.0 * k, lit, 1.6 * k, true)
-		draw_circle(c, 1.9 * k, lit)
+		match str(sight.get("reticle", "dot")):
+			"holo":
+				draw_arc(c, 17.0 * k, 0.0, TAU, 48, lit, 1.6 * k, true)
+				for d in [Vector2.UP, Vector2.DOWN, Vector2.LEFT, Vector2.RIGHT]:
+					draw_line(c + d * 17.0 * k, c + d * 21.0 * k, lit, 1.6 * k, true)
+			"reflex":
+				# r14 reflex sight: an upward chevron on the aim point, a post below and two side ticks (no dot).
+				draw_line(c + Vector2(-7.0, 6.0) * k, c, lit, 1.8 * k, true)
+				draw_line(c + Vector2(7.0, 6.0) * k, c, lit, 1.8 * k, true)
+				draw_line(c + Vector2(0, 10.0) * k, c + Vector2(0, 22.0) * k, lit, 1.8 * k, true)
+				for sx in [-1.0, 1.0]:
+					draw_line(c + Vector2(sx * 14.0, 0) * k, c + Vector2(sx * 22.0, 0) * k, lit, 1.8 * k, true)
+				return
+		draw_circle(c, 2.6 * k, lit)
 		return
 	draw_circle(c + Vector2(1, 1), 1.8, shadow)
 	draw_circle(c, 1.6, col)

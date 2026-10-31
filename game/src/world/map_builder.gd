@@ -27,6 +27,8 @@ const SubStreets := preload("res://src/world/maps/lawless_sub/sub_streets.gd")
 const SubWorks := preload("res://src/world/maps/lawless_sub/sub_works.gd")
 const SubDress := preload("res://src/world/maps/lawless_sub/sub_dress.gd")
 const SubBuildings := preload("res://src/world/maps/lawless_sub/buildings.gd")
+const MallLayout := preload("res://src/world/maps/malasugue_mall/mall_layout.gd")
+const MallBuilder := preload("res://src/world/maps/malasugue_mall/mall_builder.gd")
 
 const GROUND_SHADER := preload("res://src/world/ground.gdshader")
 const WATER_SHADER := preload("res://src/world/water.gdshader")
@@ -72,6 +74,9 @@ var _disposed := false
 func build(world_node: Node3D, map_seed: int, match_seed: int, opts: Dictionary = {}) -> void:
 	if str(opts.get("map", "kalinaw")) == "lawless_sub":
 		_build_sub(world_node, map_seed, match_seed, opts)
+		return
+	if str(opts.get("map", "kalinaw")) == "malasugue_mall":
+		_build_mall(world_node, map_seed, match_seed, opts)
 		return
 	var t0 := Time.get_ticks_msec()
 	_progress(0.02, "Surveying Sitio Kalinaw")
@@ -156,14 +161,96 @@ func _build_sub(world_node: Node3D, map_seed: int, match_seed: int, opts: Dictio
 		var dr = SubDress.new(self)
 		dr.build()
 		stats.dress = dr.stats
-		PaSystem.new(self).build()
-		practical.porch_lights()
+		practical.porch_lights()   # r11: the PA is the cage's speakers (sub_works._perimeter), not pole horns
 	stats.streets = st.stats
 	stats.works = wk.stats
 	_progress(0.86, "Picking the team spawns")
 	lay.pick_spawns()
 	stats.towns_ms = Time.get_ticks_msec() - t0
 	finalize(world_node)
+
+
+func _build_mall(world_node: Node3D, map_seed: int, match_seed: int, opts: Dictionary) -> void:
+	## (r15) Malasugue Mall, the second Deathmatch map: a five-storey mall on a paved block (MallLayout's plan, built by
+	## MallBuilder), a city of plain blocks round it to look out at.
+	var t0 := Time.get_ticks_msec()
+	_progress(0.02, "Unlocking Malasugue Mall")
+	var lay = MallLayout.new(map_seed)
+	stats.layout_ms = Time.get_ticks_msec() - t0
+	setup(world_node, lay, map_seed, match_seed, opts)
+	# Long sightlines across the courts: detail is drawn farther than in a house, and the floors are split into bands
+	# so a floor out of sight (behind its slab) is culled on its own.
+	sink.draw_int = 75.0
+	sink.y_split = lay.FH
+	t0 = Time.get_ticks_msec()
+	_flat_ground()
+	_mall_city()
+	stats.terrain_ms = Time.get_ticks_msec() - t0
+	var mbld = MallBuilder.new(self, lay)
+	mbld.build()
+	stats.mall = mbld.stats
+	_progress(0.78, "Hiding the loot under the counters")
+	dyn.place_deferred()
+	stats.towns_ms = Time.get_ticks_msec() - t0
+	finalize(world_node)
+
+
+func _flat_ground() -> void:
+	## A storeyed map on flat land: one collision plane and nothing to grade (the mall paves its own site).
+	var body := StaticBody3D.new()
+	body.name = "Terrain"
+	body.collision_layer = Defs.PHYS_WORLD
+	body.collision_mask = 0
+	body.set_meta("mat", "concrete")
+	var cs := CollisionShape3D.new()
+	var ws := WorldBoundaryShape3D.new()
+	ws.plane = Plane(Vector3.UP, layout.LAND_Y - 0.03)
+	cs.shape = ws
+	body.add_child(cs)
+	root.add_child(body)
+
+
+func _mall_city() -> void:
+	## Beyond the fence: the streets and blocks of the city round the mall (plain masses with lit windows, seen from the
+	## plaza, the entrances and the court roofs), and paving to the horizon.
+	var half: float = layout.HALF
+	var rng := RandomNumberGenerator.new()
+	rng.seed = 404
+	for side in 4:
+		var n := 9
+		for k in n:
+			var t := -1.0 + (k + 0.5) * 2.0 / n
+			var along := t * (half + 60.0)
+			var dist := half + rng.randf_range(10.0, 45.0)
+			var w := rng.randf_range(18.0, 34.0)
+			var d := rng.randf_range(16.0, 30.0)
+			var h := rng.randf_range(14.0, 70.0)
+			var c := Vector3(along, h * 0.5, dist) if side < 2 else Vector3(dist, h * 0.5, along)
+			if side % 2 == 1:
+				c = Vector3(-c.x, c.y, -c.z) if side == 1 else Vector3(-c.x, c.y, c.z)
+			var col := Color(0.55, 0.56, 0.58).lerp(Color(0.75, 0.7, 0.62), rng.randf())
+			sink.box(Transform3D(Basis(), c), Vector3(w, h, d), "city_windows", {"collide": false, "dirt": 0.0, "tint": col.lightened(0.2), "layer": "ext", "tile": 24.0, "faces": 63 & ~8})
+			sink.box(Transform3D(Basis(), c + Vector3(0, h * 0.5 + 0.4, 0)), Vector3(w + 0.4, 0.8, d + 0.4), "concrete_panels", {"collide": false, "dirt": 0.2, "tint": col, "paint": 0.5, "layer": "ext"})
+	var pm := PlaneMesh.new()
+	pm.size = Vector2(1800, 1800)
+	var mi := MeshInstance3D.new()
+	mi.mesh = pm
+	mi.position = Vector3(0, layout.LAND_Y - 0.06, 0)
+	var sm := StandardMaterial3D.new()
+	sm.albedo_texture = load(TEX + "asphalt_04/albedo.jpg")
+	sm.uv1_scale = Vector3(300, 300, 1)
+	sm.albedo_color = Color(0.7, 0.7, 0.72)
+	sm.roughness = 0.9
+	mi.material_override = sm
+	mi.cast_shadow = GeometryInstance3D.SHADOW_CASTING_SETTING_OFF
+	root.add_child(mi)
+
+
+func belt_at(p: Vector3) -> Vector3:
+	## (r15) The escalator under a body's feet (Malasugue Mall), or ZERO.
+	if layout != null and layout.has_method("belt_at"):
+		return layout.belt_at(p)
+	return Vector3.ZERO
 
 
 func _sub_ground() -> void:
@@ -225,6 +312,7 @@ func setup(world_node: Node3D, layout_obj, map_seed: int, match_seed: int, opts:
 	world_node.add_child(root)
 	layout = layout_obj
 	mats = Materials.new()
+	mats.mall_horror = opts.get("map", "") == "malasugue_mall"
 	if opts.get("map", "") == "lawless_sub":
 		mats.enable_urban_arrays()
 	models = ModelLib.new(mats)
@@ -233,6 +321,8 @@ func setup(world_node: Node3D, layout_obj, map_seed: int, match_seed: int, opts:
 	# The map scan names what it bumps into from the collision boxes as they were made (test runs only).
 	sink.record = str(Game.arg("autotest", "")) == "mapscan" or opts.get("record", false)
 	sink.dump_faces = opts.get("dump_faces", false)
+	# (r15) A dedicated server draws nothing: it builds collision only (unless a test dumps faces).
+	sink.visual = DisplayServer.get_name() != "headless" or sink.dump_faces or opts.get("visual", false)
 	dyn = Dynamics.new(self, world_node, root, mats, models, map_seed, match_seed)
 	# Bodies and render instances made directly on the servers (ground items, dormant props, glass, open box lids)
 	# are freed before the map leaves the tree: on teardown and when the game quits.
@@ -937,6 +1027,15 @@ func server_blast(pos: Vector3, radius: float, damage: float) -> void:
 	for w in dyn.windows:
 		if w.has("door") and not w.door.destroyed and (w.xf as Transform3D).origin.distance_to(pos) < radius + 1.0:
 			hits.append({"collider": w.door})
+	# (r15) Glass near the blast blows out: windows, shopfronts and balustrade panels.
+	for w in dyn.windows:
+		if str(w.type) in ["glass", "plate"] and not w.get("broken", false) and (w.xf as Transform3D).origin.distance_to(pos) < radius * 0.7:
+			var wo: Vector3 = (w.xf as Transform3D).origin
+			var wd := (wo - pos).normalized()
+			if dyn.break_window(int(w.id), wo, wd):
+				world.map_window_broken.rpc(int(w.id), wo, wd)
+				if not world.is_server_dedicated() and world.effects:
+					world.effects.glass_break(wo, wd, w)
 	for r in hits:
 		var c = r.collider
 		if c == null:

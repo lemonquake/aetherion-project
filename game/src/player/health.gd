@@ -27,6 +27,16 @@ var _dirty_t := 0.0
 var dirty := true
 
 
+## Autotests only (r11 walk sweep): no damage taken.
+var test_invulnerable := false
+## (r17) Spawn protection after a Deathmatch respawn: no damage before this server tick (-1: none).
+var shield_until := -1
+
+
+func shielded() -> bool:
+	return shield_until > 0 and Net.tick < shield_until
+
+
 func _init(owner = null) -> void:
 	ch = owner
 	reset()
@@ -138,7 +148,7 @@ func limp_side() -> float:
 func apply_hit(part: String, energy: float, ammo: Dictionary, e0: float, dir: Vector3, seed: int, attacker: int) -> Dictionary:
 	## Returns {damage, absorbed_by, energy_left, killed, downed, armor_broken}
 	var out := {"damage": 0.0, "absorbed_by": "", "energy_left": 0.0, "killed": false, "downed": false, "armor_broken": false}
-	if dead:
+	if dead or test_invulnerable or shielded():
 		out.energy_left = energy * 0.8
 		return out
 	var cfg: Dictionary = Defs.health
@@ -225,7 +235,7 @@ func apply_hit(part: String, energy: float, ammo: Dictionary, e0: float, dir: Ve
 func apply_simple(amount: float, cause: String, part: String = "", attacker: int = -1) -> Dictionary:
 	## Zone damage, falls, landings.
 	var out := {"damage": amount, "killed": false, "downed": false}
-	if dead:
+	if dead or test_invulnerable or shielded():
 		return out
 	health -= amount
 	last_cause = cause
@@ -312,15 +322,28 @@ func treatment_need() -> String:
 			return "splint"
 	if health < 75.0:
 		return "first_aid"
+	if _wounded():
+		return "bandage"
 	if painkiller_t <= 0.0 and (_limb_state("leg_l") > 0.3 or _limb_state("leg_r") > 0.3 or _limb_state("arm_r") > 0.3):
 		return "painkillers"
 	return ""
 
 
+func _wounded() -> bool:
+	## Hurt in a way a bandage helps: health down, or a limb (not a broken one) hurt.
+	if health < float(Defs.health.get("max_health", 100.0)) - 0.5:
+		return true
+	for p in PARTS:
+		if not fractured[p] and parts[p] < max_parts[p] * 0.98:
+			return true
+	return false
+
+
 func can_use(item_id: String) -> bool:
 	match item_id:
 		"bandage":
-			return bleeding_level() > 0
+			# r12: a bandage dresses any wound, not only a bleeding one.
+			return bleeding_level() > 0 or _wounded()
 		"first_aid":
 			return health < 99.0 or bleeding_level() > 0
 		"splint":
@@ -344,9 +367,10 @@ func apply_treatment(item_id: String) -> void:
 				stops -= 1
 	if d.has("heal"):
 		health = minf(health + float(d.heal), float(Defs.health.get("max_health", 100.0)))
+		var k := float(d.get("heal_injury", 0.35))
 		for p in PARTS:
 			if not fractured[p]:
-				parts[p] = minf(parts[p] + max_parts[p] * 0.35, max_parts[p])
+				parts[p] = minf(parts[p] + max_parts[p] * k, max_parts[p])
 	if d.get("fixes_fracture", false):
 		for p in ["leg_l", "leg_r", "arm_r", "arm_l"]:
 			if fractured[p] and not splinted[p]:

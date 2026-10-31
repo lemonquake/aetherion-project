@@ -1,0 +1,26 @@
+[Unit]
+Description=Aetherion stats server (players online, official server list, leaderboard)
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+User=aetherion
+Group=aetherion
+WorkingDirectory=/var/lib/aetherion
+Environment=HOME=/var/lib/aetherion XDG_DATA_HOME=/var/lib/aetherion/data/master
+ExecStart=/opt/aetherion/current/aetherion_server.x86_64 --headless -- --master --master_port=27420 --data=/var/lib/aetherion/stats
+Restart=always
+RestartSec=3
+Nice=5
+MemoryHigh=400M
+MemoryMax=700M
+OOMScoreAdjust=700
+NoNewPrivileges=true
+ProtectSystem=strict
+ProtectHome=true
+ReadWritePaths=/var/lib/aetherion
+PrivateTmp=true
+
+[Install]
+WantedBy=multi-user.target

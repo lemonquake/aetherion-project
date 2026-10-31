@@ -466,6 +466,8 @@ func setup_server(w, cid: int, ch, impulse: Vector3) -> void:
 		rb.linear_velocity = ch.velocity
 	_no_self_overlap(start)
 	_apply_hit(ch, impulse)
+	if ch.has_meta("blast_vel"):
+		_apply_blast(ch.get_meta("blast_vel"))
 	_last_good = _xforms()
 	if DisplayServer.get_name() != "headless":
 		_build_body()
@@ -640,6 +642,20 @@ func _apply_hit(ch, impulse: Vector3) -> void:
 	rb.apply_impulse(impulse * 5.0, off)
 	(bodies.chest as RigidBody3D).apply_central_impulse(impulse * 4.0)
 	(bodies.pelvis as RigidBody3D).apply_central_impulse(impulse * 2.5)
+
+
+func _apply_blast(v: Vector3) -> void:
+	## r14: killed by a grenade: every part is thrown at the blast's speed (a little more for the legs, which are
+	## nearer the ground burst), tumbling over the axis across the throw.
+	var rng := RandomNumberGenerator.new()
+	rng.seed = eid * 7919 + 13
+	var axis := v.cross(Vector3.UP).normalized() if Vector2(v.x, v.z).length() > 0.1 else Vector3.RIGHT
+	var spin := rng.randf_range(5.0, 10.0) * (1.0 if rng.randf() < 0.5 else -1.0)
+	for part in bodies:
+		var rb: RigidBody3D = bodies[part]
+		var low := str(part).contains("leg") or str(part).contains("foot") or str(part) == "pelvis"
+		rb.linear_velocity += v * rng.randf_range(0.9, 1.1) * (1.12 if low else 1.0)
+		rb.angular_velocity += axis * spin + Vector3(rng.randf_range(-2.0, 2.0), rng.randf_range(-2.0, 2.0), rng.randf_range(-2.0, 2.0))
 
 
 func pose() -> Array:

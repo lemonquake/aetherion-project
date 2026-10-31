@@ -45,7 +45,8 @@
     "mag_ext_light",
     "mag_quick_light",
     "mag_extquick_light",
-    "weapon_light"
+    "weapon_light",
+    "sight_reflex"
    ],
    "model": "pistol_9",
    "sound": "p92",
@@ -101,7 +102,8 @@
     "mag_ext_light",
     "mag_quick_light",
     "mag_extquick_light",
-    "weapon_light"
+    "weapon_light",
+    "sight_reflex"
    ],
    "model": "pistol_45",
    "sound": "p1911",
@@ -154,7 +156,8 @@
     ]
    },
    "attachments": [
-    "sight_reddot"
+    "sight_reddot",
+    "sight_reflex"
    ],
    "model": "revolver_357",
    "sound": "revolver_357",
@@ -211,7 +214,9 @@
     "sight_reddot",
     "sight_holo",
     "choke",
-    "bullet_loops"
+    "bullet_loops",
+    "sight_reflex",
+    "duckbill"
    ],
    "model": "shotgun_pump",
    "sound": "shotgun",
@@ -283,7 +288,12 @@
     "laser_sight",
     "mag_ext_light",
     "mag_quick_light",
-    "mag_extquick_light"
+    "mag_extquick_light",
+    "sight_reflex",
+    "scope_night",
+    "grip_thumb",
+    "grip_light",
+    "grip_ergonomic"
    ],
    "model": "smg_9",
    "sound": "smg_9",
@@ -347,7 +357,9 @@
     "mag_ext_light",
     "mag_quick_light",
     "mag_extquick_light",
-    "stock_tactical"
+    "stock_tactical",
+    "sight_reflex",
+    "stock_heavy"
    ],
    "model": "machine_pistol",
    "sound": "smg_9",
@@ -420,7 +432,15 @@
     "mag_extquick_rifle",
     "grip_vertical",
     "grip_angled",
-    "grip_half"
+    "grip_half",
+    "sight_reflex",
+    "scope_lpvo",
+    "scope_night",
+    "scope_thermal",
+    "muzzle_brake",
+    "grip_thumb",
+    "grip_light",
+    "grip_ergonomic"
    ],
    "model": "rifle_556",
    "sound": "rifle_556",
@@ -489,7 +509,12 @@
     "laser_sight",
     "mag_ext_rifle",
     "mag_quick_rifle",
-    "mag_extquick_rifle"
+    "mag_extquick_rifle",
+    "sight_reflex",
+    "scope_lpvo",
+    "scope_night",
+    "scope_thermal",
+    "muzzle_brake"
    ],
    "model": "rifle_762",
    "sound": "rifle_762",
@@ -550,7 +575,11 @@
     "suppressor_rifle",
     "cheek_pad",
     "bullet_loops",
-    "mag_ext_sniper"
+    "mag_ext_sniper",
+    "sight_reflex",
+    "scope_thermal",
+    "scope_15x",
+    "muzzle_brake"
    ],
    "model": "bolt_308",
    "sound": "m24",
@@ -652,7 +681,7 @@
    },
    "attachments": [],
    "model": "sumpak",
-   "sound": "shotgun",
+   "sound": "sumpak",
    "handed": "rifle",
    "hold": [
     0.6,
@@ -711,7 +740,13 @@
     "compensator",
     "flash_hider",
     "cheek_pad",
-    "mag_ext_sniper"
+    "mag_ext_sniper",
+    "sight_reflex",
+    "scope_lpvo",
+    "scope_night",
+    "scope_thermal",
+    "scope_15x",
+    "muzzle_brake"
    ],
    "mag_ext": 30,
    "model": "marksman_308",
@@ -784,7 +819,15 @@
     "mag_extquick_rifle",
     "grip_vertical",
     "grip_angled",
-    "grip_half"
+    "grip_half",
+    "sight_reflex",
+    "scope_lpvo",
+    "scope_night",
+    "scope_thermal",
+    "muzzle_brake",
+    "grip_thumb",
+    "grip_light",
+    "grip_ergonomic"
    ],
    "model": "rifle_scar",
    "sound": "scar",
@@ -858,7 +901,16 @@
     "grip_vertical",
     "grip_angled",
     "grip_half",
-    "stock_tactical"
+    "stock_tactical",
+    "sight_reflex",
+    "scope_lpvo",
+    "scope_night",
+    "scope_thermal",
+    "muzzle_brake",
+    "grip_thumb",
+    "grip_light",
+    "grip_ergonomic",
+    "stock_heavy"
    ],
    "model": "rifle_m416",
    "sound": "m416",
@@ -921,7 +973,13 @@
     "scope_4x",
     "scope_6x",
     "weapon_light",
-    "laser_sight"
+    "laser_sight",
+    "sight_reflex",
+    "scope_lpvo",
+    "scope_night",
+    "scope_thermal",
+    "muzzle_brake",
+    "stock_heavy"
    ],
    "model": "lmg_m249",
    "sound": "m249",
@@ -982,7 +1040,13 @@
     "compensator",
     "flash_hider",
     "cheek_pad",
-    "mag_ext_sniper"
+    "mag_ext_sniper",
+    "sight_reflex",
+    "scope_lpvo",
+    "scope_night",
+    "scope_thermal",
+    "scope_15x",
+    "muzzle_brake"
    ],
    "mag_ext": 30,
    "model": "dmr_mini14",
@@ -1054,7 +1118,15 @@
     "mag_extquick_rifle",
     "grip_vertical",
     "grip_angled",
-    "grip_half"
+    "grip_half",
+    "sight_reflex",
+    "scope_lpvo",
+    "scope_night",
+    "scope_thermal",
+    "muzzle_brake",
+    "grip_thumb",
+    "grip_light",
+    "grip_ergonomic"
    ],
    "model": "rifle_m762",
    "sound": "m762",
@@ -1116,7 +1188,13 @@
     "compensator",
     "flash_hider",
     "cheek_pad",
-    "mag_ext_sniper"
+    "mag_ext_sniper",
+    "sight_reflex",
+    "scope_lpvo",
+    "scope_night",
+    "scope_thermal",
+    "scope_15x",
+    "muzzle_brake"
    ],
    "mag_ext": 20,
    "model": "dmr_sks",
@@ -1176,7 +1254,11 @@
     "scope_8x",
     "suppressor_rifle",
     "cheek_pad",
-    "bullet_loops"
+    "bullet_loops",
+    "sight_reflex",
+    "scope_thermal",
+    "scope_15x",
+    "muzzle_brake"
    ],
    "model": "bolt_kar98",
    "sound": "kar98",
@@ -1245,7 +1327,12 @@
     "laser_sight",
     "mag_ext_light",
     "mag_quick_light",
-    "mag_extquick_light"
+    "mag_extquick_light",
+    "sight_reflex",
+    "scope_night",
+    "grip_thumb",
+    "grip_light",
+    "grip_ergonomic"
    ],
    "model": "smg_ump45",
    "sound": "ump45",
@@ -1315,7 +1402,13 @@
     "mag_ext_light",
     "mag_quick_light",
     "mag_extquick_light",
-    "stock_tactical"
+    "stock_tactical",
+    "sight_reflex",
+    "scope_night",
+    "grip_thumb",
+    "grip_light",
+    "grip_ergonomic",
+    "stock_heavy"
    ],
    "model": "smg_vector",
    "sound": "vector",
@@ -1374,7 +1467,10 @@
     "mag_ext_light",
     "mag_quick_light",
     "mag_extquick_light",
-    "grip_vertical"
+    "grip_vertical",
+    "grip_thumb",
+    "grip_light",
+    "grip_ergonomic"
    ],
    "model": "smg_tommy",
    "sound": "tommy",
@@ -1433,7 +1529,9 @@
     "mag_ext_rifle",
     "mag_quick_rifle",
     "mag_extquick_rifle",
-    "compensator"
+    "compensator",
+    "sight_reflex",
+    "duckbill"
    ],
    "model": "shotgun_saiga",
    "sound": "saiga",
@@ -1489,7 +1587,8 @@
     "mag_ext_light",
     "mag_quick_light",
     "mag_extquick_light",
-    "weapon_light"
+    "weapon_light",
+    "sight_reflex"
    ],
    "model": "pistol_deagle",
    "sound": "deagle",
@@ -1501,6 +1600,71 @@
     0.3,
     0.35
    ]
+  },
+  "bolt_awp": {
+   "name": "AWP",
+   "class": "precision",
+   "slot": "long",
+   "ammo": "308",
+   "feed": "mag",
+   "mag_size": 5,
+   "chamber": true,
+   "fire_modes": [
+    "bolt"
+   ],
+   "rpm": 50,
+   "cycle_time": 1.25,
+   "muzzle_velocity": 850,
+   "mass": 6.4,
+   "draw_time": 1.05,
+   "ads_time": 0.45,
+   "reload_time": 2.9,
+   "reload_empty_time": 3.4,
+   "spread_hip": 3.2,
+   "spread_ads": 0.02,
+   "move_spread": 2.4,
+   "sight_zoom": 1.25,
+   "loudness": 1350,
+   "recoil": {
+    "kick_up": 6.6,
+    "kick_side": 0.9,
+    "camera_share": 0.55,
+    "climb": 0.0,
+    "recovery": 9,
+    "max_climb": 9,
+    "pattern": [
+     0.3,
+     -0.5
+    ]
+   },
+   "attachments": [
+    "sight_reddot",
+    "sight_holo",
+    "scope_2x",
+    "scope_3x",
+    "scope_4x",
+    "scope_6x",
+    "scope_8x",
+    "suppressor_rifle",
+    "cheek_pad",
+    "bullet_loops",
+    "mag_ext_sniper",
+    "sight_reflex",
+    "scope_thermal",
+    "scope_15x",
+    "muzzle_brake"
+   ],
+   "model": "bolt_308",
+   "sound": "awp",
+   "handed": "rifle",
+   "mag_ext": 8,
+   "value": 7.2,
+   "hold": [
+    0.76,
+    0.45,
+    0.45,
+    0.6
+   ]
   }
  },
  "attachments": {
@@ -1509,7 +1673,7 @@
    "kind": "sight",
    "zoom": 1.3,
    "ads_time_mult": 1.0,
-   "axis": 0.03,
+   "axis": 0.042,
    "reticle": "dot",
    "mass": 0.12
   },
@@ -1518,7 +1682,7 @@
    "kind": "sight",
    "zoom": 1.3,
    "ads_time_mult": 1.0,
-   "axis": 0.034,
+   "axis": 0.049,
    "reticle": "holo",
    "mass": 0.32
   },
@@ -1735,6 +1899,111 @@
    "reload_mult": 0.75,
    "rank": 1.6,
    "mass": 0.1
+  },
+  "sight_reflex": {
+   "name": "Reflex Sight",
+   "kind": "sight",
+   "zoom": 1.15,
+   "ads_time_mult": 0.95,
+   "axis": 0.032,
+   "reticle": "reflex",
+   "mass": 0.15
+  },
+  "scope_lpvo": {
+   "name": "1-4x Variable Scope",
+   "kind": "sight",
+   "zoom": 4.0,
+   "zoom_min": 1.0,
+   "ads_time_mult": 1.18,
+   "axis": 0.045,
+   "reticle": "horseshoe",
+   "scope": true,
+   "mass": 0.55
+  },
+  "scope_night": {
+   "name": "3x Night Vision Scope",
+   "kind": "sight",
+   "zoom": 3.0,
+   "ads_time_mult": 1.2,
+   "axis": 0.05,
+   "reticle": "stadia",
+   "scope": true,
+   "filter": "night",
+   "mass": 0.7
+  },
+  "scope_thermal": {
+   "name": "4x Thermal Scope",
+   "kind": "sight",
+   "zoom": 4.0,
+   "ads_time_mult": 1.25,
+   "axis": 0.052,
+   "reticle": "thermal",
+   "scope": true,
+   "filter": "thermal",
+   "mass": 0.8
+  },
+  "scope_15x": {
+   "name": "15x Sniper Scope",
+   "kind": "sight",
+   "zoom": 15.0,
+   "ads_time_mult": 1.55,
+   "axis": 0.062,
+   "reticle": "tree",
+   "scope": true,
+   "mass": 0.95
+  },
+  "muzzle_brake": {
+   "name": "Muzzle Brake",
+   "kind": "muzzle",
+   "recoil_up_mult": 0.74,
+   "recoil_side_mult": 0.88,
+   "loudness_mult": 1.25,
+   "flash_mult": 1.3,
+   "rank": 2.4,
+   "mass": 0.12
+  },
+  "duckbill": {
+   "name": "Duckbill Choke",
+   "kind": "muzzle",
+   "pellet_spread_mult": 0.8,
+   "recoil_up_mult": 0.95,
+   "rank": 1.8,
+   "mass": 0.07
+  },
+  "grip_thumb": {
+   "name": "Thumb Grip",
+   "kind": "grip",
+   "ads_time_mult": 0.85,
+   "recoil_up_mult": 0.94,
+   "rank": 2.1,
+   "mass": 0.06
+  },
+  "grip_light": {
+   "name": "Lightweight Grip",
+   "kind": "grip",
+   "recovery_mult": 1.28,
+   "sway_mult": 0.92,
+   "recoil_up_mult": 1.03,
+   "rank": 1.9,
+   "mass": 0.05
+  },
+  "grip_ergonomic": {
+   "name": "Ergonomic Grip",
+   "kind": "grip",
+   "ads_time_mult": 0.9,
+   "recovery_mult": 1.15,
+   "recoil_side_mult": 0.92,
+   "rank": 2.0,
+   "mass": 0.09
+  },
+  "stock_heavy": {
+   "name": "Heavy Stock",
+   "kind": "stock",
+   "sway_mult": 0.7,
+   "recoil_side_mult": 0.84,
+   "ads_time_mult": 1.08,
+   "rank": 2.1,
+   "mass": 0.6
   }
  }
 }

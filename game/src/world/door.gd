@@ -385,6 +385,8 @@ func anchor_node() -> Node3D:
 
 func panel_strength() -> float:
 	## Damage a panel takes before it is shot out (a 9 mm round does about 40, a rifle round 150 or more).
+	if spec.get("glass", false):
+		return 1.0   # (r15) tempered glass: any round bursts the whole leaf (lose_panel)
 	var m := "planks_paint" if is_shutter else str(spec.get("mat", "plywood"))
 	if m.contains("metal") or m.contains("steel") or m.contains("iron"):
 		return 170.0
@@ -411,7 +413,7 @@ func lose_panel(i: int) -> bool:
 	if destroyed or lost.has(i):
 		return false
 	lost[i] = true
-	if Destruct.door_collapses(panels(), lost):
+	if spec.get("glass", false) or Destruct.door_collapses(panels(), lost):
 		destroy()
 		return true
 	_rebuild()

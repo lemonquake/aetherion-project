@@ -1,0 +1,50 @@
+# Aetherion Project website, launcher updates and stats API (tools/release/vps/install.sh, docs/HOSTING.md).
+# Imported by /etc/caddy/Caddyfile ("import /etc/caddy/sites/*.caddy"); Caddy gets and renews the certificate itself.
+aetherion.15-235-246-87.sslip.io {
+	encode zstd gzip
+	header {
+		X-Content-Type-Options nosniff
+		Referrer-Policy strict-origin-when-cross-origin
+		-Server
+	}
+
+	# The in-game stats server (players online, official servers, leaderboard), only on this path.
+	handle_path /api/* {
+		request_body {
+			max_size 256KB
+		}
+		reverse_proxy 127.0.0.1:27420
+	}
+
+	# Signed releases and the content-addressed chunk store the launchers download from.
+	handle /updates/* {
+		root * /srv/aetherion
+		@hidden path /updates/next/* /updates/history/*
+		respond @hidden 404
+		@meta path */release.json
+		header @meta Cache-Control "no-store"
+		@chunks path /updates/chunks/*
+		header @chunks Cache-Control "public, max-age=31536000, immutable"
+		file_server
+	}
+
+	handle /downloads/* {
+		root * /srv/aetherion
+		header Cache-Control "no-cache"
+		file_server
+	}
+
+	handle {
+		root * /srv/aetherion/site
+		header Content-Security-Policy "default-src 'self'; img-src 'self' data:; style-src 'self'; script-src 'self'; font-src 'self'; connect-src 'self'; media-src 'self'; frame-ancestors 'none'; base-uri 'self'; form-action 'self'"
+		file_server
+	}
+
+	log {
+		output file /var/log/caddy/aetherion-access.log {
+			roll_size 10MiB
+			roll_keep 5
+			roll_keep_for 168h
+		}
+	}
+}

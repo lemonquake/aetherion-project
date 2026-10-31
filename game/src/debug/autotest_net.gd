@@ -20,7 +20,7 @@ var _radio_seen := false
 
 func _ready() -> void:
 	world = get_parent()
-	role = "a" if str(Game.arg("autotest")) == "net_a" else "b"
+	role = {"net_a": "a", "net_dm": "dm"}.get(str(Game.arg("autotest")), "b")
 	out_dir = str(Game.arg("shots", "user://autotest_net"))
 	DirAccess.make_dir_recursive_absolute(out_dir)
 	Net.voice_received.connect(func(_pid, _b, _s, _k): _voice_in += 1)
@@ -39,9 +39,60 @@ func _run() -> void:
 	_check("connected_as_client", Net.online and not Net.is_server, "pid %d, rtt %.0f ms" % [Net.local_pid, Net.rtt_s * 1000.0])
 	if role == "a":
 		await _role_a()
+	elif role == "dm":
+		await _role_dm()
 	else:
 		await _role_b()
 	_finish()
+
+
+# ------------------------------------------------------------------ r17: a Deathmatch respawn round, as a client
+
+func _score_sum() -> int:
+	var n := 0
+	var sc: Dictionary = world.match_info.get("score", {})
+	for k in sc:
+		n += int(sc[k])
+	return n
+
+
+func _role_dm() -> void:
+	## (--autotest=net_dm, server: --game_mode=deathmatch --map=malasugue_mall --dm_win=score --testcheats) This client
+	## starts on its team's floor, is killed (test op "die": the nearest enemy gets the kill), sees the countdown, comes
+	## back in a new body it controls and can run in, and the killer's team scored.
+	await _until(func(): return world.match_info.has("score"), 10.0)
+	var y0: float = ch.global_position.y
+	var lv := int(round(y0 / 5.0))
+	_check("dm_floor", lv in [0, 2, 4] and absf(y0 - lv * 5.0) < 1.2, "started at %s: Level %d" % [str(ch.global_position.round()), lv + 1])
+	await _wait(1.0)
+	var eid0: int = ch.eid
+	var s0 := _score_sum()
+	world.test_cmd({"op": "die"})
+	await _until(func(): return world.local_char == null, 5.0)
+	await _wait(1.5)
+	var lbl: Label = world.hud._respawn_label if world.hud else null
+	var countdown := lbl.text if lbl and lbl.visible else ""
+	await _shot("dm_countdown")
+	var back := await _until(func(): return world.local_char != null and world.local_char.eid != eid0, 10.0)
+	await _wait(0.5)
+	ch = world.local_char
+	ctl = world.controller
+	var s1 := _score_sum()
+	_check("dm_respawn", countdown.begins_with("Respawning") and back and ctl != null and ctl.ch == ch,
+		"countdown \"%s\"; back %s as eid %d (was %d) at %s, controlled %s" % [countdown, back, ch.eid if ch else -1, eid0,
+		str(ch.global_position.round()) if ch else "-", ctl != null and ctl.ch == ch])
+	_check("dm_kill_scored", s1 == s0 + 1, "team scores summed %d -> %d" % [s0, s1])
+	if ch == null:
+		return
+	var p0: Vector3 = ch.global_position
+	var c0: int = ctl.stats.corrections
+	ctl.stats.max_error = 0.0
+	await _hold("move_forward", 1.5)
+	await _wait(0.5)
+	var moved := Vector2(ch.global_position.x - p0.x, ch.global_position.z - p0.z).length()
+	_check("dm_respawn_moves", moved > 2.0 and ctl.stats.max_error < 0.75, "ran %.1f m in the new body; prediction max error %.3f m, %d corrections" % [
+		moved, ctl.stats.max_error, ctl.stats.corrections - c0])
+	await _shot("dm_back")
 
 
 # ------------------------------------------------------------------ Alpha: makes changes
@@ -74,6 +125,7 @@ func _role_a() -> void:
 		await _wait(0.04)
 	_state_put({"radio": Net.local_pid})
 	await _item_race()
+	await _field_predicted()
 	await _shot("alpha_end")
 	_state_put({"a_done": true})
 	await _until(func(): return _state_get().has("b_done"), 40.0)
@@ -119,13 +171,24 @@ func _door() -> void:
 func _window() -> void:
 	var best = null
 	var bd := INF
+	var space: PhysicsDirectSpaceState3D = world.get_world_3d().direct_space_state
 	for w in world.map.dyn.windows:
 		if str(w.get("type", "")) != "glass" or w.get("broken", false) or not w.has("outward"):
 			continue
 		var dist: float = (w.xf as Transform3D).origin.distance_to(ch.global_position)
-		if dist < bd:
-			bd = dist
-			best = w
+		if dist >= bd:
+			continue
+		# The shot is taken from 3 m out: nothing (a fence, a stall) may stand between there and the glass.
+		var wc: Vector3 = (w.xf as Transform3D).origin
+		var wo: Vector3 = w.outward
+		wo.y = 0.0
+		var from := wc + wo.normalized() * 3.0
+		from.y = world.map.ground_height(from.x, from.z) + 1.5
+		var hit := space.intersect_ray(PhysicsRayQueryParameters3D.create(from, wc, Defs.SHOT_MASK))
+		if hit.is_empty() or hit.collider == null or not hit.collider.has_meta("window_id") or int(hit.collider.get_meta("window_id")) != int(w.id):
+			continue
+		bd = dist
+		best = w
 	if best == null:
 		_check("window_break", false, "no glass window")
 		return
@@ -228,6 +291,10 @@ func _holding(item_id: String) -> int:
 	for sl in ch.wpn.slots:
 		if sl != null and str(sl.get("id", "")) == item_id:
 			n += 1
+		if sl != null:
+			for a in sl.get("att", []):   # (r17) a scope or grip taken is fitted to a gun at once
+				if str(a) == item_id or (a is Dictionary and str(a.get("id", "")) == item_id):
+					n += 1
 	return n
 
 
@@ -268,14 +335,29 @@ func _role_b() -> void:
 	if alpha and is_instance_valid(alpha):
 		var ok3: bool = await _until(func(): return is_instance_valid(alpha) and (alpha.flags & Character.F_LIGHT) != 0, 5.0)
 		_check("flashlight_seen_by_other", ok3, "Alpha flags %d" % (alpha.flags if is_instance_valid(alpha) else -1))
-		# Watch for the radio flag while Alpha transmits.
+		# Watch for the radio flag while Alpha transmits. r13: no radio static from Alpha's or Bravo's own radio (static
+		# is for enemies near a transmitting radio).
+		SoundSys.trace_on = true
+		var tr0: int = SoundSys.trace.size()
+		var mate_static := 0
 		var t := 0.0
-		while t < 6.0 and not _state_get().has("radio"):
+		var t_radio := -1.0
+		while t < 7.5 and (t_radio < 0.0 or t < t_radio + 1.0):
+			if t_radio < 0.0 and _state_get().has("radio"):
+				t_radio = t
 			if is_instance_valid(alpha) and (alpha.flags & Character.F_RADIO) != 0:
 				_radio_seen = true
+			for i in range(tr0, SoundSys.trace.size()):
+				var e: Array = SoundSys.trace[i]
+				if str(e[1]) == "radio_static" and e.size() > 3:
+					for o in [alpha, ch]:
+						if is_instance_valid(o) and (e[3] as Vector3).distance_to(o.global_position + Vector3.UP * 1.35) < 3.0:
+							mate_static += 1
+			tr0 = SoundSys.trace.size()
 			await get_tree().physics_frame
 			t += 1.0 / 60.0
 		_check("radio_cue_seen_by_teammate", _radio_seen or _voice_in > 0, "radio flag seen %s, %d voice packets" % [str(_radio_seen), _voice_in])
+		_check("radio_static_not_for_teammates", mate_static == 0, "radio static from Alpha's or Bravo's radio heard by Bravo: %d" % mate_static)
 	await _until(func(): return _state_get().has("race_item"), 60.0)
 	var st := _state_get()
 	if not st.has("race_item"):
@@ -285,7 +367,87 @@ func _role_b() -> void:
 	_state_put({"b_got": got})
 	await _shot("bravo_end")
 	await _until(func(): return _state_get().has("a_done"), 40.0)
+	await _static_from_enemy()
 	_state_put({"b_done": true})
+
+
+func _static_from_enemy() -> void:
+	## r13: an enemy bot 7 m off calls out on its radio; Bravo hears its radio's static and its voice (server events
+	## sent to this client only because it is close).
+	SoundSys.trace_on = true
+	var tr0: int = SoundSys.trace.size()
+	world.test_cmd({"op": "bot_say", "line": "contact"})
+	var got := {}
+	await _until(func():
+		for i in range(tr0, SoundSys.trace.size()):
+			var e: Array = SoundSys.trace[i]
+			if e.size() > 3 and (e[3] as Vector3).distance_to(ch.global_position) > 3.0:
+				if str(e[1]) == "radio_static":
+					got.static = true
+				elif str(e[1]).begins_with("vox_enemy_spotted_") or str(e[1]).begins_with("botr_contact_"):
+					got.voice = true
+		return got.has("static") and got.has("voice"), 4.0)
+	_check("radio_static_from_enemy", got.has("static") and got.has("voice"),
+		"an enemy bot's callout 7 m away: its radio static heard %s, its voice heard %s" % [str(got.has("static")), str(got.has("voice"))])
+
+
+# ------------------------------------------------------------------ r12: the forcefield, predicted
+
+func _field_predicted() -> void:
+	## The forcefield's edge passes over Alpha, standing on open ground, and carries them in for 6 s: the client
+	## predicts its own push (Field.apply in Motor), so its position must agree with the server's. The server applies
+	## this field to Alpha only (test command "zone"); this client feels it the same way.
+	var space = world.get_world_3d().direct_space_state
+	var p: Vector3 = ch.global_position
+	var way := Vector3.ZERO
+	# Open ground: a spot near Alpha (out to 60 m) with a clear 22 m run in some direction; Alpha goes there.
+	var found := false
+	for ring in [0.0, 15.0, 30.0, 45.0, 60.0]:
+		for j in (1 if ring == 0.0 else 8):
+			var q0: Vector3 = ch.global_position + Vector3(cos(j * TAU / 8.0), 0.0, sin(j * TAU / 8.0)) * ring
+			var down = space.intersect_ray(PhysicsRayQueryParameters3D.create(q0 + Vector3.UP * 8.0, q0 + Vector3.DOWN * 8.0, Defs.MOVE_MASK))
+			if down.is_empty() or world.map.acoustics.zone_at((down.position as Vector3) + Vector3.UP * 0.5) != 0:
+				continue
+			var cp: Vector3 = (down.position as Vector3) + Vector3.UP * 0.05
+			for k in 16:
+				var d := Vector3(cos(k * TAU / 16.0), 0.0, sin(k * TAU / 16.0))
+				var clear := true
+				for hh in [0.5, 1.3]:
+					if not space.intersect_ray(PhysicsRayQueryParameters3D.create(cp + Vector3.UP * hh, cp + Vector3.UP * hh + d * 22.0, Defs.MOVE_MASK)).is_empty():
+						clear = false
+				if clear:
+					way = d
+					p = cp
+					found = true
+					break
+			if found:
+				break
+		if found:
+			break
+	if not found:
+		_check("field_predicted", false, "no open ground 22 m long within 60 m of %s" % str(ch.global_position.round()))
+		return
+	if p.distance_to(ch.global_position) > 0.5:
+		await _teleport(p, p + way * 10.0 + Vector3.UP * 1.6)
+		p = ch.global_position
+	# Centre 60 m away along the open way; the edge starts 1.5 m behind Alpha and closes at 3 m/s.
+	var c := Vector2(p.x, p.z) + Vector2(way.x, way.z) * 60.0
+	world.test_cmd({"op": "zone", "c": c, "r0": 61.5, "r1": 30.0, "secs": 10.5})
+	await _until(func(): return Field.live(world.match_info.get("zone", {})), 3.0)
+	var c0: int = ctl.stats.corrections
+	ctl.stats.max_error = 0.0
+	ctl.stats.err_sum = 0.0
+	ctl.stats.err_n = 0
+	var h0: float = float(ch.health.health) if ch.health else 100.0
+	await _wait(6.0)
+	var moved := Vector2(ch.global_position.x - p.x, ch.global_position.z - p.z).dot(Vector2(way.x, way.z))
+	var mean := float(ctl.stats.err_sum) / maxf(float(ctl.stats.err_n), 1.0)
+	world.test_cmd({"op": "zone_restore"})
+	var alive = ch.mode == Motor.GROUND
+	_check("field_predicted", alive and moved > 8.0 and mean < 0.1,
+		"carried %.1f m in by the field (the edge closed 18 m); mean prediction error %.3f m over %d acks (max %.3f m), %d corrections; alive %s, health %.0f -> %.0f" % [
+		moved, mean, int(ctl.stats.err_n), ctl.stats.max_error, ctl.stats.corrections - c0, str(alive), h0, float(ch.health.health) if ch.health else -1.0])
+	await _wait(0.5)
 
 
 # ------------------------------------------------------------------ helpers

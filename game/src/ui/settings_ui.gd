@@ -148,7 +148,23 @@ func _slider(section: String, key: String, lo: float, hi: float, step: float, fm
 
 func _graphics() -> Control:
 	var p := _page("Graphics")
+	if OS.has_feature("pc"):
+		# (r17) Safe graphics: the OpenGL renderer, for laptops whose Vulkan driver crashes or runs out of memory.
+		var GfxSafety := preload("res://src/core/gfx_safety.gd")
+		var r := OptionButton.new()
+		r.add_item("Standard (Vulkan)")
+		r.add_item("Safe graphics (OpenGL, older laptops)")
+		r.select(1 if GfxSafety.safe_saved() else 0)
+		var now := "Safe graphics" if GfxSafety.safe_on() else "Standard"
+		r.item_selected.connect(func(i): GfxSafety.user_chose(i == 1))
+		_row(p, "Renderer", r, "Changes from the next start (now running: %s). Pick Safe graphics if the game crashes or stutters on an older laptop or an Intel graphics chip." % now)
 	_row(p, "Window", _option("graphics", "window_mode", [["windowed", "Windowed"], ["borderless", "Borderless fullscreen"], ["fullscreen", "Fullscreen"]]))
+	if not OS.has_feature("mobile"):
+		var mons := [[-1, "Primary display"]]
+		for i in DisplayServer.get_screen_count():
+			var sz := DisplayServer.screen_get_size(i)
+			mons.append([i, "Display %d  ·  %d × %d%s" % [i + 1, sz.x, sz.y, "  (primary)" if i == DisplayServer.get_primary_screen() else ""]])
+		_row(p, "Monitor", _option("graphics", "monitor", mons), "Which display the game uses in Fullscreen and Borderless (and where a window opens).")
 	_row(p, "Window size", _option("graphics", "resolution", [["1280x720", "1280 × 720"], ["1600x900", "1600 × 900"], ["1920x1080", "1920 × 1080"], ["2560x1440", "2560 × 1440"], ["3840x2160", "3840 × 2160"]]))
 	_row(p, "Vertical sync", _check("graphics", "vsync"))
 	_row(p, "Frame rate limit", _option("graphics", "max_fps", [[0, "Unlimited"], [30, "30"], [60, "60"], [90, "90"], [120, "120"], [144, "144"]]))
@@ -200,6 +216,7 @@ func _gameplay() -> Control:
 	var p := _page("Gameplay")
 	_row(p, "Laser pointer colour", laser_picker(), "Hold %s to point your laser. Everyone sees the beam and its dot, enemies included, and bots may follow it back to you." % Settings.binding_label("laser"))
 	_row(p, "Teammate names", _check("gameplay", "ally_names"), "Names over your teammates' heads; teammates also show on the minimap.")
+	_row(p, "Highlight loot that suits you", _check("gameplay", "loot_highlight"), "Ammunition for your guns, attachments that improve them and better armour are outlined green on the ground.")
 	_row(p, "Bots learn", _check("gameplay", "bot_learning"),
 		"Bots remember spots that worked (good, safe or sniping spots where they scored or survived) and spots where they died, share them with their team during a match, and keep them for the next match on this map. Off: every match starts from scratch.")
 	return p
@@ -345,6 +362,8 @@ func _access() -> Control:
 	_row(p, "SmarTab text size", _slider("accessibility", "smartab_text_scale", 0.8, 2.0, 0.05, "%.2f"))
 	_row(p, "SmarTab screen brightness", _slider("accessibility", "smartab_brightness", 0.15, 1.0, 0.05, "%.2f"),
 		"A brighter screen is easier to read and easier for others to spot in the dark.")
+	_row(p, "SmarTab opacity", _slider("accessibility", "smartab_opacity", 0.5, 1.0, 0.05, "%.2f"),
+		"How much of the world the hologram hides behind it. Lower lets you see more of what is around you.")
 	_row(p, "Reduce flashes", _check("accessibility", "reduce_flashes"), "Dims muzzle flashes and flickering bulbs.")
 	return p
 

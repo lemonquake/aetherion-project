@@ -259,7 +259,9 @@
     "assets/audio/sleep/footsteps/footstep_concrete_001.ogg",
     "assets/audio/sleep/footsteps/footstep_concrete_002.ogg",
     "assets/audio/sleep/footsteps/footstep_concrete_003.ogg",
-    "assets/audio/sleep/footsteps/footstep_concrete_004.ogg"
+    "assets/audio/sleep/footsteps/footstep_concrete_004.ogg",
+    "assets/audio/r13/footstep_on_cement1.ogg",
+    "assets/audio/r13/footstep_on_cement2.ogg"
    ],
    "db": -3.0,
    "dist": 24.0,
@@ -273,7 +275,12 @@
     "assets/audio/sleep/footsteps/footstep_dirt_001.ogg",
     "assets/audio/sleep/footsteps/footstep_dirt_002.ogg",
     "assets/audio/sleep/footsteps/footstep_dirt_003.ogg",
-    "assets/audio/sleep/footsteps/footstep_dirt_004.ogg"
+    "assets/audio/sleep/footsteps/footstep_dirt_004.ogg",
+    "assets/audio/r13/footstep_on_dirt1.ogg",
+    "assets/audio/r13/footstep_on_dirt2.ogg",
+    "assets/audio/r13/footstep_on_dirt3.ogg",
+    "assets/audio/r13/footstep_on_dirt4.ogg",
+    "assets/audio/r13/footstep_on_dirt5.ogg"
    ],
    "db": -4.0,
    "dist": 20.0,
@@ -287,7 +294,10 @@
     "assets/audio/sleep/footsteps/footstep_metal_001.ogg",
     "assets/audio/sleep/footsteps/footstep_metal_002.ogg",
     "assets/audio/sleep/footsteps/footstep_metal_003.ogg",
-    "assets/audio/sleep/footsteps/footstep_metal_004.ogg"
+    "assets/audio/sleep/footsteps/footstep_metal_004.ogg",
+    "assets/audio/r13/footstep_on_metal_1.ogg",
+    "assets/audio/r13/footstep_on_metal_2.ogg",
+    "assets/audio/r13/footstep_on_metal_grating.ogg"
    ],
    "db": 0.0,
    "dist": 30.0,
@@ -455,7 +465,10 @@
     "assets/audio/r6/impact_wood_6.wav",
     "assets/audio/r6/impact_wood_7.wav",
     "assets/audio/work/guns/wood_hit1.mp3",
-    "assets/audio/work/guns/wood_hit2.mp3"
+    "assets/audio/work/guns/wood_hit2.mp3",
+    "assets/audio/r13/hit_wood1.ogg",
+    "assets/audio/r13/hit_wood2.ogg",
+    "assets/audio/r13/hit_wood3.ogg"
    ],
    "pitch": 0.04,
    "db": -2.0,
@@ -474,7 +487,11 @@
     "assets/audio/work/guns/wall_hit1.mp3",
     "assets/audio/work/guns/wall_hit2.mp3",
     "assets/audio/work/guns/wall_hit3.mp3",
-    "assets/audio/work/guns/wall_hit4.mp3"
+    "assets/audio/work/guns/wall_hit4.mp3",
+    "assets/audio/r13/hit_cement1.ogg",
+    "assets/audio/r13/hit_cement2.ogg",
+    "assets/audio/r13/hit_cement3.ogg",
+    "assets/audio/r13/hit_cement4.ogg"
    ],
    "pitch": 0.04,
    "db": -2.0,
@@ -494,7 +511,12 @@
     "assets/audio/r6/impact_metal_7.wav",
     "assets/audio/work/guns/metal_hit1.mp3",
     "assets/audio/work/guns/metal_hit2.mp3",
-    "assets/audio/work/guns/metal_hit3.mp3"
+    "assets/audio/work/guns/metal_hit3.mp3",
+    "assets/audio/r13/hit_metal1.ogg",
+    "assets/audio/r13/hit_metal2.ogg",
+    "assets/audio/r13/hit_metal3.ogg",
+    "assets/audio/r13/hit_metal4.ogg",
+    "assets/audio/r13/hit_metal5.ogg"
    ],
    "pitch": 0.04,
    "db": 0.0,
@@ -596,7 +618,12 @@
     "assets/audio/r6/impact_flesh_6.wav",
     "assets/audio/r6/impact_flesh_7.wav",
     "assets/audio/r6/impact_flesh_8.wav",
-    "assets/audio/r6/impact_flesh_9.wav"
+    "assets/audio/r6/impact_flesh_9.wav",
+    "assets/audio/r13/body_hit.ogg",
+    "assets/audio/r13/body_hit2.ogg",
+    "assets/audio/r13/body_hit3.ogg",
+    "assets/audio/r13/body_hit4.ogg",
+    "assets/audio/r13/body_hit5.ogg"
    ],
    "pitch": 0.04,
    "db": -1.0,
@@ -1097,14 +1124,15 @@
   },
   "radio_static": {
    "files": [
-    "assets/audio/synth/radio_static.wav"
+    "assets/audio/r13/radio_static.ogg",
+    "assets/audio/r13/radio_static2.ogg",
+    "assets/audio/r13/radio_static3.ogg"
    ],
-   "db": -16.0,
-   "dist": 10.0,
-   "pitch": 0.05,
-   "prio": 5,
-   "unit": 1.0,
-   "loop": true
+   "db": -3.0,
+   "dist": 15.0,
+   "pitch": 0.04,
+   "prio": 6,
+   "unit": 1.6
   },
   "smartab_up": {
    "files": [
@@ -1627,7 +1655,7 @@
   },
   "shot_kar98": {
    "files": [
-    "assets/audio/work/guns/sniper_shoot1.mp3"
+    "assets/audio/r13/kar98_gunshot.ogg"
    ],
    "db": 4.0,
    "dist": 1150,
@@ -1653,7 +1681,8 @@
   },
   "shot_m24": {
    "files": [
-    "assets/audio/work/guns/sniper_shoot2.mp3"
+    "assets/audio/r13/m24_gunshot.ogg",
+    "assets/audio/r13/m24_gunshot2.ogg"
    ],
    "db": 4.0,
    "dist": 1150,
@@ -1986,7 +2015,8 @@
   "headshot": {
    "files": [
     "assets/audio/work/player/headshot1.mp3",
-    "assets/audio/work/player/headshot2.mp3"
+    "assets/audio/work/player/headshot2.mp3",
+    "assets/audio/r13/headshot_hit1.ogg"
    ],
    "db": 2.0,
    "dist": 40.0,
@@ -1996,10 +2026,13 @@
   },
   "death": {
    "files": [
-    "assets/audio/work/player/death1.mp3",
-    "assets/audio/work/player/death2.mp3",
-    "assets/audio/work/player/death3.mp3",
-    "assets/audio/work/player/death4.mp3"
+    "assets/audio/r13/player_death1.ogg",
+    "assets/audio/r13/player_death2.ogg",
+    "assets/audio/r13/player_death3.ogg",
+    "assets/audio/r13/player_death4.ogg",
+    "assets/audio/r13/player_death5.ogg",
+    "assets/audio/r13/player_death6.ogg",
+    "assets/audio/r13/player_death7.ogg"
    ],
    "db": 0.0,
    "dist": 40.0,
@@ -2029,12 +2062,11 @@
   },
   "explosion": {
    "files": [
-    "assets/audio/work/guns/grenade1.mp3",
-    "assets/audio/work/guns/grenade2.mp3"
+    "assets/audio/r13/grenade_explosion1.ogg"
    ],
    "db": 8.0,
    "dist": 650.0,
-   "pitch": 0.05,
+   "pitch": 0.06,
    "prio": 9,
    "unit": 18.0,
    "far": "explosion_far",
@@ -2680,7 +2712,8 @@
     "assets/audio/r6/impact_flesh_head_1.wav",
     "assets/audio/r6/impact_flesh_head_2.wav",
     "assets/audio/r6/impact_flesh_head_3.wav",
-    "assets/audio/r6/impact_flesh_head_4.wav"
+    "assets/audio/r6/impact_flesh_head_4.wav",
+    "assets/audio/r13/headshot_hit1.ogg"
    ],
    "pitch": 0.04,
    "db": 1.0,
@@ -2902,6 +2935,1142 @@
    "dist": 10.0,
    "prio": 4,
    "unit": 3.0
+  },
+  "pa_cage_ign_60": {
+   "files": [
+    "assets/audio/announcer_cage/pa_cage_ign_60.wav"
+   ],
+   "db": 3.0,
+   "dist": 1300.0,
+   "pitch": 0.0,
+   "prio": 9,
+   "unit": 26.0,
+   "far": "pa_cage_ign_60_far",
+   "far_from": 90.0
+  },
+  "pa_cage_ign_60_far": {
+   "files": [
+    "assets/audio/announcer_cage/pa_cage_ign_60_far.wav"
+   ],
+   "db": 3.0,
+   "dist": 1300.0,
+   "pitch": 0.0,
+   "prio": 9,
+   "unit": 26.0
+  },
+  "pa_cage_ign_30": {
+   "files": [
+    "assets/audio/announcer_cage/pa_cage_ign_30.wav"
+   ],
+   "db": 3.0,
+   "dist": 1300.0,
+   "pitch": 0.0,
+   "prio": 9,
+   "unit": 26.0,
+   "far": "pa_cage_ign_30_far",
+   "far_from": 90.0
+  },
+  "pa_cage_ign_30_far": {
+   "files": [
+    "assets/audio/announcer_cage/pa_cage_ign_30_far.wav"
+   ],
+   "db": 3.0,
+   "dist": 1300.0,
+   "pitch": 0.0,
+   "prio": 9,
+   "unit": 26.0
+  },
+  "pa_cage_dusk_60": {
+   "files": [
+    "assets/audio/announcer_cage/pa_cage_dusk_60.wav"
+   ],
+   "db": 3.0,
+   "dist": 1300.0,
+   "pitch": 0.0,
+   "prio": 9,
+   "unit": 26.0,
+   "far": "pa_cage_dusk_60_far",
+   "far_from": 90.0
+  },
+  "pa_cage_dusk_60_far": {
+   "files": [
+    "assets/audio/announcer_cage/pa_cage_dusk_60_far.wav"
+   ],
+   "db": 3.0,
+   "dist": 1300.0,
+   "pitch": 0.0,
+   "prio": 9,
+   "unit": 26.0
+  },
+  "pa_cage_dusk_30": {
+   "files": [
+    "assets/audio/announcer_cage/pa_cage_dusk_30.wav"
+   ],
+   "db": 3.0,
+   "dist": 1300.0,
+   "pitch": 0.0,
+   "prio": 9,
+   "unit": 26.0,
+   "far": "pa_cage_dusk_30_far",
+   "far_from": 90.0
+  },
+  "pa_cage_dusk_30_far": {
+   "files": [
+    "assets/audio/announcer_cage/pa_cage_dusk_30_far.wav"
+   ],
+   "db": 3.0,
+   "dist": 1300.0,
+   "pitch": 0.0,
+   "prio": 9,
+   "unit": 26.0
+  },
+  "pa_cage_start": {
+   "files": [
+    "assets/audio/announcer_cage/pa_cage_start.wav"
+   ],
+   "db": 3.0,
+   "dist": 1300.0,
+   "pitch": 0.0,
+   "prio": 9,
+   "unit": 26.0,
+   "far": "pa_cage_start_far",
+   "far_from": 90.0
+  },
+  "pa_cage_start_far": {
+   "files": [
+    "assets/audio/announcer_cage/pa_cage_start_far.wav"
+   ],
+   "db": 3.0,
+   "dist": 1300.0,
+   "pitch": 0.0,
+   "prio": 9,
+   "unit": 26.0
+  },
+  "pa_cage_zone": {
+   "files": [
+    "assets/audio/announcer_cage/pa_cage_zone.wav"
+   ],
+   "db": 3.0,
+   "dist": 1300.0,
+   "pitch": 0.0,
+   "prio": 9,
+   "unit": 26.0,
+   "far": "pa_cage_zone_far",
+   "far_from": 90.0
+  },
+  "pa_cage_zone_far": {
+   "files": [
+    "assets/audio/announcer_cage/pa_cage_zone_far.wav"
+   ],
+   "db": 3.0,
+   "dist": 1300.0,
+   "pitch": 0.0,
+   "prio": 9,
+   "unit": 26.0
+  },
+  "pa_cage_zone_final": {
+   "files": [
+    "assets/audio/announcer_cage/pa_cage_zone_final.wav"
+   ],
+   "db": 3.0,
+   "dist": 1300.0,
+   "pitch": 0.0,
+   "prio": 9,
+   "unit": 26.0,
+   "far": "pa_cage_zone_final_far",
+   "far_from": 90.0
+  },
+  "pa_cage_zone_final_far": {
+   "files": [
+    "assets/audio/announcer_cage/pa_cage_zone_final_far.wav"
+   ],
+   "db": 3.0,
+   "dist": 1300.0,
+   "pitch": 0.0,
+   "prio": 9,
+   "unit": 26.0
+  },
+  "pa_cage_team_out": {
+   "files": [
+    "assets/audio/announcer_cage/pa_cage_team_out.wav"
+   ],
+   "db": 3.0,
+   "dist": 1300.0,
+   "pitch": 0.0,
+   "prio": 9,
+   "unit": 26.0,
+   "far": "pa_cage_team_out_far",
+   "far_from": 90.0
+  },
+  "pa_cage_team_out_far": {
+   "files": [
+    "assets/audio/announcer_cage/pa_cage_team_out_far.wav"
+   ],
+   "db": 3.0,
+   "dist": 1300.0,
+   "pitch": 0.0,
+   "prio": 9,
+   "unit": 26.0
+  },
+  "pa_cage_end": {
+   "files": [
+    "assets/audio/announcer_cage/pa_cage_end.wav"
+   ],
+   "db": 3.0,
+   "dist": 1300.0,
+   "pitch": 0.0,
+   "prio": 9,
+   "unit": 26.0,
+   "far": "pa_cage_end_far",
+   "far_from": 90.0
+  },
+  "pa_cage_end_far": {
+   "files": [
+    "assets/audio/announcer_cage/pa_cage_end_far.wav"
+   ],
+   "db": 3.0,
+   "dist": 1300.0,
+   "pitch": 0.0,
+   "prio": 9,
+   "unit": 26.0
+  },
+  "pa_cage_amb_1": {
+   "files": [
+    "assets/audio/announcer_cage/pa_cage_amb_1.wav"
+   ],
+   "db": 3.0,
+   "dist": 1300.0,
+   "pitch": 0.0,
+   "prio": 9,
+   "unit": 26.0,
+   "far": "pa_cage_amb_1_far",
+   "far_from": 90.0
+  },
+  "pa_cage_amb_1_far": {
+   "files": [
+    "assets/audio/announcer_cage/pa_cage_amb_1_far.wav"
+   ],
+   "db": 3.0,
+   "dist": 1300.0,
+   "pitch": 0.0,
+   "prio": 9,
+   "unit": 26.0
+  },
+  "pa_cage_amb_2": {
+   "files": [
+    "assets/audio/announcer_cage/pa_cage_amb_2.wav"
+   ],
+   "db": 3.0,
+   "dist": 1300.0,
+   "pitch": 0.0,
+   "prio": 9,
+   "unit": 26.0,
+   "far": "pa_cage_amb_2_far",
+   "far_from": 90.0
+  },
+  "pa_cage_amb_2_far": {
+   "files": [
+    "assets/audio/announcer_cage/pa_cage_amb_2_far.wav"
+   ],
+   "db": 3.0,
+   "dist": 1300.0,
+   "pitch": 0.0,
+   "prio": 9,
+   "unit": 26.0
+  },
+  "pa_cage_amb_3": {
+   "files": [
+    "assets/audio/announcer_cage/pa_cage_amb_3.wav"
+   ],
+   "db": 3.0,
+   "dist": 1300.0,
+   "pitch": 0.0,
+   "prio": 9,
+   "unit": 26.0,
+   "far": "pa_cage_amb_3_far",
+   "far_from": 90.0
+  },
+  "pa_cage_amb_3_far": {
+   "files": [
+    "assets/audio/announcer_cage/pa_cage_amb_3_far.wav"
+   ],
+   "db": 3.0,
+   "dist": 1300.0,
+   "pitch": 0.0,
+   "prio": 9,
+   "unit": 26.0
+  },
+  "pa_cage_amb_4": {
+   "files": [
+    "assets/audio/announcer_cage/pa_cage_amb_4.wav"
+   ],
+   "db": 3.0,
+   "dist": 1300.0,
+   "pitch": 0.0,
+   "prio": 9,
+   "unit": 26.0,
+   "far": "pa_cage_amb_4_far",
+   "far_from": 90.0
+  },
+  "pa_cage_amb_4_far": {
+   "files": [
+    "assets/audio/announcer_cage/pa_cage_amb_4_far.wav"
+   ],
+   "db": 3.0,
+   "dist": 1300.0,
+   "pitch": 0.0,
+   "prio": 9,
+   "unit": 26.0
+  },
+  "pa_cage_amb_5": {
+   "files": [
+    "assets/audio/announcer_cage/pa_cage_amb_5.wav"
+   ],
+   "db": 3.0,
+   "dist": 1300.0,
+   "pitch": 0.0,
+   "prio": 9,
+   "unit": 26.0,
+   "far": "pa_cage_amb_5_far",
+   "far_from": 90.0
+  },
+  "pa_cage_amb_5_far": {
+   "files": [
+    "assets/audio/announcer_cage/pa_cage_amb_5_far.wav"
+   ],
+   "db": 3.0,
+   "dist": 1300.0,
+   "pitch": 0.0,
+   "prio": 9,
+   "unit": 26.0
+  },
+  "pa_cage_amb_6": {
+   "files": [
+    "assets/audio/announcer_cage/pa_cage_amb_6.wav"
+   ],
+   "db": 3.0,
+   "dist": 1300.0,
+   "pitch": 0.0,
+   "prio": 9,
+   "unit": 26.0,
+   "far": "pa_cage_amb_6_far",
+   "far_from": 90.0
+  },
+  "pa_cage_amb_6_far": {
+   "files": [
+    "assets/audio/announcer_cage/pa_cage_amb_6_far.wav"
+   ],
+   "db": 3.0,
+   "dist": 1300.0,
+   "pitch": 0.0,
+   "prio": 9,
+   "unit": 26.0
+  },
+  "pa_cage_n1": {
+   "files": [
+    "assets/audio/announcer_cage/pa_cage_n1.wav"
+   ],
+   "db": 4.0,
+   "dist": 1300.0,
+   "pitch": 0.0,
+   "prio": 9,
+   "unit": 26.0,
+   "far": "pa_cage_n1_far",
+   "far_from": 90.0
+  },
+  "pa_cage_n1_far": {
+   "files": [
+    "assets/audio/announcer_cage/pa_cage_n1_far.wav"
+   ],
+   "db": 4.0,
+   "dist": 1300.0,
+   "pitch": 0.0,
+   "prio": 9,
+   "unit": 26.0
+  },
+  "pa_cage_n2": {
+   "files": [
+    "assets/audio/announcer_cage/pa_cage_n2.wav"
+   ],
+   "db": 4.0,
+   "dist": 1300.0,
+   "pitch": 0.0,
+   "prio": 9,
+   "unit": 26.0,
+   "far": "pa_cage_n2_far",
+   "far_from": 90.0
+  },
+  "pa_cage_n2_far": {
+   "files": [
+    "assets/audio/announcer_cage/pa_cage_n2_far.wav"
+   ],
+   "db": 4.0,
+   "dist": 1300.0,
+   "pitch": 0.0,
+   "prio": 9,
+   "unit": 26.0
+  },
+  "pa_cage_n3": {
+   "files": [
+    "assets/audio/announcer_cage/pa_cage_n3.wav"
+   ],
+   "db": 4.0,
+   "dist": 1300.0,
+   "pitch": 0.0,
+   "prio": 9,
+   "unit": 26.0,
+   "far": "pa_cage_n3_far",
+   "far_from": 90.0
+  },
+  "pa_cage_n3_far": {
+   "files": [
+    "assets/audio/announcer_cage/pa_cage_n3_far.wav"
+   ],
+   "db": 4.0,
+   "dist": 1300.0,
+   "pitch": 0.0,
+   "prio": 9,
+   "unit": 26.0
+  },
+  "pa_cage_n4": {
+   "files": [
+    "assets/audio/announcer_cage/pa_cage_n4.wav"
+   ],
+   "db": 4.0,
+   "dist": 1300.0,
+   "pitch": 0.0,
+   "prio": 9,
+   "unit": 26.0,
+   "far": "pa_cage_n4_far",
+   "far_from": 90.0
+  },
+  "pa_cage_n4_far": {
+   "files": [
+    "assets/audio/announcer_cage/pa_cage_n4_far.wav"
+   ],
+   "db": 4.0,
+   "dist": 1300.0,
+   "pitch": 0.0,
+   "prio": 9,
+   "unit": 26.0
+  },
+  "pa_cage_n5": {
+   "files": [
+    "assets/audio/announcer_cage/pa_cage_n5.wav"
+   ],
+   "db": 4.0,
+   "dist": 1300.0,
+   "pitch": 0.0,
+   "prio": 9,
+   "unit": 26.0,
+   "far": "pa_cage_n5_far",
+   "far_from": 90.0
+  },
+  "pa_cage_n5_far": {
+   "files": [
+    "assets/audio/announcer_cage/pa_cage_n5_far.wav"
+   ],
+   "db": 4.0,
+   "dist": 1300.0,
+   "pitch": 0.0,
+   "prio": 9,
+   "unit": 26.0
+  },
+  "pa_cage_n6": {
+   "files": [
+    "assets/audio/announcer_cage/pa_cage_n6.wav"
+   ],
+   "db": 4.0,
+   "dist": 1300.0,
+   "pitch": 0.0,
+   "prio": 9,
+   "unit": 26.0,
+   "far": "pa_cage_n6_far",
+   "far_from": 90.0
+  },
+  "pa_cage_n6_far": {
+   "files": [
+    "assets/audio/announcer_cage/pa_cage_n6_far.wav"
+   ],
+   "db": 4.0,
+   "dist": 1300.0,
+   "pitch": 0.0,
+   "prio": 9,
+   "unit": 26.0
+  },
+  "pa_cage_n7": {
+   "files": [
+    "assets/audio/announcer_cage/pa_cage_n7.wav"
+   ],
+   "db": 4.0,
+   "dist": 1300.0,
+   "pitch": 0.0,
+   "prio": 9,
+   "unit": 26.0,
+   "far": "pa_cage_n7_far",
+   "far_from": 90.0
+  },
+  "pa_cage_n7_far": {
+   "files": [
+    "assets/audio/announcer_cage/pa_cage_n7_far.wav"
+   ],
+   "db": 4.0,
+   "dist": 1300.0,
+   "pitch": 0.0,
+   "prio": 9,
+   "unit": 26.0
+  },
+  "pa_cage_n8": {
+   "files": [
+    "assets/audio/announcer_cage/pa_cage_n8.wav"
+   ],
+   "db": 4.0,
+   "dist": 1300.0,
+   "pitch": 0.0,
+   "prio": 9,
+   "unit": 26.0,
+   "far": "pa_cage_n8_far",
+   "far_from": 90.0
+  },
+  "pa_cage_n8_far": {
+   "files": [
+    "assets/audio/announcer_cage/pa_cage_n8_far.wav"
+   ],
+   "db": 4.0,
+   "dist": 1300.0,
+   "pitch": 0.0,
+   "prio": 9,
+   "unit": 26.0
+  },
+  "pa_cage_n9": {
+   "files": [
+    "assets/audio/announcer_cage/pa_cage_n9.wav"
+   ],
+   "db": 4.0,
+   "dist": 1300.0,
+   "pitch": 0.0,
+   "prio": 9,
+   "unit": 26.0,
+   "far": "pa_cage_n9_far",
+   "far_from": 90.0
+  },
+  "pa_cage_n9_far": {
+   "files": [
+    "assets/audio/announcer_cage/pa_cage_n9_far.wav"
+   ],
+   "db": 4.0,
+   "dist": 1300.0,
+   "pitch": 0.0,
+   "prio": 9,
+   "unit": 26.0
+  },
+  "pa_cage_n10": {
+   "files": [
+    "assets/audio/announcer_cage/pa_cage_n10.wav"
+   ],
+   "db": 4.0,
+   "dist": 1300.0,
+   "pitch": 0.0,
+   "prio": 9,
+   "unit": 26.0,
+   "far": "pa_cage_n10_far",
+   "far_from": 90.0
+  },
+  "pa_cage_n10_far": {
+   "files": [
+    "assets/audio/announcer_cage/pa_cage_n10_far.wav"
+   ],
+   "db": 4.0,
+   "dist": 1300.0,
+   "pitch": 0.0,
+   "prio": 9,
+   "unit": 26.0
+  },
+  "pa_cage_chime": {
+   "files": [
+    "assets/audio/announcer_cage/pa_cage_chime.wav"
+   ],
+   "db": 2.0,
+   "dist": 1500.0,
+   "pitch": 0.0,
+   "prio": 9,
+   "unit": 30.0,
+   "far": "pa_cage_chime_far",
+   "far_from": 110.0
+  },
+  "pa_cage_chime_far": {
+   "files": [
+    "assets/audio/announcer_cage/pa_cage_chime_far.wav"
+   ],
+   "db": 2.0,
+   "dist": 1500.0,
+   "pitch": 0.0,
+   "prio": 9,
+   "unit": 30.0
+  },
+  "pa_cage_siren": {
+   "files": [
+    "assets/audio/announcer_cage/pa_cage_siren.wav"
+   ],
+   "db": 2.0,
+   "dist": 1500.0,
+   "pitch": 0.0,
+   "prio": 9,
+   "unit": 30.0,
+   "far": "pa_cage_siren_far",
+   "far_from": 110.0
+  },
+  "pa_cage_siren_far": {
+   "files": [
+    "assets/audio/announcer_cage/pa_cage_siren_far.wav"
+   ],
+   "db": 2.0,
+   "dist": 1500.0,
+   "pitch": 0.0,
+   "prio": 9,
+   "unit": 30.0
+  },
+  "field_hum": {
+   "files": [
+    "assets/audio/r12/field_hum.wav"
+   ],
+   "db": -16.0,
+   "dist": 25.0,
+   "pitch": 0.0,
+   "prio": 4,
+   "unit": 6.0
+  },
+  "field_zap": {
+   "files": [
+    "assets/audio/r12/field_zap.wav"
+   ],
+   "db": -13.0,
+   "dist": 20.0,
+   "pitch": 0.05,
+   "prio": 5,
+   "unit": 4.0
+  },
+  "field_crush": {
+   "files": [
+    "assets/audio/r12/field_crush.wav"
+   ],
+   "db": 2.0,
+   "dist": 70.0,
+   "pitch": 0.05,
+   "prio": 7,
+   "unit": 6.0
+  },
+  "slide": {
+   "files": [
+    "assets/audio/r12/slide.wav"
+   ],
+   "db": -6.0,
+   "dist": 25.0,
+   "pitch": 0.05,
+   "prio": 4,
+   "unit": 4.0
+  },
+  "wall_step": {
+   "files": [
+    "assets/audio/r12/wall_step.wav"
+   ],
+   "db": -6.0,
+   "dist": 22.0,
+   "pitch": 0.05,
+   "prio": 4,
+   "unit": 3.0
+  },
+  "ledge_grab": {
+   "files": [
+    "assets/audio/r12/ledge_grab.wav"
+   ],
+   "db": -5.0,
+   "dist": 22.0,
+   "pitch": 0.05,
+   "prio": 4,
+   "unit": 3.0
+  },
+  "land_roll": {
+   "files": [
+    "assets/audio/r12/land_roll.wav"
+   ],
+   "db": -4.0,
+   "dist": 25.0,
+   "pitch": 0.05,
+   "prio": 5,
+   "unit": 4.0
+  },
+  "vox_affirmative_0": {
+   "files": [
+    "assets/audio/r13/affirmative1.ogg"
+   ],
+   "db": 0.0,
+   "dist": 14.0,
+   "pitch": 0.0,
+   "prio": 7,
+   "unit": 2.5
+  },
+  "vox_affirmative_1": {
+   "files": [
+    "assets/audio/r13/affirmative2.ogg"
+   ],
+   "db": 0.0,
+   "dist": 14.0,
+   "pitch": 0.0,
+   "prio": 7,
+   "unit": 2.5
+  },
+  "vox_affirmative_2": {
+   "files": [
+    "assets/audio/r13/affirmative3.ogg"
+   ],
+   "db": 0.0,
+   "dist": 14.0,
+   "pitch": 0.0,
+   "prio": 7,
+   "unit": 2.5
+  },
+  "vox_affirmative_3": {
+   "files": [
+    "assets/audio/r13/affirmative4.ogg"
+   ],
+   "db": 0.0,
+   "dist": 14.0,
+   "pitch": 0.0,
+   "prio": 7,
+   "unit": 2.5
+  },
+  "vox_affirmative_4": {
+   "files": [
+    "assets/audio/r13/affirmative5.ogg"
+   ],
+   "db": 0.0,
+   "dist": 14.0,
+   "pitch": 0.0,
+   "prio": 7,
+   "unit": 2.5
+  },
+  "vox_affirmative_5": {
+   "files": [
+    "assets/audio/r13/affirmative6.ogg"
+   ],
+   "db": 0.0,
+   "dist": 14.0,
+   "pitch": 0.0,
+   "prio": 7,
+   "unit": 2.5
+  },
+  "vox_affirmative_6": {
+   "files": [
+    "assets/audio/r13/affirmative7.ogg"
+   ],
+   "db": 0.0,
+   "dist": 14.0,
+   "pitch": 0.0,
+   "prio": 7,
+   "unit": 2.5
+  },
+  "vox_negative_0": {
+   "files": [
+    "assets/audio/r13/negative1.ogg"
+   ],
+   "db": 0.0,
+   "dist": 14.0,
+   "pitch": 0.0,
+   "prio": 7,
+   "unit": 2.5
+  },
+  "vox_negative_1": {
+   "files": [
+    "assets/audio/r13/negative2.ogg"
+   ],
+   "db": 0.0,
+   "dist": 14.0,
+   "pitch": 0.0,
+   "prio": 7,
+   "unit": 2.5
+  },
+  "vox_negative_2": {
+   "files": [
+    "assets/audio/r13/negative3.ogg"
+   ],
+   "db": 0.0,
+   "dist": 14.0,
+   "pitch": 0.0,
+   "prio": 7,
+   "unit": 2.5
+  },
+  "vox_negative_3": {
+   "files": [
+    "assets/audio/r13/negative4.ogg"
+   ],
+   "db": 0.0,
+   "dist": 14.0,
+   "pitch": 0.0,
+   "prio": 7,
+   "unit": 2.5
+  },
+  "vox_negative_4": {
+   "files": [
+    "assets/audio/r13/negative5.ogg"
+   ],
+   "db": 0.0,
+   "dist": 14.0,
+   "pitch": 0.0,
+   "prio": 7,
+   "unit": 2.5
+  },
+  "vox_negative_5": {
+   "files": [
+    "assets/audio/r13/negative6.ogg"
+   ],
+   "db": 0.0,
+   "dist": 14.0,
+   "pitch": 0.0,
+   "prio": 7,
+   "unit": 2.5
+  },
+  "vox_enemy_spotted_0": {
+   "files": [
+    "assets/audio/r13/enemy_spotted1.ogg"
+   ],
+   "db": 0.0,
+   "dist": 14.0,
+   "pitch": 0.0,
+   "prio": 7,
+   "unit": 2.5
+  },
+  "vox_enemy_spotted_1": {
+   "files": [
+    "assets/audio/r13/enemy_spotted2.ogg"
+   ],
+   "db": 0.0,
+   "dist": 14.0,
+   "pitch": 0.0,
+   "prio": 7,
+   "unit": 2.5
+  },
+  "vox_enemy_spotted_2": {
+   "files": [
+    "assets/audio/r13/enemy_spotted3.ogg"
+   ],
+   "db": 0.0,
+   "dist": 14.0,
+   "pitch": 0.0,
+   "prio": 7,
+   "unit": 2.5
+  },
+  "vox_enemy_spotted_3": {
+   "files": [
+    "assets/audio/r13/enemy_spotted4.ogg"
+   ],
+   "db": 0.0,
+   "dist": 14.0,
+   "pitch": 0.0,
+   "prio": 7,
+   "unit": 2.5
+  },
+  "vox_enemy_spotted_4": {
+   "files": [
+    "assets/audio/r13/enemy_spotted5.ogg"
+   ],
+   "db": 0.0,
+   "dist": 14.0,
+   "pitch": 0.0,
+   "prio": 7,
+   "unit": 2.5
+  },
+  "vox_enemy_spotted_5": {
+   "files": [
+    "assets/audio/r13/enemy_spotted6.ogg"
+   ],
+   "db": 0.0,
+   "dist": 14.0,
+   "pitch": 0.0,
+   "prio": 7,
+   "unit": 2.5
+  },
+  "vox_in_position_0": {
+   "files": [
+    "assets/audio/r13/in_position1.ogg"
+   ],
+   "db": 0.0,
+   "dist": 14.0,
+   "pitch": 0.0,
+   "prio": 7,
+   "unit": 2.5
+  },
+  "vox_in_position_1": {
+   "files": [
+    "assets/audio/r13/in_position2.ogg"
+   ],
+   "db": 0.0,
+   "dist": 14.0,
+   "pitch": 0.0,
+   "prio": 7,
+   "unit": 2.5
+  },
+  "vox_in_position_2": {
+   "files": [
+    "assets/audio/r13/in_position3.ogg"
+   ],
+   "db": 0.0,
+   "dist": 14.0,
+   "pitch": 0.0,
+   "prio": 7,
+   "unit": 2.5
+  },
+  "vox_in_position_3": {
+   "files": [
+    "assets/audio/r13/in_position4.ogg"
+   ],
+   "db": 0.0,
+   "dist": 14.0,
+   "pitch": 0.0,
+   "prio": 7,
+   "unit": 2.5
+  },
+  "vox_man_down_0": {
+   "files": [
+    "assets/audio/r13/man_down1.ogg"
+   ],
+   "db": 0.0,
+   "dist": 14.0,
+   "pitch": 0.0,
+   "prio": 7,
+   "unit": 2.5
+  },
+  "vox_man_down_1": {
+   "files": [
+    "assets/audio/r13/man_down2.ogg"
+   ],
+   "db": 0.0,
+   "dist": 14.0,
+   "pitch": 0.0,
+   "prio": 7,
+   "unit": 2.5
+  },
+  "vox_man_down_2": {
+   "files": [
+    "assets/audio/r13/man_down3.ogg"
+   ],
+   "db": 0.0,
+   "dist": 14.0,
+   "pitch": 0.0,
+   "prio": 7,
+   "unit": 2.5
+  },
+  "vox_man_down_3": {
+   "files": [
+    "assets/audio/r13/man_down4.ogg"
+   ],
+   "db": 0.0,
+   "dist": 14.0,
+   "pitch": 0.0,
+   "prio": 7,
+   "unit": 2.5
+  },
+  "vox_need_help_0": {
+   "files": [
+    "assets/audio/r13/need_help1.ogg"
+   ],
+   "db": 0.0,
+   "dist": 14.0,
+   "pitch": 0.0,
+   "prio": 7,
+   "unit": 2.5
+  },
+  "vox_need_help_1": {
+   "files": [
+    "assets/audio/r13/need_help2.ogg"
+   ],
+   "db": 0.0,
+   "dist": 14.0,
+   "pitch": 0.0,
+   "prio": 7,
+   "unit": 2.5
+  },
+  "vox_need_help_2": {
+   "files": [
+    "assets/audio/r13/need_help3.ogg"
+   ],
+   "db": 0.0,
+   "dist": 14.0,
+   "pitch": 0.0,
+   "prio": 7,
+   "unit": 2.5
+  },
+  "vox_need_help_3": {
+   "files": [
+    "assets/audio/r13/need_help4.ogg"
+   ],
+   "db": 0.0,
+   "dist": 14.0,
+   "pitch": 0.0,
+   "prio": 7,
+   "unit": 2.5
+  },
+  "vox_radio_basic_kill_0": {
+   "files": [
+    "assets/audio/r13/radio_basic_kill1.ogg"
+   ],
+   "db": 0.0,
+   "dist": 14.0,
+   "pitch": 0.0,
+   "prio": 7,
+   "unit": 2.5
+  },
+  "vox_radio_basic_kill_1": {
+   "files": [
+    "assets/audio/r13/radio_basic_kill2.ogg"
+   ],
+   "db": 0.0,
+   "dist": 14.0,
+   "pitch": 0.0,
+   "prio": 7,
+   "unit": 2.5
+  },
+  "vox_radio_basic_kill_2": {
+   "files": [
+    "assets/audio/r13/radio_basic_kill3.ogg"
+   ],
+   "db": 0.0,
+   "dist": 14.0,
+   "pitch": 0.0,
+   "prio": 7,
+   "unit": 2.5
+  },
+  "vox_radio_basic_kill_3": {
+   "files": [
+    "assets/audio/r13/radio_basic_kill4.ogg"
+   ],
+   "db": 0.0,
+   "dist": 14.0,
+   "pitch": 0.0,
+   "prio": 7,
+   "unit": 2.5
+  },
+  "vox_radio_basic_kill_4": {
+   "files": [
+    "assets/audio/r13/radio_basic_kill5.ogg"
+   ],
+   "db": 0.0,
+   "dist": 14.0,
+   "pitch": 0.0,
+   "prio": 7,
+   "unit": 2.5
+  },
+  "vox_radio_headshot_kill_0": {
+   "files": [
+    "assets/audio/r13/radio_headshot_kill1.ogg"
+   ],
+   "db": 0.0,
+   "dist": 14.0,
+   "pitch": 0.0,
+   "prio": 7,
+   "unit": 2.5
+  },
+  "vox_radio_headshot_kill_1": {
+   "files": [
+    "assets/audio/r13/radio_headshot_kill2.ogg"
+   ],
+   "db": 0.0,
+   "dist": 14.0,
+   "pitch": 0.0,
+   "prio": 7,
+   "unit": 2.5
+  },
+  "vox_radio_headshot_kill_2": {
+   "files": [
+    "assets/audio/r13/radio_headshot_kill3.ogg"
+   ],
+   "db": 0.0,
+   "dist": 14.0,
+   "pitch": 0.0,
+   "prio": 7,
+   "unit": 2.5
+  },
+  "vox_radio_headshot_kill_3": {
+   "files": [
+    "assets/audio/r13/radio_headshot_kill4.ogg"
+   ],
+   "db": 0.0,
+   "dist": 14.0,
+   "pitch": 0.0,
+   "prio": 7,
+   "unit": 2.5
+  },
+  "vox_radio_headshot_kill_4": {
+   "files": [
+    "assets/audio/r13/radio_headshot_kill5.ogg"
+   ],
+   "db": 0.0,
+   "dist": 14.0,
+   "pitch": 0.0,
+   "prio": 7,
+   "unit": 2.5
+  },
+  "vox_radio_headshot_kill_5": {
+   "files": [
+    "assets/audio/r13/radio_headshot_kill6.ogg"
+   ],
+   "db": 0.0,
+   "dist": 14.0,
+   "pitch": 0.0,
+   "prio": 7,
+   "unit": 2.5
+  },
+  "shot_awp": {
+   "files": [
+    "assets/audio/r13/awp_gunshot.ogg"
+   ],
+   "db": 5.0,
+   "dist": 1150,
+   "pitch": 0.03,
+   "prio": 8,
+   "unit": 14.0,
+   "far": "shot_rifle_308_far",
+   "far_from": 110.0
+  },
+  "shot_awp_sup": {
+   "files": [
+    "assets/audio/guns/rifle_308_sup_0.wav",
+    "assets/audio/guns/rifle_308_sup_1.wav",
+    "assets/audio/guns/rifle_308_sup_2.wav",
+    "assets/audio/guns/rifle_308_sup_3.wav",
+    "assets/audio/guns/rifle_308_sup_4.wav"
+   ],
+   "db": -1.0,
+   "dist": 345,
+   "pitch": 0.04,
+   "prio": 7,
+   "unit": 6.0
+  },
+  "shot_sumpak": {
+   "files": [
+    "assets/audio/r13/sumpak.ogg"
+   ],
+   "db": 4.0,
+   "dist": 800,
+   "pitch": 0.03,
+   "prio": 8,
+   "unit": 14.0,
+   "far": "shot_shotgun_far",
+   "far_from": 110.0
+  },
+  "shot_sumpak_sup": {
+   "files": [
+    "assets/audio/guns/shotgun_sup_0.wav",
+    "assets/audio/guns/shotgun_sup_1.wav",
+    "assets/audio/guns/shotgun_sup_2.wav",
+    "assets/audio/guns/shotgun_sup_3.wav",
+    "assets/audio/guns/shotgun_sup_4.wav"
+   ],
+   "db": -1.0,
+   "dist": 240,
+   "pitch": 0.04,
+   "prio": 7,
+   "unit": 6.0
   },
   "botr_go_with_m1_0": {
    "files": [
@@ -4981,6 +6150,951 @@
    "dist": 14.0,
    "pitch": 0.0,
    "prio": 7,
+   "unit": 2.5
+  },
+  "botr_headshot_kill_m1_0": {
+   "files": [
+    "assets/audio/botradio/headshot_kill_m1_0.wav"
+   ],
+   "db": 0.0,
+   "dist": 14.0,
+   "pitch": 0.0,
+   "prio": 7,
+   "unit": 2.5
+  },
+  "botr_headshot_kill_m1_1": {
+   "files": [
+    "assets/audio/botradio/headshot_kill_m1_1.wav"
+   ],
+   "db": 0.0,
+   "dist": 14.0,
+   "pitch": 0.0,
+   "prio": 7,
+   "unit": 2.5
+  },
+  "botr_headshot_kill_m1_2": {
+   "files": [
+    "assets/audio/botradio/headshot_kill_m1_2.wav"
+   ],
+   "db": 0.0,
+   "dist": 14.0,
+   "pitch": 0.0,
+   "prio": 7,
+   "unit": 2.5
+  },
+  "botr_headshot_kill_m2_0": {
+   "files": [
+    "assets/audio/botradio/headshot_kill_m2_0.wav"
+   ],
+   "db": 0.0,
+   "dist": 14.0,
+   "pitch": 0.0,
+   "prio": 7,
+   "unit": 2.5
+  },
+  "botr_headshot_kill_m2_1": {
+   "files": [
+    "assets/audio/botradio/headshot_kill_m2_1.wav"
+   ],
+   "db": 0.0,
+   "dist": 14.0,
+   "pitch": 0.0,
+   "prio": 7,
+   "unit": 2.5
+  },
+  "botr_headshot_kill_m2_2": {
+   "files": [
+    "assets/audio/botradio/headshot_kill_m2_2.wav"
+   ],
+   "db": 0.0,
+   "dist": 14.0,
+   "pitch": 0.0,
+   "prio": 7,
+   "unit": 2.5
+  },
+  "botr_headshot_kill_f1_0": {
+   "files": [
+    "assets/audio/botradio/headshot_kill_f1_0.wav"
+   ],
+   "db": 0.0,
+   "dist": 14.0,
+   "pitch": 0.0,
+   "prio": 7,
+   "unit": 2.5
+  },
+  "botr_headshot_kill_f1_1": {
+   "files": [
+    "assets/audio/botradio/headshot_kill_f1_1.wav"
+   ],
+   "db": 0.0,
+   "dist": 14.0,
+   "pitch": 0.0,
+   "prio": 7,
+   "unit": 2.5
+  },
+  "botr_headshot_kill_f1_2": {
+   "files": [
+    "assets/audio/botradio/headshot_kill_f1_2.wav"
+   ],
+   "db": 0.0,
+   "dist": 14.0,
+   "pitch": 0.0,
+   "prio": 7,
+   "unit": 2.5
+  },
+  "botr_headshot_kill_f2_0": {
+   "files": [
+    "assets/audio/botradio/headshot_kill_f2_0.wav"
+   ],
+   "db": 0.0,
+   "dist": 14.0,
+   "pitch": 0.0,
+   "prio": 7,
+   "unit": 2.5
+  },
+  "botr_headshot_kill_f2_1": {
+   "files": [
+    "assets/audio/botradio/headshot_kill_f2_1.wav"
+   ],
+   "db": 0.0,
+   "dist": 14.0,
+   "pitch": 0.0,
+   "prio": 7,
+   "unit": 2.5
+  },
+  "botr_headshot_kill_f2_2": {
+   "files": [
+    "assets/audio/botradio/headshot_kill_f2_2.wav"
+   ],
+   "db": 0.0,
+   "dist": 14.0,
+   "pitch": 0.0,
+   "prio": 7,
+   "unit": 2.5
+  },
+  "botr_in_position_m1_0": {
+   "files": [
+    "assets/audio/botradio/in_position_m1_0.wav"
+   ],
+   "db": 0.0,
+   "dist": 14.0,
+   "pitch": 0.0,
+   "prio": 7,
+   "unit": 2.5
+  },
+  "botr_in_position_m1_1": {
+   "files": [
+    "assets/audio/botradio/in_position_m1_1.wav"
+   ],
+   "db": 0.0,
+   "dist": 14.0,
+   "pitch": 0.0,
+   "prio": 7,
+   "unit": 2.5
+  },
+  "botr_in_position_m1_2": {
+   "files": [
+    "assets/audio/botradio/in_position_m1_2.wav"
+   ],
+   "db": 0.0,
+   "dist": 14.0,
+   "pitch": 0.0,
+   "prio": 7,
+   "unit": 2.5
+  },
+  "botr_in_position_m2_0": {
+   "files": [
+    "assets/audio/botradio/in_position_m2_0.wav"
+   ],
+   "db": 0.0,
+   "dist": 14.0,
+   "pitch": 0.0,
+   "prio": 7,
+   "unit": 2.5
+  },
+  "botr_in_position_m2_1": {
+   "files": [
+    "assets/audio/botradio/in_position_m2_1.wav"
+   ],
+   "db": 0.0,
+   "dist": 14.0,
+   "pitch": 0.0,
+   "prio": 7,
+   "unit": 2.5
+  },
+  "botr_in_position_m2_2": {
+   "files": [
+    "assets/audio/botradio/in_position_m2_2.wav"
+   ],
+   "db": 0.0,
+   "dist": 14.0,
+   "pitch": 0.0,
+   "prio": 7,
+   "unit": 2.5
+  },
+  "botr_in_position_f1_0": {
+   "files": [
+    "assets/audio/botradio/in_position_f1_0.wav"
+   ],
+   "db": 0.0,
+   "dist": 14.0,
+   "pitch": 0.0,
+   "prio": 7,
+   "unit": 2.5
+  },
+  "botr_in_position_f1_1": {
+   "files": [
+    "assets/audio/botradio/in_position_f1_1.wav"
+   ],
+   "db": 0.0,
+   "dist": 14.0,
+   "pitch": 0.0,
+   "prio": 7,
+   "unit": 2.5
+  },
+  "botr_in_position_f1_2": {
+   "files": [
+    "assets/audio/botradio/in_position_f1_2.wav"
+   ],
+   "db": 0.0,
+   "dist": 14.0,
+   "pitch": 0.0,
+   "prio": 7,
+   "unit": 2.5
+  },
+  "botr_in_position_f2_0": {
+   "files": [
+    "assets/audio/botradio/in_position_f2_0.wav"
+   ],
+   "db": 0.0,
+   "dist": 14.0,
+   "pitch": 0.0,
+   "prio": 7,
+   "unit": 2.5
+  },
+  "botr_in_position_f2_1": {
+   "files": [
+    "assets/audio/botradio/in_position_f2_1.wav"
+   ],
+   "db": 0.0,
+   "dist": 14.0,
+   "pitch": 0.0,
+   "prio": 7,
+   "unit": 2.5
+  },
+  "botr_in_position_f2_2": {
+   "files": [
+    "assets/audio/botradio/in_position_f2_2.wav"
+   ],
+   "db": 0.0,
+   "dist": 14.0,
+   "pitch": 0.0,
+   "prio": 7,
+   "unit": 2.5
+  },
+  "botr_affirmative_m1_0": {
+   "files": [
+    "assets/audio/botradio/affirmative_m1_0.wav"
+   ],
+   "db": 0.0,
+   "dist": 14.0,
+   "pitch": 0.0,
+   "prio": 7,
+   "unit": 2.5
+  },
+  "botr_affirmative_m1_1": {
+   "files": [
+    "assets/audio/botradio/affirmative_m1_1.wav"
+   ],
+   "db": 0.0,
+   "dist": 14.0,
+   "pitch": 0.0,
+   "prio": 7,
+   "unit": 2.5
+  },
+  "botr_affirmative_m1_2": {
+   "files": [
+    "assets/audio/botradio/affirmative_m1_2.wav"
+   ],
+   "db": 0.0,
+   "dist": 14.0,
+   "pitch": 0.0,
+   "prio": 7,
+   "unit": 2.5
+  },
+  "botr_affirmative_m2_0": {
+   "files": [
+    "assets/audio/botradio/affirmative_m2_0.wav"
+   ],
+   "db": 0.0,
+   "dist": 14.0,
+   "pitch": 0.0,
+   "prio": 7,
+   "unit": 2.5
+  },
+  "botr_affirmative_m2_1": {
+   "files": [
+    "assets/audio/botradio/affirmative_m2_1.wav"
+   ],
+   "db": 0.0,
+   "dist": 14.0,
+   "pitch": 0.0,
+   "prio": 7,
+   "unit": 2.5
+  },
+  "botr_affirmative_m2_2": {
+   "files": [
+    "assets/audio/botradio/affirmative_m2_2.wav"
+   ],
+   "db": 0.0,
+   "dist": 14.0,
+   "pitch": 0.0,
+   "prio": 7,
+   "unit": 2.5
+  },
+  "botr_affirmative_f1_0": {
+   "files": [
+    "assets/audio/botradio/affirmative_f1_0.wav"
+   ],
+   "db": 0.0,
+   "dist": 14.0,
+   "pitch": 0.0,
+   "prio": 7,
+   "unit": 2.5
+  },
+  "botr_affirmative_f1_1": {
+   "files": [
+    "assets/audio/botradio/affirmative_f1_1.wav"
+   ],
+   "db": 0.0,
+   "dist": 14.0,
+   "pitch": 0.0,
+   "prio": 7,
+   "unit": 2.5
+  },
+  "botr_affirmative_f1_2": {
+   "files": [
+    "assets/audio/botradio/affirmative_f1_2.wav"
+   ],
+   "db": 0.0,
+   "dist": 14.0,
+   "pitch": 0.0,
+   "prio": 7,
+   "unit": 2.5
+  },
+  "botr_affirmative_f2_0": {
+   "files": [
+    "assets/audio/botradio/affirmative_f2_0.wav"
+   ],
+   "db": 0.0,
+   "dist": 14.0,
+   "pitch": 0.0,
+   "prio": 7,
+   "unit": 2.5
+  },
+  "botr_affirmative_f2_1": {
+   "files": [
+    "assets/audio/botradio/affirmative_f2_1.wav"
+   ],
+   "db": 0.0,
+   "dist": 14.0,
+   "pitch": 0.0,
+   "prio": 7,
+   "unit": 2.5
+  },
+  "botr_affirmative_f2_2": {
+   "files": [
+    "assets/audio/botradio/affirmative_f2_2.wav"
+   ],
+   "db": 0.0,
+   "dist": 14.0,
+   "pitch": 0.0,
+   "prio": 7,
+   "unit": 2.5
+  },
+  "botr_negative_m1_0": {
+   "files": [
+    "assets/audio/botradio/negative_m1_0.wav"
+   ],
+   "db": 0.0,
+   "dist": 14.0,
+   "pitch": 0.0,
+   "prio": 7,
+   "unit": 2.5
+  },
+  "botr_negative_m1_1": {
+   "files": [
+    "assets/audio/botradio/negative_m1_1.wav"
+   ],
+   "db": 0.0,
+   "dist": 14.0,
+   "pitch": 0.0,
+   "prio": 7,
+   "unit": 2.5
+  },
+  "botr_negative_m1_2": {
+   "files": [
+    "assets/audio/botradio/negative_m1_2.wav"
+   ],
+   "db": 0.0,
+   "dist": 14.0,
+   "pitch": 0.0,
+   "prio": 7,
+   "unit": 2.5
+  },
+  "botr_negative_m2_0": {
+   "files": [
+    "assets/audio/botradio/negative_m2_0.wav"
+   ],
+   "db": 0.0,
+   "dist": 14.0,
+   "pitch": 0.0,
+   "prio": 7,
+   "unit": 2.5
+  },
+  "botr_negative_m2_1": {
+   "files": [
+    "assets/audio/botradio/negative_m2_1.wav"
+   ],
+   "db": 0.0,
+   "dist": 14.0,
+   "pitch": 0.0,
+   "prio": 7,
+   "unit": 2.5
+  },
+  "botr_negative_m2_2": {
+   "files": [
+    "assets/audio/botradio/negative_m2_2.wav"
+   ],
+   "db": 0.0,
+   "dist": 14.0,
+   "pitch": 0.0,
+   "prio": 7,
+   "unit": 2.5
+  },
+  "botr_negative_f1_0": {
+   "files": [
+    "assets/audio/botradio/negative_f1_0.wav"
+   ],
+   "db": 0.0,
+   "dist": 14.0,
+   "pitch": 0.0,
+   "prio": 7,
+   "unit": 2.5
+  },
+  "botr_negative_f1_1": {
+   "files": [
+    "assets/audio/botradio/negative_f1_1.wav"
+   ],
+   "db": 0.0,
+   "dist": 14.0,
+   "pitch": 0.0,
+   "prio": 7,
+   "unit": 2.5
+  },
+  "botr_negative_f1_2": {
+   "files": [
+    "assets/audio/botradio/negative_f1_2.wav"
+   ],
+   "db": 0.0,
+   "dist": 14.0,
+   "pitch": 0.0,
+   "prio": 7,
+   "unit": 2.5
+  },
+  "botr_negative_f2_0": {
+   "files": [
+    "assets/audio/botradio/negative_f2_0.wav"
+   ],
+   "db": 0.0,
+   "dist": 14.0,
+   "pitch": 0.0,
+   "prio": 7,
+   "unit": 2.5
+  },
+  "botr_negative_f2_1": {
+   "files": [
+    "assets/audio/botradio/negative_f2_1.wav"
+   ],
+   "db": 0.0,
+   "dist": 14.0,
+   "pitch": 0.0,
+   "prio": 7,
+   "unit": 2.5
+  },
+  "botr_negative_f2_2": {
+   "files": [
+    "assets/audio/botradio/negative_f2_2.wav"
+   ],
+   "db": 0.0,
+   "dist": 14.0,
+   "pitch": 0.0,
+   "prio": 7,
+   "unit": 2.5
+  },
+  "botr_follow_me_m1_0": {
+   "files": [
+    "assets/audio/botradio/follow_me_m1_0.wav"
+   ],
+   "db": 0.0,
+   "dist": 14.0,
+   "pitch": 0.0,
+   "prio": 7,
+   "unit": 2.5
+  },
+  "botr_follow_me_m1_1": {
+   "files": [
+    "assets/audio/botradio/follow_me_m1_1.wav"
+   ],
+   "db": 0.0,
+   "dist": 14.0,
+   "pitch": 0.0,
+   "prio": 7,
+   "unit": 2.5
+  },
+  "botr_follow_me_m1_2": {
+   "files": [
+    "assets/audio/botradio/follow_me_m1_2.wav"
+   ],
+   "db": 0.0,
+   "dist": 14.0,
+   "pitch": 0.0,
+   "prio": 7,
+   "unit": 2.5
+  },
+  "botr_follow_me_m2_0": {
+   "files": [
+    "assets/audio/botradio/follow_me_m2_0.wav"
+   ],
+   "db": 0.0,
+   "dist": 14.0,
+   "pitch": 0.0,
+   "prio": 7,
+   "unit": 2.5
+  },
+  "botr_follow_me_m2_1": {
+   "files": [
+    "assets/audio/botradio/follow_me_m2_1.wav"
+   ],
+   "db": 0.0,
+   "dist": 14.0,
+   "pitch": 0.0,
+   "prio": 7,
+   "unit": 2.5
+  },
+  "botr_follow_me_m2_2": {
+   "files": [
+    "assets/audio/botradio/follow_me_m2_2.wav"
+   ],
+   "db": 0.0,
+   "dist": 14.0,
+   "pitch": 0.0,
+   "prio": 7,
+   "unit": 2.5
+  },
+  "botr_follow_me_f1_0": {
+   "files": [
+    "assets/audio/botradio/follow_me_f1_0.wav"
+   ],
+   "db": 0.0,
+   "dist": 14.0,
+   "pitch": 0.0,
+   "prio": 7,
+   "unit": 2.5
+  },
+  "botr_follow_me_f1_1": {
+   "files": [
+    "assets/audio/botradio/follow_me_f1_1.wav"
+   ],
+   "db": 0.0,
+   "dist": 14.0,
+   "pitch": 0.0,
+   "prio": 7,
+   "unit": 2.5
+  },
+  "botr_follow_me_f1_2": {
+   "files": [
+    "assets/audio/botradio/follow_me_f1_2.wav"
+   ],
+   "db": 0.0,
+   "dist": 14.0,
+   "pitch": 0.0,
+   "prio": 7,
+   "unit": 2.5
+  },
+  "botr_follow_me_f2_0": {
+   "files": [
+    "assets/audio/botradio/follow_me_f2_0.wav"
+   ],
+   "db": 0.0,
+   "dist": 14.0,
+   "pitch": 0.0,
+   "prio": 7,
+   "unit": 2.5
+  },
+  "botr_follow_me_f2_1": {
+   "files": [
+    "assets/audio/botradio/follow_me_f2_1.wav"
+   ],
+   "db": 0.0,
+   "dist": 14.0,
+   "pitch": 0.0,
+   "prio": 7,
+   "unit": 2.5
+  },
+  "botr_follow_me_f2_2": {
+   "files": [
+    "assets/audio/botradio/follow_me_f2_2.wav"
+   ],
+   "db": 0.0,
+   "dist": 14.0,
+   "pitch": 0.0,
+   "prio": 7,
+   "unit": 2.5
+  },
+  "botr_lets_go_m1_0": {
+   "files": [
+    "assets/audio/botradio/lets_go_m1_0.wav"
+   ],
+   "db": 0.0,
+   "dist": 14.0,
+   "pitch": 0.0,
+   "prio": 7,
+   "unit": 2.5
+  },
+  "botr_lets_go_m1_1": {
+   "files": [
+    "assets/audio/botradio/lets_go_m1_1.wav"
+   ],
+   "db": 0.0,
+   "dist": 14.0,
+   "pitch": 0.0,
+   "prio": 7,
+   "unit": 2.5
+  },
+  "botr_lets_go_m1_2": {
+   "files": [
+    "assets/audio/botradio/lets_go_m1_2.wav"
+   ],
+   "db": 0.0,
+   "dist": 14.0,
+   "pitch": 0.0,
+   "prio": 7,
+   "unit": 2.5
+  },
+  "botr_lets_go_m2_0": {
+   "files": [
+    "assets/audio/botradio/lets_go_m2_0.wav"
+   ],
+   "db": 0.0,
+   "dist": 14.0,
+   "pitch": 0.0,
+   "prio": 7,
+   "unit": 2.5
+  },
+  "botr_lets_go_m2_1": {
+   "files": [
+    "assets/audio/botradio/lets_go_m2_1.wav"
+   ],
+   "db": 0.0,
+   "dist": 14.0,
+   "pitch": 0.0,
+   "prio": 7,
+   "unit": 2.5
+  },
+  "botr_lets_go_m2_2": {
+   "files": [
+    "assets/audio/botradio/lets_go_m2_2.wav"
+   ],
+   "db": 0.0,
+   "dist": 14.0,
+   "pitch": 0.0,
+   "prio": 7,
+   "unit": 2.5
+  },
+  "botr_lets_go_f1_0": {
+   "files": [
+    "assets/audio/botradio/lets_go_f1_0.wav"
+   ],
+   "db": 0.0,
+   "dist": 14.0,
+   "pitch": 0.0,
+   "prio": 7,
+   "unit": 2.5
+  },
+  "botr_lets_go_f1_1": {
+   "files": [
+    "assets/audio/botradio/lets_go_f1_1.wav"
+   ],
+   "db": 0.0,
+   "dist": 14.0,
+   "pitch": 0.0,
+   "prio": 7,
+   "unit": 2.5
+  },
+  "botr_lets_go_f1_2": {
+   "files": [
+    "assets/audio/botradio/lets_go_f1_2.wav"
+   ],
+   "db": 0.0,
+   "dist": 14.0,
+   "pitch": 0.0,
+   "prio": 7,
+   "unit": 2.5
+  },
+  "botr_lets_go_f2_0": {
+   "files": [
+    "assets/audio/botradio/lets_go_f2_0.wav"
+   ],
+   "db": 0.0,
+   "dist": 14.0,
+   "pitch": 0.0,
+   "prio": 7,
+   "unit": 2.5
+  },
+  "botr_lets_go_f2_1": {
+   "files": [
+    "assets/audio/botradio/lets_go_f2_1.wav"
+   ],
+   "db": 0.0,
+   "dist": 14.0,
+   "pitch": 0.0,
+   "prio": 7,
+   "unit": 2.5
+  },
+  "botr_lets_go_f2_2": {
+   "files": [
+    "assets/audio/botradio/lets_go_f2_2.wav"
+   ],
+   "db": 0.0,
+   "dist": 14.0,
+   "pitch": 0.0,
+   "prio": 7,
+   "unit": 2.5
+  },
+  "botr_fall_back_m1_0": {
+   "files": [
+    "assets/audio/botradio/fall_back_m1_0.wav"
+   ],
+   "db": 0.0,
+   "dist": 14.0,
+   "pitch": 0.0,
+   "prio": 7,
+   "unit": 2.5
+  },
+  "botr_fall_back_m1_1": {
+   "files": [
+    "assets/audio/botradio/fall_back_m1_1.wav"
+   ],
+   "db": 0.0,
+   "dist": 14.0,
+   "pitch": 0.0,
+   "prio": 7,
+   "unit": 2.5
+  },
+  "botr_fall_back_m1_2": {
+   "files": [
+    "assets/audio/botradio/fall_back_m1_2.wav"
+   ],
+   "db": 0.0,
+   "dist": 14.0,
+   "pitch": 0.0,
+   "prio": 7,
+   "unit": 2.5
+  },
+  "botr_fall_back_m2_0": {
+   "files": [
+    "assets/audio/botradio/fall_back_m2_0.wav"
+   ],
+   "db": 0.0,
+   "dist": 14.0,
+   "pitch": 0.0,
+   "prio": 7,
+   "unit": 2.5
+  },
+  "botr_fall_back_m2_1": {
+   "files": [
+    "assets/audio/botradio/fall_back_m2_1.wav"
+   ],
+   "db": 0.0,
+   "dist": 14.0,
+   "pitch": 0.0,
+   "prio": 7,
+   "unit": 2.5
+  },
+  "botr_fall_back_m2_2": {
+   "files": [
+    "assets/audio/botradio/fall_back_m2_2.wav"
+   ],
+   "db": 0.0,
+   "dist": 14.0,
+   "pitch": 0.0,
+   "prio": 7,
+   "unit": 2.5
+  },
+  "botr_fall_back_f1_0": {
+   "files": [
+    "assets/audio/botradio/fall_back_f1_0.wav"
+   ],
+   "db": 0.0,
+   "dist": 14.0,
+   "pitch": 0.0,
+   "prio": 7,
+   "unit": 2.5
+  },
+  "botr_fall_back_f1_1": {
+   "files": [
+    "assets/audio/botradio/fall_back_f1_1.wav"
+   ],
+   "db": 0.0,
+   "dist": 14.0,
+   "pitch": 0.0,
+   "prio": 7,
+   "unit": 2.5
+  },
+  "botr_fall_back_f1_2": {
+   "files": [
+    "assets/audio/botradio/fall_back_f1_2.wav"
+   ],
+   "db": 0.0,
+   "dist": 14.0,
+   "pitch": 0.0,
+   "prio": 7,
+   "unit": 2.5
+  },
+  "botr_fall_back_f2_0": {
+   "files": [
+    "assets/audio/botradio/fall_back_f2_0.wav"
+   ],
+   "db": 0.0,
+   "dist": 14.0,
+   "pitch": 0.0,
+   "prio": 7,
+   "unit": 2.5
+  },
+  "botr_fall_back_f2_1": {
+   "files": [
+    "assets/audio/botradio/fall_back_f2_1.wav"
+   ],
+   "db": 0.0,
+   "dist": 14.0,
+   "pitch": 0.0,
+   "prio": 7,
+   "unit": 2.5
+  },
+  "botr_fall_back_f2_2": {
+   "files": [
+    "assets/audio/botradio/fall_back_f2_2.wav"
+   ],
+   "db": 0.0,
+   "dist": 14.0,
+   "pitch": 0.0,
+   "prio": 7,
+   "unit": 2.5
+  },
+  "vox_follow_me_0": {
+   "files": [
+    "assets/audio/r13/follow_me.ogg"
+   ],
+   "db": 0.0,
+   "dist": 14.0,
+   "pitch": 0.0,
+   "prio": 7,
+   "unit": 2.5
+  },
+  "vox_follow_me_1": {
+   "files": [
+    "assets/audio/r13/follow_me2.ogg"
+   ],
+   "db": 0.0,
+   "dist": 14.0,
+   "pitch": 0.0,
+   "prio": 7,
+   "unit": 2.5
+  },
+  "vox_follow_me_2": {
+   "files": [
+    "assets/audio/r13/follow_me3.ogg"
+   ],
+   "db": 0.0,
+   "dist": 14.0,
+   "pitch": 0.0,
+   "prio": 7,
+   "unit": 2.5
+  },
+  "radio_hiss": {
+   "files": [
+    "assets/audio/synth/radio_static.wav"
+   ],
+   "db": -16.0,
+   "dist": 10.0,
+   "pitch": 0.05,
+   "prio": 5,
+   "unit": 1.0,
+   "loop": true
+  },
+  "tinnitus": {
+   "files": [
+    "assets/audio/r14/tinnitus.wav"
+   ],
+   "db": -3.0,
+   "dist": 1.0,
+   "pitch": 0.0,
+   "prio": 9,
+   "unit": 1.0
+  },
+  "lamp_buzz": {
+   "files": [
+    "assets/audio/r16/lamp_buzz.wav"
+   ],
+   "db": -14.0,
+   "dist": 9.0,
+   "pitch": 0.0,
+   "prio": 3,
+   "unit": 2.5,
+   "loop": true
+  },
+  "step_escalator": {
+   "files": [
+    "assets/audio/mall/escalator_00.wav",
+    "assets/audio/mall/escalator_01.wav",
+    "assets/audio/mall/escalator_02.wav",
+    "assets/audio/mall/escalator_03.wav",
+    "assets/audio/mall/escalator_04.wav",
+    "assets/audio/mall/escalator_05.wav"
+   ],
+   "db": -5.5,
+   "dist": 28.0,
+   "pitch": 0.035,
+   "prio": 4,
+   "unit": 2.5
+  },
+  "step_tile": {
+   "files": [
+    "assets/audio/mall/tile_00.wav",
+    "assets/audio/mall/tile_01.wav",
+    "assets/audio/mall/tile_02.wav",
+    "assets/audio/mall/tile_03.wav",
+    "assets/audio/mall/tile_04.wav"
+   ],
+   "db": -2.5,
+   "dist": 28.0,
+   "pitch": 0.045,
+   "prio": 4,
+   "unit": 2.5
+  },
+  "step_rubber": {
+   "files": [
+    "assets/audio/mall/rubber_00.wav",
+    "assets/audio/mall/rubber_01.wav",
+    "assets/audio/mall/rubber_02.wav",
+    "assets/audio/mall/rubber_03.wav",
+    "assets/audio/mall/rubber_04.wav"
+   ],
+   "db": -2.0,
+   "dist": 28.0,
+   "pitch": 0.045,
+   "prio": 4,
    "unit": 2.5
   }
  }

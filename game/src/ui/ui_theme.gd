@@ -301,6 +301,19 @@ static func toggle(text: String, on: bool, on_change: Callable) -> CheckButton:
 	return c
 
 
+static func dm_win_picker(current: String, on_change: Callable) -> OptionButton:
+	var options := [["wipe", "Team Wipe"], ["score", "Kill score"], ["time", "Timer"], ["elim", "Last team standing"]]
+	var picker := OptionButton.new()
+	picker.custom_minimum_size.y = 48
+	picker.add_theme_font_size_override("font_size", 20)
+	for i in options.size():
+		picker.add_item(str(options[i][1]))
+		if str(options[i][0]) == current:
+			picker.select(i)
+	picker.item_selected.connect(func(i): on_change.call(options[i][0]))
+	return picker
+
+
 static func bar(value: float, max_value: float, color: Color = ACCENT, h: int = 10) -> ProgressBar:
 	var p := ProgressBar.new()
 	p.max_value = max_value
@@ -317,7 +330,7 @@ static func bar(value: float, max_value: float, color: Color = ACCENT, h: int = 
 const GUN_CLASS_NAMES := {"rifle": "Assault rifle", "smg": "Submachine gun", "marksman": "Marksman rifle", "precision": "Sniper rifle",
 	"lmg": "Light machine gun", "shotgun": "Shotgun", "handgun": "Handgun"}
 const MODE_NAMES := {"classic": "Classic", "deathmatch": "Deathmatch"}
-const MAP_NAMES := {"kalinaw": "Sitio Kalinaw", "lawless_sub": "Lawless Sub"}
+const MAP_NAMES := {"kalinaw": "Sitio Kalinaw", "lawless_sub": "Lawless Sub", "malasugue_mall": "Malasugue Mall"}
 
 
 static func gun_picture(id: String) -> Texture2D:
@@ -339,13 +352,20 @@ static func gun_plate() -> StyleBoxFlat:
 	return s
 
 
+static func dm_team_names(n: int) -> Array:
+	## Deathmatch team names for n teams (rules.json deathmatch.team_names for three, team_names_2 for two).
+	var dm: Dictionary = Defs.rules.get("deathmatch", {})
+	var names: Array = dm.get("team_names_2", ["West Team", "East Team"]) if n <= 2 else dm.get("team_names", ["North Team", "East Team", "South Team"])
+	return names.slice(0, n)
+
+
 static func dm_team_name(t: int) -> String:
-	var names: Array = Defs.rules.get("deathmatch", {}).get("team_names", ["West Team", "East Team"])
+	var names := dm_team_names(clampi(int(Net.config.get("teams", 3)), 2, 3))
 	return str(names[t]) if t >= 0 and t < names.size() else "Team %d" % (t + 1)
 
 
 static func team_name(t: int) -> String:
-	## "Team 3" in Classic, "West Team" / "East Team" in Deathmatch.
+	## "Team 3" in Classic, "North Team" / "East Team" / "South Team" in Deathmatch.
 	if str(Net.config.get("game_mode", "classic")) == "deathmatch":
 		return dm_team_name(t)
 	return "Team %d" % (t + 1)

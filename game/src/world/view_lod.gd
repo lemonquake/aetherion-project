@@ -54,6 +54,10 @@ func update(dt: float) -> void:
 		_base_lod = vp.mesh_lod_threshold
 	var p := cam.global_position
 	agl = p.y - maxf(float(mb.layout.ground_height(p.x, p.z)), float(mb.layout.WATER_Y))
+	# A player on an indoor gallery is still on foot, including a jump from L5.
+	# Outdoor altitude tiers would otherwise hide the furniture and lamp shadows.
+	if mb.layout.get("indoor_light") is Dictionary and mb.layout.inside(Vector2(p.x,p.z)):
+		agl = maxf(0.0,p.y-float(mb.layout.level_of(p.y))*float(mb.layout.FH))
 	var high: float = mb.lighting.moon_shadow_distance() + HIGH_MARGIN
 	var t := tier
 	if agl > high:

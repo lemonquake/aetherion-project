@@ -1,0 +1,25 @@
+[Unit]
+Description=Aetherion official %i server
+After=network-online.target aetherion-master.service
+Wants=network-online.target
+
+[Service]
+Type=simple
+User=aetherion
+Group=aetherion
+WorkingDirectory=/var/lib/aetherion
+EnvironmentFile=/etc/aetherion/%i.env
+Environment=HOME=/var/lib/aetherion XDG_DATA_HOME=/var/lib/aetherion/data/%i
+ExecStart=/opt/aetherion/current/aetherion_server.x86_64 --headless -- --server --official $AETHERION_ARGS
+Restart=always
+RestartSec=5
+# Memory limits per instance: drop-ins aetherion-server@<instance>.service.d/memory.conf (install.sh, classic.conf).
+OOMScoreAdjust=800
+NoNewPrivileges=true
+ProtectSystem=strict
+ProtectHome=true
+ReadWritePaths=/var/lib/aetherion
+PrivateTmp=true
+
+[Install]
+WantedBy=multi-user.target

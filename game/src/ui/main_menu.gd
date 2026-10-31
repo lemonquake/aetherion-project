@@ -28,6 +28,8 @@ var _lb_by := "xp"
 var _lb_list: VBoxContainer
 var _lb_note: Label
 var _compact := false
+var _official_box: Control
+var _official_key := ""
 
 
 func _ready() -> void:
@@ -58,10 +60,30 @@ func _ready() -> void:
 	Online.changed.connect(_refresh_online)
 	_refresh_chip()
 	_refresh_online()
+	var gs := preload("res://src/core/gfx_safety.gd")
+	if gs.notice != "" or Game.arg("gfx_notice_test"):
+		_gfx_notice(gs.notice if gs.notice != "" else "Aetherion closed unexpectedly last time, so it now uses Safe graphics (OpenGL). You can switch back in Settings > Graphics > Renderer.")
+		gs.notice = ""
 	if Game.arg("ui_tour_r7") and not Game.has_node("UiTourR7"):
 		var tour: Node = GameSetup.Tour.new()
 		tour.name = "UiTourR7"
 		Game.add_child(tour)
+
+
+func _gfx_notice(text: String) -> void:
+	## (r17) Said once after the game switched itself to Safe graphics (src/core/gfx_safety.gd).
+	var p := UITheme.panel(null, "panel_accent")
+	p.set_anchors_preset(Control.PRESET_CENTER_TOP)
+	p.custom_minimum_size = Vector2(minf(get_viewport_rect().size.x - 60.0, 760.0), 0)
+	p.position = Vector2(-p.custom_minimum_size.x * 0.5, 110)
+	var v := UITheme.vbox(10)
+	p.add_child(v)
+	v.add_child(UITheme.label("Safe graphics is on" if "Safe graphics" in text else "Graphics set for this PC", 26, UITheme.TEXT, UITheme.font_condensed))
+	var l := UITheme.label(text, 18, UITheme.TEXT_DIM)
+	l.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
+	v.add_child(l)
+	v.add_child(UITheme.button("OK", func(): p.queue_free(), 140))
+	add_child(p)
 
 
 # ------------------------------------------------------------------ frame
@@ -198,8 +220,12 @@ func _page_home() -> Control:
 	var row := UITheme.hbox(30)
 	var left := UITheme.vbox(12 if not _compact else 10)
 	left.custom_minimum_size = Vector2(580 if not _compact else 480, 0)
-	left.size_flags_vertical = Control.SIZE_SHRINK_CENTER
-	row.add_child(left)
+	# (r17) Centred when it fits, scrolled when a short screen cannot hold every row.
+	left.size_flags_vertical = Control.SIZE_EXPAND | Control.SIZE_SHRINK_CENTER
+	var lscroll := ScrollContainer.new()
+	lscroll.horizontal_scroll_mode = ScrollContainer.SCROLL_MODE_DISABLED
+	lscroll.add_child(left)
+	row.add_child(lscroll)
 	left.add_child(UITheme.label("%s · %s" % [UITheme.MAP_NAMES.get(_map_for(Profile.game_mode), ""), UITheme.MODE_NAMES.get(Profile.game_mode, "")], 20, UITheme.ACCENT, UITheme.font_semibold))
 	if not _compact:
 		left.add_child(UITheme.label("Choose a mode", 52, UITheme.TEXT, UITheme.font_condensed))
@@ -215,6 +241,24 @@ func _page_home() -> Control:
 		var d := UITheme.label(MODE_TEXT[Profile.game_mode], 17, UITheme.TEXT_DIM)
 		d.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
 		left.add_child(d)
+	if dm:
+		# (r16) Deathmatch's map, chosen right here (the lobby's host can still change it there)
+		var maps := []
+		for m2 in Defs.rule("game_modes.deathmatch.maps", []):
+			maps.append([str(m2), str(UITheme.MAP_NAMES.get(str(m2), str(m2)))])
+		if maps.size() > 1:
+			var mrow := UITheme.hbox(12)
+			var ml := UITheme.label("Map", 22, UITheme.TEXT_DIM, UITheme.font_semibold)
+			ml.size_flags_vertical = Control.SIZE_SHRINK_CENTER
+			mrow.add_child(ml)
+			var seg2 := UITheme.segmented(maps, _map_for("deathmatch"), func(v): _pick_dm_map(v, true))
+			seg2.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+			for b2 in seg2.get_children():
+				b2.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+				b2.add_theme_font_size_override("font_size", 22)
+			mrow.add_child(seg2)
+			left.add_child(mrow)
+	_match_opt_rows(left, dm, true)
 	var quick := UITheme.primary("PLAY NOW", _quick_match, 0, 96 if not _compact else 76)
 	quick.add_theme_font_size_override("font_size", 40)
 	left.add_child(quick)
@@ -222,6 +266,10 @@ func _page_home() -> Control:
 		else "Practice: you and 19 bots in 5 squads of 4. Check your squad in the lobby, then start.", 17, UITheme.TEXT_DIM)
 	practice.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
 	left.add_child(practice)
+	_official_box = UITheme.vbox(0)
+	_official_key = ""
+	left.add_child(_official_box)
+	_fill_official()
 	var r2 := UITheme.hbox(10)
 	var find := UITheme.icon_button("globe", "Find a game", func(): _show("play"))
 	find.size_flags_horizontal = Control.SIZE_EXPAND_FILL
@@ -269,8 +317,8 @@ func _page_home() -> Control:
 # ------------------------------------------------------------------ r7: game modes
 
 const MODE_TEXT := {
-	"classic": "Battle royale on Sitio Kalinaw. Parachute in, loot weapons and gear, and survive the shrinking haze. Day and night change every 5 minutes. The last team standing wins.",
-	"deathmatch": "Two teams of up to 10 on Lawless Sub. Pick a primary and a secondary gun; everyone starts with armour and a heavy-plate helmet. No respawns: the last team standing wins. Loot and swap guns as you go; the haze and day and night still apply.",
+	"classic": "Battle royale on Sitio Kalinaw. Parachute in, loot weapons and gear, and stay ahead of the closing forcefield. Every match starts at night; night and day take turns. The last team standing wins.",
+	"deathmatch": "Up to three teams of 7 on Lawless Sub or Malasugue Mall. Pick a primary and a secondary gun; everyone starts with armour and a heavy-plate helmet. Win on team score, on the clock, or as the last team standing. The forcefield squeezes anyone it pins; the mall stays dark all match.",
 }
 
 
@@ -278,6 +326,8 @@ func _map_for(mode: String) -> String:
 	## The map a mode plays on (rules.json game_modes.<mode>.map); --map=<id> overrides it for tests.
 	if Game.arg("map"):
 		return str(Game.arg("map"))
+	if Profile.dm_map in Defs.rule("game_modes.%s.maps" % mode, []):
+		return Profile.dm_map   # (r16) Deathmatch: the map chosen on Home or Host a game (Lawless Sub or Malasugue Mall)
 	return str(Defs.rule("game_modes.%s.map" % mode, "lawless_sub" if mode == "deathmatch" else "kalinaw"))
 
 
@@ -337,6 +387,82 @@ func _loadout_button() -> Control:
 	return b
 
 
+func _match_opt_rows(box: Container, dm: bool, home: bool) -> void:
+	## (r17) How a Deathmatch is won (score limit, timer, last team) and how long each night and day lasts, saved in
+	## the profile; every host path starts its lobby with them.
+	var rows := []
+	if dm and home:
+		# Home: one dropdown for the rule and its limit, so the column still fits a 1080p screen.
+		var ob := OptionButton.new()
+		ob.custom_minimum_size = Vector2(0, 48)
+		ob.add_theme_font_size_override("font_size", 19)
+		var cur := "%s:%s" % [str(Profile.match_opt("dm_win")), str(Profile.match_opt("dm_score") if str(Profile.match_opt("dm_win")) in ["wipe", "score"] else Profile.match_opt("dm_time"))]
+		var choices := []
+		for s in Net.DM_SCORES:
+			choices.append(["wipe:%d" % s, "Team Wipe: first team to %d points" % s])
+		for s in Net.DM_SCORES:
+			choices.append(["score:%d" % s, "Score limit: first team to %d kills" % s])
+		for m in Net.DM_TIMES:
+			choices.append(["time:%d" % m, "Timer: best team score after %d min" % m])
+		choices.append(["elim:0", "Last team standing (no respawns)"])
+		for i in choices.size():
+			ob.add_item(str(choices[i][1]))
+			ob.set_item_metadata(i, choices[i][0])
+			if str(choices[i][0]) == cur or (str(choices[i][0]) == "elim:0" and cur.begins_with("elim")):
+				ob.select(i)
+		ob.item_selected.connect(func(i):
+			var kv := str(ob.get_item_metadata(i)).split(":")
+			Profile.set_match_opt("dm_win", kv[0])
+			if kv[0] in ["wipe", "score"]:
+				Profile.set_match_opt("dm_score", int(kv[1]))
+			elif kv[0] == "time":
+				Profile.set_match_opt("dm_time", int(kv[1]))
+			_update_summary())
+		rows.append(["Win by", ob])
+	elif dm:
+		var win := str(Profile.match_opt("dm_win"))
+		rows.append(["Win by", UITheme.dm_win_picker(win, func(v): _pick_opt("dm_win", v, true))])
+		if win in ["wipe", "score"]:
+			rows.append(["Points to win" if win == "wipe" else "Kills to win", UITheme.segmented([[10, "10"], [20, "20"], [30, "30"], [50, "50"]], int(Profile.match_opt("dm_score")), func(v): _pick_opt("dm_score", v, false))])
+		elif win == "time":
+			rows.append(["Timer", UITheme.segmented([[10, "10 min"], [14, "14 min"], [30, "30 min"]], int(Profile.match_opt("dm_time")), func(v): _pick_opt("dm_time", v, false))])
+	if dm and _map_for("deathmatch") == "malasugue_mall":
+		rows.append(["Field", UITheme.toggle("Enable field (closes up to 50%)", bool(Profile.match_opt("dm_field")), func(v): _pick_opt("dm_field", v, false))])
+	if not (dm and _map_for("deathmatch") in Defs.rule("day_cycle.night_only_maps", [])):
+		rows.append(["Night/day", UITheme.segmented([[120, "2 min"], [300, "5 min"], [600, "10 min"]], int(Profile.match_opt("day_len")), func(v): _pick_opt("day_len", v, false))])
+	for r in rows:
+		if not home:
+			box.add_child(_field(str(r[0]), r[1]))
+			continue
+		var row := UITheme.hbox(12)
+		var l := UITheme.label(str(r[0]), 20, UITheme.TEXT_DIM, UITheme.font_semibold)
+		l.custom_minimum_size = Vector2(110, 0)
+		l.size_flags_vertical = Control.SIZE_SHRINK_CENTER
+		row.add_child(l)
+		var seg: Control = r[1]
+		seg.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+		if seg is HBoxContainer:
+			for b in seg.get_children():
+				b.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+				b.add_theme_font_size_override("font_size", 19)
+		row.add_child(seg)
+		box.add_child(row)
+
+
+func _pick_opt(k: String, v, rebuild: bool) -> void:
+	Profile.set_match_opt(k, v)
+	_update_summary()
+	if rebuild:
+		_rebuild_pages.call_deferred()
+
+
+func _pick_dm_map(m: String, rebuild: bool) -> void:
+	## (r16) The Deathmatch map for Play Now and Host a game, saved in the profile.
+	Profile.set_dm_map(m)
+	_update_summary()
+	_rebuild_pages.call_deferred()   # (r17) Host a game too: a night-only map hides the night/day choice
+
+
 func _set_mode(m: String) -> void:
 	## The mode for Play Now and Host Game, saved in the profile. Home and Play are rebuilt to match.
 	if m == Profile.game_mode and m == str(_create.game_mode):
@@ -365,6 +491,8 @@ func _apply_mode_config(mode: String, team_size: int) -> void:
 	## Every host path sets the mode and map explicitly: Net.shutdown() keeps the config of the last session.
 	Net.set_config("game_mode", mode)
 	Net.set_config("map", _map_for(mode))
+	for k in Profile.MATCH_OPT_KEYS:   # (r17) the win rule and the night/day length chosen on Home or Host a game
+		Net.set_config(k, Profile.match_opt(k))
 	if mode == "deathmatch":
 		Net.set_config("teams", 2)
 		Net.set_config("team_size", clampi(team_size, 1, 10))
@@ -394,6 +522,7 @@ func _last_match_card() -> Control:
 func _refresh_online() -> void:
 	if _server_pill:
 		_server_pill.text = Online.status
+	_fill_official()
 	if _online_list and is_instance_valid(_online_list):
 		for c in _online_list.get_children():
 			c.queue_free()
@@ -430,6 +559,61 @@ func _person_row(p: Dictionary) -> Control:
 	return h
 
 
+# ------------------------------------------------------------------ Official servers
+
+func _fill_official() -> void:
+	## Home: the always-on official server for the chosen mode (src/match/official.gd), joined in one tap.
+	if _official_box == null or not is_instance_valid(_official_box):
+		return
+	var mode := Profile.game_mode
+	var g: Dictionary = {}
+	for o in Online.official_games():
+		if str(o.get("game_mode", "classic")) == mode:
+			g = o
+			break
+	var key := JSON.stringify(g) + str(Online.connected)
+	if key == _official_key:
+		return
+	_official_key = key
+	for c in _official_box.get_children():
+		c.queue_free()
+	var p := UITheme.panel(null, "panel_light")
+	var h := UITheme.hbox(12)
+	p.add_child(h)
+	h.add_child(Icons_rect("globe", 30, UITheme.ACCENT2))
+	var info := UITheme.vbox(2)
+	info.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+	var region := str(g.get("region", Defs.rule("official.region", "")))
+	info.add_child(UITheme.label("Official server%s" % ((" · " + region) if region != "" else ""), 21, UITheme.TEXT, UITheme.font_semibold))
+	var sub := ""
+	var can_join := false
+	if g.is_empty():
+		sub = "Connecting to the official servers…" if not Online.connected else "The official %s server is offline right now." % str(UITheme.MODE_NAMES.get(mode, mode))
+	elif str(g.get("version", Net.VERSION)) != Net.VERSION:
+		sub = "It runs %s and you have %s: open the Aetherion Launcher to update." % [str(g.get("version", "?")).trim_prefix("aetherion-"), Net.VERSION.trim_prefix("aetherion-")]
+	else:
+		can_join = int(g.get("players", 0)) < int(g.get("max", 0))
+		var n := int(g.get("players", 0))
+		var st := str(g.get("state", "lobby"))
+		var when := ""
+		if st == "lobby":
+			when = ("match starts in %d s" % int(g.auto_start_in)) if int(g.get("auto_start_in", -1)) >= 0 else "starts when you join"
+		else:
+			when = "match in progress (watch, then play the next)"
+		sub = "%s · %d playing · %s" % [str(UITheme.MAP_NAMES.get(str(g.get("map", "")), "")), n, when]
+	var sl := UITheme.label(sub, 16, UITheme.TEXT_DIM)
+	sl.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
+	info.add_child(sl)
+	h.add_child(info)
+	var addr := str(g.get("address", ""))
+	var port := int(g.get("port", Net.DEFAULT_PORT))
+	var jb := UITheme.button("PLAY ONLINE", func(): _join(addr, port), 170)
+	jb.disabled = not can_join
+	jb.size_flags_vertical = Control.SIZE_SHRINK_CENTER
+	h.add_child(jb)
+	_official_box.add_child(p)
+
+
 # ------------------------------------------------------------------ Play: host or join
 
 func _page_play() -> Control:
@@ -454,13 +638,21 @@ func _page_play() -> Control:
 	cv.add_child(_field("Game name", name))
 	cv.add_child(_field("Mode", UITheme.segmented([["classic", "Classic"], ["deathmatch", "Deathmatch"]], str(_create.game_mode), _set_mode)))
 	if str(_create.game_mode) == "deathmatch":
+		var maps := []
+		for m in Defs.rule("game_modes.deathmatch.maps", []):
+			maps.append([str(m), str(UITheme.MAP_NAMES.get(str(m), str(m)))])
+		cv.add_child(_field("Map", UITheme.segmented(maps, _map_for("deathmatch"), func(v): _pick_dm_map(v, false))))
 		cv.add_child(_field("Players per team (%s and %s)" % [UITheme.dm_team_name(0), UITheme.dm_team_name(1)],
 			UITheme.stepper(int(_create.dm_team_size), 1, 10, func(v): _create.dm_team_size = v; _update_summary())))
 	else:
 		cv.add_child(_field("Teams", UITheme.stepper(int(_create.teams), 2, Net.MAX_TEAMS, func(v): _create.teams = v; _update_summary())))
 		cv.add_child(_field("Squad size", UITheme.segmented([[1, "Solo"], [2, "Duo"], [3, "Trio"], [4, "Squad"]], int(_create.team_size), func(v): _create.team_size = v; _update_summary())))
 	cv.add_child(UITheme.toggle("Fill empty slots with bots", bool(_create.bots), func(v): _create.bots = v; _update_summary()))
-	cv.add_child(_field("Safe zone", UITheme.segmented([[1.0, "Normal"], [1.6, "Fast"], [2.5, "Rapid"]], float(_create.zone_speed), func(v): _create.zone_speed = v)))
+	if str(_create.game_mode) == "deathmatch" and _map_for("deathmatch") != "malasugue_mall":
+		cv.add_child(_field("Safe zone", UITheme.label("Fast  ·  fixed in Deathmatch", 21, UITheme.TEXT, UITheme.font_semibold)))
+	elif str(_create.game_mode) != "deathmatch":
+		cv.add_child(_field("Safe zone", UITheme.segmented([[1.0, "Normal"], [1.6, "Fast"], [2.5, "Rapid"]], float(_create.zone_speed), func(v): _create.zone_speed = v)))
+	_match_opt_rows(cv, str(_create.game_mode) == "deathmatch", false)
 	_summary = UITheme.label("", 18, UITheme.ACCENT2)
 	_summary.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
 	cv.add_child(_summary)
@@ -522,7 +714,7 @@ func _field(title: String, c: Control) -> Control:
 
 
 func _update_summary() -> void:
-	if _summary == null:
+	if _summary == null or not is_instance_valid(_summary):
 		return
 	if str(_create.game_mode) == "deathmatch":
 		var n := int(_create.dm_team_size)
@@ -737,6 +929,7 @@ func _quick_match() -> void:
 		return
 	var mode := Profile.game_mode
 	Net.set_config("name", "%s's practice" % Settings.player_name())
+	Net.set_config("practice", true)   # on your Wi-Fi only: not listed on the stats server
 	_apply_mode_config(mode, int(Defs.rule("deathmatch.team_size", 10)))
 	if mode != "deathmatch":
 		Net.set_config("teams", 5)
@@ -754,6 +947,7 @@ func _host_custom() -> void:
 		show_status("Could not open port %d (error %d). Another game may be running." % [port, err])
 		return
 	Net.set_config("name", str(_create.name).strip_edges() if str(_create.name).strip_edges() != "" else "%s's game" % Settings.player_name())
+	Net.set_config("practice", false)
 	var mode := str(_create.game_mode)
 	_apply_mode_config(mode, int(_create.dm_team_size))
 	if mode != "deathmatch":

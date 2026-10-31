@@ -26,7 +26,13 @@ const B_LASER := 262144           # laser pointer held
 const LadderMove := preload("res://src/player/ladder.gd")
 
 
+static var legacy = null   # tests only (r12 before/after captures): the r11 motor script runs instead
+
+
 static func step(ch, cmd: Dictionary, dt: float) -> void:
+	if legacy != null:
+		legacy.step(ch, cmd, dt)
+		return
 	ch.yaw = float(cmd.get("yaw", ch.yaw))
 	ch.pitch = clampf(float(cmd.get("pitch", ch.pitch)), -1.45, 1.45)
 	match ch.mode:
@@ -53,24 +59,44 @@ static func wish_dir(ch, cmd: Dictionary) -> Vector3:
 
 static func _ground(ch, cmd: Dictionary, dt: float, downed: bool) -> void:
 	var btn := int(cmd.get("btn", 0))
+	var pressed = btn & ~ch.prev_buttons
+	ch.pk_cd = maxf(ch.pk_cd - dt, 0.0)
+	var fi := Field.for_cmd(ch, cmd)
+	var in_field := bool(fi.on)
 	if ch.vault_t >= 0.0:
 		Vault.step(ch, dt)
 		return
-	if not downed:
+	if ch.ledge_t >= 0.0:
+		if in_field or downed:
+			Parkour.let_go(ch, 0.0)   # the field tears the hands off the edge
+		elif Parkour.hang_step(ch, cmd, dt):
+			return
+	if not downed and not in_field:
 		var ld := LadderMove.find(ch)
 		if LadderMove.wants(ch, cmd, ld):
 			LadderMove.step(ch, cmd, dt, ld)
 			return
 	var water = ch.water_depth()
-	# Stance
+	# Too deep to jump: push into a wall whose top is within reach and the hands catch it (a canal's coping).
+	if water >= 0.6 and not downed and not in_field and Parkour.water_grab(ch, cmd, water):
+		return
+	var v: Vector3 = ch.velocity
+	var on_floor: bool = ch.is_on_floor()
+	var hv := Vector3(v.x, 0.0, v.z)
+	# Slide: Crouch at a sprint.
+	if on_floor and not downed and water < 0.45 and ch.held_prop_id < 0:
+		Parkour.try_slide(ch, cmd, hv)
+	# Stance (a slide or a roll holds the body low)
 	var want_crouch := (btn & B_CROUCH) != 0 and not downed
-	if want_crouch != ch.crouching:
+	if ch.slide_t >= 0.0:
+		want_crouch = true
+	if want_crouch != ch.crouching and ch.roll_t < 0.0:
 		if want_crouch or ch.can_stand():
 			ch.crouching = want_crouch
 	var target_c := 1.0 if ch.crouching else 0.0
 	if downed:
 		target_c = 2.0
-	ch.crouch = move_toward(ch.crouch, target_c, dt * 5.0)
+	ch.crouch = move_toward(ch.crouch, target_c, dt * (9.0 if ch.slide_t >= 0.0 else 5.0))
 	ch.apply_height()
 	# Speed
 	var speed := Defs.move("run_speed")
@@ -86,16 +112,20 @@ static func _ground(ch, cmd: Dictionary, dt: float, downed: bool) -> void:
 		speed = Defs.move("sprint_speed")
 	if (btn & B_AIM) != 0 and not downed:
 		speed *= Defs.move("aim_speed_mult")
+	if (ch.flags & Character.F_HEAL) != 0 and not sprinting:
+		speed = minf(speed, Defs.move("walk_speed"))   # treating a wound: a slow walk at most
 	speed *= ch.speed_mult()
+	if ch.land_timer > 0.0:
+		speed *= lerpf(1.0, 0.45, clampf(ch.land_timer / 0.5, 0.0, 1.0))   # a hard landing: a stumble
 	if water > 1.15:
 		speed = minf(speed, Defs.move("swim_speed"))
 	elif water > 0.45:
 		speed = minf(speed, Defs.move("wade_speed"))
-	ch.sprinting = sprinting
+	ch.sprinting = sprinting and ch.slide_t < 0.0
 	ch.walking = (btn & B_WALK) != 0
-	var wish := wish_dir(ch, cmd) * speed
-	var v: Vector3 = ch.velocity
-	var on_floor: bool = ch.is_on_floor()
+	var stick := Vector2(float(cmd.get("mx", 0.0)), float(cmd.get("my", 0.0))).limit_length(1.0)
+	var wd := wish_dir(ch, cmd)
+	var wish := wd * speed
 	var swimming = water > 1.15
 	if swimming:
 		# Treading water: slow, buoyant, no jumping.
@@ -103,45 +133,127 @@ static func _ground(ch, cmd: Dictionary, dt: float, downed: bool) -> void:
 		v.y = move_toward(v.y, clampf(target_y * 2.0, -1.5, 1.5), dt * 6.0)
 		v.x = move_toward(v.x, wish.x, dt * 3.0)
 		v.z = move_toward(v.z, wish.z, dt * 3.0)
+		ch.slide_t = -1.0
+		ch.air_t = 0.0
 	elif on_floor:
-		var accel := Defs.move("accel_ground")
-		var hv := Vector3(v.x, 0.0, v.z)
-		if wish.length() > 0.01:
-			hv = hv.move_toward(wish, accel * dt)
+		ch.air_t = 0.0
+		if ch.slide_t >= 0.0:
+			hv = Parkour.slide_step(ch, cmd, hv, dt)
+		elif ch.roll_t >= 0.0:
+			hv = Parkour.roll_step(ch, hv, dt)
 		else:
-			hv = hv.move_toward(Vector3.ZERO, Defs.move("friction_ground") * dt)
+			hv = run(hv, wd, speed * stick.length(), dt)
 		v.x = hv.x
 		v.z = hv.z
-		var jump_press: bool = (btn & B_JUMP) != 0 and (ch.prev_buttons & B_JUMP) == 0 and not downed \
-				and ch.jump_cooldown <= 0.0 and water < 0.6
+		var jump_press: bool = ((pressed & B_JUMP) != 0 or ch.jump_buf >= 0.0) and not downed \
+				and ch.jump_cooldown <= 0.0 and water < 0.6 and ch.roll_t < 0.0
+		ch.jump_buf = -1.0
 		var vault := Vault.find(ch) if jump_press and ch.held_prop_id < 0 else {}
+		if not vault.is_empty() and float(vault.get("drop", 0.0)) > 3.0 and Net.is_bot(ch.pid):
+			vault = {}   # (r17) a bot does not vault off a balcony into a long drop
 		if not vault.is_empty():
 			# Close to something low enough to get over or through: vault instead of jumping.
 			Vault.start(ch, vault)
 			ch.jump_cooldown = 0.3
 			return
-		if jump_press and not ch.crouching:
-			v.y = Defs.move("jump_velocity")
+		if jump_press and (not ch.crouching or ch.slide_t >= 0.0) and ch.can_stand():
+			ch.crouching = false
+			v = Parkour.ground_jump(ch, cmd, hv, wd, v)
 			ch.jump_cooldown = 0.45
-			ch.emit_motion_event("jump", 0.0)
 		else:
 			v.y = -0.5
 	else:
-		var hv := Vector3(v.x, 0.0, v.z)
+		ch.air_t += dt
+		ch.slide_t = -1.0
+		# Running off an edge, Jump still works for a moment (coyote time); pressed just before landing, it waits.
+		if (pressed & B_JUMP) != 0 and not downed:
+			if ch.air_t < Defs.move("coyote_s") and ch.jump_cooldown <= 0.0 and v.y <= 0.5 and water < 0.6:
+				v = Parkour.ground_jump(ch, cmd, hv, wd, v)
+				ch.jump_cooldown = 0.45
+			else:
+				ch.jump_buf = 0.0
+		elif ch.jump_buf >= 0.0:
+			ch.jump_buf += dt
+			if ch.jump_buf > Defs.move("jump_buffer_s"):
+				ch.jump_buf = -1.0
+		if not downed:
+			var pk := Parkour.air_step(ch, cmd, dt, v)
+			if pk == Parkour.GRABBED:
+				return
+			if pk == Parkour.KICKED:
+				v = ch.velocity
+		hv = Vector3(v.x, 0.0, v.z)
+		# Little control in the air: a body cannot push off nothing.
 		hv = hv.move_toward(wish if wish.length() > 0.01 else hv, Defs.move("accel_air") * dt)
 		v.x = hv.x
 		v.z = hv.z
 		v.y -= Defs.move("gravity") * dt
 		v.y = maxf(v.y, -55.0)
+	# The forcefield: nothing moves out into it, and it carries the body in.
+	if in_field:
+		v = Field.apply(fi, v)
+		ch.slide_t = -1.0
 	ch.jump_cooldown = maxf(ch.jump_cooldown - dt, 0.0)
 	var fall_speed := -v.y
 	var was_air := not on_floor
+	# (r15) Escalators: the steps carry whoever stands on them. The body makes its own move, then rides the belt's
+	# travel as a plain translation along the lane (the controller's step-up and slope logic fought a belt fed in as
+	# velocity at the top of a down escalator). The map answers from geometry alone (MallLayout.belt_at), so the
+	# server, the shooter's own prediction and the bots agree.
+	var belt := Vector3.ZERO
+	if on_floor and ch.world and ch.world.get("map") != null:
+		belt = ch.world.map.belt_at(ch.global_position)
 	ch.velocity = v
 	ch.wish_h = Vector3(wish.x, 0.0, wish.z)
+	var before: Vector3 = ch.global_position
 	ch.move_body(dt)
+	if belt != Vector3.ZERO:
+		ch.global_position += belt * dt
+	Field.note_progress(ch, fi, before, dt)
 	if was_air and ch.is_on_floor() and fall_speed > 2.0:
-		ch.emit_motion_event("land", fall_speed)
+		_landed(ch, cmd, fall_speed, downed)
 	ch.land_timer = maxf(ch.land_timer - dt, 0.0)
+
+
+static func run(hv: Vector3, wd: Vector3, target: float, dt: float) -> Vector3:
+	## One step of running on the ground, like a body rather than a cursor: speed builds up (quickly at first, slowly
+	## near the top), the part of the motion that is not along the stick is shed by the feet's grip (a hard turn
+	## costs the built-up speed and the run starts again), going the other way first brakes to a stop, and with no
+	## input the body brakes over a step or two instead of stopping dead.
+	var sprint := Defs.move("sprint_speed")
+	if target > 0.01 and wd.length_squared() > 1e-4:
+		var dir := wd.normalized()
+		var along := hv.dot(dir)
+		var perp := hv - dir * along
+		perp = perp.move_toward(Vector3.ZERO, Defs.move("turn_grip") * dt)
+		if along < 0.0:
+			along = minf(along + Defs.move("brake_slow") * dt, 0.0)
+		elif along < target:
+			var a := lerpf(Defs.move("accel_start"), Defs.move("accel_top"), clampf(along / sprint, 0.0, 1.0))
+			along = minf(along + a * dt, target)
+		else:
+			along = move_toward(along, target, Defs.move("brake_fast") * dt)
+		return dir * along + perp
+	var s := hv.length()
+	var decel := lerpf(Defs.move("brake_slow"), Defs.move("brake_fast"), clampf(s / sprint, 0.0, 1.0))
+	return hv.move_toward(Vector3.ZERO, decel * dt)
+
+
+static func _landed(ch, cmd: Dictionary, fall_speed: float, downed: bool) -> void:
+	## Touch-down. Holding Crouch from a real drop rolls (the server takes less fall damage for "land_roll");
+	## a hard landing without it stumbles for a moment.
+	var btn := int(cmd.get("btn", 0))
+	var h := fall_speed * fall_speed / (2.0 * Defs.move("gravity"))
+	ch.pk_bits &= ~(Parkour.PK_WALLRUN | Parkour.PK_SPRINT_JUMP)
+	if not downed and (btn & B_CROUCH) != 0 and h > 1.6 and ch.water_depth() < 0.45:
+		var v: Vector3 = ch.velocity
+		var hv := Parkour.start_roll(ch, Vector3(v.x, 0.0, v.z))
+		ch.velocity = Vector3(hv.x, v.y, hv.z)
+		ch.emit_motion_event("land_roll", fall_speed)
+		return
+	if h > 3.2:
+		ch.land_timer = clampf((h - 3.2) / 5.0, 0.15, 0.6)
+	ch.emit_motion_event("land", fall_speed)
 
 
 static func _freefall(ch, cmd: Dictionary, dt: float) -> void:

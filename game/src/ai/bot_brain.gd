@@ -20,6 +20,7 @@ extends RefCounted
 const DayCycle := preload("res://src/world/day_cycle.gd")
 
 const NavGrid := preload("res://src/ai/nav_grid.gd")
+const NavLevels := preload("res://src/ai/nav_levels.gd")
 const LootSense := preload("res://src/ai/loot_sense.gd")
 
 var world = null
@@ -83,6 +84,7 @@ static var _index_layout = null
 static var doors_by_bid := {}
 static var conts_by_bid := {}
 static var bgrid := {}   # Vector2i(40 m cell) -> [building]
+static var house_nodes := {}   # r12: bid -> [{c, n, door}]: the doorways of a building (room to room, and out)
 ## Team landing spots for the current match: "seed:team" -> Vector3.
 static var team_targets := {}
 ## r7 Deathmatch: bots start armed on the ground, so they skip the early looting. Each team advances on the other
@@ -98,6 +100,7 @@ static var team_intel := {}
 const BotTeam := preload("res://src/ai/bot_team.gd")
 const ROLES := ["looter", "rusher", "sniper", "stalker"]
 static var lines := {}            # data/bot_radio.json: line -> phrasings
+static var recorded := {}         # r13: data/bot_radio.json "recorded": line -> {name, n}: the user's recordings (vox_<name>_<k>)
 var role := "looter"
 var voice := "m1"
 var squad_id := -1
@@ -132,6 +135,11 @@ var _haze_said := -2              # zone phase this bot last called the haze in
 var _chat_t := -100000            # msec of the last "hunting"/"sneaking"/"sniping" remark
 var _trail: Array = []            # recent positions (debug: --radiolog prints them when a bot ends up in a canal)
 var _house_exit: Array = []       # [just inside the door, outside it] of the house this bot went into
+var _house_exit_door := -1        # that door (opened on the way out if it has swung shut)
+var _house_way: Array = []        # r12: [{p, door}] through the rooms to it, when the walk there is not straight
+var _house_exit_bid := -1         # r12: the building it belongs to
+var _exit_tried := {}             # r12: door id -> match time this bot last set off for it on its way out
+const EXIT_IN := 1.6              # r12: the way out starts this far inside its door (clear of a door swinging in)
 
 
 func _init(w, c) -> void:
@@ -140,7 +148,8 @@ func _init(w, c) -> void:
 	rng.seed = hash(c.eid * 7919 + Game.match_seed)
 	var fresh_nav: bool = nav == null or nav.layout != world.map.layout
 	if fresh_nav:
-		nav = NavGrid.new(world.map.layout)
+		# (r15) A storeyed map (Malasugue Mall) has a walk grid per level joined by escalators and stairs.
+		nav = NavLevels.new(world.map.layout) if world.map.layout.get("nav_open") != null else NavGrid.new(world.map.layout)
 	if _index_layout != world.map.layout:
 		_build_index()
 	BotTeam.begin(world)
@@ -153,6 +162,7 @@ func _init(w, c) -> void:
 			var d = JSON.parse_string(f.get_as_text())
 			if typeof(d) == TYPE_DICTIONARY:
 				lines = d.get("lines", {})
+				recorded = d.get("recorded", {})
 	# A role of its own, spread so every team gets a mix; a voice of its own.
 	var rr := RandomNumberGenerator.new()
 	rr.seed = hash(c.eid * 104729 + Game.match_seed * 31)
@@ -183,6 +193,8 @@ func _build_index() -> void:
 	doors_by_bid = {}
 	conts_by_bid = {}
 	bgrid = {}
+	house_nodes = {}
+	exits_by_bid = {}
 	for b in world.map.buildings:
 		var o: Vector3 = (b.xf as Transform3D).origin
 		var k := Vector2i(floori(o.x / BCELL), floori(o.z / BCELL))
@@ -284,9 +296,14 @@ func hear(pos: Vector3, loudness: float) -> void:
 
 # ------------------------------------------------------------------ main
 
+var test_idle := false   # autotests: stand still, think nothing (a dummy for the field crush check)
+
+
 func think(dt: float, tick: int) -> Dictionary:
 	seq += 1
 	var cmd := {"seq": seq, "mx": 0.0, "my": 0.0, "yaw": yaw, "pitch": pitch, "btn": 0, "slot": ch.wpn.want, "view_tick": tick, "tick": tick}
+	if test_idle:
+		return cmd
 	match ch.mode:
 		Motor.PLANE:
 			return cmd
@@ -294,11 +311,15 @@ func think(dt: float, tick: int) -> Dictionary:
 			return _deploy(cmd, dt)
 		Motor.DOWNED:
 			cmd.my = 0.5
+			var fd := Field.at(world, ch.global_position, float(tick))
+			if float(fd.pen) > -4.0 and fd.n != Vector3.ZERO:
+				cmd.yaw = atan2(-(fd.n as Vector3).x, -(fd.n as Vector3).z)   # crawl away from the field
+				cmd.my = 1.0
 			return cmd
 		Motor.DEAD, Motor.SPECTATE:
 			return cmd
 	# Down in a walled canal (wading the estero is fine): get out first, up a ladder or to the nearest dry ground.
-	if (ch.water_depth() > 0.45 and _in_canal()) or (bool(ch.get_meta("ladder_ok", false)) and not ch.is_on_floor()):
+	if (ch.water_depth() > 0.45 and _in_canal()) or (bool(ch.get_meta("ladder_ok", false)) and not ch.is_on_floor()) 			or (_haul and (ch.ledge_t >= 0.0 or ch.vault_t >= 0.0)):
 		if _wet_t == 0.0 and Game.arg("radiolog") != null and world.match_server:
 			world.match_server.log_event("[canal] %s (%s) fell in at %s from %s, state %s goal %s path %d/%d, last move %s" % [ch.pname, role, str(ch.global_position.snapped(Vector3.ONE * 0.1)),
 				str(_trail), state, str(goal.snapped(Vector3.ONE * 0.1)) if goal != Vector3.INF else "-", path_i, path.size(), str(path.slice(maxi(path_i - 1, 0), path_i + 2))])
@@ -310,6 +331,10 @@ func think(dt: float, tick: int) -> Dictionary:
 		_wet_t = 0.0
 		if ch.has_meta("ladder_ok"):
 			ch.remove_meta("ladder_ok")
+		if _haul:
+			_haul = false
+			if _field_t == 0.0:
+				ch.remove_meta("climb_ok")
 	_think_t -= dt
 	_laser_cd = maxf(_laser_cd - dt, 0.0)
 	_vault_cd = maxf(_vault_cd - dt, 0.0)
@@ -321,9 +346,13 @@ func think(dt: float, tick: int) -> Dictionary:
 		_perceive()
 		_social(0.25)
 		_choose_state()
+	_replies()
 	match state:
 		"fight":
 			_fight(cmd, dt)
+		"order":
+			_order_step(cmd, dt)
+			_upkeep(cmd, dt)
 		"heal":
 			cmd.btn |= Motor.B_HEAL if ch.health.treatment.is_empty() and rng.randf() < 0.2 else 0
 			_move(cmd, dt, true)
@@ -342,11 +371,282 @@ func think(dt: float, tick: int) -> Dictionary:
 				_move(cmd, dt, false)
 			_loot_actions(cmd, dt)
 	_lights(cmd)
+	_field_escape(cmd, dt)
 	_guard_edges(cmd)
 	yaw = float(cmd.yaw)
 	pitch = float(cmd.pitch)
 	_trace(cmd, dt)
+	_history(cmd, dt)
 	return cmd
+
+
+# r12 match log: the last half minute of what this bot did, one line a second (dumped when the field kills it).
+var hist: Array = []
+var _hist_t := 0.0
+
+
+func _history(cmd: Dictionary, dt: float) -> void:
+	if not world.match_server or not world.match_server._log_on:
+		return
+	_hist_t -= dt
+	if _hist_t > 0.0:
+		return
+	_hist_t = 1.0
+	var step: Dictionary = plan[plan_i] if plan_i < plan.size() else {}
+	var kind := "nav" if step.get("nav", false) else ("search" if step.has("search") else ("door" if step.has("door") else ("exit" if step.get("exit", false) else "walk")))
+	hist.append("%.0f %s %s step %d/%d %s path %d/%d stuck %.1f in %s exit %d field %.1f btn %d esc %.1f" % [world.match_server._t, state,
+		str(ch.global_position.round()), plan_i, plan.size(), kind if not step.is_empty() else "-", path_i, path.size(), _stuck_t,
+		str(world.map.acoustics.zone_at(ch.global_position + Vector3.UP * 0.5) != 0), _house_exit.size(),
+		float(Field.at(world, ch.global_position, float(Net.tick)).pen), int(cmd.btn), _field_t])
+	if hist.size() > 30:
+		hist.pop_front()
+
+
+# ------------------------------------------------------------------ r12: the forcefield
+
+var _field_t := 0.0          # seconds the field has been on (or just behind) this bot
+var _field_pick_t := 0.0
+var _field_dir := Vector3.ZERO
+var _field_clear := 9.0      # metres of room ahead along _field_dir
+
+
+func _field_escape(cmd: Dictionary, dt: float) -> void:
+	## The field is on this bot, or a few metres off and closing: get out of its way, whatever the state. It does not
+	## hurt, but it crushes anyone it presses against a wall, so the way in has to be open: the most inward direction
+	## with room ahead, at a sprint, jumping over (or climbing, with the hands on the top) what is in the way.
+	var fi := Field.at(world, ch.global_position, float(Net.tick))
+	var lead := 3.0 + float(fi.v) * 2.5
+	if not Field.live(world.match_info.get("zone", {})) or float(fi.pen) < -lead or (not Field.test_only.is_empty() and not (ch.eid in Field.test_only)):
+		if _field_t > 0.0:
+			_field_t = 0.0
+			ch.remove_meta("climb_ok")
+		return
+	if _field_t == 0.0:
+		_field_pick_t = 0.0
+	_field_t += dt
+	ch.set_meta("climb_ok", true)
+	# Indoors the most open way in is a room, not the way out: keep to the door (sprinting), or find one.
+	if world.map.acoustics.zone_at(ch.global_position + Vector3.UP * 0.5) != 0:
+		if not _exiting() and _find_exit():
+			_leave_house()
+		if _exiting():
+			cmd.btn = (int(cmd.btn) | Motor.B_SPRINT) & ~(Motor.B_WALK | Motor.B_CROUCH | Motor.B_AIM | Motor.B_HEAL)
+			return
+	_field_pick_t -= dt
+	var n: Vector3 = fi.n
+	if n == Vector3.ZERO:
+		return
+	# Already on a path for the circle that heads in and is moving: keep to it (at a sprint).
+	if state == "zone" and path_i < path.size() and _stuck_t < 0.5:
+		var to_wp: Vector3 = path[path_i] - ch.global_position
+		to_wp.y = 0.0
+		# (Only when the way to the next waypoint is open: a path through a wall the walk grid does not know pressed the
+		# bot into it until the field crushed it.)
+		var reach := minf(to_wp.length(), 3.0)
+		if to_wp.length() > 0.5 and to_wp.normalized().dot(n) > 0.25 and float(fi.pen) < -1.0 \
+				and _clearance(to_wp.normalized(), reach) >= reach - 0.4:
+			cmd.btn = (int(cmd.btn) | Motor.B_SPRINT) & ~(Motor.B_WALK | Motor.B_CROUCH | Motor.B_AIM | Motor.B_HEAL)
+			return
+	if _field_pick_t <= 0.0 or _field_clear < 0.9:
+		_field_pick_t = 0.2
+		var best := n
+		var best_s := -INF
+		var best_c := 0.0
+		for deg in [0.0, 25.0, -25.0, 50.0, -50.0, 75.0, -75.0, 100.0, -100.0]:
+			var d := n.rotated(Vector3.UP, deg_to_rad(deg))
+			var c := _clearance(d, 4.5)
+			var s := c / 4.5 * (0.3 + 0.7 * maxf(cos(deg_to_rad(deg)), 0.0))
+			if _field_dir != Vector3.ZERO and d.dot(_field_dir) > 0.95:
+				s += 0.08   # keep a way that is working
+			if s > best_s:
+				best_s = s
+				best = d
+				best_c = c
+		_field_dir = best
+		_field_clear = best_c
+	else:
+		_field_clear = _clearance(_field_dir, 4.5)
+	cmd.yaw = atan2(-_field_dir.x, -_field_dir.z)
+	cmd.mx = 0.0
+	cmd.my = 1.0
+	cmd.btn = (int(cmd.btn) | Motor.B_SPRINT) & ~(Motor.B_WALK | Motor.B_CROUCH | Motor.B_AIM | Motor.B_HEAL)
+	# Something in the way: over it (a vault, a jump to grab the top) rather than be pressed into it.
+	if (_field_clear < 1.1 or ch.field_pin > 0.02) and _vault_cd <= 0.0:
+		_vault_cd = 0.7
+		cmd.btn |= Motor.B_JUMP
+	if _leads() and _haze_said != int(world.match_info.get("zone", {}).get("i", -1)) and float(fi.pen) > -1.0:
+		_haze_said = int(world.match_info.get("zone", {}).get("i", -1))
+		say("haze", true)
+
+
+func _walk_line(q: Vector3) -> bool:
+	## Nothing solid between this bot and q at knee and chest height.
+	var p: Vector3 = ch.global_position
+	return _walk_clear(p, Vector3(q.x, p.y, q.z))
+
+
+func _walk_clear(a: Vector3, b: Vector3) -> bool:
+	## A body (a capsule from step height to the head) can walk straight from a to b: furniture and low walls count.
+	var space: PhysicsDirectSpaceState3D = world.get_world_3d().direct_space_state
+	var q := PhysicsShapeQueryParameters3D.new()
+	var cap := CapsuleShape3D.new()
+	cap.radius = 0.27
+	cap.height = 1.3
+	q.shape = cap
+	q.transform = Transform3D(Basis(), a + Vector3.UP * (0.42 + 0.65))
+	q.motion = b - a
+	q.collision_mask = Defs.MOVE_MASK
+	q.exclude = [ch.get_rid()]
+	var r := space.cast_motion(q)
+	return r.size() > 0 and float(r[0]) >= 1.0
+
+
+static var exits_by_bid := {}   # r12: bid -> its outer doors and its open outer doorways (no leaf), as door records
+
+
+func _exits_of(bid: int) -> Array:
+	## The ways out of a building: its outer doors, and doorways with no leaf whose far side is outdoors (an open
+	## shopfront, an arch). Open ones have id -1 (nothing to open on the way).
+	if exits_by_bid.has(bid):
+		return exits_by_bid[bid]
+	var out: Array = (doors_by_bid.get(bid, []) as Array).duplicate()
+	for dw in world.map.dyn.doorways:
+		if int(dw.get("bid", -1)) != bid:
+			continue
+		var n: Vector3 = dw.n
+		n.y = 0.0
+		n = n.normalized()
+		var c: Vector3 = dw.c
+		var outdoors_n = world.map.acoustics.zone_at(c + n * 1.2 + Vector3.UP * 0.5) == 0
+		var outdoors_b = world.map.acoustics.zone_at(c - n * 1.2 + Vector3.UP * 0.5) == 0
+		if outdoors_n == outdoors_b:
+			continue   # between two rooms (or both sides outdoors)
+		var o := n if outdoors_n else -n
+		var u: Vector3 = dw.u
+		var w := float(dw.w)
+		# As a door record: xf at one jamb with the opening along +x, so xf * (w/2, 0, 0) is the middle.
+		out.append({"id": -1, "xf": Transform3D(Basis(u, Vector3.UP, u.cross(Vector3.UP)), c - u * w * 0.5), "w": w, "outward": o})
+	exits_by_bid[bid] = out
+	return out
+
+
+func _house_doorways(bid: int) -> Array:
+	if house_nodes.has(bid):
+		return house_nodes[bid]
+	var out := []
+	var dyn = world.map.dyn
+	var leaves := []
+	for d in dyn.doors:
+		if int(d.get("bid", -1)) == bid:
+			leaves.append(d)
+	for dw in dyn.doorways:
+		if int(dw.get("bid", -1)) != bid:
+			continue
+		var n: Vector3 = dw.n
+		n.y = 0.0
+		var door := -1
+		for d in leaves:
+			if ((d.xf as Transform3D) * Vector3(float(d.w) * 0.5, 0.0, 0.0)).distance_to(dw.c) < 0.8:
+				door = int(d.id)
+				break
+		out.append({"c": dw.c, "n": n.normalized(), "door": door})
+	# Inner doors with no doorway record (a comfort room's door): the leaf itself, across its own face.
+	for d in leaves:
+		if bool(d.get("outer", false)):
+			continue
+		var dc: Vector3 = (d.xf as Transform3D) * Vector3(float(d.w) * 0.5, 0.0, 0.0)
+		var known := false
+		for o in out:
+			if (o.c as Vector3).distance_to(dc) < 0.8:
+				known = true
+				break
+		if not known:
+			var dn: Vector3 = (d.xf as Transform3D).basis.z
+			dn.y = 0.0
+			out.append({"c": dc, "n": dn.normalized(), "door": int(d.id)})
+	for d in doors_by_bid.get(bid, []):
+		var n2: Vector3 = d.outward
+		n2.y = 0.0
+		out.append({"c": (d.xf as Transform3D) * Vector3(float(d.w) * 0.5, 0.0, 0.0), "n": n2.normalized(), "door": int(d.id)})
+	house_nodes[bid] = out
+	return out
+
+
+func _house_route(bid: int, from: Vector3, to: Vector3) -> Array:
+	## r12: waypoints [{p, door}] from a spot in building bid to another (the inside of its way out) through the
+	## doorways between its rooms (the walk grid does not reach indoors): a shortest path over a point either side of
+	## each doorway on this floor, linked where a straight walk is clear. [] when the straight walk is clear or there
+	## is no route.
+	if _walk_clear(from, to):
+		return []
+	var pts := [from, to]
+	var door_of := [-1, -1]
+	var mate := [-1, -1]
+	for dw in _house_doorways(bid):
+		var c: Vector3 = dw.c
+		if absf(c.y - from.y) > 1.2 or Vector2(c.x - from.x, c.z - from.z).length() > 35.0:
+			continue
+		var n: Vector3 = dw.n
+		pts.append(c + n * 0.6 + Vector3.UP * 0.05)
+		pts.append(c - n * 0.6 + Vector3.UP * 0.05)
+		door_of.append_array([int(dw.door), int(dw.door)])
+		mate.append_array([pts.size() - 1, pts.size() - 2])
+	var np := pts.size()
+	var dist := []
+	var prev := []
+	var done := []
+	dist.resize(np)
+	prev.resize(np)
+	done.resize(np)
+	dist.fill(INF)
+	prev.fill(-1)
+	done.fill(false)
+	dist[0] = 0.0
+	while true:
+		var u := -1
+		var bu := INF
+		for i in np:
+			if not done[i] and float(dist[i]) < bu:
+				bu = dist[i]
+				u = i
+		if u < 0 or u == 1:
+			break
+		done[u] = true
+		for v in np:
+			if done[v]:
+				continue
+			var w := (pts[u] as Vector3).distance_to(pts[v])
+			if float(dist[u]) + w < float(dist[v]) and (int(mate[u]) == v or _walk_clear(pts[u], pts[v])):
+				dist[v] = float(dist[u]) + w
+				prev[v] = u
+	if int(prev[1]) < 0:
+		return []
+	var route := []
+	var k := int(prev[1])
+	while k > 0:
+		# The step through a doorway (to its far point, from its mate) opens its door if it has one.
+		route.push_front({"p": pts[k], "door": int(door_of[k]) if int(mate[k]) == int(prev[k]) else -1})
+		k = int(prev[k])
+	return route
+
+
+func _clearance(d: Vector3, reach: float) -> float:
+	var space: PhysicsDirectSpaceState3D = world.get_world_3d().direct_space_state
+	var p: Vector3 = ch.global_position
+	var best := reach
+	for hh in [0.5, 1.25]:
+		var q := PhysicsRayQueryParameters3D.create(p + Vector3.UP * hh, p + Vector3.UP * hh + d * reach, Defs.MOVE_MASK)
+		q.exclude = [ch.get_rid()]
+		var r := space.intersect_ray(q)
+		if not r.is_empty():
+			best = minf(best, Vector2(r.position.x - p.x, r.position.z - p.z).length())
+	# r12: outdoors, a doorway is not a way out of the field: a building is where it crushes you.
+	if world.map.acoustics.zone_at(p + Vector3.UP * 0.5) == 0:
+		for s in [1.0, 2.0, 3.0, 4.0]:
+			if s < best and world.map.acoustics.zone_at(p + d * s + Vector3.UP * 0.5) != 0:
+				best = s - 0.6
+				break
+	return best
 
 
 func _guard_edges(cmd: Dictionary) -> void:
@@ -426,6 +726,8 @@ func _trace(cmd: Dictionary, dt: float) -> void:
 	extra += " guns " + ",".join(guns)
 	if not _scan_why.is_empty():
 		extra += " scan " + str(_scan_why)
+	extra += " indoors %s exit %d field %.1f m" % [str(world.map.acoustics.zone_at(ch.global_position + Vector3.UP * 0.5) != 0), _house_exit.size(),
+		float(Field.at(world, ch.global_position, float(Net.tick)).pen)]
 	print("[bot %s] %s step %d/%d %s at %s -> %s (%.1f m) path %d/%d stuck %.1f btn %d%s" % [ch.pname, state, plan_i, plan.size(),
 		"nav" if step.get("nav", false) else ("search" if step.has("search") else ("door" if step.has("door") else "walk")),
 		str(ch.global_position.snapped(Vector3.ONE * 0.1)), str((step.get("p", goal) as Vector3).snapped(Vector3.ONE * 0.1)),
@@ -502,11 +804,23 @@ func _perceive() -> void:
 
 func _choose_state() -> void:
 	var h = ch.health
+	if not order.is_empty() and _order_expired():
+		order = {}
+	if str(order.get("kind", "")) == "fall_back":
+		var close := false
+		var tc0 = world.characters.get(target_eid)
+		if tc0 != null and (tc0.global_position as Vector3).distance_to(ch.global_position) < 12.0:
+			close = true   # too close to turn your back on
+		if not close:
+			state = "order"
+			return
 	if target_eid >= 0:
 		# Caught in the haze with the enemy not close: keep running for the circle (it kills faster than they do).
 		var tc = world.characters.get(target_eid)
 		var hz0 := _haze()
 		if bool(hz0.urgent) and tc != null and (tc.global_position as Vector3).distance_to(ch.global_position) > 15.0:
+			if _exiting() or (_find_exit() and _leave_house()):
+				return
 			if state != "zone" or goal == Vector3.INF:
 				_set_goal(hz0.p)
 			state = "zone"
@@ -515,7 +829,8 @@ func _choose_state() -> void:
 		_seen_t += 0.25
 		return
 	_seen_t = 0.0
-	if h.bleeding_level() > 0 or (h.health < (60.0 if not dm else 50.0) and ch.inv.count("first_aid") > 0):
+	if h.bleeding_level() > 0 or (h.health < (60.0 if not dm else 50.0) and ch.inv.count("first_aid") > 0) \
+			or (h.health < 65.0 and ch.inv.count("bandage") > 0):
 		state = "heal"
 		return
 	# Inside a house and about to go anywhere else: out of the door first (the walk grid does not reach indoors, so a
@@ -524,7 +839,8 @@ func _choose_state() -> void:
 		return
 	# The haze: leave in time for the next circle (sooner the less patient), and run when caught in it.
 	var hz := _haze()
-	if bool(hz.go) and _leave_house():
+	_zone_go = bool(hz.go)
+	if bool(hz.go) and _find_exit() and _leave_house():
 		return
 	if bool(hz.go):
 		if state != "zone" or goal == Vector3.INF or _goal_raw.distance_to(hz.p) > 25.0:
@@ -536,7 +852,13 @@ func _choose_state() -> void:
 		state = "zone"
 		plan = []
 		return
-	if dm and _dm_hold > 0.0:
+	# r13: an order taken on the radio (a voice command, a teammate's laser): what this bot said it would do.
+	if not order.is_empty():
+		if state != "order":
+			_set_goal(order.p)
+		state = "order"
+		return
+	if dm and _dm_hold > 0.0 and _leader() == null:   # (following a player who said "Follow me" beats holding)
 		_dm_hold -= 0.25
 		state = "roam"
 		goal = Vector3.INF
@@ -592,7 +914,7 @@ func _inside_zone(p: Vector3) -> Vector3:
 	var zone: Dictionary = world.match_info.get("zone", {})
 	var circ: Array = world.zone_circle(float(Net.tick))
 	var c: Vector2 = zone.get("c1", circ[0])
-	var r := float(zone.get("r1", circ[1])) * 0.85
+	var r := float(zone.get("r1", circ[1])) * 0.75   # r12: well clear of the field's edge
 	var q := Vector2(p.x, p.z)
 	if q.distance_to(c) > r:
 		q = c + (q - c).limit_length(r)
@@ -651,7 +973,10 @@ func _plan_house(b: Dictionary) -> bool:
 	var inside := centre - out_dir * 1.0
 	var foot_of_steps := float(door.get("steps_out", 0.0))
 	plan = [{"p": centre + out_dir * (1.2 + foot_of_steps), "nav": true}, {"p": inside, "nav": false, "door": int(door.id)}]
-	_house_exit = [inside, centre + out_dir * (1.4 + foot_of_steps)]
+	_house_exit = [centre - out_dir * EXIT_IN, centre + out_dir * (1.4 + foot_of_steps)]
+	_house_exit_door = int(door.id)
+	_house_exit_bid = int(b.id)
+	_house_way = []
 	var conts := []
 	for c in conts_by_bid.get(b.id, []):
 		if absf((c.pos as Vector3).y - centre.y) < 1.7 and not _searched.has(c.id):
@@ -696,15 +1021,19 @@ func _in_canal() -> bool:
 	return (L.water_sd(Vector2(ch.global_position.x, ch.global_position.z)) as Vector2).x < 0.0
 
 
+var _haul := false   # climbing out of the water over a canal wall (Parkour.water_grab): climb_ok is ours to clear
+
+
 func _escape_water(cmd: Dictionary, dt: float) -> bool:
-	## Wading a moment is fine; after that, head for the nearest ladder whose foot is down here and climb it facing
-	## the wall, or (no ladder near, a sloped bank) walk to the nearest dry ground. False: not yet, carry on as usual.
+	## Wading a moment is fine; after that, climb a ladder if one is close, else walk to the nearest dry ground: into a
+	## canal wall the hands catch its coping and the bot climbs out (Parkour.water_grab), up a sloped bank it walks out.
+	## False: not yet, carry on as usual.
 	_wet_t += dt
 	if _wet_t < 1.5 and not bool(ch.get_meta("ladder_ok", false)):
 		return false
 	var p: Vector3 = ch.global_position
 	var best := {}
-	var bd := 90.0
+	var bd := 12.0
 	for ld in world.map.ladders:
 		var b: Vector3 = ld.base
 		if b.y > p.y + 1.0:
@@ -725,7 +1054,9 @@ func _escape_water(cmd: Dictionary, dt: float) -> bool:
 		else:
 			cmd.yaw = lerp_angle(yaw, atan2(n.x, n.z), 0.5)
 		return true
-	# No ladder: the closest dry point round about.
+	# No ladder close: the closest dry point round about.
+	ch.set_meta("climb_ok", true)
+	_haul = true
 	for r in [2.0, 4.0, 7.0, 11.0, 16.0, 22.0]:
 		for k in 16:
 			var a := TAU * k / 16.0
@@ -768,6 +1099,13 @@ func _ensure_path() -> void:
 			_path_req = 0
 			path = r
 			path_i = 0
+			# r12: the search starts from the open cell nearest the bot, which can be on the far side of a wall (just
+			# out of a door it led straight back into the house): start from the furthest of the first few waypoints
+			# in plain sight.
+			for k in range(mini(3, path.size() - 1), 0, -1):
+				if _walk_line(path[k]):
+					path_i = k
+					break
 		return
 	if not _path_pending or goal == Vector3.INF:
 		return
@@ -819,6 +1157,11 @@ func _gait(cmd: Dictionary, dist: float, slow: bool) -> void:
 	match state:
 		"zone":
 			cmd.btn |= Motor.B_SPRINT
+		"order":
+			if dist > 5.0:
+				cmd.btn |= Motor.B_SPRINT
+			elif str(order.get("kind", "")) == "check":
+				cmd.btn |= Motor.B_WALK
 		"investigate", "hunt":
 			if role == "stalker" and to_obj < 45.0:
 				cmd.btn |= Motor.B_WALK
@@ -955,6 +1298,7 @@ func _plan_step(cmd: Dictionary, dt: float) -> void:
 		plan_i = plan.size()
 		state = "camp"
 		_hold_t = rng.randf_range(35.0, 80.0) * (0.5 + patience)
+		_hold_said = false
 		_look_at = step.get("face", Vector3.INF)
 		var fv: Vector3 = (_look_at - ch.global_position) if _look_at != Vector3.INF else -Basis(Vector3.UP, yaw).z
 		_hold_base_yaw = atan2(-fv.x, -fv.z)
@@ -1003,6 +1347,8 @@ func _plan_step(cmd: Dictionary, dt: float) -> void:
 					cmd.btn |= Motor.B_USE  # one press per attempt (a second press would close it again)
 				if flat.length() < 0.9:
 					cmd.my = -0.5  # stand back out of the swing
+				elif step.get("exit", false) and Vector2(dc.x - ch.global_position.x, dc.z - ch.global_position.z).length() < 1.3:
+					cmd.my = -0.6  # on the way out the door may swing in: back off it before pulling it open
 				if _door_hold > 9.0:
 					_step_t = 999.0
 				return
@@ -1014,8 +1360,8 @@ func _plan_step(cmd: Dictionary, dt: float) -> void:
 	cmd.yaw = lerp_angle(yaw, want_yaw, 0.25)
 	cmd.pitch = lerpf(pitch, 0.0, 0.1)
 	cmd.my = 1.0 if flat.length() > 0.8 else 0.5
-	if not step.nav:
-		cmd.btn |= Motor.B_WALK
+	if not step.nav and not (_zone_go and _exiting()):
+		cmd.btn |= Motor.B_WALK   # (out of a house with the field coming: at a run)
 	# Progress, not motion: sliding back and forth against a door leaf is still stuck.
 	if flat.length() < _best_d - 0.2:
 		_best_d = flat.length()
@@ -1361,6 +1707,73 @@ func _exiting() -> bool:
 	return state == "loot" and plan_i < plan.size() and bool(plan[-1].get("exit", false))
 
 
+var _zone_go := false   # _haze() said to leave for the next circle (the last time the state was chosen)
+
+
+func _find_exit() -> bool:
+	## r12: true when this bot knows a way out of the building it is in (or is not in one). Indoors with no door
+	## remembered (in through a window, a fight, or a way out that failed): the nearest outer door on this floor of the
+	## building around it, the one with a clear walk to it if any, and one that opens on to the safe area if any.
+	var p: Vector3 = ch.global_position
+	if _house_exit.size() == 2 or world.map.acoustics.zone_at(p + Vector3.UP * 0.5) == 0:
+		return true
+	var here := Vector2i(floori(p.x / BCELL), floori(p.z / BCELL))
+	var space: PhysicsDirectSpaceState3D = world.get_world_3d().direct_space_state
+	var zone: Dictionary = world.match_info.get("zone", {})
+	var c1: Vector2 = zone.get("c1", Vector2.INF) if not zone.is_empty() else Vector2.INF
+	var best := {}
+	var bd := INF
+	for dz in range(-1, 2):
+		for dx in range(-1, 2):
+			for b in bgrid.get(here + Vector2i(dx, dz), []):
+				var lp: Vector3 = (b.xf as Transform3D).affine_inverse() * p
+				if absf(lp.x) > float(b.w) * 0.5 + 0.5 or absf(lp.z) > float(b.d) * 0.5 + 0.5:
+					continue
+				for door in _exits_of(int(b.id)):
+					var out_dir: Vector3 = door.outward
+					out_dir.y = 0.0
+					out_dir = out_dir.normalized()
+					var centre: Vector3 = (door.xf as Transform3D) * Vector3(float(door.w) * 0.5, 0.0, 0.0)
+					if absf(centre.y - p.y) > 1.2:
+						continue   # another floor
+					var inside := centre - out_dir * EXIT_IN
+					# How far it is to walk there: straight, or through the rooms (no way there: only if nothing better).
+					var d := Vector2(inside.x - p.x, inside.z - p.z).length()
+					var way := []
+					if not _walk_clear(p, inside):
+						way = _house_route(int(b.id), p, inside)
+						if way.is_empty():
+							d += 30.0
+						else:
+							d = 0.0
+							var prev_p := p
+							for w in way:
+								d += prev_p.distance_to(w.p)
+								prev_p = w.p
+							d += prev_p.distance_to(inside)
+					var outside := centre + out_dir * 1.4
+					if float(Field.at(world, outside, float(Net.tick)).pen) > -1.0:
+						d += 25.0   # opens into the field, which pushes whoever steps out straight back in
+					if float(_exit_tried.get(int(door.id), -99.0)) > world.match_server._t - 15.0:
+						d += 40.0   # tried that way out a moment ago and it did not work: another door first
+					if c1 != Vector2.INF:
+						# A door on the far side from the next circle leads toward the field: the way it comes from.
+						d += maxf(Vector2(outside.x, outside.z).distance_to(c1) - Vector2(p.x, p.z).distance_to(c1), 0.0) * 1.5
+					if Game.arg("exitdebug") != null:
+						print("[exit %s] house %d door %d at %s: way %d steps, score %.1f" % [ch.pname, int(b.id), int(door.id), str(centre.round()), way.size(), d])
+					if d < bd:
+						bd = d
+						best = {"inside": inside, "out": centre + out_dir * (1.4 + float(door.get("steps_out", 0.0))), "door": int(door.id), "bid": int(b.id),
+							"way": way}
+	if best.is_empty():
+		return false
+	_house_exit = [best.inside, best.out]
+	_house_exit_door = int(best.door)
+	_house_exit_bid = int(best.bid)
+	_house_way = best.way
+	return true
+
+
 func _leave_house() -> bool:
 	## Indoors with a door to leave by: walk out through it (a short plan) before anything that needs the walk grid.
 	if _house_exit.size() != 2 or _exiting():
@@ -1369,7 +1782,22 @@ func _leave_house() -> bool:
 		_house_exit = []
 		return false
 	plan = [{"p": _house_exit[0], "nav": false}, {"p": _house_exit[1], "nav": false, "exit": true}]
+	if _house_exit_door >= 0:
+		plan[1]["door"] = _house_exit_door
+		if world.match_server:
+			_exit_tried[_house_exit_door] = world.match_server._t
+	# Through the rooms to that door first.
+	if _house_way.is_empty() and _house_exit_bid >= 0:
+		_house_way = _house_route(_house_exit_bid, ch.global_position, _house_exit[0])
+	for i in range(_house_way.size() - 1, -1, -1):
+		var w: Dictionary = _house_way[i]
+		var st := {"p": w.p, "nav": false}
+		if int(w.door) >= 0:
+			st["door"] = int(w.door)
+		plan.push_front(st)
+	_house_way = []
 	_house_exit = []
+	_house_exit_door = -1
 	plan_i = 0
 	_step_t = 0.0
 	_best_d = INF
@@ -1500,7 +1928,11 @@ func _hunt_target(open: bool) -> void:
 	var c1: Vector2 = zone.get("c1", circ[0])
 	if tgt == Vector3.INF:
 		if dm and world.match_server and not world.match_server.spawn_info.is_empty() and int(zone.get("i", 0)) <= 1:
-			var other: Dictionary = world.match_server.spawn_info.get(1 - ch.team, {})
+			var foes := []
+			for t in world.match_server.spawn_info:
+				if t is int and t != ch.team:
+					foes.append(t)
+			var other: Dictionary = world.match_server.spawn_info.get(foes[rng.randi() % foes.size()], {}) if not foes.is_empty() else {}
 			if not other.is_empty():
 				tgt = (other.anchor as Vector3).lerp(Vector3(c1.x, 0, c1.y), rng.randf_range(0.2, 0.6))
 		if tgt == Vector3.INF:
@@ -1564,6 +1996,7 @@ func _pick_spot(kind: String) -> int:
 func _start_hold(kind: String, secs: float) -> void:
 	state = kind
 	_hold_t = secs
+	_hold_said = false
 	goal = Vector3.INF
 	var fv: Vector3 = (_look_at - ch.global_position) if _look_at != Vector3.INF else -Basis(Vector3.UP, yaw).z
 	_hold_base_yaw = atan2(-fv.x, -fv.z)
@@ -1573,6 +2006,10 @@ func _start_hold(kind: String, secs: float) -> void:
 func _hold_step(cmd: Dictionary, dt: float) -> void:
 	## Camping a room or watching from a sniping spot: still, scanning a sector, scope up now and then.
 	_hold_t -= dt
+	if not _hold_said:
+		_hold_said = true
+		if rng.randf() < 0.6:
+			say("in_position")
 	cmd.my = 0.0
 	cmd.mx = 0.0
 	if _look_at != Vector3.INF:
@@ -1681,12 +2118,18 @@ func _haze() -> Dictionary:
 				t_left = t_start + rem * f
 				break
 	# Streets, bridges and walls make the run longer than the straight line; patience costs a margin, not a life.
+	# r12: the field crushes whoever it catches against a wall, so leave with room to spare, and indoors much sooner
+	# (out by the door first: inside, every wall between you and the centre is a wall to be crushed on).
 	var need := to_safe / 5.2 * 1.7
-	var margin := lerpf(45.0, 10.0, clampf(patience, 0.0, 1.0)) * 0.5 + 15.0
+	var margin := lerpf(60.0, 25.0, clampf(patience, 0.0, 1.0)) * 0.5 + 25.0
 	if world.map.acoustics.zone_at(ch.global_position + Vector3.UP * 0.5) != 0:
-		margin += 20.0   # out of the house first, by the door it came in
+		margin += 35.0
 	if need + margin > t_left:
 		out.go = true
+	# Already close to the moving edge: go now, at a run.
+	if st == "shrink" and p2.distance_to(c_now) > r_now - 12.0:
+		out.go = true
+		out.urgent = true
 	return out
 
 
@@ -1804,11 +2247,114 @@ func on_laser(holder, origin: Vector3, dot: Vector3, dist: float) -> void:
 		else:
 			_look_at = dot
 		return
-	var follows := squad_id >= 0 and int(BotTeam.squads.get(squad_id, {}).get("leader", -1)) == int(holder.eid)
-	if follows and ch.global_position.distance_to(dot) > 5.0:
-		_ping = {"p": dot, "t": Time.get_ticks_msec() / 1000.0, "how": "go"}
-	else:
-		_look_at = dot
+	# r13: a teammate's laser: look at what it points at; near it (and not camping or sniping), go and check it. At most
+	# two bots answer the same spot; the others just look.
+	_look_at = dot
+	var near = ch.global_position.distance_to(dot) < 45.0
+	if near and state not in ["camp", "overwatch", "fight"] and dot.distance_to(ch.global_position) > 4.0 			and not (str(order.get("kind", "")) == "check" and (order.p as Vector3).distance_to(dot) < 5.0) 			and BotTeam.laser_claim(holder.eid, dot, ch.eid):
+		take_order("check", holder, dot)
+		if rng.randf() < 0.6:
+			reply("affirmative", 0)
+
+
+# ------------------------------------------------------------------ r13: orders (voice commands, lasers) and replies
+
+var order: Dictionary = {}     # {kind: help|go|fall_back|check, p, from (eid), t, arrived, t_arr}: what this bot agreed to do
+var _replies_q: Array = []     # [msec, line]: answers said a moment later, so several bots can answer one call
+var _help_t := -99.0           # last time this bot called for help
+var _hold_said := false        # said "in position" for the current hold
+const ORDER_HOLD := {"help": 25.0, "go": 20.0, "fall_back": 15.0, "check": 5.0}
+const ORDER_GIVE_UP := 75.0    # seconds to get there before the order lapses
+
+
+func can_take(kind: String) -> bool:
+	## Whether this bot can do it now: on its feet, not in a close fight (falling back is always possible), and for a
+	## check not holding a camping or sniping spot.
+	if ch.mode != Motor.GROUND or ch.health.dead:
+		return false
+	if target_eid >= 0 and kind != "fall_back":
+		var tc = world.characters.get(target_eid)
+		if tc != null and (tc.global_position as Vector3).distance_to(ch.global_position) < 40.0:
+			return false
+	if kind == "check" and state in ["camp", "overwatch"]:
+		return false
+	return true
+
+
+func take_order(kind: String, from_ch, p: Vector3) -> void:
+	order = {"kind": kind, "p": p, "from": int(from_ch.eid) if from_ch else -1, "t": Time.get_ticks_msec() / 1000.0, "arrived": false, "t_arr": 0.0}
+	_ping = {}
+	if _exiting():
+		return   # out of the house first; the order waits (state is chosen again when the way out is done)
+	plan = []
+	state = "order"
+	_set_goal(p)
+	_think_t = minf(_think_t, 0.05)
+
+
+func reply(line: String, nth: int) -> void:
+	_replies_q.append([Time.get_ticks_msec() + 350 + nth * 950 + rng.randi_range(0, 250), line])
+
+
+func _replies() -> void:
+	if _replies_q.is_empty():
+		return
+	var now := Time.get_ticks_msec()
+	if now >= int(_replies_q[0][0]):
+		var r: Array = _replies_q.pop_front()
+		var tries := int(r[2]) if r.size() > 2 else 0
+		if not say(str(r[1]), true) and tries < 4 and ch.mode in [Motor.GROUND, Motor.DOWNED]:
+			_replies_q.push_front([now + 450, r[1], tries + 1])   # the team radio was busy: a moment later
+
+
+func _order_expired() -> bool:
+	var now := Time.get_ticks_msec() / 1000.0
+	if bool(order.arrived):
+		return now - float(order.t_arr) > float(ORDER_HOLD.get(str(order.kind), 15.0))
+	if now - float(order.t) > ORDER_GIVE_UP:
+		return true
+	if str(order.kind) == "help":
+		var src = world.characters.get(int(order.from))
+		return src == null or src.mode in [Motor.DEAD, Motor.SPECTATE]
+	return false
+
+
+func _order_step(cmd: Dictionary, dt: float) -> void:
+	## Going where it was asked, at a run; once there, says so and holds a while, watching.
+	if order.is_empty():
+		state = "roam"
+		return
+	var p: Vector3 = order.p
+	if str(order.kind) == "help":
+		var src = world.characters.get(int(order.from))
+		if src != null and (src.global_position as Vector3).distance_to(p) > 4.0:
+			p = src.global_position
+			order.p = p
+			_set_goal(p)
+	var flat := Vector2(p.x - ch.global_position.x, p.z - ch.global_position.z).length()
+	var reach := {"help": 6.0, "go": 4.0, "fall_back": 4.0, "check": 3.5}.get(str(order.kind), 4.0)
+	# There, or at the end of the path to the nearest reachable point (the spot itself may be on a wall or a roof).
+	var path_done := path_i >= path.size() and not path.is_empty() and goal != Vector3.INF 		and Vector2(goal.x - ch.global_position.x, goal.z - ch.global_position.z).length() < 1.5
+	# (r15) On a storeyed map the spot must be on this floor too (a point straight above is not "there").
+	var vy := absf(p.y - ch.global_position.y) if world.map.layout.has_method("level_of") else 0.0
+	if not bool(order.arrived) and vy < 2.5 and (flat < reach or (path_done and flat < 12.0)):
+		order.arrived = true
+		order.t_arr = Time.get_ticks_msec() / 1000.0
+		goal = Vector3.INF
+		say("clear" if str(order.kind) == "check" else "in_position", true)
+		var src2 = world.characters.get(int(order.from))
+		_hold_base_yaw = src2.yaw if src2 != null else yaw
+	if bool(order.arrived):
+		# Hold here: still, scanning round the way the caller faces (or the checked spot).
+		cmd.my = 0.0
+		cmd.mx = 0.0
+		var sweep := 0.9 * sin(Time.get_ticks_msec() * 0.0006 + ch.eid)
+		cmd.yaw = lerp_angle(yaw, _hold_base_yaw + sweep, 0.06)
+		cmd.pitch = lerpf(pitch, -0.03, 0.05)
+		return
+	if goal == Vector3.INF:
+		_set_goal(p)
+	_move(cmd, dt, false)
 
 
 func on_damaged(attacker: int) -> void:
@@ -1821,26 +2367,51 @@ func on_damaged(attacker: int) -> void:
 		investigate = (a.global_position as Vector3) + Vector3(rng.randf_range(-6, 6), 0, rng.randf_range(-6, 6))
 		_look_at = a.global_position
 		reaction = minf(reaction, 0.3)
-	say("taking_fire", true)
+	# r13: hurt badly in a fight: call for help (teammates nearby answer and come); otherwise just say so. (A hit that
+	# killed says nothing.)
+	if ch.health.dead or ch.health.health <= 0.0:
+		return
+	var now := Time.get_ticks_msec() / 1000.0
+	if ch.health.health < 45.0 and ch.health.health > 0.0 and not ch.health.dead and now - _help_t > 25.0 and ch.mode == Motor.GROUND:
+		_help_t = now
+		say("need_help", true)
+		BotTeam.on_voice(ch, "need_help", ch.global_position)
+	else:
+		say("taking_fire", true)
 
 
-func on_scored(victim, dist: float) -> void:
-	if rng.randf() < 0.6:
-		say("kill")
+func on_scored(victim, dist: float, headshot: bool = false) -> void:
+	reply("headshot_kill" if headshot else "kill", 0)
 	if dist > 45.0 and rng.randf() < 0.5:
 		say("good_spot")
 
 
-func say(line: String, priority: bool = false) -> void:
+static func radio_sid(line: String, voice: String, k: int) -> String:
+	## The sound for phrasing k of line in voice: the user's recording when there is one, else the spoken voice.
+	if recorded.has(line):
+		return "vox_%s_%d" % [str(recorded[line].name), k % maxi(int(recorded[line].n), 1)]
+	return "botr_%s_%s_%d" % [line, voice, k]
+
+
+# r13: lines about something that just happened (a kill, a teammate down, an answer to an order): never held back by
+# this bot's own last callout, only spaced on the team radio.
+const EVENT_LINES := ["kill", "headshot_kill", "down", "affirmative", "negative", "in_position", "clear", "need_help"]
+
+
+func say(line: String, priority: bool = false) -> bool:
 	## A callout on the team radio (rate-limited per bot and per team so the radio does not turn into a chorus).
+	## False when it was not said (rate-limited or not a line).
 	if not lines.has(line) or ch.mode in [Motor.DEAD, Motor.SPECTATE, Motor.PLANE]:
-		return
+		return false
 	var now := Time.get_ticks_msec()
-	if now - _say_t < (2500 if priority else 9000):
-		return
+	if now - _say_t < (0 if line in EVENT_LINES else (2500 if priority else 9000)):
+		return false
 	if not BotTeam.can_talk(ch.team, priority):
-		return
+		return false
 	_say_t = now
 	var k := rng.randi_range(0, (lines[line] as Array).size() - 1)
+	if recorded.has(line):
+		k = rng.randi_range(0, int(recorded[line].n) - 1)
 	BotTeam.stats.lines += 1
 	world.server_bot_radio(ch, line, voice, k)
+	return true

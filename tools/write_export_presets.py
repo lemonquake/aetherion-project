@@ -1,5 +1,7 @@
 """Writes game/export_presets.cfg: a Windows build and an Android build of the same game (cross-play needs both
-built from one revision).
+built from one revision), plus the release builds the launcher installs and the official server runs
+(tools/release/publish.py, docs/HOSTING.md): Windows with its .pck beside the .exe (updates download only the parts of
+it that changed), macOS (universal, ad-hoc signed) and the headless Linux server.
 
     python -I tools/write_export_presets.py
 
@@ -43,7 +45,8 @@ def excluded() -> list:
 
 def main() -> None:
     ver = project_version()
-    code = int(ver.split(".")[1]) if ver.count(".") == 2 else VERSION_CODE
+    # Android version code: minor * 100 + patch (0.17.1 -> 1701), so a patch release installs over the one before it.
+    code = int(ver.split(".")[1]) * 100 + int(ver.split(".")[2]) if ver.count(".") == 2 else VERSION_CODE
     ex = ", ".join(excluded())
     common = f'''export_filter="all_resources"
 include_filter=""
@@ -127,8 +130,96 @@ permissions/access_wifi_state=true
 permissions/internet=true
 permissions/record_audio=true
 permissions/vibrate=true
+
+[preset.2]
+
+name="Windows Release"
+platform="Windows Desktop"
+runnable=false
+advanced_options=false
+dedicated_server=false
+custom_features=""
+{common}
+export_path="../builds/release/windows/Aetherion.exe"
+
+[preset.2.options]
+
+custom_template/debug=""
+custom_template/release=""
+debug/export_console_wrapper=0
+binary_format/embed_pck=false
+texture_format/s3tc_bptc=true
+texture_format/etc2_astc=false
+binary_format/architecture="x86_64"
+codesign/enable=false
+application/modify_resources=false
+application/file_version="{ver}.0"
+application/product_version="{ver}.0"
+application/company_name="Aljay Leodones"
+application/product_name="Aetherion Project"
+application/file_description="Aetherion Project"
+application/copyright="Aljay Leodones"
+
+[preset.3]
+
+name="macOS"
+platform="macOS"
+runnable=false
+advanced_options=false
+dedicated_server=false
+custom_features=""
+{common}
+export_path="../builds/release/macos/Aetherion.zip"
+
+[preset.3.options]
+
+export/distribution_type=1
+binary_format/architecture="universal"
+custom_template/debug=""
+custom_template/release=""
+debug/export_console_wrapper=0
+application/bundle_identifier="com.lemonquake.aetherion"
+application/signature="AETH"
+application/app_category="Games"
+application/short_version="{ver}"
+application/version="{ver}"
+application/copyright="Aljay Leodones · AzAz Games"
+application/min_macos_version_x86_64="10.15"
+application/min_macos_version_arm64="11.00"
+display/high_res=true
+codesign/codesign=1
+codesign/entitlements/audio_input=true
+notarization/notarization=0
+privacy/microphone_usage_description="Team radio: talk to your squad while you hold the radio key."
+texture_format/s3tc_bptc=true
+texture_format/etc2_astc=false
+
+[preset.4]
+
+name="Linux Server"
+platform="Linux"
+runnable=false
+advanced_options=false
+dedicated_server=false
+custom_features=""
+{common}
+export_path="../builds/release/linux/aetherion_server.x86_64"
+
+[preset.4.options]
+
+custom_template/debug=""
+custom_template/release=""
+debug/export_console_wrapper=0
+binary_format/embed_pck=false
+texture_format/s3tc_bptc=true
+texture_format/etc2_astc=false
+binary_format/architecture="x86_64"
 '''
-    (GAME / "export_presets.cfg").write_text(text, encoding="utf-8", newline="\n")
+    dest = GAME / "export_presets.cfg"
+    # Godot may hold this file open while exporting another platform. Reuse an
+    # identical preset instead of attempting an unnecessary shared-file write.
+    if not dest.exists() or dest.read_text(encoding="utf-8") != text:
+        dest.write_text(text, encoding="utf-8", newline="\n")
     print("export_presets.cfg written: version %s (code %d), %d exclusions" % (ver, code, ex.count(",") + 1))
 
 

@@ -3,8 +3,9 @@ extends Node3D
 ## the reticle and the bullets agree), the arms holding it, the left hand raising the SmarTab, and the player's own
 ## flashlight.
 ##
-## Holding TAB lowers the weapon out of the firing position and brings the device up in the left hand; the large
-## square screen is a live SubViewport (the SmarTab UI). Releasing TAB lowers it and raises the weapon again.
+## Holding TAB lowers the weapon and raises the left forearm: the watch on the wrist projects the SmarTab as a large
+## hologram floating in front of the eyes (r14; a live SubViewport drawn with the hologram shader, a beam of light
+## from the watch to it). Releasing TAB folds it back into the watch and raises the weapon again.
 ##
 ## The arms are a skinned human pair (fp_arms.gd) dressed like the player's outfit and posed by IK every frame: the
 ## right hand on the grip (or holding the flashlight when nothing is drawn), the left on the handguard, supporting a
@@ -40,7 +41,19 @@ var torch_root: Node3D
 var light: SpotLight3D
 var muzzle: Node3D
 var test_hide_arms := false     # tests: draw the view without the arms
-var screen_size := Vector2(0.3, 0.3)    # doubled 2026-10-28: the text was too small to read
+var screen_size := Vector2(0.3, 0.3)    # the hologram's size (m), set each frame to fill most of the view
+var panel_px_h := 600.0                  # its height on the window in pixels (the HUD sizes the picture to it)
+var watch: Node3D                        # r14: on the left wrist
+var _watch_face: MeshInstance3D
+var _beam: MeshInstance3D
+var _beam_im: ImmediateMesh
+var _holo_mat: ShaderMaterial
+var _watch_at := Vector3(-0.16, -0.22, -0.32)   # watch face centre (view model space), last frame
+var _watch_n := Vector3(0, 0.2, 1)
+var _nade: Node3D                # r14: a frag grenade in the right hand while cooking
+var _pin: MeshInstance3D         # its pin ring, pulled by the left hand
+var _nade_t := -1.0              # seconds into the throw, -1 none
+var _cook := -1.0
 var arms: Node3D                 # fp_arms.gd
 var _grip := Vector3.ZERO        # in weapon_root space
 var _support := Vector3.ZERO
@@ -85,6 +98,11 @@ var _cyl_turns := 0
 var _slide_locked := false
 var _jolt := Vector3.ZERO
 var _look_key := ""
+var _bandage_roll: MeshInstance3D
+var _bandage_wrap: MeshInstance3D
+var _heal_t := -1.0              # seconds into the treatment shown (own clock: the server sends its start, not its progress)
+var _heal_item := ""
+const HOOK := [0.3, 0.55, 0.6, 0.62, 0.65]   # fingers hooked over an edge
 
 
 func setup(w, c, camera: Camera3D) -> void:
@@ -104,6 +122,7 @@ func setup(w, c, camera: Camera3D) -> void:
 	weapon_root.add_child(muzzle)
 	_build_smartab()
 	_build_torch()
+	_build_nade()
 	arms = FpArms.new()
 	arms.name = "Arms"
 	add_child(arms)
@@ -138,7 +157,35 @@ func setup(w, c, camera: Camera3D) -> void:
 	fill.shadow_enabled = false
 	fill.position = Vector3(0.35, 0.45, 0.25)
 	add_child(fill)
+	_build_bandage()
 	_set_layer(self)
+
+
+func _build_bandage() -> void:
+	## r12: the roll in the right hand and the dressing that grows round the left forearm while bandaging.
+	var white := _mat(Color(0.93, 0.92, 0.88), 0.92)
+	var roll := CylinderMesh.new()
+	roll.top_radius = 0.024
+	roll.bottom_radius = 0.024
+	roll.height = 0.056
+	roll.radial_segments = 14
+	_bandage_roll = MeshInstance3D.new()
+	_bandage_roll.mesh = roll
+	_bandage_roll.material_override = white
+	_bandage_roll.visible = false
+	add_child(_bandage_roll)
+	var wrap := CylinderMesh.new()
+	wrap.top_radius = 0.043
+	wrap.bottom_radius = 0.047
+	wrap.height = 1.0
+	wrap.radial_segments = 16
+	wrap.cap_top = false
+	wrap.cap_bottom = false
+	_bandage_wrap = MeshInstance3D.new()
+	_bandage_wrap.mesh = wrap
+	_bandage_wrap.material_override = _mat(Color(0.9, 0.88, 0.83), 0.95)
+	_bandage_wrap.visible = false
+	add_child(_bandage_wrap)
 
 
 func _dress_arms() -> void:
@@ -208,52 +255,186 @@ func _build_torch() -> void:
 
 
 func _build_smartab() -> void:
+	## r14: the hologram panel (a unit quad scaled to its size each frame), the beam from the watch, the watch itself.
 	tab_root = Node3D.new()
+	tab_root.name = "Hologram"
 	add_child(tab_root)
-	# Rugged body
-	var body := MeshInstance3D.new()
-	var bm := BoxMesh.new()
-	bm.size = Vector3(0.36, 0.38, 0.026)
-	body.mesh = bm
-	body.material_override = _mat(Color(0.09, 0.1, 0.1), 0.65)
-	tab_root.add_child(body)
-	# Wrist strap across the back
-	var strap := MeshInstance3D.new()
-	var sm := BoxMesh.new()
-	sm.size = Vector3(0.08, 0.3, 0.012)
-	strap.mesh = sm
-	strap.material_override = _mat(Color(0.12, 0.13, 0.1), 0.9)
-	strap.position = Vector3(0, -0.03, -0.019)
-	tab_root.add_child(strap)
 	tab_screen = MeshInstance3D.new()
 	var q := QuadMesh.new()
-	q.size = screen_size
+	q.size = Vector2(1, 1)
 	tab_screen.mesh = q
-	tab_screen.position = Vector3(0, 0.01, 0.0135)
+	tab_screen.cast_shadow = GeometryInstance3D.SHADOW_CASTING_SETTING_OFF
+	_holo_mat = ShaderMaterial.new()
+	_holo_mat.shader = load("res://src/fx/hologram.gdshader")
+	_holo_mat.render_priority = 100
+	tab_screen.material_override = _holo_mat
 	tab_root.add_child(tab_screen)
-	# The screen lights the hand and nearby surfaces faintly, and can be seen by others.
+	# The projection lights the hand and nearby surfaces faintly, and can be seen by others.
 	tab_light = OmniLight3D.new()
-	tab_light.light_color = Color(0.75, 0.9, 1.0)
-	tab_light.omni_range = 1.6
+	tab_light.light_color = Color(0.5, 0.85, 1.0)
+	tab_light.omni_range = 1.8
 	tab_light.light_energy = 0.0
 	tab_light.shadow_enabled = false
 	tab_light.position = Vector3(0, 0, 0.12)
 	tab_root.add_child(tab_light)
 	tab_root.visible = false
+	_beam_im = ImmediateMesh.new()
+	_beam = MeshInstance3D.new()
+	_beam.mesh = _beam_im
+	_beam.cast_shadow = GeometryInstance3D.SHADOW_CASTING_SETTING_OFF
+	var bm := ShaderMaterial.new()
+	bm.shader = load("res://src/fx/holo_beam.gdshader")
+	bm.render_priority = 99
+	_beam.material_override = bm
+	_beam.extra_cull_margin = 4.0
+	_beam.visible = false
+	add_child(_beam)
+	_build_watch()
+
+
+func _build_nade() -> void:
+	_nade = Node3D.new()
+	_nade.name = "Grenade"
+	add_child(_nade)
+	var md: Dictionary = world.map.item_visual("frag_grenade") if world and world.map else {}
+	var mi := MeshInstance3D.new()
+	if md.get("mesh"):
+		mi.mesh = md.mesh
+		var sz: Vector3 = md.get("size", Vector3(0.06, 0.1, 0.06))
+		mi.transform = Transform3D(Basis(), Vector3(0, -sz.y * 0.5, 0)) * (md.get("xf", Transform3D()) as Transform3D)
+	else:
+		var sm := SphereMesh.new()
+		sm.radius = 0.032
+		sm.height = 0.08
+		mi.mesh = sm
+		mi.material_override = _mat(Color(0.2, 0.25, 0.15), 0.7)
+	_nade.add_child(mi)
+	_pin = MeshInstance3D.new()
+	var tm := TorusMesh.new()
+	tm.inner_radius = 0.009
+	tm.outer_radius = 0.0125
+	_pin.mesh = tm
+	_pin.material_override = _mat(Color(0.7, 0.7, 0.72), 0.3)
+	_pin.position = Vector3(0.025, 0.05, 0)
+	_nade.add_child(_pin)
+	_nade.visible = false
+	_set_layer(_nade)
+
+
+func _nade_pose(dt: float) -> bool:
+	## r14: cooking, the grenade is held up in the right hand, the left hand first pulls the pin (it stays on the
+	## left hand's finger) then reaches forward to aim; on release, a quick overarm swing. True while it is shown.
+	var cook: float = world.controller.cook_t if world and world.controller else -1.0
+	if _cook >= 0.0 and cook < 0.0:
+		_nade_t = 0.0
+	_cook = cook
+	if _nade_t >= 0.0:
+		_nade_t += dt
+		if _nade_t > 0.36:
+			_nade_t = -1.0
+	_nade.visible = cook >= 0.0 or (_nade_t >= 0.0 and _nade_t < 0.14)
+	if cook < 0.0 and _nade_t < 0.0:
+		return false
+	var hold := Vector3(0.16, -0.13, -0.33) + Vector3(0, sin(Time.get_ticks_msec() * 0.004) * 0.004, 0)
+	var p := hold
+	if _nade_t >= 0.0:
+		var u := clampf(_nade_t / 0.36, 0.0, 1.0)
+		var wind := Vector3(0.24, -0.02, -0.17)
+		var out := Vector3(0.06, -0.12, -0.66)
+		var down := Vector3(0.0, -0.42, -0.45)
+		p = hold.lerp(wind, smoothstep(0.0, 0.3, u)) if u < 0.3 else (wind.lerp(out, smoothstep(0.3, 0.55, u)) if u < 0.55 else out.lerp(down, smoothstep(0.55, 1.0, u)))
+	_nade.position = p
+	_nade.rotation = Vector3(0.3, -0.4, 0.2)
+	# The pin ring comes away with the left hand's pull.
+	_pin.visible = cook >= 0.0 and cook < 0.18
+	# Right hand round the grenade: palm against its right side, fingers wrapped forward round the body and over the
+	# lever (seen from behind: the back of the hand, the grenade showing past the fingers).
+	var rb := FpArms.hand_basis(Vector3(-0.1, 0.4, -1.0), Vector3(-1.0, 0.25, 0.1))
+	arms.pose("R", p - rb.y * 0.036 + Vector3(0, -0.01, 0.025), rb, POLE_R, FpArms.grip("fore"))
+	# Left hand: at the pin for the first moment, then forward.
+	if cook >= 0.0 and cook < 0.35:
+		var lb := FpArms.hand_basis(Vector3(0.6, 0.2, -1.0), Vector3(0.7, -0.3, 0.0))
+		arms.pose("L", p + Vector3(-0.07, 0.03, 0.02).lerp(Vector3(-0.16, 0.02, 0.05), cook / 0.35), lb, POLE_L, FpArms.grip("pinch"))
+	else:
+		var lb2 := FpArms.hand_basis(Vector3(0.1, 0.5, -1.0), Vector3(0.6, -0.2, -0.5))
+		arms.pose("L", Vector3(-0.15, -0.13, -0.5), lb2, POLE_L, FpArms.grip("open"))
+	return true
+
+
+func _build_watch() -> void:
+	## A rugged smartwatch: dark case, glass face with a glowing ring, strap round the wrist. Placed on the wrist
+	## every frame (hand_frame): face on the back of the wrist, strap along the forearm.
+	watch = Node3D.new()
+	watch.name = "Watch"
+	add_child(watch)
+	var case_m := _mat(Color(0.06, 0.065, 0.07), 0.45)
+	case_m.metallic = 0.4
+	var body := MeshInstance3D.new()
+	var bx := BoxMesh.new()
+	bx.size = Vector3(0.04, 0.012, 0.046)
+	body.mesh = bx
+	body.material_override = case_m
+	watch.add_child(body)
+	for sz in [-1.0, 1.0]:
+		var lug := MeshInstance3D.new()
+		var lb := BoxMesh.new()
+		lb.size = Vector3(0.026, 0.006, 0.02)
+		lug.mesh = lb
+		lug.material_override = _mat(Color(0.08, 0.085, 0.08), 0.85)
+		lug.position = Vector3(0, -0.002, sz * 0.031)
+		watch.add_child(lug)
+	var strap := MeshInstance3D.new()
+	var cm := CylinderMesh.new()
+	cm.top_radius = 0.034
+	cm.bottom_radius = 0.034
+	cm.height = 0.024
+	cm.radial_segments = 20
+	cm.rings = 1
+	strap.mesh = cm
+	strap.material_override = _mat(Color(0.07, 0.075, 0.07), 0.9)
+	# The strap's ring goes round the wrist: its axis along the forearm (+Z of the hand frame), its top under the case.
+	strap.rotation = Vector3(PI * 0.5, 0, 0)
+	strap.position = Vector3(0, -0.03, 0)
+	watch.add_child(strap)
+	_watch_face = MeshInstance3D.new()
+	var face := QuadMesh.new()
+	face.size = Vector2(0.034, 0.04)
+	_watch_face.mesh = face
+	_watch_face.rotation = Vector3(-PI * 0.5, 0, 0)
+	_watch_face.position = Vector3(0, 0.0062, 0)
+	var fm := StandardMaterial3D.new()
+	fm.shading_mode = BaseMaterial3D.SHADING_MODE_UNSHADED
+	fm.albedo_texture = _watch_face_tex()
+	fm.albedo_color = Color(1, 1, 1)
+	_watch_face.material_override = fm
+	watch.add_child(_watch_face)
+	_set_layer(watch)
+
+
+func _watch_face_tex() -> Texture2D:
+	## The watch's own little screen: a cyan ring of ticks round a dark face.
+	var n := 96
+	var img := Image.create(n, n, false, Image.FORMAT_RGBA8)
+	img.fill(Color(0.01, 0.025, 0.035))
+	for y in n:
+		for x in n:
+			var d := Vector2(x - n * 0.5 + 0.5, y - n * 0.5 + 0.5)
+			var r := d.length() / (n * 0.5)
+			var a := fposmod(atan2(d.y, d.x), TAU)
+			var tick := absf(fposmod(a * 12.0 / TAU + 0.5, 1.0) - 0.5) < 0.09
+			if (r > 0.78 and r < 0.86) or (tick and r > 0.66 and r < 0.76) or r < 0.07:
+				img.set_pixel(x, y, Color(0.4, 0.9, 1.0))
+			elif r < 0.5 and absf(d.y) < 2.0 and d.x > 0.0:
+				img.set_pixel(x, y, Color(0.35, 0.8, 0.95))
+	return ImageTexture.create_from_image(img)
 
 
 func set_screen_texture(tex: Texture2D) -> void:
-	var m := StandardMaterial3D.new()
-	m.albedo_texture = tex
-	m.emission_enabled = true
-	m.emission_texture = tex
-	m.emission_energy_multiplier = 1.0
-	m.shading_mode = BaseMaterial3D.SHADING_MODE_UNSHADED
-	tab_screen.material_override = m
+	_holo_mat.set_shader_parameter("ui_tex", tex)
 
 
 func screen_uv(viewport_pos: Vector2) -> Vector2:
-	## Where a mouse position on the window lands on the SmarTab screen (0..1), or (-1,-1).
+	## Where a mouse position on the window lands on the hologram (0..1), or (-1,-1).
 	if not tab_root.visible:
 		return Vector2(-1, -1)
 	var from := cam.project_ray_origin(viewport_pos)
@@ -267,7 +448,81 @@ func screen_uv(viewport_pos: Vector2) -> Vector2:
 	if t < 0.0:
 		return Vector2(-1, -1)
 	var p := xf.affine_inverse() * (from + dir * t)
-	return Vector2(p.x / screen_size.x + 0.5, 0.5 - p.y / screen_size.y)
+	return Vector2(p.x + 0.5, 0.5 - p.y)
+
+
+func _place_hologram(dt: float) -> void:
+	## The hologram fills most of the view (whatever the field of view and window shape), a little up and right of
+	## centre, turned slightly toward the watch it comes from. It grows out of the watch as the arm comes up.
+	var vs := get_viewport().get_visible_rect().size
+	var aspect := vs.x / maxf(vs.y, 1.0)
+	var d := 0.6
+	var hh := d * tan(deg_to_rad(cam.fov) * 0.5)
+	var hw := hh * aspect
+	var pr := 1600.0 / 960.0
+	var ph := minf(1.66 * hh, 1.84 * hw / pr)
+	var pw := ph * pr
+	screen_size = Vector2(pw, ph)
+	panel_px_h = ph / (2.0 * hh) * vs.y
+	var k := smoothstep(0.42, 1.0, _tab)
+	var centre := Vector3(0.02 * hw, 0.06 * hh, -d)
+	tab_root.visible = k > 0.001
+	tab_root.position = _watch_at.lerp(centre, ease(k, 0.6))
+	tab_root.rotation = Vector3(-0.03, 0.06, 0.0) * k
+	tab_root.scale = Vector3.ONE * lerpf(0.03, 1.0, ease(k, 0.5))
+	tab_screen.scale = Vector3(pw, ph, 1.0)
+	var bright := float(Settings.get_value("accessibility", "smartab_brightness"))
+	_holo_mat.set_shader_parameter("boot", k)
+	_holo_mat.set_shader_parameter("bright", 0.75 + bright * 0.5)
+	_holo_mat.set_shader_parameter("opacity", float(Settings.get_value("accessibility", "smartab_opacity")))
+	tab_light.light_energy = 0.4 * bright * k
+	_beam.visible = _tab > 0.3
+	if _beam.visible:
+		_draw_beam(k)
+
+
+func _draw_beam(k: float) -> void:
+	## Faint planes from the watch face to the hologram's corners, with brighter edges; strongest while it opens.
+	_beam_im.clear_surfaces()
+	var apex := _watch_at + _watch_n * 0.004
+	var xf := tab_root.transform * tab_screen.transform
+	var corners := [xf * Vector3(-0.5, -0.5, 0), xf * Vector3(0.5, -0.5, 0), xf * Vector3(0.5, 0.5, 0), xf * Vector3(-0.5, 0.5, 0)]
+	var s := lerpf(1.6, 0.35, k)
+	(_beam.material_override as ShaderMaterial).set_shader_parameter("strength", s)
+	_beam_im.surface_begin(Mesh.PRIMITIVE_TRIANGLES)
+	for i in 4:
+		var a: Vector3 = corners[i]
+		var b: Vector3 = corners[(i + 1) % 4]
+		_beam_im.surface_set_color(Color(1, 1, 1, 0.12))
+		_beam_im.surface_add_vertex(apex)
+		_beam_im.surface_set_color(Color(1, 1, 1, 0.0))
+		_beam_im.surface_add_vertex(a)
+		_beam_im.surface_add_vertex(b)
+		# Edge: a thin sliver along apex -> corner.
+		var side := (a - apex).cross(cam.global_transform.basis.z).normalized() * 0.0025
+		_beam_im.surface_set_color(Color(1, 1, 1, 0.55))
+		_beam_im.surface_add_vertex(apex)
+		_beam_im.surface_set_color(Color(1, 1, 1, 0.05))
+		_beam_im.surface_add_vertex(a + side * 3.0)
+		_beam_im.surface_add_vertex(a - side * 3.0)
+	_beam_im.surface_end()
+
+
+func _place_watch() -> void:
+	## On the back of the left wrist, a little up the forearm, wherever the arm is.
+	if arms == null or not arms.ok or bool(arms.sides.L.get("hidden", false)):
+		watch.visible = false
+		return
+	var hf: Transform3D = global_transform.affine_inverse() * arms.hand_frame("L")
+	var b := hf.basis
+	# Hand frame: -Z along the fingers, +Y out of the palm. The watch faces -Y (the back of the wrist).
+	var up := -b.y
+	var fwd := b.z
+	var x := up.cross(fwd).normalized()
+	watch.transform = Transform3D(Basis(x, up, x.cross(up)).orthonormalized(), hf.origin + b.z * 0.03 - b.y * 0.028)
+	watch.visible = true
+	_watch_at = watch.transform * Vector3(0, 0.007, 0)
+	_watch_n = up
 
 
 # ------------------------------------------------------------------ the gun in hand
@@ -775,16 +1030,11 @@ func update_view(dt: float, tab_held: bool, map_held: bool) -> void:
 	var busy: bool = ch.light.swapping() or (ch.flags & Character.F_HEAL) != 0
 	# Vaulting: the gun drops out of sight fast and comes back up after (only if it was out: the drawn weapon is
 	# unchanged, this is just the hands being busy).
-	var vaulting: bool = ch.vault_t >= 0.0
-	_lower = move_toward(_lower, 1.0 if (_tab > 0.0 or busy or ch.held_prop_id >= 0 or ch.sprinting or vaulting) else 0.0, dt / (0.1 if vaulting else 0.25))
+	var vaulting: bool = ch.vault_t >= 0.0 or ch.ledge_t >= 0.0 or ch.roll_t >= 0.0
+	var nade_busy: bool = _cook >= 0.0 or _nade_t >= 0.0
+	_lower = move_toward(_lower, 1.0 if (_tab > 0.0 or busy or ch.held_prop_id >= 0 or ch.sprinting or vaulting or nade_busy) else 0.0, dt / (0.1 if vaulting else (0.12 if nade_busy else 0.25)))
 	var e := ease(_tab, -2.0)
-	tab_root.visible = _tab > 0.01
-	tab_root.position = Vector3(lerpf(-0.12, -0.035, e), lerpf(-0.62, -0.035, e), lerpf(-0.2, -0.31, e))
-	tab_root.rotation = Vector3(lerpf(-1.1, 0.12, e), lerpf(0.5, 0.05, e), lerpf(0.4, 0.0, e))
-	var bright := float(Settings.get_value("accessibility", "smartab_brightness"))
-	tab_light.light_energy = 0.35 * bright * e
-	if tab_screen.material_override is StandardMaterial3D:
-		(tab_screen.material_override as StandardMaterial3D).emission_energy_multiplier = 0.4 + bright * 1.2
+	_place_hologram(dt)
 	# Weapon pose: hip or aim, offset by the same kick and sway that steer the bullets. Positions are the grip.
 	var ads: float = ch.wpn.ads
 	var off: Vector2 = ch.wpn.aim_offset_deg(Net.tick)
@@ -827,6 +1077,7 @@ func update_view(dt: float, tab_held: bool, map_held: bool) -> void:
 		var lens_m := (torch_root.get_node("Lens") as MeshInstance3D).material_override as StandardMaterial3D
 		lens_m.emission_energy_multiplier = 3.0 * ch.light.flicker(Time.get_ticks_msec() / 1000.0, ch.eid) if ch.light.on else 0.0
 	_arms(armed, pose, held)
+	_place_watch()
 	_flashlight(dt)
 
 
@@ -898,6 +1149,11 @@ func _arms(armed: bool, pose: Dictionary, held: Dictionary) -> void:
 	var on_ground: bool = ch.mode in [Motor.GROUND, Motor.DOWNED]
 	var scope_hidden: bool = armed and not weapon_root.visible
 	arms.visible = on_ground and not scope_hidden and not test_hide_arms
+	if arms.visible and (_parkour_hands() or _treat_hands()):
+		_nade.visible = false
+		return
+	if arms.visible and _nade_pose(get_process_delta_time()):
+		return
 	var k := ease(_blend_out, 2.0) if not held.is_empty() else 0.0
 	# Stance: a long gun brings the left shoulder forward and in (the torso turns into the stock); a handgun is held
 	# out with both shoulders forward. Both also drop the shoulders a little, so the top of the sleeve (where the
@@ -922,12 +1178,13 @@ func _arms(armed: bool, pose: Dictionary, held: Dictionary) -> void:
 		arms.pose("R", torch_root.position + torch_root.basis * Vector3(0.018, -0.004, 0.03), tb, POLE_R, FpArms.grip("torch"))
 	else:
 		arms.show_side("R", false)
-	# Left hand: the SmarTab while it is up, else the gun (handguard, pump, magazine, rounds...).
-	if tab_root.visible and _tab > 0.25:
-		var tb2 := tab_root.basis * FpArms.hand_basis(Vector3.UP, Vector3.BACK)
-		# Flat against the back, low and a little left: the hand is hidden behind the device and its straight fingers
-		# cannot curl round through the screen.
-		arms.pose("L", tab_root.position + tab_root.basis * Vector3(-0.05, -0.13, -0.065), tb2, POLE_L, FpArms.grip("tablet"))
+	# Left hand: the forearm raised across the view, back of the wrist (the watch) toward the eyes while the SmarTab
+	# is up; else the gun (handguard, pump, magazine, rounds...).
+	if _tab > 0.02:
+		var te := ease(_tab, -2.0)
+		var palm := Vector3(lerpf(-0.24, -0.075, te), lerpf(-0.66, -0.19, te), lerpf(-0.18, -0.34, te))
+		var hb := FpArms.hand_basis(Vector3(0.94, 0.34, -0.1), Vector3(0.05, -0.55, -1.0))
+		arms.pose("L", palm, hb, Vector3(-0.5, -1.0, 0.3), FpArms.grip("relaxed"))
 	elif armed:
 		var l := _blend_hand(pose.L)
 		if k > 0.0:
@@ -937,6 +1194,88 @@ func _arms(armed: bool, pose: Dictionary, held: Dictionary) -> void:
 		arms.pose("L", lx.origin, lx.basis, POLE_L, l[1])
 	else:
 		arms.show_side("L", false)
+
+
+func _parkour_hands() -> bool:
+	## r12: hanging, both hands are on the edge, fingers hooked over it; climbing up they stay planted there (so they
+	## sink down the view as the body rises) until the body is over; vaulting, the left hand pushes off the top.
+	var climbing: bool = ch.vault_t >= 0.0 and (ch.pk_bits & Parkour.PK_CLIMB) != 0
+	var vaulting: bool = ch.vault_t >= 0.0 and not climbing
+	if ch.ledge_t < 0.0 and not climbing and not vaulting:
+		return false
+	arms.shoulder = {"R": Vector3.ZERO, "L": Vector3.ZERO}
+	var inv := global_transform.affine_inverse()
+	if ch.ledge_t >= 0.0 or climbing:
+		var u := 0.0 if ch.ledge_t >= 0.0 else clampf(ch.vault_t / maxf(ch.vault_d, 0.05), 0.0, 1.0)
+		if u > 0.72:
+			arms.show_side("R", false)
+			arms.show_side("L", false)
+			return true
+		var n: Vector3 = ch.ledge_n
+		var into := -Vector3(n.x, 0.0, n.z).normalized()
+		var right := into.cross(Vector3.UP).normalized()
+		# The first instant the hands slap down on to the edge from above.
+		var slap := clampf(1.0 - ch.ledge_t / 0.12, 0.0, 1.0) if ch.ledge_t >= 0.0 else 0.0
+		for s in ["R", "L"]:
+			var side := 1.0 if s == "R" else -1.0
+			var wp: Vector3 = ch.ledge_p + into * 0.07 + right * side * 0.21 + Vector3.UP * (0.025 + 0.12 * slap)
+			var fingers := inv.basis * (into * 0.8 + Vector3.DOWN * 0.25 + right * side * 0.15).normalized()
+			var palm := inv.basis * Vector3.DOWN
+			arms.pose(s, inv * wp, FpArms.hand_basis(fingers, palm), POLE_R if s == "R" else POLE_L, HOOK)
+		return true
+	var u2 := clampf(ch.vault_t / maxf(ch.vault_d, 0.05), 0.0, 1.0)
+	arms.show_side("R", false)
+	if u2 > 0.6:
+		arms.show_side("L", false)
+		return true
+	var fwd := Vector3(ch.vault_b.x - ch.vault_a.x, 0.0, ch.vault_b.z - ch.vault_a.z).normalized()
+	var left := Vector3.UP.cross(fwd).normalized()
+	var wp2: Vector3 = ch.vault_m + Vector3.DOWN * 0.05 + left * 0.17 - fwd * 0.05
+	arms.pose("L", inv * wp2, FpArms.hand_basis(inv.basis * (fwd + left * 0.3).normalized(), inv.basis * Vector3.DOWN), POLE_L, FpArms.grip("open"))
+	return true
+
+
+func _treat_hands() -> bool:
+	## r12: treating a wound. Bandage: the left forearm comes up across the view and the right hand winds the roll
+	## round it, the dressing growing along the arm; other treatments use the same hands without the roll.
+	if (ch.flags & Character.F_HEAL) == 0 or ch.ledge_t >= 0.0:
+		_heal_t = -1.0
+		_bandage_roll.visible = false
+		_bandage_wrap.visible = false
+		return false
+	if _heal_t < 0.0:
+		_heal_t = 0.0
+		var tr: Dictionary = ch.health.treatment if ch.health else {}
+		_heal_item = str(tr.get("item", "bandage"))
+	_heal_t += get_process_delta_time()
+	var total := float(Defs.item(_heal_item).get("use_time", 2.0))
+	var u := clampf(_heal_t / maxf(total, 0.1), 0.0, 1.0)
+	var bring := smoothstep(0.0, 0.14, u) * (1.0 - smoothstep(0.9, 1.0, u))
+	arms.shoulder = {"R": Vector3(-0.03, -0.04, -0.04), "L": Vector3(0.05, -0.06, -0.06)}
+	# Left forearm across the bottom of the view, palm down, fingers to the right.
+	var lp := Vector3(0.0, -0.58, -0.3).lerp(Vector3(0.02, -0.19, -0.37), bring)   # well inside an 80 degree view
+	var lfing := Vector3(1.0, 0.06, -0.38).normalized()
+	arms.pose("L", lp, FpArms.hand_basis(lfing, Vector3(0.0, -1.0, 0.25)), POLE_L, FpArms.grip("relaxed"))
+	var ax := -lfing                                  # from the wrist toward the elbow
+	var wrist := lp - lfing * 0.085
+	var wrap_len := lerpf(0.02, 0.15, smoothstep(0.08, 0.88, u))
+	var e1 := (Vector3.UP - ax * ax.dot(Vector3.UP)).normalized()
+	var e2 := ax.cross(e1)
+	var bx := e1.cross(ax).normalized()
+	_bandage_wrap.visible = _heal_item == "bandage"
+	_bandage_wrap.transform = Transform3D(Basis(bx, ax * wrap_len, bx.cross(ax)), wrist + ax * (0.02 + wrap_len * 0.5))
+	# Right hand: round and round the forearm at the front of the dressing.
+	var c := wrist + ax * (0.03 + wrap_len)
+	var ang := _heal_t * TAU * 2.2
+	var rp := c + (e1 * cos(ang) + e2 * sin(ang)) * 0.078
+	var to_arm := (c - rp).normalized()
+	var tangent := ax.cross(to_arm).normalized()
+	if bring < 0.5:
+		rp = rp.lerp(Vector3(0.12, -0.55, -0.3), 1.0 - bring * 2.0)
+	arms.pose("R", rp, FpArms.hand_basis(tangent * 0.6 + to_arm * 0.4, to_arm), POLE_R, FpArms.grip("cup"))
+	_bandage_roll.visible = _heal_item == "bandage" and bring > 0.3
+	_bandage_roll.transform = Transform3D(Basis(tangent, ax, tangent.cross(ax)), rp + to_arm * 0.035)
+	return true
 
 
 func muzzle_position() -> Vector3:

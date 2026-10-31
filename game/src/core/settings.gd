@@ -12,10 +12,10 @@ const MASTER_CAP := 0.75
 
 const DEFAULTS := {
 	"player": {"name": "", "laser_color": "red"},
-	"gameplay": {"ally_names": true, "bot_learning": true},
+	"gameplay": {"ally_names": true, "bot_learning": true, "loot_highlight": true},
 	"online": {"server": ""},
 	"graphics": {
-		"window_mode": "windowed", "resolution": "1600x900", "vsync": true, "max_fps": 0,
+		"window_mode": "windowed", "monitor": -1, "resolution": "1600x900", "vsync": true, "max_fps": 0,
 		"preset": "high", "render_scale": 1.0, "upscaler": "off", "shadows": 2, "ssao": true, "ssil": false,
 		"volumetric_fog": true, "antialiasing": "taa", "brightness": 0.0, "fov": 80.0, "view_distance": 1.0,
 		"flashlight_shadows": true, "light_distance": 1.0,
@@ -30,7 +30,7 @@ const DEFAULTS := {
 		"sprint_toggle": false, "gamepad_sensitivity": 2.4, "gamepad_deadzone": 0.18,
 		"touch_controls": false, "touch_sensitivity": 0.3, "touch_aim_toggle": true,
 	},
-	"accessibility": {"camera_motion": "normal", "smartab_text_scale": 1.0, "reduce_flashes": false, "smartab_brightness": 0.6},
+	"accessibility": {"camera_motion": "normal", "smartab_text_scale": 1.0, "reduce_flashes": false, "smartab_brightness": 0.6, "smartab_opacity": 0.96},
 	"debug": {"volume_unlock": false},
 }
 
@@ -66,6 +66,8 @@ const BINDINGS := {
 
 var data: Dictionary = {}
 var bindings: Dictionary = {}
+## (r17) No settings file yet: the first start on this device.
+var first_run := false
 
 
 ## Overrides of DEFAULTS on phones and tablets (or on a PC started with --mobile, to try the mobile profile).
@@ -129,7 +131,11 @@ func load_settings() -> void:
 		bindings[action] = BINDINGS[action].duplicate()
 	var cfg := ConfigFile.new()
 	# A PC trying the mobile profile (--mobile) starts from it rather than from its own saved settings.
-	if (is_mobile() and not OS.has_feature("mobile")) or cfg.load(PATH) != OK:
+	if is_mobile() and not OS.has_feature("mobile"):
+		return
+	if cfg.load(PATH) != OK:
+		first_run = true
+		_weak_pc_defaults()
 		return
 	for section in cfg.get_sections():
 		if section == "bindings":
@@ -142,6 +148,22 @@ func load_settings() -> void:
 		for key in cfg.get_section_keys(section):
 			data[section][key] = cfg.get_value(section, key)
 	_migrate(int(cfg.get_value("meta", "version", 1)))
+
+
+func _weak_pc_defaults() -> void:
+	## (r17) First start on a PC with an integrated GPU or under 8 GB of memory: the Low preset at 1280 x 720 (High's
+	## 4K shadow maps, SSAO and volumetric fog need more video memory than a laptop that shares its RAM can spare).
+	if is_mobile() or DisplayServer.get_name() == "headless":
+		return
+	var hw: Dictionary = preload("res://src/core/gfx_safety.gd").hardware()
+	if not bool(hw.weak):
+		return
+	data.graphics.preset = "low"
+	for key in PRESETS.low:
+		data.graphics[key] = PRESETS.low[key]
+	data.graphics.resolution = "1280x720"
+	data.graphics.antialiasing = "fxaa"
+	print("[settings] first start on %s with %.1f GB: Low preset" % [str(hw.gpu), float(hw.ram_gb)])
 
 
 func _migrate(from: int) -> void:
@@ -267,6 +289,15 @@ func master_output() -> float:
 	return float(get_value("audio", "master")) * cap
 
 
+func monitor() -> int:
+	## r14: the display the game window uses: the one picked in Graphics > Monitor, or the primary display (also when
+	## the picked one has been unplugged).
+	var m := int(get_value("graphics", "monitor"))
+	if m < 0 or m >= DisplayServer.get_screen_count():
+		return DisplayServer.get_primary_screen()
+	return m
+
+
 func apply_all() -> void:
 	for section in data:
 		for key in data[section]:
@@ -283,6 +314,11 @@ func _apply(section: String, key: String) -> void:
 				# Phones: always fullscreen (Android's immersive mode hides the status and navigation bars).
 				DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_FULLSCREEN)
 				return
+			# r14: the chosen monitor first (a fullscreen window only moves to another display from windowed mode).
+			var scr := monitor()
+			if DisplayServer.window_get_current_screen() != scr:
+				DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_WINDOWED)
+				DisplayServer.window_set_current_screen(scr)
 			match str(v):
 				"fullscreen":
 					DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_EXCLUSIVE_FULLSCREEN)
@@ -291,15 +327,19 @@ func _apply(section: String, key: String) -> void:
 				_:
 					DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_WINDOWED)
 					_apply("graphics", "resolution")
+		"graphics.monitor":
+			_apply("graphics", "window_mode")
 		"graphics.resolution":
 			if DisplayServer.window_get_mode() == DisplayServer.WINDOW_MODE_WINDOWED:
 				var p := str(v).split("x")
 				if p.size() == 2:
+					# Centred on the chosen monitor (window positions are in desktop coordinates across all of them).
+					var scr2 := monitor()
 					var size := Vector2i(int(p[0]), int(p[1]))
-					var screen := DisplayServer.screen_get_size()
+					var screen := DisplayServer.screen_get_size(scr2)
 					size = size.min(screen)
 					DisplayServer.window_set_size(size)
-					DisplayServer.window_set_position((screen - size) / 2)
+					DisplayServer.window_set_position(DisplayServer.screen_get_position(scr2) + (screen - size) / 2)
 		"graphics.vsync":
 			DisplayServer.window_set_vsync_mode(DisplayServer.VSYNC_ENABLED if v else DisplayServer.VSYNC_DISABLED)
 		"graphics.max_fps":

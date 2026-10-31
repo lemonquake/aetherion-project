@@ -446,6 +446,12 @@ func _leaf_mesh(kind: String, mat: String) -> Mesh:
 			sb.generate_tangents()
 			m = sb.commit()
 			m.surface_set_material(0, mats.get_material(mat))
+		"pane":
+			var sp := SurfaceTool.new()
+			sp.begin(Mesh.PRIMITIVE_TRIANGLES)
+			_add_box_st(sp, Transform3D(), Vector3(1.0, 1.0, 0.012))
+			m = sp.commit()
+			m.surface_set_material(0, mats.get_material(mat))
 		"jalousie":
 			var st := SurfaceTool.new()
 			st.begin(Mesh.PRIMITIVE_TRIANGLES)
@@ -489,7 +495,7 @@ func add_leaf(kind: String, mat: String, xf: Transform3D, range: float) -> Array
 	var key := "%d,%d|leaf_%s_%s" % [ck.x, ck.y, kind, mat]
 	if not _mm.has(key):
 		_mm[key] = {"mesh": _leaf_mesh(kind, mat), "xforms": [], "node": null, "range": range + 67.0,
-			"shadow": kind != "jalousie", "interior": kind == "curtain"}
+			"shadow": kind != "jalousie" and kind != "pane" and not mat.contains("glass"), "interior": kind == "curtain"}
 	_mm[key].xforms.append(xf)
 	return [key, _mm[key].xforms.size() - 1]
 
@@ -663,12 +669,15 @@ func _window_static(w: Dictionary) -> void:
 func _window_dynamic(w: Dictionary) -> void:
 	w.broken = false
 	match str(w.type):
-		"glass":
+		"glass", "plate":
+			# (r15) "plate": one sheet of plate glass (Malasugue Mall shopfronts and balustrades), not louvres.
 			var xf: Transform3D = w.xf
-			var r := add_leaf("jalousie", "glass", xf * Transform3D(Basis().scaled(Vector3(float(w.w), float(w.h), 1.0)), Vector3.ZERO), 90.0)
+			var plate := str(w.type) == "plate"
+			var r := add_leaf("pane" if plate else "jalousie", str(w.get("mat", "mall_glass")) if plate else "glass",
+				xf * Transform3D(Basis().scaled(Vector3(float(w.w), float(w.h), 1.0)), Vector3.ZERO), 140.0 if plate else 90.0)
 			w.leaf = r
 			var shape := PhysicsServer3D.box_shape_create()
-			PhysicsServer3D.shape_set_data(shape, Vector3(float(w.w), float(w.h), 0.03) * 0.5)
+			PhysicsServer3D.shape_set_data(shape, Vector3(float(w.w), float(w.h), 0.03 if not plate else float(w.get("t", 0.03))) * 0.5)
 			var body := PhysicsServer3D.body_create()
 			PhysicsServer3D.body_set_mode(body, PhysicsServer3D.BODY_MODE_STATIC)
 			PhysicsServer3D.body_set_space(body, space_rid)

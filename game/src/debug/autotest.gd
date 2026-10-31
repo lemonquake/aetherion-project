@@ -71,6 +71,42 @@ func _run() -> void:
 		await preload("res://src/debug/autotest_dm.gd").new(self).run()
 		_finish()
 		return
+	if str(Game.arg("autotest", "")) == "r11":
+		await preload("res://src/debug/autotest_r11.gd").new(self).run()
+		_finish()
+		return
+	if str(Game.arg("autotest", "")) == "r13":
+		await preload("res://src/debug/autotest_r13.gd").new(self).run()
+		_finish()
+		return
+	if str(Game.arg("autotest", "")) == "mall":
+		await preload("res://src/debug/autotest_mall.gd").new(self).run()
+		_finish()
+		return
+	if str(Game.arg("autotest", "")) == "horror":
+		await preload("res://src/debug/autotest_horror.gd").new(self).run()
+		_finish()
+		return
+	if str(Game.arg("autotest", "")) == "r17":
+		await preload("res://src/debug/autotest_r17.gd").new(self).run()
+		_finish()
+		return
+	if str(Game.arg("autotest", "")) == "r14":
+		await preload("res://src/debug/autotest_r14.gd").new(self).run()
+		_finish()
+		return
+	if str(Game.arg("autotest", "")) == "canal":
+		await preload("res://src/debug/autotest_canal.gd").new(self).run()
+		_finish()
+		return
+	if str(Game.arg("autotest", "")) == "bursts":
+		await preload("res://src/debug/autotest_bursts.gd").new(self).run()
+		_finish()
+		return
+	if str(Game.arg("autotest", "")) == "r12":
+		await preload("res://src/debug/autotest_r12.gd").new(self).run()
+		_finish()
+		return
 	if str(Game.arg("autotest", "")) == "r10":
 		await preload("res://src/debug/autotest_r10.gd").new(self).run()
 		_finish()

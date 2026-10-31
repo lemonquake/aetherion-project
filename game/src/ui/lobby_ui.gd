@@ -2,8 +2,10 @@ extends Control
 ## Lobby: every team as a card with its slots (players, bots-to-come, open seats you can take with one tap), the
 ## host's Game Setup (teams, squad size, bots, safe zone) and Start, everyone else's Ready, the Locker to change
 ## outfit before the match, and who else is online.
-## r7 Deathmatch: two teams (West Team / East Team, rules.json deathmatch.team_names) of up to 10, the host sets the
+## r7 Deathmatch (r11: two or three teams, North / East / South Team, rules.json deathmatch.team_names) of up to 7, the host sets the
 ## team size, everyone sees their loadout and opens Game Setup (src/ui/game_setup.gd) to change their guns.
+## r15: the host is whoever hosts the game or, on an official server, the first slot (Net.room_host). Start waits
+## until every other human is Ready; alone (or with only bots) it starts at once. Deathmatch has two maps.
 
 const SettingsScreen := preload("res://src/ui/settings_ui.gd")
 const MenuBg := preload("res://src/ui/menu_bg.gd")
@@ -19,6 +21,7 @@ var _setup: Control
 var _setup_box: VBoxContainer
 var _locker_layer: Control
 var _cfg_key := ""
+var _map_offered := false   # (r16) the Home page's Deathmatch map, put to an official lobby once when you host it
 var _setup_btn: Button
 var _loadout_box: VBoxContainer
 var _loadout_key := ""
@@ -100,7 +103,7 @@ func _ready() -> void:
 	bottom.add_child(tip)
 	_ready_btn = UITheme.primary("READY", _toggle_ready, 260, 72)
 	bottom.add_child(_ready_btn)
-	_start_btn = UITheme.primary("START MATCH", func(): Game.start_match(), 320, 72)
+	_start_btn = UITheme.primary("START MATCH", func(): Net.request_start(), 320, 72)
 	bottom.add_child(_start_btn)
 	col.add_child(bottom)
 	Net.lobby_changed.connect(_refresh)
@@ -117,36 +120,74 @@ func _ready() -> void:
 
 func _setup_panel() -> void:
 	## Rebuilt only when the configuration changes (the host's own controls must not reset under their finger).
-	var host := Net.is_server
-	var key := JSON.stringify(Net.config) + str(host)
+	var host := Net.is_room_host()
+	var cfg0 := Net.config.duplicate()
+	cfg0.erase("auto_start_in")   # the official countdown ticks every second; the controls need not rebuild for it
+	var key := JSON.stringify(cfg0) + str(host)
 	if key == _cfg_key:
 		return
 	_cfg_key = key
 	for c in _setup_box.get_children():
 		c.queue_free()
-	_setup_box.add_child(UITheme.section("Match settings", "Only the host can change these." if not host else ""))
+	if _compact and _setup_box.get_parent():
+		# (r16) phones: the host's controls (map, teams) first; everyone else sees their guns first
+		_setup_box.get_parent().move_child(_setup_box, 0 if host else 1)
+	var host_name := str(Net.players.get(Net.room_host(), {}).get("name", ""))
+	_setup_box.add_child(UITheme.section("Match settings", "" if host else ("Only the host%s can change the map and teams." % ((" (" + host_name + ")") if host_name != "" else ""))))
 	var cfg := Net.config
 	var dm := _dm()
 	var mode_name := str(UITheme.MODE_NAMES.get(str(cfg.get("game_mode", "classic")), "Classic"))
 	var map_name := str(UITheme.MAP_NAMES.get(str(cfg.get("map", "kalinaw")), str(cfg.get("map", ""))))
 	if host:
-		_setup_box.add_child(_field("Mode", UITheme.segmented([["classic", "Classic"], ["deathmatch", "Deathmatch"]], str(cfg.get("game_mode", "classic")), _set_mode)))
-		_setup_box.add_child(_kv_row("Map", map_name))
-		if dm:
-			_setup_box.add_child(_field("Players per team", UITheme.stepper(Net.team_size(), 1, 10, func(v): Net.set_config("team_size", v))))
+		if cfg.get("official", false):
+			_setup_box.add_child(_kv_row("Mode", mode_name))   # an official server is listed as one mode
 		else:
-			_setup_box.add_child(_field("Teams", UITheme.stepper(int(cfg.get("teams", 5)), 2, Net.MAX_TEAMS, func(v): Net.set_config("teams", v))))
-			_setup_box.add_child(_field("Squad size", UITheme.segmented([[1, "Solo"], [2, "Duo"], [3, "Trio"], [4, "Squad"]], Net.team_size(), func(v): Net.set_config("team_size", v))))
-		_setup_box.add_child(UITheme.toggle("Fill empty slots with bots", bool(cfg.get("bots", true)), func(v): Net.set_config("bots", v)))
-		_setup_box.add_child(_field("Safe zone", UITheme.segmented([[1.0, "Normal"], [1.6, "Fast"], [2.5, "Rapid"]], float(cfg.get("zone_speed", 1.0)), func(v): Net.set_config("zone_speed", v))))
+			_setup_box.add_child(_field("Mode", UITheme.segmented([["classic", "Classic"], ["deathmatch", "Deathmatch"]], str(cfg.get("game_mode", "classic")), _set_mode)))
+		var maps: Array = Defs.rule("game_modes.%s.maps" % str(cfg.get("game_mode", "classic")), [])
+		if maps.size() > 1:
+			var opts := []
+			for m in maps:
+				opts.append([str(m), str(UITheme.MAP_NAMES.get(str(m), str(m)))])
+			_setup_box.add_child(_field("Map", UITheme.segmented(opts, str(cfg.get("map", "")), func(v): Net.request_config("map", v))))
+		else:
+			_setup_box.add_child(_kv_row("Map", map_name))
+		if dm:
+			_setup_box.add_child(_field("Teams", UITheme.stepper(Net.dm_teams(), 2, Net.DM_MAX_TEAMS, func(v): Net.request_config("teams", v))))
+			_setup_box.add_child(_field("Players per team", UITheme.stepper(Net.team_size(), 1, Net.DM_MAX_TEAM_SIZE, func(v): Net.request_config("team_size", v))))
+		else:
+			_setup_box.add_child(_field("Teams", UITheme.stepper(int(cfg.get("teams", 5)), 2, Net.MAX_TEAMS, func(v): Net.request_config("teams", v))))
+			_setup_box.add_child(_field("Squad size", UITheme.segmented([[1, "Solo"], [2, "Duo"], [3, "Trio"], [4, "Squad"]], Net.team_size(), func(v): Net.request_config("team_size", v))))
+		_setup_box.add_child(UITheme.toggle("Fill empty slots with bots", bool(cfg.get("bots", true)), func(v): Net.request_config("bots", v)))
+		if dm:
+			if str(cfg.get("map", "")) == "malasugue_mall":
+				_setup_box.add_child(UITheme.toggle("Enable field", bool(cfg.get("dm_field", false)), func(v): Net.request_config("dm_field", v)))
+				_setup_box.add_child(UITheme.label("Same countdown; closes up to 50% each round.", 18, UITheme.TEXT_DIM))
+			else:
+				_setup_box.add_child(_kv_row("Safe zone", "Fast (fixed in Deathmatch)"))
+			# (r17) How the round is won: a team score limit, the best score on the clock, or the last team standing.
+			var win := str(cfg.get("dm_win", "wipe"))
+			_setup_box.add_child(_field("Win by", UITheme.dm_win_picker(win, func(v): Net.request_config("dm_win", v))))
+			if win in ["wipe", "score"]:
+				_setup_box.add_child(_field("Points to win" if win == "wipe" else "Kills to win", UITheme.segmented([[10, "10"], [20, "20"], [30, "30"], [50, "50"]], int(cfg.get("dm_score", 10)), func(v): Net.request_config("dm_score", v))))
+			elif win == "time":
+				_setup_box.add_child(_field("Round length", UITheme.segmented([[10, "10 min"], [14, "14 min"], [30, "30 min"]], int(cfg.get("dm_time", 14)), func(v): Net.request_config("dm_time", v))))
+		else:
+			_setup_box.add_child(_field("Safe zone", UITheme.segmented([[1.0, "Normal"], [1.6, "Fast"], [2.5, "Rapid"]], float(cfg.get("zone_speed", 1.0)), func(v): Net.request_config("zone_speed", v))))
+		if _night_only():
+			_setup_box.add_child(_kv_row("Night and day", "Always night on this map"))
+		else:
+			_setup_box.add_child(_field("Night and day (each)", UITheme.segmented([[120, "2 min"], [300, "5 min"], [600, "10 min"]], int(cfg.get("day_len", 300)), func(v): Net.request_config("day_len", v))))
 	else:
 		var rows := [["Mode", mode_name], ["Map", map_name]]
 		if dm:
-			rows.append(["Players per team", str(Net.team_size())])
+			rows.append_array([["Teams", str(Net.dm_teams())], ["Players per team", str(Net.team_size())]])
 		else:
 			rows.append_array([["Teams", str(int(cfg.get("teams", 5)))], ["Squad size", str(Net.team_size())]])
 		rows.append_array([["Bots", "Fill empty slots" if cfg.get("bots", true) else "Off"],
-				["Safe zone", {1.0: "Normal", 1.6: "Fast", 2.5: "Rapid"}.get(float(cfg.get("zone_speed", 1.0)), "Normal")]])
+				["Safe zone", ("Disabled" if not cfg.get("dm_field", false) else "Enabled · up to 50%") if dm and str(cfg.get("map", "")) == "malasugue_mall" else "Fast (fixed)" if dm else {1.0: "Normal", 1.6: "Fast", 2.5: "Rapid"}.get(float(cfg.get("zone_speed", 1.0)), "Normal")]])
+		if dm:
+			rows.append(["Win by", win_text()])
+		rows.append(["Night and day", "Always night" if _night_only() else "%d min each" % (int(cfg.get("day_len", 300)) / 60)])
 		for kv in rows:
 			var h := UITheme.hbox(8)
 			var k := UITheme.label(kv[0], 19, UITheme.TEXT_DIM)
@@ -156,7 +197,7 @@ func _setup_panel() -> void:
 			_setup_box.add_child(h)
 	var addr := UITheme.label("", 16, UITheme.TEXT_DIM)
 	addr.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
-	if host:
+	if Net.is_server and not Net.dedicated:
 		var ips = Array(IP.get_local_addresses()).filter(func(a): return a.count(".") == 3 and not a.begins_with("127.") and not a.begins_with("169.254"))
 		addr.text = "Players on your network see this game under Play. Address: %s (port %d)." % [", ".join(ips.slice(0, 2)) if not ips.is_empty() else "this PC", Net.port]
 	_setup_box.add_child(addr)
@@ -175,20 +216,30 @@ func _dm() -> bool:
 	return str(Net.config.get("game_mode", "classic")) == "deathmatch"
 
 
+func _night_only() -> bool:
+	return str(Net.config.get("map", "")) in Defs.rule("day_cycle.night_only_maps", [])
+
+
+static func win_text() -> String:
+	## (r17) The Deathmatch win rule in words: "First team to 30", "Best score after 14 min", "Last team standing".
+	match str(Net.config.get("dm_win", "wipe")):
+		"wipe":
+			return "Team Wipe: first to %d points" % int(Net.config.get("dm_score", 10))
+		"score":
+			return "First team to %d kills" % int(Net.config.get("dm_score", 10))
+		"time":
+			return "Best score after %d min" % int(Net.config.get("dm_time", 14))
+	return "Last team standing"
+
+
 func _set_mode(m: String) -> void:
-	## Host: switch the lobby between Classic (5 squads of 4 on Sitio Kalinaw) and Deathmatch (2 teams of 10 on
-	## Lawless Sub). The choice is also remembered for the menu.
-	if not Net.is_server or m == str(Net.config.get("game_mode", "classic")):
+	## Host: switch the lobby between Classic (5 squads of 4 on Sitio Kalinaw) and Deathmatch (3 teams of 7 on
+	## Lawless Sub or Malasugue Mall); Net.set_config resets the map and teams to the mode's defaults. The choice is
+	## also remembered for the menu.
+	if not Net.is_room_host() or m == str(Net.config.get("game_mode", "classic")):
 		return
 	Profile.set_game_mode(m)
-	Net.set_config("game_mode", m)
-	Net.set_config("map", str(Defs.rule("game_modes.%s.map" % m, "lawless_sub" if m == "deathmatch" else "kalinaw")))
-	if m == "deathmatch":
-		Net.set_config("teams", 2)
-		Net.set_config("team_size", int(Defs.rule("deathmatch.team_size", 10)))
-	else:
-		Net.set_config("teams", 5)
-		Net.set_config("team_size", 4)
+	Net.request_config("game_mode", m)
 
 
 func _loadout_panel() -> void:
@@ -230,6 +281,15 @@ func open_game_setup() -> Control:
 	return _game_setup
 
 
+func open_results_setup(action: String) -> void:
+	if action == "loadout" and _dm():
+		open_game_setup()
+	elif action == "mode":
+		_tip.text = "Choose the game mode in Match settings." if Net.is_room_host() else "The host chooses the game mode in Match settings."
+	elif action == "team":
+		_tip.text = "Select a team card to change your team."
+
+
 func _field(title: String, c: Control) -> Control:
 	var v := UITheme.vbox(4)
 	v.add_child(UITheme.label(title, 17, UITheme.TEXT_DIM, UITheme.font_semibold))
@@ -242,12 +302,26 @@ func _refresh() -> void:
 		return
 	var host := Net.is_server
 	_title.text = str(Net.config.get("name", "")) if str(Net.config.get("name", "")) != "" else "Custom game"
+	if not _map_offered and Net.is_room_host() and _dm() and Net.config.get("official", false):
+		_map_offered = true
+		if Profile.dm_map in Defs.rule("game_modes.deathmatch.maps", []) and Profile.dm_map != str(Net.config.get("map", "")):
+			Net.request_config("map", Profile.dm_map)
+		for k in Profile.MATCH_OPT_KEYS:   # (r17) and the win rule / night and day length chosen on Home
+			if Profile.match_opts.has(k) and str(Profile.match_opts[k]) != str(Net.config.get(k, "")):
+				Net.request_config(k, Profile.match_opts[k])
 	_setup_panel()
 	_loadout_panel()
 	var dm := _dm()
 	_setup_btn.visible = dm
-	_tip.text = ("Tap a team to switch to it. Bots take the seats nobody takes. No respawns: the last team standing wins." if dm
-		else "Tap a team to join it. Bots take the seats nobody takes.")
+	_tip.text = "Tap a team to join it. Bots take the seats nobody takes."
+	if dm:
+		_tip.text += " " + win_text() + ". "
+		match str(Net.config.get("dm_win", "wipe")):
+			"wipe":
+				_tip.text += "Last team standing earns 1 point; everyone returns next round."
+			"score", "time":
+				_tip.text += "The fallen respawn."
+
 	var mine: Dictionary = Net.players.get(Net.local_pid, {}).get("loadout", {})
 	if not mine.is_empty() and JSON.stringify(mine) != str(get_meta("lo_seen", "")):
 		set_meta("lo_seen", JSON.stringify(mine))
@@ -275,21 +349,37 @@ func _refresh() -> void:
 		_teams.add_child(_team_card(t, teams.get(t, []), size, unassigned, free))
 	var me: Dictionary = Net.players.get(Net.local_pid, {})
 	_ready_btn.text = "NOT READY" if me.get("ready", false) else "READY"
-	_ready_btn.visible = not host
-	_start_btn.visible = host
+	var host_pid := Net.room_host()
+	var room_host := Net.is_room_host()
+	_ready_btn.visible = not room_host
+	_start_btn.visible = room_host
+	var waiting := Net.not_ready()
+	_start_btn.disabled = not waiting.is_empty()
+	_start_btn.text = "START MATCH" if waiting.is_empty() else "WAITING (%d)" % waiting.size()
 	var humans := Net.humans()
 	var ready := 0
 	for pid in Net.players:
-		if not Net.players[pid].bot and (Net.players[pid].ready or pid == 1):
+		if not Net.players[pid].bot and (Net.players[pid].ready or pid == host_pid):
 			ready += 1
 	var bots := maxi(Net.slot_count() - humans, 0) if Net.config.get("bots", true) else 0
+	var wait := "Waiting for %s to start." % str(Net.players.get(host_pid, {}).get("name", "the host"))
+	if room_host:
+		wait = "You are the host: press Start when you are set." if waiting.is_empty() else "Waiting for %s to press Ready." % ", ".join(waiting)
+	if Net.config.get("official", false):
+		# Official servers: the first slot hosts; an idle host does not hold the server (src/match/official.gd).
+		var left := int(Net.config.get("auto_start_in", -1))
+		if left >= 0:
+			wait += " Official server: starts by itself in %d s." % left
 	if dm:
-		_info.text = "Deathmatch on %s · %s against %s, %d a side · %d human%s (%d ready) and %d bot%s · %s" % [
-			UITheme.MAP_NAMES.get(str(Net.config.get("map", "lawless_sub")), ""), UITheme.dm_team_name(0), UITheme.dm_team_name(1), size,
-			humans, "" if humans == 1 else "s", ready, bots, "" if bots == 1 else "s", "You are hosting." if host else "Waiting for the host to start."]
+		var tn := []
+		for t in Net.dm_teams():
+			tn.append(UITheme.dm_team_name(t))
+		_info.text = "Deathmatch on %s · %s, %d a side · %d human%s (%d ready) and %d bot%s · %s" % [
+			UITheme.MAP_NAMES.get(str(Net.config.get("map", "lawless_sub")), ""), " against ".join(tn), size,
+			humans, "" if humans == 1 else "s", ready, bots, "" if bots == 1 else "s", wait]
 	else:
 		_info.text = "%d human%s (%d ready) and %d bot%s · %d teams of %d · %s" % [humans, "" if humans == 1 else "s", ready, bots, "" if bots == 1 else "s",
-			n_teams, size, "You are hosting." if host else "Waiting for the host to start."]
+			n_teams, size, wait]
 	_info.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
 
 
@@ -376,7 +466,7 @@ func _slot_row(pid: int) -> Control:
 			ll.mouse_filter = Control.MOUSE_FILTER_IGNORE
 			r.add_child(ll)
 		r.add_child(UITheme.pill("Lv %d" % int(p.get("level", 1)), UITheme.ACCENT, 13))
-		if pid == 1:
+		if pid == Net.room_host():
 			r.add_child(UITheme.pill("Host", UITheme.ACCENT2, 13))
 		elif p.ready:
 			r.add_child(UITheme.pill("Ready", UITheme.GOOD, 13))

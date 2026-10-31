@@ -203,6 +203,27 @@
    "ricochet_chance": 0.0,
    "max_thickness_cm": 40,
    "impact": "flesh"
+  },
+  "tile": {
+   "resist": 1500,
+   "ricochet_deg": 12,
+   "ricochet_chance": 0.35,
+   "max_thickness_cm": 30,
+   "impact": "concrete"
+  },
+  "rubber": {
+   "resist": 25,
+   "ricochet_deg": 0,
+   "ricochet_chance": 0.0,
+   "max_thickness_cm": 40,
+   "impact": "fabric"
+  },
+  "escalator": {
+   "resist": 2600,
+   "ricochet_deg": 22,
+   "ricochet_chance": 0.6,
+   "max_thickness_cm": 3,
+   "impact": "metal"
   }
  }
 }

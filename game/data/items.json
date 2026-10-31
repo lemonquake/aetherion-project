@@ -19,8 +19,10 @@
    "kind": "medical",
    "mass": 0.05,
    "stack": 10,
-   "use_time": 3.2,
+   "use_time": 2.0,
    "stops_bleeding": 1,
+   "heal": 15,
+   "heal_injury": 0.4,
    "model": "bandage"
   },
   "first_aid": {
@@ -246,8 +248,9 @@
    "stack": 4,
    "model": "frag_grenade",
    "fuse_s": 4.0,
-   "radius_m": 9.0,
-   "damage": 130,
+   "radius_m": 10.0,
+   "kill_radius_m": 4.0,
+   "damage": 260,
    "throw_speed": 17.0
   }
  },
@@ -315,7 +318,9 @@
   "revive_time_s": 6.0,
   "revive_health": 22.0,
   "catastrophic_damage": 140.0,
-  "fall_damage_speed": 7.5,
-  "fall_lethal_speed": 18.0
+  "fall_safe_m": 3.8,
+  "fall_lethal_m": 14.0,
+  "fall_roll_m": 2.5,
+  "fall_roll_mult": 0.6
  }
 }

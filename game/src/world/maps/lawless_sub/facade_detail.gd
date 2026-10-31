@@ -197,6 +197,8 @@ func _facade(b: Dictionary, lot: Dictionary) -> void:
 		for cx in [-X + 4.5, X - 4.5]:
 			_awning(b, xf, cx, 4.2, Z, 2.95, SHOP_COLORS[0])
 		_sign(b, xf, Vector3(0, 3.45, -Z - 0.12), 5.2, 1.35, 8)
+	elif kind == "mall":
+		_mall_signs(b, xf, X, Z)
 	elif kind == "apartment":
 		_sign(b, xf, Vector3(0, 2.96, -Z - 0.12), 4.1, 0.9, 9)
 	elif kind == "clubhouse":
@@ -318,6 +320,46 @@ func _sign(b: Dictionary, xf: Transform3D, c: Vector3, w: float, h: float, idx: 
 	sink.atlas_quad(xf * (c + Vector3(0, 0, -0.055)), -xf.basis.x, xf.basis.y, w, h, uv, SIGNS,
 		{"layer": "ext", "tint": Color(1, 1, 1, 1)})
 	stats.signs += 1
+
+
+const MALL_SIGNS := "decal:res://assets/urban/signs_mall.png"
+
+
+func _mall_sign(xf: Transform3D, c: Vector3, w: float, h: float, idx: int, facing: float) -> void:
+	## A sign from the mall atlas on a charcoal backing; facing -1 looks along -z (out of the front), +1 along +z.
+	_box(xf, c, Vector3(w + 0.12, h + 0.12, 0.08), "metal_paint", CHARCOAL)
+	var uv := Rect2((idx % 4) * 0.25, floorf(float(idx) / 4.0) * 0.25, 0.25, 0.25)
+	sink.atlas_quad(xf * (c + Vector3(0, 0, 0.05 * facing)), xf.basis.x * facing, xf.basis.y, w, h, uv, MALL_SIGNS,
+		{"layer": "ext" if facing < 0.0 else "inner", "tint": Color(1, 1, 1, 1)})
+	stats.signs += 1
+
+
+func _mall_signs(b: Dictionary, xf: Transform3D, X: float, Z: float) -> void:
+	## (r11) Lawless Mall: the name on a frame standing on the front parapet, and a sign over every storefront,
+	## the food court and the supermarket, on the concourse side (big_plans._mall's layout, same numbers).
+	var top := float(b.top)
+	for s in [-3.6, 3.6]:
+		_box(xf, Vector3(s, top + 1.2, -Z + 0.6), Vector3(0.16, 2.4, 0.16), "metal_paint", CHARCOAL)
+	_mall_sign(xf, Vector3(0, top + 2.3, -Z + 0.5), 8.0, 3.2, 0, -1.0)
+	var zf := -Z + 7.5
+	var zb := zf + 9.0
+	var shop_w := (X - 3.0) / 3.0
+	var fc_x := -X + 14.0
+	var core_x := X - 4.4
+	var wc_x := core_x - 4.6
+	var g_tiles := [1, 2, 3, 4, 5, 9]
+	var u_tiles := [10, 11, 12, 13, 15, 6]
+	for k in 6:
+		var x0 := (-X + shop_w * k) if k < 3 else (3.0 + shop_w * (k - 3))
+		var cx := x0 + shop_w * 0.5
+		var sw := minf(shop_w - 1.2, 2.4)
+		_mall_sign(xf, Vector3(cx, 3.68, zf + 0.12), sw, sw * 0.4, g_tiles[k], 1.0)
+		_mall_sign(xf, Vector3(cx, 4.4 + 3.3, zf + 0.12), sw, sw * 0.4, u_tiles[k], 1.0)
+	_mall_sign(xf, Vector3(0, 4.4 + 3.3, zf + 0.12), 2.2, 0.88, 5, 1.0)
+	_mall_sign(xf, Vector3((-X + fc_x) * 0.5, 3.7, zb - 0.12), 3.2, 1.28, 7, -1.0)
+	_mall_sign(xf, Vector3((fc_x + wc_x) * 0.5, 3.7, zb - 0.12), 3.2, 1.28, 8, -1.0)
+	_mall_sign(xf, Vector3((wc_x + core_x) * 0.5, 3.75, zb - 0.12), 1.8, 0.72, 14, -1.0)
+	_mall_sign(xf, Vector3((-X + fc_x + 4.0) * 0.5, 4.4 + 3.3, zb - 0.12), 3.2, 1.28, 6, -1.0)
 
 
 func _roof_vent(xf: Transform3D, c: Vector3, radius: float) -> void:

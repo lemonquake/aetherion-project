@@ -1,7 +1,7 @@
 extends RefCounted
 ## r7 Deathmatch checks on a listen host (`--autotest=dm`):
 ##   godot --path game -- --host --game_mode=deathmatch --bots=19 --autostart=1 --autotest=dm --shots=<dir> [--dm_only=a,b]
-## map: the round is on Lawless Sub, two teams of ten standing. kit: you spawn on the ground at your team's spawn with
+## map: the round is on Lawless Sub, three teams of seven standing (r11; two teams with --teams=2). kit: you spawn on the ground at your team's spawn with
 ## both guns, the plate carrier and the heavy helmet. body: looking straight down in first person nothing of your own
 ## body shows (the frame is compared with one where your character's visual is hidden). arms: the first-person arms
 ## come no closer to the camera than 15 cm above the bottom of the view through a whole empty reload (the arm's cut
@@ -46,11 +46,13 @@ func _grab() -> Image:
 func _map() -> void:
 	var info: Dictionary = world.match_info
 	var alive: Dictionary = info.get("alive", {})
-	var a0 := int(alive.get(0, alive.get("0", 0)))
-	var a1 := int(alive.get(1, alive.get("1", 0)))
+	var counts := []
+	for k in Net.dm_teams():
+		counts.append(int(alive.get(k, alive.get(str(k), 0))))
 	t._check("dm_map", str(world.cfg.get("map", "")) == "lawless_sub" and str(info.get("game_mode", "")) == "deathmatch",
 		"map %s, mode %s, %s" % [str(world.cfg.get("map", "")), str(info.get("game_mode", "")), world.map.fingerprint])
-	t._check("dm_teams", a0 == 10 and a1 == 10, "alive West %d, East %d" % [a0, a1])
+	var full := Net.team_size()
+	t._check("dm_teams", counts.size() == Net.dm_teams() and counts.all(func(n): return n == full), "alive per team %s (team size %d)" % [str(counts), full])
 
 
 func _kit() -> void:
@@ -65,7 +67,8 @@ func _kit() -> void:
 	var team := int(Net.players.get(Net.local_pid, {}).get("team", -1))
 	var L = world.map.layout
 	var near := INF
-	for p in L.spawns[clampi(team, 0, 1)]:
+	var sets: Array = L.spawns3 if Net.dm_teams() == 3 else L.spawns
+	for p in sets[clampi(team, 0, sets.size() - 1)]:
 		near = minf(near, (p as Vector3).distance_to(ch.global_position))
 	t._check("dm_kit", guns.size() == 2 and vest != null and helmet != null and str(vest.id) == "vest_heavy" and str(helmet.id) == "helmet_heavy",
 		"guns %s, vest %s, helmet %s" % [str(guns), str(vest.id) if vest else "none", str(helmet.id) if helmet else "none"])

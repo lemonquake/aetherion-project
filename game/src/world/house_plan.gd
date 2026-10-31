@@ -22,14 +22,18 @@ extends "res://src/world/building_kit.gd"
 ##                    w, h, y, win, vault, door_mat}]},
 ##              stair: {start: Vector2, dir: Vector2 or "+x"|"-x"|"+z"|"-z", w (1.0), side (let-out), to (floor),
 ##                      rail, mat},
+##              voids: [Rect2 | [x0, z0, x1, z1]] (r11: open to the floor below, e.g. a mall atrium; balustrade round
+##                      each), links may also be "front" (a storefront: the shared wall opened almost end to end),
 ##              balcony: {side, c0, c1, depth}}],
 ##    roof: {type: "hip"|"gable"|"flat"|"none", mat, pitch, over, ridge, parapet (0.9), ladder: {side, x}},
 ##    carport: {rect, h, mat}}
 ## Returns the shanty's out dictionary {id, rooms, doors, top, deck, front_open, h0, zone_front} plus spec (the record
 ## MapBuilder registers), far_body / far_roof, light_rooms, exits (outer doors) and report (counts, warnings).
 
-const OPEN_TYPES := ["sala", "living", "dining", "foyer", "stair", "lobby", "corridor", "hall", "shop", "store_aisles", "factory_floor", "warehouse"]
-const CIRC_TYPES := ["sala", "living", "dining", "foyer", "stair", "lobby", "corridor", "hall", "shop", "store_aisles", "factory_floor", "warehouse", "kitchen"]
+const OPEN_TYPES := ["sala", "living", "dining", "foyer", "stair", "lobby", "corridor", "hall", "shop", "store_aisles", "factory_floor", "warehouse",
+	"concourse", "boutique"]
+const CIRC_TYPES := ["sala", "living", "dining", "foyer", "stair", "lobby", "corridor", "hall", "shop", "store_aisles", "factory_floor", "warehouse", "kitchen",
+	"concourse", "boutique"]
 const PRIVATE := ["bedroom", "bed", "toilet", "bath", "cr", "utility", "storage", "office", "stock_room", "garage", "kitchen", "chapel", "classroom"]
 ## Default finishes per room type: [floor, wall].
 const FINISH := {
@@ -41,7 +45,7 @@ const FINISH := {
 	"garage": ["garage", "wall_grey"], "office": ["laminate", "wall_painted"], "shop": ["tiles_floor", "wall_painted"],
 	"store_aisles": ["terrazzo", "wall_painted"], "stock_room": ["concrete_floor2", "wall_grey"], "factory_floor": ["factory_floor", "factory_wall"],
 	"warehouse": ["factory_floor", "factory_wall"], "mezzanine": ["metal_plate", "factory_wall"], "chapel": ["marble", "wall_painted"],
-	"classroom": ["terrazzo", "wall_painted"],
+	"classroom": ["terrazzo", "wall_painted"], "concourse": ["marble", "wall_painted"], "boutique": ["laminate", "wall_painted"],
 }
 ## Soft interior paints (cream, mint, sky, blush, white, sand).
 const ROOM_PAINTS := [Color(0.95, 0.92, 0.82), Color(0.82, 0.92, 0.84), Color(0.8, 0.88, 0.95), Color(0.96, 0.86, 0.84), Color(0.97, 0.97, 0.95),
@@ -94,6 +98,10 @@ func build(plan: Dictionary) -> Dictionary:
 		F.rooms = rs
 		F.flights = []
 		F.holes = []
+		var vs := []
+		for v in F.get("voids", []):
+			vs.append(_rect(v))
+		F.voids = vs
 		floors.append(F)
 	var n_floors := floors.size()
 	var top_y: float = floors[-1].y + floors[-1].h
@@ -107,8 +115,8 @@ func build(plan: Dictionary) -> Dictionary:
 			continue
 		var S: Dictionary = F.stair
 		var to := int(S.get("to", f + 1))
-		if to >= n_floors:
-			# TODO: a stair house (bulkhead) on a flat roof; until then roofs are reached by ladder.
+		if to >= n_floors and str(plan.get("roof", {}).get("type", "hip")) != "flat":
+			# Roof stairs only come up through a flat roof deck (r11); pitched roofs are reached by ladder.
 			report.warnings.append("floor %d: stair to missing floor %d (roof stairs not built yet)" % [f, to])
 			continue
 		var rise: float = (floors[to].y if to < n_floors else top_y + 0.15) - F.y
@@ -133,6 +141,7 @@ func build(plan: Dictionary) -> Dictionary:
 			floors[to].holes.append({"rect": hole, "flight": F.flights[-1], "from": f})
 		else:
 			F.roof_hole = hole
+			F.roof_flight = F.flights[-1]
 	# ---- zones (one per room) and the room records
 	for f in n_floors:
 		var F: Dictionary = floors[f]
@@ -162,6 +171,7 @@ func build(plan: Dictionary) -> Dictionary:
 			var holes := []
 			for hz in F.holes:
 				holes.append(hz.rect)
+			holes.append_array(F.voids)
 			if mezz:
 				for R in F.rooms:
 					slab(xf, R.rect, fy, 0.12, "metal_plate", holes, {"under": "metal_plate", "dirt": 0.4, "what": "mezzanine"})
@@ -177,6 +187,7 @@ func build(plan: Dictionary) -> Dictionary:
 			var holes2 := []
 			for hz in F.holes:
 				holes2.append(hz.rect)
+			holes2.append_array(F.voids)
 			slab(xf, fr, fy + 0.02, 0.02, str(R.floor_mat), holes2, fopt)
 		# Rooms with a ceiling of their own under a tall floor (offices in a factory hall).
 		for R in F.rooms:
@@ -193,6 +204,7 @@ func build(plan: Dictionary) -> Dictionary:
 		else:
 			_mezzanine(xf, floors, f, w, d, te, dirt)
 		_hole_rails(xf, floors, f, w, d, te)
+		_void_rails(xf, F)
 		if F.has("balcony"):
 			_balcony(xf, F, w, d, te, ext_mat, ext_tint, dirt)
 	# ---- stairs
@@ -235,7 +247,7 @@ func build(plan: Dictionary) -> Dictionary:
 		var holes3 := []
 		if floors[-1].has("roof_hole"):
 			holes3.append(floors[-1].roof_hole)
-		slab(xf, Rect2(-w * 0.5, -d * 0.5, w, d), top_y + rh, rh, "cement", holes3, {"layer": "ext", "inner_faces": 8, "under": "ceiling",
+		slab(xf, Rect2(-w * 0.5, -d * 0.5, w, d), top_y + rh, rh, "concrete_floor2", holes3, {"layer": "ext", "inner_faces": 8, "under": "ceiling",
 			"under_tint": Color(0.95, 0.95, 0.93), "dirt": dirt + 0.2, "what": "roof", "phys": "concrete"})
 		var ph := float(roof.get("parapet", 0.9))
 		var gaps := []
@@ -243,6 +255,8 @@ func build(plan: Dictionary) -> Dictionary:
 		if not lad.is_empty():
 			gaps.append(_ladder_gap(lad, w, d))
 		parapet(xf, Rect2(-w * 0.5, -d * 0.5, w, d), top_y + rh, ph, 0.15, ext_mat, gaps, {"tint": ext_tint, "paint": 0.85, "dirt": dirt + 0.2})
+		if floors[-1].has("roof_flight"):
+			_hole_rails(xf, [{"y": top_y + rh, "holes": [{"rect": floors[-1].roof_hole, "flight": floors[-1].roof_flight}]}], 0, w, d, te)
 		ridge = top_y + rh + ph
 		if not lad.is_empty():
 			_roof_ladder(xf, lad, w, d, top_y + rh, dirt)
@@ -271,6 +285,8 @@ func build(plan: Dictionary) -> Dictionary:
 				# the foot of the flight and the way on to it
 				var ft: Vector2 = (fl3.start as Vector2) - (fl3.dir as Vector2) * 0.6
 				avoid.append(Rect2(ft - Vector2(0.6, 0.6), Vector2(1.2, 1.2)))
+			for vr in F.voids:
+				avoid.append((vr as Rect2).grow(0.6))
 			for hz in F.holes:
 				avoid.append((hz.rect as Rect2).grow(0.35))
 				var top_end: Vector2 = (hz.flight.end as Vector2) + (hz.flight.side as Vector2) * (float(hz.flight.w) * 0.5 + 0.5)
@@ -692,10 +708,16 @@ func _inner_walls(xf: Transform3D, plan: Dictionary, floors: Array, f: int, w: f
 			if typ == "open":
 				dw = clampf(length - 0.6, 0.9, 2.4 if (str(Ri.type) in ["sala", "living", "dining"] and str(Rj.type) in ["sala", "living", "dining", "kitchen"]) else 1.4)
 				dh = minf(2.2, hgt - 0.2)
+			elif typ == "front":
+				# A storefront: the wall opened end to end but for a pier at each side, up to the shutter box.
+				dw = clampf(length - 0.9, 1.2, 9.0)
+				dh = minf(3.0, hgt - 0.35)
 			var c: float = lk[1]
 			if is_nan(c):
 				c = _door_spot(xf, floors, f, a, b, dw, typ == "door")
 			if length >= dw + 0.3:
+				if typ == "front":
+					c = length * 0.5
 				var op := {"type": "door" if typ == "door" else "opening", "c": c, "w": dw, "h": dh, "y": 0.0, "door_mat": str(plan.get("door_mat", "planks_paint")),
 					"role": "partition", "frame": "planks_paint" if typ == "door" else ""}
 				ops.append(op)
@@ -842,6 +864,35 @@ func _hole_rails(xf: Transform3D, floors: Array, f: int, w: float, d: float, te:
 			var lets_out := off.dot(side) > 0.0
 			var stop := float(fl2.run) - (1.0 if lets_out else 0.0)
 			railing(xf, low + off, start + dir * stop + off, fy, {"h": 1.0})
+
+
+func _void_rails(xf: Transform3D, F: Dictionary) -> void:
+	## (r11) A balustrade round each floor void: steel posts and handrail over a glass infill, 1.05 m, with a gap
+	## where a stair flight lands through the void's edge.
+	var fy := float(F.y)
+	for vr in F.voids:
+		var r: Rect2 = vr
+		var pts := [r.position, Vector2(r.end.x, r.position.y), r.end, Vector2(r.position.x, r.end.y)]
+		for k in 4:
+			var a: Vector2 = pts[k]
+			var b: Vector2 = pts[(k + 1) % 4]
+			railing(xf, a, b, fy, {"h": 1.05})
+			var m := (a + b) * 0.5
+			var ln := a.distance_to(b)
+			var horiz := absf(a.y - b.y) < 0.01
+			var gsize := Vector3(ln - 0.1, 0.8, 0.02) if horiz else Vector3(0.02, 0.8, ln - 0.1)
+			ctx.sink.box(xf * Transform3D(Basis(), Vector3(m.x, fy + 0.5, m.y)), gsize, "glass",
+				{"collide": true, "dirt": 0.1, "what": "balustrade_glass", "layer": "inner"})
+		# The slab edge round the void, faced in the trim colour.
+		for k in 4:
+			var a2: Vector2 = pts[k]
+			var b2: Vector2 = pts[(k + 1) % 4]
+			var m2 := (a2 + b2) * 0.5
+			var ln2 := a2.distance_to(b2)
+			var horiz2 := absf(a2.y - b2.y) < 0.01
+			var esize := Vector3(ln2 + 0.04, 0.32, 0.04) if horiz2 else Vector3(0.04, 0.32, ln2 + 0.04)
+			ctx.sink.box(xf * Transform3D(Basis(), Vector3(m2.x, fy - 0.12, m2.y)), esize, "metal_paint",
+				{"collide": false, "tint": Color(0.86, 0.86, 0.84), "paint": 0.8, "dirt": 0.2, "what": "void_edge", "layer": "inner"})
 
 
 func _mezzanine(xf: Transform3D, floors: Array, f: int, w: float, d: float, te: float, dirt: float) -> void:

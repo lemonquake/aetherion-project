@@ -26,6 +26,7 @@ var _sun_up := false
 var _glints: MultiMeshInstance3D
 ## Tests pin the time of day: match seconds to show (-1: follow the match clock).
 var forced_time := -1.0
+var _gl := RenderingServer.get_current_rendering_method() == "gl_compatibility"
 var lamps: Array = []  # [{light, base, fault, amount, blink, phase, period, mesh, col, pos, big, kind}]
 var rng := RandomNumberGenerator.new()
 var _t := 0.0
@@ -54,6 +55,13 @@ var _reach_big := 0.0
 var _shown := PackedInt32Array()   # ids whose light or emitter is visible
 var _seen := PackedInt32Array()    # per id: the update that last kept it
 var _gen := 0
+## (r15) An indoor map's own lighting (layout.indoor_light, Malasugue Mall): the directional light is the mall's fill
+## from its ceilings (steady, warm white, no shadow), the ambient is bright; the day cycle still turns the sky seen
+## through the skylights and doors.
+var _indoor: Dictionary = {}
+var _sky_lamps: Array = []   # (r16) [SpotLight3D, base energy]: skylight shafts, dimmer by night
+var _buzzing := {}           # (r16) sound loop keys of the faulty fittings humming now
+var _buzz_t := 0.0
 ## View tier from ViewLod (0 ground, 1 low air, 2 high air): no local shadows or AO above the rooftops, no moon
 ## shadow high up.
 var air_tier := 0
@@ -102,7 +110,7 @@ func build(parent: Node3D) -> void:
 	env.fog_density = 0.0042
 	env.fog_sky_affect = 0.25
 	env.fog_aerial_perspective = 0.2
-	env.volumetric_fog_enabled = true
+	env.volumetric_fog_enabled = RenderingServer.get_current_rendering_method() == "forward_plus" and not (mb.layout.get("indoor_light") is Dictionary and float(mb.layout.indoor_light.get("vol_fog",0.0)) == 0.0)
 	env.volumetric_fog_density = 0.007
 	env.volumetric_fog_albedo = Color(0.75, 0.8, 0.88)
 	env.volumetric_fog_emission = Color(0.0, 0.0, 0.0)
@@ -144,7 +152,20 @@ func build(parent: Node3D) -> void:
 	parent.add_child(sky_fill)
 	sky_fill.global_transform = Transform3D(Basis.looking_at(-FILL_DIR.normalized(), Vector3.UP), Vector3.ZERO)
 	sm.set_shader_parameter("sun_direction", SUN_DIR.normalized())
+	_indoor = mb.layout.get("indoor_light") if mb.layout.get("indoor_light") is Dictionary else {}
 	_headless = DisplayServer.get_name() == "headless"
+	if not _headless and _indoor.get("horror_grade", false):
+		var grade := CanvasLayer.new()
+		grade.name = "MallFilmResponse"
+		grade.layer = 1   # world only; HUD is on layer 5
+		parent.add_child(grade)
+		var rect := ColorRect.new()
+		rect.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
+		rect.mouse_filter = Control.MOUSE_FILTER_IGNORE
+		var film := ShaderMaterial.new()
+		film.shader = preload("res://src/world/maps/malasugue_mall/horror_grade.gdshader")
+		rect.material = film
+		grade.add_child(rect)
 	if not _headless:
 		_street_lamps(parent)
 		for spec in mb.dyn.lights:
@@ -162,13 +183,16 @@ func _on_setting(section: String, key: String) -> void:
 func dispose() -> void:
 	if Settings.changed.is_connected(_on_setting):
 		Settings.changed.disconnect(_on_setting)
+	for key in _buzzing:
+		SoundSys.stop_loop(key)
+	_buzzing.clear()
 	mb = null
 	env = null
 	sky_mat = null
 	moon = null
 	sky_fill = null
 	_glints = null
-	for records in [lamps, _anim, _near_anim, _shadowed, _fix, _glint_xf, _glint_col]:
+	for records in [lamps, _anim, _near_anim, _shadowed, _fix, _glint_xf, _glint_col, _sky_lamps]:
 		records.clear()
 	_meshes.clear()
 	_mats.clear()
@@ -180,7 +204,7 @@ func _apply_settings() -> void:
 	if env == null:
 		return
 	# Fog volumes are a night effect (lamp halos, the moon through haze); in daylight they cost a pass for nothing.
-	env.volumetric_fog_enabled = bool(Settings.get_value("graphics", "volumetric_fog")) and daylight < 0.5
+	env.volumetric_fog_enabled = RenderingServer.get_current_rendering_method() == "forward_plus" and bool(Settings.get_value("graphics", "volumetric_fog")) and daylight < 0.5 and (_indoor.is_empty() or float(_indoor.get("vol_fog",0.0))>0.0)
 	env.ssao_enabled = bool(Settings.get_value("graphics", "ssao")) and air_tier == 0
 	var b := float(Settings.get_value("graphics", "brightness"))
 	env.tonemap_exposure = lerpf(1.0 + b * 1.2, 0.92 + b * 0.3, daylight)
@@ -196,6 +220,7 @@ func _apply_settings() -> void:
 		moon.directional_shadow_split_1 = 0.1 if shadows >= 3 else 0.25
 		moon.directional_shadow_max_distance = moon_shadow_distance()
 		moon.light_energy = lerpf(0.62 * _moon_k(), 2.0, daylight)
+	_apply_indoor()
 	if not _shadowed.is_empty() and air_tier > 0:
 		_shadow_budget()
 
@@ -266,24 +291,27 @@ func _add_light(parent: Node3D, spec: Dictionary) -> void:
 	var energy := float(spec.get("energy", 1.0))
 	var rng_range := float(spec.get("range", 10.0))
 	var dead := bool(spec.get("dead", false)) or energy <= 0.0
+	var no_emitter := not bool(spec.get("emitter", true))   # (r15) the fitting is drawn by the map itself
 	var fault := str(spec.get("fault", ""))
 	if fault == "" and float(spec.get("flicker", 0.0)) > 0.0:
 		fault = "flicker"
 	var big := kind in ["street", "flood", "sodium", "beacon", "emergency"]
 	var light: Light3D = null
 	if not dead:
-		if kind in ["street", "flood"]:
+		if kind in ["street", "flood", "down", "shaft"]:
+			# (r16) "down": a ceiling downlight's pool straight below; "shaft": daylight falling through a skylight.
 			var sl := SpotLight3D.new()
-			sl.spot_angle = 62.0 if kind == "street" else 45.0
+			sl.spot_angle = float(spec.get("angle", {"street": 62.0, "flood": 45.0, "down": 58.0, "shaft": 24.0}[kind]))
 			sl.spot_range = rng_range
-			sl.spot_attenuation = 0.9
-			sl.rotation = Vector3(-PI * 0.5 if kind == "street" else -0.9, 0, 0)
+			sl.spot_attenuation = 0.9 if kind in ["street", "flood"] else float(spec.get("attenuation", 1.1))
+			sl.rotation = Vector3(-0.9 if kind == "flood" else -PI * 0.5, 0, 0)
 			light = sl
 		else:
 			var ol := OmniLight3D.new()
 			ol.omni_range = rng_range
 			ol.omni_attenuation = 1.8 if kind == "candle" else (1.0 if spec.get("outdoor", false) else 1.4)
-			ol.omni_shadow_mode = OmniLight3D.SHADOW_DUAL_PARABOLOID
+			# (r17) Safe graphics (OpenGL) has no dual-paraboloid shadows: it printed an error for every lamp.
+			ol.omni_shadow_mode = OmniLight3D.SHADOW_CUBE if _gl else OmniLight3D.SHADOW_DUAL_PARABOLOID
 			light = ol
 		light.light_color = col
 		light.light_energy = energy
@@ -299,13 +327,22 @@ func _add_light(parent: Node3D, spec: Dictionary) -> void:
 		# on phones: fewer lights per frame and per mesh (the Mobile renderer lights a mesh with at most 8 omni and
 		# 8 spot lights). Read at build time.
 		var reach_k := clampf(float(Settings.get_value("graphics", "light_distance")), 0.5, 1.0)
-		light.distance_fade_begin = (140.0 if big else 38.0 + rng_range * 3.0) * reach_k
-		light.distance_fade_length = 30.0 if big else 15.0
+		light.distance_fade_begin = (140.0 if big else float(spec.get("fade", 38.0 + rng_range * 3.0))) * reach_k
+		light.distance_fade_length = 30.0 if big else (10.0 if spec.has("fade") else 15.0)
 		light.distance_fade_shadow = 32.0
+		if spec.has("fog"):
+			light.light_volumetric_fog_energy = float(spec.fog)
 		light.position = spec.pos
 		light.visible = false
 		parent.add_child(light)
+		if kind == "shaft":
+			# (r16) Daylight through a skylight: always shadowed (the dome's ribs and the balustrades print on the
+			# floors below), brighter by day; phones skip the shadow.
+			light.shadow_enabled = not Settings.is_mobile()
+			_sky_lamps.append([light, energy])
 	var em := MeshInstance3D.new()
+	if no_emitter:
+		em.visible = false
 	em.mesh = _emitter_mesh(kind)
 	if kind == "tube" and spec.has("axis"):
 		var ax: Vector3 = spec.axis
@@ -320,9 +357,9 @@ func _add_light(parent: Node3D, spec: Dictionary) -> void:
 	em.material_override = m
 	parent.add_child(em)
 	# Shown while within reach: past the light's fade (plus one update's worth of free fall) it adds nothing.
-	var fix := {"light": light, "em": em if not big else null, "lamp": null}
+	var fix := {"light": light, "em": em if not big and not no_emitter else null, "lamp": null}
 	var reach := (light.distance_fade_begin + light.distance_fade_length + 16.0) if light else 0.0
-	var em_reach := 0.0 if big else 115.0
+	var em_reach := 0.0 if big or no_emitter else 115.0
 	var cs := GRID_BIG if big else GRID
 	var g: Dictionary = _grid_big if big else _grid
 	var ck := Vector2i(floori(spec.pos.x / cs), floori(spec.pos.z / cs))
@@ -343,7 +380,7 @@ func _add_light(parent: Node3D, spec: Dictionary) -> void:
 		return
 	var rec := {"light": light, "base": energy, "fault": fault, "amount": float(spec.get("flicker", 0.35)), "blink": float(spec.get("blink", 0.0)),
 		"phase": rng.randf() * 100.0, "period": rng.randf_range(7.0, 19.0), "mesh": m, "col": col, "pos": spec.pos, "big": big, "kind": kind,
-		"anim": animated, "no_shadow": bool(spec.get("no_shadow", false))}
+		"anim": animated, "no_shadow": bool(spec.get("no_shadow", false)) or kind == "shaft"}
 	fix.lamp = rec
 	lamps.append(rec)
 	if animated:
@@ -369,6 +406,15 @@ func _emitter_mesh(kind: String) -> Mesh:
 			cm.height = 0.13
 			cm.radial_segments = 10
 			mesh = cm
+		"down":
+			# (r16) a ceiling downlight's lens (the mall's fittings: MallBuilder draws the steady ones itself)
+			var dm := CylinderMesh.new()
+			dm.top_radius = 0.085
+			dm.bottom_radius = 0.085
+			dm.height = 0.012
+			dm.radial_segments = 12
+			dm.rings = 1
+			mesh = dm
 		"candle":
 			var fm := SphereMesh.new()
 			fm.radius = 0.008
@@ -499,7 +545,55 @@ func set_daylight(k: float) -> void:
 	env.adjustment_contrast = lerpf(1.06, 1.1, k)
 	if _glints:
 		_glints.visible = k < 0.5
+	for sk in _sky_lamps:
+		(sk[0] as Light3D).light_energy = float(sk[1]) * lerpf(0.3, 1.0, k)
+		(sk[0] as Light3D).light_color = MOON_COL.lerp(SUN_COL, k)
 	_apply_settings()
+
+
+func _apply_indoor() -> void:
+	if _indoor.is_empty() or moon == null:
+		return
+	var fd: Vector3 = _indoor.get("fill_dir", Vector3(0.2, 1.0, 0.3))
+	moon.global_transform = Transform3D(Basis.looking_at(-fd.normalized(), Vector3.FORWARD), Vector3.ZERO)
+	moon.light_color = _indoor.get("fill", Color(1, 0.96, 0.9))
+	moon.light_energy = float(_indoor.get("fill_energy", 0.9))
+	moon.shadow_enabled = false
+	moon.light_cull_mask = 0xFFFFF
+	moon.light_angular_distance = 0.5
+	moon.light_volumetric_fog_energy = 0.0
+	sky_fill.light_energy = 0.0
+	env.ambient_light_color = _indoor.get("ambient", Color(0.9, 0.88, 0.85))
+	env.ambient_light_energy = float(_indoor.get("ambient_energy", 0.6))
+	# (r16) Dust hanging in the air: the downlights' cones and the skylights' shafts show in it (when the setting is on).
+	var vf := float(_indoor.get("vol_fog", 0.0))
+	env.volumetric_fog_enabled = vf > 0.0 and bool(Settings.get_value("graphics", "volumetric_fog"))
+	env.volumetric_fog_density = vf
+	env.volumetric_fog_albedo = _indoor.get("vol_albedo", Color(0.8, 0.8, 0.8))
+	env.volumetric_fog_emission = Color(0, 0, 0)
+	env.volumetric_fog_length = float(_indoor.get("vol_len", 48.0))
+	env.volumetric_fog_ambient_inject = float(_indoor.get("vol_ambient", 0.0))
+	env.volumetric_fog_anisotropy = 0.35
+	env.fog_density = float(_indoor.get("fog", 0.0009))
+	env.fog_enabled = env.fog_density > 0.0
+	env.fog_light_color = _indoor.get("fog_color", Color(0.55, 0.55, 0.56))
+	env.fog_sky_affect = 0.0
+	env.adjustment_saturation = float(_indoor.get("saturation", 1.12))
+	env.adjustment_contrast = float(_indoor.get("contrast", 1.1))
+	env.ssao_intensity = float(_indoor.get("ssao", 1.25))
+	if _indoor.has("sky_dim") and sky_mat:
+		# (r16) the sky over the mall: overcast with smoke, the city burning on the horizon
+		sky_mat.set_shader_parameter("day_k", daylight * float(_indoor.sky_dim))
+		sky_mat.set_shader_parameter("cloud_cover", float(_indoor.get("sky_cloud", 0.55)))
+		sky_mat.set_shader_parameter("city_glow", _indoor.get("sky_glow", Color(0.09, 0.055, 0.03)))
+	# Polished floors: screen-space reflections where the renderer has them (Forward+, with SSAO on), else the probes.
+	env.ssr_enabled = env.ssao_enabled and RenderingServer.get_current_rendering_method() == "forward_plus"
+	env.ssr_max_steps = 48
+	env.ssr_fade_in = 0.2
+	env.ssr_fade_out = 2.5
+	env.ssr_depth_tolerance = 0.25
+	var b := float(Settings.get_value("graphics", "brightness"))
+	env.tonemap_exposure = float(_indoor.get("exposure", 1.0)) + b * 0.3
 
 
 func tick(dt: float) -> void:
@@ -521,6 +615,37 @@ func tick(dt: float) -> void:
 		if L.light:
 			(L.light as Light3D).light_energy = L.base * k
 		(L.mesh as StandardMaterial3D).emission_energy_multiplier = 3.0 * k
+	if _indoor.get("buzz", false):
+		_buzz_t -= dt
+		if _buzz_t <= 0.0:
+			_buzz_t = 0.2
+			_buzz()
+
+
+func _buzz() -> void:
+	## (r16) The faulty fittings nearest the listener (up to three within 11 m) hum and crackle, louder while lit.
+	var lis: Vector3 = SoundSys.listener_pos()
+	var near := []
+	for L in _near_anim:
+		if str(L.kind) in ["down", "tube", "bulb", "lamp"] and str(L.fault) != "candle":
+			var d2: float = (L.pos as Vector3).distance_squared_to(lis)
+			if d2 < 121.0:
+				near.append([d2, L])
+	near.sort_custom(func(a, b): return a[0] < b[0])
+	var keep := {}
+	for i in mini(3, near.size()):
+		var L: Dictionary = near[i][1]
+		var key := "lampbuzz_%d_%d_%d" % [int(L.pos.x * 10.0), int(L.pos.y * 10.0), int(L.pos.z * 10.0)]
+		keep[key] = true
+		var db := lerpf(-16.0, 0.0, clampf(float(L.get("k", 1.0)), 0.0, 1.0))
+		if _buzzing.has(key):
+			SoundSys.update_loop(key, L.pos, db)
+		else:
+			SoundSys.start_loop(key, "lamp_buzz", L.pos, db)
+	for key in _buzzing:
+		if not keep.has(key):
+			SoundSys.stop_loop(key)
+	_buzzing = keep
 
 
 func _fault_level(L: Dictionary, reduce: bool) -> float:

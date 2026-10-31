@@ -1,0 +1,39 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <!-- Aetherion Project launcher for Windows (launcher/README.md). .NET Framework 4.8 ships with Windows 10 and 11, so the
+       launcher is one small exe with nothing to install. Build: python -I tools/release/build_launcher.py -->
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net48</TargetFramework>
+    <UseWindowsForms>true</UseWindowsForms>
+    <LangVersion>latest</LangVersion>
+    <Nullable>disable</Nullable>
+    <AssemblyName>AetherionLauncher</AssemblyName>
+    <RootNamespace>Aetherion.Launcher</RootNamespace>
+    <Version>1.2.0</Version>
+    <Product>Aetherion Project Launcher</Product>
+    <Company>AzAz Games</Company>
+    <Authors>Aljay Leodones</Authors>
+    <Copyright>© Aljay Leodones · AzAz Games</Copyright>
+    <Description>Installs, updates and starts Aetherion Project</Description>
+    <ApplicationIcon>Assets\app.ico</ApplicationIcon>
+    <ApplicationManifest>app.manifest</ApplicationManifest>
+    <GenerateDocumentationFile>false</GenerateDocumentationFile>
+    <DebugType>none</DebugType>
+    <SatelliteResourceLanguages>en</SatelliteResourceLanguages>
+    <AutoGenerateBindingRedirects>false</AutoGenerateBindingRedirects>
+    <GenerateSupportedRuntime>false</GenerateSupportedRuntime>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="Microsoft.CSharp" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="..\..\tools\release\update-public-key.json" LogicalName="update-public-key.json" />
+    <EmbeddedResource Include="..\shared\background.jpg" LogicalName="background.jpg" />
+    <EmbeddedResource Include="Assets\app.ico" LogicalName="app.ico" />
+    <EmbeddedResource Include="..\..\game\assets\fonts\BarlowCondensed-SemiBold.ttf" LogicalName="BarlowCondensed-SemiBold.ttf" />
+    <EmbeddedResource Include="..\..\game\assets\fonts\Barlow-Regular.ttf" LogicalName="Barlow-Regular.ttf" />
+    <EmbeddedResource Include="..\..\game\assets\fonts\Barlow-SemiBold.ttf" LogicalName="Barlow-SemiBold.ttf" />
+  </ItemGroup>
+</Project>

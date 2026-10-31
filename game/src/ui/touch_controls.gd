@@ -8,13 +8,22 @@ extends Control
 ## again for menus and the SmarTab, whose screen takes taps as clicks.
 
 const STICK_R := 125.0
-const SPRINT_PULL := 1.25  # drag this far past the ring to lock sprint
+## (r15) The stick: a little past the centre walks, the full run speed comes at RUN_AT of the ring, and pushing it
+## forward to SPRINT_AT sprints (the knob turns bright and "Sprint" shows over the ring). Before, the speed rose in a
+## straight line to the ring (through a 25% dead zone), so a thumb a little short of the ring ran at walking pace and
+## sprint needed a hidden pull well past it. The controller reads move_vector() / sprint_wanted() directly: the
+## Sprint key's toggle setting turned every drag event into a toggle.
+const DEAD := 0.1
+const RUN_AT := 0.62
+const SPRINT_AT := 0.86
+const SPRINT_PULL := 1.25  # dragged this far past the ring: sprint stays on while the stick is held, whichever way
 
 var controller = null
 var _stick_id := -1
 var _stick_origin := Vector2.ZERO
 var _stick_pos := Vector2.ZERO
 var _sprint_lock := false
+var _sprint := false
 var _move := Vector2.ZERO
 var _look_id := -1
 var _held := {}     # touch index -> button
@@ -173,8 +182,8 @@ func _touch_up(index: int) -> void:
 	if index == _stick_id:
 		_stick_id = -1
 		_sprint_lock = false
+		_sprint = false
 		_set_move(Vector2.ZERO)
-		_send("sprint", false)
 	if index == _look_id:
 		_look_id = -1
 	if _held.has(index):
@@ -184,18 +193,34 @@ func _touch_up(index: int) -> void:
 
 func _update_stick() -> void:
 	var off := _stick_pos - _stick_origin
-	var v := off / (STICK_R * _k())
+	var raw := off / (STICK_R * _k())
+	var r := raw.length()
+	var fwd := -raw.y
 	# Pulling well past the ring locks sprint until the stick is let go or brought back down.
-	if v.length() > SPRINT_PULL and -v.y > 0.7 * v.length():
+	if r > SPRINT_PULL and fwd > 0.7 * r:
 		_sprint_lock = true
-	elif -v.y < 0.4:
+	elif fwd < 0.3 * r:
 		_sprint_lock = false
-	_send("sprint", _sprint_lock)
-	_set_move(v.limit_length(1.0))
+	_sprint = _sprint_lock or (r >= SPRINT_AT and fwd > 0.55 * r)
+	var m := clampf((r - DEAD) / (RUN_AT - DEAD), 0.0, 1.0)
+	_set_move(raw.normalized() * m if r > 0.001 else Vector2.ZERO)
+
+
+func move_vector() -> Vector2:
+	## The stick as the controller wants it (x right, y forward, length 0..1), or ZERO when no thumb is on it.
+	return Vector2(_move.x, -_move.y) if _stick_id >= 0 else Vector2.ZERO
+
+
+func stick_held() -> bool:
+	return _stick_id >= 0
+
+
+func sprint_wanted() -> bool:
+	return _stick_id >= 0 and _sprint
 
 
 func _set_move(v: Vector2) -> void:
-	# Screen y points down; forward is up.
+	# Screen y points down; forward is up. The move actions still go in (menus and anything else reading them).
 	var axes := {"move_right": maxf(v.x, 0.0), "move_left": maxf(-v.x, 0.0), "move_forward": maxf(-v.y, 0.0), "move_back": maxf(v.y, 0.0)}
 	for a in axes:
 		var s: float = axes[a]
@@ -216,8 +241,8 @@ func _release_all() -> void:
 	_stick_id = -1
 	_look_id = -1
 	_sprint_lock = false
+	_sprint = false
 	_set_move(Vector2.ZERO)
-	_send("sprint", false)
 
 
 func reset_toggle(name: String) -> void:
@@ -248,8 +273,10 @@ func _draw() -> void:
 		draw_circle(_stick_origin, sr, Color(1, 1, 1, 0.08))
 		draw_arc(_stick_origin, sr, 0.0, TAU, 48, Color(1, 1, 1, 0.35), 3.0)
 		var knob := _stick_origin + (_stick_pos - _stick_origin).limit_length(sr)
-		draw_circle(knob, 48.0 * _k(), Color(1, 1, 1, 0.3 if not _sprint_lock else 0.55))
-		if _sprint_lock:
+		draw_circle(knob, 48.0 * _k(), Color(1, 1, 1, 0.3 if not _sprint else 0.55))
+		# Where sprint starts: a mark on the ring straight ahead.
+		draw_arc(_stick_origin, sr * SPRINT_AT, -PI * 0.5 - 0.5, -PI * 0.5 + 0.5, 12, Color(1, 1, 1, 0.5 if _sprint else 0.2), 3.0)
+		if _sprint:
 			_label(_stick_origin + Vector2(0, -sr - 30.0 * _k()), "Sprint", 26)
 
 

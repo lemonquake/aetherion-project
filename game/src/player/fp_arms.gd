@@ -282,6 +282,7 @@ func pose(s: String, palm_at: Vector3, b: Basis, pole: Vector3, curl: Array) -> 
 	if not ok:
 		return
 	var d: Dictionary = sides[s]
+	d.hidden = false   # (show_side sets it again after folding the arm away)
 	# Targets arrive in the parent's space (the viewmodel); this node may sit offset in it.
 	var into := _to_skel * transform.affine_inverse()
 	var B := into.basis.orthonormalized() * b
@@ -324,6 +325,16 @@ func pose(s: String, palm_at: Vector3, b: Basis, pole: Vector3, curl: Array) -> 
 	skel.set_bone_pose_rotation(d.hand, (Rf.inverse() * Hd).get_rotation_quaternion())
 	_curl(d, curl)
 	d.want = [_to_skel * transform.affine_inverse() * palm_at, B]
+
+
+func hand_frame(s: String) -> Transform3D:
+	## r14: side s's wrist joint as posed, in global space, with the canonical hand axes (-Z along the fingers, +Y out
+	## of the palm): where the watch sits.
+	if not ok:
+		return global_transform
+	var d: Dictionary = sides[s]
+	var g := skel.global_transform * skel.get_bone_global_pose(d.hand)
+	return Transform3D((g.basis.orthonormalized() * (d.hand_map as Basis).inverse()).orthonormalized(), g.origin)
 
 
 func pose_error(s: String) -> Vector2:

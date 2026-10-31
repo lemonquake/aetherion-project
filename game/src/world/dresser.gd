@@ -156,6 +156,10 @@ func _plan_room(ctx: Dictionary, t: String, kind: String) -> void:
 			_loot_boxes(ctx, "office")
 		"shop", "store_aisles":
 			_aisles(ctx)
+		"concourse":
+			_concourse(ctx)
+		"boutique":
+			_boutique(ctx)
 		"stock_room":
 			for wall in ["back", "left", "right"]:
 				var s := _wall_slot(ctx, _pick(["metal_rack", "steel_shelves3", "steel_shelves2"]), wall)
@@ -170,12 +174,73 @@ func _plan_room(ctx: Dictionary, t: String, kind: String) -> void:
 			_classroom(ctx)
 			_loot_boxes(ctx, "classroom")
 		"hall", "lobby", "foyer":
+			if t == "hall" and ctx.w * ctx.d > 50.0:
+				_function_hall(ctx)
 			for k in rng.randi_range(1, 3):
 				_wall_slot(ctx, _pick(["sofa_leather", "armchair_modern", "potted_plant", "street_bench", "dining_table"]), _pick(["left", "right", "back", "front"]))
 			_floor_loot(ctx, "floor_household", 0.5)
 		_:
 			# Stairs, corridors, carports, mezzanines: nothing but what lies on the floor.
 			_floor_loot(ctx, "floor_household", 0.25)
+
+
+func _function_hall(ctx: Dictionary) -> void:
+	## (r11) A big hall in use: rows of tables with chairs round them, a buffet line of tables along one wall,
+	## chairs stacked and boxes left by the last event, so the floor is broken up for cover.
+	var cols := maxi(int((ctx.w - 2.4) / 3.2), 1)
+	var rows := maxi(int((ctx.d - 3.0) / 3.4), 1)
+	for i in cols:
+		for j in rows:
+			if rng.randf() < 0.18:
+				continue
+			var c := Vector2(-ctx.w * 0.5 + 1.8 + (i + 0.5) * (ctx.w - 3.6) / cols, -ctx.d * 0.5 + 2.2 + (j + 0.5) * (ctx.d - 4.4) / rows)
+			c += Vector2(rng.randf_range(-0.25, 0.25), rng.randf_range(-0.25, 0.25))
+			var yaw = _pick([0.0, PI * 0.5]) + rng.randf_range(-0.12, 0.12)
+			if _put(ctx, "dining_table", c, yaw):
+				for k in rng.randi_range(2, 4):
+					var a := TAU * k / 4.0 + rng.randf_range(-0.25, 0.25)
+					if rng.randf() < 0.85:
+						_put(ctx, "dining_chair", c + Vector2(cos(a), sin(a)) * 0.95, a + PI * 1.5 + rng.randf_range(-0.4, 0.4), 0.0, 0.0)
+	for k in rng.randi_range(2, 3):
+		_wall_slot(ctx, "dining_table", _pick(["back", "left"]))
+	_clutter(ctx, rng.randi_range(3, 6), ["box", "tote_box", "crate_plastic", "dining_chair", "drum_plastic2", "potted_plant"])
+	_floor_loot(ctx, "floor_weapon", 0.5, 2)
+
+
+func _concourse(ctx: Dictionary) -> void:
+	## (r11) A mall concourse: back-to-back benches and planters down the middle, a kiosk or two, signs, rubbish.
+	var n := int(ctx.w / 6.0)
+	for i in n:
+		var x = -ctx.w * 0.5 + 3.0 + i * 6.0
+		var z := rng.randf_range(-0.4, 0.4)
+		match i % 3:
+			0:
+				_put(ctx, "planter_box", Vector2(x, z), _pick([0.0, PI * 0.5]))
+			1:
+				_put(ctx, "street_bench", Vector2(x, z - 0.45), 0.0)
+				_put(ctx, "street_bench", Vector2(x, z + 0.45), PI)
+			2:
+				if _put(ctx, "store_display_case", Vector2(x, z), _pick([0.0, PI])):
+					mb.dyn.add_container(_world(ctx, Vector2(x, z), 0.6), "store_counter", int(ctx.bid), Vector3(0.6, 0.6, 0.6))
+	_clutter(ctx, rng.randi_range(2, 5), ["wet_floor_sign", "potted_plant", "box", "tote_box", "drum_plastic2"])
+	_floor_loot(ctx, "floor_weapon", 0.5, 2)
+	_floor_loot(ctx, "floor_household", 0.6, 2)
+
+
+func _boutique(ctx: Dictionary) -> void:
+	## (r11) A small mall shop: display shelving round the walls, a counter with the till by the storefront, a
+	## sofa or a rack in the middle.
+	if _put(ctx, "store_display_case", Vector2(ctx.w * 0.5 - 1.0, -ctx.d * 0.5 + 1.6), -PI * 0.5):
+		mb.dyn.add_container(_world(ctx, Vector2(ctx.w * 0.5 - 1.0, -ctx.d * 0.5 + 1.6), 0.6), "store_counter", int(ctx.bid), Vector3(0.6, 0.6, 0.6))
+	for wall in ["back", "left", "right"]:
+		for k in 2:
+			var s := _wall_slot(ctx, _pick(["display_shelves", "store_shelf_wall", "china_cabinet"]), wall)
+			if s.is_empty():
+				break
+			_container_on(ctx, s, "store_shelf", 0.8, Vector3(0.9, 1.2, 0.4))
+	_put(ctx, _pick(["sofa_leather", "armchair_modern", "metal_rack", "planter_box"]), Vector2(rng.randf_range(-0.5, 0.5), rng.randf_range(-0.3, 0.6)), _pick([0.0, PI * 0.5]))
+	_clutter(ctx, rng.randi_range(1, 3), ["box", "tote_box", "potted_plant2", "wet_floor_sign"])
+	_floor_loot(ctx, "floor_household", 0.6, 2)
 
 
 func _aisles(ctx: Dictionary) -> void:
@@ -502,8 +567,10 @@ func item_visual(id: String) -> Dictionary:
 			var ra: AABB = Transform3D(rot, Vector3.ZERO) * a
 			var c := ra.get_center()
 			res = {"mesh": md.mesh, "size": ra.size, "xf": Transform3D(rot, Vector3(-c.x, -ra.position.y, -c.z))}
-	# Downloaded models (items/) win over the code-built ones (loot/) where a gun has both.
-	for processed in ["res://assets/models/items/%s.glb" % id, "res://assets/models/loot/%s.glb" % id]:
+	# Downloaded models (items/) win over the code-built ones (loot/) where a gun has both. A gun may borrow another's
+	# model (weapons.json "model": the AWP uses the M24's).
+	var mid := str(Defs.weapon(id).get("model", id)) if Defs.is_weapon(id) else id
+	for processed in ["res://assets/models/items/%s.glb" % mid, "res://assets/models/loot/%s.glb" % mid]:
 		if not res.is_empty() or not ResourceLoader.exists(processed):
 			continue
 		var md2: Dictionary = mb.models._load_scene_mesh(processed)
@@ -541,8 +608,19 @@ func item_visual(id: String) -> Dictionary:
 		m.roughness = 0.7
 		bm.material = m
 		res = {"mesh": bm, "size": size, "xf": Transform3D(Basis(), Vector3(0, size.y * 0.5, 0)), "placeholder": true}
+	# r11: ammo lies on the ground as a pack about twice a single box's size (readable from a few metres, its
+	# calibre colour big enough to tell apart).
+	if str(Defs.item(id).get("kind", "")) == "ammo" and not res.has("placeholder"):
+		var sc := AMMO_GROUND_SCALE
+		var xf0: Transform3D = res.xf
+		res = res.duplicate()
+		res.xf = Transform3D(Basis().scaled(Vector3.ONE * sc) * xf0.basis, xf0.origin * sc)
+		res.size = (res.size as Vector3) * sc
 	_item_cache[id] = res
 	return res
+
+
+const AMMO_GROUND_SCALE := 1.9
 
 
 static func _muzzle_at_plus_x(mesh: Mesh, a: AABB) -> bool:

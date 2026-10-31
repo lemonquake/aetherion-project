@@ -1,0 +1,1117 @@
+{
+ "_doc": "r15 Malasugue Mall shop catalogue, written by tools/make_mall_assets.py (sign tile i is column i % 4, row i // 4 of assets/mall/signs.png, 4 x 32 tiles). floor: 0 = Level 1 .. 4 = Level 5, -1 = placed by name (anchors).",
+ "cols": 4,
+ "rows": 32,
+ "shops": [
+  {
+   "name": "Azrin & Azrael's",
+   "line": "Fashion House",
+   "kind": "fashion_lux",
+   "floor": 0,
+   "bg": "#0d0d0f",
+   "fg": "#e3c27a",
+   "tile": 0,
+   "style": "serif"
+  },
+  {
+   "name": "Toys by EZ-RR",
+   "line": "Toys \u00b7 Games \u00b7 Gifts",
+   "kind": "toys",
+   "floor": 3,
+   "bg": "#ffd23f",
+   "fg": "#d62246",
+   "tile": 1,
+   "style": "box"
+  },
+  {
+   "name": "Quake Team",
+   "line": "Esports Arena",
+   "kind": "esports",
+   "floor": -1,
+   "bg": "#08080c",
+   "fg": "#ff3b30",
+   "tile": 2,
+   "style": "neon"
+  },
+  {
+   "name": "TCD Vapes",
+   "line": "Vape Lounge",
+   "kind": "vape",
+   "floor": 2,
+   "bg": "#101820",
+   "fg": "#36f1cd",
+   "tile": 3,
+   "style": "neon"
+  },
+  {
+   "name": "OGA Whales",
+   "line": "Hobby & Collectibles",
+   "kind": "hobby",
+   "floor": 2,
+   "bg": "#0b3c5d",
+   "fg": "#f2f4f3",
+   "tile": 4,
+   "style": "plain"
+  },
+  {
+   "name": "Airah's Collections",
+   "line": "Bags \u00b7 Shoes \u00b7 Accessories",
+   "kind": "bags",
+   "floor": -1,
+   "bg": "#f6e1e1",
+   "fg": "#8c2f39",
+   "tile": 5,
+   "style": "script"
+  },
+  {
+   "name": "Alex Jackie",
+   "line": "Department Store",
+   "kind": "department",
+   "floor": -1,
+   "bg": "#15233f",
+   "fg": "#ffffff",
+   "tile": 6,
+   "style": "plain"
+  },
+  {
+   "name": "Buchokan",
+   "line": "Restaurant & Bar",
+   "kind": "restaurant",
+   "floor": -1,
+   "bg": "#2b1d14",
+   "fg": "#f3b562",
+   "tile": 7,
+   "style": "serif"
+  },
+  {
+   "name": "Malasugue Supermart",
+   "line": "Fresh \u00b7 Grocery \u00b7 Home",
+   "kind": "supermarket",
+   "floor": -1,
+   "bg": "#1f7a3a",
+   "fg": "#ffffff",
+   "tile": 8,
+   "style": "plain"
+  },
+  {
+   "name": "Malasugue Cineplex",
+   "line": "Now Showing",
+   "kind": "cinema",
+   "floor": -1,
+   "bg": "#140a1f",
+   "fg": "#ffcc33",
+   "tile": 9,
+   "style": "neon"
+  },
+  {
+   "name": "Kidz Kingdom",
+   "line": "Play Land",
+   "kind": "kids_play",
+   "floor": -1,
+   "bg": "#2ab7ca",
+   "fg": "#fff3b0",
+   "tile": 10,
+   "style": "box"
+  },
+  {
+   "name": "Bayanihan Books",
+   "line": "Books \u00b7 Stationery",
+   "kind": "books",
+   "floor": -1,
+   "bg": "#5c3d2e",
+   "fg": "#f5ead7",
+   "tile": 11,
+   "style": "serif"
+  },
+  {
+   "name": "Takbo Fitness",
+   "line": "Gym \u00b7 Open 24 Hours",
+   "kind": "gym",
+   "floor": -1,
+   "bg": "#111111",
+   "fg": "#c6ff00",
+   "tile": 12,
+   "style": "plain"
+  },
+  {
+   "name": "Lemon Threads",
+   "line": "Everyday Wear",
+   "kind": "fashion",
+   "floor": 0,
+   "bg": "#ffe45e",
+   "fg": "#1c1c1c",
+   "tile": 13,
+   "style": "plain"
+  },
+  {
+   "name": "Kapa Denim",
+   "line": "Jeans & Jackets",
+   "kind": "fashion",
+   "floor": 0,
+   "bg": "#1e3a5f",
+   "fg": "#e8eef5",
+   "tile": 14,
+   "style": "plain"
+  },
+  {
+   "name": "Habi Weaves",
+   "line": "Filipino Textiles",
+   "kind": "fashion",
+   "floor": 0,
+   "bg": "#7b2d26",
+   "fg": "#f2e3c6",
+   "tile": 15,
+   "style": "serif"
+  },
+  {
+   "name": "Barong & Co.",
+   "line": "Formalwear",
+   "kind": "fashion",
+   "floor": 0,
+   "bg": "#f4efe6",
+   "fg": "#3b2f2f",
+   "tile": 16,
+   "style": "serif"
+  },
+  {
+   "name": "Kuya's Kicks",
+   "line": "Sneakers",
+   "kind": "shoes",
+   "floor": 0,
+   "bg": "#ff6b35",
+   "fg": "#ffffff",
+   "tile": 17,
+   "style": "plain"
+  },
+  {
+   "name": "Sampaguita Scents",
+   "line": "Perfume & Beauty",
+   "kind": "beauty",
+   "floor": 0,
+   "bg": "#ffffff",
+   "fg": "#3d5a40",
+   "tile": 18,
+   "style": "script"
+  },
+  {
+   "name": "Ginto Jewels",
+   "line": "Gold & Diamonds",
+   "kind": "jewelry",
+   "floor": 0,
+   "bg": "#111111",
+   "fg": "#d4af37",
+   "tile": 19,
+   "style": "serif"
+  },
+  {
+   "name": "Kalinaw Coffee",
+   "line": "Roasters \u00b7 Since 2019",
+   "kind": "cafe",
+   "floor": 0,
+   "bg": "#3e2723",
+   "fg": "#f1e3d3",
+   "tile": 20,
+   "style": "script"
+  },
+  {
+   "name": "Botika Malasugue",
+   "line": "Pharmacy",
+   "kind": "pharmacy",
+   "floor": 0,
+   "bg": "#ffffff",
+   "fg": "#c62828",
+   "tile": 21,
+   "style": "plain"
+  },
+  {
+   "name": "Sari-Sari Mart",
+   "line": "Open 24/7",
+   "kind": "convenience",
+   "floor": 0,
+   "bg": "#d32f2f",
+   "fg": "#ffffff",
+   "tile": 22,
+   "style": "plain"
+  },
+  {
+   "name": "Isla Swim",
+   "line": "Swim & Surf",
+   "kind": "fashion",
+   "floor": 0,
+   "bg": "#00a6a6",
+   "fg": "#ffffff",
+   "tile": 23,
+   "style": "plain"
+  },
+  {
+   "name": "Remit Express",
+   "line": "Padala \u00b7 Bills",
+   "kind": "service",
+   "floor": 0,
+   "bg": "#ffb703",
+   "fg": "#023047",
+   "tile": 24,
+   "style": "plain"
+  },
+  {
+   "name": "Ukay Couture",
+   "line": "Pre-loved Fashion",
+   "kind": "fashion",
+   "floor": 0,
+   "bg": "#2d2a32",
+   "fg": "#ddd92a",
+   "tile": 25,
+   "style": "plain"
+  },
+  {
+   "name": "Ate Bebang Boutique",
+   "line": "Ladies Wear",
+   "kind": "fashion",
+   "floor": 1,
+   "bg": "#c08497",
+   "fg": "#ffffff",
+   "tile": 26,
+   "style": "serif"
+  },
+  {
+   "name": "Tita Baby Bridal",
+   "line": "Gowns & Barong",
+   "kind": "bridal",
+   "floor": 1,
+   "bg": "#fffaf0",
+   "fg": "#8a6d3b",
+   "tile": 27,
+   "style": "script"
+  },
+  {
+   "name": "Kids Kloset",
+   "line": "Kids Fashion",
+   "kind": "fashion_kids",
+   "floor": 1,
+   "bg": "#7bdff2",
+   "fg": "#ff477e",
+   "tile": 28,
+   "style": "box"
+  },
+  {
+   "name": "Sapatos Republic",
+   "line": "Shoes for Everyone",
+   "kind": "shoes",
+   "floor": 1,
+   "bg": "#2b2d42",
+   "fg": "#edf2f4",
+   "tile": 29,
+   "style": "plain"
+  },
+  {
+   "name": "Tsinelas Station",
+   "line": "Slippers & Sandals",
+   "kind": "shoes",
+   "floor": 1,
+   "bg": "#06d6a0",
+   "fg": "#073b4c",
+   "tile": 30,
+   "style": "box"
+  },
+  {
+   "name": "Relos Hub",
+   "line": "Watches",
+   "kind": "jewelry",
+   "floor": 1,
+   "bg": "#0f0f0f",
+   "fg": "#c0c0c0",
+   "tile": 31,
+   "style": "plain"
+  },
+  {
+   "name": "Ganda Beauty",
+   "line": "Cosmetics",
+   "kind": "beauty",
+   "floor": 1,
+   "bg": "#ffc8dd",
+   "fg": "#5a189a",
+   "tile": 32,
+   "style": "plain"
+  },
+  {
+   "name": "Kulot Salon",
+   "line": "Hair \u00b7 Nails \u00b7 Lashes",
+   "kind": "salon",
+   "floor": 1,
+   "bg": "#e0aaff",
+   "fg": "#240046",
+   "tile": 33,
+   "style": "script"
+  },
+  {
+   "name": "Gupit Kuya",
+   "line": "Barbershop",
+   "kind": "barber",
+   "floor": 1,
+   "bg": "#1b263b",
+   "fg": "#e0e1dd",
+   "tile": 34,
+   "style": "serif"
+  },
+  {
+   "name": "Halo-Halo Haven",
+   "line": "Desserts",
+   "kind": "cafe",
+   "floor": 1,
+   "bg": "#ff99c8",
+   "fg": "#5f0f40",
+   "tile": 35,
+   "style": "box"
+  },
+  {
+   "name": "Bubble Bay Tea",
+   "line": "Milk Tea",
+   "kind": "cafe",
+   "floor": 1,
+   "bg": "#bde0fe",
+   "fg": "#3a0ca3",
+   "tile": 36,
+   "style": "box"
+  },
+  {
+   "name": "Lolo Pepe Tailoring",
+   "line": "Made to Measure",
+   "kind": "tailor",
+   "floor": 1,
+   "bg": "#3d405b",
+   "fg": "#f2cc8f",
+   "tile": 37,
+   "style": "serif"
+  },
+  {
+   "name": "Bulsa Bags",
+   "line": "Bags & Luggage",
+   "kind": "bags",
+   "floor": 1,
+   "bg": "#e76f51",
+   "fg": "#ffffff",
+   "tile": 38,
+   "style": "plain"
+  },
+  {
+   "name": "Optika Linaw",
+   "line": "Eyewear",
+   "kind": "optical",
+   "floor": 1,
+   "bg": "#ffffff",
+   "fg": "#1d3557",
+   "tile": 39,
+   "style": "plain"
+  },
+  {
+   "name": "Lemon PC",
+   "line": "Computers & Parts",
+   "kind": "tech",
+   "floor": 2,
+   "bg": "#ffe600",
+   "fg": "#141414",
+   "tile": 40,
+   "style": "plain"
+  },
+  {
+   "name": "Mabuhay Mobile",
+   "line": "Phones \u00b7 Repairs",
+   "kind": "tech",
+   "floor": 2,
+   "bg": "#0077b6",
+   "fg": "#ffffff",
+   "tile": 41,
+   "style": "plain"
+  },
+  {
+   "name": "AzAz Games",
+   "line": "Console \u00b7 PC \u00b7 Mobile",
+   "kind": "games",
+   "floor": 2,
+   "bg": "#1a1a2e",
+   "fg": "#e94560",
+   "tile": 42,
+   "style": "neon"
+  },
+  {
+   "name": "Pixel Kodakan",
+   "line": "Cameras & Prints",
+   "kind": "tech",
+   "floor": 2,
+   "bg": "#222222",
+   "fg": "#ffbe0b",
+   "tile": 43,
+   "style": "plain"
+  },
+  {
+   "name": "Tunog Music",
+   "line": "Instruments",
+   "kind": "music",
+   "floor": 2,
+   "bg": "#3c1518",
+   "fg": "#f2f3ae",
+   "tile": 44,
+   "style": "plain"
+  },
+  {
+   "name": "Signal Gadgets",
+   "line": "Smart Home \u00b7 Audio",
+   "kind": "tech",
+   "floor": 2,
+   "bg": "#003049",
+   "fg": "#fcbf49",
+   "tile": 45,
+   "style": "plain"
+  },
+  {
+   "name": "Kable King",
+   "line": "Chargers & Cases",
+   "kind": "tech",
+   "floor": 2,
+   "bg": "#7209b7",
+   "fg": "#ffffff",
+   "tile": 46,
+   "style": "box"
+  },
+  {
+   "name": "Kuryente Appliances",
+   "line": "Home Appliances",
+   "kind": "appliances",
+   "floor": 2,
+   "bg": "#e63946",
+   "fg": "#ffffff",
+   "tile": 47,
+   "style": "plain"
+  },
+  {
+   "name": "Lakbay Travel",
+   "line": "Tours & Tickets",
+   "kind": "service",
+   "floor": 2,
+   "bg": "#2a9d8f",
+   "fg": "#ffffff",
+   "tile": 48,
+   "style": "plain"
+  },
+  {
+   "name": "Kape Ulap",
+   "line": "Coffee Bar",
+   "kind": "cafe",
+   "floor": 2,
+   "bg": "#283618",
+   "fg": "#fefae0",
+   "tile": 49,
+   "style": "script"
+  },
+  {
+   "name": "Banig Home",
+   "line": "Furniture & Decor",
+   "kind": "home",
+   "floor": 3,
+   "bg": "#e9c46a",
+   "fg": "#264653",
+   "tile": 50,
+   "style": "serif"
+  },
+  {
+   "name": "Kusina Living",
+   "line": "Kitchen & Dining",
+   "kind": "home",
+   "floor": 3,
+   "bg": "#f4a261",
+   "fg": "#ffffff",
+   "tile": 51,
+   "style": "plain"
+  },
+  {
+   "name": "Unan & Kama",
+   "line": "Bed & Bath",
+   "kind": "home",
+   "floor": 3,
+   "bg": "#cdb4db",
+   "fg": "#2b2d42",
+   "tile": 52,
+   "style": "script"
+  },
+  {
+   "name": "Hilot Spa",
+   "line": "Massage \u00b7 Wellness",
+   "kind": "spa",
+   "floor": 3,
+   "bg": "#606c38",
+   "fg": "#fefae0",
+   "tile": 53,
+   "style": "script"
+  },
+  {
+   "name": "Paw Palace",
+   "line": "Pets & Grooming",
+   "kind": "pets",
+   "floor": 3,
+   "bg": "#ffbe0b",
+   "fg": "#3a86ff",
+   "tile": 54,
+   "style": "box"
+  },
+  {
+   "name": "Bisikleta Bikes",
+   "line": "Bikes & Parts",
+   "kind": "sports",
+   "floor": 3,
+   "bg": "#0a9396",
+   "fg": "#ffffff",
+   "tile": 55,
+   "style": "plain"
+  },
+  {
+   "name": "Takbo Sports",
+   "line": "Sportswear",
+   "kind": "sports",
+   "floor": 3,
+   "bg": "#d00000",
+   "fg": "#ffffff",
+   "tile": 56,
+   "style": "plain"
+  },
+  {
+   "name": "Lola Basyang Books",
+   "line": "Storybooks",
+   "kind": "books",
+   "floor": 3,
+   "bg": "#386641",
+   "fg": "#f2e8cf",
+   "tile": 57,
+   "style": "serif"
+  },
+  {
+   "name": "Ngiti Dental",
+   "line": "Dental Clinic",
+   "kind": "clinic",
+   "floor": 3,
+   "bg": "#ffffff",
+   "fg": "#00b4d8",
+   "tile": 58,
+   "style": "plain"
+  },
+  {
+   "name": "Linis Laundry",
+   "line": "Wash \u00b7 Dry \u00b7 Fold",
+   "kind": "service",
+   "floor": 3,
+   "bg": "#90e0ef",
+   "fg": "#03045e",
+   "tile": 59,
+   "style": "box"
+  },
+  {
+   "name": "Pasalubong Center",
+   "line": "Gifts from Home",
+   "kind": "gifts",
+   "floor": 3,
+   "bg": "#bc6c25",
+   "fg": "#fefae0",
+   "tile": 60,
+   "style": "serif"
+  },
+  {
+   "name": "Tito Boy's Lechon",
+   "line": "Lechon \u00b7 Since 1985",
+   "kind": "food",
+   "floor": 4,
+   "bg": "#9d0208",
+   "fg": "#ffba08",
+   "tile": 61,
+   "style": "plain"
+  },
+  {
+   "name": "Sizzle Sisig",
+   "line": "Sizzling Plates",
+   "kind": "food",
+   "floor": 4,
+   "bg": "#ff5400",
+   "fg": "#ffffff",
+   "tile": 62,
+   "style": "plain"
+  },
+  {
+   "name": "Lugaw Lab",
+   "line": "Congee & Tokwa",
+   "kind": "food",
+   "floor": 4,
+   "bg": "#fefae0",
+   "fg": "#bc6c25",
+   "tile": 63,
+   "style": "box"
+  },
+  {
+   "name": "Mang Isko's Siomai",
+   "line": "Siomai \u00b7 Rice",
+   "kind": "food",
+   "floor": 4,
+   "bg": "#ffd60a",
+   "fg": "#003566",
+   "tile": 64,
+   "style": "box"
+  },
+  {
+   "name": "Pandesal Republic",
+   "line": "Bakery",
+   "kind": "bakery",
+   "floor": 4,
+   "bg": "#ddb892",
+   "fg": "#582f0e",
+   "tile": 65,
+   "style": "serif"
+  },
+  {
+   "name": "Kakanin Corner",
+   "line": "Rice Cakes",
+   "kind": "food",
+   "floor": 4,
+   "bg": "#80b918",
+   "fg": "#ffffff",
+   "tile": 66,
+   "style": "box"
+  },
+  {
+   "name": "Ihaw-Ihaw Grill",
+   "line": "Barbecue",
+   "kind": "food",
+   "floor": 4,
+   "bg": "#370617",
+   "fg": "#faa307",
+   "tile": 67,
+   "style": "plain"
+  },
+  {
+   "name": "Pancit Palace",
+   "line": "Noodles",
+   "kind": "food",
+   "floor": 4,
+   "bg": "#f77f00",
+   "fg": "#ffffff",
+   "tile": 68,
+   "style": "plain"
+  },
+  {
+   "name": "Inasal Nation",
+   "line": "Chicken Inasal",
+   "kind": "food",
+   "floor": 4,
+   "bg": "#ffb703",
+   "fg": "#7f0000",
+   "tile": 69,
+   "style": "plain"
+  },
+  {
+   "name": "Ramen Ramon",
+   "line": "Ramen Bar",
+   "kind": "food",
+   "floor": 4,
+   "bg": "#000000",
+   "fg": "#ffffff",
+   "tile": 70,
+   "style": "plain"
+  },
+  {
+   "name": "Burger Bayan",
+   "line": "Burgers",
+   "kind": "food",
+   "floor": 4,
+   "bg": "#ee6c4d",
+   "fg": "#ffffff",
+   "tile": 71,
+   "style": "box"
+  },
+  {
+   "name": "Taho Tambayan",
+   "line": "Taho \u00b7 Sago",
+   "kind": "food",
+   "floor": 4,
+   "bg": "#e9edc9",
+   "fg": "#6f4518",
+   "tile": 72,
+   "style": "box"
+  },
+  {
+   "name": "Ice Scramble Co.",
+   "line": "Frozen Treats",
+   "kind": "cafe",
+   "floor": 4,
+   "bg": "#ffafcc",
+   "fg": "#023e8a",
+   "tile": 73,
+   "style": "box"
+  },
+  {
+   "name": "Kare-Kare Kitchen",
+   "line": "Home Cooking",
+   "kind": "food",
+   "floor": 4,
+   "bg": "#606c38",
+   "fg": "#fefae0",
+   "tile": 74,
+   "style": "serif"
+  },
+  {
+   "name": "Sombrero Hats",
+   "line": "Caps & Hats",
+   "kind": "fashion",
+   "floor": 1,
+   "bg": "#4a4e69",
+   "fg": "#f2e9e4",
+   "tile": 75,
+   "style": "plain"
+  },
+  {
+   "name": "Tsokolate Haus",
+   "line": "Chocolates",
+   "kind": "cafe",
+   "floor": 2,
+   "bg": "#4a2c2a",
+   "fg": "#f5cb5c",
+   "tile": 76,
+   "style": "serif"
+  },
+  {
+   "name": "Laro Arcade",
+   "line": "Games & Prizes",
+   "kind": "arcade",
+   "floor": 3,
+   "bg": "#3a0ca3",
+   "fg": "#f72585",
+   "tile": 77,
+   "style": "neon"
+  },
+  {
+   "name": "Kodigo Prints",
+   "line": "Printing \u00b7 Photocopy",
+   "kind": "service",
+   "floor": 2,
+   "bg": "#ffffff",
+   "fg": "#000000",
+   "tile": 78,
+   "style": "plain"
+  },
+  {
+   "name": "Coming Soon",
+   "line": "Opening This Season",
+   "kind": "closed",
+   "floor": -1,
+   "bg": "#d9d9d9",
+   "fg": "#555555",
+   "tile": 79,
+   "style": "plain"
+  },
+  {
+   "name": "Lakad Sneaker Lab",
+   "line": "Run \u00b7 Court \u00b7 Street",
+   "kind": "shoes",
+   "floor": 0,
+   "bg": "#14213d",
+   "fg": "#fca311",
+   "tile": 80,
+   "style": "plain"
+  },
+  {
+   "name": "Mabango Body Shop",
+   "line": "Soaps & Lotions",
+   "kind": "beauty",
+   "floor": 0,
+   "bg": "#d8f3dc",
+   "fg": "#1b4332",
+   "tile": 81,
+   "style": "script"
+  },
+  {
+   "name": "Aling Nena's Tindahan",
+   "line": "Snacks \u00b7 Load \u00b7 Ice",
+   "kind": "convenience",
+   "floor": 0,
+   "bg": "#ffd166",
+   "fg": "#7a2e00",
+   "tile": 82,
+   "style": "box"
+  },
+  {
+   "name": "Sinag Sunglasses",
+   "line": "Shades",
+   "kind": "optical",
+   "floor": 0,
+   "bg": "#000000",
+   "fg": "#ffd60a",
+   "tile": 83,
+   "style": "plain"
+  },
+  {
+   "name": "Payong & Co.",
+   "line": "Umbrellas \u00b7 Raincoats",
+   "kind": "bags",
+   "floor": 0,
+   "bg": "#264653",
+   "fg": "#e9c46a",
+   "tile": 84,
+   "style": "serif"
+  },
+  {
+   "name": "Kape Barako Express",
+   "line": "Coffee to Go",
+   "kind": "cafe",
+   "floor": 0,
+   "bg": "#6f1d1b",
+   "fg": "#ffe6a7",
+   "tile": 85,
+   "style": "plain"
+  },
+  {
+   "name": "Bilis Phone Repair",
+   "line": "While You Wait",
+   "kind": "tech",
+   "floor": 0,
+   "bg": "#2b9348",
+   "fg": "#ffffff",
+   "tile": 86,
+   "style": "plain"
+  },
+  {
+   "name": "Moda Manila",
+   "line": "Womenswear",
+   "kind": "fashion",
+   "floor": 1,
+   "bg": "#212529",
+   "fg": "#f8f9fa",
+   "tile": 87,
+   "style": "serif"
+  },
+  {
+   "name": "Baro't Saya",
+   "line": "Heritage Fashion",
+   "kind": "fashion",
+   "floor": 1,
+   "bg": "#9e2a2b",
+   "fg": "#fff3b0",
+   "tile": 88,
+   "style": "serif"
+  },
+  {
+   "name": "Kuwintas",
+   "line": "Pearls & Silver",
+   "kind": "jewelry",
+   "floor": 1,
+   "bg": "#f1faee",
+   "fg": "#457b9d",
+   "tile": 89,
+   "style": "serif"
+  },
+  {
+   "name": "Pila Nail Bar",
+   "line": "Nails \u00b7 Spa",
+   "kind": "salon",
+   "floor": 1,
+   "bg": "#ffcad4",
+   "fg": "#9d4edd",
+   "tile": 90,
+   "style": "plain"
+  },
+  {
+   "name": "Sapin-Sapin Socks",
+   "line": "Socks & Basics",
+   "kind": "fashion",
+   "floor": 1,
+   "bg": "#7400b8",
+   "fg": "#ffd6ff",
+   "tile": 91,
+   "style": "box"
+  },
+  {
+   "name": "Bituin Comics",
+   "line": "Comics & Manga",
+   "kind": "hobby",
+   "floor": 2,
+   "bg": "#ef233c",
+   "fg": "#ffffff",
+   "tile": 92,
+   "style": "box"
+  },
+  {
+   "name": "Pindot Keyboards",
+   "line": "Mechanical Keyboards",
+   "kind": "tech",
+   "floor": 2,
+   "bg": "#111827",
+   "fg": "#22d3ee",
+   "tile": 93,
+   "style": "neon"
+  },
+  {
+   "name": "Retro Laro",
+   "line": "Classic Games",
+   "kind": "games",
+   "floor": 2,
+   "bg": "#3d348b",
+   "fg": "#f7b801",
+   "tile": 94,
+   "style": "plain"
+  },
+  {
+   "name": "Kwento Cards",
+   "line": "Trading Cards",
+   "kind": "hobby",
+   "floor": 2,
+   "bg": "#003566",
+   "fg": "#ffc300",
+   "tile": 95,
+   "style": "plain"
+  },
+  {
+   "name": "Sulat Stationery",
+   "line": "Pens & Paper",
+   "kind": "books",
+   "floor": 2,
+   "bg": "#fefae0",
+   "fg": "#283618",
+   "tile": 96,
+   "style": "serif"
+  },
+  {
+   "name": "Dagitab Lighting",
+   "line": "Lamps & Lights",
+   "kind": "home",
+   "floor": 2,
+   "bg": "#000000",
+   "fg": "#fff3b0",
+   "tile": 97,
+   "style": "neon"
+  },
+  {
+   "name": "Lakas Gym Gear",
+   "line": "Weights & Supplements",
+   "kind": "sports",
+   "floor": 2,
+   "bg": "#2b2d42",
+   "fg": "#ef233c",
+   "tile": 98,
+   "style": "plain"
+  },
+  {
+   "name": "Halaman Plant Shop",
+   "line": "Plants & Pots",
+   "kind": "plants",
+   "floor": 3,
+   "bg": "#2d6a4f",
+   "fg": "#d8f3dc",
+   "tile": 99,
+   "style": "script"
+  },
+  {
+   "name": "Lutong Bahay Cookware",
+   "line": "Pots & Pans",
+   "kind": "home",
+   "floor": 3,
+   "bg": "#e85d04",
+   "fg": "#ffffff",
+   "tile": 100,
+   "style": "plain"
+  },
+  {
+   "name": "Tulog Mattress",
+   "line": "Sleep Better",
+   "kind": "home",
+   "floor": 3,
+   "bg": "#023e8a",
+   "fg": "#caf0f8",
+   "tile": 101,
+   "style": "plain"
+  },
+  {
+   "name": "Bata Bata Kids",
+   "line": "Clothes for Kids",
+   "kind": "fashion_kids",
+   "floor": 3,
+   "bg": "#ffbe0b",
+   "fg": "#8338ec",
+   "tile": 102,
+   "style": "box"
+  },
+  {
+   "name": "Musika Music School",
+   "line": "Piano \u00b7 Guitar \u00b7 Voice",
+   "kind": "music",
+   "floor": 3,
+   "bg": "#3c096c",
+   "fg": "#ffd60a",
+   "tile": 103,
+   "style": "serif"
+  },
+  {
+   "name": "Sining Art Supplies",
+   "line": "Paint \u00b7 Canvas",
+   "kind": "books",
+   "floor": 3,
+   "bg": "#f8f9fa",
+   "fg": "#e63946",
+   "tile": 104,
+   "style": "box"
+  },
+  {
+   "name": "Sinigang Station",
+   "line": "Sour Soups",
+   "kind": "food",
+   "floor": 4,
+   "bg": "#99d98c",
+   "fg": "#1e6091",
+   "tile": 105,
+   "style": "box"
+  },
+  {
+   "name": "Lumpia Lane",
+   "line": "Fresh & Fried",
+   "kind": "food",
+   "floor": 4,
+   "bg": "#ffd166",
+   "fg": "#ef476f",
+   "tile": 106,
+   "style": "box"
+  },
+  {
+   "name": "Bibingka Bakery",
+   "line": "Rice Cakes \u00b7 Puto",
+   "kind": "bakery",
+   "floor": 4,
+   "bg": "#f4a261",
+   "fg": "#3d0c02",
+   "tile": 107,
+   "style": "serif"
+  },
+  {
+   "name": "Kwek-Kwek Corner",
+   "line": "Street Food",
+   "kind": "food",
+   "floor": 4,
+   "bg": "#ff7b00",
+   "fg": "#000000",
+   "tile": 108,
+   "style": "plain"
+  },
+  {
+   "name": "Brew Lab Coffee",
+   "line": "Specialty Coffee",
+   "kind": "cafe",
+   "floor": 4,
+   "bg": "#1b1b1e",
+   "fg": "#d8c99b",
+   "tile": 109,
+   "style": "plain"
+  },
+  {
+   "name": "Malasugue Mall",
+   "line": "Open Daily \u00b7 10 AM \u2013 10 PM",
+   "kind": "sign",
+   "floor": -2,
+   "bg": "#15233f",
+   "fg": "#ffffff",
+   "tile": 110,
+   "style": "plain"
+  }
+ ]
+}
