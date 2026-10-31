@@ -1,0 +1,799 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+[server] dedicated server listening on 27661
+[world] map built in 718 ms
+[map] 0 buildings, 0 doors, 0 containers, 0 props, #00000000 on PC
+[nav] levels: 34890 points, 3 links, 117 ms
+[nav] r21: 617 cells closed by the physics check, main walk 34227 of 34282 points (55 in pockets), 172 ms
+[botnav] freight_delight: walk check and 258 spots from res://data/botnav/freight_delight.json { "hide": 102, "snipe": 83, "cover": 45, "open": 28 }
+[bots] learned from 47 cells, 0 stuck spots, 0 spots learned from play, 11 spot records (user://bot_memory_freight_delight.json)
+[loadout] Ate Load Dito bolt_308 [scope_8x,suppressor_rifle,mag_ext_sniper,cheek_pad] mag 8/8 | pistol_deagle [sight_reddot,weapon_light] mag 7/7
+[loadout] Mang Jolo shotgun_pump [sight_holo,choke,bullet_loops,weapon_light] mag 6/6 | pistol_deagle [suppressor_light,mag_extquick_light,weapon_light] mag 10/10
+[loadout] Ate Siomai smg_ump45 [sight_holo,suppressor_light,grip_ergonomic,mag_extquick_light,weapon_light] mag 35/35 | revolver_357 [] mag 6/6
+[loadout] Kapitan Tikoy rifle_556 [scope_night,suppressor_rifle,grip_thumb,mag_extquick_rifle,weapon_light] mag 40/40 | pistol_deagle [sight_reflex,suppressor_light,mag_extquick_light,weapon_light] mag 10/10
+[loadout] Tita Baby smg_ump45 [scope_2x,suppressor_light,grip_vertical,weapon_light] mag 25/25 | revolver_357 [sight_reddot] mag 6/6
+[loadout] Aling Taho rifle_556 [scope_night,suppressor_rifle,grip_vertical,mag_extquick_rifle,weapon_light] mag 40/40 | pistol_9 [suppressor_light,mag_extquick_light,weapon_light] mag 21/21
+[loadout] Bossing Barbecue machine_pistol [sight_reddot,suppressor_light,laser_sight,stock_heavy] mag 32/32 | revolver_357 [sight_reddot] mag 6/6
+[loadout] Toto Pancit rifle_556 [scope_night,suppressor_rifle,grip_vertical,mag_extquick_rifle,weapon_light] mag 40/40 | pistol_9 [suppressor_light,mag_extquick_light] mag 21/21
+[loadout] Bossing Dodong smg_ump45 [sight_reddot,suppressor_light,grip_vertical,mag_extquick_light,weapon_light] mag 35/35 | pistol_9 [sight_reddot,suppressor_light,mag_extquick_light] mag 21/21
+[loadout] Aling Nena rifle_m762 [grip_light,mag_extquick_rifle] mag 40/40 | revolver_357 [sight_reddot] mag 6/6
+[loadout] Junjun Tisoy smg_ump45 [sight_reddot,suppressor_light] mag 25/25 | pistol_45 [sight_reddot,suppressor_light] mag 7/7
+[loadout] Pareng Jun shotgun_double [choke,bullet_loops] mag 2/2 | pistol_9 [sight_reddot,suppressor_light,mag_extquick_light,weapon_light] mag 21/21
+[match    0.0] deathmatch start on freight_delight: 12 players, 2 teams; spawns (-52.0, 0.0, 0.0), (50.0, 0.0, 0.0) (103/103 m apart, layout); day offset 0 s; zone centre (3.0, 0.0) r=93; win by wipe
+[match    0.0] status: { "ground": 12 }; armed 12; shots 0; zone -1 hold r=93; corpses 0; levels { "L1": 12 }
+[match    0.0] dm teams: West Team 6 at (-50.0, 1.0) spread 3 m; East Team 6 at (53.0, 0.0) spread 8 m; gap 102 m; zone centre (3.0, 0.0)
+[match    0.0] bots: { "roam": 12 }; containers searched by bots 0 (all players 0); plan steps done 0; guns carried 24
+[match    0.0] roles: { "stalker": { "roam": 2 }, "sniper": { "roam": 4 }, "rusher": { "roam": 4 }, "looter": { "roam": 2 } }; stuck now 0; waypoints 258; team { "lines": 0, "pings": 0, "laser_follow": 0, "learned_cells": 47, "blocked_cells": 0, "squads": 0, "following_humans": 0, &"learned_spots": 0 }
+[match    0.0] [lootstats] bots on the ground 12 (in water 0); armed 12; armed with ammo for a gun 12; long guns 12; attachments fitted 73; rounds of unusable ammo carried 0; items on the ground 0; bot pickups { "detours": 0, "detour_taken": 0, "fetches": 0, "fetch_done": 0, "items_taken": 0 }
+[match    9.2] Ate Load Dito (team 1) landed at (47.0, 0.0, -3.0), 2.5 m/s, health 100; teammates -
+[match   11.5] [hold] Mang Jolo overwatch spot 149 95s
+[match   13.9] [hold] Toto Pancit camp spot 23 36s
+[match   15.0] [botskill] normal shots 4 hits 1 reaction_avg 0.27 (n 3) dmg 15 bots 12
+[match   15.0] status: { "ground": 12 }; armed 12; shots 7; zone -1 hold r=93; corpses 0; levels { "L1": 11, "L2": 1 }; server tick avg 1.68 ms, p99 7.56 ms, max 46.84 ms over 900 ticks
+[match   15.0] dm teams: West Team 6 at (-27.0, 2.0) spread 18 m; East Team 6 at (11.0, 7.0) spread 9 m; gap 38 m; zone centre (3.0, 0.0)
+[match   15.0] bots: { "follow": 1, "investigate": 2, "fight": 5, "roam": 2, "hunt": 1, "camp": 1 }; containers searched by bots 0 (all players 0); plan steps done 0; guns carried 24
+[match   15.0] roles: { "stalker": { "follow": 1, "hunt": 1 }, "sniper": { "investigate": 2, "roam": 1, "fight": 1 }, "rusher": { "fight": 4 }, "looter": { "camp": 1, "roam": 1 } }; stuck now 0; waypoints 258; team { "lines": 5, "pings": 0, "laser_follow": 0, "learned_cells": 47, "blocked_cells": 0, "squads": 2, "following_humans": 0, &"learned_spots": 0 }
+[match   15.0] [lootstats] bots on the ground 12 (in water 0); armed 12; armed with ammo for a gun 12; long guns 12; attachments fitted 73; rounds of unusable ammo carried 0; items on the ground 0; bot pickups { "detours": 0, "detour_taken": 0, "fetches": 0, "fetch_done": 0, "items_taken": 0 }
+[match   15.2] Ate Siomai killed by Bossing Barbecue (gunshot); 2 teams left
+[match   15.2] alive: West Team 6, East Team 5; score { 0: 0, 1: 0 }
+[match   16.7] Aling Nena killed by Bossing Barbecue (gunshot); 2 teams left
+[match   16.7] alive: West Team 5, East Team 5; score { 0: 0, 1: 0 }
+[match   16.8] [hold] Junjun Tisoy camp spot 59 39s
+[match   16.9] Kapitan Tikoy (team 0) landed at (-29.0, 0.0, -23.0), 7.7 m/s, health 100; teammates -
+[match   19.5] Bossing Barbecue killed by Pareng Jun (gunshot); 2 teams left
+[match   19.5] alive: West Team 5, East Team 4; score { 0: 0, 1: 0 }
+[match   19.6] Junjun Tisoy (team 1) landed at (16.0, 0.0, -4.0), 2.3 m/s, health 100; teammates 13 m
+[match   21.1] [hold] Bossing Dodong overwatch spot 147 94s
+[match   24.0] Pareng Jun killed by Junjun Tisoy (gunshot); 2 teams left
+[match   24.0] alive: West Team 4, East Team 4; score { 0: 0, 1: 0 }
+[match   25.9] Aling Taho killed by Junjun Tisoy (gunshot); 2 teams left
+[match   25.9] alive: West Team 3, East Team 4; score { 0: 0, 1: 0 }
+[match   27.1] Ate Load Dito killed by Kapitan Tikoy (gunshot); 2 teams left
+[match   27.1] alive: West Team 3, East Team 3; score { 0: 0, 1: 0 }
+[match   29.6] Mang Jolo killed by Bossing Dodong (gunshot); 2 teams left
+[match   29.6] alive: West Team 2, East Team 3; score { 0: 0, 1: 0 }
+[match   29.7] [endgame] West Team mates 2 foes 3 nocontact 0s
+[match   30.0] [botskill] normal shots 143 hits 42 reaction_avg 0.40 (n 42) dmg 681 bots 5
+[match   30.0] status: { "ground": 5 }; armed 5; shots 144; zone -1 hold r=93; corpses 7; levels { "L1": 5 }; server tick avg 2.55 ms, p99 24.81 ms, max 37.94 ms over 900 ticks
+[match   30.0] dm teams: West Team 2 at (-11.0, 5.0) spread 6 m; East Team 3 at (3.0, 14.0) spread 20 m; gap 17 m; zone centre (3.0, 0.0)
+[match   30.0] bots: { "hunt": 3, "heal": 1, "roam": 1 }; containers searched by bots 0 (all players 0); plan steps done 0; guns carried 10
+[match   30.0] roles: { "sniper": { "hunt": 1, "heal": 1 }, "stalker": { "hunt": 1 }, "looter": { "hunt": 1, "roam": 1 } }; stuck now 0; waypoints 258; team { "lines": 30, "pings": 0, "laser_follow": 0, "learned_cells": 48, "blocked_cells": 0, "squads": 2, "following_humans": 0, &"learned_spots": 0 }
+[match   30.0] [lootstats] bots on the ground 5 (in water 0); armed 5; armed with ammo for a gun 5; long guns 5; attachments fitted 33; rounds of unusable ammo carried 0; items on the ground 0; bot pickups { "detours": 0, "detour_taken": 0, "fetches": 0, "fetch_done": 0, "items_taken": 0 }
+[match   30.1] [endgame] East Team mates 3 foes 2 nocontact 0s
+[match   33.4] Kapitan Tikoy killed by Junjun Tisoy (gunshot); 2 teams left
+[match   33.4] alive: West Team 1, East Team 3; score { 0: 0, 1: 0 }
+[match   33.5] Toto Pancit killed by Bossing Dodong (gunshot); 1 teams left
+[match   33.5] alive: West Team 0, East Team 3; score { 0: 0, 1: 0 }
+[match   33.5] round 1 over: winner 1, scores { 0: 0, 1: 1 }
+[loadout] Pareng Jun bolt_kar98 [suppressor_rifle,cheek_pad] mag 5/5 | pistol_deagle [sight_reddot,suppressor_light,mag_extquick_light,weapon_light] mag 10/10
+[match   37.5] Pareng Jun respawned at (-54.0, 0.0, 2.0) (nearest enemy 1000 m)
+[loadout] Junjun Tisoy rifle_556 [scope_3x,suppressor_rifle,grip_vertical,mag_extquick_rifle,weapon_light] mag 40/40 | pistol_45 [sight_reddot,mag_extquick_light,weapon_light] mag 12/12
+[match   37.5] Junjun Tisoy respawned at (53.0, 0.0, -8.0) (nearest enemy 107 m)
+[loadout] Aling Nena rifle_m762 [suppressor_rifle,grip_angled,mag_extquick_rifle,weapon_light] mag 40/40 | pistol_9 [sight_reddot,mag_extquick_light,weapon_light] mag 21/21
+[match   37.5] Aling Nena respawned at (-56.0, 0.0, 5.0) (nearest enemy 109 m)
+[loadout] Bossing Dodong shotgun_double [bullet_loops] mag 2/2 | pistol_9 [sight_reddot,mag_extquick_light,weapon_light] mag 21/21
+[match   37.5] Bossing Dodong respawned at (53.0, 0.0, 11.0) (nearest enemy 107 m)
+[loadout] Toto Pancit shotgun_double [bullet_loops] mag 2/2 | pistol_9 [sight_reflex,suppressor_light,mag_extquick_light,weapon_light] mag 21/21
+[match   37.5] Toto Pancit respawned at (-54.0, 0.0, -2.0) (nearest enemy 106 m)
+[loadout] Bossing Barbecue rifle_scar [suppressor_rifle,mag_extquick_rifle,weapon_light] mag 40/40 | revolver_357 [sight_reddot] mag 6/6
+[match   37.5] Bossing Barbecue respawned at (53.0, 0.0, -11.0) (nearest enemy 107 m)
+[loadout] Aling Taho smg_9 [sight_reflex,suppressor_light,grip_angled,weapon_light] mag 30/30 | pistol_deagle [sight_reddot,suppressor_light,weapon_light] mag 7/7
+[match   37.5] Aling Taho respawned at (-56.0, 0.0, -2.0) (nearest enemy 109 m)
+[loadout] Tita Baby lmg_m249 [sight_reddot,muzzle_brake,laser_sight,stock_heavy,weapon_light] mag 100/100 | pistol_deagle [sight_reddot,weapon_light] mag 7/7
+[match   37.5] Tita Baby respawned at (50.0, 0.0, 5.0) (nearest enemy 104 m)
+[loadout] Kapitan Tikoy bolt_awp [scope_6x,suppressor_rifle,mag_ext_sniper,cheek_pad] mag 8/8 | pistol_45 [sight_reddot,suppressor_light,mag_extquick_light] mag 12/12
+[match   37.5] Kapitan Tikoy respawned at (-56.0, 0.0, 2.0) (nearest enemy 106 m)
+[loadout] Ate Siomai bolt_awp [scope_8x,mag_ext_sniper] mag 8/8 | pistol_9 [suppressor_light,weapon_light] mag 15/15
+[match   37.5] Ate Siomai respawned at (50.0, 0.0, 11.0) (nearest enemy 104 m)
+[loadout] Mang Jolo bolt_kar98 [scope_8x,suppressor_rifle,cheek_pad] mag 5/5 | pistol_9 [sight_reddot,suppressor_light,mag_extquick_light,weapon_light] mag 21/21
+[match   37.5] Mang Jolo respawned at (-56.0, 0.0, -5.0) (nearest enemy 107 m)
+[loadout] Ate Load Dito dmr_mini14 [scope_6x,suppressor_rifle,mag_ext_sniper,cheek_pad] mag 30/30 | pistol_9 [sight_reddot,suppressor_light,weapon_light] mag 15/15
+[match   37.5] Ate Load Dito respawned at (53.0, 0.0, 5.0) (nearest enemy 106 m)
+[match   37.5] round 2 started; scores { 0: 0, 1: 1 }
+[match   45.0] status: { "ground": 12 }; armed 12; shots 215; zone -1 hold r=95; corpses 0; levels { "L1": 12 }; server tick avg 1.56 ms, p99 8.97 ms, max 26.54 ms over 660 ticks
+[match   45.0] dm teams: West Team 6 at (-49.0, -3.0) spread 9 m; East Team 6 at (43.0, 3.0) spread 5 m; gap 92 m; zone centre (3.0, 4.0)
+[match   45.0] bots: { "hunt": 6, "follow": 2, "roam": 4 }; containers searched by bots 0 (all players 0); plan steps done 0; guns carried 24
+[match   45.0] roles: { "rusher": { "hunt": 4, "follow": 1 }, "stalker": { "hunt": 2 }, "looter": { "roam": 2, "follow": 1 }, "sniper": { "roam": 2 } }; stuck now 0; waypoints 258; team { "lines": 35, "pings": 0, "laser_follow": 0, "learned_cells": 48, "blocked_cells": 0, "squads": 4, "following_humans": 0, &"learned_spots": 0 }
+[match   45.0] [lootstats] bots on the ground 12 (in water 0); armed 12; armed with ammo for a gun 12; long guns 12; attachments fitted 73; rounds of unusable ammo carried 0; items on the ground 0; bot pickups { "detours": 0, "detour_taken": 0, "fetches": 0, "fetch_done": 0, "items_taken": 0 }
+[match   47.1] [hold] Ate Siomai camp spot 104 52s
+[match   49.0] [botskill] normal shots 213 hits 52 reaction_avg 0.40 (n 46) dmg 784 bots 12
+[match   50.6] [hold] Kapitan Tikoy overwatch spot 149 66s
+[match   52.0] Junjun Tisoy killed by Pareng Jun (gunshot); 2 teams left
+[match   52.0] alive: West Team 6, East Team 5; score { 0: 0, 1: 1 }
+[match   54.9] Pareng Jun killed by Bossing Barbecue (gunshot); 2 teams left
+[match   54.9] alive: West Team 5, East Team 5; score { 0: 0, 1: 1 }
+[match   56.2] Bossing Barbecue killed by Aling Taho (gunshot); 2 teams left
+[match   56.2] alive: West Team 5, East Team 4; score { 0: 0, 1: 1 }
+[match   57.2] Toto Pancit killed by Aling Taho (gunshot); 2 teams left
+[match   57.2] alive: West Team 4, East Team 4; score { 0: 0, 1: 1 }
+[match   58.0] Ate Siomai (team 1) landed at (32.0, 0.0, 4.0), 4.9 m/s, health 100; teammates -
+[match   60.0] status: { "ground": 8 }; armed 8; shots 287; zone -1 hold r=95; corpses 4; levels { "L1": 8 }; server tick avg 2.57 ms, p99 12.08 ms, max 35.41 ms over 900 ticks
+[match   60.0] dm teams: West Team 4 at (-22.0, 7.0) spread 16 m; East Team 4 at (25.0, 3.0) spread 23 m; gap 47 m; zone centre (3.0, 4.0)
+[match   60.0] bots: { "hunt": 2, "fight": 3, "roam": 3 }; containers searched by bots 0 (all players 0); plan steps done 0; guns carried 16
+[match   60.0] roles: { "stalker": { "hunt": 2 }, "rusher": { "fight": 1 }, "looter": { "fight": 1, "roam": 2 }, "sniper": { "roam": 1, "fight": 1 } }; stuck now 0; waypoints 258; team { "lines": 51, "pings": 0, "laser_follow": 0, "learned_cells": 48, "blocked_cells": 0, "squads": 4, "following_humans": 0, &"learned_spots": 0 }
+[match   60.0] [lootstats] bots on the ground 8 (in water 0); armed 8; armed with ammo for a gun 8; long guns 8; attachments fitted 50; rounds of unusable ammo carried 0; items on the ground 0; bot pickups { "detours": 0, "detour_taken": 0, "fetches": 0, "fetch_done": 0, "items_taken": 0 }
+[match   62.7] Ate Load Dito (team 1) landed at (43.0, 0.0, -16.0), 4.4 m/s, health 100; teammates 4 m
+[match   63.1] [hold] Mang Jolo camp spot 33 66s
+[match   64.0] [botskill] normal shots 291 hits 69 reaction_avg 0.44 (n 70) dmg 1393 bots 8
+[match   66.7] Bossing Dodong (team 1) landed at (-8.0, 0.0, -9.0), 4.7 m/s, health 37; teammates 47 m, 50 m
+[match   68.8] Bossing Dodong killed by Aling Taho (gunshot); 2 teams left
+[match   68.8] alive: West Team 4, East Team 3; score { 0: 0, 1: 1 }
+[match   70.3] Kapitan Tikoy killed by Tita Baby (bleeding); 2 teams left
+[match   70.3] alive: West Team 3, East Team 3; score { 0: 0, 1: 1 }
+[match   73.9] Aling Taho killed by Ate Load Dito (gunshot); 2 teams left
+[match   73.9] alive: West Team 2, East Team 3; score { 0: 0, 1: 1 }
+[match   74.0] [endgame] East Team mates 3 foes 2 nocontact 0s
+[match   74.5] [endgame] West Team mates 2 foes 3 nocontact 0s
+[match   75.0] status: { "ground": 5 }; armed 5; shots 368; zone -1 hold r=95; corpses 7; levels { "L1": 4, "between": 1 }; server tick avg 2.41 ms, p99 10.39 ms, max 23.48 ms over 900 ticks
+[match   75.0] dm teams: West Team 2 at (-11.0, 21.0) spread 12 m; East Team 3 at (16.0, -12.0) spread 11 m; gap 43 m; zone centre (3.0, 4.0)
+[match   75.0] bots: { "hunt": 5 }; containers searched by bots 0 (all players 0); plan steps done 0; guns carried 10
+[match   75.0] roles: { "stalker": { "hunt": 2 }, "sniper": { "hunt": 1 }, "looter": { "hunt": 2 } }; stuck now 0; waypoints 258; team { "lines": 67, "pings": 0, "laser_follow": 0, "learned_cells": 49, "blocked_cells": 0, "squads": 4, "following_humans": 0, &"learned_spots": 0 }
+[match   75.0] [lootstats] bots on the ground 5 (in water 0); armed 5; armed with ammo for a gun 5; long guns 5; attachments fitted 32; rounds of unusable ammo carried 0; items on the ground 0; bot pickups { "detours": 0, "detour_taken": 0, "fetches": 0, "fetch_done": 0, "items_taken": 0 }
+[match   79.0] [botskill] normal shots 365 hits 78 reaction_avg 0.47 (n 79) dmg 1723 bots 5
+[match   79.9] Tita Baby killed by Mang Jolo (gunshot); 2 teams left
+[match   79.9] alive: West Team 2, East Team 2; score { 0: 0, 1: 1 }
+[match   90.0] status: { "ground": 4 }; armed 4; shots 370; zone -1 hold r=95; corpses 8; levels { "L1": 3, "between": 1 }; server tick avg 0.91 ms, p99 6.16 ms, max 19.72 ms over 900 ticks
+[match   90.0] dm teams: West Team 2 at (6.0, 34.0) spread 6 m; East Team 2 at (32.0, -9.0) spread 10 m; gap 51 m; zone centre (3.0, 4.0)
+[match   90.0] bots: { "hunt": 3, "order": 1 }; containers searched by bots 0 (all players 0); plan steps done 0; guns carried 8
+[match   90.0] roles: { "stalker": { "hunt": 1, "order": 1 }, "looter": { "hunt": 2 } }; stuck now 0; waypoints 258; team { "lines": 74, "pings": 0, "laser_follow": 0, "learned_cells": 49, "blocked_cells": 0, "squads": 4, "following_humans": 0, &"learned_spots": 0 }
+[match   90.0] [lootstats] bots on the ground 4 (in water 0); armed 4; armed with ammo for a gun 4; long guns 4; attachments fitted 25; rounds of unusable ammo carried 0; items on the ground 0; bot pickups { "detours": 0, "detour_taken": 0, "fetches": 0, "fetch_done": 0, "items_taken": 0 }
+[match   94.0] [botskill] normal shots 366 hits 79 reaction_avg 0.48 (n 80) dmg 1791 bots 4
+[match  105.0] status: { "ground": 4 }; armed 4; shots 401; zone -1 hold r=95; corpses 8; levels { "L1": 4 }; server tick avg 0.99 ms, p99 3.64 ms, max 19.67 ms over 900 ticks
+[match  105.0] dm teams: West Team 2 at (19.0, 24.0) spread 1 m; East Team 2 at (24.0, -14.0) spread 11 m; gap 39 m; zone centre (3.0, 4.0)
+[match  105.0] bots: { "fight": 4 }; containers searched by bots 0 (all players 0); plan steps done 0; guns carried 8
+[match  105.0] roles: { "stalker": { "fight": 2 }, "looter": { "fight": 2 } }; stuck now 0; waypoints 258; team { "lines": 79, "pings": 0, "laser_follow": 0, "learned_cells": 49, "blocked_cells": 0, "squads": 4, "following_humans": 0, &"learned_spots": 0 }
+[match  105.0] [lootstats] bots on the ground 4 (in water 0); armed 4; armed with ammo for a gun 4; long guns 4; attachments fitted 25; rounds of unusable ammo carried 0; items on the ground 0; bot pickups { "detours": 0, "detour_taken": 0, "fetches": 0, "fetch_done": 0, "items_taken": 0 }
+[match  109.0] [botskill] normal shots 425 hits 80 reaction_avg 0.48 (n 88) dmg 1799 bots 4
+[match  111.2] Ate Load Dito killed by Mang Jolo (gunshot); 2 teams left
+[match  111.2] alive: West Team 2, East Team 1; score { 0: 0, 1: 1 }
+[match  115.1] Aling Nena killed by Ate Siomai (gunshot); 2 teams left
+[match  115.1] alive: West Team 1, East Team 1; score { 0: 0, 1: 1 }
+[match  120.0] status: { "ground": 2 }; armed 2; shots 464; zone -1 hold r=95; corpses 10; levels { "L1": 2 }; server tick avg 1.45 ms, p99 3.81 ms, max 9.38 ms over 900 ticks
+[match  120.0] dm teams: West Team 1 at (20.0, 23.0) spread 0 m; East Team 1 at (23.0, -7.0) spread 0 m; gap 29 m; zone centre (3.0, 4.0)
+[match  120.0] bots: { "fight": 2 }; containers searched by bots 0 (all players 0); plan steps done 0; guns carried 4
+[match  120.0] roles: { "looter": { "fight": 2 } }; stuck now 0; waypoints 258; team { "lines": 89, "pings": 0, "laser_follow": 0, "learned_cells": 49, "blocked_cells": 0, "squads": 4, "following_humans": 0, &"learned_spots": 0 }
+[match  120.0] [lootstats] bots on the ground 2 (in water 0); armed 2; armed with ammo for a gun 2; long guns 2; attachments fitted 11; rounds of unusable ammo carried 0; items on the ground 0; bot pickups { "detours": 0, "detour_taken": 0, "fetches": 0, "fetch_done": 0, "items_taken": 0 }
+[match  124.0] [botskill] normal shots 464 hits 83 reaction_avg 0.51 (n 93) dmg 2017 bots 2
+[match  126.5] Ate Siomai killed by Mang Jolo (gunshot); 1 teams left
+[match  126.5] alive: West Team 1, East Team 0; score { 0: 0, 1: 1 }
+[match  126.5] round 2 over: winner 0, scores { 0: 1, 1: 1 }
+[loadout] Pareng Jun rifle_556 [scope_3x,mag_extquick_rifle,weapon_light] mag 40/40 | pistol_45 [sight_reflex,suppressor_light,mag_extquick_light,weapon_light] mag 12/12
+[match  130.5] Pareng Jun respawned at (-51.0, 0.0, 2.0) (nearest enemy 1000 m)
+[loadout] Junjun Tisoy rifle_m762 [scope_3x,suppressor_rifle] mag 30/30 | pistol_deagle [sight_reddot,suppressor_light,mag_extquick_light] mag 10/10
+[match  130.5] Junjun Tisoy respawned at (53.0, 0.0, -8.0) (nearest enemy 104 m)
+[loadout] Aling Nena shotgun_double [] mag 2/2 | pistol_9 [sight_reddot,suppressor_light,mag_extquick_light,weapon_light] mag 21/21
+[match  130.5] Aling Nena respawned at (-56.0, 0.0, 5.0) (nearest enemy 109 m)
+[loadout] Bossing Dodong lmg_m249 [sight_reddot,laser_sight,stock_heavy,weapon_light] mag 100/100 | pistol_9 [suppressor_light,mag_extquick_light,weapon_light] mag 21/21
+[match  130.5] Bossing Dodong respawned at (53.0, 0.0, -11.0) (nearest enemy 105 m)
+[loadout] Toto Pancit bolt_kar98 [scope_8x] mag 5/5 | revolver_357 [sight_reddot] mag 6/6
+[match  130.5] Toto Pancit respawned at (-56.0, 0.0, 2.0) (nearest enemy 109 m)
+[loadout] Bossing Barbecue bolt_awp [scope_6x,suppressor_rifle,mag_ext_sniper,cheek_pad] mag 8/8 | pistol_9 [sight_reddot,suppressor_light,mag_extquick_light,weapon_light] mag 21/21
+[match  130.5] Bossing Barbecue respawned at (53.0, 0.0, -5.0) (nearest enemy 104 m)
+[loadout] Aling Taho shotgun_pump [choke,weapon_light] mag 6/6 | pistol_deagle [sight_reddot,mag_extquick_light] mag 10/10
+[match  130.5] Aling Taho respawned at (-56.0, 0.0, -5.0) (nearest enemy 109 m)
+[loadout] Tita Baby rifle_scar [scope_night,suppressor_rifle,grip_half,mag_extquick_rifle,weapon_light] mag 40/40 | pistol_45 [sight_reflex,suppressor_light,weapon_light] mag 7/7
+[match  130.5] Tita Baby respawned at (53.0, 0.0, 8.0) (nearest enemy 104 m)
+[loadout] Kapitan Tikoy smg_tommy [grip_thumb] mag 30/30 | revolver_357 [sight_reddot] mag 6/6
+[match  130.5] Kapitan Tikoy respawned at (-54.0, 0.0, 2.0) (nearest enemy 106 m)
+[loadout] Ate Siomai bolt_308 [scope_6x,suppressor_rifle,cheek_pad] mag 5/5 | pistol_deagle [sight_reflex,suppressor_light,mag_extquick_light,weapon_light] mag 10/10
+[match  130.5] Ate Siomai respawned at (53.0, 0.0, 11.0) (nearest enemy 104 m)
+[loadout] Mang Jolo lmg_m249 [sight_reflex,muzzle_brake,laser_sight,stock_heavy,weapon_light] mag 100/100 | pistol_deagle [sight_reflex,suppressor_light,mag_extquick_light,weapon_light] mag 10/10
+[match  130.5] Mang Jolo respawned at (-51.0, 0.0, -2.0) (nearest enemy 104 m)
+[loadout] Ate Load Dito machine_pistol [suppressor_light,laser_sight,mag_extquick_light,stock_heavy,weapon_light] mag 45/45 | revolver_357 [] mag 6/6
+[match  130.5] Ate Load Dito respawned at (53.0, 0.0, 5.0) (nearest enemy 104 m)
+[match  130.5] round 3 started; scores { 0: 1, 1: 1 }
+[match  135.0] status: { "ground": 12 }; armed 12; shots 476; zone -1 hold r=92; corpses 0; levels { "L1": 12 }; server tick avg 1.04 ms, p99 1.59 ms, max 5.90 ms over 660 ticks
+[match  135.0] dm teams: West Team 6 at (-54.0, 1.0) spread 3 m; East Team 6 at (53.0, 0.0) spread 8 m; gap 107 m; zone centre (1.0, 2.0)
+[match  135.0] bots: { "roam": 12 }; containers searched by bots 0 (all players 0); plan steps done 0; guns carried 24
+[match  135.0] roles: { "sniper": { "roam": 4 }, "stalker": { "roam": 4 }, "looter": { "roam": 3 }, "rusher": { "roam": 1 } }; stuck now 0; waypoints 258; team { "lines": 89, "pings": 0, "laser_follow": 0, "learned_cells": 50, "blocked_cells": 0, "squads": 4, "following_humans": 0, &"learned_spots": 0 }
+[match  135.0] [lootstats] bots on the ground 12 (in water 0); armed 12; armed with ammo for a gun 12; long guns 12; attachments fitted 68; rounds of unusable ammo carried 0; items on the ground 0; bot pickups { "detours": 0, "detour_taken": 0, "fetches": 0, "fetch_done": 0, "items_taken": 0 }
+[match  143.0] [botskill] normal shots 471 hits 83 reaction_avg 0.51 (n 93) dmg 2017 bots 12
+[match  143.6] [hold] Aling Taho overwatch spot 149 98s
+[match  143.9] [hold] Ate Load Dito overwatch spot 157 79s
+[match  145.9] Bossing Barbecue (team 1) landed at (25.0, 0.0, 19.0), 3.2 m/s, health 100; teammates -
+[match  146.8] [hold] Junjun Tisoy overwatch spot 147 57s
+[match  150.0] status: { "ground": 12 }; armed 12; shots 492; zone -1 hold r=92; corpses 0; levels { "L1": 11, "L2": 1 }; server tick avg 1.65 ms, p99 8.11 ms, max 29.22 ms over 900 ticks
+[match  150.0] dm teams: West Team 6 at (-18.0, 13.0) spread 22 m; East Team 6 at (23.0, 5.0) spread 17 m; gap 42 m; zone centre (1.0, 2.0)
+[match  150.0] bots: { "follow": 2, "overwatch": 2, "hunt": 5, "fight": 3 }; containers searched by bots 0 (all players 0); plan steps done 0; guns carried 24
+[match  150.0] roles: { "sniper": { "follow": 1, "overwatch": 2, "fight": 1 }, "stalker": { "hunt": 4 }, "looter": { "follow": 1, "fight": 2 }, "rusher": { "hunt": 1 } }; stuck now 0; waypoints 258; team { "lines": 95, "pings": 0, "laser_follow": 0, "learned_cells": 50, "blocked_cells": 0, "squads": 6, "following_humans": 0, &"learned_spots": 0 }
+[match  150.0] [lootstats] bots on the ground 12 (in water 0); armed 12; armed with ammo for a gun 12; long guns 12; attachments fitted 68; rounds of unusable ammo carried 0; items on the ground 0; bot pickups { "detours": 0, "detour_taken": 0, "fetches": 0, "fetch_done": 0, "items_taken": 0 }
+[match  152.3] Kapitan Tikoy killed by Bossing Barbecue (gunshot); 2 teams left
+[match  152.3] alive: West Team 5, East Team 6; score { 0: 1, 1: 1 }
+[match  155.1] Toto Pancit (team 0) landed at (-24.0, 0.0, 31.0), 3.2 m/s, health 100; teammates -
+[match  157.5] Ate Load Dito (team 1) landed at (12.0, 0.0, 1.0), 4.7 m/s, health 79; teammates 5 m
+[match  158.0] [botskill] normal shots 579 hits 93 reaction_avg 0.49 (n 109) dmg 2228 bots 11
+[match  159.7] Mang Jolo killed by Bossing Barbecue (gunshot); 2 teams left
+[match  159.7] alive: West Team 4, East Team 6; score { 0: 1, 1: 1 }
+[match  165.0] status: { "ground": 10 }; armed 10; shots 628; zone -1 hold r=92; corpses 2; levels { "L1": 10 }; server tick avg 3.13 ms, p99 12.19 ms, max 53.08 ms over 900 ticks
+[match  165.0] dm teams: West Team 4 at (-14.0, 25.0) spread 18 m; East Team 6 at (26.0, 6.0) spread 16 m; gap 44 m; zone centre (1.0, 2.0)
+[match  165.0] bots: { "follow": 2, "roam": 3, "hunt": 4, "fight": 1 }; containers searched by bots 0 (all players 0); plan steps done 0; guns carried 20
+[match  165.0] roles: { "sniper": { "follow": 1, "roam": 2, "fight": 1 }, "stalker": { "hunt": 3 }, "looter": { "follow": 1, "roam": 1 }, "rusher": { "hunt": 1 } }; stuck now 0; waypoints 258; team { "lines": 113, "pings": 0, "laser_follow": 0, "learned_cells": 51, "blocked_cells": 0, "squads": 6, "following_humans": 0, &"learned_spots": 0 }
+[match  165.0] [lootstats] bots on the ground 10 (in water 0); armed 10; armed with ammo for a gun 10; long guns 10; attachments fitted 57; rounds of unusable ammo carried 0; items on the ground 0; bot pickups { "detours": 0, "detour_taken": 0, "fetches": 0, "fetch_done": 0, "items_taken": 0 }
+[match  165.7] [hold] Ate Siomai camp spot 61 53s
+[match  168.4] [hold] Junjun Tisoy overwatch spot 157 72s
+[match  169.8] Aling Taho killed by Ate Siomai (gunshot); 2 teams left
+[match  169.8] alive: West Team 3, East Team 6; score { 0: 1, 1: 1 }
+[match  173.0] [botskill] normal shots 655 hits 106 reaction_avg 0.49 (n 112) dmg 2540 bots 9
+[match  179.9] Ate Load Dito killed by Aling Nena (gunshot); 2 teams left
+[match  179.9] alive: West Team 3, East Team 5; score { 0: 1, 1: 1 }
+[match  180.0] status: { "ground": 8 }; armed 8; shots 692; zone -1 hold r=92; corpses 4; levels { "L1": 8 }; server tick avg 2.08 ms, p99 10.51 ms, max 84.77 ms over 900 ticks
+[match  180.0] dm teams: West Team 3 at (-7.0, 32.0) spread 4 m; East Team 5 at (19.0, 8.0) spread 20 m; gap 36 m; zone centre (1.0, 2.0)
+[match  180.0] bots: { "follow": 2, "overwatch": 1, "fight": 1, "hunt": 2, "order": 2 }; containers searched by bots 0 (all players 0); plan steps done 0; guns carried 16
+[match  180.0] roles: { "sniper": { "follow": 1, "overwatch": 1 }, "stalker": { "fight": 1, "hunt": 1, "order": 1 }, "looter": { "follow": 1, "order": 1 }, "rusher": { "hunt": 1 } }; stuck now 0; waypoints 258; team { "lines": 130, "pings": 0, "laser_follow": 0, "learned_cells": 53, "blocked_cells": 0, "squads": 6, "following_humans": 0, &"learned_spots": 0 }
+[match  180.0] [lootstats] bots on the ground 8 (in water 0); armed 8; armed with ammo for a gun 8; long guns 8; attachments fitted 48; rounds of unusable ammo carried 0; items on the ground 0; bot pickups { "detours": 0, "detour_taken": 0, "fetches": 0, "fetch_done": 0, "items_taken": 0 }
+[match  180.8] Aling Nena (team 0) landed at (-1.0, 0.0, 28.0), 3.2 m/s, health 52; teammates 8 m
+[match  182.4] Tita Baby killed by Pareng Jun (gunshot); 2 teams left
+[match  182.4] alive: West Team 3, East Team 4; score { 0: 1, 1: 1 }
+[match  184.9] Aling Nena killed by Ate Siomai (gunshot); 2 teams left
+[match  184.9] alive: West Team 2, East Team 4; score { 0: 1, 1: 1 }
+[match  184.9] [endgame] East Team mates 4 foes 2 nocontact 0s
+[match  185.4] [endgame] West Team mates 2 foes 4 nocontact 0s
+[match  186.4] [sweep] Ate Siomai -> cell (0, 1, 1) spot 107 stale 86s 7 m
+[match  188.0] [botskill] normal shots 699 hits 121 reaction_avg 0.49 (n 121) dmg 3034 bots 6
+[match  192.4] Toto Pancit killed by Bossing Dodong (bleeding); 2 teams left
+[match  192.4] alive: West Team 1, East Team 4; score { 0: 1, 1: 1 }
+[match  195.0] status: { "ground": 5 }; armed 5; shots 719; zone -1 hold r=92; corpses 7; levels { "L1": 5 }; server tick avg 1.40 ms, p99 6.68 ms, max 14.90 ms over 900 ticks
+[match  195.0] dm teams: West Team 1 at (-15.0, 28.0) spread 0 m; East Team 4 at (1.0, 24.0) spread 14 m; gap 16 m; zone centre (1.0, 2.0)
+[match  195.0] bots: { "heal": 1, "hunt": 2, "order": 1, "investigate": 1 }; containers searched by bots 0 (all players 0); plan steps done 0; guns carried 10
+[match  195.0] roles: { "sniper": { "heal": 1, "hunt": 1 }, "looter": { "order": 1, "investigate": 1 }, "rusher": { "hunt": 1 } }; stuck now 0; waypoints 258; team { "lines": 146, "pings": 0, "laser_follow": 0, "learned_cells": 54, "blocked_cells": 0, "squads": 6, "following_humans": 0, &"learned_spots": 0 }
+[match  195.0] [lootstats] bots on the ground 5 (in water 0); armed 5; armed with ammo for a gun 5; long guns 5; attachments fitted 34; rounds of unusable ammo carried 0; items on the ground 0; bot pickups { "detours": 0, "detour_taken": 0, "fetches": 0, "fetch_done": 0, "items_taken": 0 }
+[match  196.5] Pareng Jun killed by Bossing Dodong (gunshot); 1 teams left
+[match  196.5] alive: West Team 0, East Team 4; score { 0: 1, 1: 1 }
+[match  196.5] round 3 over: winner 1, scores { 0: 1, 1: 2 }
+[loadout] Pareng Jun rifle_m416 [scope_night,suppressor_rifle,grip_thumb,mag_extquick_rifle] mag 40/40 | pistol_deagle [sight_reddot,suppressor_light,weapon_light] mag 7/7
+[match  200.5] Pareng Jun respawned at (-51.0, 0.0, -2.0) (nearest enemy 1000 m)
+[loadout] Junjun Tisoy rifle_m416 [scope_3x,grip_thumb,mag_extquick_rifle,stock_heavy,weapon_light] mag 40/40 | pistol_deagle [sight_reddot,suppressor_light,weapon_light] mag 7/7
+[match  200.5] Junjun Tisoy respawned at (53.0, 0.0, 8.0) (nearest enemy 104 m)
+[loadout] Aling Nena rifle_762 [scope_3x,suppressor_rifle,mag_extquick_rifle] mag 40/40 | pistol_deagle [mag_extquick_light,weapon_light] mag 10/10
+[match  200.5] Aling Nena respawned at (-56.0, 0.0, -5.0) (nearest enemy 109 m)
+[loadout] Bossing Dodong lmg_m249 [sight_reddot,muzzle_brake,laser_sight,stock_heavy] mag 100/100 | pistol_45 [sight_reflex,suppressor_light,mag_extquick_light] mag 12/12
+[match  200.5] Bossing Dodong respawned at (53.0, 0.0, -5.0) (nearest enemy 104 m)
+[loadout] Toto Pancit lmg_m249 [sight_reddot,muzzle_brake,laser_sight,stock_heavy] mag 100/100 | pistol_9 [sight_reddot,suppressor_light,mag_extquick_light,weapon_light] mag 21/21
+[match  200.5] Toto Pancit respawned at (-56.0, 0.0, 2.0) (nearest enemy 109 m)
+[loadout] Bossing Barbecue smg_vector [sight_holo,grip_angled,mag_extquick_light,weapon_light] mag 33/33 | pistol_45 [mag_extquick_light,weapon_light] mag 12/12
+[match  200.5] Bossing Barbecue respawned at (53.0, 0.0, -11.0) (nearest enemy 104 m)
+[loadout] Aling Taho dmr_sks [suppressor_rifle,mag_ext_sniper,cheek_pad] mag 20/20 | revolver_357 [sight_reddot] mag 6/6
+[match  200.5] Aling Taho respawned at (-54.0, 0.0, 5.0) (nearest enemy 106 m)
+[loadout] Tita Baby lmg_m249 [sight_reddot,muzzle_brake,stock_heavy,weapon_light] mag 100/100 | pistol_deagle [sight_reflex,suppressor_light,mag_extquick_light,weapon_light] mag 10/10
+[match  200.5] Tita Baby respawned at (50.0, 0.0, 11.0) (nearest enemy 102 m)
+[loadout] Kapitan Tikoy machine_pistol [sight_reddot,suppressor_light,laser_sight,mag_extquick_light,stock_heavy,weapon_light] mag 45/45 | pistol_deagle [sight_reddot,suppressor_light,mag_extquick_light,weapon_light] mag 10/10
+[match  200.5] Kapitan Tikoy respawned at (-56.0, 0.0, -2.0) (nearest enemy 107 m)
+[loadout] Ate Siomai dmr_sks [scope_thermal,suppressor_rifle] mag 10/10 | pistol_9 [sight_reddot,suppressor_light,mag_extquick_light,weapon_light] mag 21/21
+[match  200.5] Ate Siomai respawned at (53.0, 0.0, 11.0) (nearest enemy 105 m)
+[loadout] Mang Jolo smg_vector [sight_holo,suppressor_light,grip_thumb,stock_tactical,weapon_light] mag 19/19 | pistol_45 [sight_reflex,mag_extquick_light] mag 12/12
+[match  200.5] Mang Jolo respawned at (-56.0, 0.0, 5.0) (nearest enemy 106 m)
+[loadout] Ate Load Dito rifle_762 [scope_3x,laser_sight,mag_extquick_rifle] mag 40/40 | pistol_45 [mag_extquick_light] mag 12/12
+[match  200.5] Ate Load Dito respawned at (53.0, 0.0, -8.0) (nearest enemy 104 m)
+[match  200.5] round 4 started; scores { 0: 1, 1: 2 }
+[match  207.0] [botskill] normal shots 717 hits 125 reaction_avg 0.48 (n 126) dmg 3238 bots 12
+[match  208.8] Junjun Tisoy (team 1) landed at (47.0, 0.0, 3.0), 2.5 m/s, health 100; teammates -
+[match  210.0] status: { "ground": 12 }; armed 12; shots 722; zone -1 hold r=91; corpses 0; levels { "L1": 12 }; server tick avg 1.72 ms, p99 10.48 ms, max 16.54 ms over 660 ticks
+[match  210.0] dm teams: West Team 6 at (-42.0, 3.0) spread 12 m; East Team 6 at (39.0, 2.0) spread 5 m; gap 81 m; zone centre (-1.0, -1.0)
+[match  210.0] bots: { "hunt": 6, "roam": 4, "follow": 2 }; containers searched by bots 0 (all players 0); plan steps done 0; guns carried 24
+[match  210.0] roles: { "rusher": { "hunt": 3 }, "sniper": { "roam": 2 }, "stalker": { "hunt": 3, "follow": 2 }, "looter": { "roam": 2 } }; stuck now 0; waypoints 258; team { "lines": 148, "pings": 0, "laser_follow": 0, "learned_cells": 55, "blocked_cells": 0, "squads": 8, "following_humans": 0, &"learned_spots": 0 }
+[match  210.0] [lootstats] bots on the ground 12 (in water 0); armed 12; armed with ammo for a gun 12; long guns 12; attachments fitted 80; rounds of unusable ammo carried 0; items on the ground 0; bot pickups { "detours": 0, "detour_taken": 0, "fetches": 0, "fetch_done": 0, "items_taken": 0 }
+[match  211.5] [hold] Junjun Tisoy overwatch spot 109 91s
+[match  213.3] [hold] Aling Taho overwatch spot 149 93s
+[match  217.3] Kapitan Tikoy killed by Tita Baby (gunshot); 2 teams left
+[match  217.3] alive: West Team 5, East Team 6; score { 0: 1, 1: 2 }
+[match  218.2] Ate Load Dito killed by Pareng Jun (gunshot); 2 teams left
+[match  218.2] alive: West Team 5, East Team 5; score { 0: 1, 1: 2 }
+[match  219.3] Tita Baby killed by Aling Taho (gunshot); 2 teams left
+[match  219.3] alive: West Team 5, East Team 4; score { 0: 1, 1: 2 }
+[match  222.0] [botskill] normal shots 818 hits 146 reaction_avg 0.47 (n 142) dmg 3616 bots 9
+[match  222.1] Pareng Jun killed by Bossing Dodong (gunshot); 2 teams left
+[match  222.1] alive: West Team 4, East Team 4; score { 0: 1, 1: 2 }
+[match  225.0] status: { "ground": 8 }; armed 8; shots 840; zone -1 hold r=91; corpses 4; levels { "L1": 8 }; server tick avg 2.81 ms, p99 10.60 ms, max 19.84 ms over 900 ticks
+[match  225.0] dm teams: West Team 4 at (-16.0, 13.0) spread 12 m; East Team 4 at (9.0, 17.0) spread 15 m; gap 25 m; zone centre (-1.0, -1.0)
+[match  225.0] bots: { "fight": 4, "hunt": 3, "order": 1 }; containers searched by bots 0 (all players 0); plan steps done 0; guns carried 16
+[match  225.0] roles: { "sniper": { "fight": 2 }, "stalker": { "hunt": 3, "fight": 1, "order": 1 }, "rusher": { "fight": 1 } }; stuck now 0; waypoints 258; team { "lines": 168, "pings": 0, "laser_follow": 0, "learned_cells": 55, "blocked_cells": 0, "squads": 8, "following_humans": 0, &"learned_spots": 0 }
+[match  225.0] [lootstats] bots on the ground 8 (in water 0); armed 8; armed with ammo for a gun 8; long guns 8; attachments fitted 51; rounds of unusable ammo carried 0; items on the ground 0; bot pickups { "detours": 0, "detour_taken": 0, "fetches": 0, "fetch_done": 0, "items_taken": 0 }
+[match  225.5] Bossing Dodong killed by Aling Taho (gunshot); 2 teams left
+[match  225.5] alive: West Team 4, East Team 3; score { 0: 1, 1: 2 }
+[match  228.1] Aling Taho killed by Junjun Tisoy (gunshot); 2 teams left
+[match  228.1] alive: West Team 3, East Team 3; score { 0: 1, 1: 2 }
+[match  229.7] Toto Pancit killed by Junjun Tisoy (gunshot); 2 teams left
+[match  229.7] alive: West Team 2, East Team 3; score { 0: 1, 1: 2 }
+[match  229.9] [endgame] West Team mates 2 foes 3 nocontact 0s
+[match  229.9] [endgame] East Team mates 3 foes 2 nocontact 0s
+[match  231.6] Mang Jolo (team 0) landed at (7.0, 0.0, 12.0), 4.9 m/s, health 85; teammates -
+[match  235.5] Mang Jolo killed by Bossing Barbecue (gunshot); 2 teams left
+[match  235.5] alive: West Team 1, East Team 3; score { 0: 1, 1: 2 }
+[match  237.0] [botskill] normal shots 938 hits 179 reaction_avg 0.46 (n 158) dmg 4367 bots 4
+[match  237.7] [sweep] Junjun Tisoy -> cell (0, 0, 1) spot 239 stale 67s 14 m
+[match  240.0] status: { "ground": 4 }; armed 4; shots 943; zone -1 hold r=91; corpses 8; levels { "L1": 4 }; server tick avg 1.53 ms, p99 7.38 ms, max 13.92 ms over 900 ticks
+[match  240.0] dm teams: West Team 1 at (-17.0, 25.0) spread 0 m; East Team 3 at (4.0, 10.0) spread 10 m; gap 26 m; zone centre (-1.0, -1.0)
+[match  240.0] bots: { "hunt": 2, "order": 2 }; containers searched by bots 0 (all players 0); plan steps done 0; guns carried 8
+[match  240.0] roles: { "sniper": { "hunt": 1 }, "stalker": { "hunt": 1, "order": 2 } }; stuck now 0; waypoints 258; team { "lines": 188, "pings": 0, "laser_follow": 0, "learned_cells": 55, "blocked_cells": 0, "squads": 8, "following_humans": 0, &"learned_spots": 0 }
+[match  240.0] [lootstats] bots on the ground 4 (in water 0); armed 4; armed with ammo for a gun 4; long guns 4; attachments fitted 25; rounds of unusable ammo carried 0; items on the ground 0; bot pickups { "detours": 0, "detour_taken": 0, "fetches": 0, "fetch_done": 0, "items_taken": 0 }
+[match  241.3] [sweep] Aling Nena -> cell (-1, 1, 1) spot 9 stale 71s 15 m
+[match  252.0] [botskill] normal shots 938 hits 179 reaction_avg 0.46 (n 158) dmg 4367 bots 4
+[match  254.6] [sweep] Aling Nena -> cell (-1, 1, 1) spot 116 stale 84s 12 m
+[match  255.0] status: { "ground": 4 }; armed 4; shots 943; zone -1 hold r=91; corpses 8; levels { "L1": 4 }; server tick avg 0.66 ms, p99 3.40 ms, max 10.31 ms over 900 ticks
+[match  255.0] dm teams: West Team 1 at (-19.0, 26.0) spread 0 m; East Team 3 at (7.0, 11.0) spread 5 m; gap 30 m; zone centre (-1.0, -1.0)
+[match  255.0] bots: { "hunt": 2, "order": 2 }; containers searched by bots 0 (all players 0); plan steps done 0; guns carried 8
+[match  255.0] roles: { "sniper": { "hunt": 1 }, "stalker": { "hunt": 1, "order": 2 } }; stuck now 0; waypoints 258; team { "lines": 190, "pings": 0, "laser_follow": 0, "learned_cells": 55, "blocked_cells": 0, "squads": 8, "following_humans": 0, &"learned_spots": 0 }
+[match  255.0] [lootstats] bots on the ground 4 (in water 0); armed 4; armed with ammo for a gun 4; long guns 4; attachments fitted 25; rounds of unusable ammo carried 0; items on the ground 0; bot pickups { "detours": 0, "detour_taken": 0, "fetches": 0, "fetch_done": 0, "items_taken": 0 }
+[match  265.6] [sweep] Aling Nena -> cell (0, 1, 1) spot 107 stale 95s 29 m
+[match  265.7] [sweep] Junjun Tisoy -> cell (-3, 0, 0) spot 168 stale 95s 39 m
+[match  267.0] [botskill] normal shots 938 hits 179 reaction_avg 0.46 (n 158) dmg 4367 bots 4
+[match  270.0] status: { "ground": 4 }; armed 4; shots 943; zone -1 hold r=91; corpses 8; levels { "L1": 4 }; server tick avg 0.74 ms, p99 3.38 ms, max 12.90 ms over 900 ticks
+[match  270.0] dm teams: West Team 1 at (-10.0, 25.0) spread 0 m; East Team 3 at (-1.0, 11.0) spread 14 m; gap 17 m; zone centre (-1.0, -1.0)
+[match  270.0] bots: { "hunt": 2, "order": 1, "investigate": 1 }; containers searched by bots 0 (all players 0); plan steps done 0; guns carried 8
+[match  270.0] roles: { "sniper": { "hunt": 1 }, "stalker": { "hunt": 1, "order": 1, "investigate": 1 } }; stuck now 0; waypoints 258; team { "lines": 190, "pings": 0, "laser_follow": 0, "learned_cells": 55, "blocked_cells": 0, "squads": 8, "following_humans": 0, &"learned_spots": 0 }
+[match  270.0] [lootstats] bots on the ground 4 (in water 0); armed 4; armed with ammo for a gun 4; long guns 4; attachments fitted 25; rounds of unusable ammo carried 0; items on the ground 0; bot pickups { "detours": 0, "detour_taken": 0, "fetches": 0, "fetch_done": 0, "items_taken": 0 }
+[match  274.3] Ate Siomai killed by Aling Nena (gunshot); 2 teams left
+[match  274.3] alive: West Team 1, East Team 2; score { 0: 1, 1: 2 }
+[match  279.9] Bossing Barbecue killed by Aling Nena (gunshot); 2 teams left
+[match  279.9] alive: West Team 1, East Team 1; score { 0: 1, 1: 2 }
+[match  280.2] [sweep] Aling Nena -> cell (0, 1, 1) spot 0 stale 110s 18 m
+[match  282.0] [botskill] normal shots 952 hits 187 reaction_avg 0.46 (n 162) dmg 4591 bots 2
+[match  284.2] Junjun Tisoy killed by Aling Nena (gunshot); 1 teams left
+[match  284.2] alive: West Team 1, East Team 0; score { 0: 1, 1: 2 }
+[match  284.2] round 4 over: winner 0, scores { 0: 2, 1: 2 }
+[loadout] Pareng Jun shotgun_saiga [sight_reddot,mag_extquick_rifle] mag 8/8 | pistol_9 [suppressor_light,mag_extquick_light] mag 21/21
+[match  288.2] Pareng Jun respawned at (-49.0, 0.0, -2.0) (nearest enemy 1000 m)
+[loadout] Junjun Tisoy rifle_556 [grip_thumb,mag_extquick_rifle,weapon_light] mag 40/40 | pistol_9 [sight_reflex,mag_extquick_light,weapon_light] mag 21/21
+[match  288.2] Junjun Tisoy respawned at (53.0, 0.0, 8.0) (nearest enemy 102 m)
+[loadout] Aling Nena smg_vector [sight_holo,mag_extquick_light] mag 33/33 | pistol_deagle [sight_reddot,suppressor_light,mag_extquick_light] mag 10/10
+[match  288.2] Aling Nena respawned at (-56.0, 0.0, -2.0) (nearest enemy 109 m)
+[loadout] Bossing Dodong dmr_sks [suppressor_rifle,mag_ext_sniper,cheek_pad] mag 20/20 | pistol_9 [sight_reddot,suppressor_light,weapon_light] mag 15/15
+[match  288.2] Bossing Dodong respawned at (53.0, 0.0, 11.0) (nearest enemy 102 m)
+[loadout] Toto Pancit shotgun_saiga [sight_reddot,compensator,mag_extquick_rifle,weapon_light] mag 8/8 | pistol_deagle [suppressor_light,weapon_light] mag 7/7
+[match  288.2] Toto Pancit respawned at (-56.0, 0.0, 2.0) (nearest enemy 109 m)
+[loadout] Bossing Barbecue smg_9 [sight_reddot,suppressor_light,mag_extquick_light,weapon_light] mag 40/40 | pistol_9 [suppressor_light,mag_extquick_light,weapon_light] mag 21/21
+[match  288.2] Bossing Barbecue respawned at (53.0, 0.0, -8.0) (nearest enemy 102 m)
+[loadout] Aling Taho bolt_308 [scope_8x,suppressor_rifle,mag_ext_sniper] mag 8/8 | pistol_45 [sight_reddot,suppressor_light,mag_extquick_light,weapon_light] mag 12/12
+[match  288.2] Aling Taho respawned at (-56.0, 0.0, -5.0) (nearest enemy 109 m)
+[loadout] Tita Baby bolt_kar98 [scope_8x,suppressor_rifle,cheek_pad] mag 5/5 | revolver_357 [] mag 6/6
+[match  288.2] Tita Baby respawned at (53.0, 0.0, -5.0) (nearest enemy 101 m)
+[loadout] Kapitan Tikoy dmr_sks [scope_lpvo] mag 10/10 | pistol_45 [suppressor_light,mag_extquick_light,weapon_light] mag 12/12
+[match  288.2] Kapitan Tikoy respawned at (-51.0, 0.0, 2.0) (nearest enemy 104 m)
+[loadout] Ate Siomai shotgun_saiga [sight_reddot,weapon_light] mag 5/5 | pistol_deagle [sight_reddot,suppressor_light,mag_extquick_light,weapon_light] mag 10/10
+[match  288.2] Ate Siomai respawned at (50.0, 0.0, 11.0) (nearest enemy 100 m)
+[loadout] Mang Jolo smg_tommy [grip_vertical,mag_extquick_light] mag 50/50 | pistol_45 [sight_reflex,suppressor_light,weapon_light] mag 7/7
+[match  288.2] Mang Jolo respawned at (-54.0, 0.0, -2.0) (nearest enemy 105 m)
+[loadout] Ate Load Dito smg_tommy [suppressor_light,grip_vertical] mag 30/30 | pistol_9 [sight_reddot,suppressor_light,mag_extquick_light,weapon_light] mag 21/21
+[match  288.2] Ate Load Dito respawned at (53.0, 0.0, -11.0) (nearest enemy 102 m)
+[match  288.2] round 5 started; scores { 0: 2, 1: 2 }
+[match  288.3] status: { "ground": 12 }; armed 12; shots 969; zone -1 hold r=95; corpses 0; levels { "L1": 12 }; server tick avg 0.72 ms, p99 6.43 ms, max 10.61 ms over 854 ticks
+[match  288.3] dm teams: West Team 6 at (-54.0, -1.0) spread 3 m; East Team 6 at (52.0, 1.0) spread 9 m; gap 106 m; zone centre (-4.0, 4.0)
+[match  288.3] bots: { "roam": 12 }; containers searched by bots 0 (all players 0); plan steps done 0; guns carried 24
+[match  288.3] roles: { "sniper": { "roam": 3 }, "looter": { "roam": 3 }, "rusher": { "roam": 4 }, "stalker": { "roam": 2 } }; stuck now 0; waypoints 258; team { "lines": 203, "pings": 0, "laser_follow": 0, "learned_cells": 55, "blocked_cells": 0, "squads": 8, "following_humans": 0, &"learned_spots": 0 }
+[match  288.3] [lootstats] bots on the ground 12 (in water 0); armed 12; armed with ammo for a gun 12; long guns 12; attachments fitted 65; rounds of unusable ammo carried 0; items on the ground 0; bot pickups { "detours": 0, "detour_taken": 0, "fetches": 0, "fetch_done": 0, "items_taken": 0 }
+[match  299.5] [hold] Pareng Jun overwatch spot 149 56s
+[match  301.0] [botskill] normal shots 963 hits 193 reaction_avg 0.46 (n 164) dmg 4683 bots 12
+[match  301.1] [hold] Toto Pancit camp spot 23 40s
+[match  301.9] [hold] Junjun Tisoy camp spot 63 46s
+[match  303.3] status: { "ground": 12 }; armed 12; shots 970; zone -1 hold r=95; corpses 0; levels { "L1": 12 }; server tick avg 1.38 ms, p99 6.75 ms, max 29.85 ms over 900 ticks
+[match  303.3] dm teams: West Team 6 at (-28.0, 17.0) spread 13 m; East Team 6 at (18.0, 11.0) spread 8 m; gap 47 m; zone centre (-4.0, 4.0)
+[match  303.3] bots: { "overwatch": 1, "camp": 2, "fight": 3, "roam": 1, "follow": 2, "hunt": 3 }; containers searched by bots 0 (all players 0); plan steps done 0; guns carried 24
+[match  303.3] roles: { "sniper": { "overwatch": 1, "roam": 1, "fight": 1 }, "looter": { "camp": 2, "follow": 1 }, "rusher": { "fight": 2, "hunt": 2 }, "stalker": { "follow": 1, "hunt": 1 } }; stuck now 0; waypoints 258; team { "lines": 208, "pings": 0, "laser_follow": 0, "learned_cells": 55, "blocked_cells": 0, "squads": 10, "following_humans": 0, &"learned_spots": 0 }
+[match  303.3] [lootstats] bots on the ground 12 (in water 0); armed 12; armed with ammo for a gun 12; long guns 12; attachments fitted 65; rounds of unusable ammo carried 0; items on the ground 0; bot pickups { "detours": 0, "detour_taken": 0, "fetches": 0, "fetch_done": 0, "items_taken": 0 }
+[match  304.8] Mang Jolo killed by Aling Taho (gunshot); 2 teams left
+[match  304.8] alive: West Team 5, East Team 6; score { 0: 2, 1: 2 }
+[match  305.2] Ate Load Dito killed by Aling Nena (gunshot); 2 teams left
+[match  305.2] alive: West Team 5, East Team 5; score { 0: 2, 1: 2 }
+[match  305.6] Bossing Barbecue killed by Aling Nena (gunshot); 2 teams left
+[match  305.6] alive: West Team 5, East Team 4; score { 0: 2, 1: 2 }
+[match  306.7] Aling Nena killed by Tita Baby (gunshot); 2 teams left
+[match  306.7] alive: West Team 4, East Team 4; score { 0: 2, 1: 2 }
+[match  310.2] [hold] Bossing Dodong overwatch spot 147 92s
+[match  316.0] [botskill] normal shots 1072 hits 218 reaction_avg 0.45 (n 188) dmg 4988 bots 8
+[match  317.2] Aling Taho killed by Tita Baby (gunshot); 2 teams left
+[match  317.2] alive: West Team 3, East Team 4; score { 0: 2, 1: 2 }
+[match  317.9] Kapitan Tikoy killed by Junjun Tisoy (gunshot); 2 teams left
+[match  317.9] alive: West Team 2, East Team 4; score { 0: 2, 1: 2 }
+[match  318.1] [endgame] East Team mates 4 foes 2 nocontact 0s
+[match  318.1] [endgame] West Team mates 2 foes 4 nocontact 0s
+[match  318.3] status: { "ground": 6 }; armed 6; shots 1110; zone -1 hold r=95; corpses 6; levels { "L1": 6 }; server tick avg 2.37 ms, p99 11.26 ms, max 18.30 ms over 900 ticks
+[match  318.3] dm teams: West Team 2 at (-32.0, 14.0) spread 24 m; East Team 4 at (6.0, 8.0) spread 9 m; gap 39 m; zone centre (-4.0, 4.0)
+[match  318.3] bots: { "fight": 5, "hunt": 1 }; containers searched by bots 0 (all players 0); plan steps done 0; guns carried 12
+[match  318.3] roles: { "sniper": { "fight": 3 }, "looter": { "fight": 1, "hunt": 1 }, "stalker": { "fight": 1 } }; stuck now 0; waypoints 258; team { "lines": 229, "pings": 0, "laser_follow": 0, "learned_cells": 55, "blocked_cells": 0, "squads": 10, "following_humans": 0, &"learned_spots": 0 }
+[match  318.3] [lootstats] bots on the ground 6 (in water 0); armed 6; armed with ammo for a gun 6; long guns 6; attachments fitted 31; rounds of unusable ammo carried 0; items on the ground 0; bot pickups { "detours": 0, "detour_taken": 0, "fetches": 0, "fetch_done": 0, "items_taken": 0 }
+[match  318.3] Bossing Dodong killed by Pareng Jun (gunshot); 2 teams left
+[match  318.3] alive: West Team 2, East Team 3; score { 0: 2, 1: 2 }
+[match  321.5] Pareng Jun killed by Junjun Tisoy (gunshot); 2 teams left
+[match  321.5] alive: West Team 1, East Team 3; score { 0: 2, 1: 2 }
+[match  331.0] [botskill] normal shots 1115 hits 240 reaction_avg 0.45 (n 199) dmg 5530 bots 4
+[match  333.3] status: { "ground": 4 }; armed 4; shots 1121; zone -1 hold r=95; corpses 8; levels { "L1": 4 }; server tick avg 0.97 ms, p99 4.03 ms, max 11.43 ms over 900 ticks
+[match  333.3] dm teams: West Team 1 at (-33.0, 25.0) spread 0 m; East Team 3 at (-3.0, 1.0) spread 15 m; gap 39 m; zone centre (-4.0, 4.0)
+[match  333.3] bots: { "hunt": 3, "order": 1 }; containers searched by bots 0 (all players 0); plan steps done 0; guns carried 8
+[match  333.3] roles: { "looter": { "hunt": 2 }, "sniper": { "hunt": 1 }, "stalker": { "order": 1 } }; stuck now 0; waypoints 258; team { "lines": 241, "pings": 0, "laser_follow": 0, "learned_cells": 55, "blocked_cells": 0, "squads": 10, "following_humans": 0, &"learned_spots": 0 }
+[match  333.3] [lootstats] bots on the ground 4 (in water 0); armed 4; armed with ammo for a gun 4; long guns 4; attachments fitted 21; rounds of unusable ammo carried 0; items on the ground 0; bot pickups { "detours": 0, "detour_taken": 0, "fetches": 0, "fetch_done": 0, "items_taken": 0 }
+[match  339.6] [sweep] Toto Pancit -> cell (-1, 1, 1) spot 116 stale 81s 22 m
+[match  340.9] Junjun Tisoy killed by Toto Pancit (gunshot); 2 teams left
+[match  340.9] alive: West Team 1, East Team 2; score { 0: 2, 1: 2 }
+[match  346.0] [botskill] normal shots 1123 hits 246 reaction_avg 0.45 (n 201) dmg 5678 bots 3
+[match  348.3] status: { "ground": 3 }; armed 3; shots 1129; zone -1 hold r=95; corpses 9; levels { "L1": 3 }; server tick avg 0.80 ms, p99 4.77 ms, max 25.35 ms over 900 ticks
+[match  348.3] dm teams: West Team 1 at (-10.0, 34.0) spread 0 m; East Team 2 at (5.0, 0.0) spread 4 m; gap 37 m; zone centre (-4.0, 4.0)
+[match  348.3] bots: { "investigate": 2, "hunt": 1 }; containers searched by bots 0 (all players 0); plan steps done 0; guns carried 6
+[match  348.3] roles: { "looter": { "investigate": 1 }, "sniper": { "hunt": 1 }, "stalker": { "investigate": 1 } }; stuck now 0; waypoints 258; team { "lines": 246, "pings": 0, "laser_follow": 0, "learned_cells": 57, "blocked_cells": 0, "squads": 10, "following_humans": 0, &"learned_spots": 0 }
+[match  348.3] [lootstats] bots on the ground 3 (in water 0); armed 3; armed with ammo for a gun 3; long guns 3; attachments fitted 15; rounds of unusable ammo carried 0; items on the ground 0; bot pickups { "detours": 0, "detour_taken": 0, "fetches": 0, "fetch_done": 0, "items_taken": 0 }
+[match  350.8] [sweep] Toto Pancit -> cell (-1, 1, 1) spot 54 stale 93s 23 m
+[match  358.9] Toto Pancit (team 0) landed at (-29.0, 0.0, 36.0), 2.5 m/s, health 65; teammates -
+[match  361.0] [botskill] normal shots 1124 hits 246 reaction_avg 0.45 (n 202) dmg 5678 bots 3
+[match  363.2] status: { "ground": 3 }; armed 3; shots 1136; zone -1 hold r=95; corpses 9; levels { "L1": 3 }; server tick avg 0.72 ms, p99 3.30 ms, max 11.55 ms over 900 ticks
+[match  363.2] dm teams: West Team 1 at (-23.0, 34.0) spread 0 m; East Team 2 at (-9.0, 27.0) spread 14 m; gap 16 m; zone centre (-4.0, 4.0)
+[match  363.2] bots: { "fight": 2, "order": 1 }; containers searched by bots 0 (all players 0); plan steps done 0; guns carried 6
+[match  363.2] roles: { "looter": { "fight": 1 }, "sniper": { "fight": 1 }, "stalker": { "order": 1 } }; stuck now 0; waypoints 258; team { "lines": 251, "pings": 0, "laser_follow": 0, "learned_cells": 57, "blocked_cells": 0, "squads": 10, "following_humans": 0, &"learned_spots": 0 }
+[match  363.2] [lootstats] bots on the ground 3 (in water 0); armed 3; armed with ammo for a gun 3; long guns 3; attachments fitted 15; rounds of unusable ammo carried 0; items on the ground 0; bot pickups { "detours": 0, "detour_taken": 0, "fetches": 0, "fetch_done": 0, "items_taken": 0 }
+[match  365.4] Tita Baby killed by Toto Pancit (gunshot); 2 teams left
+[match  365.4] alive: West Team 1, East Team 1; score { 0: 2, 1: 2 }
+[match  368.5] Toto Pancit killed by Ate Siomai (gunshot); 1 teams left
+[match  368.5] alive: West Team 0, East Team 1; score { 0: 2, 1: 2 }
+[match  368.5] round 5 over: winner 1, scores { 0: 2, 1: 3 }
+[loadout] Pareng Jun shotgun_saiga [sight_reddot,mag_extquick_rifle] mag 8/8 | pistol_deagle [sight_reddot,suppressor_light,mag_extquick_light,weapon_light] mag 10/10
+[match  372.5] Pareng Jun respawned at (-54.0, 0.0, 2.0) (nearest enemy 1000 m)
+[loadout] Junjun Tisoy bolt_awp [scope_6x,suppressor_rifle,mag_ext_sniper] mag 8/8 | revolver_357 [sight_reddot] mag 6/6
+[match  372.5] Junjun Tisoy respawned at (53.0, 0.0, -11.0) (nearest enemy 107 m)
+[loadout] Aling Nena bolt_kar98 [suppressor_rifle,cheek_pad] mag 5/5 | revolver_357 [sight_reddot] mag 6/6
+[match  372.5] Aling Nena respawned at (-56.0, 0.0, 5.0) (nearest enemy 110 m)
+[loadout] Bossing Dodong smg_tommy [suppressor_light,grip_ergonomic,mag_extquick_light] mag 50/50 | pistol_deagle [sight_reddot,suppressor_light,mag_extquick_light] mag 10/10
+[match  372.5] Bossing Dodong respawned at (53.0, 0.0, 11.0) (nearest enemy 107 m)
+[loadout] Toto Pancit rifle_scar [suppressor_rifle,grip_thumb,mag_extquick_rifle,weapon_light] mag 40/40 | revolver_357 [] mag 6/6
+[match  372.5] Toto Pancit respawned at (-56.0, 0.0, -2.0) (nearest enemy 109 m)
+[loadout] Bossing Barbecue bolt_308 [scope_6x,suppressor_rifle,mag_ext_sniper,cheek_pad] mag 8/8 | pistol_45 [suppressor_light,mag_extquick_light,weapon_light] mag 12/12
+[match  372.5] Bossing Barbecue respawned at (53.0, 0.0, -5.0) (nearest enemy 106 m)
+[loadout] Aling Taho shotgun_pump [sight_reddot,choke] mag 6/6 | pistol_45 [sight_reddot,suppressor_light,mag_extquick_light] mag 12/12
+[match  372.5] Aling Taho respawned at (-56.0, 0.0, -5.0) (nearest enemy 109 m)
+[loadout] Tita Baby smg_ump45 [suppressor_light,grip_angled,mag_extquick_light,weapon_light] mag 35/35 | pistol_45 [sight_reddot,suppressor_light,mag_extquick_light,weapon_light] mag 12/12
+[match  372.5] Tita Baby respawned at (50.0, 0.0, -11.0) (nearest enemy 105 m)
+[loadout] Kapitan Tikoy shotgun_saiga [sight_reflex,compensator,mag_extquick_rifle,weapon_light] mag 8/8 | pistol_9 [sight_reddot,suppressor_light,mag_extquick_light,weapon_light] mag 21/21
+[match  372.5] Kapitan Tikoy respawned at (-54.0, 0.0, -2.0) (nearest enemy 104 m)
+[loadout] Ate Siomai smg_ump45 [sight_holo,suppressor_light,grip_angled,mag_extquick_light,weapon_light] mag 35/35 | pistol_45 [sight_reddot,suppressor_light,mag_extquick_light,weapon_light] mag 12/12
+[match  372.5] Ate Siomai respawned at (50.0, 0.0, 11.0) (nearest enemy 104 m)
+[loadout] Mang Jolo shotgun_saiga [compensator,mag_extquick_rifle,weapon_light] mag 8/8 | pistol_deagle [mag_extquick_light,weapon_light] mag 10/10
+[match  372.5] Mang Jolo respawned at (-54.0, 0.0, -5.0) (nearest enemy 104 m)
+[loadout] Ate Load Dito bolt_awp [scope_6x,mag_ext_sniper] mag 8/8 | revolver_357 [sight_reddot] mag 6/6
+[match  372.5] Ate Load Dito respawned at (53.0, 0.0, 5.0) (nearest enemy 106 m)
+[match  372.5] round 6 started; scores { 0: 2, 1: 3 }
+[match  378.2] status: { "ground": 12 }; armed 12; shots 1143; zone -1 hold r=93; corpses 0; levels { "L1": 12 }; server tick avg 1.12 ms, p99 7.33 ms, max 18.51 ms over 660 ticks
+[match  378.2] dm teams: West Team 6 at (-53.0, -1.0) spread 3 m; East Team 6 at (51.0, 0.0) spread 9 m; gap 104 m; zone centre (2.0, 3.0)
+[match  378.2] bots: { "roam": 5, "follow": 2, "hunt": 5 }; containers searched by bots 0 (all players 0); plan steps done 0; guns carried 24
+[match  378.2] roles: { "sniper": { "roam": 2, "follow": 1 }, "looter": { "roam": 2, "follow": 1 }, "stalker": { "hunt": 3 }, "rusher": { "hunt": 2, "roam": 1 } }; stuck now 0; waypoints 258; team { "lines": 259, "pings": 0, "laser_follow": 0, "learned_cells": 59, "blocked_cells": 0, "squads": 12, "following_humans": 0, &"learned_spots": 0 }
+[match  378.2] [lootstats] bots on the ground 12 (in water 0); armed 12; armed with ammo for a gun 12; long guns 12; attachments fitted 68; rounds of unusable ammo carried 0; items on the ground 0; bot pickups { "detours": 0, "detour_taken": 0, "fetches": 0, "fetch_done": 0, "items_taken": 0 }
+[match  379.8] Bossing Barbecue (team 1) landed at (49.0, 0.0, 5.0), 2.5 m/s, health 100; teammates -
+[match  379.9] Kapitan Tikoy (team 0) landed at (-52.0, 0.0, 8.0), 2.5 m/s, health 100; teammates -
+[match  380.0] [botskill] normal shots 1136 hits 253 reaction_avg 0.45 (n 205) dmg 5782 bots 12
+[match  386.2] [hold] Junjun Tisoy camp spot 104 40s
+[match  390.1] Ate Load Dito killed by Toto Pancit (gunshot); 2 teams left
+[match  390.1] alive: West Team 6, East Team 5; score { 0: 2, 1: 3 }
+[match  391.7] [hold] Bossing Dodong camp spot 61 34s
+[match  393.2] status: { "ground": 11 }; armed 11; shots 1191; zone -1 hold r=93; corpses 1; levels { "L1": 11 }; server tick avg 2.08 ms, p99 12.49 ms, max 20.86 ms over 900 ticks
+[match  393.2] dm teams: West Team 6 at (-20.0, 14.0) spread 17 m; East Team 5 at (12.0, 14.0) spread 8 m; gap 32 m; zone centre (2.0, 3.0)
+[match  393.2] bots: { "fight": 3, "roam": 1, "heal": 1, "follow": 2, "hunt": 3, "investigate": 1 }; containers searched by bots 0 (all players 0); plan steps done 0; guns carried 22
+[match  393.2] roles: { "sniper": { "fight": 2, "follow": 1 }, "looter": { "roam": 1, "heal": 1, "follow": 1 }, "stalker": { "hunt": 3 }, "rusher": { "fight": 1, "investigate": 1 } }; stuck now 0; waypoints 258; team { "lines": 268, "pings": 0, "laser_follow": 0, "learned_cells": 59, "blocked_cells": 0, "squads": 12, "following_humans": 0, &"learned_spots": 0 }
+[match  393.2] [lootstats] bots on the ground 11 (in water 0); armed 11; armed with ammo for a gun 11; long guns 11; attachments fitted 65; rounds of unusable ammo carried 0; items on the ground 0; bot pickups { "detours": 0, "detour_taken": 0, "fetches": 0, "fetch_done": 0, "items_taken": 0 }
+[match  395.0] [botskill] normal shots 1199 hits 268 reaction_avg 0.45 (n 223) dmg 5991 bots 11
+[match  397.2] Pareng Jun killed by Ate Siomai (gunshot); 2 teams left
+[match  397.2] alive: West Team 5, East Team 5; score { 0: 2, 1: 3 }
+[match  398.7] Bossing Dodong killed by Bossing Barbecue (gunshot); 2 teams left
+[match  398.7] alive: West Team 5, East Team 4; score { 0: 2, 1: 3 }
+[match  398.7] Mang Jolo killed by Bossing Dodong (gunshot); 2 teams left
+[match  398.7] alive: West Team 4, East Team 4; score { 0: 2, 1: 3 }
+[match  402.9] Bossing Barbecue killed by Toto Pancit (gunshot); 2 teams left
+[match  402.9] alive: West Team 4, East Team 3; score { 0: 2, 1: 3 }
+[match  404.0] Aling Nena killed by Ate Siomai (gunshot); 2 teams left
+[match  404.0] alive: West Team 3, East Team 3; score { 0: 2, 1: 3 }
+[match  405.6] Ate Siomai killed by Toto Pancit (gunshot); 2 teams left
+[match  405.6] alive: West Team 3, East Team 2; score { 0: 2, 1: 3 }
+[match  406.1] [endgame] West Team mates 3 foes 2 nocontact 0s
+[match  406.2] [endgame] East Team mates 2 foes 3 nocontact 0s
+[match  406.3] [sweep] Toto Pancit -> cell (-2, -1, 1) spot 204 stale 64s 35 m
+[match  408.2] status: { "ground": 5 }; armed 5; shots 1277; zone -1 hold r=93; corpses 7; levels { "L1": 5 }; server tick avg 2.32 ms, p99 9.62 ms, max 22.69 ms over 900 ticks
+[match  408.2] dm teams: West Team 3 at (-19.0, 18.0) spread 6 m; East Team 2 at (13.0, 16.0) spread 7 m; gap 32 m; zone centre (2.0, 3.0)
+[match  408.2] bots: { "fight": 1, "hunt": 4 }; containers searched by bots 0 (all players 0); plan steps done 0; guns carried 10
+[match  408.2] roles: { "looter": { "fight": 1 }, "sniper": { "hunt": 1 }, "stalker": { "hunt": 3 } }; stuck now 0; waypoints 258; team { "lines": 294, "pings": 0, "laser_follow": 0, "learned_cells": 59, "blocked_cells": 0, "squads": 12, "following_humans": 0, &"learned_spots": 0 }
+[match  408.2] [lootstats] bots on the ground 5 (in water 0); armed 5; armed with ammo for a gun 5; long guns 5; attachments fitted 29; rounds of unusable ammo carried 0; items on the ground 0; bot pickups { "detours": 0, "detour_taken": 0, "fetches": 0, "fetch_done": 0, "items_taken": 0 }
+[match  410.0] [botskill] normal shots 1283 hits 296 reaction_avg 0.45 (n 243) dmg 6547 bots 5
+[match  423.2] status: { "ground": 5 }; armed 5; shots 1387; zone -1 hold r=93; corpses 7; levels { "L1": 4, "between": 1 }; server tick avg 1.76 ms, p99 6.80 ms, max 11.35 ms over 900 ticks
+[match  423.2] dm teams: West Team 3 at (-12.0, 15.0) spread 11 m; East Team 2 at (5.0, 19.0) spread 5 m; gap 17 m; zone centre (2.0, 3.0)
+[match  423.2] bots: { "fight": 3, "investigate": 2 }; containers searched by bots 0 (all players 0); plan steps done 0; guns carried 10
+[match  423.2] roles: { "looter": { "fight": 1 }, "sniper": { "fight": 1 }, "stalker": { "fight": 1, "investigate": 2 } }; stuck now 0; waypoints 258; team { "lines": 300, "pings": 0, "laser_follow": 0, "learned_cells": 59, "blocked_cells": 0, "squads": 12, "following_humans": 0, &"learned_spots": 0 }
+[match  423.2] [lootstats] bots on the ground 5 (in water 0); armed 5; armed with ammo for a gun 5; long guns 5; attachments fitted 29; rounds of unusable ammo carried 0; items on the ground 0; bot pickups { "detours": 0, "detour_taken": 0, "fetches": 0, "fetch_done": 0, "items_taken": 0 }
+[match  424.9] Kapitan Tikoy killed by Tita Baby (gunshot); 2 teams left
+[match  424.9] alive: West Team 2, East Team 2; score { 0: 2, 1: 3 }
+[match  425.0] [botskill] normal shots 1397 hits 301 reaction_avg 0.45 (n 261) dmg 6756 bots 4
+[match  431.0] Junjun Tisoy killed by Toto Pancit (gunshot); 2 teams left
+[match  431.0] alive: West Team 2, East Team 1; score { 0: 2, 1: 3 }
+[match  438.2] status: { "ground": 3 }; armed 3; shots 1440; zone -1 hold r=93; corpses 9; levels { "L1": 3 }; server tick avg 1.06 ms, p99 4.79 ms, max 7.45 ms over 900 ticks
+[match  438.2] dm teams: West Team 2 at (-15.0, 23.0) spread 13 m; East Team 1 at (8.0, 19.0) spread 0 m; gap 23 m; zone centre (2.0, 3.0)
+[match  438.2] bots: { "hunt": 2, "order": 1 }; containers searched by bots 0 (all players 0); plan steps done 0; guns carried 6
+[match  438.2] roles: { "sniper": { "hunt": 1 }, "stalker": { "hunt": 1, "order": 1 } }; stuck now 0; waypoints 258; team { "lines": 310, "pings": 0, "laser_follow": 0, "learned_cells": 59, "blocked_cells": 0, "squads": 12, "following_humans": 0, &"learned_spots": 0 }
+[match  438.2] [lootstats] bots on the ground 3 (in water 0); armed 3; armed with ammo for a gun 3; long guns 3; attachments fitted 17; rounds of unusable ammo carried 0; items on the ground 0; bot pickups { "detours": 0, "detour_taken": 0, "fetches": 0, "fetch_done": 0, "items_taken": 0 }
+[match  440.0] [botskill] normal shots 1431 hits 305 reaction_avg 0.45 (n 265) dmg 6869 bots 3
+[match  453.2] [sweep] Tita Baby -> cell (-1, 2, 0) spot 125 stale 111s 22 m
+[match  453.2] status: { "ground": 3 }; armed 3; shots 1442; zone -1 hold r=93; corpses 9; levels { "L1": 3 }; server tick avg 0.59 ms, p99 1.97 ms, max 13.83 ms over 900 ticks
+[match  453.2] dm teams: West Team 2 at (3.0, 23.0) spread 8 m; East Team 1 at (7.0, 21.0) spread 0 m; gap 5 m; zone centre (2.0, 3.0)
+[match  453.2] bots: { "hunt": 2, "investigate": 1 }; containers searched by bots 0 (all players 0); plan steps done 0; guns carried 6
+[match  453.2] roles: { "sniper": { "hunt": 1 }, "stalker": { "investigate": 1, "hunt": 1 } }; stuck now 0; waypoints 258; team { "lines": 312, "pings": 0, "laser_follow": 0, "learned_cells": 59, "blocked_cells": 0, "squads": 12, "following_humans": 0, &"learned_spots": 0 }
+[match  453.2] [lootstats] bots on the ground 3 (in water 0); armed 3; armed with ammo for a gun 3; long guns 3; attachments fitted 17; rounds of unusable ammo carried 0; items on the ground 0; bot pickups { "detours": 0, "detour_taken": 0, "fetches": 0, "fetch_done": 0, "items_taken": 0 }
+[match  455.0] [botskill] normal shots 1433 hits 306 reaction_avg 0.45 (n 266) dmg 6882 bots 3
+[match  456.0] Toto Pancit killed by Tita Baby (gunshot); 2 teams left
+[match  456.0] alive: West Team 1, East Team 1; score { 0: 2, 1: 3 }
+[match  460.0] [sweep] Aling Taho -> cell (0, 1, 1) spot 107 stale 118s 4 m
+[match  464.1] [sweep] Tita Baby -> cell (-2, 2, 0) spot 151 stale 122s 25 m
+[match  468.2] status: { "ground": 2 }; armed 2; shots 1464; zone -1 hold r=93; corpses 10; levels { "L1": 2 }; server tick avg 0.64 ms, p99 2.79 ms, max 7.78 ms over 900 ticks
+[match  468.2] dm teams: West Team 1 at (4.0, 25.0) spread 0 m; East Team 1 at (-2.0, 32.0) spread 0 m; gap 9 m; zone centre (2.0, 3.0)
+[match  468.2] bots: { "fight": 2 }; containers searched by bots 0 (all players 0); plan steps done 0; guns carried 4
+[match  468.2] roles: { "stalker": { "fight": 2 } }; stuck now 0; waypoints 258; team { "lines": 320, "pings": 0, "laser_follow": 0, "learned_cells": 59, "blocked_cells": 0, "squads": 12, "following_humans": 0, &"learned_spots": 0 }
+[match  468.2] [lootstats] bots on the ground 2 (in water 0); armed 2; armed with ammo for a gun 2; long guns 2; attachments fitted 13; rounds of unusable ammo carried 0; items on the ground 0; bot pickups { "detours": 0, "detour_taken": 0, "fetches": 0, "fetch_done": 0, "items_taken": 0 }
+[match  470.0] [botskill] normal shots 1465 hits 316 reaction_avg 0.45 (n 274) dmg 6986 bots 2
+[match  470.9] Aling Taho (team 0) landed at (2.0, 0.0, 25.0), 4.5 m/s, health 54; teammates -
+[match  475.1] Tita Baby killed by Aling Taho (gunshot); 1 teams left
+[match  475.1] alive: West Team 1, East Team 0; score { 0: 2, 1: 3 }
+[match  475.2] round 6 over: winner 0, scores { 0: 3, 1: 3 }
+[loadout] Pareng Jun dmr_sks [scope_lpvo,mag_ext_sniper,cheek_pad] mag 20/20 | pistol_45 [sight_reflex,suppressor_light,mag_extquick_light] mag 12/12
+[match  479.2] Pareng Jun respawned at (-49.0, 0.0, 2.0) (nearest enemy 1000 m)
+[loadout] Junjun Tisoy dmr_mini14 [scope_6x,suppressor_rifle,mag_ext_sniper] mag 30/30 | pistol_9 [suppressor_light,weapon_light] mag 15/15
+[match  479.2] Junjun Tisoy respawned at (53.0, 0.0, 8.0) (nearest enemy 102 m)
+[loadout] Aling Nena dmr_mini14 [suppressor_rifle] mag 20/20 | pistol_45 [sight_reflex,suppressor_light,mag_extquick_light] mag 12/12
+[match  479.2] Aling Nena respawned at (-56.0, 0.0, 5.0) (nearest enemy 109 m)
+[loadout] Bossing Dodong bolt_308 [scope_6x,mag_ext_sniper,bullet_loops] mag 8/8 | pistol_deagle [sight_reddot,suppressor_light,mag_extquick_light,weapon_light] mag 10/10
+[match  479.2] Bossing Dodong respawned at (53.0, 0.0, -11.0) (nearest enemy 102 m)
+[loadout] Toto Pancit marksman_308 [scope_6x,mag_ext_sniper,cheek_pad] mag 30/30 | revolver_357 [sight_reddot] mag 6/6
+[match  479.2] Toto Pancit respawned at (-56.0, 0.0, -2.0) (nearest enemy 109 m)
+[loadout] Bossing Barbecue shotgun_double [choke,bullet_loops] mag 2/2 | pistol_9 [sight_reflex,suppressor_light,weapon_light] mag 15/15
+[match  479.2] Bossing Barbecue respawned at (53.0, 0.0, -5.0) (nearest enemy 102 m)
+[loadout] Aling Taho smg_vector [sight_reddot,suppressor_light,grip_vertical,mag_extquick_light,stock_heavy,weapon_light] mag 33/33 | pistol_45 [mag_extquick_light,weapon_light] mag 12/12
+[match  479.2] Aling Taho respawned at (-56.0, 0.0, -5.0) (nearest enemy 109 m)
+[loadout] Tita Baby bolt_awp [scope_6x,suppressor_rifle,mag_ext_sniper,bullet_loops] mag 8/8 | pistol_45 [sight_reddot,suppressor_light,mag_extquick_light,weapon_light] mag 12/12
+[match  479.2] Tita Baby respawned at (53.0, 0.0, -8.0) (nearest enemy 102 m)
+[loadout] Kapitan Tikoy rifle_762 [scope_3x,muzzle_brake,laser_sight,weapon_light] mag 30/30 | pistol_45 [sight_reddot,suppressor_light,mag_extquick_light,weapon_light] mag 12/12
+[match  479.2] Kapitan Tikoy respawned at (-54.0, 0.0, 2.0) (nearest enemy 106 m)
+[loadout] Ate Siomai smg_tommy [suppressor_light,grip_vertical] mag 30/30 | pistol_deagle [sight_reddot,suppressor_light,weapon_light] mag 7/7
+[match  479.2] Ate Siomai respawned at (53.0, 0.0, 11.0) (nearest enemy 102 m)
+[loadout] Mang Jolo machine_pistol [sight_reddot,suppressor_light,laser_sight,mag_extquick_light,weapon_light] mag 45/45 | revolver_357 [sight_reddot] mag 6/6
+[match  479.2] Mang Jolo respawned at (-56.0, 0.0, 2.0) (nearest enemy 109 m)
+[loadout] Ate Load Dito smg_tommy [grip_vertical] mag 30/30 | revolver_357 [sight_reddot] mag 6/6
+[match  479.2] Ate Load Dito respawned at (50.0, 0.0, -8.0) (nearest enemy 99 m)
+[match  479.2] round 7 started; scores { 0: 3, 1: 3 }
+[match  483.2] status: { "ground": 12 }; armed 12; shots 1494; zone -1 hold r=92; corpses 0; levels { "L1": 12 }; server tick avg 0.96 ms, p99 1.82 ms, max 6.54 ms over 660 ticks
+[match  483.2] dm teams: West Team 6 at (-54.0, 1.0) spread 4 m; East Team 6 at (52.0, -2.0) spread 8 m; gap 107 m; zone centre (-2.0, 1.0)
+[match  483.2] bots: { "roam": 12 }; containers searched by bots 0 (all players 0); plan steps done 0; guns carried 24
+[match  483.2] roles: { "looter": { "roam": 3 }, "rusher": { "roam": 4 }, "sniper": { "roam": 3 }, "stalker": { "roam": 2 } }; stuck now 0; waypoints 258; team { "lines": 324, "pings": 0, "laser_follow": 0, "learned_cells": 59, "blocked_cells": 0, "squads": 12, "following_humans": 0, &"learned_spots": 0 }
+[match  483.2] [lootstats] bots on the ground 12 (in water 0); armed 12; armed with ammo for a gun 12; long guns 12; attachments fitted 68; rounds of unusable ammo carried 0; items on the ground 0; bot pickups { "detours": 0, "detour_taken": 0, "fetches": 0, "fetch_done": 0, "items_taken": 0 }
+[match  487.1] Tita Baby (team 1) landed at (49.0, 0.0, 5.0), 2.5 m/s, health 100; teammates -
+[match  489.0] [botskill] normal shots 1484 hits 321 reaction_avg 0.45 (n 278) dmg 7062 bots 12
+[match  491.2] [hold] Bossing Barbecue overwatch spot 157 70s
+[match  498.1] Bossing Dodong killed by Mang Jolo (gunshot); 2 teams left
+[match  498.1] alive: West Team 6, East Team 5; score { 0: 3, 1: 3 }
+[match  498.2] status: { "ground": 11 }; armed 11; shots 1515; zone -1 hold r=92; corpses 1; levels { "L1": 10, "L2": 1 }; server tick avg 1.74 ms, p99 10.27 ms, max 26.89 ms over 900 ticks
+[match  498.2] dm teams: West Team 6 at (-18.0, 10.0) spread 21 m; East Team 5 at (22.0, 10.0) spread 15 m; gap 40 m; zone centre (-2.0, 1.0)
+[match  498.2] bots: { "fight": 3, "order": 2, "hunt": 3, "roam": 1, "overwatch": 1, "follow": 1 }; containers searched by bots 0 (all players 0); plan steps done 0; guns carried 22
+[match  498.2] roles: { "looter": { "fight": 1, "follow": 1, "order": 1 }, "rusher": { "order": 1, "hunt": 2 }, "sniper": { "roam": 1, "overwatch": 1, "fight": 1 }, "stalker": { "hunt": 1, "fight": 1 } }; stuck now 1; waypoints 258; team { "lines": 331, "pings": 0, "laser_follow": 0, "learned_cells": 59, "blocked_cells": 0, "squads": 14, "following_humans": 0, &"learned_spots": 0 }
+[match  498.2] [lootstats] bots on the ground 11 (in water 0); armed 11; armed with ammo for a gun 11; long guns 11; attachments fitted 61; rounds of unusable ammo carried 0; items on the ground 0; bot pickups { "detours": 0, "detour_taken": 0, "fetches": 0, "fetch_done": 0, "items_taken": 0 }
+[match  499.0] Aling Nena (team 0) landed at (-13.0, 0.0, 26.0), 3.9 m/s, health 100; teammates -
+[match  500.1] [hold] Ate Siomai camp spot 61 51s
+[match  503.2] Mang Jolo killed by Ate Siomai (gunshot); 2 teams left
+[match  503.2] alive: West Team 5, East Team 5; score { 0: 3, 1: 3 }
+[match  504.0] [botskill] normal shots 1526 hits 339 reaction_avg 0.45 (n 291) dmg 7275 bots 10
+[match  504.9] Junjun Tisoy killed by Pareng Jun (gunshot); 2 teams left
+[match  504.9] alive: West Team 5, East Team 4; score { 0: 3, 1: 3 }
+[match  505.0] Bossing Barbecue killed by Toto Pancit (gunshot); 2 teams left
+[match  505.0] alive: West Team 5, East Team 3; score { 0: 3, 1: 3 }
+[match  506.3] Ate Siomai killed by Toto Pancit (gunshot); 2 teams left
+[match  506.3] alive: West Team 5, East Team 2; score { 0: 3, 1: 3 }
+[match  506.4] [endgame] West Team mates 5 foes 2 nocontact 0s
+[match  506.5] [endgame] East Team mates 2 foes 5 nocontact 0s
+[match  507.2] Tita Baby killed by Kapitan Tikoy (gunshot); 2 teams left
+[match  507.2] alive: West Team 5, East Team 1; score { 0: 3, 1: 3 }
+[match  510.5] Kapitan Tikoy killed by Ate Load Dito (gunshot); 2 teams left
+[match  510.5] alive: West Team 4, East Team 1; score { 0: 3, 1: 3 }
+[match  511.3] Ate Load Dito killed by Kapitan Tikoy (bleeding); 1 teams left
+[match  511.3] alive: West Team 4, East Team 0; score { 0: 3, 1: 3 }
+[match  511.3] round 7 over: winner 0, scores { 0: 4, 1: 3 }
+[loadout] Pareng Jun dmr_mini14 [scope_lpvo,suppressor_rifle,mag_ext_sniper,cheek_pad] mag 30/30 | pistol_deagle [suppressor_light,mag_extquick_light] mag 10/10
+[match  515.3] Pareng Jun respawned at (-49.0, 0.0, 2.0) (nearest enemy 1000 m)
+[loadout] Junjun Tisoy smg_ump45 [grip_vertical,mag_extquick_light,weapon_light] mag 35/35 | pistol_deagle [sight_reflex,suppressor_light,mag_extquick_light,weapon_light] mag 10/10
+[match  515.3] Junjun Tisoy respawned at (53.0, 0.0, 8.0) (nearest enemy 102 m)
+[loadout] Aling Nena shotgun_double [bullet_loops] mag 2/2 | pistol_deagle [sight_reflex,suppressor_light,mag_extquick_light,weapon_light] mag 10/10
+[match  515.3] Aling Nena respawned at (-56.0, 0.0, -5.0) (nearest enemy 109 m)
+[loadout] Bossing Dodong smg_ump45 [sight_holo,suppressor_light,mag_extquick_light] mag 35/35 | revolver_357 [sight_reflex] mag 6/6
+[match  515.3] Bossing Dodong respawned at (53.0, 0.0, -11.0) (nearest enemy 102 m)
+[loadout] Toto Pancit marksman_308 [scope_6x,suppressor_rifle,mag_ext_sniper,cheek_pad] mag 30/30 | pistol_45 [sight_reflex,mag_extquick_light,weapon_light] mag 12/12
+[match  515.3] Toto Pancit respawned at (-54.0, 0.0, -5.0) (nearest enemy 106 m)
+[loadout] Bossing Barbecue smg_vector [sight_reddot,suppressor_light,grip_thumb,mag_extquick_light,stock_tactical,weapon_light] mag 33/33 | pistol_45 [sight_reddot,suppressor_light,weapon_light] mag 7/7
+[match  515.3] Bossing Barbecue respawned at (53.0, 0.0, -8.0) (nearest enemy 102 m)
+[loadout] Aling Taho smg_ump45 [sight_reflex,mag_extquick_light] mag 35/35 | revolver_357 [sight_reddot] mag 6/6
+[match  515.3] Aling Taho respawned at (-56.0, 0.0, 5.0) (nearest enemy 109 m)
+[loadout] Tita Baby shotgun_pump [choke] mag 6/6 | pistol_45 [sight_reddot,mag_extquick_light,weapon_light] mag 12/12
+[match  515.3] Tita Baby respawned at (53.0, 0.0, 11.0) (nearest enemy 102 m)
+[loadout] Kapitan Tikoy smg_vector [scope_2x,suppressor_light,mag_extquick_light,stock_heavy,weapon_light] mag 33/33 | pistol_deagle [sight_reflex,suppressor_light,mag_extquick_light,weapon_light] mag 10/10
+[match  515.3] Kapitan Tikoy respawned at (-56.0, 0.0, 2.0) (nearest enemy 109 m)
+[loadout] Ate Siomai lmg_m249 [sight_holo,muzzle_brake,laser_sight,weapon_light] mag 100/100 | pistol_45 [sight_reflex,suppressor_light,mag_extquick_light] mag 12/12
+[match  515.3] Ate Siomai respawned at (50.0, 0.0, -8.0) (nearest enemy 99 m)
+[loadout] Mang Jolo shotgun_saiga [mag_extquick_rifle,weapon_light] mag 8/8 | pistol_45 [mag_extquick_light,weapon_light] mag 12/12
+[match  515.3] Mang Jolo respawned at (-54.0, 0.0, 2.0) (nearest enemy 104 m)
+[loadout] Ate Load Dito smg_9 [scope_2x,suppressor_light,grip_thumb] mag 30/30 | pistol_9 [suppressor_light,weapon_light] mag 15/15
+[match  515.3] Ate Load Dito respawned at (53.0, 0.0, 5.0) (nearest enemy 101 m)
+[match  515.3] round 8 started; scores { 0: 4, 1: 3 }
+[match  515.4] status: { "ground": 12 }; armed 12; shots 1599; zone -1 hold r=92; corpses 0; levels { "L1": 12 }; server tick avg 1.89 ms, p99 8.30 ms, max 12.64 ms over 787 ticks
+[match  515.4] dm teams: West Team 6 at (-54.0, 0.0) spread 4 m; East Team 6 at (52.0, 0.0) spread 8 m; gap 106 m; zone centre (1.0, 2.0)
+[match  515.4] bots: { "roam": 12 }; containers searched by bots 0 (all players 0); plan steps done 0; guns carried 24
+[match  515.4] roles: { "sniper": { "roam": 8 }, "stalker": { "roam": 2 }, "rusher": { "roam": 2 } }; stuck now 0; waypoints 258; team { "lines": 353, "pings": 0, "laser_follow": 0, "learned_cells": 60, "blocked_cells": 0, "squads": 14, "following_humans": 0, &"learned_spots": 0 }
+[match  515.4] [lootstats] bots on the ground 12 (in water 0); armed 12; armed with ammo for a gun 12; long guns 12; attachments fitted 70; rounds of unusable ammo carried 0; items on the ground 0; bot pickups { "detours": 0, "detour_taken": 0, "fetches": 0, "fetch_done": 0, "items_taken": 0 }
+[match  522.1] Ate Load Dito (team 1) landed at (47.0, 0.0, 2.0), 2.5 m/s, health 100; teammates -
+[match  523.0] [botskill] normal shots 1589 hits 356 reaction_avg 0.45 (n 306) dmg 8064 bots 12
+[match  524.4] [hold] Ate Siomai overwatch spot 109 75s
+[match  526.6] [hold] Toto Pancit overwatch spot 175 64s
+[match  530.3] [hold] Bossing Dodong overwatch spot 122 102s
+[match  530.4] status: { "ground": 12 }; armed 12; shots 1599; zone -1 hold r=92; corpses 0; levels { "L2": 2, "L1": 10 }; server tick avg 1.48 ms, p99 6.52 ms, max 33.24 ms over 900 ticks
+[match  530.4] dm teams: West Team 6 at (-23.0, -10.0) spread 15 m; East Team 6 at (36.0, 7.0) spread 11 m; gap 61 m; zone centre (1.0, 2.0)
+[match  530.4] bots: { "follow": 2, "hunt": 4, "roam": 3, "overwatch": 3 }; containers searched by bots 0 (all players 0); plan steps done 0; guns carried 24
+[match  530.4] roles: { "sniper": { "follow": 2, "roam": 3, "overwatch": 3 }, "stalker": { "hunt": 2 }, "rusher": { "hunt": 2 } }; stuck now 1; waypoints 258; team { "lines": 358, "pings": 0, "laser_follow": 0, "learned_cells": 60, "blocked_cells": 0, "squads": 16, "following_humans": 0, &"learned_spots": 0 }
+[match  530.4] [lootstats] bots on the ground 12 (in water 0); armed 12; armed with ammo for a gun 12; long guns 12; attachments fitted 70; rounds of unusable ammo carried 0; items on the ground 0; bot pickups { "detours": 0, "detour_taken": 0, "fetches": 0, "fetch_done": 0, "items_taken": 0 }
+[match  533.7] Kapitan Tikoy killed by Ate Siomai (gunshot); 2 teams left
+[match  533.7] alive: West Team 5, East Team 6; score { 0: 4, 1: 3 }
+[match  538.0] [botskill] normal shots 1649 hits 370 reaction_avg 0.45 (n 318) dmg 8274 bots 11
+[match  539.1] Aling Taho killed by Ate Siomai (gunshot); 2 teams left
+[match  539.1] alive: West Team 4, East Team 6; score { 0: 4, 1: 3 }
+[match  541.0] Mang Jolo (team 0) landed at (2.0, 3.0, -29.0), 4.9 m/s, health 100; teammates -
+[match  541.9] Ate Load Dito killed by Ate Siomai (gunshot); 2 teams left
+[match  541.9] alive: West Team 4, East Team 5; score { 0: 4, 1: 3 }
+[match  542.2] Ate Siomai killed by Toto Pancit (gunshot); 2 teams left
+[match  542.2] alive: West Team 4, East Team 4; score { 0: 4, 1: 3 }
+[match  543.9] Aling Nena (team 0) landed at (1.0, 0.0, -18.0), 4.7 m/s, health 11; teammates 4 m
+[match  543.9] Tita Baby killed by Toto Pancit (gunshot); 2 teams left
+[match  543.9] alive: West Team 4, East Team 3; score { 0: 4, 1: 3 }
+[match  544.8] Aling Nena killed by Bossing Dodong (gunshot); 2 teams left
+[match  544.8] alive: West Team 3, East Team 3; score { 0: 4, 1: 3 }
+[match  545.4] status: { "ground": 6 }; armed 6; shots 1721; zone -1 hold r=92; corpses 6; levels { "L2": 2, "L1": 3, "between": 1 }; server tick avg 2.65 ms, p99 10.61 ms, max 20.14 ms over 900 ticks
+[match  545.4] dm teams: West Team 3 at (-2.0, -18.0) spread 8 m; East Team 3 at (31.0, -3.0) spread 16 m; gap 36 m; zone centre (1.0, 2.0)
+[match  545.4] bots: { "follow": 1, "fight": 2, "heal": 2, "hunt": 1 }; containers searched by bots 0 (all players 0); plan steps done 0; guns carried 12
+[match  545.4] roles: { "sniper": { "follow": 1, "heal": 2, "fight": 1 }, "stalker": { "fight": 1, "hunt": 1 } }; stuck now 0; waypoints 258; team { "lines": 383, "pings": 0, "laser_follow": 0, "learned_cells": 61, "blocked_cells": 0, "squads": 16, "following_humans": 0, &"learned_spots": 0 }
+[match  545.4] [lootstats] bots on the ground 6 (in water 0); armed 6; armed with ammo for a gun 6; long guns 6; attachments fitted 37; rounds of unusable ammo carried 0; items on the ground 0; bot pickups { "detours": 0, "detour_taken": 0, "fetches": 0, "fetch_done": 0, "items_taken": 0 }
+[match  547.5] Bossing Dodong killed by Pareng Jun (gunshot); 2 teams left
+[match  547.5] alive: West Team 3, East Team 2; score { 0: 4, 1: 3 }
+[match  547.9] [endgame] West Team mates 3 foes 2 nocontact 0s
+[match  547.9] [endgame] East Team mates 2 foes 3 nocontact 0s
+[match  549.4] Bossing Barbecue (team 1) landed at (36.0, 0.0, -25.0), 7.7 m/s, health 100; teammates -
+[match  553.0] [botskill] normal shots 1735 hits 396 reaction_avg 0.45 (n 335) dmg 8919 bots 5
+[match  556.0] Junjun Tisoy killed by Toto Pancit (gunshot); 2 teams left
+[match  556.0] alive: West Team 3, East Team 1; score { 0: 4, 1: 3 }
+[match  560.4] status: { "ground": 4 }; armed 4; shots 1772; zone -1 hold r=92; corpses 8; levels { "L2": 2, "L1": 2 }; server tick avg 1.45 ms, p99 13.71 ms, max 34.32 ms over 900 ticks
+[match  560.4] dm teams: West Team 3 at (13.0, -18.0) spread 16 m; East Team 1 at (35.0, -15.0) spread 0 m; gap 22 m; zone centre (1.0, 2.0)
+[match  560.4] bots: { "follow": 1, "order": 1, "fight": 2 }; containers searched by bots 0 (all players 0); plan steps done 0; guns carried 8
+[match  560.4] roles: { "sniper": { "follow": 1, "order": 1, "fight": 1 }, "stalker": { "fight": 1 } }; stuck now 0; waypoints 258; team { "lines": 401, "pings": 0, "laser_follow": 0, "learned_cells": 62, "blocked_cells": 0, "squads": 16, "following_humans": 0, &"learned_spots": 0 }
+[match  560.4] [lootstats] bots on the ground 4 (in water 0); armed 4; armed with ammo for a gun 4; long guns 4; attachments fitted 26; rounds of unusable ammo carried 0; items on the ground 0; bot pickups { "detours": 0, "detour_taken": 0, "fetches": 0, "fetch_done": 0, "items_taken": 0 }
+[match  564.3] Bossing Barbecue killed by Mang Jolo (gunshot); 1 teams left
+[match  564.3] alive: West Team 3, East Team 0; score { 0: 4, 1: 3 }
+[match  564.4] round 8 over: winner 0, scores { 0: 5, 1: 3 }
+[loadout] Pareng Jun shotgun_double [choke,bullet_loops] mag 2/2 | pistol_deagle [sight_reddot,suppressor_light,mag_extquick_light] mag 10/10
+[match  568.4] Pareng Jun respawned at (-51.0, 0.0, -5.0) (nearest enemy 1000 m)
+[loadout] Junjun Tisoy smg_tommy [suppressor_light,grip_vertical] mag 30/30 | pistol_9 [mag_extquick_light,weapon_light] mag 21/21
+[match  568.4] Junjun Tisoy respawned at (53.0, 0.0, 11.0) (nearest enemy 105 m)
+[loadout] Aling Nena shotgun_double [choke,bullet_loops] mag 2/2 | pistol_9 [] mag 15/15
+[match  568.4] Aling Nena respawned at (-56.0, 0.0, -2.0) (nearest enemy 109 m)
+[loadout] Bossing Dodong bolt_awp [scope_8x,mag_ext_sniper] mag 8/8 | revolver_357 [sight_reddot] mag 6/6
+[match  568.4] Bossing Dodong respawned at (53.0, 0.0, 5.0) (nearest enemy 104 m)
+[loadout] Toto Pancit smg_9 [sight_holo,grip_vertical,mag_extquick_light,weapon_light] mag 40/40 | revolver_357 [] mag 6/6
+[match  568.4] Toto Pancit respawned at (-56.0, 0.0, -5.0) (nearest enemy 109 m)
+[loadout] Bossing Barbecue bolt_awp [scope_6x,suppressor_rifle,mag_ext_sniper,cheek_pad] mag 8/8 | pistol_deagle [sight_reflex,suppressor_light,mag_extquick_light,weapon_light] mag 10/10
+[match  568.4] Bossing Barbecue respawned at (53.0, 0.0, -5.0) (nearest enemy 104 m)
+[loadout] Aling Taho bolt_kar98 [scope_8x,muzzle_brake,cheek_pad] mag 5/5 | pistol_9 [sight_reddot,suppressor_light,mag_extquick_light,weapon_light] mag 21/21
+[match  568.4] Aling Taho respawned at (-56.0, 0.0, 2.0) (nearest enemy 109 m)
+[loadout] Tita Baby shotgun_saiga [mag_extquick_rifle,weapon_light] mag 8/8 | revolver_357 [sight_reflex] mag 6/6
+[match  568.4] Tita Baby respawned at (53.0, 0.0, 8.0) (nearest enemy 105 m)
+[loadout] Kapitan Tikoy dmr_sks [scope_lpvo,cheek_pad] mag 10/10 | pistol_45 [sight_reddot,suppressor_light,weapon_light] mag 7/7
+[match  568.4] Kapitan Tikoy respawned at (-54.0, 0.0, 2.0) (nearest enemy 106 m)
+[loadout] Ate Siomai rifle_762 [scope_3x,muzzle_brake,laser_sight,mag_extquick_rifle,weapon_light] mag 40/40 | pistol_9 [weapon_light] mag 15/15
+[match  568.4] Ate Siomai respawned at (53.0, 0.0, -11.0) (nearest enemy 104 m)
+[loadout] Mang Jolo rifle_556 [suppressor_rifle,grip_vertical,mag_extquick_rifle,weapon_light] mag 40/40 | pistol_45 [suppressor_light,mag_extquick_light] mag 12/12
+[match  568.4] Mang Jolo respawned at (-56.0, 0.0, 5.0) (nearest enemy 109 m)
+[loadout] Ate Load Dito marksman_308 [suppressor_rifle,mag_ext_sniper,cheek_pad] mag 30/30 | pistol_deagle [sight_reflex,suppressor_light,weapon_light] mag 7/7
+[match  568.4] Ate Load Dito respawned at (50.0, 0.0, 11.0) (nearest enemy 103 m)
+[match  568.4] round 9 started; scores { 0: 5, 1: 3 }
+[match  572.0] [botskill] normal shots 1807 hits 412 reaction_avg 0.45 (n 345) dmg 9223 bots 12
+[match  575.1] Tita Baby (team 1) landed at (47.0, 0.0, 1.0), 2.5 m/s, health 100; teammates -
+[match  575.4] status: { "ground": 12 }; armed 12; shots 1818; zone -1 hold r=95; corpses 0; levels { "L1": 12 }; server tick avg 1.68 ms, p99 9.89 ms, max 19.82 ms over 660 ticks
+[match  575.4] dm teams: West Team 6 at (-51.0, -2.0) spread 6 m; East Team 6 at (48.0, -2.0) spread 5 m; gap 99 m; zone centre (-1.0, 5.0)
+[match  575.4] bots: { "hunt": 4, "roam": 6, "follow": 2 }; containers searched by bots 0 (all players 0); plan steps done 0; guns carried 24
+[match  575.4] roles: { "rusher": { "hunt": 1 }, "looter": { "roam": 2, "follow": 1 }, "sniper": { "follow": 1, "roam": 4 }, "stalker": { "hunt": 3 } }; stuck now 0; waypoints 258; team { "lines": 406, "pings": 0, "laser_follow": 0, "learned_cells": 64, "blocked_cells": 0, "squads": 18, "following_humans": 0, &"learned_spots": 0 }
+[match  575.4] [lootstats] bots on the ground 12 (in water 0); armed 12; armed with ammo for a gun 12; long guns 12; attachments fitted 59; rounds of unusable ammo carried 0; items on the ground 0; bot pickups { "detours": 0, "detour_taken": 0, "fetches": 0, "fetch_done": 0, "items_taken": 0 }
+[match  579.8] [hold] Mang Jolo overwatch spot 118 78s
+[match  580.9] [hold] Bossing Barbecue camp spot 104 59s
+[match  581.5] [hold] Kapitan Tikoy overwatch spot 170 88s
+[match  584.6] [hold] Junjun Tisoy camp spot 61 36s
+[match  585.4] Ate Siomai killed by Pareng Jun (gunshot); 2 teams left
+[match  585.4] alive: West Team 6, East Team 5; score { 0: 5, 1: 3 }
+[match  586.3] Bossing Dodong (team 1) landed at (34.0, 0.0, -25.0), 7.7 m/s, health 100; teammates 6 m
+[match  587.0] [botskill] normal shots 1812 hits 414 reaction_avg 0.46 (n 347) dmg 9298 bots 11
+[match  588.6] Ate Load Dito (team 1) landed at (40.0, 1.0, -16.0), 6.1 m/s, health 100; teammates 11 m, 10 m
+[match  590.4] status: { "ground": 11 }; armed 11; shots 1844; zone -1 hold r=95; corpses 1; levels { "L1": 11 }; server tick avg 2.35 ms, p99 9.22 ms, max 33.64 ms over 900 ticks
+[match  590.4] dm teams: West Team 6 at (-13.0, -3.0) spread 24 m; East Team 5 at (29.0, -3.0) spread 26 m; gap 41 m; zone centre (-1.0, 5.0)
+[match  590.4] bots: { "fight": 5, "roam": 2, "follow": 2, "camp": 1, "hunt": 1 }; containers searched by bots 0 (all players 0); plan steps done 0; guns carried 22
+[match  590.4] roles: { "rusher": { "fight": 1 }, "looter": { "roam": 1, "camp": 1, "follow": 1 }, "sniper": { "follow": 1, "fight": 2, "roam": 1 }, "stalker": { "fight": 2, "hunt": 1 } }; stuck now 1; waypoints 258; team { "lines": 416, "pings": 0, "laser_follow": 0, "learned_cells": 66, "blocked_cells": 0, "squads": 18, "following_humans": 0, &"learned_spots": 0 }
+[match  590.4] [lootstats] bots on the ground 11 (in water 0); armed 11; armed with ammo for a gun 11; long guns 11; attachments fitted 53; rounds of unusable ammo carried 0; items on the ground 0; bot pickups { "detours": 0, "detour_taken": 0, "fetches": 0, "fetch_done": 0, "items_taken": 0 }
+[match  591.2] Pareng Jun killed by Bossing Dodong (gunshot); 2 teams left
+[match  591.2] alive: West Team 5, East Team 5; score { 0: 5, 1: 3 }
+[match  593.4] Mang Jolo killed by Junjun Tisoy (gunshot); 2 teams left
+[match  593.4] alive: West Team 4, East Team 5; score { 0: 5, 1: 3 }
+[match  594.3] Bossing Dodong killed by Toto Pancit (gunshot); 2 teams left
+[match  594.3] alive: West Team 4, East Team 4; score { 0: 5, 1: 3 }
+[match  595.3] Aling Taho (team 0) landed at (-31.0, 0.0, -11.0), 4.9 m/s, health 100; teammates -
+[match  598.2] Toto Pancit killed by Tita Baby (gunshot); 2 teams left
+[match  598.2] alive: West Team 3, East Team 4; score { 0: 5, 1: 3 }
+[match  601.0] Aling Nena killed by Tita Baby (gunshot); 2 teams left
+[match  601.0] alive: West Team 2, East Team 4; score { 0: 5, 1: 3 }
+[match  601.4] [endgame] East Team mates 4 foes 2 nocontact 0s
+[match  601.5] [endgame] West Team mates 2 foes 4 nocontact 0s
+[match  602.0] [botskill] normal shots 1926 hits 455 reaction_avg 0.45 (n 375) dmg 10034 bots 6
+[match  604.2] Bossing Barbecue killed by Kapitan Tikoy (bleeding); 2 teams left
+[match  604.2] alive: West Team 2, East Team 3; score { 0: 5, 1: 3 }
+[match  605.4] status: { "ground": 5 }; armed 5; shots 1950; zone -1 hold r=95; corpses 7; levels { "L1": 5 }; server tick avg 3.06 ms, p99 10.22 ms, max 24.68 ms over 900 ticks
+[match  605.4] dm teams: West Team 2 at (-7.0, -6.0) spread 9 m; East Team 3 at (18.0, 6.0) spread 33 m; gap 27 m; zone centre (-1.0, 5.0)
+[match  605.4] bots: { "hunt": 2, "order": 1, "fight": 2 }; containers searched by bots 0 (all players 0); plan steps done 0; guns carried 10
+[match  605.4] roles: { "looter": { "hunt": 2 }, "stalker": { "order": 1, "fight": 1 }, "sniper": { "fight": 1 } }; stuck now 0; waypoints 258; team { "lines": 442, "pings": 0, "laser_follow": 0, "learned_cells": 68, "blocked_cells": 0, "squads": 18, "following_humans": 0, &"learned_spots": 0 }
+[match  605.4] [lootstats] bots on the ground 5 (in water 0); armed 5; armed with ammo for a gun 5; long guns 5; attachments fitted 25; rounds of unusable ammo carried 0; items on the ground 0; bot pickups { "detours": 0, "detour_taken": 0, "fetches": 0, "fetch_done": 0, "items_taken": 0 }
+[match  607.9] Kapitan Tikoy killed by Tita Baby (gunshot); 2 teams left
+[match  607.9] alive: West Team 1, East Team 3; score { 0: 5, 1: 3 }
+[match  617.0] [botskill] normal shots 1968 hits 469 reaction_avg 0.46 (n 384) dmg 10176 bots 4
+[match  620.4] status: { "ground": 4 }; armed 4; shots 1997; zone -1 hold r=95; corpses 8; levels { "L1": 4 }; server tick avg 1.45 ms, p99 3.45 ms, max 16.03 ms over 900 ticks
+[match  620.4] dm teams: West Team 1 at (2.0, -5.0) spread 0 m; East Team 3 at (15.0, 2.0) spread 31 m; gap 15 m; zone centre (-1.0, 5.0)
+[match  620.4] bots: { "fight": 3, "hunt": 1 }; containers searched by bots 0 (all players 0); plan steps done 0; guns carried 8
+[match  620.4] roles: { "looter": { "fight": 1, "hunt": 1 }, "stalker": { "fight": 2 } }; stuck now 0; waypoints 258; team { "lines": 450, "pings": 0, "laser_follow": 0, "learned_cells": 69, "blocked_cells": 0, "squads": 18, "following_humans": 0, &"learned_spots": 0 }
+[match  620.4] [lootstats] bots on the ground 4 (in water 0); armed 4; armed with ammo for a gun 4; long guns 4; attachments fitted 20; rounds of unusable ammo carried 0; items on the ground 0; bot pickups { "detours": 0, "detour_taken": 0, "fetches": 0, "fetch_done": 0, "items_taken": 0 }
+[match  620.7] Aling Taho killed by Junjun Tisoy (gunshot); 1 teams left
+[match  620.7] alive: West Team 0, East Team 3; score { 0: 5, 1: 3 }
+[match  620.7] round 9 over: winner 1, scores { 0: 5, 1: 4 }
+[loadout] Pareng Jun dmr_sks [scope_6x,suppressor_rifle,mag_ext_sniper,cheek_pad] mag 20/20 | pistol_9 [sight_reflex,suppressor_light,weapon_light] mag 15/15
+[match  624.7] Pareng Jun respawned at (-54.0, 0.0, 5.0) (nearest enemy 1000 m)
+[loadout] Junjun Tisoy rifle_scar [scope_3x,suppressor_rifle,grip_vertical] mag 30/30 | pistol_9 [sight_reddot,suppressor_light,mag_extquick_light,weapon_light] mag 21/21
+[match  624.7] Junjun Tisoy respawned at (53.0, 0.0, -8.0) (nearest enemy 107 m)
+[loadout] Aling Nena dmr_sks [scope_4x,muzzle_brake,mag_ext_sniper,cheek_pad] mag 20/20 | pistol_9 [suppressor_light,mag_extquick_light,weapon_light] mag 21/21
+[match  624.7] Aling Nena respawned at (-56.0, 0.0, -2.0) (nearest enemy 109 m)
+[loadout] Bossing Dodong shotgun_double [] mag 2/2 | pistol_deagle [sight_reddot,weapon_light] mag 7/7
+[match  624.7] Bossing Dodong respawned at (53.0, 0.0, -11.0) (nearest enemy 107 m)
+[loadout] Toto Pancit dmr_mini14 [scope_6x,mag_ext_sniper,cheek_pad] mag 30/30 | pistol_deagle [sight_reddot,suppressor_light,mag_extquick_light,weapon_light] mag 10/10
+[match  624.7] Toto Pancit respawned at (-56.0, 0.0, 2.0) (nearest enemy 109 m)
+[loadout] Bossing Barbecue rifle_m762 [scope_night,suppressor_rifle,mag_extquick_rifle,weapon_light] mag 40/40 | revolver_357 [sight_reddot] mag 6/6
+[match  624.7] Bossing Barbecue respawned at (53.0, 0.0, 11.0) (nearest enemy 106 m)
+[loadout] Aling Taho shotgun_double [choke,bullet_loops] mag 2/2 | pistol_45 [suppressor_light,mag_extquick_light,weapon_light] mag 12/12
+[match  624.7] Aling Taho respawned at (-56.0, 0.0, 5.0) (nearest enemy 109 m)
+[loadout] Tita Baby rifle_m416 [scope_3x,suppressor_rifle,grip_vertical,mag_extquick_rifle,stock_heavy,weapon_light] mag 40/40 | pistol_9 [sight_reflex,suppressor_light,mag_extquick_light] mag 21/21
+[match  624.7] Tita Baby respawned at (53.0, 0.0, 8.0) (nearest enemy 106 m)
+[loadout] Kapitan Tikoy machine_pistol [sight_reddot,suppressor_light,laser_sight,stock_heavy] mag 32/32 | revolver_357 [] mag 6/6
+[match  624.7] Kapitan Tikoy respawned at (-54.0, 0.0, 2.0) (nearest enemy 106 m)
+[loadout] Ate Siomai bolt_kar98 [scope_6x,suppressor_rifle,cheek_pad] mag 5/5 | revolver_357 [] mag 6/6
+[match  624.7] Ate Siomai respawned at (50.0, 0.0, -8.0) (nearest enemy 104 m)
+[loadout] Mang Jolo marksman_308 [scope_thermal,mag_ext_sniper,cheek_pad] mag 30/30 | pistol_9 [sight_reddot,suppressor_light,mag_extquick_light,weapon_light] mag 21/21
+[match  624.7] Mang Jolo respawned at (-54.0, 0.0, -2.0) (nearest enemy 104 m)
+[loadout] Ate Load Dito marksman_308 [scope_6x,suppressor_rifle,mag_ext_sniper,cheek_pad] mag 30/30 | pistol_9 [sight_reddot,suppressor_light,mag_extquick_light,weapon_light] mag 21/21
+[match  624.7] Ate Load Dito respawned at (53.0, 0.0, -5.0) (nearest enemy 106 m)
+[match  624.7] round 10 started; scores { 0: 5, 1: 4 }
+[match  631.5] Tita Baby (team 1) landed at (47.0, 0.0, 1.0), 2.5 m/s, health 100; teammates -
+[match  635.4] status: { "ground": 12 }; armed 12; shots 2000; zone -1 hold r=93; corpses 0; levels { "L1": 12 }; server tick avg 1.38 ms, p99 7.22 ms, max 15.59 ms over 660 ticks
+[match  635.4] dm teams: West Team 6 at (-41.0, 4.0) spread 11 m; East Team 6 at (34.0, -4.0) spread 7 m; gap 75 m; zone centre (-3.0, 2.0)
+[match  635.4] bots: { "follow": 2, "hunt": 4, "roam": 6 }; containers searched by bots 0 (all players 0); plan steps done 0; guns carried 24
+[match  635.4] roles: { "sniper": { "follow": 1, "roam": 3 }, "rusher": { "hunt": 2 }, "looter": { "roam": 3 }, "stalker": { "hunt": 2, "follow": 1 } }; stuck now 0; waypoints 258; team { "lines": 452, "pings": 0, "laser_follow": 0, "learned_cells": 69, "blocked_cells": 0, "squads": 20, "following_humans": 0, &"learned_spots": 0 }
+[match  635.4] [lootstats] bots on the ground 12 (in water 0); armed 12; armed with ammo for a gun 12; long guns 12; attachments fitted 71; rounds of unusable ammo carried 0; items on the ground 0; bot pickups { "detours": 0, "detour_taken": 0, "fetches": 0, "fetch_done": 0, "items_taken": 0 }
+[match  636.0] [botskill] normal shots 1986 hits 475 reaction_avg 0.47 (n 387) dmg 10232 bots 12
+[match  637.8] [hold] Aling Taho overwatch spot 149 70s
+[match  638.9] [hold] Ate Siomai overwatch spot 110 110s
+[match  640.0] [hold] Aling Nena camp spot 33 42s
+[match  640.2] [hold] Bossing Barbecue camp spot 37 61s
+[match  640.3] Ate Load Dito killed by Mang Jolo (gunshot); 2 teams left
+[match  640.3] alive: West Team 6, East Team 5; score { 0: 5, 1: 4 }
+[match  646.6] Mang Jolo killed by Junjun Tisoy (gunshot); 2 teams left
+[match  646.6] alive: West Team 5, East Team 5; score { 0: 5, 1: 4 }
+[match  649.4] Junjun Tisoy killed by Aling Nena (gunshot); 2 teams left
+[match  649.4] alive: West Team 5, East Team 4; score { 0: 5, 1: 4 }
+[match  650.2] Kapitan Tikoy killed by Toto Pancit (gunshot); 2 teams left
+[match  650.2] alive: West Team 4, East Team 4; score { 0: 5, 1: 4 }
+[match  650.4] status: { "ground": 8 }; armed 8; shots 2118; zone -1 hold r=93; corpses 4; levels { "L1": 8 }; server tick avg 2.95 ms, p99 12.33 ms, max 18.58 ms over 900 ticks
+[match  650.4] dm teams: West Team 4 at (-23.0, 5.0) spread 11 m; East Team 4 at (16.0, -5.0) spread 18 m; gap 41 m; zone centre (-3.0, 2.0)
+[match  650.4] bots: { "fight": 7, "order": 1 }; containers searched by bots 0 (all players 0); plan steps done 0; guns carried 16
+[match  650.4] roles: { "sniper": { "fight": 4 }, "looter": { "fight": 1, "order": 1 }, "stalker": { "fight": 2 } }; stuck now 0; waypoints 258; team { "lines": 471, "pings": 0, "laser_follow": 0, "learned_cells": 69, "blocked_cells": 0, "squads": 20, "following_humans": 0, &"learned_spots": 0 }
+[match  650.4] [lootstats] bots on the ground 8 (in water 0); armed 8; armed with ammo for a gun 8; long guns 8; attachments fitted 45; rounds of unusable ammo carried 0; items on the ground 0; bot pickups { "detours": 0, "detour_taken": 0, "fetches": 0, "fetch_done": 0, "items_taken": 0 }
+[match  650.6] Aling Taho killed by Pareng Jun (gunshot); 2 teams left
+[match  650.6] alive: West Team 3, East Team 4; score { 0: 5, 1: 4 }
+[match  651.0] [botskill] normal shots 2113 hits 493 reaction_avg 0.45 (n 431) dmg 10764 bots 7
+[match  651.4] Tita Baby killed by Aling Nena (gunshot); 2 teams left
+[match  651.4] alive: West Team 3, East Team 3; score { 0: 5, 1: 4 }
+[match  653.6] Bossing Dodong killed by Aling Nena (gunshot); 2 teams left
+[match  653.6] alive: West Team 3, East Team 2; score { 0: 5, 1: 4 }
+[match  653.6] [endgame] East Team mates 2 foes 3 nocontact 0s
+[match  654.1] [endgame] West Team mates 3 foes 2 nocontact 0s
+[run_timed] killed after 660 s

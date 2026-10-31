@@ -21,6 +21,12 @@ extends RefCounted
 ##                   spot of its own (looked round like the others), so bots learn the places players like;
 ##   stuck cells     now kept per floor on storeyed maps, and dropped when the map's build changes.
 ## Bots claim the spot they are heading for, so two do not stack on one.
+##
+## (r22) The endgame (Deathmatch): per team, when its bots last saw or were hit by an enemy, whether it is in the endgame
+## (few left on a side, or no contact for a while: bot_brain.gd decides), and a sweep map: every 16 m cell (per floor on
+## storeyed maps) keeps when a bot of the team last walked through or beside it, so sweeping bots go where nobody has
+## looked for longest, each claiming its cell so teammates spread. After a long quiet in the endgame the team gets a
+## rough idea (within 20 m) of the nearest enemy, so a hidden last player is always found. Also the [botskill] numbers.
 
 const CELL := 8.0
 const STEP := 4                  # walk-grid cells between samples
@@ -48,6 +54,24 @@ static var _watch := {}            # human eid -> [anchor Vector3, seconds still
 static var _watch_t := 0.0
 const LEARNED_MAX := 150
 const CAMP_S := 8.0
+# r22
+const SWEEP_CELL := 16.0
+const HINT_EVERY_S := 30.0
+const HINT_FUZZ := 20.0
+static var _round_key := {}        # team -> "seed:round" the endgame state below belongs to
+static var _t0 := {}               # team -> msec its round began (cells never checked count from here)
+static var contact_t := {}         # team -> msec one of its bots last saw an enemy or was hit
+static var end_t := {}             # team -> msec its endgame began (absent: not in it)
+static var _end_log := {}          # team -> msec of the last [endgame] line
+static var _hint_t := {}           # team -> msec of the last hint
+static var checked := {}           # team -> {Vector3i(cell x, cell z, floor): msec last checked}
+static var sweep_claims := {}      # team -> {Vector3i: [eid, msec until]}
+static var _cnt := {}              # team -> {t, mates, foes, quiet_s} (recounted twice a second)
+static var _cells := {}            # Vector3i -> [spot index]: the waypoints by sweep cell
+static var _cells_n := -1          # spots.size() the buckets were made for
+static var _storeyed := -1
+static var skill_stats := {}       # skill -> {shots, hits, dmg, react_s, react_n}
+static var _skill_t := 0.0
 
 
 static func begin(w) -> void:
@@ -67,6 +91,19 @@ static func begin(w) -> void:
 	spot_stats = {}
 	claims = {}
 	_watch = {}
+	_round_key = {}
+	_t0 = {}
+	contact_t = {}
+	end_t = {}
+	_end_log = {}
+	_hint_t = {}
+	checked = {}
+	sweep_claims = {}
+	_cnt = {}
+	_cells_n = -1
+	_storeyed = -1
+	skill_stats = {}
+	_skill_t = 0.0
 	if learning():
 		_load()
 	set_spots(BotNav.spots if BotNav.phase == "done" else [])
@@ -115,6 +152,7 @@ static func set_spots(arr: Array) -> void:
 	spots.append_array(learned)
 	spot_grid = {}
 	claims = {}
+	_cells_n = -1
 	for i in spots.size():
 		var k := _sg(spots[i].p)
 		if not spot_grid.has(k):
@@ -427,6 +465,10 @@ static func tick(dt: float) -> void:
 		_quit()
 		return
 	BotNav.pump()
+	_skill_t += dt
+	if _skill_t >= 15.0:
+		_skill_t = 0.0
+		_log_skill()
 	_watch_t += dt
 	if _watch_t < 0.5 or not learning():
 		return
@@ -713,6 +755,7 @@ static func on_killed(victim, attacker: int) -> void:
 			b.reply("down", 0)
 			break
 	leave_squad(victim.eid)
+	sweep_done(victim.team, victim.eid)   # r22: its sweep cell is free for a teammate
 	# Bots following a human who fell go their own way.
 	var hs: Dictionary = squads.get(10000 + int(victim.eid), {})
 	if not hs.is_empty():
@@ -720,3 +763,245 @@ static func on_killed(victim, attacker: int) -> void:
 			if world.bots.has(e):
 				world.bots[e].squad_id = -1
 		squads.erase(10000 + int(victim.eid))
+
+
+# ------------------------------------------------------------------ r22: the endgame, the team sweep, skill numbers
+
+static func log_on() -> bool:
+	return world != null and world.match_server != null and bool(world.match_server._log_on)
+
+
+static func team_round(team: int) -> void:
+	## The first bot of a team made for a round (Deathmatch rounds make every bot afresh) starts the team's endgame
+	## state over: contact counted from now, no sweep cells checked, no endgame.
+	if world == null:
+		return
+	var ms = world.match_server
+	var key := "%d:%d" % [Game.match_seed, int(ms.round_number) if ms != null else 1]
+	if str(_round_key.get(team, "")) == key:
+		return
+	_round_key[team] = key
+	var now := Time.get_ticks_msec()
+	_t0[team] = now
+	contact_t[team] = now
+	end_t.erase(team)
+	_hint_t.erase(team)
+	_cnt.erase(team)
+	checked[team] = {}
+	sweep_claims[team] = {}
+
+
+static func contact(team: int) -> void:
+	## One of the team's bots saw an enemy or was hit.
+	contact_t[team] = Time.get_ticks_msec()
+
+
+static func counts(team: int) -> Dictionary:
+	## {mates, foes, quiet_s}: the team's standing members, the smallest other team still standing (99: none), and the
+	## seconds since its bots last saw or were hit by an enemy. Recounted at most twice a second.
+	var now := Time.get_ticks_msec()
+	var c: Dictionary = _cnt.get(team, {})
+	if c.is_empty() or now - int(c.t) >= 500:
+		var per := {}
+		for o in world.characters.values():
+			if o.mode in [Motor.GROUND, Motor.DOWNED]:
+				per[o.team] = int(per.get(o.team, 0)) + 1
+		var foes := 99
+		for t in per:
+			if int(t) != team:
+				foes = mini(foes, int(per[t]))
+		c = {"t": now, "mates": int(per.get(team, 0)), "foes": foes}
+		_cnt[team] = c
+	c.quiet_s = (now - int(contact_t.get(team, now))) / 1000.0
+	return c
+
+
+static func note_endgame(team: int, on: bool, c: Dictionary) -> void:
+	## A bot of the team found it in the endgame (or not): the start is kept for the hint, and logged once per entry.
+	if not on:
+		end_t.erase(team)
+		return
+	if end_t.has(team):
+		return
+	var now := Time.get_ticks_msec()
+	end_t[team] = now
+	if log_on() and now - int(_end_log.get(team, -100000)) > 10000:
+		_end_log[team] = now
+		world.match_server.log_event("[endgame] %s mates %d foes %d nocontact %ds" % [world.match_server.team_name(team),
+			int(c.mates), int(c.foes), int(c.quiet_s)])
+
+
+static func hint(team: int, after_s: float, rng: RandomNumberGenerator) -> Vector3:
+	## The backstop: after_s seconds into the endgame without contact, the team learns roughly (within HINT_FUZZ) where
+	## the nearest enemy to it is, again every HINT_EVERY_S. INF when none is due.
+	if not end_t.has(team):
+		return Vector3.INF
+	var now := Time.get_ticks_msec()
+	if now - maxi(int(end_t[team]), int(contact_t.get(team, 0))) < int(after_s * 1000.0) \
+			or now - int(_hint_t.get(team, -10000000)) < int(HINT_EVERY_S * 1000.0):
+		return Vector3.INF
+	var sum := Vector3.ZERO
+	var n := 0
+	for o in world.characters.values():
+		if o.team == team and o.mode == Motor.GROUND:
+			sum += o.global_position
+			n += 1
+	if n == 0:
+		return Vector3.INF
+	var cen := sum / n
+	var best = null
+	var bd := INF
+	for o in world.characters.values():
+		if o.team != team and o.mode in [Motor.GROUND, Motor.DOWNED]:
+			var d: float = (o.global_position as Vector3).distance_to(cen)
+			if d < bd:
+				bd = d
+				best = o
+	if best == null:
+		return Vector3.INF
+	_hint_t[team] = now
+	var a := rng.randf() * TAU
+	var r := rng.randf() * HINT_FUZZ
+	var p: Vector3 = (best.global_position as Vector3) + Vector3(cos(a) * r, 0.0, sin(a) * r)
+	if log_on():
+		world.match_server.log_event("[hint] %s: nearest enemy %s, %.0f m from the team, hint %.0f m off" % [
+			world.match_server.team_name(team), best.pname, bd, r])
+	return p
+
+
+static func cell_of(p: Vector3) -> Vector3i:
+	## The sweep cell: (x, z, floor). Floors only on storeyed maps (Malasugue Mall, Freight Delight).
+	if _storeyed < 0:
+		_storeyed = 1 if world != null and world.map.layout.has_method("level_of") else 0
+	var fl: int = int(world.map.layout.level_of(p.y)) if _storeyed == 1 else 0
+	return Vector3i(floori(p.x / SWEEP_CELL), floori(p.z / SWEEP_CELL), fl)
+
+
+static func mark_seen(team: int, p: Vector3) -> void:
+	## A bot of the team is here: its cell, and the neighbouring cells whose middle is within 18 m, are checked now.
+	if not checked.has(team):
+		checked[team] = {}
+	var m: Dictionary = checked[team]
+	var c := cell_of(p)
+	var now := Time.get_ticks_msec()
+	var q := Vector2(p.x, p.z)
+	for dz in range(-1, 2):
+		for dx in range(-1, 2):
+			var k := Vector3i(c.x + dx, c.y + dz, c.z)
+			if (dx != 0 or dz != 0) and Vector2((k.x + 0.5) * SWEEP_CELL, (k.y + 0.5) * SWEEP_CELL).distance_to(q) > 18.0:
+				continue
+			m[k] = now
+
+
+static func _bucket() -> void:
+	if _cells_n == spots.size():
+		return
+	_cells = {}
+	for i in spots.size():
+		var k := cell_of(spots[i].p)
+		if not _cells.has(k):
+			_cells[k] = []
+		_cells[k].append(i)
+	_cells_n = spots.size()
+
+
+static func sweep_pick(team: int, eid: int, me: Vector3, lean: Vector3, rng: RandomNumberGenerator, usable: Callable) -> Dictionary:
+	## Where a sweeping bot goes next: a waypoint (any kind, anywhere on the map) in the cell its team checked longest ago,
+	## weighed against the walk there and leaning toward lean (the enemy's last known place, or its side), skipping cells
+	## a teammate is sweeping and their neighbours. Claims the cell. {i, cell, stale} or {} when nowhere is stale.
+	if spots.is_empty() or world == null:
+		return {}
+	_bucket()
+	var now := Time.get_ticks_msec()
+	var m: Dictionary = checked.get(team, {})
+	if not sweep_claims.has(team):
+		sweep_claims[team] = {}
+	var cl: Dictionary = sweep_claims[team]
+	var taken := {}
+	for k0: Vector3i in cl.keys():
+		var c0: Array = cl[k0]
+		if int(c0[1]) < now:
+			cl.erase(k0)
+			continue
+		if int(c0[0]) == eid:
+			continue
+		for dz in range(-1, 2):
+			for dx in range(-1, 2):
+				taken[Vector3i(k0.x + dx, k0.y + dz, k0.z)] = true
+	var never := int(_t0.get(team, now)) - 30000   # never checked: as if checked half a minute before the round
+	var mc := cell_of(me)
+	var best = null
+	var bs := -INF
+	var b_stale := 0.0
+	for k: Vector3i in _cells:
+		if taken.has(k):
+			continue
+		var stale: float = (now - int(m.get(k, never))) / 1000.0
+		if stale < 25.0:
+			continue
+		var mx: float = (k.x + 0.5) * SWEEP_CELL
+		var mz: float = (k.y + 0.5) * SWEEP_CELL
+		var d: float = Vector2(mx - me.x, mz - me.z).length() + absf(float(k.z - mc.z)) * 12.0
+		var sc := minf(stale, 240.0) * 0.25 - d * 0.12 + rng.randf_range(0.0, 6.0)
+		if lean != Vector3.INF:
+			sc += 15.0 * clampf(1.0 - Vector2(mx - lean.x, mz - lean.z).length() / 150.0, 0.0, 1.0)
+		if sc > bs:
+			bs = sc
+			best = k
+			b_stale = stale
+	if best == null:
+		return {}
+	# The waypoint in that cell with the widest view (where a look round covers most).
+	var sp := -1
+	var ss := -INF
+	for i in _cells[best]:
+		var s: Dictionary = spots[i]
+		if claimed(i, eid) or not bool(usable.call(s.p)):
+			continue
+		var v := float(s.sight) * 0.05 + rng.randf_range(0.0, 1.5)
+		if v > ss:
+			ss = v
+			sp = i
+	if sp < 0:
+		m[best] = now   # nowhere to stand there: counted as checked, so the next pick goes elsewhere
+		checked[team] = m
+		return {}
+	cl[best] = [eid, now + 90000]
+	return {"i": sp, "cell": best, "stale": b_stale}
+
+
+static func sweep_done(team: int, eid: int) -> void:
+	var cl: Dictionary = sweep_claims.get(team, {})
+	for k in cl.keys():
+		if int(cl[k][0]) == eid:
+			cl.erase(k)
+
+
+static func skill_note(sk: String, what: String, v: float) -> void:
+	## A bot's measured play, by skill: rounds fired, hits, damage dealt, seconds from first sight to first round.
+	if not skill_stats.has(sk):
+		skill_stats[sk] = {"shots": 0, "hits": 0, "dmg": 0.0, "react_s": 0.0, "react_n": 0}
+	var s: Dictionary = skill_stats[sk]
+	match what:
+		"shots":
+			s.shots = int(s.shots) + int(v)
+		"hits":
+			s.hits = int(s.hits) + 1
+			s.dmg = float(s.dmg) + v
+		"react":
+			s.react_s = float(s.react_s) + v
+			s.react_n = int(s.react_n) + 1
+
+
+static func _log_skill() -> void:
+	if not log_on() or skill_stats.is_empty():
+		return
+	var per := {}
+	for eid in world.bots:
+		var sk := str(world.bots[eid].skill)
+		per[sk] = int(per.get(sk, 0)) + 1
+	for sk in skill_stats:
+		var s: Dictionary = skill_stats[sk]
+		var n := int(s.react_n)
+		world.match_server.log_event("[botskill] %s shots %d hits %d reaction_avg %.2f (n %d) dmg %.0f bots %d" % [sk, int(s.shots),
+			int(s.hits), float(s.react_s) / n if n > 0 else 0.0, n, float(s.dmg), int(per.get(sk, 0))])

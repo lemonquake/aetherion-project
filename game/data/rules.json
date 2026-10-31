@@ -92,6 +92,21 @@
     "wallrun_up_speed": 5.5, "shimmy_speed": 0.9, "hang_max_s": 8.0,
     "slide_speed_min": 5.2, "slide_decel": 3.2, "slide_s": 0.95, "roll_s": 0.6
   },
+  "bot_skill": {
+    "_doc": "r22 bot difficulty (lobby Bot skill: easy | normal | hard | pro; anything else plays normal; --bot_skill=<skill> overrides on a server). reaction: seconds [min, max] from first sight to the trigger. aim_err: degrees [yaw, pitch] off at first sight, settling at settle deg/s; aim_lerp: how fast the view follows the target (per s); wobble: degrees of shake that never settles. fire_gate: radians off target the trigger is pulled at; fire_chance: per frame while on target; burst: seconds [min, max]. vision: x sight ranges; behind_dot: nobody is seen at a bearing whose dot with the view is below this (lower = wider, never through walls); hurt_react: reaction cap when shot by someone unseen. hold: x camp / overwatch time. Deathmatch endgame: a side down to end_alive standing, or end_contact_s without the team seeing or being hit by an enemy; then holds last at most end_camp_s (ambush) / end_watch_s (sniper), one per end_hold_gap_s, sweeps in between, and after end_hint_s more without contact the team gets a rough idea (20 m) of the nearest enemy. head_m: aims at the head beyond this range (0 never). tactics: Pro fighting (long gun at range, rush when out of rounds, push an opening, pre-aim, reload out of sight).",
+    "easy": {"reaction": [0.8, 1.4], "aim_err": [14.0, 9.0], "settle": 1.5, "aim_lerp": 4.5, "wobble": 3.0, "fire_gate": 0.22, "fire_chance": 0.8, "burst": [0.15, 0.4],
+             "vision": 0.8, "behind_dot": 0.3, "hurt_react": 0.6, "hold": 1.0, "end_alive": 2, "end_contact_s": 55.0, "end_hint_s": 75.0,
+             "end_camp_s": 12.0, "end_watch_s": 20.0, "end_hold_gap_s": 60.0, "head_m": 0.0, "tactics": false},
+    "normal": {"reaction": [0.35, 0.8], "aim_err": [6.0, 4.0], "settle": 4.0, "aim_lerp": 8.0, "wobble": 0.0, "fire_gate": 0.12, "fire_chance": 0.85, "burst": [0.2, 0.5],
+               "vision": 1.0, "behind_dot": 0.2, "hurt_react": 0.3, "hold": 1.0, "end_alive": 2, "end_contact_s": 45.0, "end_hint_s": 60.0,
+               "end_camp_s": 12.0, "end_watch_s": 20.0, "end_hold_gap_s": 60.0, "head_m": 0.0, "tactics": false},
+    "hard": {"reaction": [0.2, 0.45], "aim_err": [3.5, 2.5], "settle": 6.0, "aim_lerp": 11.0, "wobble": 0.0, "fire_gate": 0.1, "fire_chance": 0.9, "burst": [0.2, 0.5],
+             "vision": 1.1, "behind_dot": 0.0, "hurt_react": 0.2, "hold": 0.7, "end_alive": 3, "end_contact_s": 35.0, "end_hint_s": 45.0,
+             "end_camp_s": 9.0, "end_watch_s": 15.0, "end_hold_gap_s": 45.0, "head_m": 0.0, "tactics": false},
+    "pro": {"reaction": [0.12, 0.3], "aim_err": [2.0, 1.5], "settle": 8.0, "aim_lerp": 14.0, "wobble": 0.0, "fire_gate": 0.08, "fire_chance": 0.95, "burst": [0.15, 0.4],
+            "vision": 1.2, "behind_dot": -0.15, "hurt_react": 0.15, "hold": 0.6, "end_alive": 3, "end_contact_s": 30.0, "end_hint_s": 40.0,
+            "end_camp_s": 7.0, "end_watch_s": 12.0, "end_hold_gap_s": 40.0, "head_m": 25.0, "tactics": true}
+  },
   "interaction": {
     "reach": 2.3, "carry_mass_limit": 22.0, "throw_mass_limit": 6.0, "push_mass_limit": 120.0,
     "throw_speed_max": 13.0, "hold_distance": 1.25, "max_held_speed": 7.0

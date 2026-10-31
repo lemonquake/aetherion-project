@@ -1,0 +1,257 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+[server] dedicated server listening on 27643
+[world] map built in 4103 ms
+[map] 0 buildings, 213 doors, 163 containers, 779 props, #55dd752c on PC
+[nav] levels: 56959 points, 32 links, 203 ms
+[nav] r21: 1424 cells closed by the physics check, main walk 49517 of 55567 points (6050 in pockets), 374 ms
+[botnav] malasugue_mall: walk check and 1304 spots from res://data/botnav/malasugue_mall.json { "hide": 301, "snipe": 618, "cover": 190, "open": 195 }
+[bots] learned from 98 cells, 68 stuck spots, 0 spots learned from play, 52 spot records (user://bot_memory_malasugue_mall.json)
+[match    0.0] deathmatch start on malasugue_mall: 12 players, 2 teams; spawns (42.0, 10.0, -26.0), (-40.0, 0.0, -27.0) (82/82 m apart, floors); day offset 0 s; zone centre (10.0, -1.0) r=126; win by wipe
+[match    0.0] status: { "ground": 12 }; armed 12; shots 0; zone -1 hold r=126; corpses 0; levels { "L1": 6, "L3": 6 }
+[match    0.0] dm teams: West Team 6 at (42.0, -26.0) spread 1 m; East Team 6 at (-40.0, -27.0) spread 1 m; gap 83 m; zone centre (10.0, -1.0)
+[match    0.0] bots: { "roam": 12 }; containers searched by bots 0 (all players 0); plan steps done 0; guns carried 24
+[match    0.0] roles: { "stalker": { "roam": 2 }, "sniper": { "roam": 4 }, "rusher": { "roam": 4 }, "looter": { "roam": 2 } }; stuck now 0; waypoints 1304; team { "lines": 0, "pings": 0, "laser_follow": 0, "learned_cells": 98, "blocked_cells": 28, "squads": 0, "following_humans": 0, &"learned_spots": 0 }
+[match    0.0] [lootstats] bots on the ground 12 (in water 0); armed 12; armed with ammo for a gun 12; long guns 12; attachments fitted 0; rounds of unusable ammo carried 0; items on the ground 416; bot pickups { "detours": 0, "detour_taken": 0, "fetches": 0, "fetch_done": 0, "items_taken": 0 }
+[match   11.8] Pinsan Gardo (team 1) landed at (-52.0, 0.0, -41.0), 3.8 m/s, health 100; teammates -
+[match   12.7] Ka Pedring (team 0) landed at (51.0, 0.0, -40.0), 14.9 m/s, health 100; teammates -
+[match   13.9] Bayaw Erning (team 0) landed at (51.0, 0.0, -40.0), 12.3 m/s, health 100; teammates 1 m
+[match   14.0] Aling Taho (team 1) landed at (-50.0, 0.0, -39.0), 7.0 m/s, health 100; teammates 3 m
+[match   14.1] Totoy Kulot (team 0) landed at (51.0, 2.0, -40.0), 10.3 m/s, health 100; teammates 2 m, 2 m
+[match   14.3] Utoy Kalabaw (team 0) landed at (51.0, 3.0, -40.0), 9.0 m/s, health 100; teammates 2 m, 4 m, 3 m
+[match   15.0] status: { "ground": 12 }; armed 12; shots 0; zone -1 hold r=126; corpses 0; levels { "L1": 6, "between": 6 }; server tick avg 1.82 ms, p99 14.31 ms, max 33.91 ms over 900 ticks
+[match   15.0] dm teams: West Team 6 at (53.0, -40.0) spread 4 m; East Team 6 at (-18.0, -21.0) spread 30 m; gap 73 m; zone centre (10.0, -1.0)
+[match   15.0] bots: { "follow": 2, "roam": 4, "hunt": 5, "heal": 1 }; containers searched by bots 0 (all players 0); plan steps done 0; guns carried 24
+[match   15.0] roles: { "stalker": { "follow": 1, "hunt": 1 }, "sniper": { "roam": 3, "heal": 1 }, "rusher": { "hunt": 4 }, "looter": { "follow": 1, "roam": 1 } }; stuck now 0; waypoints 1304; team { "lines": 3, "pings": 0, "laser_follow": 0, "learned_cells": 98, "blocked_cells": 28, "squads": 2, "following_humans": 0, &"learned_spots": 0 }
+[match   15.0] [lootstats] bots on the ground 12 (in water 0); armed 12; armed with ammo for a gun 12; long guns 12; attachments fitted 0; rounds of unusable ammo carried 0; items on the ground 416; bot pickups { "detours": 0, "detour_taken": 0, "fetches": 0, "fetch_done": 0, "items_taken": 0 }
+[match   16.8] Tsong Balut (team 0) landed at (51.0, 5.0, -39.0), 8.3 m/s, health 100; teammates 8 m, 6 m, 5 m, 11 m
+[match   19.0] Tita Baby (team 0) landed at (56.0, 5.0, -37.0), 6.2 m/s, health 100; teammates 7 m, 7 m, 6 m, 14 m, 4 m
+[match   21.0] Bayaw Erning killed by Mang Tomas Ketchup (gunshot); 2 teams left
+[match   21.0] alive: West Team 5, East Team 6; score { 0: 0, 1: 0 }
+[match   21.2] Tito Boy (team 1) landed at (17.0, 5.0, -5.0), 4.9 m/s, health 100; teammates 81 m, 82 m
+[match   22.6] Mang Tomas Ketchup killed by Totoy Kulot (gunshot); 2 teams left
+[match   22.6] alive: West Team 5, East Team 5; score { 0: 0, 1: 0 }
+[match   30.0] status: { "ground": 10 }; armed 10; shots 17; zone -1 hold r=126; corpses 2; levels { "L1": 8, "L2": 2 }; server tick avg 2.10 ms, p99 13.64 ms, max 32.26 ms over 900 ticks
+[match   30.0] dm teams: West Team 5 at (43.0, -37.0) spread 12 m; East Team 5 at (-13.0, -25.0) spread 38 m; gap 58 m; zone centre (10.0, -1.0)
+[match   30.0] bots: { "follow": 2, "order": 2, "hunt": 4, "roam": 2 }; containers searched by bots 0 (all players 0); plan steps done 0; guns carried 20
+[match   30.0] roles: { "stalker": { "follow": 1, "hunt": 1 }, "sniper": { "order": 2, "roam": 1 }, "rusher": { "hunt": 3 }, "looter": { "follow": 1, "roam": 1 } }; stuck now 0; waypoints 1304; team { "lines": 15, "pings": 0, "laser_follow": 0, "learned_cells": 98, "blocked_cells": 28, "squads": 2, "following_humans": 0, &"learned_spots": 0 }
+[match   30.0] [lootstats] bots on the ground 10 (in water 0); armed 10; armed with ammo for a gun 10; long guns 10; attachments fitted 0; rounds of unusable ammo carried 0; items on the ground 416; bot pickups { "detours": 0, "detour_taken": 0, "fetches": 0, "fetch_done": 0, "items_taken": 0 }
+[match   38.7] Tito Boy killed by Tita Baby (gunshot); 2 teams left
+[match   38.7] alive: West Team 5, East Team 4; score { 0: 0, 1: 0 }
+[match   39.3] Kulot Sabaw killed by Ka Pedring (gunshot); 2 teams left
+[match   39.3] alive: West Team 5, East Team 3; score { 0: 0, 1: 0 }
+[match   43.8] Tsong Balut killed by Tito Karaoke King (gunshot); 2 teams left
+[match   43.8] alive: West Team 4, East Team 3; score { 0: 0, 1: 0 }
+[match   45.0] status: { "ground": 7 }; armed 7; shots 54; zone -1 hold r=126; corpses 5; levels { "between": 3, "L1": 4 }; server tick avg 2.24 ms, p99 14.60 ms, max 40.58 ms over 900 ticks
+[match   45.0] dm teams: West Team 4 at (50.0, -35.0) spread 5 m; East Team 3 at (-30.0, -24.0) spread 31 m; gap 81 m; zone centre (10.0, -1.0)
+[match   45.0] bots: { "heal": 1, "investigate": 2, "order": 2, "roam": 1, "follow": 1 }; containers searched by bots 0 (all players 0); plan steps done 0; guns carried 14
+[match   45.0] roles: { "stalker": { "heal": 1, "order": 1 }, "sniper": { "investigate": 2, "roam": 1 }, "looter": { "follow": 1, "order": 1 } }; stuck now 0; waypoints 1304; team { "lines": 34, "pings": 0, "laser_follow": 0, "learned_cells": 98, "blocked_cells": 28, "squads": 2, "following_humans": 0, &"learned_spots": 0 }
+[match   45.0] [lootstats] bots on the ground 7 (in water 0); armed 7; armed with ammo for a gun 7; long guns 7; attachments fitted 0; rounds of unusable ammo carried 0; items on the ground 416; bot pickups { "detours": 0, "detour_taken": 0, "fetches": 0, "fetch_done": 0, "items_taken": 0 }
+[match   45.6] Tito Karaoke King (team 1) landed at (11.0, 0.0, -6.0), 4.9 m/s, health 41; teammates 63 m, 73 m
+[match   60.0] status: { "ground": 7 }; armed 7; shots 54; zone -1 hold r=126; corpses 5; levels { "L1": 7 }; server tick avg 1.08 ms, p99 4.11 ms, max 30.22 ms over 900 ticks
+[match   60.0] dm teams: West Team 4 at (53.0, -40.0) spread 3 m; East Team 3 at (8.0, -18.0) spread 5 m; gap 50 m; zone centre (10.0, -1.0)
+[match   60.0] bots: { "hunt": 1, "roam": 3, "order": 2, "follow": 1 }; containers searched by bots 0 (all players 0); plan steps done 0; guns carried 14
+[match   60.0] roles: { "stalker": { "hunt": 1, "order": 1 }, "sniper": { "roam": 3 }, "looter": { "follow": 1, "order": 1 } }; stuck now 0; waypoints 1304; team { "lines": 38, "pings": 0, "laser_follow": 0, "learned_cells": 98, "blocked_cells": 28, "squads": 2, "following_humans": 0, &"learned_spots": 0 }
+[match   60.0] [lootstats] bots on the ground 7 (in water 0); armed 7; armed with ammo for a gun 7; long guns 7; attachments fitted 0; rounds of unusable ammo carried 0; items on the ground 416; bot pickups { "detours": 0, "detour_taken": 0, "fetches": 0, "fetch_done": 0, "items_taken": 0 }
+[match   75.0] status: { "ground": 7 }; armed 7; shots 54; zone -1 hold r=126; corpses 5; levels { "L1": 7 }; server tick avg 1.34 ms, p99 11.00 ms, max 21.64 ms over 900 ticks
+[match   75.0] dm teams: West Team 4 at (54.0, -40.0) spread 3 m; East Team 3 at (9.0, -20.0) spread 7 m; gap 50 m; zone centre (10.0, -1.0)
+[match   75.0] bots: { "hunt": 1, "roam": 3, "order": 2, "follow": 1 }; containers searched by bots 0 (all players 0); plan steps done 0; guns carried 14
+[match   75.0] roles: { "stalker": { "hunt": 1, "order": 1 }, "sniper": { "roam": 3 }, "looter": { "follow": 1, "order": 1 } }; stuck now 0; waypoints 1304; team { "lines": 40, "pings": 0, "laser_follow": 0, "learned_cells": 98, "blocked_cells": 28, "squads": 2, "following_humans": 0, &"learned_spots": 0 }
+[match   75.0] [lootstats] bots on the ground 7 (in water 0); armed 7; armed with ammo for a gun 7; long guns 7; attachments fitted 0; rounds of unusable ammo carried 0; items on the ground 416; bot pickups { "detours": 0, "detour_taken": 0, "fetches": 0, "fetch_done": 0, "items_taken": 0 }
+[match   90.0] status: { "ground": 7 }; armed 7; shots 86; zone -1 hold r=126; corpses 5; levels { "L1": 5, "between": 2 }; server tick avg 1.37 ms, p99 8.48 ms, max 34.60 ms over 900 ticks
+[match   90.0] dm teams: West Team 4 at (52.0, -39.0) spread 4 m; East Team 3 at (-1.0, -35.0) spread 25 m; gap 53 m; zone centre (10.0, -1.0)
+[match   90.0] bots: { "hunt": 1, "roam": 4, "fight": 2 }; containers searched by bots 0 (all players 0); plan steps done 0; guns carried 14
+[match   90.0] roles: { "stalker": { "hunt": 1, "fight": 1 }, "sniper": { "roam": 3 }, "looter": { "fight": 1, "roam": 1 } }; stuck now 0; waypoints 1304; team { "lines": 47, "pings": 0, "laser_follow": 0, "learned_cells": 98, "blocked_cells": 28, "squads": 2, "following_humans": 0, &"learned_spots": 0 }
+[match   90.0] [lootstats] bots on the ground 7 (in water 0); armed 7; armed with ammo for a gun 7; long guns 7; attachments fitted 0; rounds of unusable ammo carried 0; items on the ground 416; bot pickups { "detours": 0, "detour_taken": 0, "fetches": 0, "fetch_done": 0, "items_taken": 0 }
+[match   90.7] Pinsan Gardo killed by Tita Baby (gunshot); 2 teams left
+[match   90.7] alive: West Team 4, East Team 2; score { 0: 0, 1: 0 }
+[match  105.0] status: { "ground": 6 }; armed 6; shots 94; zone -1 hold r=126; corpses 6; levels { "L1": 5, "between": 1 }; server tick avg 1.16 ms, p99 6.09 ms, max 25.90 ms over 900 ticks
+[match  105.0] dm teams: West Team 4 at (53.0, -39.0) spread 4 m; East Team 2 at (-14.0, -49.0) spread 46 m; gap 68 m; zone centre (10.0, -1.0)
+[match  105.0] bots: { "hunt": 1, "roam": 4, "follow": 1 }; containers searched by bots 0 (all players 1); plan steps done 0; guns carried 12
+[match  105.0] roles: { "stalker": { "hunt": 1 }, "sniper": { "roam": 3 }, "looter": { "follow": 1, "roam": 1 } }; stuck now 0; waypoints 1304; team { "lines": 52, "pings": 0, "laser_follow": 0, "learned_cells": 98, "blocked_cells": 28, "squads": 2, "following_humans": 0, &"learned_spots": 0 }
+[match  105.0] [lootstats] bots on the ground 6 (in water 0); armed 6; armed with ammo for a gun 6; long guns 6; attachments fitted 1; rounds of unusable ammo carried 0; items on the ground 416; bot pickups { "detours": 0, "detour_taken": 0, "fetches": 0, "fetch_done": 0, "items_taken": 0 }
+[match  120.0] status: { "ground": 6 }; armed 6; shots 94; zone -1 hold r=126; corpses 6; levels { "L1": 4, "between": 1, "L2": 1 }; server tick avg 1.10 ms, p99 4.90 ms, max 21.41 ms over 900 ticks
+[match  120.0] dm teams: West Team 4 at (53.0, -41.0) spread 4 m; East Team 2 at (-20.0, -32.0) spread 32 m; gap 73 m; zone centre (10.0, -1.0)
+[match  120.0] bots: { "hunt": 1, "roam": 3, "overwatch": 1, "follow": 1 }; containers searched by bots 0 (all players 1); plan steps done 0; guns carried 12
+[match  120.0] roles: { "stalker": { "hunt": 1 }, "sniper": { "roam": 2, "overwatch": 1 }, "looter": { "follow": 1, "roam": 1 } }; stuck now 0; waypoints 1304; team { "lines": 52, "pings": 0, "laser_follow": 0, "learned_cells": 98, "blocked_cells": 28, "squads": 2, "following_humans": 0, &"learned_spots": 0 }
+[match  120.0] [lootstats] bots on the ground 6 (in water 0); armed 6; armed with ammo for a gun 6; long guns 6; attachments fitted 1; rounds of unusable ammo carried 0; items on the ground 416; bot pickups { "detours": 0, "detour_taken": 0, "fetches": 0, "fetch_done": 0, "items_taken": 0 }
+[match  135.0] status: { "ground": 6 }; armed 6; shots 94; zone -1 hold r=126; corpses 6; levels { "L1": 2, "between": 3, "L2": 1 }; server tick avg 1.03 ms, p99 4.08 ms, max 19.56 ms over 900 ticks
+[match  135.0] dm teams: West Team 4 at (53.0, -41.0) spread 4 m; East Team 2 at (-13.0, -31.0) spread 43 m; gap 67 m; zone centre (10.0, -1.0)
+[match  135.0] bots: { "hunt": 1, "roam": 3, "overwatch": 1, "follow": 1 }; containers searched by bots 0 (all players 1); plan steps done 0; guns carried 13
+[match  135.0] roles: { "stalker": { "hunt": 1 }, "sniper": { "roam": 2, "overwatch": 1 }, "looter": { "follow": 1, "roam": 1 } }; stuck now 0; waypoints 1304; team { "lines": 53, "pings": 0, "laser_follow": 0, "learned_cells": 98, "blocked_cells": 29, "squads": 2, "following_humans": 0, &"learned_spots": 0 }
+[match  135.0] [lootstats] bots on the ground 6 (in water 0); armed 6; armed with ammo for a gun 6; long guns 7; attachments fitted 1; rounds of unusable ammo carried 0; items on the ground 414; bot pickups { "detours": 2, "detour_taken": 2, "fetches": 0, "fetch_done": 0, "items_taken": 2 }
+[match  140.0] Tito Karaoke King killed by Totoy Kulot (gunshot); 2 teams left
+[match  140.0] alive: West Team 4, East Team 1; score { 0: 0, 1: 0 }
+[match  150.0] status: { "ground": 5 }; armed 5; shots 98; zone -1 hold r=126; corpses 7; levels { "L1": 4, "between": 1 }; server tick avg 1.01 ms, p99 5.19 ms, max 31.48 ms over 900 ticks
+[match  150.0] dm teams: West Team 4 at (53.0, -40.0) spread 2 m; East Team 1 at (-53.0, -45.0) spread 0 m; gap 106 m; zone centre (10.0, -1.0)
+[match  150.0] bots: { "order": 2, "investigate": 1, "follow": 1, "roam": 1 }; containers searched by bots 0 (all players 1); plan steps done 0; guns carried 10
+[match  150.0] roles: { "sniper": { "order": 2, "investigate": 1 }, "looter": { "follow": 1, "roam": 1 } }; stuck now 1; waypoints 1304; team { "lines": 59, "pings": 0, "laser_follow": 0, "learned_cells": 98, "blocked_cells": 29, "squads": 2, "following_humans": 0, &"learned_spots": 0 }
+[match  150.0] [lootstats] bots on the ground 5 (in water 0); armed 5; armed with ammo for a gun 5; long guns 5; attachments fitted 1; rounds of unusable ammo carried 0; items on the ground 414; bot pickups { "detours": 2, "detour_taken": 2, "fetches": 0, "fetch_done": 0, "items_taken": 2 }
+[match  165.0] status: { "ground": 5 }; armed 5; shots 98; zone -1 hold r=126; corpses 7; levels { "L1": 5 }; server tick avg 0.83 ms, p99 4.72 ms, max 18.03 ms over 900 ticks
+[match  165.0] dm teams: West Team 4 at (53.0, -39.0) spread 4 m; East Team 1 at (-57.0, -42.0) spread 0 m; gap 109 m; zone centre (10.0, -1.0)
+[match  165.0] bots: { "roam": 3, "order": 1, "follow": 1 }; containers searched by bots 0 (all players 1); plan steps done 0; guns carried 10
+[match  165.0] roles: { "sniper": { "roam": 2, "order": 1 }, "looter": { "follow": 1, "roam": 1 } }; stuck now 1; waypoints 1304; team { "lines": 61, "pings": 0, "laser_follow": 0, "learned_cells": 98, "blocked_cells": 29, "squads": 2, "following_humans": 0, &"learned_spots": 0 }
+[match  165.0] [lootstats] bots on the ground 5 (in water 0); armed 5; armed with ammo for a gun 5; long guns 5; attachments fitted 1; rounds of unusable ammo carried 0; items on the ground 414; bot pickups { "detours": 2, "detour_taken": 2, "fetches": 0, "fetch_done": 0, "items_taken": 2 }
+[match  180.0] status: { "ground": 5 }; armed 5; shots 98; zone -1 hold r=126; corpses 7; levels { "L1": 3, "between": 2 }; server tick avg 1.01 ms, p99 11.19 ms, max 16.20 ms over 900 ticks
+[match  180.0] dm teams: West Team 4 at (54.0, -40.0) spread 4 m; East Team 1 at (-54.0, -42.0) spread 0 m; gap 108 m; zone centre (10.0, -1.0)
+[match  180.0] bots: { "roam": 4, "follow": 1 }; containers searched by bots 0 (all players 1); plan steps done 0; guns carried 10
+[match  180.0] roles: { "sniper": { "roam": 3 }, "looter": { "follow": 1, "roam": 1 } }; stuck now 2; waypoints 1304; team { "lines": 62, "pings": 0, "laser_follow": 0, "learned_cells": 98, "blocked_cells": 29, "squads": 2, "following_humans": 0, &"learned_spots": 0 }
+[match  180.0] [lootstats] bots on the ground 5 (in water 0); armed 5; armed with ammo for a gun 5; long guns 5; attachments fitted 1; rounds of unusable ammo carried 0; items on the ground 414; bot pickups { "detours": 2, "detour_taken": 2, "fetches": 0, "fetch_done": 0, "items_taken": 2 }
+[match  195.0] status: { "ground": 5 }; armed 5; shots 98; zone -1 hold r=126; corpses 7; levels { "L1": 3, "between": 1, "L2": 1 }; server tick avg 0.88 ms, p99 4.07 ms, max 17.53 ms over 900 ticks
+[match  195.0] dm teams: West Team 4 at (52.0, -40.0) spread 4 m; East Team 1 at (-54.0, -43.0) spread 0 m; gap 106 m; zone centre (10.0, -1.0)
+[match  195.0] bots: { "roam": 3, "overwatch": 1, "follow": 1 }; containers searched by bots 0 (all players 1); plan steps done 0; guns carried 10
+[match  195.0] roles: { "sniper": { "roam": 2, "overwatch": 1 }, "looter": { "follow": 1, "roam": 1 } }; stuck now 0; waypoints 1304; team { "lines": 63, "pings": 0, "laser_follow": 0, "learned_cells": 98, "blocked_cells": 30, "squads": 2, "following_humans": 0, &"learned_spots": 0 }
+[match  195.0] [lootstats] bots on the ground 5 (in water 0); armed 5; armed with ammo for a gun 5; long guns 5; attachments fitted 1; rounds of unusable ammo carried 0; items on the ground 414; bot pickups { "detours": 2, "detour_taken": 2, "fetches": 0, "fetch_done": 0, "items_taken": 2 }
+[match  210.0] status: { "ground": 5 }; armed 5; shots 98; zone -1 hold r=126; corpses 7; levels { "L1": 3, "L2": 1, "between": 1 }; server tick avg 0.87 ms, p99 2.79 ms, max 17.85 ms over 900 ticks
+[match  210.0] dm teams: West Team 4 at (52.0, -40.0) spread 4 m; East Team 1 at (-53.0, -39.0) spread 0 m; gap 105 m; zone centre (10.0, -1.0)
+[match  210.0] bots: { "roam": 3, "overwatch": 1, "follow": 1 }; containers searched by bots 0 (all players 1); plan steps done 0; guns carried 10
+[match  210.0] roles: { "sniper": { "roam": 2, "overwatch": 1 }, "looter": { "follow": 1, "roam": 1 } }; stuck now 1; waypoints 1304; team { "lines": 63, "pings": 0, "laser_follow": 0, "learned_cells": 98, "blocked_cells": 30, "squads": 2, "following_humans": 0, &"learned_spots": 0 }
+[match  210.0] [lootstats] bots on the ground 5 (in water 0); armed 5; armed with ammo for a gun 5; long guns 5; attachments fitted 1; rounds of unusable ammo carried 0; items on the ground 414; bot pickups { "detours": 2, "detour_taken": 2, "fetches": 0, "fetch_done": 0, "items_taken": 2 }
+[match  225.0] status: { "ground": 5 }; armed 5; shots 98; zone -1 hold r=126; corpses 7; levels { "L1": 3, "L2": 1, "between": 1 }; server tick avg 0.83 ms, p99 3.09 ms, max 14.13 ms over 900 ticks
+[match  225.0] dm teams: West Team 4 at (52.0, -40.0) spread 4 m; East Team 1 at (-50.0, -40.0) spread 0 m; gap 103 m; zone centre (10.0, -1.0)
+[match  225.0] bots: { "roam": 3, "overwatch": 1, "follow": 1 }; containers searched by bots 0 (all players 1); plan steps done 0; guns carried 10
+[match  225.0] roles: { "sniper": { "roam": 2, "overwatch": 1 }, "looter": { "follow": 1, "roam": 1 } }; stuck now 1; waypoints 1304; team { "lines": 64, "pings": 0, "laser_follow": 0, "learned_cells": 98, "blocked_cells": 30, "squads": 2, "following_humans": 0, &"learned_spots": 0 }
+[match  225.0] [lootstats] bots on the ground 5 (in water 0); armed 5; armed with ammo for a gun 5; long guns 5; attachments fitted 1; rounds of unusable ammo carried 0; items on the ground 414; bot pickups { "detours": 2, "detour_taken": 2, "fetches": 0, "fetch_done": 0, "items_taken": 2 }
+[match  240.0] status: { "ground": 5 }; armed 5; shots 98; zone -1 hold r=126; corpses 7; levels { "L1": 3, "L2": 1, "between": 1 }; server tick avg 0.83 ms, p99 3.82 ms, max 21.16 ms over 900 ticks
+[match  240.0] dm teams: West Team 4 at (54.0, -41.0) spread 5 m; East Team 1 at (-55.0, -42.0) spread 0 m; gap 109 m; zone centre (10.0, -1.0)
+[match  240.0] bots: { "roam": 3, "overwatch": 1, "follow": 1 }; containers searched by bots 0 (all players 1); plan steps done 0; guns carried 10
+[match  240.0] roles: { "sniper": { "roam": 2, "overwatch": 1 }, "looter": { "follow": 1, "roam": 1 } }; stuck now 1; waypoints 1304; team { "lines": 64, "pings": 0, "laser_follow": 0, "learned_cells": 98, "blocked_cells": 30, "squads": 2, "following_humans": 0, &"learned_spots": 0 }
+[match  240.0] [lootstats] bots on the ground 5 (in water 0); armed 5; armed with ammo for a gun 5; long guns 5; attachments fitted 1; rounds of unusable ammo carried 0; items on the ground 414; bot pickups { "detours": 2, "detour_taken": 2, "fetches": 0, "fetch_done": 0, "items_taken": 2 }
+[match  255.0] status: { "ground": 5 }; armed 5; shots 98; zone -1 hold r=126; corpses 7; levels { "L1": 4, "L2": 1 }; server tick avg 0.89 ms, p99 3.90 ms, max 15.72 ms over 900 ticks
+[match  255.0] dm teams: West Team 4 at (53.0, -41.0) spread 4 m; East Team 1 at (-53.0, -45.0) spread 0 m; gap 106 m; zone centre (10.0, -1.0)
+[match  255.0] bots: { "roam": 3, "overwatch": 1, "follow": 1 }; containers searched by bots 0 (all players 1); plan steps done 0; guns carried 10
+[match  255.0] roles: { "sniper": { "roam": 2, "overwatch": 1 }, "looter": { "follow": 1, "roam": 1 } }; stuck now 0; waypoints 1304; team { "lines": 65, "pings": 0, "laser_follow": 0, "learned_cells": 98, "blocked_cells": 30, "squads": 2, "following_humans": 0, &"learned_spots": 0 }
+[match  255.0] [lootstats] bots on the ground 5 (in water 0); armed 5; armed with ammo for a gun 5; long guns 5; attachments fitted 1; rounds of unusable ammo carried 0; items on the ground 414; bot pickups { "detours": 2, "detour_taken": 2, "fetches": 0, "fetch_done": 0, "items_taken": 2 }
+[match  270.0] status: { "ground": 5 }; armed 5; shots 98; zone -1 hold r=126; corpses 7; levels { "L1": 3, "between": 1, "L2": 1 }; server tick avg 0.89 ms, p99 3.82 ms, max 29.02 ms over 900 ticks
+[match  270.0] dm teams: West Team 4 at (53.0, -41.0) spread 6 m; East Team 1 at (-53.0, -39.0) spread 0 m; gap 105 m; zone centre (10.0, -1.0)
+[match  270.0] bots: { "roam": 3, "overwatch": 1, "follow": 1 }; containers searched by bots 0 (all players 1); plan steps done 0; guns carried 10
+[match  270.0] roles: { "sniper": { "roam": 2, "overwatch": 1 }, "looter": { "follow": 1, "roam": 1 } }; stuck now 1; waypoints 1304; team { "lines": 65, "pings": 0, "laser_follow": 0, "learned_cells": 98, "blocked_cells": 30, "squads": 2, "following_humans": 0, &"learned_spots": 0 }
+[match  270.0] [lootstats] bots on the ground 5 (in water 0); armed 5; armed with ammo for a gun 5; long guns 5; attachments fitted 1; rounds of unusable ammo carried 0; items on the ground 414; bot pickups { "detours": 2, "detour_taken": 2, "fetches": 0, "fetch_done": 0, "items_taken": 2 }
+[match  285.0] status: { "ground": 5 }; armed 5; shots 98; zone -1 hold r=126; corpses 7; levels { "L1": 3, "between": 2 }; server tick avg 1.04 ms, p99 7.13 ms, max 18.93 ms over 900 ticks
+[match  285.0] dm teams: West Team 4 at (54.0, -40.0) spread 5 m; East Team 1 at (-57.0, -42.0) spread 0 m; gap 111 m; zone centre (10.0, -1.0)
+[match  285.0] bots: { "roam": 4, "follow": 1 }; containers searched by bots 0 (all players 1); plan steps done 0; guns carried 10
+[match  285.0] roles: { "sniper": { "roam": 3 }, "looter": { "follow": 1, "roam": 1 } }; stuck now 0; waypoints 1304; team { "lines": 66, "pings": 0, "laser_follow": 0, "learned_cells": 98, "blocked_cells": 30, "squads": 2, "following_humans": 0, &"learned_spots": 0 }
+[match  285.0] [lootstats] bots on the ground 5 (in water 0); armed 5; armed with ammo for a gun 5; long guns 5; attachments fitted 1; rounds of unusable ammo carried 0; items on the ground 414; bot pickups { "detours": 2, "detour_taken": 2, "fetches": 0, "fetch_done": 0, "items_taken": 2 }
+[match  287.9] Ka Pedring killed by the world (fall); 2 teams left
+[match  287.9] alive: West Team 3, East Team 1; score { 0: 0, 1: 0 }
+[match  300.0] status: { "ground": 4 }; armed 4; shots 98; zone -1 hold r=126; corpses 8; levels { "between": 3, "L1": 1 }; server tick avg 0.89 ms, p99 4.79 ms, max 33.43 ms over 900 ticks
+[match  300.0] dm teams: West Team 3 at (55.0, -43.0) spread 2 m; East Team 1 at (-55.0, -41.0) spread 0 m; gap 110 m; zone centre (10.0, -1.0)
+[match  300.0] bots: { "roam": 4 }; containers searched by bots 0 (all players 1); plan steps done 0; guns carried 8
+[match  300.0] roles: { "sniper": { "roam": 2 }, "looter": { "roam": 2 } }; stuck now 1; waypoints 1304; team { "lines": 69, "pings": 0, "laser_follow": 0, "learned_cells": 98, "blocked_cells": 30, "squads": 2, "following_humans": 0, &"learned_spots": 0 }
+[match  300.0] [lootstats] bots on the ground 4 (in water 0); armed 4; armed with ammo for a gun 4; long guns 4; attachments fitted 1; rounds of unusable ammo carried 0; items on the ground 414; bot pickups { "detours": 2, "detour_taken": 2, "fetches": 0, "fetch_done": 0, "items_taken": 2 }
+[match  315.0] status: { "ground": 4 }; armed 4; shots 98; zone -1 hold r=126; corpses 8; levels { "L1": 3, "L2": 1 }; server tick avg 0.83 ms, p99 2.43 ms, max 22.91 ms over 900 ticks
+[match  315.0] dm teams: West Team 3 at (54.0, -38.0) spread 4 m; East Team 1 at (-55.0, -39.0) spread 0 m; gap 109 m; zone centre (10.0, -1.0)
+[match  315.0] bots: { "roam": 4 }; containers searched by bots 0 (all players 1); plan steps done 0; guns carried 8
+[match  315.0] roles: { "sniper": { "roam": 2 }, "looter": { "roam": 2 } }; stuck now 0; waypoints 1304; team { "lines": 70, "pings": 0, "laser_follow": 0, "learned_cells": 98, "blocked_cells": 30, "squads": 2, "following_humans": 0, &"learned_spots": 0 }
+[match  315.0] [lootstats] bots on the ground 4 (in water 0); armed 4; armed with ammo for a gun 4; long guns 4; attachments fitted 1; rounds of unusable ammo carried 0; items on the ground 414; bot pickups { "detours": 2, "detour_taken": 2, "fetches": 0, "fetch_done": 0, "items_taken": 2 }
+[match  330.0] status: { "ground": 4 }; armed 4; shots 98; zone -1 hold r=126; corpses 8; levels { "L1": 3, "L3": 1 }; server tick avg 0.87 ms, p99 5.87 ms, max 23.52 ms over 900 ticks
+[match  330.0] dm teams: West Team 3 at (53.0, -36.0) spread 5 m; East Team 1 at (-52.0, -45.0) spread 0 m; gap 105 m; zone centre (10.0, -1.0)
+[match  330.0] bots: { "roam": 4 }; containers searched by bots 0 (all players 1); plan steps done 0; guns carried 8
+[match  330.0] roles: { "sniper": { "roam": 2 }, "looter": { "roam": 2 } }; stuck now 0; waypoints 1304; team { "lines": 70, "pings": 0, "laser_follow": 0, "learned_cells": 98, "blocked_cells": 30, "squads": 2, "following_humans": 0, &"learned_spots": 0 }
+[match  330.0] [lootstats] bots on the ground 4 (in water 0); armed 4; armed with ammo for a gun 4; long guns 4; attachments fitted 1; rounds of unusable ammo carried 0; items on the ground 414; bot pickups { "detours": 2, "detour_taken": 2, "fetches": 0, "fetch_done": 0, "items_taken": 2 }
+[match  345.0] status: { "ground": 4 }; armed 4; shots 98; zone -1 hold r=126; corpses 8; levels { "L1": 1, "L3": 1, "between": 2 }; server tick avg 0.80 ms, p99 2.61 ms, max 28.67 ms over 900 ticks
+[match  345.0] dm teams: West Team 3 at (50.0, -37.0) spread 6 m; East Team 1 at (-53.0, -44.0) spread 0 m; gap 104 m; zone centre (10.0, -1.0)
+[match  345.0] bots: { "roam": 3, "overwatch": 1 }; containers searched by bots 0 (all players 1); plan steps done 0; guns carried 8
+[match  345.0] roles: { "sniper": { "roam": 1, "overwatch": 1 }, "looter": { "roam": 2 } }; stuck now 1; waypoints 1304; team { "lines": 71, "pings": 0, "laser_follow": 0, "learned_cells": 98, "blocked_cells": 30, "squads": 2, "following_humans": 0, &"learned_spots": 0 }
+[match  345.0] [lootstats] bots on the ground 4 (in water 0); armed 4; armed with ammo for a gun 4; long guns 4; attachments fitted 1; rounds of unusable ammo carried 0; items on the ground 414; bot pickups { "detours": 3, "detour_taken": 2, "fetches": 0, "fetch_done": 0, "items_taken": 2 }
+[match  360.0] status: { "ground": 4 }; armed 4; shots 98; zone -1 hold r=126; corpses 8; levels { "L1": 2, "L3": 1, "between": 1 }; server tick avg 0.88 ms, p99 2.92 ms, max 27.14 ms over 900 ticks
+[match  360.0] dm teams: West Team 3 at (52.0, -37.0) spread 6 m; East Team 1 at (-52.0, -45.0) spread 0 m; gap 105 m; zone centre (10.0, -1.0)
+[match  360.0] bots: { "roam": 3, "overwatch": 1 }; containers searched by bots 0 (all players 1); plan steps done 0; guns carried 8
+[match  360.0] roles: { "sniper": { "roam": 1, "overwatch": 1 }, "looter": { "roam": 2 } }; stuck now 0; waypoints 1304; team { "lines": 71, "pings": 0, "laser_follow": 0, "learned_cells": 98, "blocked_cells": 30, "squads": 2, "following_humans": 0, &"learned_spots": 0 }
+[match  360.0] [lootstats] bots on the ground 4 (in water 0); armed 4; armed with ammo for a gun 4; long guns 4; attachments fitted 1; rounds of unusable ammo carried 0; items on the ground 414; bot pickups { "detours": 3, "detour_taken": 2, "fetches": 0, "fetch_done": 0, "items_taken": 2 }
+[match  375.0] status: { "ground": 4 }; armed 4; shots 98; zone -1 hold r=126; corpses 8; levels { "L1": 3, "L3": 1 }; server tick avg 0.86 ms, p99 3.33 ms, max 28.70 ms over 900 ticks
+[match  375.0] dm teams: West Team 3 at (51.0, -39.0) spread 7 m; East Team 1 at (-54.0, -45.0) spread 0 m; gap 105 m; zone centre (10.0, -1.0)
+[match  375.0] bots: { "roam": 3, "overwatch": 1 }; containers searched by bots 0 (all players 1); plan steps done 0; guns carried 8
+[match  375.0] roles: { "sniper": { "roam": 1, "overwatch": 1 }, "looter": { "roam": 2 } }; stuck now 1; waypoints 1304; team { "lines": 72, "pings": 0, "laser_follow": 0, "learned_cells": 98, "blocked_cells": 30, "squads": 2, "following_humans": 0, &"learned_spots": 0 }
+[match  375.0] [lootstats] bots on the ground 4 (in water 0); armed 4; armed with ammo for a gun 4; long guns 4; attachments fitted 1; rounds of unusable ammo carried 0; items on the ground 414; bot pickups { "detours": 3, "detour_taken": 2, "fetches": 0, "fetch_done": 0, "items_taken": 2 }
+[match  390.0] status: { "ground": 4 }; armed 4; shots 98; zone -1 hold r=126; corpses 8; levels { "between": 2, "L3": 1, "L1": 1 }; server tick avg 0.89 ms, p99 2.74 ms, max 22.74 ms over 900 ticks
+[match  390.0] dm teams: West Team 3 at (52.0, -39.0) spread 6 m; East Team 1 at (-54.0, -38.0) spread 0 m; gap 106 m; zone centre (10.0, -1.0)
+[match  390.0] bots: { "roam": 3, "overwatch": 1 }; containers searched by bots 0 (all players 1); plan steps done 0; guns carried 8
+[match  390.0] roles: { "sniper": { "roam": 1, "overwatch": 1 }, "looter": { "roam": 2 } }; stuck now 1; waypoints 1304; team { "lines": 73, "pings": 0, "laser_follow": 0, "learned_cells": 98, "blocked_cells": 30, "squads": 2, "following_humans": 0, &"learned_spots": 0 }
+[match  390.0] [lootstats] bots on the ground 4 (in water 0); armed 4; armed with ammo for a gun 4; long guns 4; attachments fitted 1; rounds of unusable ammo carried 0; items on the ground 414; bot pickups { "detours": 3, "detour_taken": 2, "fetches": 0, "fetch_done": 0, "items_taken": 2 }
+[match  405.0] status: { "ground": 4 }; armed 4; shots 98; zone -1 hold r=126; corpses 8; levels { "L1": 2, "L3": 1, "between": 1 }; server tick avg 0.89 ms, p99 2.62 ms, max 32.72 ms over 900 ticks
+[match  405.0] dm teams: West Team 3 at (51.0, -39.0) spread 5 m; East Team 1 at (-56.0, -40.0) spread 0 m; gap 107 m; zone centre (10.0, -1.0)
+[match  405.0] bots: { "roam": 3, "overwatch": 1 }; containers searched by bots 0 (all players 1); plan steps done 0; guns carried 8
+[match  405.0] roles: { "sniper": { "roam": 1, "overwatch": 1 }, "looter": { "roam": 2 } }; stuck now 1; waypoints 1304; team { "lines": 73, "pings": 0, "laser_follow": 0, "learned_cells": 98, "blocked_cells": 31, "squads": 2, "following_humans": 0, &"learned_spots": 0 }
+[match  405.0] [lootstats] bots on the ground 4 (in water 0); armed 4; armed with ammo for a gun 4; long guns 4; attachments fitted 1; rounds of unusable ammo carried 0; items on the ground 414; bot pickups { "detours": 3, "detour_taken": 2, "fetches": 0, "fetch_done": 0, "items_taken": 2 }
+[match  420.0] status: { "ground": 4 }; armed 4; shots 98; zone -1 hold r=126; corpses 8; levels { "L1": 3, "L3": 1 }; server tick avg 0.95 ms, p99 4.15 ms, max 30.27 ms over 900 ticks
+[match  420.0] dm teams: West Team 3 at (51.0, -36.0) spread 5 m; East Team 1 at (-53.0, -41.0) spread 0 m; gap 105 m; zone centre (10.0, -1.0)
+[match  420.0] bots: { "roam": 3, "overwatch": 1 }; containers searched by bots 0 (all players 1); plan steps done 0; guns carried 9
+[match  420.0] roles: { "sniper": { "roam": 1, "overwatch": 1 }, "looter": { "roam": 2 } }; stuck now 0; waypoints 1304; team { "lines": 75, "pings": 0, "laser_follow": 0, "learned_cells": 98, "blocked_cells": 31, "squads": 2, "following_humans": 0, &"learned_spots": 0 }
+[match  420.0] [lootstats] bots on the ground 4 (in water 0); armed 4; armed with ammo for a gun 4; long guns 5; attachments fitted 1; rounds of unusable ammo carried 0; items on the ground 412; bot pickups { "detours": 5, "detour_taken": 4, "fetches": 0, "fetch_done": 0, "items_taken": 4 }
+[match  435.0] status: { "ground": 4 }; armed 4; shots 98; zone -1 hold r=126; corpses 8; levels { "L1": 3, "L3": 1 }; server tick avg 0.93 ms, p99 2.14 ms, max 29.57 ms over 900 ticks
+[match  435.0] dm teams: West Team 3 at (49.0, -38.0) spread 6 m; East Team 1 at (-55.0, -38.0) spread 0 m; gap 105 m; zone centre (10.0, -1.0)
+[match  435.0] bots: { "roam": 3, "overwatch": 1 }; containers searched by bots 0 (all players 1); plan steps done 0; guns carried 9
+[match  435.0] roles: { "sniper": { "roam": 1, "overwatch": 1 }, "looter": { "roam": 2 } }; stuck now 0; waypoints 1304; team { "lines": 75, "pings": 0, "laser_follow": 0, "learned_cells": 98, "blocked_cells": 31, "squads": 2, "following_humans": 0, &"learned_spots": 0 }
+[match  435.0] [lootstats] bots on the ground 4 (in water 0); armed 4; armed with ammo for a gun 4; long guns 5; attachments fitted 1; rounds of unusable ammo carried 0; items on the ground 412; bot pickups { "detours": 5, "detour_taken": 4, "fetches": 0, "fetch_done": 0, "items_taken": 4 }
+[match  450.0] status: { "ground": 4 }; armed 4; shots 98; zone -1 hold r=126; corpses 8; levels { "L1": 3, "L3": 1 }; server tick avg 0.98 ms, p99 5.27 ms, max 34.31 ms over 900 ticks
+[match  450.0] dm teams: West Team 3 at (52.0, -36.0) spread 5 m; East Team 1 at (-56.0, -38.0) spread 0 m; gap 107 m; zone centre (10.0, -1.0)
+[match  450.0] bots: { "roam": 3, "overwatch": 1 }; containers searched by bots 0 (all players 1); plan steps done 0; guns carried 9
+[match  450.0] roles: { "sniper": { "roam": 1, "overwatch": 1 }, "looter": { "roam": 2 } }; stuck now 0; waypoints 1304; team { "lines": 76, "pings": 0, "laser_follow": 0, "learned_cells": 98, "blocked_cells": 32, "squads": 2, "following_humans": 0, &"learned_spots": 0 }
+[match  450.0] [lootstats] bots on the ground 4 (in water 0); armed 4; armed with ammo for a gun 4; long guns 5; attachments fitted 1; rounds of unusable ammo carried 0; items on the ground 412; bot pickups { "detours": 5, "detour_taken": 4, "fetches": 0, "fetch_done": 0, "items_taken": 4 }
+[match  465.0] status: { "ground": 4 }; armed 4; shots 98; zone -1 hold r=126; corpses 8; levels { "L1": 2, "L3": 1, "between": 1 }; server tick avg 0.89 ms, p99 2.25 ms, max 32.57 ms over 900 ticks
+[match  465.0] dm teams: West Team 3 at (51.0, -37.0) spread 5 m; East Team 1 at (-53.0, -38.0) spread 0 m; gap 103 m; zone centre (10.0, -1.0)
+[match  465.0] bots: { "roam": 3, "overwatch": 1 }; containers searched by bots 0 (all players 1); plan steps done 0; guns carried 9
+[match  465.0] roles: { "sniper": { "roam": 1, "overwatch": 1 }, "looter": { "roam": 2 } }; stuck now 0; waypoints 1304; team { "lines": 76, "pings": 0, "laser_follow": 0, "learned_cells": 98, "blocked_cells": 32, "squads": 2, "following_humans": 0, &"learned_spots": 0 }
+[match  465.0] [lootstats] bots on the ground 4 (in water 0); armed 4; armed with ammo for a gun 4; long guns 5; attachments fitted 1; rounds of unusable ammo carried 0; items on the ground 412; bot pickups { "detours": 5, "detour_taken": 4, "fetches": 0, "fetch_done": 0, "items_taken": 4 }
+[match  480.0] status: { "ground": 4 }; armed 4; shots 98; zone -1 hold r=126; corpses 8; levels { "between": 1, "L3": 1, "L1": 2 }; server tick avg 0.95 ms, p99 1.99 ms, max 32.96 ms over 900 ticks
+[match  480.0] dm teams: West Team 3 at (52.0, -41.0) spread 6 m; East Team 1 at (-54.0, -44.0) spread 0 m; gap 106 m; zone centre (10.0, -1.0)
+[match  480.0] bots: { "roam": 3, "overwatch": 1 }; containers searched by bots 0 (all players 1); plan steps done 0; guns carried 9
+[match  480.0] roles: { "sniper": { "roam": 1, "overwatch": 1 }, "looter": { "roam": 2 } }; stuck now 0; waypoints 1304; team { "lines": 76, "pings": 0, "laser_follow": 0, "learned_cells": 98, "blocked_cells": 32, "squads": 2, "following_humans": 0, &"learned_spots": 0 }
+[match  480.0] [lootstats] bots on the ground 4 (in water 0); armed 4; armed with ammo for a gun 4; long guns 5; attachments fitted 1; rounds of unusable ammo carried 0; items on the ground 412; bot pickups { "detours": 5, "detour_taken": 4, "fetches": 0, "fetch_done": 0, "items_taken": 4 }
+[match  495.0] status: { "ground": 4 }; armed 4; shots 98; zone -1 hold r=126; corpses 8; levels { "L1": 3, "L3": 1 }; server tick avg 0.86 ms, p99 2.82 ms, max 25.03 ms over 900 ticks
+[match  495.0] dm teams: West Team 3 at (53.0, -39.0) spread 6 m; East Team 1 at (-52.0, -45.0) spread 0 m; gap 105 m; zone centre (10.0, -1.0)
+[match  495.0] bots: { "roam": 3, "overwatch": 1 }; containers searched by bots 0 (all players 1); plan steps done 0; guns carried 9
+[match  495.0] roles: { "sniper": { "roam": 1, "overwatch": 1 }, "looter": { "roam": 2 } }; stuck now 1; waypoints 1304; team { "lines": 77, "pings": 0, "laser_follow": 0, "learned_cells": 98, "blocked_cells": 32, "squads": 2, "following_humans": 0, &"learned_spots": 0 }
+[match  495.0] [lootstats] bots on the ground 4 (in water 0); armed 4; armed with ammo for a gun 4; long guns 5; attachments fitted 1; rounds of unusable ammo carried 0; items on the ground 412; bot pickups { "detours": 5, "detour_taken": 4, "fetches": 0, "fetch_done": 0, "items_taken": 4 }
+[match  510.0] status: { "ground": 4 }; armed 4; shots 98; zone -1 hold r=126; corpses 8; levels { "L1": 3, "L3": 1 }; server tick avg 0.90 ms, p99 2.46 ms, max 36.95 ms over 900 ticks
+[match  510.0] dm teams: West Team 3 at (51.0, -38.0) spread 7 m; East Team 1 at (-52.0, -39.0) spread 0 m; gap 104 m; zone centre (10.0, -1.0)
+[match  510.0] bots: { "roam": 3, "overwatch": 1 }; containers searched by bots 0 (all players 1); plan steps done 0; guns carried 9
+[match  510.0] roles: { "sniper": { "roam": 1, "overwatch": 1 }, "looter": { "roam": 2 } }; stuck now 0; waypoints 1304; team { "lines": 79, "pings": 0, "laser_follow": 0, "learned_cells": 98, "blocked_cells": 32, "squads": 2, "following_humans": 0, &"learned_spots": 0 }
+[match  510.0] [lootstats] bots on the ground 4 (in water 0); armed 4; armed with ammo for a gun 4; long guns 5; attachments fitted 1; rounds of unusable ammo carried 0; items on the ground 412; bot pickups { "detours": 5, "detour_taken": 4, "fetches": 0, "fetch_done": 0, "items_taken": 4 }
+[match  525.0] status: { "ground": 4 }; armed 4; shots 98; zone -1 hold r=126; corpses 8; levels { "between": 3, "L3": 1 }; server tick avg 0.83 ms, p99 2.21 ms, max 29.15 ms over 900 ticks
+[match  525.0] dm teams: West Team 3 at (52.0, -40.0) spread 6 m; East Team 1 at (-54.0, -42.0) spread 0 m; gap 106 m; zone centre (10.0, -1.0)
+[match  525.0] bots: { "roam": 3, "overwatch": 1 }; containers searched by bots 0 (all players 1); plan steps done 0; guns carried 9
+[match  525.0] roles: { "sniper": { "roam": 1, "overwatch": 1 }, "looter": { "roam": 2 } }; stuck now 0; waypoints 1304; team { "lines": 79, "pings": 0, "laser_follow": 0, "learned_cells": 98, "blocked_cells": 32, "squads": 2, "following_humans": 0, &"learned_spots": 0 }
+[match  525.0] [lootstats] bots on the ground 4 (in water 0); armed 4; armed with ammo for a gun 4; long guns 5; attachments fitted 1; rounds of unusable ammo carried 0; items on the ground 412; bot pickups { "detours": 5, "detour_taken": 4, "fetches": 0, "fetch_done": 0, "items_taken": 4 }
+[match  540.0] status: { "ground": 4 }; armed 4; shots 98; zone -1 hold r=126; corpses 8; levels { "L1": 1, "L3": 1, "between": 2 }; server tick avg 0.83 ms, p99 2.01 ms, max 32.74 ms over 900 ticks
+[match  540.0] dm teams: West Team 3 at (51.0, -38.0) spread 5 m; East Team 1 at (-55.0, -41.0) spread 0 m; gap 106 m; zone centre (10.0, -1.0)
+[match  540.0] bots: { "roam": 3, "overwatch": 1 }; containers searched by bots 0 (all players 1); plan steps done 0; guns carried 9
+[match  540.0] roles: { "sniper": { "roam": 1, "overwatch": 1 }, "looter": { "roam": 2 } }; stuck now 1; waypoints 1304; team { "lines": 79, "pings": 0, "laser_follow": 0, "learned_cells": 98, "blocked_cells": 32, "squads": 2, "following_humans": 0, &"learned_spots": 0 }
+[match  540.0] [lootstats] bots on the ground 4 (in water 0); armed 4; armed with ammo for a gun 4; long guns 5; attachments fitted 1; rounds of unusable ammo carried 0; items on the ground 412; bot pickups { "detours": 5, "detour_taken": 4, "fetches": 0, "fetch_done": 0, "items_taken": 4 }
+[match  555.0] status: { "ground": 4 }; armed 4; shots 98; zone -1 hold r=126; corpses 8; levels { "between": 1, "L3": 1, "L1": 2 }; server tick avg 0.86 ms, p99 2.06 ms, max 33.48 ms over 900 ticks
+[match  555.0] dm teams: West Team 3 at (50.0, -38.0) spread 6 m; East Team 1 at (-54.0, -43.0) spread 0 m; gap 105 m; zone centre (10.0, -1.0)
+[match  555.0] bots: { "roam": 3, "overwatch": 1 }; containers searched by bots 0 (all players 1); plan steps done 0; guns carried 9
+[match  555.0] roles: { "sniper": { "roam": 1, "overwatch": 1 }, "looter": { "roam": 2 } }; stuck now 1; waypoints 1304; team { "lines": 80, "pings": 0, "laser_follow": 0, "learned_cells": 98, "blocked_cells": 32, "squads": 2, "following_humans": 0, &"learned_spots": 0 }
+[match  555.0] [lootstats] bots on the ground 4 (in water 0); armed 4; armed with ammo for a gun 4; long guns 5; attachments fitted 1; rounds of unusable ammo carried 0; items on the ground 412; bot pickups { "detours": 5, "detour_taken": 4, "fetches": 0, "fetch_done": 0, "items_taken": 4 }
+[match  570.0] status: { "ground": 4 }; armed 4; shots 98; zone -1 hold r=126; corpses 8; levels { "L1": 2, "L3": 1, "L2": 1 }; server tick avg 0.89 ms, p99 1.99 ms, max 24.97 ms over 900 ticks
+[match  570.0] dm teams: West Team 3 at (51.0, -36.0) spread 5 m; East Team 1 at (-52.0, -44.0) spread 0 m; gap 104 m; zone centre (10.0, -1.0)
+[match  570.0] bots: { "roam": 3, "overwatch": 1 }; containers searched by bots 0 (all players 1); plan steps done 0; guns carried 9
+[match  570.0] roles: { "sniper": { "roam": 1, "overwatch": 1 }, "looter": { "roam": 2 } }; stuck now 0; waypoints 1304; team { "lines": 80, "pings": 0, "laser_follow": 0, "learned_cells": 98, "blocked_cells": 32, "squads": 2, "following_humans": 0, &"learned_spots": 0 }
+[match  570.0] [lootstats] bots on the ground 4 (in water 0); armed 4; armed with ammo for a gun 4; long guns 5; attachments fitted 1; rounds of unusable ammo carried 0; items on the ground 412; bot pickups { "detours": 5, "detour_taken": 4, "fetches": 0, "fetch_done": 0, "items_taken": 4 }
+[match  585.0] status: { "ground": 4 }; armed 4; shots 98; zone -1 hold r=126; corpses 8; levels { "between": 2, "L3": 1, "L1": 1 }; server tick avg 0.89 ms, p99 2.15 ms, max 29.13 ms over 900 ticks
+[match  585.0] dm teams: West Team 3 at (53.0, -40.0) spread 6 m; East Team 1 at (-55.0, -43.0) spread 0 m; gap 108 m; zone centre (10.0, -1.0)
+[match  585.0] bots: { "roam": 3, "overwatch": 1 }; containers searched by bots 0 (all players 1); plan steps done 0; guns carried 9
+[match  585.0] roles: { "sniper": { "roam": 1, "overwatch": 1 }, "looter": { "roam": 2 } }; stuck now 0; waypoints 1304; team { "lines": 81, "pings": 0, "laser_follow": 0, "learned_cells": 98, "blocked_cells": 32, "squads": 2, "following_humans": 0, &"learned_spots": 0 }
+[match  585.0] [lootstats] bots on the ground 4 (in water 0); armed 4; armed with ammo for a gun 4; long guns 5; attachments fitted 1; rounds of unusable ammo carried 0; items on the ground 412; bot pickups { "detours": 5, "detour_taken": 4, "fetches": 0, "fetch_done": 0, "items_taken": 4 }
+[match  600.0] status: { "ground": 4 }; armed 4; shots 98; zone -1 hold r=126; corpses 8; levels { "between": 1, "L3": 1, "L1": 2 }; server tick avg 0.85 ms, p99 2.57 ms, max 29.89 ms over 900 ticks
+[match  600.0] dm teams: West Team 3 at (52.0, -40.0) spread 6 m; East Team 1 at (-54.0, -43.0) spread 0 m; gap 106 m; zone centre (10.0, -1.0)
+[match  600.0] bots: { "roam": 3, "overwatch": 1 }; containers searched by bots 0 (all players 1); plan steps done 0; guns carried 9
+[match  600.0] roles: { "sniper": { "roam": 1, "overwatch": 1 }, "looter": { "roam": 2 } }; stuck now 2; waypoints 1304; team { "lines": 82, "pings": 0, "laser_follow": 0, "learned_cells": 98, "blocked_cells": 32, "squads": 2, "following_humans": 0, &"learned_spots": 0 }
+[match  600.0] [lootstats] bots on the ground 4 (in water 0); armed 4; armed with ammo for a gun 4; long guns 5; attachments fitted 1; rounds of unusable ammo carried 0; items on the ground 412; bot pickups { "detours": 5, "detour_taken": 4, "fetches": 0, "fetch_done": 0, "items_taken": 4 }
+[match  615.0] status: { "ground": 4 }; armed 4; shots 98; zone -1 hold r=126; corpses 8; levels { "L2": 1, "L3": 1, "L1": 1, "between": 1 }; server tick avg 0.88 ms, p99 2.29 ms, max 24.96 ms over 900 ticks
+[match  615.0] dm teams: West Team 3 at (52.0, -39.0) spread 5 m; East Team 1 at (-51.0, -43.0) spread 0 m; gap 103 m; zone centre (10.0, -1.0)
+[match  615.0] bots: { "roam": 4 }; containers searched by bots 0 (all players 1); plan steps done 0; guns carried 9
+[match  615.0] roles: { "sniper": { "roam": 2 }, "looter": { "roam": 2 } }; stuck now 0; waypoints 1304; team { "lines": 83, "pings": 0, "laser_follow": 0, "learned_cells": 98, "blocked_cells": 33, "squads": 2, "following_humans": 0, &"learned_spots": 0 }
+[match  615.0] [lootstats] bots on the ground 4 (in water 0); armed 4; armed with ammo for a gun 4; long guns 5; attachments fitted 1; rounds of unusable ammo carried 0; items on the ground 412; bot pickups { "detours": 5, "detour_taken": 4, "fetches": 0, "fetch_done": 0, "items_taken": 4 }
+[match  630.0] status: { "ground": 4 }; armed 4; shots 98; zone -1 hold r=126; corpses 8; levels { "L1": 3, "L2": 1 }; server tick avg 0.90 ms, p99 2.43 ms, max 45.10 ms over 900 ticks
+[match  630.0] dm teams: West Team 3 at (51.0, -39.0) spread 4 m; East Team 1 at (-54.0, -45.0) spread 0 m; gap 106 m; zone centre (10.0, -1.0)
+[match  630.0] bots: { "roam": 3, "overwatch": 1 }; containers searched by bots 0 (all players 1); plan steps done 0; guns carried 9
+[match  630.0] roles: { "sniper": { "roam": 1, "overwatch": 1 }, "looter": { "roam": 2 } }; stuck now 0; waypoints 1304; team { "lines": 84, "pings": 0, "laser_follow": 0, "learned_cells": 98, "blocked_cells": 33, "squads": 2, "following_humans": 0, &"learned_spots": 0 }
+[match  630.0] [lootstats] bots on the ground 4 (in water 0); armed 4; armed with ammo for a gun 4; long guns 5; attachments fitted 1; rounds of unusable ammo carried 0; items on the ground 412; bot pickups { "detours": 5, "detour_taken": 4, "fetches": 0, "fetch_done": 0, "items_taken": 4 }
+[match  645.0] status: { "ground": 4 }; armed 4; shots 98; zone -1 hold r=126; corpses 8; levels { "L1": 3, "L2": 1 }; server tick avg 1.06 ms, p99 2.29 ms, max 31.20 ms over 900 ticks
+[match  645.0] dm teams: West Team 3 at (51.0, -40.0) spread 4 m; East Team 1 at (-54.0, -39.0) spread 0 m; gap 106 m; zone centre (10.0, -1.0)
+[match  645.0] bots: { "roam": 3, "overwatch": 1 }; containers searched by bots 0 (all players 1); plan steps done 0; guns carried 9
+[match  645.0] roles: { "sniper": { "roam": 1, "overwatch": 1 }, "looter": { "roam": 2 } }; stuck now 1; waypoints 1304; team { "lines": 84, "pings": 0, "laser_follow": 0, "learned_cells": 98, "blocked_cells": 34, "squads": 2, "following_humans": 0, &"learned_spots": 0 }
+[match  645.0] [lootstats] bots on the ground 4 (in water 0); armed 4; armed with ammo for a gun 4; long guns 5; attachments fitted 1; rounds of unusable ammo carried 0; items on the ground 412; bot pickups { "detours": 5, "detour_taken": 4, "fetches": 0, "fetch_done": 0, "items_taken": 4 }
+[run_timed] killed after 660 s

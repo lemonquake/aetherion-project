@@ -1366,6 +1366,105 @@ def deck_lights():
     end_group()
 
 
+# (r22) More practical lights where tools/freight_light_coverage.py found the yard darkest (work/r22/lights/).
+_FACING = {"n": (0.0, -1.0), "s": (0.0, 1.0), "e": (1.0, 0.0), "w": (-1.0, 0.0)}
+
+
+def wall_lamp(fx, fz, facing, y, kind="lamp", colour=(255, 178, 104), energy=1.0, rng=8.0, fault=""):
+    """(r22) A fitting on a wall or container face: (fx, fz) the point on the face, facing the way the face looks
+    (n/s/e/w). A lamp stands off the wall on a short bracket (drawn, no collision); a tube lies flat along the wall."""
+    nx, nz = _FACING[facing]
+    if kind == "tube":
+        light((fx + nx * 0.08, y, fz + nz * 0.08), "tube", colour, energy, rng, fault, angle=0 if nx == 0 else 90)
+        return
+    d = 0.3
+    if nx:
+        box(min(fx, fx + nx * (d + 0.04)), y + 0.1, fz - 0.12, max(fx, fx + nx * (d + 0.04)), y + 0.22, fz + 0.12, "freight/steel_grey", ent=_illus())
+    else:
+        box(fx - 0.12, y + 0.1, min(fz, fz + nz * (d + 0.04)), fx + 0.12, y + 0.22, max(fz, fz + nz * (d + 0.04)), "freight/steel_grey", ent=_illus())
+    light((fx + nx * d, y, fz + nz * d), kind, colour, energy, rng, fault)
+
+
+def pole_lamp(x, z, y0, top, facing, colour=(255, 178, 104), energy=0.9, rng=8.0, fault=""):
+    """(r22) Where there is nothing to hang a lamp from: a timber pole with the lamp on a short arm at its top."""
+    nx, nz = _FACING[facing]
+    post(x, z, y0, top, "freight/timber", 0.1)
+    if nx:
+        box(min(x, x + nx * 0.4), top - 0.12, z - 0.03, max(x, x + nx * 0.4), top - 0.06, z + 0.03, "freight/steel_rust", ent=_illus())
+    else:
+        box(x - 0.03, top - 0.12, min(z, z + nz * 0.4), x + 0.03, top - 0.06, max(z, z + nz * 0.4), "freight/steel_rust", ent=_illus())
+    light((x + nx * 0.4, top - 0.2, z + nz * 0.4), "lamp", colour, energy, rng, fault)
+
+
+def stack_flood(x, angle, pitch, energy=2.4, rng=26.0, fault=""):
+    """(r22) A floodlight bolted high on the north stack's face (z = -42), under its top tier, aimed into a lane."""
+    box(x - 0.4, 8.25, -42.0, x + 0.4, 8.55, -41.55, "freight/steel_grey")
+    light((x, 8.15, -41.45), "flood", (255, 170, 90), energy, rng, fault, angle=angle, pitch=pitch)
+
+
+def r22_lights():
+    """(r22) The dark clusters of the coverage analysis (tools/freight_light_coverage.py, work/r22/lights/), lit with
+    dim practical fittings: the canyon's inner face and its ends, the north-west and north-east corners (floods on the
+    stack), the east yard, the pier's south end, the plaza's edges, under its bridges and the crane platform, the
+    Taas's back rooms, the Bodega mezzanine and the deck's ends. Mostly warm lamps on the nearest wall or container
+    face at ~2.5 m (L1 + 2.0-2.2 up on the deck), some cool tubes, bulbs on wire only under something to hang from,
+    a pole on the north bridge; one in five faulty."""
+    layer("Lights")
+    group("r22 lights")
+    warm = (255, 178, 104)
+    amber = (255, 172, 98)
+    cool = (214, 232, 255)
+    # Floods high on the north stack, into the north-west and north-east corners.
+    stack_flood(-54.0, 300, 48, 2.6, 28.0)
+    stack_flood(54.0, 240, 48, 2.6, 28.0)
+    # Container Canyon: the inner row's north face, the containers at its ends.
+    wall_lamp(-31.5, -31.0, "n", 2.5, "lamp", warm, 1.0, 8.0)
+    wall_lamp(-12.5, -31.0, "n", 2.5, "lamp", amber, 1.0, 8.0)
+    wall_lamp(8.0, -31.0, "n", 2.5, "tube", cool, 0.9, 8.0, "starter")
+    wall_lamp(23.5, -31.0, "n", 2.5, "lamp", warm, 1.0, 8.0, "flicker")
+    wall_lamp(-42.8, -35.94, "s", 2.5, "lamp", amber, 0.9, 7.5)
+    wall_lamp(46.0, -38.5, "w", 2.5, "lamp", warm, 0.9, 7.5)
+    # The pier's north sheds and its south end (the bangka, the guard hut, the fence).
+    wall_lamp(-50.5, -24.0, "n", 2.5, "tube", cool, 1.0, 8.0)
+    wall_lamp(-57.5, -21.56, "s", 2.5, "lamp", warm, 0.9, 7.5)
+    wall_lamp(-56.0, -30.0, "w", 2.5, "lamp", amber, 0.9, 7.5)
+    wall_lamp(-53.0, 29.0, "e", 2.15, "lamp", warm, 0.9, 7.5)
+    wall_lamp(-53.0, 41.85, "n", 2.4, "lamp", amber, 0.9, 8.0, "flicker")
+    # Plaza: the Bodega's outer walls, the cover containers, the inner row's plaza face, under the bridges and the
+    # crane platform.
+    wall_lamp(-25.0, -12.5, "e", 2.6, "lamp", warm, 1.0, 8.5)
+    wall_lamp(-25.0, 10.5, "e", 2.6, "lamp", amber, 1.0, 8.0, "dying")
+    wall_lamp(-40.0, -16.0, "n", 2.6, "lamp", warm, 1.0, 8.5)
+    wall_lamp(-12.0, -14.56, "s", 2.5, "tube", cool, 0.9, 8.0)
+    wall_lamp(28.5, -26.12, "s", 2.5, "lamp", amber, 1.0, 8.0, "flicker")
+    wall_lamp(-36.47, -27.5, "w", 2.5, "lamp", warm, 0.9, 7.5)
+    wall_lamp(38.84, -23.0, "e", 2.5, "tube", cool, 0.9, 8.0)
+    bulb_on_wire((-30.5, L1 - 0.12 - 0.7, -20.5), "", 0.9, 7.0)          # under Bridge A
+    bulb_on_wire((0.0, L1 - 0.14 - 0.7, -15.5), "", 0.9, 7.0)            # under the plaza bridges
+    bulb_on_wire((0.0, L1 - 0.14 - 0.7, 11.5), "flicker", 0.9, 7.0)
+    bulb_on_wire((-3.2, L1 - 0.15 - 0.7, -3.2), "", 1.0, 7.5)            # under the crane platform
+    bulb_on_wire((3.2, L1 - 0.15 - 0.7, 3.2), "", 1.0, 7.5)
+    # The east yard: the gate yard's containers, the east wall's inner face, the Talyer's outer walls.
+    wall_lamp(53.5, -24.0, "n", 2.5, "lamp", warm, 1.0, 8.0)
+    wall_lamp(62.0, -19.5, "w", 2.5, "tube", cool, 1.0, 8.0, "starter")
+    wall_lamp(50.0, 24.0, "w", 2.5, "lamp", warm, 1.0, 8.0)
+    wall_lamp(52.44, 27.0, "e", 2.5, "lamp", amber, 0.9, 7.5)
+    wall_lamp(62.0, 21.0, "w", 2.5, "tube", cool, 0.9, 8.0)
+    wall_lamp(62.0, 35.5, "w", 2.5, "lamp", warm, 0.9, 8.0)
+    wall_lamp(43.0, 4.0, "e", 2.5, "lamp", warm, 0.9, 8.0)
+    wall_lamp(27.0, 12.0, "s", 2.5, "lamp", amber, 0.9, 7.5)
+    # The Taas's back rooms (bulbs from its upper floor).
+    bulb_on_wire((11.5, L1 - 0.2 - 0.7, 19.5), "", 0.8, 6.0)
+    bulb_on_wire((-11.5, L1 - 0.2 - 0.7, 19.5), "", 0.8, 6.0)
+    # Second floor: the deck kubols' outer walls, the Bodega mezzanine, the plaza's north bridge.
+    wall_lamp(-25.0, -29.3, "e", L1 + 2.0, "lamp", warm, 0.9, 7.5)
+    wall_lamp(-30.0, -29.3, "w", L1 + 2.0, "lamp", amber, 0.9, 7.5, "flicker")
+    wall_lamp(21.0, -29.4, "e", L1 + 2.0, "lamp", warm, 0.9, 7.5)
+    wall_lamp(-40.0, -15.75, "s", L1 + 2.2, "tube", cool, 0.9, 8.0)
+    pole_lamp(1.15, -15.0, L1, L1 + 2.4, "w", warm, 0.8, 7.0)
+    end_group()
+
+
 def build():
     load_surfaces()
     ground()
@@ -1381,6 +1480,7 @@ def build():
     east_gate()
     eskinita()
     deck_lights()
+    r22_lights()
 
 
 # ------------------------------------------------------------------ writing

@@ -10,11 +10,15 @@ extends Node
 ## very heavy to nothing. The killed are thrown through the air as ragdolls, harder the closer they were. The blast
 ## also throws loose props and bodies about, knocks the nearest panels out of a door further off, blows a door close
 ## by apart altogether, breaks glass, and bots who hear it come to look. Kills count for whoever threw it.
+## (r22) A thrown grenade (not one dropped at the feet) is announced by a radio-distorted shout, "Fire in the hole!",
+## in the thrower's own voice, heard by everyone within 38 m (sounds fire_hole_<voice>_<take>, tools/make_grenade_shout.py).
 
 const BOUNCE := 0.35
 const FRICTION := 0.55
 const MASK := Defs.PHYS_WORLD | Defs.PHYS_PROP | Defs.PHYS_GLASS | Defs.PHYS_PROJ_ONLY
 const WRECK_R := 3.8          # a door this close to the blast (with a clear line) is blown apart
+const SHOUT_VOICES := ["m1", "m2", "f1", "f2"]   # the voices of the bot radio (BotBrain.voice)
+const SHOUT_TAKES := 2        # takes recorded per voice
 
 var world = null
 var live: Dictionary = {}     # id -> {p, v, t, rest, node, owner (eid of the thrower, server)}
@@ -93,7 +97,19 @@ func _release(ch, v: Vector3) -> void:
 		p = ch.global_position + Vector3.UP * 0.4 + Vector3(fwd.x, 0, fwd.z).normalized() * 0.25
 	else:
 		world.server_sound("throw", ch.eye_position(), 0.0, -1)
+		world.server_sound(_shout_id(ch), ch.eye_position(), 0.0, -1)   # (r22) "Fire in the hole!"
 	_spawn_live(p, v, maxf(fuse_s() - cooked, 0.05), ch.eid)
+
+
+func _shout_id(ch) -> String:
+	## (r22) The sound id of the thrower's shout: a bot shouts in its own voice, a human in one fixed by their player id;
+	## one of the takes at random.
+	var voice: String = SHOUT_VOICES[absi(hash(ch.pid)) % SHOUT_VOICES.size()]
+	if world.bots.has(ch.eid):
+		var bv := str(world.bots[ch.eid].voice)
+		if bv in SHOUT_VOICES:
+			voice = bv
+	return "fire_hole_%s_%d" % [voice, randi() % SHOUT_TAKES]
 
 
 func server_throw(ch) -> void:

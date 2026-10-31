@@ -1,0 +1,327 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+[server] dedicated server listening on 27641
+[world] map built in 1869 ms
+[map] 0 buildings, 0 doors, 0 containers, 0 props, #00000000 on PC
+[nav] levels: 34890 points, 3 links, 80 ms
+[nav] r21: 617 cells closed by the physics check, main walk 34227 of 34282 points (55 in pockets), 144 ms
+[botnav] freight_delight: walk check and 258 spots from res://data/botnav/freight_delight.json { "hide": 102, "snipe": 83, "cover": 45, "open": 28 }
+[bots] learned from 47 cells, 0 stuck spots, 0 spots learned from play, 11 spot records (user://bot_memory_freight_delight.json)
+[match    0.0] deathmatch start on freight_delight: 12 players, 2 teams; spawns (-52.0, 0.0, 0.0), (50.0, 0.0, 0.0) (103/103 m apart, layout); day offset 0 s; zone centre (3.0, 0.0) r=93; win by wipe
+[match    0.0] status: { "ground": 12 }; armed 12; shots 0; zone -1 hold r=93; corpses 0; levels { "L1": 12 }
+[match    0.0] dm teams: West Team 6 at (-50.0, 1.0) spread 3 m; East Team 6 at (53.0, 0.0) spread 8 m; gap 102 m; zone centre (3.0, 0.0)
+[match    0.0] bots: { "roam": 12 }; containers searched by bots 0 (all players 0); plan steps done 0; guns carried 24
+[match    0.0] roles: { "stalker": { "roam": 2 }, "sniper": { "roam": 4 }, "rusher": { "roam": 4 }, "looter": { "roam": 2 } }; stuck now 0; waypoints 258; team { "lines": 0, "pings": 0, "laser_follow": 0, "learned_cells": 47, "blocked_cells": 0, "squads": 0, "following_humans": 0, &"learned_spots": 0 }
+[match    0.0] [lootstats] bots on the ground 12 (in water 0); armed 12; armed with ammo for a gun 12; long guns 12; attachments fitted 0; rounds of unusable ammo carried 0; items on the ground 0; bot pickups { "detours": 0, "detour_taken": 0, "fetches": 0, "fetch_done": 0, "items_taken": 0 }
+[match    4.5] [radio] Totoy Kulot (sniper): sniping
+[match    5.3] [radio] Lola Basyang (sniper): sniping
+[match    9.2] Tsong Balut (team 1) landed at (47.0, 0.0, -3.0), 2.5 m/s, health 100; teammates -
+[match   13.9] [radio] Pinsan Gardo (looter): in_position
+[match   14.1] [radio] Totoy Kulot (sniper): contact
+[match   15.0] status: { "ground": 12 }; armed 12; shots 0; zone -1 hold r=93; corpses 0; levels { "L1": 11, "L2": 1 }; server tick avg 1.39 ms, p99 7.37 ms, max 35.76 ms over 900 ticks
+[match   15.0] dm teams: West Team 6 at (-27.0, 2.0) spread 18 m; East Team 6 at (11.0, 7.0) spread 9 m; gap 38 m; zone centre (3.0, 0.0)
+[match   15.0] bots: { "follow": 1, "overwatch": 1, "fight": 3, "roam": 3, "hunt": 3, "camp": 1 }; containers searched by bots 0 (all players 0); plan steps done 0; guns carried 24
+[match   15.0] roles: { "stalker": { "follow": 1, "hunt": 1 }, "sniper": { "overwatch": 1, "roam": 2, "fight": 1 }, "rusher": { "fight": 2, "hunt": 2 }, "looter": { "camp": 1, "roam": 1 } }; stuck now 0; waypoints 258; team { "lines": 4, "pings": 0, "laser_follow": 0, "learned_cells": 47, "blocked_cells": 0, "squads": 2, "following_humans": 0, &"learned_spots": 0 }
+[match   15.0] [lootstats] bots on the ground 12 (in water 0); armed 12; armed with ammo for a gun 12; long guns 12; attachments fitted 0; rounds of unusable ammo carried 0; items on the ground 0; bot pickups { "detours": 0, "detour_taken": 0, "fetches": 0, "fetch_done": 0, "items_taken": 0 }
+[match   15.5] [radio] Mang Tomas Ketchup (rusher): taking_fire
+[match   15.5] [radio] Bebot Karaoke (rusher): taking_fire
+[match   16.5] [radio] Mang Kanor (rusher): affirmative
+[match   16.8] [radio] Manong Guard (rusher): taking_fire
+[match   17.4] [radio] Lola Basyang (sniper): affirmative
+[match   17.7] [radio] Mang Tomas Ketchup (rusher): need_help
+[match   17.8] Mang Tomas Ketchup killed by Tito Karaoke King (gunshot); 2 teams left
+[match   17.8] alive: West Team 6, East Team 5; score { 0: 0, 1: 0 }
+[match   18.3] [radio] Tito Karaoke King (sniper): kill
+[match   18.6] [radio] Tsong Balut (stalker): affirmative
+[match   18.7] Mang Kanor killed by Tito Karaoke King (gunshot); 2 teams left
+[match   18.7] alive: West Team 5, East Team 5; score { 0: 0, 1: 0 }
+[match   18.9] Bebot Karaoke killed by Tito Karaoke King (bleeding); 2 teams left
+[match   18.9] alive: West Team 4, East Team 5; score { 0: 0, 1: 0 }
+[match   19.3] [radio] Mang Jolo (sniper): affirmative
+[match   19.3] [radio] Manong Guard (rusher): taking_fire
+[match   20.1] [radio] Manong Guard (rusher): need_help
+[match   20.2] [radio] Mang Jolo (sniper): down
+[match   20.3] Manong Guard killed by Mang Jolo (gunshot); 2 teams left
+[match   20.3] alive: West Team 4, East Team 4; score { 0: 0, 1: 0 }
+[match   20.6] Pinsan Gardo (team 0) landed at (-53.0, 0.0, 31.0), 4.9 m/s, health 100; teammates -
+[match   21.1] [radio] Totoy Kulot (sniper): affirmative
+[match   21.2] [radio] Mang Jolo (sniper): down
+[match   21.9] [radio] Totoy Kulot (sniper): affirmative
+[match   22.1] [radio] Mang Jolo (sniper): kill
+[match   23.0] [radio] Tsong Balut (stalker): down
+[match   23.1] [radio] Tito Karaoke King (sniper): kill
+[match   27.0] [radio] Tsong Balut (stalker): taking_fire
+[match   27.2] [radio] Lola Basyang (sniper): contact
+[match   30.0] status: { "ground": 8 }; armed 8; shots 81; zone -1 hold r=93; corpses 4; levels { "L1": 6, "between": 1, "L2": 1 }; server tick avg 1.97 ms, p99 10.70 ms, max 71.38 ms over 900 ticks
+[match   30.0] dm teams: West Team 4 at (-28.0, 1.0) spread 23 m; East Team 4 at (-1.0, 10.0) spread 19 m; gap 29 m; zone centre (3.0, 0.0)
+[match   30.0] bots: { "heal": 1, "overwatch": 3, "fight": 1, "hunt": 1, "camp": 2 }; containers searched by bots 0 (all players 0); plan steps done 0; guns carried 16
+[match   30.0] roles: { "stalker": { "heal": 1, "hunt": 1 }, "sniper": { "overwatch": 3, "fight": 1 }, "looter": { "camp": 2 } }; stuck now 0; waypoints 258; team { "lines": 24, "pings": 0, "laser_follow": 0, "learned_cells": 47, "blocked_cells": 0, "squads": 2, "following_humans": 0, &"learned_spots": 0 }
+[match   30.0] [lootstats] bots on the ground 8 (in water 0); armed 8; armed with ammo for a gun 8; long guns 8; attachments fitted 0; rounds of unusable ammo carried 0; items on the ground 0; bot pickups { "detours": 0, "detour_taken": 0, "fetches": 0, "fetch_done": 0, "items_taken": 0 }
+[match   32.1] [radio] Tsong Balut (stalker): clear
+[match   33.1] [radio] Totoy Kulot (sniper): affirmative
+[match   34.1] [radio] Inday Tsismis (looter): affirmative
+[match   34.9] [radio] Lola Basyang (sniper): taking_fire
+[match   36.2] [radio] Mang Jolo (sniper): affirmative
+[match   36.4] [radio] Totoy Kulot (sniper): in_position
+[match   36.6] Mang Jolo (team 0) landed at (-29.0, 0.0, -7.0), 4.4 m/s, health 100; teammates 49 m
+[match   37.0] [radio] Tito Karaoke King (sniper): affirmative
+[match   38.6] [radio] Lola Basyang (sniper): taking_fire
+[match   38.9] [radio] Ising Batingaw (stalker): contact
+[match   39.2] Lola Basyang killed by Inday Tsismis (gunshot); 2 teams left
+[match   39.2] alive: West Team 3, East Team 4; score { 0: 0, 1: 0 }
+[match   39.7] [radio] Mang Jolo (sniper): down
+[match   39.8] [radio] Inday Tsismis (looter): kill
+[match   42.4] [radio] Pinsan Gardo (looter): contact
+[match   43.6] [radio] Tsong Balut (stalker): contact
+[match   44.0] Tsong Balut killed by Totoy Kulot (gunshot); 2 teams left
+[match   44.0] alive: West Team 3, East Team 3; score { 0: 0, 1: 0 }
+[match   44.5] [radio] Ising Batingaw (stalker): down
+[match   44.9] [radio] Mang Jolo (sniper): taking_fire
+[match   45.0] status: { "ground": 6 }; armed 6; shots 193; zone -1 hold r=93; corpses 6; levels { "L1": 6 }; server tick avg 1.98 ms, p99 8.04 ms, max 35.74 ms over 900 ticks
+[match   45.0] dm teams: West Team 3 at (-38.0, 9.0) spread 20 m; East Team 3 at (-15.0, 3.0) spread 19 m; gap 24 m; zone centre (3.0, 0.0)
+[match   45.0] bots: { "fight": 4, "hunt": 1, "camp": 1 }; containers searched by bots 0 (all players 0); plan steps done 0; guns carried 12
+[match   45.0] roles: { "sniper": { "fight": 3 }, "stalker": { "hunt": 1 }, "looter": { "camp": 1, "fight": 1 } }; stuck now 0; waypoints 258; team { "lines": 39, "pings": 0, "laser_follow": 0, "learned_cells": 48, "blocked_cells": 0, "squads": 2, "following_humans": 0, &"learned_spots": 0 }
+[match   45.0] [lootstats] bots on the ground 6 (in water 0); armed 6; armed with ammo for a gun 6; long guns 6; attachments fitted 0; rounds of unusable ammo carried 0; items on the ground 0; bot pickups { "detours": 0, "detour_taken": 0, "fetches": 0, "fetch_done": 0, "items_taken": 0 }
+[match   45.4] Mang Jolo killed by Totoy Kulot (gunshot); 2 teams left
+[match   45.4] alive: West Team 2, East Team 3; score { 0: 0, 1: 0 }
+[match   45.4] [radio] Totoy Kulot (sniper): kill
+[match   45.7] [radio] Pinsan Gardo (looter): affirmative
+[match   46.3] [radio] Totoy Kulot (sniper): kill
+[match   46.8] [radio] Tito Karaoke King (sniper): down
+[match   48.1] [radio] Tito Karaoke King (sniper): need_help
+[match   48.5] [radio] Ising Batingaw (stalker): clear
+[match   49.0] [radio] Pinsan Gardo (looter): affirmative
+[match   51.9] Tito Karaoke King killed by Inday Tsismis (gunshot); 2 teams left
+[match   51.9] alive: West Team 1, East Team 3; score { 0: 0, 1: 0 }
+[match   52.4] [radio] Pinsan Gardo (looter): down
+[match   52.4] [radio] Inday Tsismis (looter): kill
+[match   56.4] [radio] Inday Tsismis (looter): in_position
+[match   60.0] status: { "ground": 4 }; armed 4; shots 247; zone -1 hold r=93; corpses 8; levels { "L1": 4 }; server tick avg 1.12 ms, p99 4.29 ms, max 15.67 ms over 900 ticks
+[match   60.0] dm teams: West Team 1 at (-58.0, 32.0) spread 0 m; East Team 3 at (-6.0, -5.0) spread 20 m; gap 64 m; zone centre (3.0, 0.0)
+[match   60.0] bots: { "hunt": 1, "camp": 2, "order": 1 }; containers searched by bots 0 (all players 0); plan steps done 0; guns carried 8
+[match   60.0] roles: { "stalker": { "hunt": 1 }, "looter": { "camp": 2 }, "sniper": { "order": 1 } }; stuck now 0; waypoints 258; team { "lines": 49, "pings": 0, "laser_follow": 0, "learned_cells": 48, "blocked_cells": 0, "squads": 2, "following_humans": 0, &"learned_spots": 0 }
+[match   60.0] [lootstats] bots on the ground 4 (in water 0); armed 4; armed with ammo for a gun 4; long guns 4; attachments fitted 0; rounds of unusable ammo carried 0; items on the ground 0; bot pickups { "detours": 0, "detour_taken": 0, "fetches": 0, "fetch_done": 0, "items_taken": 0 }
+[match   65.3] [radio] Ising Batingaw (stalker): sneaking
+[match   75.0] status: { "ground": 4 }; armed 4; shots 247; zone -1 hold r=93; corpses 8; levels { "L1": 4 }; server tick avg 0.76 ms, p99 2.86 ms, max 24.40 ms over 900 ticks
+[match   75.0] dm teams: West Team 1 at (-58.0, 32.0) spread 0 m; East Team 3 at (-2.0, -2.0) spread 23 m; gap 66 m; zone centre (3.0, 0.0)
+[match   75.0] bots: { "hunt": 1, "camp": 2, "overwatch": 1 }; containers searched by bots 0 (all players 0); plan steps done 0; guns carried 8
+[match   75.0] roles: { "stalker": { "hunt": 1 }, "looter": { "camp": 2 }, "sniper": { "overwatch": 1 } }; stuck now 0; waypoints 258; team { "lines": 50, "pings": 0, "laser_follow": 0, "learned_cells": 48, "blocked_cells": 0, "squads": 2, "following_humans": 0, &"learned_spots": 0 }
+[match   75.0] [lootstats] bots on the ground 4 (in water 0); armed 4; armed with ammo for a gun 4; long guns 4; attachments fitted 0; rounds of unusable ammo carried 0; items on the ground 0; bot pickups { "detours": 0, "detour_taken": 0, "fetches": 0, "fetch_done": 0, "items_taken": 0 }
+[match   90.0] status: { "ground": 4 }; armed 4; shots 247; zone -1 hold r=93; corpses 8; levels { "L1": 4 }; server tick avg 0.62 ms, p99 2.03 ms, max 4.36 ms over 900 ticks
+[match   90.0] dm teams: West Team 1 at (-58.0, 32.0) spread 0 m; East Team 3 at (-1.0, -2.0) spread 22 m; gap 66 m; zone centre (3.0, 0.0)
+[match   90.0] bots: { "hunt": 1, "camp": 2, "overwatch": 1 }; containers searched by bots 0 (all players 0); plan steps done 0; guns carried 8
+[match   90.0] roles: { "stalker": { "hunt": 1 }, "looter": { "camp": 2 }, "sniper": { "overwatch": 1 } }; stuck now 0; waypoints 258; team { "lines": 50, "pings": 0, "laser_follow": 0, "learned_cells": 49, "blocked_cells": 0, "squads": 2, "following_humans": 0, &"learned_spots": 0 }
+[match   90.0] [lootstats] bots on the ground 4 (in water 0); armed 4; armed with ammo for a gun 4; long guns 4; attachments fitted 0; rounds of unusable ammo carried 0; items on the ground 0; bot pickups { "detours": 0, "detour_taken": 0, "fetches": 0, "fetch_done": 0, "items_taken": 0 }
+[match  105.0] status: { "ground": 4 }; armed 4; shots 247; zone -1 hold r=93; corpses 8; levels { "L1": 4 }; server tick avg 0.63 ms, p99 1.44 ms, max 4.30 ms over 900 ticks
+[match  105.0] dm teams: West Team 1 at (-58.0, 32.0) spread 0 m; East Team 3 at (-2.0, -2.0) spread 23 m; gap 66 m; zone centre (3.0, 0.0)
+[match  105.0] bots: { "hunt": 1, "camp": 2, "overwatch": 1 }; containers searched by bots 0 (all players 0); plan steps done 0; guns carried 8
+[match  105.0] roles: { "stalker": { "hunt": 1 }, "looter": { "camp": 2 }, "sniper": { "overwatch": 1 } }; stuck now 0; waypoints 258; team { "lines": 50, "pings": 0, "laser_follow": 0, "learned_cells": 49, "blocked_cells": 0, "squads": 2, "following_humans": 0, &"learned_spots": 0 }
+[match  105.0] [lootstats] bots on the ground 4 (in water 0); armed 4; armed with ammo for a gun 4; long guns 4; attachments fitted 0; rounds of unusable ammo carried 0; items on the ground 0; bot pickups { "detours": 0, "detour_taken": 0, "fetches": 0, "fetch_done": 0, "items_taken": 0 }
+[match  120.0] status: { "ground": 4 }; armed 4; shots 247; zone -1 hold r=93; corpses 8; levels { "L1": 4 }; server tick avg 0.62 ms, p99 1.37 ms, max 5.54 ms over 900 ticks
+[match  120.0] dm teams: West Team 1 at (-58.0, 32.0) spread 0 m; East Team 3 at (-3.0, -1.0) spread 24 m; gap 64 m; zone centre (3.0, 0.0)
+[match  120.0] bots: { "hunt": 1, "camp": 2, "overwatch": 1 }; containers searched by bots 0 (all players 0); plan steps done 0; guns carried 8
+[match  120.0] roles: { "stalker": { "hunt": 1 }, "looter": { "camp": 2 }, "sniper": { "overwatch": 1 } }; stuck now 0; waypoints 258; team { "lines": 50, "pings": 0, "laser_follow": 0, "learned_cells": 49, "blocked_cells": 0, "squads": 2, "following_humans": 0, &"learned_spots": 0 }
+[match  120.0] [lootstats] bots on the ground 4 (in water 0); armed 4; armed with ammo for a gun 4; long guns 4; attachments fitted 0; rounds of unusable ammo carried 0; items on the ground 0; bot pickups { "detours": 0, "detour_taken": 0, "fetches": 0, "fetch_done": 0, "items_taken": 0 }
+[match  132.5] [radio] Ising Batingaw (stalker): sneaking
+[match  135.0] status: { "ground": 4 }; armed 4; shots 247; zone -1 hold r=93; corpses 8; levels { "L1": 4 }; server tick avg 0.63 ms, p99 1.30 ms, max 4.47 ms over 900 ticks
+[match  135.0] dm teams: West Team 1 at (-58.0, 32.0) spread 0 m; East Team 3 at (-2.0, -1.0) spread 22 m; gap 66 m; zone centre (3.0, 0.0)
+[match  135.0] bots: { "hunt": 1, "camp": 2, "overwatch": 1 }; containers searched by bots 0 (all players 0); plan steps done 0; guns carried 8
+[match  135.0] roles: { "stalker": { "hunt": 1 }, "looter": { "camp": 2 }, "sniper": { "overwatch": 1 } }; stuck now 0; waypoints 258; team { "lines": 51, "pings": 0, "laser_follow": 0, "learned_cells": 49, "blocked_cells": 0, "squads": 2, "following_humans": 0, &"learned_spots": 0 }
+[match  135.0] [lootstats] bots on the ground 4 (in water 0); armed 4; armed with ammo for a gun 4; long guns 4; attachments fitted 0; rounds of unusable ammo carried 0; items on the ground 0; bot pickups { "detours": 0, "detour_taken": 0, "fetches": 0, "fetch_done": 0, "items_taken": 0 }
+[match  136.7] [radio] Inday Tsismis (looter): in_position
+[match  140.9] [radio] Pinsan Gardo (looter): in_position
+[match  150.0] status: { "ground": 4 }; armed 4; shots 247; zone -1 hold r=93; corpses 8; levels { "L1": 4 }; server tick avg 0.64 ms, p99 1.47 ms, max 4.17 ms over 900 ticks
+[match  150.0] dm teams: West Team 1 at (-58.0, 32.0) spread 0 m; East Team 3 at (-4.0, -1.0) spread 25 m; gap 64 m; zone centre (3.0, 0.0)
+[match  150.0] bots: { "hunt": 1, "camp": 2, "overwatch": 1 }; containers searched by bots 0 (all players 0); plan steps done 0; guns carried 8
+[match  150.0] roles: { "stalker": { "hunt": 1 }, "looter": { "camp": 2 }, "sniper": { "overwatch": 1 } }; stuck now 0; waypoints 258; team { "lines": 53, "pings": 0, "laser_follow": 0, "learned_cells": 49, "blocked_cells": 0, "squads": 2, "following_humans": 0, &"learned_spots": 0 }
+[match  150.0] [lootstats] bots on the ground 4 (in water 0); armed 4; armed with ammo for a gun 4; long guns 4; attachments fitted 0; rounds of unusable ammo carried 0; items on the ground 0; bot pickups { "detours": 0, "detour_taken": 0, "fetches": 0, "fetch_done": 0, "items_taken": 0 }
+[match  153.5] [radio] Totoy Kulot (sniper): sniping
+[match  165.0] status: { "ground": 4 }; armed 4; shots 247; zone -1 hold r=93; corpses 8; levels { "L1": 4 }; server tick avg 0.61 ms, p99 1.28 ms, max 4.93 ms over 900 ticks
+[match  165.0] dm teams: West Team 1 at (-58.0, 32.0) spread 0 m; East Team 3 at (0.0, -1.0) spread 21 m; gap 67 m; zone centre (3.0, 0.0)
+[match  165.0] bots: { "hunt": 1, "camp": 2, "overwatch": 1 }; containers searched by bots 0 (all players 0); plan steps done 0; guns carried 8
+[match  165.0] roles: { "stalker": { "hunt": 1 }, "looter": { "camp": 2 }, "sniper": { "overwatch": 1 } }; stuck now 0; waypoints 258; team { "lines": 54, "pings": 0, "laser_follow": 0, "learned_cells": 49, "blocked_cells": 0, "squads": 2, "following_humans": 0, &"learned_spots": 0 }
+[match  165.0] [lootstats] bots on the ground 4 (in water 0); armed 4; armed with ammo for a gun 4; long guns 4; attachments fitted 0; rounds of unusable ammo carried 0; items on the ground 0; bot pickups { "detours": 0, "detour_taken": 0, "fetches": 0, "fetch_done": 0, "items_taken": 0 }
+[match  180.0] status: { "ground": 4 }; armed 4; shots 247; zone -1 hold r=93; corpses 8; levels { "L1": 4 }; server tick avg 0.59 ms, p99 1.27 ms, max 4.57 ms over 900 ticks
+[match  180.0] dm teams: West Team 1 at (-58.0, 32.0) spread 0 m; East Team 3 at (-1.0, -2.0) spread 21 m; gap 67 m; zone centre (3.0, 0.0)
+[match  180.0] bots: { "hunt": 1, "camp": 2, "overwatch": 1 }; containers searched by bots 0 (all players 0); plan steps done 0; guns carried 8
+[match  180.0] roles: { "stalker": { "hunt": 1 }, "looter": { "camp": 2 }, "sniper": { "overwatch": 1 } }; stuck now 0; waypoints 258; team { "lines": 54, "pings": 0, "laser_follow": 0, "learned_cells": 49, "blocked_cells": 0, "squads": 2, "following_humans": 0, &"learned_spots": 0 }
+[match  180.0] [lootstats] bots on the ground 4 (in water 0); armed 4; armed with ammo for a gun 4; long guns 4; attachments fitted 0; rounds of unusable ammo carried 0; items on the ground 0; bot pickups { "detours": 0, "detour_taken": 0, "fetches": 0, "fetch_done": 0, "items_taken": 0 }
+[match  187.1] [radio] Inday Tsismis (looter): in_position
+[match  191.6] [radio] Pinsan Gardo (looter): in_position
+[match  195.0] status: { "ground": 4 }; armed 4; shots 247; zone -1 hold r=93; corpses 8; levels { "L1": 4 }; server tick avg 0.59 ms, p99 1.23 ms, max 4.81 ms over 900 ticks
+[match  195.0] dm teams: West Team 1 at (-58.0, 32.0) spread 0 m; East Team 3 at (-5.0, 1.0) spread 26 m; gap 61 m; zone centre (3.0, 0.0)
+[match  195.0] bots: { "hunt": 1, "camp": 2, "overwatch": 1 }; containers searched by bots 0 (all players 0); plan steps done 0; guns carried 8
+[match  195.0] roles: { "stalker": { "hunt": 1 }, "looter": { "camp": 2 }, "sniper": { "overwatch": 1 } }; stuck now 0; waypoints 258; team { "lines": 56, "pings": 0, "laser_follow": 0, "learned_cells": 49, "blocked_cells": 0, "squads": 2, "following_humans": 0, &"learned_spots": 0 }
+[match  195.0] [lootstats] bots on the ground 4 (in water 0); armed 4; armed with ammo for a gun 4; long guns 4; attachments fitted 0; rounds of unusable ammo carried 0; items on the ground 0; bot pickups { "detours": 0, "detour_taken": 0, "fetches": 0, "fetch_done": 0, "items_taken": 0 }
+[match  200.5] [radio] Ising Batingaw (stalker): sneaking
+[match  210.0] status: { "ground": 4 }; armed 4; shots 247; zone -1 hold r=93; corpses 8; levels { "L1": 4 }; server tick avg 0.61 ms, p99 1.22 ms, max 12.63 ms over 900 ticks
+[match  210.0] dm teams: West Team 1 at (-58.0, 32.0) spread 0 m; East Team 3 at (-2.0, -2.0) spread 23 m; gap 65 m; zone centre (3.0, 0.0)
+[match  210.0] bots: { "hunt": 1, "camp": 2, "overwatch": 1 }; containers searched by bots 0 (all players 0); plan steps done 0; guns carried 8
+[match  210.0] roles: { "stalker": { "hunt": 1 }, "looter": { "camp": 2 }, "sniper": { "overwatch": 1 } }; stuck now 0; waypoints 258; team { "lines": 57, "pings": 0, "laser_follow": 0, "learned_cells": 49, "blocked_cells": 0, "squads": 2, "following_humans": 0, &"learned_spots": 0 }
+[match  210.0] [lootstats] bots on the ground 4 (in water 0); armed 4; armed with ammo for a gun 4; long guns 4; attachments fitted 0; rounds of unusable ammo carried 0; items on the ground 0; bot pickups { "detours": 0, "detour_taken": 0, "fetches": 0, "fetch_done": 0, "items_taken": 0 }
+[match  225.0] status: { "ground": 4 }; armed 4; shots 247; zone -1 hold r=93; corpses 8; levels { "L1": 4 }; server tick avg 0.60 ms, p99 1.26 ms, max 7.05 ms over 900 ticks
+[match  225.0] dm teams: West Team 1 at (-58.0, 32.0) spread 0 m; East Team 3 at (-1.0, -2.0) spread 21 m; gap 67 m; zone centre (3.0, 0.0)
+[match  225.0] bots: { "hunt": 1, "camp": 2, "overwatch": 1 }; containers searched by bots 0 (all players 0); plan steps done 0; guns carried 8
+[match  225.0] roles: { "stalker": { "hunt": 1 }, "looter": { "camp": 2 }, "sniper": { "overwatch": 1 } }; stuck now 0; waypoints 258; team { "lines": 57, "pings": 0, "laser_follow": 0, "learned_cells": 49, "blocked_cells": 0, "squads": 2, "following_humans": 0, &"learned_spots": 0 }
+[match  225.0] [lootstats] bots on the ground 4 (in water 0); armed 4; armed with ammo for a gun 4; long guns 4; attachments fitted 0; rounds of unusable ammo carried 0; items on the ground 0; bot pickups { "detours": 0, "detour_taken": 0, "fetches": 0, "fetch_done": 0, "items_taken": 0 }
+[match  233.7] [radio] Totoy Kulot (sniper): sniping
+[match  234.5] [radio] Pinsan Gardo (looter): in_position
+[match  238.6] [radio] Inday Tsismis (looter): in_position
+[match  240.0] status: { "ground": 4 }; armed 4; shots 247; zone -1 hold r=93; corpses 8; levels { "L1": 4 }; server tick avg 0.64 ms, p99 1.60 ms, max 6.56 ms over 900 ticks
+[match  240.0] dm teams: West Team 1 at (-58.0, 32.0) spread 0 m; East Team 3 at (0.0, -4.0) spread 21 m; gap 69 m; zone centre (3.0, 0.0)
+[match  240.0] bots: { "hunt": 1, "camp": 2, "overwatch": 1 }; containers searched by bots 0 (all players 0); plan steps done 0; guns carried 8
+[match  240.0] roles: { "stalker": { "hunt": 1 }, "looter": { "camp": 2 }, "sniper": { "overwatch": 1 } }; stuck now 0; waypoints 258; team { "lines": 60, "pings": 0, "laser_follow": 0, "learned_cells": 49, "blocked_cells": 0, "squads": 2, "following_humans": 0, &"learned_spots": 0 }
+[match  240.0] [lootstats] bots on the ground 4 (in water 0); armed 4; armed with ammo for a gun 4; long guns 4; attachments fitted 0; rounds of unusable ammo carried 0; items on the ground 0; bot pickups { "detours": 0, "detour_taken": 0, "fetches": 0, "fetch_done": 0, "items_taken": 0 }
+[match  255.0] status: { "ground": 4 }; armed 4; shots 247; zone -1 hold r=93; corpses 8; levels { "L1": 4 }; server tick avg 0.65 ms, p99 1.39 ms, max 6.09 ms over 900 ticks
+[match  255.0] dm teams: West Team 1 at (-58.0, 32.0) spread 0 m; East Team 3 at (-6.0, -2.0) spread 27 m; gap 62 m; zone centre (3.0, 0.0)
+[match  255.0] bots: { "hunt": 1, "camp": 2, "overwatch": 1 }; containers searched by bots 0 (all players 0); plan steps done 0; guns carried 8
+[match  255.0] roles: { "stalker": { "hunt": 1 }, "looter": { "camp": 2 }, "sniper": { "overwatch": 1 } }; stuck now 0; waypoints 258; team { "lines": 60, "pings": 0, "laser_follow": 0, "learned_cells": 49, "blocked_cells": 0, "squads": 2, "following_humans": 0, &"learned_spots": 0 }
+[match  255.0] [lootstats] bots on the ground 4 (in water 0); armed 4; armed with ammo for a gun 4; long guns 4; attachments fitted 0; rounds of unusable ammo carried 0; items on the ground 0; bot pickups { "detours": 0, "detour_taken": 0, "fetches": 0, "fetch_done": 0, "items_taken": 0 }
+[match  270.0] status: { "ground": 4 }; armed 4; shots 247; zone -1 hold r=93; corpses 8; levels { "L1": 4 }; server tick avg 0.80 ms, p99 1.69 ms, max 6.74 ms over 900 ticks
+[match  270.0] dm teams: West Team 1 at (-58.0, 32.0) spread 0 m; East Team 3 at (-2.0, -1.0) spread 23 m; gap 65 m; zone centre (3.0, 0.0)
+[match  270.0] bots: { "hunt": 1, "camp": 2, "overwatch": 1 }; containers searched by bots 0 (all players 0); plan steps done 0; guns carried 8
+[match  270.0] roles: { "stalker": { "hunt": 1 }, "looter": { "camp": 2 }, "sniper": { "overwatch": 1 } }; stuck now 0; waypoints 258; team { "lines": 60, "pings": 0, "laser_follow": 0, "learned_cells": 49, "blocked_cells": 0, "squads": 2, "following_humans": 0, &"learned_spots": 0 }
+[match  270.0] [lootstats] bots on the ground 4 (in water 0); armed 4; armed with ammo for a gun 4; long guns 4; attachments fitted 0; rounds of unusable ammo carried 0; items on the ground 0; bot pickups { "detours": 0, "detour_taken": 0, "fetches": 0, "fetch_done": 0, "items_taken": 0 }
+[match  280.9] [radio] Pinsan Gardo (looter): in_position
+[match  285.0] status: { "ground": 4 }; armed 4; shots 247; zone -1 hold r=93; corpses 8; levels { "L1": 4 }; server tick avg 0.81 ms, p99 1.83 ms, max 18.45 ms over 900 ticks
+[match  285.0] dm teams: West Team 1 at (-58.0, 32.0) spread 0 m; East Team 3 at (-2.0, -2.0) spread 22 m; gap 66 m; zone centre (3.0, 0.0)
+[match  285.0] bots: { "hunt": 1, "camp": 2, "overwatch": 1 }; containers searched by bots 0 (all players 0); plan steps done 0; guns carried 8
+[match  285.0] roles: { "stalker": { "hunt": 1 }, "looter": { "camp": 2 }, "sniper": { "overwatch": 1 } }; stuck now 0; waypoints 258; team { "lines": 61, "pings": 0, "laser_follow": 0, "learned_cells": 49, "blocked_cells": 0, "squads": 2, "following_humans": 0, &"learned_spots": 0 }
+[match  285.0] [lootstats] bots on the ground 4 (in water 0); armed 4; armed with ammo for a gun 4; long guns 4; attachments fitted 0; rounds of unusable ammo carried 0; items on the ground 0; bot pickups { "detours": 0, "detour_taken": 0, "fetches": 0, "fetch_done": 0, "items_taken": 0 }
+[match  298.3] [radio] Totoy Kulot (sniper): sniping
+[match  300.0] status: { "ground": 4 }; armed 4; shots 247; zone -1 hold r=93; corpses 8; levels { "L1": 4 }; server tick avg 0.81 ms, p99 1.71 ms, max 6.67 ms over 900 ticks
+[match  300.0] dm teams: West Team 1 at (-58.0, 32.0) spread 0 m; East Team 3 at (-3.0, -2.0) spread 24 m; gap 65 m; zone centre (3.0, 0.0)
+[match  300.0] bots: { "hunt": 1, "camp": 2, "overwatch": 1 }; containers searched by bots 0 (all players 0); plan steps done 0; guns carried 8
+[match  300.0] roles: { "stalker": { "hunt": 1 }, "looter": { "camp": 2 }, "sniper": { "overwatch": 1 } }; stuck now 0; waypoints 258; team { "lines": 62, "pings": 0, "laser_follow": 0, "learned_cells": 49, "blocked_cells": 0, "squads": 2, "following_humans": 0, &"learned_spots": 0 }
+[match  300.0] [lootstats] bots on the ground 4 (in water 0); armed 4; armed with ammo for a gun 4; long guns 4; attachments fitted 0; rounds of unusable ammo carried 0; items on the ground 0; bot pickups { "detours": 0, "detour_taken": 0, "fetches": 0, "fetch_done": 0, "items_taken": 0 }
+[match  300.3] [radio] Ising Batingaw (stalker): sneaking
+[match  315.0] status: { "ground": 4 }; armed 4; shots 247; zone -1 hold r=93; corpses 8; levels { "L1": 4 }; server tick avg 0.87 ms, p99 2.23 ms, max 9.22 ms over 900 ticks
+[match  315.0] dm teams: West Team 1 at (-58.0, 32.0) spread 0 m; East Team 3 at (-1.0, -1.0) spread 22 m; gap 66 m; zone centre (3.0, 0.0)
+[match  315.0] bots: { "hunt": 1, "camp": 2, "overwatch": 1 }; containers searched by bots 0 (all players 0); plan steps done 0; guns carried 8
+[match  315.0] roles: { "stalker": { "hunt": 1 }, "looter": { "camp": 2 }, "sniper": { "overwatch": 1 } }; stuck now 0; waypoints 258; team { "lines": 63, "pings": 0, "laser_follow": 0, "learned_cells": 49, "blocked_cells": 0, "squads": 2, "following_humans": 0, &"learned_spots": 0 }
+[match  315.0] [lootstats] bots on the ground 4 (in water 0); armed 4; armed with ammo for a gun 4; long guns 4; attachments fitted 0; rounds of unusable ammo carried 0; items on the ground 0; bot pickups { "detours": 0, "detour_taken": 0, "fetches": 0, "fetch_done": 0, "items_taken": 0 }
+[match  330.0] status: { "ground": 4 }; armed 4; shots 247; zone -1 hold r=93; corpses 8; levels { "L1": 4 }; server tick avg 0.81 ms, p99 1.90 ms, max 4.93 ms over 900 ticks
+[match  330.0] dm teams: West Team 1 at (-58.0, 32.0) spread 0 m; East Team 3 at (-2.0, -2.0) spread 23 m; gap 65 m; zone centre (3.0, 0.0)
+[match  330.0] bots: { "hunt": 1, "camp": 2, "overwatch": 1 }; containers searched by bots 0 (all players 0); plan steps done 0; guns carried 8
+[match  330.0] roles: { "stalker": { "hunt": 1 }, "looter": { "camp": 2 }, "sniper": { "overwatch": 1 } }; stuck now 0; waypoints 258; team { "lines": 63, "pings": 0, "laser_follow": 0, "learned_cells": 49, "blocked_cells": 0, "squads": 2, "following_humans": 0, &"learned_spots": 0 }
+[match  330.0] [lootstats] bots on the ground 4 (in water 0); armed 4; armed with ammo for a gun 4; long guns 4; attachments fitted 0; rounds of unusable ammo carried 0; items on the ground 0; bot pickups { "detours": 0, "detour_taken": 0, "fetches": 0, "fetch_done": 0, "items_taken": 0 }
+[match  331.8] [radio] Pinsan Gardo (looter): in_position
+[match  345.0] status: { "ground": 4 }; armed 4; shots 247; zone -1 hold r=93; corpses 8; levels { "L1": 4 }; server tick avg 0.91 ms, p99 1.87 ms, max 5.05 ms over 900 ticks
+[match  345.0] dm teams: West Team 1 at (-58.0, 32.0) spread 0 m; East Team 3 at (-4.0, -1.0) spread 25 m; gap 64 m; zone centre (3.0, 0.0)
+[match  345.0] bots: { "hunt": 1, "camp": 2, "overwatch": 1 }; containers searched by bots 0 (all players 0); plan steps done 0; guns carried 8
+[match  345.0] roles: { "stalker": { "hunt": 1 }, "looter": { "camp": 2 }, "sniper": { "overwatch": 1 } }; stuck now 0; waypoints 258; team { "lines": 64, "pings": 0, "laser_follow": 0, "learned_cells": 49, "blocked_cells": 0, "squads": 2, "following_humans": 0, &"learned_spots": 0 }
+[match  345.0] [lootstats] bots on the ground 4 (in water 0); armed 4; armed with ammo for a gun 4; long guns 4; attachments fitted 0; rounds of unusable ammo carried 0; items on the ground 0; bot pickups { "detours": 0, "detour_taken": 0, "fetches": 0, "fetch_done": 0, "items_taken": 0 }
+[match  360.0] status: { "ground": 4 }; armed 4; shots 247; zone -1 hold r=93; corpses 8; levels { "L1": 4 }; server tick avg 0.92 ms, p99 2.02 ms, max 6.29 ms over 900 ticks
+[match  360.0] dm teams: West Team 1 at (-58.0, 32.0) spread 0 m; East Team 3 at (-2.0, -2.0) spread 23 m; gap 65 m; zone centre (3.0, 0.0)
+[match  360.0] bots: { "hunt": 1, "camp": 2, "overwatch": 1 }; containers searched by bots 0 (all players 0); plan steps done 0; guns carried 8
+[match  360.0] roles: { "stalker": { "hunt": 1 }, "looter": { "camp": 2 }, "sniper": { "overwatch": 1 } }; stuck now 0; waypoints 258; team { "lines": 64, "pings": 0, "laser_follow": 0, "learned_cells": 49, "blocked_cells": 0, "squads": 2, "following_humans": 0, &"learned_spots": 0 }
+[match  360.0] [lootstats] bots on the ground 4 (in water 0); armed 4; armed with ammo for a gun 4; long guns 4; attachments fitted 0; rounds of unusable ammo carried 0; items on the ground 0; bot pickups { "detours": 0, "detour_taken": 0, "fetches": 0, "fetch_done": 0, "items_taken": 0 }
+[match  364.8] [radio] Ising Batingaw (stalker): sneaking
+[match  374.0] [radio] Totoy Kulot (sniper): sniping
+[match  375.0] status: { "ground": 4 }; armed 4; shots 247; zone -1 hold r=93; corpses 8; levels { "L1": 4 }; server tick avg 0.84 ms, p99 1.64 ms, max 4.81 ms over 900 ticks
+[match  375.0] dm teams: West Team 1 at (-58.0, 32.0) spread 0 m; East Team 3 at (-2.0, -2.0) spread 23 m; gap 65 m; zone centre (3.0, 0.0)
+[match  375.0] bots: { "hunt": 1, "camp": 2, "overwatch": 1 }; containers searched by bots 0 (all players 0); plan steps done 0; guns carried 8
+[match  375.0] roles: { "stalker": { "hunt": 1 }, "looter": { "camp": 2 }, "sniper": { "overwatch": 1 } }; stuck now 0; waypoints 258; team { "lines": 66, "pings": 0, "laser_follow": 0, "learned_cells": 49, "blocked_cells": 0, "squads": 2, "following_humans": 0, &"learned_spots": 0 }
+[match  375.0] [lootstats] bots on the ground 4 (in water 0); armed 4; armed with ammo for a gun 4; long guns 4; attachments fitted 0; rounds of unusable ammo carried 0; items on the ground 0; bot pickups { "detours": 0, "detour_taken": 0, "fetches": 0, "fetch_done": 0, "items_taken": 0 }
+[match  384.6] [radio] Pinsan Gardo (looter): in_position
+[match  390.0] status: { "ground": 4 }; armed 4; shots 247; zone -1 hold r=93; corpses 8; levels { "L1": 4 }; server tick avg 0.79 ms, p99 1.54 ms, max 5.01 ms over 900 ticks
+[match  390.0] dm teams: West Team 1 at (-58.0, 32.0) spread 0 m; East Team 3 at (-3.0, -1.0) spread 23 m; gap 65 m; zone centre (3.0, 0.0)
+[match  390.0] bots: { "hunt": 1, "camp": 2, "overwatch": 1 }; containers searched by bots 0 (all players 0); plan steps done 0; guns carried 8
+[match  390.0] roles: { "stalker": { "hunt": 1 }, "looter": { "camp": 2 }, "sniper": { "overwatch": 1 } }; stuck now 0; waypoints 258; team { "lines": 67, "pings": 0, "laser_follow": 0, "learned_cells": 49, "blocked_cells": 0, "squads": 2, "following_humans": 0, &"learned_spots": 0 }
+[match  390.0] [lootstats] bots on the ground 4 (in water 0); armed 4; armed with ammo for a gun 4; long guns 4; attachments fitted 0; rounds of unusable ammo carried 0; items on the ground 0; bot pickups { "detours": 0, "detour_taken": 0, "fetches": 0, "fetch_done": 0, "items_taken": 0 }
+[match  405.0] status: { "ground": 4 }; armed 4; shots 247; zone -1 hold r=93; corpses 8; levels { "L1": 4 }; server tick avg 0.68 ms, p99 1.66 ms, max 4.95 ms over 900 ticks
+[match  405.0] dm teams: West Team 1 at (-58.0, 32.0) spread 0 m; East Team 3 at (-5.0, 1.0) spread 26 m; gap 61 m; zone centre (3.0, 0.0)
+[match  405.0] bots: { "hunt": 1, "camp": 2, "overwatch": 1 }; containers searched by bots 0 (all players 0); plan steps done 0; guns carried 8
+[match  405.0] roles: { "stalker": { "hunt": 1 }, "looter": { "camp": 2 }, "sniper": { "overwatch": 1 } }; stuck now 0; waypoints 258; team { "lines": 67, "pings": 0, "laser_follow": 0, "learned_cells": 49, "blocked_cells": 0, "squads": 2, "following_humans": 0, &"learned_spots": 0 }
+[match  405.0] [lootstats] bots on the ground 4 (in water 0); armed 4; armed with ammo for a gun 4; long guns 4; attachments fitted 0; rounds of unusable ammo carried 0; items on the ground 0; bot pickups { "detours": 0, "detour_taken": 0, "fetches": 0, "fetch_done": 0, "items_taken": 0 }
+[match  411.9] [radio] Inday Tsismis (looter): in_position
+[match  420.0] status: { "ground": 4 }; armed 4; shots 247; zone -1 hold r=93; corpses 8; levels { "L1": 4 }; server tick avg 0.60 ms, p99 1.53 ms, max 6.57 ms over 900 ticks
+[match  420.0] dm teams: West Team 1 at (-58.0, 32.0) spread 0 m; East Team 3 at (-5.0, 1.0) spread 26 m; gap 61 m; zone centre (3.0, 0.0)
+[match  420.0] bots: { "hunt": 1, "camp": 2, "overwatch": 1 }; containers searched by bots 0 (all players 0); plan steps done 0; guns carried 8
+[match  420.0] roles: { "stalker": { "hunt": 1 }, "looter": { "camp": 2 }, "sniper": { "overwatch": 1 } }; stuck now 0; waypoints 258; team { "lines": 68, "pings": 0, "laser_follow": 0, "learned_cells": 49, "blocked_cells": 0, "squads": 2, "following_humans": 0, &"learned_spots": 0 }
+[match  420.0] [lootstats] bots on the ground 4 (in water 0); armed 4; armed with ammo for a gun 4; long guns 4; attachments fitted 0; rounds of unusable ammo carried 0; items on the ground 0; bot pickups { "detours": 0, "detour_taken": 0, "fetches": 0, "fetch_done": 0, "items_taken": 0 }
+[match  435.0] status: { "ground": 4 }; armed 4; shots 247; zone -1 hold r=93; corpses 8; levels { "L1": 4 }; server tick avg 0.56 ms, p99 1.19 ms, max 5.68 ms over 900 ticks
+[match  435.0] dm teams: West Team 1 at (-58.0, 32.0) spread 0 m; East Team 3 at (-4.0, -1.0) spread 25 m; gap 64 m; zone centre (3.0, 0.0)
+[match  435.0] bots: { "hunt": 1, "camp": 2, "overwatch": 1 }; containers searched by bots 0 (all players 0); plan steps done 0; guns carried 8
+[match  435.0] roles: { "stalker": { "hunt": 1 }, "looter": { "camp": 2 }, "sniper": { "overwatch": 1 } }; stuck now 0; waypoints 258; team { "lines": 68, "pings": 0, "laser_follow": 0, "learned_cells": 49, "blocked_cells": 0, "squads": 2, "following_humans": 0, &"learned_spots": 0 }
+[match  435.0] [lootstats] bots on the ground 4 (in water 0); armed 4; armed with ammo for a gun 4; long guns 4; attachments fitted 0; rounds of unusable ammo carried 0; items on the ground 0; bot pickups { "detours": 0, "detour_taken": 0, "fetches": 0, "fetch_done": 0, "items_taken": 0 }
+[match  444.3] [radio] Ising Batingaw (stalker): sneaking
+[match  450.0] status: { "ground": 4 }; armed 4; shots 247; zone -1 hold r=93; corpses 8; levels { "L1": 4 }; server tick avg 0.56 ms, p99 1.20 ms, max 6.96 ms over 900 ticks
+[match  450.0] dm teams: West Team 1 at (-58.0, 32.0) spread 0 m; East Team 3 at (-4.0, 0.0) spread 25 m; gap 63 m; zone centre (3.0, 0.0)
+[match  450.0] bots: { "hunt": 1, "camp": 2, "overwatch": 1 }; containers searched by bots 0 (all players 0); plan steps done 0; guns carried 8
+[match  450.0] roles: { "stalker": { "hunt": 1 }, "looter": { "camp": 2 }, "sniper": { "overwatch": 1 } }; stuck now 0; waypoints 258; team { "lines": 69, "pings": 0, "laser_follow": 0, "learned_cells": 49, "blocked_cells": 0, "squads": 2, "following_humans": 0, &"learned_spots": 0 }
+[match  450.0] [lootstats] bots on the ground 4 (in water 0); armed 4; armed with ammo for a gun 4; long guns 4; attachments fitted 0; rounds of unusable ammo carried 0; items on the ground 0; bot pickups { "detours": 0, "detour_taken": 0, "fetches": 0, "fetch_done": 0, "items_taken": 0 }
+[match  458.3] [radio] Totoy Kulot (sniper): sniping
+[match  464.7] [radio] Inday Tsismis (looter): in_position
+[match  465.0] status: { "ground": 4 }; armed 4; shots 247; zone -1 hold r=93; corpses 8; levels { "L1": 4 }; server tick avg 0.58 ms, p99 1.35 ms, max 5.91 ms over 900 ticks
+[match  465.0] dm teams: West Team 1 at (-58.0, 32.0) spread 0 m; East Team 3 at (-5.0, -1.0) spread 26 m; gap 63 m; zone centre (3.0, 0.0)
+[match  465.0] bots: { "hunt": 1, "camp": 2, "overwatch": 1 }; containers searched by bots 0 (all players 0); plan steps done 0; guns carried 8
+[match  465.0] roles: { "stalker": { "hunt": 1 }, "looter": { "camp": 2 }, "sniper": { "overwatch": 1 } }; stuck now 0; waypoints 258; team { "lines": 71, "pings": 0, "laser_follow": 0, "learned_cells": 49, "blocked_cells": 0, "squads": 2, "following_humans": 0, &"learned_spots": 0 }
+[match  465.0] [lootstats] bots on the ground 4 (in water 0); armed 4; armed with ammo for a gun 4; long guns 4; attachments fitted 0; rounds of unusable ammo carried 0; items on the ground 0; bot pickups { "detours": 0, "detour_taken": 0, "fetches": 0, "fetch_done": 0, "items_taken": 0 }
+[match  467.3] [radio] Pinsan Gardo (looter): in_position
+[match  480.0] status: { "ground": 4 }; armed 4; shots 247; zone -1 hold r=93; corpses 8; levels { "L1": 4 }; server tick avg 0.59 ms, p99 1.33 ms, max 6.54 ms over 900 ticks
+[match  480.0] dm teams: West Team 1 at (-58.0, 32.0) spread 0 m; East Team 3 at (-4.0, -1.0) spread 26 m; gap 63 m; zone centre (3.0, 0.0)
+[match  480.0] bots: { "hunt": 1, "camp": 2, "overwatch": 1 }; containers searched by bots 0 (all players 0); plan steps done 0; guns carried 8
+[match  480.0] roles: { "stalker": { "hunt": 1 }, "looter": { "camp": 2 }, "sniper": { "overwatch": 1 } }; stuck now 0; waypoints 258; team { "lines": 72, "pings": 0, "laser_follow": 0, "learned_cells": 49, "blocked_cells": 0, "squads": 2, "following_humans": 0, &"learned_spots": 0 }
+[match  480.0] [lootstats] bots on the ground 4 (in water 0); armed 4; armed with ammo for a gun 4; long guns 4; attachments fitted 0; rounds of unusable ammo carried 0; items on the ground 0; bot pickups { "detours": 0, "detour_taken": 0, "fetches": 0, "fetch_done": 0, "items_taken": 0 }
+[match  495.0] status: { "ground": 4 }; armed 4; shots 247; zone -1 hold r=93; corpses 8; levels { "L1": 4 }; server tick avg 0.56 ms, p99 1.26 ms, max 5.54 ms over 900 ticks
+[match  495.0] dm teams: West Team 1 at (-58.0, 32.0) spread 0 m; East Team 3 at (-2.0, -1.0) spread 23 m; gap 65 m; zone centre (3.0, 0.0)
+[match  495.0] bots: { "hunt": 1, "camp": 2, "overwatch": 1 }; containers searched by bots 0 (all players 0); plan steps done 0; guns carried 8
+[match  495.0] roles: { "stalker": { "hunt": 1 }, "looter": { "camp": 2 }, "sniper": { "overwatch": 1 } }; stuck now 0; waypoints 258; team { "lines": 72, "pings": 0, "laser_follow": 0, "learned_cells": 49, "blocked_cells": 0, "squads": 2, "following_humans": 0, &"learned_spots": 0 }
+[match  495.0] [lootstats] bots on the ground 4 (in water 0); armed 4; armed with ammo for a gun 4; long guns 4; attachments fitted 0; rounds of unusable ammo carried 0; items on the ground 0; bot pickups { "detours": 0, "detour_taken": 0, "fetches": 0, "fetch_done": 0, "items_taken": 0 }
+[match  510.0] status: { "ground": 4 }; armed 4; shots 247; zone -1 hold r=93; corpses 8; levels { "L1": 4 }; server tick avg 0.57 ms, p99 1.15 ms, max 7.04 ms over 900 ticks
+[match  510.0] dm teams: West Team 1 at (-58.0, 32.0) spread 0 m; East Team 3 at (-1.0, -1.0) spread 21 m; gap 67 m; zone centre (3.0, 0.0)
+[match  510.0] bots: { "hunt": 1, "camp": 2, "overwatch": 1 }; containers searched by bots 0 (all players 0); plan steps done 0; guns carried 8
+[match  510.0] roles: { "stalker": { "hunt": 1 }, "looter": { "camp": 2 }, "sniper": { "overwatch": 1 } }; stuck now 0; waypoints 258; team { "lines": 72, "pings": 0, "laser_follow": 0, "learned_cells": 49, "blocked_cells": 0, "squads": 2, "following_humans": 0, &"learned_spots": 0 }
+[match  510.0] [lootstats] bots on the ground 4 (in water 0); armed 4; armed with ammo for a gun 4; long guns 4; attachments fitted 0; rounds of unusable ammo carried 0; items on the ground 0; bot pickups { "detours": 0, "detour_taken": 0, "fetches": 0, "fetch_done": 0, "items_taken": 0 }
+[match  511.7] [radio] Ising Batingaw (stalker): sneaking
+[match  525.0] status: { "ground": 4 }; armed 4; shots 247; zone -1 hold r=93; corpses 8; levels { "L1": 4 }; server tick avg 0.57 ms, p99 1.15 ms, max 6.58 ms over 900 ticks
+[match  525.0] dm teams: West Team 1 at (-58.0, 32.0) spread 0 m; East Team 3 at (-2.0, -1.0) spread 23 m; gap 65 m; zone centre (3.0, 0.0)
+[match  525.0] bots: { "hunt": 1, "camp": 2, "overwatch": 1 }; containers searched by bots 0 (all players 0); plan steps done 0; guns carried 8
+[match  525.0] roles: { "stalker": { "hunt": 1 }, "looter": { "camp": 2 }, "sniper": { "overwatch": 1 } }; stuck now 0; waypoints 258; team { "lines": 73, "pings": 0, "laser_follow": 0, "learned_cells": 49, "blocked_cells": 0, "squads": 2, "following_humans": 0, &"learned_spots": 0 }
+[match  525.0] [lootstats] bots on the ground 4 (in water 0); armed 4; armed with ammo for a gun 4; long guns 4; attachments fitted 0; rounds of unusable ammo carried 0; items on the ground 0; bot pickups { "detours": 0, "detour_taken": 0, "fetches": 0, "fetch_done": 0, "items_taken": 0 }
+[match  540.0] status: { "ground": 4 }; armed 4; shots 247; zone -1 hold r=93; corpses 8; levels { "L1": 4 }; server tick avg 0.58 ms, p99 1.22 ms, max 6.16 ms over 900 ticks
+[match  540.0] dm teams: West Team 1 at (-58.0, 32.0) spread 0 m; East Team 3 at (-3.0, -1.0) spread 24 m; gap 64 m; zone centre (3.0, 0.0)
+[match  540.0] bots: { "hunt": 1, "camp": 2, "overwatch": 1 }; containers searched by bots 0 (all players 0); plan steps done 0; guns carried 8
+[match  540.0] roles: { "stalker": { "hunt": 1 }, "looter": { "camp": 2 }, "sniper": { "overwatch": 1 } }; stuck now 0; waypoints 258; team { "lines": 73, "pings": 0, "laser_follow": 0, "learned_cells": 49, "blocked_cells": 0, "squads": 2, "following_humans": 0, &"learned_spots": 0 }
+[match  540.0] [lootstats] bots on the ground 4 (in water 0); armed 4; armed with ammo for a gun 4; long guns 4; attachments fitted 0; rounds of unusable ammo carried 0; items on the ground 0; bot pickups { "detours": 0, "detour_taken": 0, "fetches": 0, "fetch_done": 0, "items_taken": 0 }
+[match  548.9] [radio] Totoy Kulot (sniper): sniping
+[match  555.0] status: { "ground": 4 }; armed 4; shots 247; zone -1 hold r=93; corpses 8; levels { "L1": 4 }; server tick avg 0.57 ms, p99 1.16 ms, max 5.67 ms over 900 ticks
+[match  555.0] dm teams: West Team 1 at (-58.0, 32.0) spread 0 m; East Team 3 at (-4.0, -1.0) spread 25 m; gap 63 m; zone centre (3.0, 0.0)
+[match  555.0] bots: { "hunt": 1, "camp": 2, "overwatch": 1 }; containers searched by bots 0 (all players 0); plan steps done 0; guns carried 8
+[match  555.0] roles: { "stalker": { "hunt": 1 }, "looter": { "camp": 2 }, "sniper": { "overwatch": 1 } }; stuck now 0; waypoints 258; team { "lines": 74, "pings": 0, "laser_follow": 0, "learned_cells": 49, "blocked_cells": 0, "squads": 2, "following_humans": 0, &"learned_spots": 0 }
+[match  555.0] [lootstats] bots on the ground 4 (in water 0); armed 4; armed with ammo for a gun 4; long guns 4; attachments fitted 0; rounds of unusable ammo carried 0; items on the ground 0; bot pickups { "detours": 0, "detour_taken": 0, "fetches": 0, "fetch_done": 0, "items_taken": 0 }
+[match  570.0] status: { "ground": 4 }; armed 4; shots 247; zone -1 hold r=93; corpses 8; levels { "L1": 4 }; server tick avg 0.55 ms, p99 1.02 ms, max 6.04 ms over 900 ticks
+[match  570.0] dm teams: West Team 1 at (-58.0, 32.0) spread 0 m; East Team 3 at (-5.0, 1.0) spread 26 m; gap 62 m; zone centre (3.0, 0.0)
+[match  570.0] bots: { "hunt": 1, "camp": 2, "overwatch": 1 }; containers searched by bots 0 (all players 0); plan steps done 0; guns carried 8
+[match  570.0] roles: { "stalker": { "hunt": 1 }, "looter": { "camp": 2 }, "sniper": { "overwatch": 1 } }; stuck now 0; waypoints 258; team { "lines": 74, "pings": 0, "laser_follow": 0, "learned_cells": 49, "blocked_cells": 0, "squads": 2, "following_humans": 0, &"learned_spots": 0 }
+[match  570.0] [lootstats] bots on the ground 4 (in water 0); armed 4; armed with ammo for a gun 4; long guns 4; attachments fitted 0; rounds of unusable ammo carried 0; items on the ground 0; bot pickups { "detours": 0, "detour_taken": 0, "fetches": 0, "fetch_done": 0, "items_taken": 0 }
+[match  585.0] status: { "ground": 4 }; armed 4; shots 247; zone -1 hold r=93; corpses 8; levels { "L1": 4 }; server tick avg 0.54 ms, p99 1.09 ms, max 6.31 ms over 900 ticks
+[match  585.0] dm teams: West Team 1 at (-58.0, 32.0) spread 0 m; East Team 3 at (-3.0, -2.0) spread 25 m; gap 64 m; zone centre (3.0, 0.0)
+[match  585.0] bots: { "hunt": 1, "camp": 2, "overwatch": 1 }; containers searched by bots 0 (all players 0); plan steps done 0; guns carried 8
+[match  585.0] roles: { "stalker": { "hunt": 1 }, "looter": { "camp": 2 }, "sniper": { "overwatch": 1 } }; stuck now 0; waypoints 258; team { "lines": 74, "pings": 0, "laser_follow": 0, "learned_cells": 49, "blocked_cells": 0, "squads": 2, "following_humans": 0, &"learned_spots": 0 }
+[match  585.0] [lootstats] bots on the ground 4 (in water 0); armed 4; armed with ammo for a gun 4; long guns 4; attachments fitted 0; rounds of unusable ammo carried 0; items on the ground 0; bot pickups { "detours": 0, "detour_taken": 0, "fetches": 0, "fetch_done": 0, "items_taken": 0 }
+[match  587.4] [radio] Inday Tsismis (looter): in_position
+[match  600.0] status: { "ground": 4 }; armed 4; shots 247; zone -1 hold r=93; corpses 8; levels { "L1": 4 }; server tick avg 0.57 ms, p99 1.48 ms, max 6.18 ms over 900 ticks
+[match  600.0] dm teams: West Team 1 at (-58.0, 32.0) spread 0 m; East Team 3 at (-6.0, 0.0) spread 27 m; gap 61 m; zone centre (3.0, 0.0)
+[match  600.0] bots: { "hunt": 1, "camp": 2, "overwatch": 1 }; containers searched by bots 0 (all players 0); plan steps done 0; guns carried 8
+[match  600.0] roles: { "stalker": { "hunt": 1 }, "looter": { "camp": 2 }, "sniper": { "overwatch": 1 } }; stuck now 0; waypoints 258; team { "lines": 75, "pings": 0, "laser_follow": 0, "learned_cells": 49, "blocked_cells": 0, "squads": 2, "following_humans": 0, &"learned_spots": 0 }
+[match  600.0] [lootstats] bots on the ground 4 (in water 0); armed 4; armed with ammo for a gun 4; long guns 4; attachments fitted 0; rounds of unusable ammo carried 0; items on the ground 0; bot pickups { "detours": 0, "detour_taken": 0, "fetches": 0, "fetch_done": 0, "items_taken": 0 }
+[match  615.0] status: { "ground": 4 }; armed 4; shots 247; zone -1 hold r=93; corpses 8; levels { "L1": 4 }; server tick avg 0.56 ms, p99 1.10 ms, max 6.31 ms over 900 ticks
+[match  615.0] dm teams: West Team 1 at (-58.0, 32.0) spread 0 m; East Team 3 at (-4.0, -2.0) spread 26 m; gap 63 m; zone centre (3.0, 0.0)
+[match  615.0] bots: { "hunt": 1, "camp": 2, "overwatch": 1 }; containers searched by bots 0 (all players 0); plan steps done 0; guns carried 8
+[match  615.0] roles: { "stalker": { "hunt": 1 }, "looter": { "camp": 2 }, "sniper": { "overwatch": 1 } }; stuck now 0; waypoints 258; team { "lines": 75, "pings": 0, "laser_follow": 0, "learned_cells": 49, "blocked_cells": 0, "squads": 2, "following_humans": 0, &"learned_spots": 0 }
+[match  615.0] [lootstats] bots on the ground 4 (in water 0); armed 4; armed with ammo for a gun 4; long guns 4; attachments fitted 0; rounds of unusable ammo carried 0; items on the ground 0; bot pickups { "detours": 0, "detour_taken": 0, "fetches": 0, "fetch_done": 0, "items_taken": 0 }
+[match  625.0] [radio] Inday Tsismis (looter): in_position
+[match  630.0] status: { "ground": 4 }; armed 4; shots 247; zone -1 hold r=93; corpses 8; levels { "L1": 4 }; server tick avg 0.56 ms, p99 1.10 ms, max 4.74 ms over 900 ticks
+[match  630.0] dm teams: West Team 1 at (-58.0, 32.0) spread 0 m; East Team 3 at (-4.0, -1.0) spread 25 m; gap 64 m; zone centre (3.0, 0.0)
+[match  630.0] bots: { "hunt": 1, "camp": 2, "overwatch": 1 }; containers searched by bots 0 (all players 0); plan steps done 0; guns carried 8
+[match  630.0] roles: { "stalker": { "hunt": 1 }, "looter": { "camp": 2 }, "sniper": { "overwatch": 1 } }; stuck now 0; waypoints 258; team { "lines": 76, "pings": 0, "laser_follow": 0, "learned_cells": 49, "blocked_cells": 0, "squads": 2, "following_humans": 0, &"learned_spots": 0 }
+[match  630.0] [lootstats] bots on the ground 4 (in water 0); armed 4; armed with ammo for a gun 4; long guns 4; attachments fitted 0; rounds of unusable ammo carried 0; items on the ground 0; bot pickups { "detours": 0, "detour_taken": 0, "fetches": 0, "fetch_done": 0, "items_taken": 0 }
+[match  645.0] status: { "ground": 4 }; armed 4; shots 247; zone -1 hold r=93; corpses 8; levels { "L1": 4 }; server tick avg 0.57 ms, p99 1.18 ms, max 6.20 ms over 900 ticks
+[match  645.0] dm teams: West Team 1 at (-58.0, 32.0) spread 0 m; East Team 3 at (-2.0, -1.0) spread 23 m; gap 65 m; zone centre (3.0, 0.0)
+[match  645.0] bots: { "hunt": 1, "camp": 2, "overwatch": 1 }; containers searched by bots 0 (all players 0); plan steps done 0; guns carried 8
+[match  645.0] roles: { "stalker": { "hunt": 1 }, "looter": { "camp": 2 }, "sniper": { "overwatch": 1 } }; stuck now 0; waypoints 258; team { "lines": 76, "pings": 0, "laser_follow": 0, "learned_cells": 49, "blocked_cells": 0, "squads": 2, "following_humans": 0, &"learned_spots": 0 }
+[match  645.0] [lootstats] bots on the ground 4 (in water 0); armed 4; armed with ammo for a gun 4; long guns 4; attachments fitted 0; rounds of unusable ammo carried 0; items on the ground 0; bot pickups { "detours": 0, "detour_taken": 0, "fetches": 0, "fetch_done": 0, "items_taken": 0 }
+[match  645.9] [radio] Pinsan Gardo (looter): in_position
+[run_timed] killed after 660 s
