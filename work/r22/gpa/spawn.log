@@ -1,0 +1,95 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+[server] dedicated server listening on 27752
+[world] map built in 638 ms
+[map] 0 buildings, 0 doors, 0 containers, 0 props, #00000000 on PC
+[nav] levels: 34890 points, 3 links, 85 ms
+[nav] r21: 617 cells closed by the physics check, main walk 34227 of 34282 points (55 in pockets), 167 ms
+[botnav] freight_delight: walk check and 258 spots from res://data/botnav/freight_delight.json { "hide": 102, "snipe": 83, "cover": 45, "open": 28 }
+[bots] learned from 47 cells, 0 stuck spots, 0 spots learned from play, 11 spot records (user://bot_memory_freight_delight.json)
+[loadout] Kapitbahay Lito machine_pistol [suppressor_light,laser_sight,stock_tactical] mag 32/32 | revolver_357 [sight_reddot] mag 6/6
+[loadout] Bebot Karaoke smg_ump45 [sight_holo,suppressor_light,grip_thumb,weapon_light] mag 25/25 | pistol_45 [sight_reddot,suppressor_light,mag_extquick_light,weapon_light] mag 12/12
+[loadout] Aling Taho shotgun_double [choke,bullet_loops] mag 2/2 | revolver_357 [sight_reflex] mag 6/6
+[loadout] Kumareng Marites bolt_308 [suppressor_rifle,mag_ext_sniper,cheek_pad] mag 8/8 | pistol_9 [sight_reddot,suppressor_light,mag_extquick_light,weapon_light] mag 21/21
+[match    0.0] deathmatch start on freight_delight: 4 players, 2 teams; spawns (-52.0, 0.0, 0.0), (50.0, 0.0, 0.0) (103/103 m apart, layout); day offset 0 s; zone centre (-6.0, 1.0) r=96; win by score 10, field holds at r=70
+[match    0.0] status: { "ground": 4 }; armed 4; shots 0; zone -1 hold r=96; corpses 0; levels { "L1": 4 }
+[match    0.0] dm teams: West Team 2 at (-49.0, 3.0) spread 2 m; East Team 2 at (53.0, 9.0) spread 1 m; gap 102 m; zone centre (-6.0, 1.0)
+[match    0.0] bots: { "roam": 4 }; containers searched by bots 0 (all players 0); plan steps done 0; guns carried 8
+[match    0.0] roles: { "stalker": { "roam": 2 }, "looter": { "roam": 1 }, "rusher": { "roam": 1 } }; stuck now 0; waypoints 258; team { "lines": 0, "pings": 0, "laser_follow": 0, "learned_cells": 47, "blocked_cells": 0, "squads": 0, "following_humans": 0, &"learned_spots": 0 }
+[match    0.0] [lootstats] bots on the ground 4 (in water 0); armed 4; armed with ammo for a gun 4; long guns 4; attachments fitted 22; rounds of unusable ammo carried 0; items on the ground 0; bot pickups { "detours": 0, "detour_taken": 0, "fetches": 0, "fetch_done": 0, "items_taken": 0 }
+[match    8.1] Kapitbahay Lito (team 1) landed at (47.0, 0.0, 1.0), 2.5 m/s, health 100; teammates -
+[match   15.0] status: { "ground": 4 }; armed 4; shots 0; zone -1 hold r=96; corpses 0; levels { "L2": 1, "L1": 3 }; server tick avg 0.67 ms, p99 2.20 ms, max 11.77 ms over 900 ticks
+[match   15.0] dm teams: West Team 2 at (-15.0, 18.0) spread 21 m; East Team 2 at (26.0, -13.0) spread 14 m; gap 51 m; zone centre (-6.0, 1.0)
+[match   15.0] bots: { "hunt": 2, "roam": 1, "fight": 1 }; containers searched by bots 0 (all players 0); plan steps done 0; guns carried 8
+[match   15.0] roles: { "stalker": { "hunt": 2 }, "looter": { "roam": 1 }, "rusher": { "fight": 1 } }; stuck now 0; waypoints 258; team { "lines": 3, "pings": 0, "laser_follow": 0, "learned_cells": 47, "blocked_cells": 0, "squads": 0, "following_humans": 0, &"learned_spots": 0 }
+[match   15.0] [lootstats] bots on the ground 4 (in water 0); armed 4; armed with ammo for a gun 4; long guns 4; attachments fitted 22; rounds of unusable ammo carried 0; items on the ground 0; bot pickups { "detours": 0, "detour_taken": 0, "fetches": 0, "fetch_done": 0, "items_taken": 0 }
+[match   19.3] Aling Taho killed by Kumareng Marites (gunshot); 2 teams left
+[match   19.3] alive: West Team 2, East Team 1; score { 0: 1, 1: 0 }
+[loadout] Aling Taho shotgun_pump [choke] mag 6/6 | revolver_357 [sight_reddot] mag 6/6
+[match   24.3] Aling Taho respawned at (53.0, 0.0, 5.0) (nearest enemy 33 m)
+[match   25.4] Kapitbahay Lito killed by Kumareng Marites (gunshot); 2 teams left
+[match   25.4] alive: West Team 2, East Team 1; score { 0: 2, 1: 0 }
+[match   28.5] Kumareng Marites (team 0) landed at (25.0, 0.0, -7.0), 4.9 m/s, health 66; teammates -
+[match   30.0] [botskill] normal shots 24 hits 7 reaction_avg 0.61 (n 11) dmg 484 bots 3
+[match   30.0] status: { "ground": 3 }; armed 3; shots 24; zone -1 hold r=96; corpses 2; levels { "L1": 3 }; server tick avg 0.93 ms, p99 3.37 ms, max 36.73 ms over 900 ticks
+[match   30.0] dm teams: West Team 2 at (20.0, 12.0) spread 23 m; East Team 1 at (54.0, 4.0) spread 0 m; gap 35 m; zone centre (-6.0, 1.0)
+[match   30.0] bots: { "hunt": 1, "fight": 2 }; containers searched by bots 0 (all players 0); plan steps done 0; guns carried 6
+[match   30.0] roles: { "stalker": { "hunt": 1, "fight": 1 }, "rusher": { "fight": 1 } }; stuck now 0; waypoints 258; team { "lines": 11, "pings": 0, "laser_follow": 0, "learned_cells": 49, "blocked_cells": 0, "squads": 0, "following_humans": 0, &"learned_spots": 0 }
+[match   30.0] [lootstats] bots on the ground 3 (in water 0); armed 3; armed with ammo for a gun 3; long guns 3; attachments fitted 17; rounds of unusable ammo carried 0; items on the ground 0; bot pickups { "detours": 0, "detour_taken": 0, "fetches": 0, "fetch_done": 0, "items_taken": 0 }
+[loadout] Kapitbahay Lito bolt_308 [scope_6x,suppressor_rifle,mag_ext_sniper] mag 8/8 | revolver_357 [sight_reddot] mag 6/6
+[match   30.4] Kapitbahay Lito respawned at (53.0, 0.0, 11.0) (nearest enemy 27 m)
+[match   35.2] Aling Taho (team 1) landed at (51.0, 0.0, 5.0), 2.3 m/s, health 100; teammates -
+[match   45.0] [botskill] normal shots 44 hits 11 reaction_avg 0.55 (n 18) dmg 585 bots 4
+[match   45.0] status: { "ground": 4 }; armed 4; shots 44; zone -1 hold r=96; corpses 2; levels { "L1": 4 }; server tick avg 1.28 ms, p99 2.82 ms, max 11.66 ms over 900 ticks
+[match   45.0] dm teams: West Team 2 at (49.0, 3.0) spread 7 m; East Team 2 at (61.0, 14.0) spread 5 m; gap 16 m; zone centre (-6.0, 1.0)
+[match   45.0] bots: { "order": 1, "fight": 2, "investigate": 1 }; containers searched by bots 0 (all players 0); plan steps done 0; guns carried 8
+[match   45.0] roles: { "stalker": { "order": 1, "fight": 1 }, "rusher": { "fight": 1 }, "sniper": { "investigate": 1 } }; stuck now 0; waypoints 258; team { "lines": 19, "pings": 0, "laser_follow": 0, "learned_cells": 49, "blocked_cells": 0, "squads": 0, "following_humans": 0, &"learned_spots": 0 }
+[match   45.0] [lootstats] bots on the ground 4 (in water 0); armed 4; armed with ammo for a gun 4; long guns 4; attachments fitted 21; rounds of unusable ammo carried 0; items on the ground 0; bot pickups { "detours": 0, "detour_taken": 0, "fetches": 0, "fetch_done": 0, "items_taken": 0 }
+[match   45.2] Kumareng Marites killed by Aling Taho (gunshot); 2 teams left
+[match   45.2] alive: West Team 1, East Team 2; score { 0: 2, 1: 1 }
+[match   46.1] Aling Taho killed by Bebot Karaoke (gunshot); 2 teams left
+[match   46.1] alive: West Team 1, East Team 1; score { 0: 3, 1: 1 }
+[loadout] Kumareng Marites rifle_m416 [scope_night,suppressor_rifle,mag_extquick_rifle,stock_heavy,weapon_light] mag 40/40 | revolver_357 [sight_reddot] mag 6/6
+[match   50.2] Kumareng Marites respawned at (-56.0, 0.0, 2.0) (nearest enemy 117 m)
+[loadout] Aling Taho machine_pistol [sight_reddot,suppressor_light,laser_sight,mag_extquick_light,stock_heavy,weapon_light] mag 45/45 | revolver_357 [] mag 6/6
+[match   51.2] Aling Taho respawned at (50.0, 0.0, -11.0) (nearest enemy 14 m)
+[match   54.4] Bebot Karaoke killed by Aling Taho (gunshot); 2 teams left
+[match   54.4] alive: West Team 1, East Team 2; score { 0: 3, 1: 2 }
+[match   56.1] Kapitbahay Lito (team 1) landed at (58.0, 0.0, 16.0), 4.9 m/s, health 44; teammates -
+[loadout] Bebot Karaoke rifle_m762 [scope_3x,grip_ergonomic] mag 30/30 | pistol_45 [sight_reflex,suppressor_light,mag_extquick_light] mag 12/12
+[match   59.4] Bebot Karaoke respawned at (-56.0, 0.0, 5.0) (nearest enemy 105 m)
+[match   60.0] [botskill] normal shots 98 hits 25 reaction_avg 0.55 (n 24) dmg 864 bots 4
+[match   60.0] status: { "ground": 4 }; armed 4; shots 98; zone -1 hold r=96; corpses 5; levels { "L1": 4 }; server tick avg 1.03 ms, p99 3.21 ms, max 20.21 ms over 900 ticks
+[match   60.0] dm teams: West Team 2 at (-45.0, 4.0) spread 11 m; East Team 2 at (52.0, 1.0) spread 10 m; gap 97 m; zone centre (-6.0, 1.0)
+[match   60.0] bots: { "investigate": 1, "hunt": 2, "roam": 1 }; containers searched by bots 0 (all players 0); plan steps done 0; guns carried 8
+[match   60.0] roles: { "sniper": { "investigate": 1 }, "stalker": { "hunt": 2 }, "looter": { "roam": 1 } }; stuck now 0; waypoints 258; team { "lines": 32, "pings": 0, "laser_follow": 0, "learned_cells": 54, "blocked_cells": 0, "squads": 0, "following_humans": 0, &"learned_spots": 0 }
+[match   60.0] [lootstats] bots on the ground 4 (in water 0); armed 4; armed with ammo for a gun 4; long guns 4; attachments fitted 21; rounds of unusable ammo carried 0; items on the ground 0; bot pickups { "detours": 0, "detour_taken": 0, "fetches": 0, "fetch_done": 0, "items_taken": 0 }
+[match   73.0] [hold] Bebot Karaoke camp spot 23 41s
+[match   75.0] [botskill] normal shots 98 hits 25 reaction_avg 0.55 (n 24) dmg 864 bots 4
+[match   75.0] status: { "ground": 4 }; armed 4; shots 98; zone -1 hold r=96; corpses 5; levels { "L1": 4 }; server tick avg 0.72 ms, p99 2.04 ms, max 10.24 ms over 900 ticks
+[match   75.0] dm teams: West Team 2 at (-22.0, 28.0) spread 36 m; East Team 2 at (39.0, 5.0) spread 10 m; gap 66 m; zone centre (-6.0, 1.0)
+[match   75.0] bots: { "roam": 1, "hunt": 2, "camp": 1 }; containers searched by bots 0 (all players 0); plan steps done 0; guns carried 8
+[match   75.0] roles: { "sniper": { "roam": 1 }, "stalker": { "hunt": 2 }, "looter": { "camp": 1 } }; stuck now 0; waypoints 258; team { "lines": 36, "pings": 0, "laser_follow": 0, "learned_cells": 54, "blocked_cells": 0, "squads": 0, "following_humans": 0, &"learned_spots": 0 }
+[match   75.0] [lootstats] bots on the ground 4 (in water 0); armed 4; armed with ammo for a gun 4; long guns 4; attachments fitted 21; rounds of unusable ammo carried 0; items on the ground 0; bot pickups { "detours": 0, "detour_taken": 0, "fetches": 0, "fetch_done": 0, "items_taken": 0 }
+[match   83.3] Kapitbahay Lito killed by Kumareng Marites (gunshot); 2 teams left
+[match   83.3] alive: West Team 2, East Team 1; score { 0: 4, 1: 2 }
+[loadout] Kapitbahay Lito bolt_awp [scope_8x,suppressor_rifle,bullet_loops] mag 5/5 | revolver_357 [] mag 6/6
+[match   88.3] Kapitbahay Lito respawned at (53.0, 0.0, -11.0) (nearest enemy 43 m)
+[match   90.0] [botskill] normal shots 128 hits 28 reaction_avg 0.53 (n 30) dmg 976 bots 4
+[match   90.0] status: { "ground": 4 }; armed 4; shots 129; zone -1 hold r=96; corpses 6; levels { "L1": 4 }; server tick avg 0.88 ms, p99 3.18 ms, max 8.66 ms over 900 ticks
+[match   90.0] dm teams: West Team 2 at (-21.0, 23.0) spread 38 m; East Team 2 at (49.0, 5.0) spread 16 m; gap 72 m; zone centre (-6.0, 1.0)
+[match   90.0] bots: { "investigate": 1, "hunt": 1, "camp": 1, "roam": 1 }; containers searched by bots 0 (all players 0); plan steps done 0; guns carried 8
+[match   90.0] roles: { "stalker": { "investigate": 1, "hunt": 1 }, "looter": { "camp": 1, "roam": 1 } }; stuck now 0; waypoints 258; team { "lines": 44, "pings": 0, "laser_follow": 0, "learned_cells": 54, "blocked_cells": 0, "squads": 0, "following_humans": 0, &"learned_spots": 0 }
+[match   90.0] [lootstats] bots on the ground 4 (in water 0); armed 4; armed with ammo for a gun 4; long guns 4; attachments fitted 20; rounds of unusable ammo carried 0; items on the ground 0; bot pickups { "detours": 0, "detour_taken": 0, "fetches": 0, "fetch_done": 0, "items_taken": 0 }
+[match  102.4] Kumareng Marites killed by Kapitbahay Lito (gunshot); 2 teams left
+[match  102.4] alive: West Team 1, East Team 2; score { 0: 4, 1: 3 }
+[match  105.0] [botskill] normal shots 135 hits 31 reaction_avg 0.54 (n 32) dmg 1084 bots 3
+[match  105.0] status: { "ground": 3 }; armed 3; shots 136; zone -1 hold r=96; corpses 7; levels { "L1": 3 }; server tick avg 0.69 ms, p99 1.65 ms, max 7.69 ms over 900 ticks
+[match  105.0] dm teams: West Team 1 at (-58.0, 32.0) spread 0 m; East Team 2 at (26.0, 21.0) spread 12 m; gap 84 m; zone centre (-6.0, 1.0)
+[match  105.0] bots: { "hunt": 1, "camp": 1, "investigate": 1 }; containers searched by bots 0 (all players 0); plan steps done 0; guns carried 6
+[match  105.0] roles: { "stalker": { "hunt": 1 }, "looter": { "camp": 1, "investigate": 1 } }; stuck now 0; waypoints 258; team { "lines": 48, "pings": 0, "laser_follow": 0, "learned_cells": 54, "blocked_cells": 0, "squads": 0, "following_humans": 0, &"learned_spots": 0 }
+[match  105.0] [lootstats] bots on the ground 3 (in water 0); armed 3; armed with ammo for a gun 3; long guns 3; attachments fitted 14; rounds of unusable ammo carried 0; items on the ground 0; bot pickups { "detours": 0, "detour_taken": 0, "fetches": 0, "fetch_done": 0, "items_taken": 0 }
+[loadout] Kumareng Marites rifle_scar [suppressor_rifle,weapon_light] mag 30/30 | pistol_9 [mag_extquick_light,weapon_light] mag 21/21
+[match  107.4] Kumareng Marites respawned at (-56.0, 0.0, -5.0) (nearest enemy 83 m)
+[match  114.1] [hold] Bebot Karaoke camp spot 23 57s
+[run_timed] killed after 120 s

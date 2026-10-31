@@ -3,13 +3,20 @@ extends Control
 ## deathmatch.primary, slot 1) and a secondary (a handgun from deathmatch.secondary, slot 3), each shown with its
 ## picture (assets/ui/r7/guns), name, class and calibre. The choice is saved in the profile (Profile.loadout) and sent
 ## to the server (Net.request_loadout) whenever it changes while in a lobby or match.
+## (r22) Each gun's attachments too: one picker per slot kind the gun takes (sight, muzzle, grip, magazine, stock,
+## light), remembered per gun in the profile (Profile.att_by_gun) and fitted at spawn by MatchServer._dm_loadout.
 ## Opened as a full-screen layer from the main menu and from the lobby: GameSetup.new() then add_child; emits `closed`.
 
 signal closed
 
 const MenuBg := preload("res://src/ui/menu_bg.gd")
+const Attach := preload("res://src/weapons/attachments.gd")
+const KIND_NAMES := {"sight": "Sight", "muzzle": "Muzzle", "grip": "Grip", "mag": "Magazine", "stock": "Stock", "light": "Light"}
 
 var _compact := false
+var _att_boxes := {}   # (r22) "primary" / "secondary" -> the box holding that gun's attachment pickers
+var _att_key := ""
+var _att_cols := 4     # grid columns: label, picker, label, picker (2 on narrow screens)
 var _pick := {}
 var _cards := {"primary": {}, "secondary": {}}
 var _summary: VBoxContainer
@@ -25,6 +32,9 @@ func _ready() -> void:
 	add_child(MenuBg.new("locker_bg", 0.5))
 	var vs := get_viewport_rect().size
 	_compact = vs.x < 1500.0 or vs.y < 800.0
+	# Two label + picker pairs per row when each gun's column is wide enough (wide: half of the left column).
+	var att_w := (vs.x - 44.0 - 40.0) if _compact else (vs.x - 80.0 - 20.0 - 560.0 - 36.0 - 28.0) / 2.0
+	_att_cols = 4 if att_w >= 470.0 else 2
 	_pick = Profile.get_loadout()
 	var m := MarginContainer.new()
 	m.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
@@ -43,7 +53,7 @@ func _ready() -> void:
 	hv.add_child(UITheme.label("Game Setup", 44 if not _compact else 34, UITheme.TEXT, UITheme.font_condensed))
 	head.add_child(hv)
 	if not _compact:
-		var note := UITheme.label("Pick the two guns you start with. Your choice is saved for the next match.", 18, UITheme.TEXT_DIM)
+		var note := UITheme.label("Pick the two guns you start with and their attachments. Your choice is saved for the next match.", 18, UITheme.TEXT_DIM)
 		note.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
 		note.custom_minimum_size = Vector2(520, 0)
 		note.size_flags_vertical = Control.SIZE_SHRINK_CENTER
@@ -76,9 +86,12 @@ func _build_wide(col: VBoxContainer) -> void:
 	var row := UITheme.hbox(20)
 	row.size_flags_vertical = Control.SIZE_EXPAND_FILL
 	col.add_child(row)
-	# Left: every primary, grouped by class.
+	# Left: every primary, grouped by class; (r22) under it the attachments of both guns.
+	var left := UITheme.vbox(14)
+	left.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+	row.add_child(left)
 	var lp := UITheme.panel(null, "panel")
-	lp.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+	lp.size_flags_vertical = Control.SIZE_EXPAND_FILL
 	var lv := UITheme.vbox(10)
 	lp.add_child(lv)
 	lv.add_child(UITheme.section("Primary", "A long gun: rifle, submachine gun, marksman or sniper rifle, machine gun or shotgun."))
@@ -90,7 +103,16 @@ func _build_wide(col: VBoxContainer) -> void:
 	groups.size_flags_horizontal = Control.SIZE_EXPAND_FILL
 	sc.add_child(groups)
 	_fill_flow(groups, "primary", Vector2(226, 156))
-	row.add_child(lp)
+	left.add_child(lp)
+	var ap := UITheme.panel(null, "panel")
+	var ah := UITheme.hbox(28)
+	ap.add_child(ah)
+	for which in ["primary", "secondary"]:
+		var b := UITheme.vbox(6)
+		b.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+		ah.add_child(b)
+		_att_boxes[which] = b
+	left.add_child(ap)
 	# Right: handguns, then what you start with.
 	var right := UITheme.vbox(14)
 	right.custom_minimum_size = Vector2(560, 0)
@@ -115,10 +137,11 @@ func _build_wide(col: VBoxContainer) -> void:
 
 
 func _build_compact(col: VBoxContainer) -> void:
-	## Phones and small windows: one list at a time, switched with two tabs that also show the current pick.
+	## Phones and small windows: one list at a time, switched with tabs that also show the current pick; (r22) the
+	## third tab holds both guns' attachments.
 	var tabs := UITheme.hbox(6)
 	var group := ButtonGroup.new()
-	for kind in ["primary", "secondary"]:
+	for kind in ["primary", "secondary", "attachments"]:
 		var b := Button.new()
 		b.toggle_mode = true
 		b.button_group = group
@@ -132,7 +155,7 @@ func _build_compact(col: VBoxContainer) -> void:
 		tabs.add_child(b)
 		_tabs[kind] = b
 	col.add_child(tabs)
-	for kind in ["primary", "secondary"]:
+	for kind in ["primary", "secondary", "attachments"]:
 		var sc := ScrollContainer.new()
 		sc.size_flags_vertical = Control.SIZE_EXPAND_FILL
 		sc.horizontal_scroll_mode = ScrollContainer.SCROLL_MODE_DISABLED
@@ -141,6 +164,13 @@ func _build_compact(col: VBoxContainer) -> void:
 		sc.add_child(v)
 		if kind == "primary":
 			_fill_flow(v, kind, Vector2(226, 156))
+		elif kind == "attachments":
+			for which in ["primary", "secondary"]:
+				var ap := UITheme.panel(null, "panel")
+				var b := UITheme.vbox(6)
+				ap.add_child(b)
+				v.add_child(ap)
+				_att_boxes[which] = b
 		else:
 			var flow := HFlowContainer.new()
 			flow.add_theme_constant_override("h_separation", 10)
@@ -240,16 +270,140 @@ func choose(kind: String, id: String) -> void:
 	_refresh()
 
 
+func fit(which: String, k: String, att_id: String) -> void:
+	## (r22) Fit an attachment in one slot kind of the primary or secondary gun ("" = none; also used by the UI tour).
+	## Remembered for that gun in the profile and sent to the server.
+	Profile.set_attachment(which, k, att_id)
+	_pick = Profile.get_loadout()
+	_refresh()
+
+
 func _refresh() -> void:
 	for kind in _cards:
 		for id in _cards[kind]:
 			_cards[kind][id].set_pressed_no_signal(id == str(_pick.get(kind, "")))
 	for kind in _tabs:
-		_tabs[kind].text = "%s: %s" % ["Primary" if kind == "primary" else "Secondary", Defs.item_name(str(_pick.get(kind, "")))]
+		if kind == "attachments":
+			_tabs[kind].text = "Attachments: %d" % ((_pick.get("att_primary", []) as Array).size() + (_pick.get("att_secondary", []) as Array).size())
+		else:
+			_tabs[kind].text = "%s: %s" % ["Primary" if kind == "primary" else "Secondary", Defs.item_name(str(_pick.get(kind, "")))]
 	if _summary:
 		for c in _summary.get_children():
 			c.queue_free()
 		_fill_summary(_summary, _pick, _compact)
+	_fill_attachments.call_deferred()   # deferred: a picker may be the one whose signal got us here
+
+
+# ------------------------------------------------------------------ attachments (r22)
+
+func _fill_attachments() -> void:
+	## One picker per slot kind each chosen gun takes: "None" and every attachment that fits it.
+	var key := JSON.stringify(_pick)
+	if key == _att_key or not is_inside_tree():
+		return
+	_att_key = key
+	for which in _att_boxes:
+		var box: VBoxContainer = _att_boxes[which]
+		for c in box.get_children():
+			box.remove_child(c)
+			c.queue_free()
+		var wid := str(_pick.get(which, ""))
+		var head := UITheme.hbox(10)
+		var role := UITheme.label("PRIMARY" if which == "primary" else "SECONDARY", 15, UITheme.ACCENT, UITheme.font_semibold)
+		role.size_flags_vertical = Control.SIZE_SHRINK_CENTER
+		head.add_child(role)
+		var nm := UITheme.label("%s attachments" % Defs.item_name(wid), 21, UITheme.TEXT, UITheme.font_semibold)
+		nm.clip_text = true
+		nm.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+		head.add_child(nm)
+		box.add_child(head)
+		var kinds := Attach.kinds_for(wid)
+		if kinds.is_empty():
+			box.add_child(UITheme.label("This gun takes no attachments.", 17, UITheme.TEXT_DIM))
+			continue
+		var grid := GridContainer.new()
+		grid.columns = _att_cols
+		grid.add_theme_constant_override("h_separation", 10)
+		grid.add_theme_constant_override("v_separation", 8)
+		box.add_child(grid)
+		var fitted: Array = _pick.get("att_" + which, [])
+		for k in kinds:
+			var l := UITheme.label(str(KIND_NAMES.get(k, str(k).capitalize())), 17, UITheme.TEXT_DIM, UITheme.font_semibold)
+			l.custom_minimum_size = Vector2(84, 0)
+			l.size_flags_vertical = Control.SIZE_SHRINK_CENTER
+			grid.add_child(l)
+			grid.add_child(_att_picker(which, str(k), fitted))
+
+
+func _att_picker(which: String, k: String, fitted: Array) -> OptionButton:
+	var wid := str(_pick.get(which, ""))
+	var ob := OptionButton.new()
+	ob.name = "att_%s_%s" % [which, k]
+	ob.fit_to_longest_item = false   # the list has the long names; the button stays as wide as its column
+	ob.clip_text = true
+	ob.custom_minimum_size = Vector2(140, 44)
+	ob.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+	ob.add_theme_font_size_override("font_size", 17)
+	ob.add_item("None")
+	ob.set_item_metadata(0, "")
+	ob.select(0)
+	var cur := ""
+	for a in fitted:
+		if Attach.kind(str(a)) == k:
+			cur = str(a)
+	var opts := Attach.options(wid, k)
+	for i in opts.size():
+		ob.add_item(att_name(str(opts[i])))
+		ob.set_item_metadata(i + 1, str(opts[i]))
+		if str(opts[i]) == cur:
+			ob.select(i + 1)
+	if cur != "":
+		ob.text = att_short(cur)   # the button shows the short name, the list the full one
+		ob.tooltip_text = att_name(cur)
+	ob.item_selected.connect(func(i: int): SoundSys.play_ui("ui_select"); fit(which, k, str(ob.get_item_metadata(i))))
+	return ob
+
+
+static func att_name(att_id: String) -> String:
+	## An attachment's full name, sights with their magnification: "Red Dot Sight · 1.3x", "6x Rifle Scope".
+	var a: Dictionary = Defs.attachments.get(att_id, {})
+	var n := str(a.get("name", att_id))
+	if str(a.get("kind", "")) == "sight" and not n.contains("x "):
+		n += " · %sx" % String.num(float(a.get("zoom", 1.0)), 2)
+	return n
+
+
+static func att_short(att_id: String) -> String:
+	## A short name for buttons and summaries: "6x Scope", "Red Dot", "Ext. Mag", "Suppressor".
+	var a: Dictionary = Defs.attachments.get(att_id, {})
+	var n := str(a.get("name", att_id))
+	match str(a.get("kind", "")):
+		"mag":
+			var ext := bool(a.get("ext", false))
+			var quick := float(a.get("reload_mult", 1.0)) < 1.0
+			return "Ext. Quick Mag" if ext and quick else ("Ext. Mag" if ext else ("Quick Mag" if quick else n))
+		"sight":
+			for w in [" Rifle Scope", " Prism Scope", " Sniper Scope", " Variable Scope"]:
+				n = n.replace(w, " Scope")
+			return n.replace(" Vision Scope", " Vision").replace(" Thermal Scope", " Thermal").trim_suffix(" Sight")
+	for pre in ["Pistol/SMG ", "Rifle ", "Shotgun "]:
+		n = n.trim_prefix(pre)
+	return n
+
+
+static func att_list(ids: Array) -> String:
+	## Every fitted attachment by its short name: "6x Scope · Compensator · Ext. Mag".
+	var names := []
+	for a in ids:
+		names.append(att_short(str(a)))
+	return " · ".join(names) if not names.is_empty() else "No attachments"
+
+
+static func att_brief(ids: Array) -> String:
+	## A few words for the lobby and the menu: "6x Scope · Ext. Mag", or "+3 attachments" when there are more than two.
+	if ids.size() > 2:
+		return "+%d attachments" % ids.size()
+	return att_list(ids) if not ids.is_empty() else ""
 
 
 static func kit_lines() -> Array:
@@ -267,12 +421,19 @@ static func kit_lines() -> Array:
 
 static func _fill_summary(box: VBoxContainer, pick: Dictionary, compact: bool) -> void:
 	box.add_child(UITheme.label("You start with", 28, UITheme.TEXT, UITheme.font_condensed))
+	var lines := []
 	if not compact:
 		var guns := UITheme.hbox(10)
 		for kind in ["primary", "secondary"]:
-			guns.add_child(gun_tile(str(pick.get(kind, "")), "Primary" if kind == "primary" else "Secondary", Vector2(250, 112)))
+			guns.add_child(gun_tile(str(pick.get(kind, "")), "Primary" if kind == "primary" else "Secondary", Vector2(250, 112), pick.get("att_" + kind, []), true))
 		box.add_child(guns)
-	for kl in kit_lines():
+	else:
+		# (r22) the guns are on the tabs; their attachments are listed here
+		for kind in ["primary", "secondary"]:
+			var att: Array = pick.get("att_" + kind, [])
+			if not att.is_empty():
+				lines.append(["gun", "%s: %s" % [Defs.item_name(str(pick.get(kind, ""))), att_list(att)]])
+	for kl in lines + kit_lines():
 		var h := UITheme.hbox(10)
 		var ic := TextureRect.new()
 		ic.texture = Icons.texture(str(kl[0]), 22, UITheme.ACCENT2)
@@ -285,8 +446,9 @@ static func _fill_summary(box: VBoxContainer, pick: Dictionary, compact: bool) -
 		box.add_child(h)
 
 
-static func gun_tile(id: String, role: String, pic_size: Vector2) -> Control:
+static func gun_tile(id: String, role: String, pic_size: Vector2, att: Array = [], full: bool = false) -> Control:
 	## A gun's picture with its role ("Primary") and name underneath: the lobby's loadout summary uses it too.
+	## (r22) With its attachments: all of them (`full`, wrapped) or in brief (one clipped line, only when there are any).
 	var v := UITheme.vbox(2)
 	v.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	v.size_flags_horizontal = Control.SIZE_EXPAND_FILL
@@ -305,6 +467,13 @@ static func gun_tile(id: String, role: String, pic_size: Vector2) -> Control:
 	var n := UITheme.label("%s · %s" % [Defs.item_name(id), Defs.calibre_name(id)], 20, UITheme.TEXT, UITheme.font_semibold)
 	n.clip_text = true
 	v.add_child(n)
+	if full or not att.is_empty():
+		var al := UITheme.label(att_list(att) if full else att_brief(att), 16, UITheme.ACCENT2 if not att.is_empty() else UITheme.TEXT_DIM)
+		if full:
+			al.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
+		else:
+			al.clip_text = true
+		v.add_child(al)
 	return v
 
 
@@ -403,7 +572,25 @@ class Tour extends Node:
 			await _snap("%s_game_setup" % tag, gs)
 			gs.choose("primary", "smg_vector")
 			gs.choose("secondary", "pistol_deagle")
+			# (r22) attachments: a scope and an extended magazine on the primary, a red dot and a magazine on the
+			# handgun; then a gun change and back must bring the primary's setup back.
+			gs.fit("primary", "muzzle", "")
+			gs.fit("primary", "sight", "scope_3x")
+			gs.fit("primary", "mag", "mag_ext_light")
+			gs.fit("secondary", "sight", "sight_reddot")
+			gs.fit("secondary", "mag", "mag_extquick_light")
+			var want_att: Array = ["scope_3x", "mag_ext_light"]
+			var att0: Array = Profile.get_loadout().att_primary
+			gs.choose("primary", "rifle_m416")
+			gs.choose("primary", "smg_vector")
+			var att1: Array = Profile.get_loadout().att_primary
+			var ok_att := att0.filter(func(a): return a in want_att) == want_att and att1 == att0
+			print("[ui] %s %s attachments remembered per gun: %s -> %s" % ["PASS" if ok_att else "FAIL", tag, JSON.stringify(att0), JSON.stringify(att1)])
+			fails += 0 if ok_att else 1
 			if gs._compact:
+				gs._show_tab("attachments")
+				await _wait(0.4)
+				await _snap("%s_game_setup_attachments" % tag, gs)
 				gs._show_tab("secondary")
 			await _wait(0.4)
 			await _snap("%s_game_setup_picked" % tag, gs)

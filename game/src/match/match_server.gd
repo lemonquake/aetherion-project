@@ -4,6 +4,7 @@ extends Node
 ## the plane position and the zone circle from shared start ticks.
 
 const WeaponState := preload("res://src/weapons/weapon_state.gd")
+const Attach := preload("res://src/weapons/attachments.gd")
 const DayCycle := preload("res://src/world/day_cycle.gd")
 
 var world = null
@@ -433,7 +434,8 @@ func _floor_at(x: float, z: float, near_y: float) -> float:
 
 func pick_loadout(pid: int, rng: RandomNumberGenerator) -> Dictionary:
 	## The player's Deathmatch guns: their Game Setup choice (validated by Net), the defaults for a human who chose
-	## nothing, a random pick for a bot.
+	## nothing, a random pick for a bot. (r22) With the attachments for each ("att_primary", "att_secondary"): the
+	## player's own (checked again against the guns they end up with), or a bot's pick (Attach.bot_pick).
 	var prim_list: Array = (_dm_rule("primary", []) as Array).filter(func(i): return Defs.weapons.has(str(i)))
 	var sec_list: Array = (_dm_rule("secondary", []) as Array).filter(func(i): return Defs.weapons.has(str(i)))
 	var lo: Dictionary = Net.players.get(pid, {}).get("loadout", {})
@@ -446,7 +448,15 @@ func pick_loadout(pid: int, rng: RandomNumberGenerator) -> Dictionary:
 		prim = str(_dm_rule("default_primary", "rifle_m416"))
 	if not sec in sec_list:
 		sec = str(_dm_rule("default_secondary", "pistol_9"))
-	return {"primary": prim, "secondary": sec}
+	var out := {"primary": prim, "secondary": sec}
+	var chance := float(_dm_rule("bot_attachment_chance", 0.75))
+	for which in ["primary", "secondary"]:
+		var ids = lo.get("att_" + which, [])
+		if Net.is_bot(pid) and lo.is_empty():
+			out["att_" + which] = Attach.bot_pick(str(out[which]), rng, chance)
+		else:
+			out["att_" + which] = Attach.sanitize(str(out[which]), ids if ids is Array else [])
+	return out
 
 
 func _dm_loadout(ch: Character, pid: int, rng: RandomNumberGenerator) -> void:
@@ -460,8 +470,9 @@ func _dm_loadout(ch: Character, pid: int, rng: RandomNumberGenerator) -> void:
 		if not Defs.weapons.has(wid):
 			continue
 		var w := WeaponState.new_instance(wid)
+		_fit_kit(w, lo.get("att_" + which, []))
 		ch.wpn.slots[1 if which == "primary" else 3] = w
-		var n := maxi(int(Defs.weapon(wid).get("mag_size", 10)) * int(spare[which]), min_rounds)
+		var n := maxi(Attach.mag_cap(w) * int(spare[which]), min_rounds)
 		ch.inv.add({"id": Defs.ammo_item(wid), "n": n}, true)
 	for g in _dm_rule("gear", ["vest_heavy", "helmet_heavy"]):
 		var it: Dictionary = Defs.item(str(g))
@@ -475,6 +486,24 @@ func _dm_loadout(ch: Character, pid: int, rng: RandomNumberGenerator) -> void:
 	ch.inv.mark_dirty()
 	ch.health.dirty = true
 	ch.set_meta("dm_loadout", lo)
+	if _log_on:
+		# (r22) The kit this life starts with: guns, fitted attachments, rounds loaded / magazine capacity.
+		var parts := []
+		for s in [1, 3]:
+			var w = ch.wpn.slots[s]
+			if w != null:
+				parts.append("%s [%s] mag %d/%d" % [str(w.id), ",".join(w.att), int(w.mag) + (1 if w.chamber else 0), Attach.mag_cap(w)])
+		print("[loadout] %s %s" % [ch.pname, " | ".join(parts)])
+
+
+func _fit_kit(w: Dictionary, ids) -> void:
+	## (r22) Fits a Deathmatch gun's chosen attachments (as a loot pickup would leave them) and fills the magazine to
+	## what it now holds (an extended magazine holds more), the next round chambered as WeaponState.new_instance does.
+	w.att = Attach.sanitize(str(w.id), ids if ids is Array else [])
+	if "weapon_light" in w.att:
+		w.wl = 1.0   # a fresh battery in the weapon light
+	var cap := Attach.mag_cap(w)
+	w.mag = maxi(cap - (1 if w.chamber else 0), 0)
 
 
 func _loadout(ch: Character) -> void:

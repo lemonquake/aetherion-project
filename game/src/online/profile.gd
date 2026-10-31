@@ -23,8 +23,13 @@ var dm_map := ""
 ## (r17) The match choices made on Home or Host a game (Net.config keys day_len, dm_win, dm_score, dm_time): every host
 ## path starts its lobby with them, and an official lobby's host offers them.
 var match_opts := {}
-const MATCH_OPT_KEYS := ["day_len", "dm_win", "dm_score", "dm_time", "dm_field"]
-const MATCH_OPT_DEFAULTS := {"day_len": 300, "dm_win": "wipe", "dm_score": 10, "dm_time": 14, "dm_field": false}
+## (r22) bot_skill: how well the bots play (easy | normal | hard | pro), Classic and Deathmatch alike.
+const MATCH_OPT_KEYS := ["day_len", "dm_win", "dm_score", "dm_time", "dm_field", "bot_skill"]
+const MATCH_OPT_DEFAULTS := {"day_len": 300, "dm_win": "wipe", "dm_score": 10, "dm_time": 14, "dm_field": false, "bot_skill": "normal"}
+## (r22) The attachments fitted to each Deathmatch gun ({weapon_id: [attachment ids]}): picking a gun again in Game
+## Setup brings back the setup it had.
+var att_by_gun: Dictionary = {}
+const Attach := preload("res://src/weapons/attachments.gd")
 
 
 func _ready() -> void:
@@ -32,13 +37,18 @@ func _ready() -> void:
 		path = "user://profile_%s.json" % str(Game.arg("profile")).validate_filename()
 	load_profile()
 	# Tests: --game_mode=classic|deathmatch and --loadout=<primary>,<secondary> override the saved choice for this
-	# run only (not written to the profile).
+	# run only (not written to the profile); (r22) --loadout_att=<id,id,...> fits each id to whichever chosen gun takes it.
 	if Game.arg("game_mode"):
 		game_mode = "deathmatch" if str(Game.arg("game_mode")) == "deathmatch" else "classic"
 	if Game.arg("loadout"):
 		var parts := str(Game.arg("loadout")).split(",")
 		loadout = {"primary": parts[0], "secondary": parts[1] if parts.size() > 1 else ""}
 		loadout = get_loadout()
+	if Game.arg("loadout_att"):
+		var ids := Array(str(Game.arg("loadout_att")).split(",", false))
+		var lo := get_loadout()
+		for which in ["primary", "secondary"]:
+			att_by_gun[str(lo[which])] = Attach.sanitize(str(lo[which]), ids)
 
 
 static func xp_for_level(level: int) -> int:
@@ -160,11 +170,36 @@ func get_loadout() -> Dictionary:
 		prim = str(dm.get("default_primary", "rifle_m416"))
 	if not sec in dm.get("secondary", []):
 		sec = str(dm.get("default_secondary", "pistol_9"))
-	return {"primary": prim, "secondary": sec}
+	return {"primary": prim, "secondary": sec, "att_primary": gun_attachments(prim), "att_secondary": gun_attachments(sec)}
+
+
+func gun_attachments(weapon_id: String) -> Array:
+	## (r22) The attachments remembered for this gun, checked against what it takes.
+	var a = att_by_gun.get(weapon_id, [])
+	return Attach.sanitize(weapon_id, a if a is Array else [])
+
+
+func set_attachment(which: String, k: String, att_id: String) -> void:
+	## (r22) Game Setup fitted `att_id` in slot kind `k` of the primary or secondary gun ("" takes that slot's attachment
+	## off): remembered for that gun, saved, and sent to the server like a gun change.
+	var wid := str(get_loadout().get(which, ""))
+	if wid == "" or not k in Attach.KINDS:
+		return
+	var cur := []
+	for a in gun_attachments(wid):
+		if Attach.kind(str(a)) != k:
+			cur.append(a)
+	if att_id != "" and Attach.kind(att_id) == k:
+		cur.append(att_id)
+	att_by_gun[wid] = Attach.sanitize(wid, cur)
+	save_profile()
+	changed.emit()
+	send_loadout()
 
 
 func set_loadout(l: Dictionary) -> void:
-	## Game Setup changed the guns: save, and tell the server when in a lobby or match.
+	## Game Setup changed the guns: save, and tell the server when in a lobby or match. Only the guns are taken from
+	## `l`; each gun keeps its own attachments (set_attachment).
 	loadout = {"primary": str(l.get("primary", "")), "secondary": str(l.get("secondary", ""))}
 	loadout = get_loadout()
 	save_profile()
@@ -199,6 +234,8 @@ func load_profile() -> void:
 					match_opts[k] = int(match_opts[k])   # JSON numbers come back as floats
 			var lo = d.get("loadout", {})
 			loadout = lo if lo is Dictionary else {}
+			var ab = d.get("att_by_gun", {})   # (r22) older profiles have none
+			att_by_gun = ab if ab is Dictionary else {}
 	if id == "":
 		var c := Crypto.new()
 		id = c.generate_random_bytes(8).hex_encode()
@@ -211,4 +248,4 @@ func save_profile() -> void:
 	var f := FileAccess.open(path, FileAccess.WRITE)
 	if f:
 		f.store_string(JSON.stringify({"id": id, "look": look, "xp": xp, "stats": stats, "history": history,
-			"game_mode": game_mode, "loadout": loadout, "dm_map": dm_map, "match_opts": match_opts}, " "))
+			"game_mode": game_mode, "loadout": loadout, "att_by_gun": att_by_gun, "dm_map": dm_map, "match_opts": match_opts}, " "))

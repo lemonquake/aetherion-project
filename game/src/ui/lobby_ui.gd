@@ -161,6 +161,10 @@ func _setup_panel() -> void:
 			_setup_box.add_child(_field("Teams", UITheme.stepper(int(cfg.get("teams", 5)), 2, Net.MAX_TEAMS, func(v): Net.request_config("teams", v))))
 			_setup_box.add_child(_field("Squad size", UITheme.segmented([[1, "Solo"], [2, "Duo"], [3, "Trio"], [4, "Squad"]], Net.team_size(), func(v): Net.request_config("team_size", v))))
 		_setup_box.add_child(UITheme.toggle("Fill empty slots with bots", bool(cfg.get("bots", true)), func(v): Net.request_config("bots", v)))
+		if cfg.get("bots", true):
+			# (r22) how well the bots play: the bot brain reads Net.config.bot_skill
+			_setup_box.add_child(_field("Bot difficulty", UITheme.segmented(Net.BOT_SKILLS.map(func(k): return [k, str(k).capitalize()]),
+				str(cfg.get("bot_skill", "normal")), func(v): Net.request_config("bot_skill", v))))
 		if dm:
 			if Net.dm_field_optional():
 				_setup_box.add_child(UITheme.toggle("Enable field", bool(cfg.get("dm_field", false)), func(v): Net.request_config("dm_field", v)))
@@ -188,6 +192,8 @@ func _setup_panel() -> void:
 			rows.append_array([["Teams", str(int(cfg.get("teams", 5)))], ["Squad size", str(Net.team_size())]])
 		rows.append_array([["Bots", "Fill empty slots" if cfg.get("bots", true) else "Off"],
 				["Safe zone", ("Disabled" if not cfg.get("dm_field", false) else "Enabled · up to 50%") if dm and Net.dm_field_optional() else "Fast (fixed)" if dm else {1.0: "Normal", 1.6: "Fast", 2.5: "Rapid"}.get(float(cfg.get("zone_speed", 1.0)), "Normal")]])
+		if cfg.get("bots", true):
+			rows.insert(rows.size() - 1, ["Bot difficulty", str(cfg.get("bot_skill", "normal")).capitalize()])   # (r22)
 		if dm:
 			rows.append(["Win by", win_text()])
 		rows.append(["Night and day", "Always night" if _night_only() else "%d min each" % (int(cfg.get("day_len", 300)) / 60)])
@@ -263,7 +269,8 @@ func _loadout_panel() -> void:
 	_loadout_box.add_child(UITheme.section("Your loadout"))
 	var guns := UITheme.hbox(8)
 	for kind in ["primary", "secondary"]:
-		guns.add_child(GameSetup.gun_tile(str(lo.get(kind, "")), "Primary" if kind == "primary" else "Secondary", Vector2(150, 66)))
+		# (r22) with each gun's attachments in brief ("6x Scope · Ext. Mag", "+3 attachments")
+		guns.add_child(GameSetup.gun_tile(str(lo.get(kind, "")), "Primary" if kind == "primary" else "Secondary", Vector2(150, 66), lo.get("att_" + kind, [])))
 	_loadout_box.add_child(guns)
 	var kit := []
 	for g in Defs.rules.get("deathmatch", {}).get("gear", []):

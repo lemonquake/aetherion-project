@@ -24,6 +24,7 @@ const CH_SNAPSHOT := 1
 const CH_INPUT := 2
 const CH_VOICE := 3
 const BOT_ID_BASE := -1000
+const Attach := preload("res://src/weapons/attachments.gd")
 
 var peer: ENetMultiplayerPeer
 var is_server := false
@@ -39,13 +40,15 @@ var players: Dictionary = {}
 ## teams x team_size slots (5 x 4 by default, up to 7 teams of up to 4); humans pick any team and bots fill the slots
 ## left when "bots" is on (20 bots in a practice match: 5 squads of 4, one of them yours).
 var config: Dictionary = {"name": "", "game_mode": "classic", "map": "kalinaw", "mode": "squad", "teams": 5, "team_size": 4, "bots": true, "bot_count": 20, "map_seed": 1729, "zone_speed": 1.0,
-	"day_len": 300, "dm_win": "wipe", "dm_score": 10, "dm_time": 14, "dm_field": false}
+	"day_len": 300, "dm_win": "wipe", "dm_score": 10, "dm_time": 14, "dm_field": false, "bot_skill": "normal"}
 ## (r17) The host's choices: the length of one night and one day (s); how a Deathmatch is won (a team score limit,
 ## the best score when the timer runs out, or the last team standing) with the limit for each.
 const DAY_LENS := [120, 300, 600]
 const DM_WINS := ["wipe", "score", "time", "elim"]
 const DM_SCORES := [10, 20, 30, 50]
 const DM_TIMES := [10, 14, 30]
+## (r22) How well the bots play (config.bot_skill, read by the bot brain), Classic and Deathmatch alike.
+const BOT_SKILLS := ["easy", "normal", "hard", "pro"]
 var port := DEFAULT_PORT
 const MAX_TEAMS := 7
 const MAX_TEAM_SIZE := 4      # Classic squads
@@ -63,7 +66,7 @@ var _ping_timer: float = 0.0
 var _next_bot := BOT_ID_BASE
 var _join_seq := 0   # (r15) join order: on a dedicated server the earliest human still here runs the lobby
 ## (r15) What the lobby's host may change from their own game (Net.request_config). Official servers keep their mode.
-const ROOM_KEYS := ["game_mode", "map", "teams", "team_size", "mode", "bots", "zone_speed", "day_len", "dm_win", "dm_score", "dm_time", "dm_field"]
+const ROOM_KEYS := ["game_mode", "map", "teams", "team_size", "mode", "bots", "zone_speed", "day_len", "dm_win", "dm_score", "dm_time", "dm_field", "bot_skill"]
 
 
 func _ready() -> void:
@@ -459,7 +462,8 @@ func _apply_prefs(pid: int, prefs: Dictionary) -> void:
 
 
 func request_loadout(loadout: Dictionary) -> void:
-	## The player picked their Deathmatch guns in Game Setup ({"primary": id, "secondary": id}).
+	## The player picked their Deathmatch guns in Game Setup ({"primary": id, "secondary": id, (r22) "att_primary":
+	## [attachment ids], "att_secondary": [...]}).
 	if is_server:
 		_apply_loadout(local_pid, loadout)
 	else:
@@ -473,7 +477,8 @@ func _req_loadout(loadout: Dictionary) -> void:
 
 
 func _apply_loadout(pid: int, loadout: Dictionary) -> void:
-	## Keeps only guns the Deathmatch rules allow; anything else falls back to the default pick.
+	## Keeps only guns the Deathmatch rules allow; anything else falls back to the default pick. (r22) Attachments are
+	## checked here too (never trust the client): known, fitting that gun, one per slot.
 	if not players.has(pid):
 		return
 	var dm: Dictionary = Defs.rules.get("deathmatch", {})
@@ -483,7 +488,10 @@ func _apply_loadout(pid: int, loadout: Dictionary) -> void:
 		prim = str(dm.get("default_primary", "rifle_m416"))
 	if not sec in dm.get("secondary", []):
 		sec = str(dm.get("default_secondary", "pistol_9"))
-	players[pid].loadout = {"primary": prim, "secondary": sec}
+	var ap = loadout.get("att_primary", [])
+	var asec = loadout.get("att_secondary", [])
+	players[pid].loadout = {"primary": prim, "secondary": sec, "att_primary": Attach.sanitize(prim, ap if ap is Array else []),
+		"att_secondary": Attach.sanitize(sec, asec if asec is Array else [])}
 	loadout_received.emit(pid)
 	_broadcast_lobby()
 
@@ -597,6 +605,8 @@ func set_config(key: String, value) -> void:
 		config.dm_time = int(value) if int(value) in DM_TIMES else 14
 	elif key == "dm_field":
 		config.dm_field = value == true or str(value).to_lower() in ["true", "1", "on"]
+	elif key == "bot_skill":
+		config.bot_skill = str(value).to_lower() if str(value).to_lower() in BOT_SKILLS else "normal"
 	else:
 		config[key] = value
 	if key == "team_size" and not is_dm():

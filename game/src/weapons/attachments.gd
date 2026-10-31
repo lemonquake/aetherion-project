@@ -15,6 +15,65 @@ static func compatible(weapon_id: String, att_id: String) -> bool:
 	return att_id in Defs.weapon(weapon_id).get("attachments", [])
 
 
+static func sanitize(weapon_id: String, ids: Array) -> Array:
+	## (r22) A set of attachments someone asked to fit (Game Setup, the saved profile, a client's loadout request):
+	## known ids that fit this weapon, at most one per slot kind (the first one asked for wins), in KINDS order. The
+	## same answer on every machine, and sanitize(sanitize(x)) == sanitize(x).
+	var by_kind := {}
+	for a in ids.slice(0, 24):
+		var s := str(a)
+		if not Defs.attachments.has(s) or not compatible(weapon_id, s):
+			continue
+		var k := kind(s)
+		if k in KINDS and not by_kind.has(k):
+			by_kind[k] = s
+	var out := []
+	for k in KINDS:
+		if by_kind.has(k):
+			out.append(by_kind[k])
+	return out
+
+
+static func options(weapon_id: String, k: String) -> Array:
+	## (r22) The attachment ids of one slot kind this weapon takes, in the weapon's own order (sights by magnification).
+	var out := []
+	for a in Defs.weapon(weapon_id).get("attachments", []):
+		if Defs.attachments.has(str(a)) and kind(str(a)) == k:
+			out.append(str(a))
+	if k == "sight":
+		out.sort_custom(func(x, y): return float(Defs.attachments[x].get("zoom", 1.0)) < float(Defs.attachments[y].get("zoom", 1.0)))
+	return out
+
+
+static func kinds_for(weapon_id: String) -> Array:
+	## (r22) The slot kinds this weapon has at least one attachment for, in KINDS order.
+	var out := []
+	for k in KINDS:
+		if not options(weapon_id, k).is_empty():
+			out.append(k)
+	return out
+
+
+static func bot_pick(weapon_id: String, rng: RandomNumberGenerator, chance: float = 0.75) -> Array:
+	## (r22) A bot's starting attachments for one gun: each slot the gun takes is filled with `chance`, with the best
+	## scoring attachment for it after a little noise (sights by how well their zoom suits the gun).
+	var out := []
+	for k in KINDS:
+		var opts := options(weapon_id, k)
+		if opts.is_empty() or rng.randf() >= chance:
+			continue
+		var best := ""
+		var best_s := -INF
+		for a in opts:
+			var s := score(weapon_id, a) + rng.randf_range(0.0, 0.9)
+			if s > best_s:
+				best_s = s
+				best = a
+		if best != "":
+			out.append(best)
+	return out
+
+
 static func mult(w: Dictionary, key: String) -> float:
 	## Product of `key` over the fitted attachments (1.0 when none sets it).
 	var m := 1.0

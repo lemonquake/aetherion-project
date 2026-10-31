@@ -1,0 +1,36 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+[world] map built in 628 ms
+[map] 0 buildings, 0 doors, 0 containers, 0 props, #00000000 on PC
+[loadout] Hehe bolt_awp [scope_8x,mag_ext_sniper] mag 8/8 | pistol_9 [mag_ext_light] mag 21/21
+[nav] levels: 34890 points, 3 links, 82 ms
+[nav] r21: 617 cells closed by the physics check, main walk 34227 of 34282 points (55 in pockets), 144 ms
+[botnav] freight_delight: walk check and 258 spots from res://data/botnav/freight_delight.json { "hide": 102, "snipe": 83, "cover": 45, "open": 28 }
+[bots] learned from 47 cells, 0 stuck spots, 0 spots learned from play, 11 spot records (user://bot_memory_freight_delight.json)
+[loadout] Mang Tomas smg_9 [suppressor_light,grip_half] mag 30/30 | pistol_deagle [sight_reflex,weapon_light] mag 7/7
+[match    0.0] deathmatch start on freight_delight: 2 players, 2 teams; spawns (-52.0, 0.0, 0.0), (50.0, 0.0, 0.0) (103/103 m apart, layout); day offset 0 s; zone centre (5.0, 3.0) r=96; win by wipe
+[match    0.0] status: { "ground": 2 }; armed 2; shots 0; zone -1 hold r=96; corpses 0; levels { "L1": 2 }
+[match    0.0] dm teams: West Team 1 at (-49.0, 5.0) spread 0 m; East Team 1 at (53.0, 11.0) spread 0 m; gap 102 m; zone centre (5.0, 3.0)
+[match    0.0] bots: { "roam": 1 }; containers searched by bots 0 (all players 0); plan steps done 0; guns carried 2
+[match    0.0] roles: { "stalker": { "roam": 1 } }; stuck now 0; waypoints 258; team { "lines": 0, "pings": 0, "laser_follow": 0, "learned_cells": 47, "blocked_cells": 0, "squads": 0, "following_humans": 0, &"learned_spots": 0 }
+[match    0.0] [lootstats] bots on the ground 1 (in water 0); armed 1; armed with ammo for a gun 1; long guns 1; attachments fitted 4; rounds of unusable ammo carried 0; items on the ground 0; bot pickups { "detours": 0, "detour_taken": 0, "fetches": 0, "fetch_done": 0, "items_taken": 0 }
+[match    0.0] [endgame] East Team mates 1 foes 1 nocontact 0s
+[match    5.6] [sweep] Mang Tomas -> cell (2, 1, 0) spot 91 stale 36s 28 m
+[match   15.0] status: { "ground": 2 }; armed 2; shots 0; zone -1 hold r=96; corpses 0; levels { "L1": 2 }; server tick avg 0.59 ms, p99 1.24 ms, max 5.78 ms over 900 ticks
+[match   15.0] dm teams: West Team 1 at (-49.0, 5.0) spread 0 m; East Team 1 at (45.0, 28.0) spread 0 m; gap 96 m; zone centre (5.0, 3.0)
+[match   15.0] bots: { "hunt": 1 }; containers searched by bots 0 (all players 0); plan steps done 0; guns carried 2
+[match   15.0] roles: { "stalker": { "hunt": 1 } }; stuck now 0; waypoints 258; team { "lines": 0, "pings": 0, "laser_follow": 0, "learned_cells": 47, "blocked_cells": 0, "squads": 0, "following_humans": 0, &"learned_spots": 0 }
+[match   15.0] [lootstats] bots on the ground 1 (in water 0); armed 1; armed with ammo for a gun 1; long guns 1; attachments fitted 4; rounds of unusable ammo carried 0; items on the ground 0; bot pickups { "detours": 0, "detour_taken": 0, "fetches": 0, "fetch_done": 0, "items_taken": 0 }
+[match   24.0] [sweep] Mang Tomas -> cell (-3, 1, 0) spot 156 stale 54s 79 m
+[match   30.0] status: { "ground": 2 }; armed 2; shots 0; zone -1 hold r=96; corpses 0; levels { "L1": 2 }; server tick avg 0.57 ms, p99 1.20 ms, max 16.95 ms over 900 ticks
+[match   30.0] dm teams: West Team 1 at (-49.0, 5.0) spread 0 m; East Team 1 at (19.0, 23.0) spread 0 m; gap 70 m; zone centre (5.0, 3.0)
+[match   30.0] bots: { "hunt": 1 }; containers searched by bots 0 (all players 0); plan steps done 0; guns carried 2
+[match   30.0] roles: { "stalker": { "hunt": 1 } }; stuck now 0; waypoints 258; team { "lines": 0, "pings": 0, "laser_follow": 0, "learned_cells": 47, "blocked_cells": 0, "squads": 0, "following_humans": 0, &"learned_spots": 0 }
+[match   30.0] [lootstats] bots on the ground 1 (in water 0); armed 1; armed with ammo for a gun 1; long guns 1; attachments fitted 4; rounds of unusable ammo carried 0; items on the ground 0; bot pickups { "detours": 0, "detour_taken": 0, "fetches": 0, "fetch_done": 0, "items_taken": 0 }
+[match   39.8] Mang Tomas (team 1) landed at (-12.0, 0.0, 12.0), 4.4 m/s, health 100; teammates -
+[match   45.0] status: { "ground": 2 }; armed 2; shots 0; zone -1 hold r=96; corpses 0; levels { "L1": 1, "between": 1 }; server tick avg 0.65 ms, p99 1.09 ms, max 8.98 ms over 900 ticks
+[match   45.0] dm teams: West Team 1 at (-49.0, 5.0) spread 0 m; East Team 1 at (-26.0, 13.0) spread 0 m; gap 24 m; zone centre (5.0, 3.0)
+[match   45.0] bots: { "hunt": 1 }; containers searched by bots 0 (all players 0); plan steps done 0; guns carried 2
+[match   45.0] roles: { "stalker": { "hunt": 1 } }; stuck now 0; waypoints 258; team { "lines": 0, "pings": 0, "laser_follow": 0, "learned_cells": 47, "blocked_cells": 0, "squads": 0, "following_humans": 0, &"learned_spots": 0 }
+[match   45.0] [lootstats] bots on the ground 1 (in water 0); armed 1; armed with ammo for a gun 1; long guns 1; attachments fitted 4; rounds of unusable ammo carried 0; items on the ground 0; bot pickups { "detours": 0, "detour_taken": 0, "fetches": 0, "fetch_done": 0, "items_taken": 0 }
+[run_timed] killed after 60 s

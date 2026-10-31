@@ -142,7 +142,8 @@ func info() -> Dictionary:
 		"host": "Aetherion", "official": true, "region": str(Defs.rule("official.region", "")), "address": _address(), "port": Net.port,
 		"players": _connected_humans(), "max": Net.slot_count(), "teams": int(Net.config.get("teams", 5)), "team_size": Net.team_size(),
 		"bots": bool(Net.config.get("bots", true)), "state": Game.state, "version": Net.VERSION, "platform": "Server", "game_mode": mode,
-		"map": str(Net.config.get("map", "kalinaw")), "auto_start_in": int(Net.config.get("auto_start_in", -1))}
+		"map": str(Net.config.get("map", "kalinaw")), "auto_start_in": int(Net.config.get("auto_start_in", -1)),
+		"bot_skill": str(Net.config.get("bot_skill", "normal"))}   # (r22) the launcher shows the bot difficulty
 
 
 func _post() -> void:

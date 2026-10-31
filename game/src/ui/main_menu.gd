@@ -23,6 +23,7 @@ var _games_list: VBoxContainer
 var _server_pill: Label
 var _address: LineEdit
 var _create := {"name": "", "teams": 5, "team_size": 4, "bots": true, "zone_speed": 1.0, "game_mode": "classic", "dm_team_size": 10}
+var _bot_skill_row: Control   # (r22) Host a game's "Bot difficulty", shown while bots are on
 var _summary: Label
 var _lb_by := "xp"
 var _lb_list: VBoxContainer
@@ -379,9 +380,10 @@ func _mode_card(m: String) -> Control:
 
 
 func _loadout_button() -> Control:
-	## Deathmatch: your two guns at a glance; opens Game Setup.
+	## Deathmatch: your two guns at a glance (r22: and their attachments in brief); opens Game Setup.
 	var lo := Profile.get_loadout()
-	var b := UITheme.icon_button("gun", "Game Setup:  %s + %s" % [Defs.item_name(str(lo.primary)), Defs.item_name(str(lo.secondary))], open_game_setup)
+	var att := GameSetup.att_brief((lo.att_primary as Array) + (lo.att_secondary as Array))
+	var b := UITheme.icon_button("gun", "Game Setup:  %s + %s%s" % [Defs.item_name(str(lo.primary)), Defs.item_name(str(lo.secondary)), ("  ·  " + att) if att != "" else ""], open_game_setup)
 	b.alignment = HORIZONTAL_ALIGNMENT_LEFT
 	b.clip_text = true
 	return b
@@ -430,9 +432,18 @@ func _match_opt_rows(box: Container, dm: bool, home: bool) -> void:
 		rows.append(["Field", UITheme.toggle("Enable field (closes up to 50%)", bool(Profile.match_opt("dm_field")), func(v): _pick_opt("dm_field", v, false))])
 	if not (dm and _map_for("deathmatch") in Defs.rule("day_cycle.night_only_maps", [])):
 		rows.append(["Night/day", UITheme.segmented([[120, "2 min"], [300, "5 min"], [600, "10 min"]], int(Profile.match_opt("day_len")), func(v): _pick_opt("day_len", v, false))])
+	if not home:
+		# (r22) How well the bots play (Net.config.bot_skill), both modes, shown while bots are on. Not on Home: its
+		# column must still fit a 1080p screen, and Play Now opens the lobby, where the host picks it.
+		rows.append(["Bot difficulty", UITheme.segmented(Net.BOT_SKILLS.map(func(k): return [k, str(k).capitalize()]),
+			str(Profile.match_opt("bot_skill")), func(v): _pick_opt("bot_skill", v, false))])
 	for r in rows:
 		if not home:
-			box.add_child(_field(str(r[0]), r[1]))
+			var f := _field(str(r[0]), r[1])
+			box.add_child(f)
+			if str(r[0]) == "Bot difficulty":
+				_bot_skill_row = f
+				f.visible = bool(_create.bots)
 			continue
 		var row := UITheme.hbox(12)
 		var l := UITheme.label(str(r[0]), 20, UITheme.TEXT_DIM, UITheme.font_semibold)
@@ -648,7 +659,11 @@ func _page_play() -> Control:
 	else:
 		cv.add_child(_field("Teams", UITheme.stepper(int(_create.teams), 2, Net.MAX_TEAMS, func(v): _create.teams = v; _update_summary())))
 		cv.add_child(_field("Squad size", UITheme.segmented([[1, "Solo"], [2, "Duo"], [3, "Trio"], [4, "Squad"]], int(_create.team_size), func(v): _create.team_size = v; _update_summary())))
-	cv.add_child(UITheme.toggle("Fill empty slots with bots", bool(_create.bots), func(v): _create.bots = v; _update_summary()))
+	cv.add_child(UITheme.toggle("Fill empty slots with bots", bool(_create.bots), func(v):
+		_create.bots = v
+		if is_instance_valid(_bot_skill_row):
+			_bot_skill_row.visible = v
+		_update_summary()))
 	if str(_create.game_mode) == "deathmatch" and not Net.dm_field_optional(_map_for("deathmatch")):
 		cv.add_child(_field("Safe zone", UITheme.label("Fast  ·  fixed in Deathmatch", 21, UITheme.TEXT, UITheme.font_semibold)))
 	elif str(_create.game_mode) != "deathmatch":

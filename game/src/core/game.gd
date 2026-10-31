@@ -160,7 +160,7 @@ func _apply_arg_config() -> void:
 		Net.set_config("team_size", clampi(int(arg("team_size")), 1, Net.max_team_size()))
 	if arg("primary") != null or arg("secondary") != null:
 		# Tests and headless hosts: this player's Deathmatch guns (the Game Setup picker sends the same request).
-		Net.request_loadout({"primary": str(arg("primary", "")), "secondary": str(arg("secondary", ""))})
+		Net.request_loadout(_arg_loadout())
 	if arg("bots") != null:
 		# --bots=N: room for N bots besides the humans expected (teams grow to fit, up to 7).
 		var n := int(arg("bots"))
@@ -173,12 +173,19 @@ func _apply_arg_config() -> void:
 		Net.set_config("map_seed", int(arg("seed")))
 	if arg("zone_speed") != null:
 		Net.set_config("zone_speed", float(arg("zone_speed")))
-	for k in ["day_len", "dm_win", "dm_score", "dm_time", "dm_field"]:
+	for k in ["day_len", "dm_win", "dm_score", "dm_time", "dm_field", "bot_skill"]:   # (r22) --bot_skill=easy|normal|hard|pro
 		if arg(k) != null:
 			Net.set_config(k, arg(k))
 	if arg("autostart"):
 		var wait := float(arg("autostart_after", 0.0)) if str(arg("autostart")) == "true" else float(arg("autostart"))
 		get_tree().create_timer(maxf(wait, 0.5)).timeout.connect(_autostart)
+
+
+func _arg_loadout() -> Dictionary:
+	## --primary=<id> --secondary=<id> [--loadout_att=<id,id,...>]: this player's Deathmatch kit from the command line.
+	## (r22) Each attachment id is offered to both guns; the server keeps it on whichever gun takes it.
+	var ids := Array(str(arg("loadout_att", "")).split(",", false))
+	return {"primary": str(arg("primary", "")), "secondary": str(arg("secondary", "")), "att_primary": ids, "att_secondary": ids}
 
 
 func _autostart() -> void:
@@ -270,7 +277,7 @@ func start_match() -> void:
 		Net.players[pid].in_match = true
 	if arg("primary") != null or arg("secondary") != null:
 		# Command-line guns win over the saved Game Setup choice the lobby sent (tests).
-		Net.request_loadout({"primary": str(arg("primary", "")), "secondary": str(arg("secondary", ""))})
+		Net.request_loadout(_arg_loadout())
 	match_seed = randi() if arg("match_seed") == null else int(arg("match_seed"))
 	_loaded_peers.clear()
 	_load_timer = float(Defs.rule("loading_timeout_s", 90))
