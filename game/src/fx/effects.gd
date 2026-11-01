@@ -11,18 +11,28 @@ const Anims := preload("res://src/player/weapon_anims.gd")
 const GunModel := preload("res://src/weapons/gun_model.gd")
 const BLOOD := "res://assets/fx/blood/"
 const MAX_DECALS := 220
-const MAX_DEBRIS := 140
+const MAX_DEBRIS := 70     # (r25) pieces still tumbling (was 140)
+## (r25) Debris that has come to rest (frozen) stays to be seen, up to this many pieces; older ones go. They were never
+## freed: a firefight in Malasugue Mall, all glass, left thousands of shard bodies drawn every frame.
+const MAX_RESTING := 160
 const MAX_TRACERS := 48
 
 var world = null
 var _decals: Array = []
 var _debris: Array = []
+var _resting: Array = []
+var _unit_box := BoxMesh.new()   # one box for every cosmetic piece (scaled), instead of a new mesh per piece
 var _tracers: Array = []    # {node, pos, vel, k, age, alive, bright}
 var _hole_tex: Texture2D
 var _blood_tex: Array = []
 var _blood_nrm: Array = []
 var _flash_pool: Array = []
 var test_no_flash := false   # r22 firefight benchmark: no muzzle-flash light at all
+var test_legacy_debris := false   # r25 benchmark A/B: glass and debris as before r25 (more pieces, own meshes, shadows, kept)
+var _impact_frame := -1
+var _impact_sounds := 0
+const IMPACT_SOUNDS_PER_FRAME := 3
+var _puff_ms := {}             # shooter eid -> when its muzzle last left a smoke puff
 ## (r22) Muzzle flashes cast shadows (desktop Forward+) only near the camera: your own always, others within
 ## FLASH_SHADOW_M, at most FLASH_SHADOWS of those at once. Each shadowed flash redraws everything within its reach six
 ## times; in a big firefight on Freight Delight that was some 1,400 extra draw calls a frame for flashes too far off to
@@ -166,9 +176,20 @@ func shot(ch, origin: Vector3, dir: Vector3, velocity: float, ammo: String, weap
 		var case_snd := "shell_drop" if str(d.get("class", "")) == "shotgun" else "casing_drop"
 		get_tree().create_timer(0.42 + _rng.randf() * 0.12).timeout.connect(func(): SoundSys.play_at(case_snd, floor_at, 0.0, {"prio": 1}))
 	if cam and cam.global_position.distance_to(origin) < 60.0:
-		# A wisp of propellant smoke hangs at the muzzle (less from a suppressor).
-		if not Attach.flag(w, "suppressed") or _rng.randf() < 0.4:
-			particles.emit("muzzle", flash_pos + dir * 0.04, dir, 1.0 if not Attach.flag(w, "suppressed") else 0.5)
+		# A faint wisp of propellant smoke at the muzzle (less from a suppressor), at most one every 0.25 s per gun:
+		# automatic fire no longer stacks a cloud in front of the sights. (r25) The shooter's own: half the size, every
+		# 0.6 s at most and out past the muzzle flash's light (lit by it at the muzzle, it was a bright orange cloud
+		# across the middle of the view).
+		var key: int = ch.eid if ch != null and is_instance_valid(ch) else -1
+		var now := Time.get_ticks_msec()
+		var size := 1.0 if not Attach.flag(w, "suppressed") else 0.5
+		var gap := 600 if local else 250
+		if now - int(_puff_ms.get(key, -100000)) >= gap and (not Attach.flag(w, "suppressed") or _rng.randf() < 0.4):
+			_puff_ms[key] = now
+			if local:
+				particles.emit("muzzle", flash_pos + dir * 0.8, dir, size * 0.5)
+			else:
+				particles.emit("muzzle", flash_pos + dir * 0.04, dir, size)
 	if cam and cam.global_position.distance_to(origin) > 220.0:
 		return
 	_spawn_tracer(flash_pos if local else origin, dir * velocity, float(a.get("drag_k", 0.001)), bright)
@@ -268,10 +289,20 @@ func impact(pos: Vector3, normal: Vector3, kind: String, what: String, mat: Stri
 	var snd: String = MAT_SOUND.get(mat, "impact_" + kind)
 	if not SoundSys.has_sound(snd):
 		snd = "impact_" + kind
-	SoundSys.play_at("ricochet" if what == "ricochet" else snd, pos, 0.0)
+	# (r25) A few impact sounds a frame: in a firefight a dozen rounds land in the same frame, the rest are lost under
+	# the shots anyway, and each one is a path search through the building.
+	var frame := Engine.get_process_frames()
+	if frame != _impact_frame:
+		_impact_frame = frame
+		_impact_sounds = 0
+	_impact_sounds += 1
+	if _impact_sounds <= IMPACT_SOUNDS_PER_FRAME or what == "ricochet":
+		SoundSys.play_at("ricochet" if what == "ricochet" else snd, pos, 0.0)
 	var cam := get_viewport().get_camera_3d()
 	var near := cam == null or cam.global_position.distance_to(pos) < 150.0
-	if near:
+	# (r25) Dust and haze only where the camera looks: rounds hitting the floors above, behind or out of view drew
+	# clouds nobody saw (they last a few seconds, so turning round still finds the fresh ones gone; the holes stay).
+	if near and (cam == null or cam.is_position_in_frustum(pos)):
 		for k in IMPACT_FX.get(kind, IMPACT_FX["concrete"]):
 			particles.emit(k, pos, normal, 0.6 if what == "exit" else 1.0)
 		if what == "ricochet" and kind != "metal":
@@ -503,7 +534,9 @@ func glass_break(pos: Vector3, dir: Vector3, w: Dictionary) -> void:
 	var xf: Transform3D = w.xf
 	particles.emit("shards", xf.origin, dir)
 	# (r15) A shopfront or a balustrade panel is many times a window's area: more of it comes down.
-	var n := clampi(int(float(w.w) * float(w.h) * 5.0), 14, 44)
+	var n := clampi(int(float(w.w) * float(w.h) * 2.0), 8, 18)   # (r25) was 14-44 bodies a pane
+	if test_legacy_debris:
+		n = clampi(int(float(w.w) * float(w.h) * 5.0), 14, 44)
 	if n > 20:
 		particles.emit("shards", xf * Vector3(float(w.w) * 0.25, -float(w.h) * 0.2, 0.0), dir)
 	for i in n:
@@ -589,16 +622,14 @@ func _debris_mesh(xf: Transform3D, mesh: Mesh, mesh_offset: Vector3, size: Vecto
 	var mi := MeshInstance3D.new()
 	mi.mesh = mesh
 	mi.position = mesh_offset
+	if size.length() < 0.5:
+		mi.cast_shadow = GeometryInstance3D.SHADOW_CASTING_SETTING_OFF   # (r25) a moving caster redraws every lamp's shadow
 	rb.add_child(mi)
 	add_child(rb)
 	rb.global_transform = xf
 	rb.linear_velocity = vel
 	rb.angular_velocity = Vector3(_rng.randf_range(-5, 5), _rng.randf_range(-5, 5), _rng.randf_range(-5, 5))
-	_debris.append(rb)
-	if _debris.size() > MAX_DEBRIS:
-		var old: RigidBody3D = _debris.pop_front()
-		if is_instance_valid(old):
-			old.freeze = true
+	_keep_debris(rb)
 
 
 func _debris_piece(pos: Vector3, vel: Vector3, size: Vector3, mat: Material) -> void:
@@ -614,20 +645,36 @@ func _debris_piece(pos: Vector3, vel: Vector3, size: Vector3, mat: Material) -> 
 	cs.shape = bs
 	rb.add_child(cs)
 	var mi := MeshInstance3D.new()
-	var bm := BoxMesh.new()
-	bm.size = size
-	mi.mesh = bm
+	mi.mesh = _unit_box
+	mi.scale = size
 	mi.material_override = mat
+	mi.cast_shadow = GeometryInstance3D.SHADOW_CASTING_SETTING_OFF   # (r25) small and many: no shadow updates
+	if test_legacy_debris:
+		var bm := BoxMesh.new()
+		bm.size = size
+		mi.mesh = bm
+		mi.scale = Vector3.ONE
+		mi.cast_shadow = GeometryInstance3D.SHADOW_CASTING_SETTING_ON
 	rb.add_child(mi)
 	add_child(rb)
 	rb.global_position = pos
 	rb.linear_velocity = vel
 	rb.angular_velocity = Vector3(_rng.randf_range(-8, 8), _rng.randf_range(-8, 8), _rng.randf_range(-8, 8))
+	_keep_debris(rb)
+
+
+func _keep_debris(rb: RigidBody3D) -> void:
+	## Over the cap the oldest piece freezes where it lies; past MAX_RESTING frozen pieces the oldest is removed.
 	_debris.append(rb)
-	if _debris.size() > MAX_DEBRIS:
-		var old: RigidBody3D = _debris.pop_front()
+	if _debris.size() > (140 if test_legacy_debris else MAX_DEBRIS):
+		var old = _debris.pop_front()
 		if is_instance_valid(old):
 			old.freeze = true
+			_resting.append(old)
+	while _resting.size() > MAX_RESTING and not test_legacy_debris:
+		var gone = _resting.pop_front()
+		if is_instance_valid(gone):
+			gone.queue_free()
 
 
 # ------------------------------------------------------------------ the transport aircraft

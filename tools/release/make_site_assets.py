@@ -24,6 +24,8 @@ UNICODES = "U+0020-007E,U+00A0-00FF,U+2010-2027,U+2030-203A,U+2190-2193,U+2212,U
 
 # (output name, source, caption is in index.html)
 SCREENS = [
+    # 0.25.0: the gun carried at a sprint (--autotest=r25 --r25_only=sprint --size=1920x1080, work/release_shots/r25)
+    ("sprint", SHOTS / "r25" / "01_r25_sprint_gun.png"),
     # 0.24.0: the Workbench (--autotest=r24 --r24_only=workbench --size=1920x1080, work/release_shots/r24)
     ("workbench", SHOTS / "r24" / "05_workbench_full_kit.png"),
     ("workbench-info", SHOTS / "r24" / "02_workbench_hover_info.png"),

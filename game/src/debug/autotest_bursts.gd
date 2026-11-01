@@ -1,5 +1,5 @@
 extends RefCounted
-## Speed bursts (`--autotest=bursts [--bursts_only=flat,stairs,water]`): the player's horizontal speed every physics
+## Speed bursts (`--autotest=bursts [--bursts_only=flat,stairs,water]`; on Malasugue Mall: `mall`): the player's horizontal speed every physics
 ## tick (server-authoritative on a listen host) while running on flat ground (reference), up house stairs, and out of
 ## the estero up its bank. A burst: a tick over twice the speed asked for (run 4.4, sprint 6.3 m/s: a teleport), or a
 ## 0.1 s stretch over 1.2x it (a surge). Every run also gives its sharpest speed rise over 0.25 s. Profiles go to
@@ -30,7 +30,8 @@ func run() -> void:
 		b.test_idle = true
 		b.ch.global_position = Vector3(150.0 + b.ch.eid, 1.5, -150.0)
 	var only := str(Game.arg("bursts_only", "")).split(",", false)
-	for n in ["flat", "stairs", "water"]:
+	var names := ["mall"] if L.get("escalators") != null else ["flat", "stairs", "water"]
+	for n in names:
 		if only.is_empty() or n in only:
 			await (Callable(self, "_" + n)).call()
 	var f := FileAccess.open(t.out_dir + "/bursts_measure.json", FileAccess.WRITE)
@@ -195,3 +196,59 @@ func _water() -> void:
 						"depth": (r.depth as Array).map(func(x): return snappedf(float(x), 0.01))}
 	measure["water"] = runs
 	t._check("bursts_water", n_burst == 0 and worst_rise <= 2.6, "%d runs out of the estero, %d with bursts; sharpest speed rise %.2f m/s in 0.25 s (run 4.4 m/s)" % [runs.size(), n_burst, worst_rise])
+
+func _mall() -> void:
+	## Malasugue Mall: up every fire-stair flight of the first storey, the department store's stopped escalators and
+	## the running up escalators, at a run and at a sprint, from a metre before the foot. Besides the horizontal
+	## bursts, the speed along the flight (3D, climbing) over 0.1 s must stay within 1.2x the gait (a burst up a
+	## slope reads as climbing faster than running on the flat). Also at 32 degrees across a flight (r25: the
+	## ramp ahead was taken for a step and the body shoved up it at 8-9 m/s).
+	var flights := []
+	for f in world.map.stairs:
+		if float((f.foot as Vector3).y) < 4.0:
+			for ang in [0.0, -32.0, 32.0]:
+				flights.append({"kind": "stairs", "foot": f.foot, "top": f.top, "ang": ang})
+	for e in L.escalators:
+		if bool(e.up) and int(e.t) == 0:
+			flights.append({"kind": "escalator", "foot": (e.a as Vector3) - (e.dir as Vector3) * 0.0, "top": e.b})
+	var runs := []
+	var n_burst := 0
+	var worst3 := 0.0
+	for f in flights:
+		var foot: Vector3 = f.foot
+		var top: Vector3 = f.top
+		var dir := Vector3(top.x - foot.x, 0.0, top.z - foot.z).normalized().rotated(Vector3.UP, deg_to_rad(float(f.get("ang", 0.0))))
+		var along := Vector3(top.x - foot.x, 0.0, top.z - foot.z).normalized()
+		# from the landing, straight on and at 32 degrees (the flights have open sides: an angled run climbs a way and
+		# drops off the side, so only climbing counts toward the 3D speed)
+		var start := foot - along * (1.0 if f.kind == "stairs" else 1.8) + Vector3.UP * 0.3
+		for g in [["run", false, Defs.move("run_speed")], ["sprint", true, Defs.move("sprint_speed")]]:
+			var r := await _drive(start, dir, 2.2, g[1])
+			var s := _stats(r, float(g[2]))
+			var ys: Array = r.y
+			var sp: Array = r.sp
+			var top3 := 0.0
+			for i in range(9, sp.size()):
+				var d3 := 0.0
+				for k in 6:
+					var dy := maxf(float(ys[i - k]) - float(ys[i - k - 1]), 0.0) * 60.0   # climbing only
+					d3 += sqrt(float(sp[i - k]) * float(sp[i - k]) + dy * dy)
+				top3 = maxf(top3, d3 / 6.0)
+			# the escalator's own belt adds up to its speed on top of the gait
+			var cap3 := float(g[2]) * 1.2 + (0.75 if f.kind == "escalator" else 0.0)
+			s["kind"] = f.kind
+			s["gait"] = g[0]
+			s["foot"] = str(foot.snapped(Vector3.ONE * 0.1))
+			s["ang"] = float(f.get("ang", 0.0))
+			s["top3d_0.1s"] = snappedf(top3, 0.01)
+			s["climbed"] = snappedf(float(ys[-1]) - foot.y, 0.01)
+			s["top_y"] = snappedf((ys as Array).max() - foot.y, 0.01)
+			s["start"] = str(start.snapped(Vector3.ONE * 0.1))
+			s["end"] = str(t.ch.global_position.snapped(Vector3.ONE * 0.1))
+			runs.append(s)
+			print("[bursts] mall %s %s %s: %s" % [f.kind, s.foot, g[0], str(s)])
+			if int(s.bursts) > 0 or top3 > cap3:
+				n_burst += 1
+			worst3 = maxf(worst3, top3)
+	measure["mall"] = runs
+	t._check("bursts_mall", n_burst == 0, "%d mall runs up stairs and escalators, %d with bursts; worst 3D speed over 0.1 s %.1f m/s (run 4.4, sprint 6.3)" % [runs.size(), n_burst, worst3])

@@ -49,6 +49,7 @@ var ledge_n := Vector3.ZERO # the wall's face normal (toward the body)
 var ledge_y := 0.0          # feet height while hanging
 var pk_bits := 0            # Parkour.PK_*: wall run-up used this jump, the jump started at a sprint
 var pk_cd := 0.0            # no new ledge grab until this runs out (just let go)
+var sprint_lock := 0.0      # no sprint until this runs out (the trigger was just pulled)
 var field_pin := 0.0        # seconds the forcefield has held this body deep in it without moving it (Field)
 var wish_h := Vector3.ZERO  # stick direction x speed of the last ground step (Motor): kerbs are climbed toward it
 static var step_trace: Array = []   # tests: [eid, moved, added, wanted, floor normal y, rise] of each step-up while step_trace_on
@@ -244,7 +245,8 @@ func _try_step(pre: Vector3, horizontal: Vector3, dt: float) -> void:
 	var intent := wish_h.normalized() if wish_h.length() > 0.1 else horizontal.normalized()
 	# Up a walkable slope the slide covers less ground across the map (about cos^2 of its angle): that is the slope, not
 	# a kerb in the way (a bank was taken for a kerb every tick and the body was lifted up it at 15 m/s).
-	var ny := get_floor_normal().y if is_on_floor() else 1.0
+	var fn := get_floor_normal() if is_on_floor() else Vector3.UP
+	var ny := fn.y
 	var expect := wanted * clampf(ny * ny, 0.4, 1.0)
 	var lost := intent * expect - moved_v
 	if moved > 1e-4:
@@ -303,7 +305,9 @@ func _try_step(pre: Vector3, horizontal: Vector3, dt: float) -> void:
 			if down_col.get_normal().y <= 0.65:
 				continue
 			var landed := t_probe.origin + down_col.get_travel()
-			var dh := landed.y - global_position.y
+			# (r25) Measured from the slope underfoot: on a ramp the floor ahead is higher anyway. Taken for a step,
+			# running up a stair ramp at an angle along its wall was shoved on 8 cm every tick (8-9 m/s at a run).
+			var dh := landed.y - global_position.y - _slope_rise(fn, landed - global_position)
 			# (r17) Up from where the tick started, too: the edge the body is stepping down from is not a step up.
 			if dh >= 0.015 and dh <= step_h + 0.02 and landed.y - pre.y >= 0.015:
 				# Up, and on to it only as far as this tick's motion still owes that way; further only when the edge
@@ -321,7 +325,8 @@ func _try_step(pre: Vector3, horizontal: Vector3, dt: float) -> void:
 					t_end.origin += flat / fl * dist
 					var d2 := KinematicCollision3D.new()
 					if test_move(t_end, Vector3.DOWN * (lift + 0.06), d2) and d2.get_normal().y > 0.65 \
-							and (t_end.origin + d2.get_travel()).y - global_position.y >= 0.015 \
+							and (t_end.origin + d2.get_travel()).y - global_position.y \
+								- _slope_rise(fn, t_end.origin + d2.get_travel() - global_position) >= 0.015 \
 							and (t_end.origin + d2.get_travel()).y - pre.y >= 0.015:
 						if step_trace_on:
 							step_trace.append([eid, snappedf(moved, 0.001), snappedf(dist, 0.001), snappedf(wanted, 0.001), snappedf(ny, 0.01),
@@ -333,6 +338,11 @@ func _try_step(pre: Vector3, horizontal: Vector3, dt: float) -> void:
 						velocity.z = horizontal.z
 						return
 				return
+
+
+static func _slope_rise(fn: Vector3, off: Vector3) -> float:
+	## How much higher the floor plane with normal fn is at horizontal offset off (0 on level ground).
+	return -(fn.x * off.x + fn.z * off.z) / maxf(fn.y, 0.3)
 
 
 func _push_props(dt: float) -> void:
@@ -361,7 +371,7 @@ func get_state() -> Dictionary:
 		"jcd": jump_cooldown, "ff": freefall_t, "ct": chute_t, "cy": chute_yaw, "fl": flare_t, "pb": prev_buttons,
 		"vt": vault_t, "vd": vault_d, "va": vault_a, "vm": vault_m, "vb": vault_b, "vh": vault_h, "vs": vault_s,
 		"at": air_t, "jb": jump_buf, "st": slide_t, "rt": roll_t, "lt": ledge_t, "lp": ledge_p, "ln": ledge_n, "ly": ledge_y,
-		"pk": pk_bits, "pc": pk_cd}
+		"pk": pk_bits, "pc": pk_cd, "sl": sprint_lock}
 
 
 func set_state(s: Dictionary) -> void:
@@ -393,6 +403,7 @@ func set_state(s: Dictionary) -> void:
 	ledge_y = s.get("ly", ledge_y)
 	pk_bits = s.get("pk", 0)
 	pk_cd = s.get("pc", 0.0)
+	sprint_lock = s.get("sl", 0.0)
 	apply_height()
 
 

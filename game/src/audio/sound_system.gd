@@ -9,6 +9,8 @@ const Acoustics := preload("res://src/audio/acoustics.gd")
 
 const SPEED_OF_SOUND := 343.0
 const POOL_SIZE := 72
+const MAX_SAME := 3        # (r25) copies of one quiet sound playing at once (impacts, casings, footsteps)
+const MAX_SAME_LOUD := 6   # and of one loud one (each gun's shot, explosions); sounds.json "max_voices" overrides
 const OCC_CUTOFF := [20500.0, 3800.0, 1500.0, 650.0]
 const REVERBS := {
 	"none": null,
@@ -385,17 +387,48 @@ func _play_now(id: String, pos: Vector3, db: float, opts: Dictionary) -> AudioSt
 		s = _pick(id)
 	if s == null:
 		return null
+	var prio := int(opts.get("prio", d.get("prio", 1)))
+	# (r25) The same sound a few times at once at most (a firefight kept all 72 voices busy, and every playing voice
+	# costs a little each tick): a shot takes over the oldest copy of itself, a quieter sound the farthest copy if it
+	# is nearer (an enemy's step close by still plays), else it is left out.
+	var same := 0
+	var oldest: AudioStreamPlayer3D = null
+	var farthest: AudioStreamPlayer3D = null
+	var free_voice := false
+	for v in _pool:
+		if not v.playing:
+			free_voice = true
+			continue
+		if int(v.get_meta("prio", 0)) <= prio:
+			free_voice = true
+		if str(v.get_meta("sid", "")) == id:
+			same += 1
+			if oldest == null or int(v.get_meta("t", 0)) < int(oldest.get_meta("t", 0)):
+				oldest = v
+			if farthest == null or float(v.get_meta("d", 0.0)) > float(farthest.get_meta("d", 0.0)):
+				farthest = v
+	var reuse: AudioStreamPlayer3D = null
+	if same >= int(d.get("max_voices", MAX_SAME_LOUD if prio >= 5 else MAX_SAME)):
+		if prio >= 5:
+			reuse = oldest
+		elif dist < float(farthest.get_meta("d", 0.0)):
+			reuse = farthest
+		else:
+			return null
+	elif not free_voice:
+		return null   # every voice busy with louder sounds: no path search for a sound nobody would hear
 	var prop := {"pos": pos, "gain_db": 0.0, "occ": 0, "reverb": "outdoor", "dist": dist}
 	if acoustics and not opts.get("no_prop", false):
-		prop = _propagate_cached(pos, lpos, float(d.get("dist", 40.0)))
+		prop = _propagate_cached(pos, lpos, float(d.get("dist", 40.0)), prio)
 	elif acoustics:
 		prop.reverb = acoustics.reverb_at(lpos)
 	var gain := float(d.get("db", 0.0)) + db + float(prop.gain_db)
 	if gain < -60.0:
 		return null
-	var p := _grab(int(opts.get("prio", d.get("prio", 1))))
+	var p := reuse if reuse else _grab(prio)
 	if p == null:
 		return null
+	p.stop()
 	p.stream = s
 	p.global_position = prop.pos
 	p.max_distance = float(d.get("dist", 40.0)) * 1.2
@@ -404,16 +437,25 @@ func _play_now(id: String, pos: Vector3, db: float, opts: Dictionary) -> AudioSt
 	p.bus = "SFX_%s_%d" % [prop.reverb, clampi(int(prop.occ), 0, 3)]
 	var pv := float(d.get("pitch", 0.05))
 	p.pitch_scale = float(opts.get("pitch", 1.0)) * (1.0 + _rng.randf_range(-pv, pv))
-	p.set_meta("prio", int(opts.get("prio", d.get("prio", 1))))
+	p.set_meta("prio", prio)
+	p.set_meta("sid", id)
+	p.set_meta("t", Time.get_ticks_msec())
+	p.set_meta("d", dist)
 	p.play()
 	return p
 
 
 var _paths := {}   # "src cell|listener cell" -> [time, source, result]
 var _paths_t := 0.0
+## (r25) Fresh path searches per frame. A firefight in Malasugue Mall (portals everywhere) started dozens a frame, one
+## per round hitting something: the rest take the last path found from the same zone to this spot, or a rough one.
+const PATH_BUDGET := 4
+var _path_frame := -1
+var _path_used := 0
+var _zone_paths := {}   # "src zone|listener cell" -> [time, source, result]
 
 
-func _propagate_cached(src: Vector3, lis: Vector3, max_d: float) -> Dictionary:
+func _propagate_cached(src: Vector3, lis: Vector3, max_d: float, prio: int = 1) -> Dictionary:
 	## The way a sound reaches the listener (rays and a portal search, about half a millisecond) changes little within
 	## a metre and a fraction of a second: a burst of rounds hitting one wall, a stream of footsteps, reuse it.
 	var now := Time.get_ticks_msec() / 1000.0
@@ -425,14 +467,45 @@ func _propagate_cached(src: Vector3, lis: Vector3, max_d: float) -> Dictionary:
 			r.pos = src   # heard straight from the source: keep this event's own position
 		r.dist = src.distance_to(lis)
 		return r
+	var frame := Engine.get_process_frames()
+	if frame != _path_frame:
+		_path_frame = frame
+		_path_used = 0
+	var zkey := "%d|%s" % [acoustics.zone_at(src), Vector3i((lis / 1.5).floor())]
+	# Loud, important sounds (shots, explosions) get twice the budget; impacts and the like make do with the rough way.
+	if _path_used >= (PATH_BUDGET * 2 if prio >= 5 else PATH_BUDGET):
+		return _rough_path(src, lis, zkey, now)
+	_path_used += 1
 	var res: Dictionary = acoustics.propagate(src, lis, max_d)
 	_paths[key] = [now, src, res]
+	_zone_paths[zkey] = [now, src, res]
 	if now - _paths_t > 2.0:
 		_paths_t = now
 		for k in _paths.keys():
 			if now - float(_paths[k][0]) > 1.0:
 				_paths.erase(k)
+		for k in _zone_paths.keys():
+			if now - float(_zone_paths[k][0]) > 1.0:
+				_zone_paths.erase(k)
 	return res
+
+
+func _rough_path(src: Vector3, lis: Vector3, zkey: String, now: float) -> Dictionary:
+	## Over the frame's budget: the latest path from the same zone to this spot (its loss and direction), else heard
+	## straight from the source in the same zone, muffled from another.
+	var e: Array = _zone_paths.get(zkey, [])
+	if not e.is_empty() and now - float(e[0]) < 1.0:
+		var r: Dictionary = (e[2] as Dictionary).duplicate()
+		if (r.pos as Vector3).is_equal_approx(e[1]):
+			r.pos = src
+		r.dist = src.distance_to(lis)
+		return r
+	var zs: int = acoustics.zone_at(src)
+	var zl: int = acoustics.zone_at(lis)
+	var reverb: String = acoustics.zones[zl].reverb if zl != acoustics.OUTDOOR else acoustics.zones[zs].reverb
+	if zs == zl:
+		return {"pos": src, "gain_db": 0.0, "occ": 0, "reverb": reverb, "dist": src.distance_to(lis)}
+	return {"pos": src, "gain_db": -14.0, "occ": 2, "reverb": reverb, "dist": src.distance_to(lis)}
 
 
 func _grab(prio: int) -> AudioStreamPlayer3D:

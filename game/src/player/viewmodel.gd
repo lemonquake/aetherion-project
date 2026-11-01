@@ -61,6 +61,7 @@ var _long := false
 var _cur := "-"
 var _tab := 0.0
 var _lower := 0.0
+var _sprint := 0.0              # sprint carry: the gun stays in view, canted across the chest
 var _kick_z := 0.0
 var _bob := 0.0
 var _hit := 0.0
@@ -1058,7 +1059,10 @@ func update_view(dt: float, tab_held: bool, map_held: bool) -> void:
 	# unchanged, this is just the hands being busy).
 	var vaulting: bool = ch.vault_t >= 0.0 or ch.ledge_t >= 0.0 or ch.roll_t >= 0.0
 	var nade_busy: bool = _cook >= 0.0 or _nade_t >= 0.0
-	_lower = move_toward(_lower, 1.0 if (_tab > 0.0 or busy or ch.held_prop_id >= 0 or ch.sprinting or vaulting or nade_busy) else 0.0, dt / (0.1 if vaulting else (0.12 if nade_busy else 0.25)))
+	_lower = move_toward(_lower, 1.0 if (_tab > 0.0 or busy or ch.held_prop_id >= 0 or vaulting or nade_busy) else 0.0, dt / (0.1 if vaulting else (0.12 if nade_busy else 0.25)))
+	# Sprinting carries the gun low and canted (still in view); pulling the trigger ends the sprint and it snaps up.
+	_sprint = move_toward(_sprint, 1.0 if ch.sprinting else 0.0, dt / (0.22 if ch.sprinting else 0.1))
+	var sp := ease(_sprint, -2.0)
 	var e := ease(_tab, -2.0)
 	_place_hologram(dt)
 	# Weapon pose: hip or aim, offset by the same kick and sway that steer the bullets. Positions are the grip.
@@ -1079,12 +1083,13 @@ func update_view(dt: float, tab_held: bool, map_held: bool) -> void:
 	if not held.is_empty():
 		g = Anims.lerp_g(g, held.g, ease(_blend_out, 2.0))
 	var draw_rot := Vector3(-0.6 * _draw, 0.25 * _draw, 0.35 * _draw)
-	var pos := hip.lerp(aim, ads) + bob + Vector3(0, -0.4 * ease(_lower, -2.0) - 0.25 * _draw, _kick_z) + (g[0] as Vector3)
+	var sprint_pos := Vector3(-0.05, -0.06 + absf(sin(_bob)) * 0.012, 0.05) * sp
+	var pos := hip.lerp(aim, ads) + bob + sprint_pos + Vector3(0, -0.4 * ease(_lower, -2.0) - 0.25 * _draw, _kick_z) + (g[0] as Vector3)
 	weapon_root.position = pos
 	var grot: Vector3 = g[1]
 	var iron_k := ads if _irons else 0.0
-	weapon_root.rotation = Vector3(deg_to_rad(off.y + grot.x + _jolt.x * (1.0 - ads * 0.6)) - 0.9 * _lower + draw_rot.x + _iron_pitch * iron_k,
-		deg_to_rad(-off.x + grot.y + _jolt.y) + draw_rot.y + _iron_yaw * iron_k, 0.15 * _lower + deg_to_rad(grot.z + _jolt.z) + draw_rot.z)
+	weapon_root.rotation = Vector3(deg_to_rad(off.y + grot.x + _jolt.x * (1.0 - ads * 0.6)) - 0.9 * _lower - 0.32 * sp + draw_rot.x + _iron_pitch * iron_k,
+		deg_to_rad(-off.x + grot.y + _jolt.y) + draw_rot.y + 0.55 * sp + _iron_yaw * iron_k, 0.15 * _lower + 0.35 * sp + deg_to_rad(grot.z + _jolt.z) + draw_rot.z)
 	var armed = wid != "" and ch.mode == Motor.GROUND and _lower < 0.98
 	# Through a magnified scope the view is the scope picture (HUD overlay); the gun itself would fill the screen.
 	weapon_root.visible = armed and not (ch.wpn.scoped() and ads > 0.88)

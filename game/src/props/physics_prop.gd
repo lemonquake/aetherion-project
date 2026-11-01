@@ -141,6 +141,10 @@ func _impact_family(mat: String) -> String:
 
 
 func _chunked(s: Dictionary) -> bool:
+	return chunked_spec(s)
+
+
+static func chunked_spec(s: Dictionary) -> bool:
 	return str(s.get("kind", "")) in CHUNK_KINDS and str(s.get("mat", "wood")) != "glass" and not s.get("no_block", false) \
 		and not s.get("glass", false)
 

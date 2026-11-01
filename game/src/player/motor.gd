@@ -100,8 +100,12 @@ static func _ground(ch, cmd: Dictionary, dt: float, downed: bool) -> void:
 	ch.apply_height()
 	# Speed
 	var speed := Defs.move("run_speed")
+	# Shooting breaks a sprint: the trigger held (and a moment after it is let go) drops the body to a run.
+	ch.sprint_lock = maxf(ch.sprint_lock - dt, 0.0)
+	if (btn & B_FIRE) != 0 and (btn & B_ACTION_BLOCKED) == 0:
+		ch.sprint_lock = 0.35
 	var sprinting = (btn & B_SPRINT) != 0 and not ch.crouching and float(cmd.get("my", 0.0)) > 0.3 \
-		and (btn & B_AIM) == 0 and ch.can_sprint()
+		and (btn & B_AIM) == 0 and ch.sprint_lock <= 0.0 and ch.can_sprint()
 	if downed:
 		speed = Defs.move("crawl_speed")
 	elif ch.crouching:

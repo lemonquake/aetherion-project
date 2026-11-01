@@ -12,6 +12,9 @@ extends RefCounted
 ##   fire_no_lamp_shadow  the map's lamps without shadows
 ##   fire_again           as fire (the settings restored)
 ## Each phase prints a [perf] line (frame time, render cpu/gpu, draws); the rows go to <shots>/firefight.json.
+## (r25) --ff_glass=<n>: after the phases, every gun stops and n glass panes nearest the camera shatter, a few a frame
+## (a match's worth in Malasugue Mall); the phase "glass_after" measures the scene with what they left lying about.
+## --ff_legacy_debris breaks them as before r25 (A/B).
 ## --ff_phase_s=<s> (default 8), --ff_shooters=<n> (default all bots, up to 10). Vsync is off and the GPU time measured
 ## (as --autotest=perf); --ff_vsync keeps vsync.
 
@@ -114,9 +117,18 @@ func run() -> void:
 		t._perf_end()
 		var row: Dictionary = t._perf_report[-1]
 		row["rounds"] = _shots(shooters) - shots0
+		var voices := 0
+		for v in SoundSys._pool:
+			if v.playing:
+				voices += 1
+		row["voices"] = voices
+		row["debris"] = world.effects._debris.size() + world.effects._resting.size()
+		print("[firefight] %s: %d sound voices playing, %d debris pieces" % [ph, voices, int(row.debris)])
 		print("[firefight] %s: %d rounds fired, avg %.2f ms, p95 %.2f, max %.2f, gpu %.2f ms" % [ph, int(row.rounds), float(row.get("avg_ms", 0.0)),
 			float(row.get("p95", 0.0)), float(row.get("max", 0.0)), float(row.get("gpu", 0.0))])
 		rows.append(row)
+	if Game.arg("ff_glass") != null:
+		await _glass_soak(at, int(Game.arg("ff_glass", "120")), secs, rows)
 	for b in shooters:
 		b.test_fire = false
 	world.effects.test_no_flash = false
@@ -150,3 +162,38 @@ func _shots(shooters: Array) -> int:
 	for b in shooters:
 		n += int(b.ch.wpn.shots)
 	return n
+
+
+func _glass_soak(at: Vector3, n: int, secs: float, rows: Array) -> void:
+	for b in world.bots.values():
+		b.test_fire = false
+	world.effects.test_legacy_debris = Game.arg("ff_legacy_debris") != null
+	var dyn = world.map.dyn
+	var order := []
+	for wid in dyn.windows.size():
+		var w: Dictionary = dyn.windows[wid]
+		if not w.get("broken", false) and not w.has("door"):
+			order.append([(w.xf as Transform3D).origin.distance_to(at), wid])
+	order.sort()
+	var broken := 0
+	for e in order.slice(0, n):
+		var w: Dictionary = dyn.windows[int(e[1])]
+		var pos: Vector3 = (w.xf as Transform3D).origin
+		var dir := (pos - at).normalized()
+		if dyn.break_window(int(e[1]), pos, dir):
+			world.effects.glass_break(pos, dir, w)
+			broken += 1
+		if broken % 4 == 0:
+			await t.get_tree().process_frame
+	await t._wait(6.0)   # the pieces come to rest
+	t._perf_begin("ff_glass_after")
+	await t._wait(secs)
+	t._perf_end()
+	var row: Dictionary = t._perf_report[-1]
+	row["panes"] = broken
+	row["debris"] = world.effects._debris.size() + world.effects._resting.size()
+	row["legacy"] = world.effects.test_legacy_debris
+	rows.append(row)
+	print("[firefight] glass_after (%s): %d panes broken, %d debris pieces kept, avg %.2f ms, p95 %.2f, draws %d" % ["legacy" if row.legacy else "r25",
+		broken, int(row.debris), float(row.get("avg_ms", 0.0)), float(row.get("p95", 0.0)), int(row.get("draws", 0))])
+

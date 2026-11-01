@@ -404,6 +404,17 @@ func instantiate() -> void:
 		_instance(str(sp[0]), sp[1], bool(sp[2]))
 	for p in props:
 		_make_dormant(p)
+	# (r25) The first round into a breakable model cut its mesh into chunks there and then (up to 8 ms, mid-firefight):
+	# each model is cut once now, while the map loads.
+	var t_cut := Time.get_ticks_msec()
+	var cut := {}
+	for p in props:
+		var nm := str(p.name)
+		if not cut.has(nm):
+			cut[nm] = true
+			if PhysicsProp.chunked_spec(models.spec(nm)):
+				PhysicsProp.Destruct.chunks_for(models, nm)
+	print("[dyn] %d prop models, breakable ones cut into chunks in %d ms" % [cut.size(), Time.get_ticks_msec() - t_cut])
 	for b in loot_boxes:
 		b.mm = _instance(str(b.name), b.xf, bool(b.interior))
 	for key in _mm:

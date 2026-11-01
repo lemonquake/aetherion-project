@@ -107,6 +107,10 @@ func _run() -> void:
 		await preload("res://src/debug/autotest_r14.gd").new(self).run()
 		_finish()
 		return
+	if str(Game.arg("autotest", "")) == "r25":
+		await preload("res://src/debug/autotest_r25.gd").new(self).run()
+		_finish()
+		return
 	if str(Game.arg("autotest", "")) == "r24":
 		await preload("res://src/debug/autotest_r24.gd").new(self).run()
 		_finish()
@@ -1194,7 +1198,7 @@ func _perf_end() -> void:
 			secs.append([float(Prof.acc[k]) / 1000.0 / n, k])
 		secs.sort_custom(func(a, b): return a[0] > b[0])
 		var parts := []
-		for i in mini(secs.size(), 14):
+		for i in mini(secs.size(), 30):
 			parts.append("%s %.2f" % [secs[i][1], secs[i][0]])
 			row["sec." + secs[i][1]] = secs[i][0]
 		var steps: Array = _perf_s.step
