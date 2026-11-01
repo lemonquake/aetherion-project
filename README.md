@@ -10,42 +10,51 @@ A tactical multiplayer survival shooter and battle royale built with Godot 4.7. 
 
 ## Map Showcase
 
-### Grand Commercial Mall
-A sprawling multi-level shopping complex designed for intense close-quarters combat. Features multi-tier atriums, broken escalators, shattered storefronts, service shafts, and catwalks overlooking open plazas. Pitch-black interiors force reliance on weapon lights and tactical movement.
+Map screenshots from version **0.25.0**, captured on **November 2, 2026**. Malasugue Mall and Freight Delight use their normal night lighting; Sitio Kalinaw is shown during the daytime phase.
 
-| Grand Atrium (Level 2) | Retail Concourse |
-| :---: | :---: |
-| ![Grand Atrium](work/release_shots/mall/grand_l2_t450.png) | ![Retail Concourse](work/release_shots/mall/shopfront_t450.png) |
+### Malasugue Mall
 
-| Food Court & Balconies | South Concourse Entry |
+A five-storey shopping mall with damaged shops, worn tile floors, working and broken escalators, and open elevator cabins beneath exposed shafts. Cold fluorescent lights and emergency lamps illuminate parts of the building, while the upper galleries overlook the atriums below.
+
+| Grand Atrium (Level 1) | North Elevator Lobby |
 | :---: | :---: |
-| ![Upper Balconies](work/release_shots/mall/food_hall_t450.png) | ![South Entrance](work/release_shots/mall/entrance_south_t450.png) |
+| ![Malasugue Mall's damaged Grand Atrium and escalators](docs/images/maps/malasugue-mall-atrium.jpg) | ![Two open elevator cabins in Malasugue Mall's north lobby](docs/images/maps/malasugue-mall-lift-lobby.jpg) |
+
+| Retail Concourse | Damaged Shopfronts |
+| :---: | :---: |
+| ![Patterned floor tiles and shops along the mall concourse](docs/images/maps/malasugue-mall-concourse.jpg) | ![Damaged mall storefronts beside a bench](docs/images/maps/malasugue-mall-shopfront.jpg) |
+
+| Upper Gallery (Level 3) | West Court Escalators |
+| :---: | :---: |
+| ![Level 3 gallery overlooking the Grand Atrium](docs/images/maps/malasugue-mall-upper-gallery.jpg) | ![Escalators connecting the floors of the West Court](docs/images/maps/malasugue-mall-west-escalators.jpg) |
 
 ---
 
-### Freight Terminal & Industrial Harbor
-An industrial cargo port dominated by towering stacks of shipping containers, overhead gantry cranes, rail docks, and narrow cargo alleys. Multi-elevation catwalks and container bridges offer commanding vantage points over tight choke points.
+### Freight Delight
 
-| Container Canyon | Harbor Waterfront & Pier |
-| :---: | :---: |
-| ![Container Canyon](work/release_shots/freight/canyon.png) | ![Harbor Pier](work/release_shots/freight/pier.png) |
+A settlement built inside an old container yard by the port. Container homes, a fish-landing shed, a warehouse, a repair shop, and narrow residential alleys connect through a crane plaza. Stairs and bridges lead to rooftop decks and the crane platform. The map stays at night throughout the match.
 
-| Industrial Crane Overlook | Cargo Corridor |
+| Container Canyon | Fish Landing Shed |
 | :---: | :---: |
-| ![Crane Platform](work/release_shots/freight/crane.png) | ![Cargo Alleys](work/release_shots/freight/alley.png) |
+| ![Shipping containers along Freight Delight's northern lane](docs/images/maps/freight-delight-canyon.jpg) | ![The fish-landing shed at Pantalan 3](docs/images/maps/freight-delight-pier.jpg) |
+
+| Crane Plaza | Residential Alley |
+| :---: | :---: |
+| ![The gantry crane and raised walkways above the plaza](docs/images/maps/freight-delight-crane.jpg) | ![A lamp-lit alley between Freight Delight's homes](docs/images/maps/freight-delight-alley.jpg) |
 
 ---
 
-### River Settlement & Urban District
-A dense labyrinth of multi-story concrete structures, interconnected rooftops, exterior climbable ladders, sheltered walkways, and courtyard squares. Matches begin in dead-of-night darkness before the central artificial sun ignites.
+### Sitio Kalinaw
 
-| Aerial Canopy Insertion | Covered Alleys & Lamps |
-| :---: | :---: |
-| ![Parachute Drop](work/release_shots/tour/03_canopy_team.png) | ![Urban Alleys](work/release_shots/tour/09_lane_bulb.png) |
+A riverside settlement with closely packed houses, rooftop paths, covered alleys, markets, and bridges. Matches begin in darkness before the artificial sun lights the streets. These views show the settlement during its daytime phase.
 
-| Interior Recon & Lighting | Ground Deployment |
+| Settlement from Above | River Boardwalk |
 | :---: | :---: |
-| ![Flashlight Search](work/release_shots/tour/06_room_flashlight.png) | ![Drop Zone](work/release_shots/tour/04_landed.png) |
+| ![An aerial view of Sitio Kalinaw's houses and rooftops](docs/images/maps/sitio-kalinaw-aerial.jpg) | ![Homes and walkways along Sitio Kalinaw's riverbank](docs/images/maps/sitio-kalinaw-boardwalk.jpg) |
+
+| Covered Alley | Residential Courtyard |
+| :---: | :---: |
+| ![A covered alley between homes in Sitio Kalinaw](docs/images/maps/sitio-kalinaw-alley.jpg) | ![A residential courtyard with plants, laundry, and surrounding homes](docs/images/maps/sitio-kalinaw-courtyard.jpg) |
 
 ---
 
