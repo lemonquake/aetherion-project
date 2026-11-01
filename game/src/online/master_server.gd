@@ -182,7 +182,8 @@ func _handle(req: Dictionary, from: String) -> Array:
 		["GET", "/status"]:
 			var servers := _games_list().filter(func(g): return g.get("official", false)).map(func(g): return {"name": g.get("name", ""),
 				"game_mode": g.get("game_mode", ""), "map": g.get("map", ""), "players": g.get("players", 0), "max": g.get("max", 0), "state": g.get("state", ""),
-				"region": g.get("region", ""), "version": g.get("version", "")})
+				"region": g.get("region", ""), "version": g.get("version", ""),
+				"bots": g.get("bots", true), "bot_skill": g.get("bot_skill", "")})   # (r22) launcher 1.4.0 shows the bot difficulty
 			return [200, {"ok": true, "version": Net.VERSION, "profiles": profiles.size(), "online": online.size(), "games": games.size(), "matches": matches,
 				"servers": servers}]
 	return [404, {"ok": false, "error": "unknown"}]
