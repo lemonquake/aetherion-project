@@ -4,6 +4,7 @@ extends Node
 
 const Viewmodel := preload("res://src/player/viewmodel.gd")
 const PauseMenu := preload("res://src/ui/pause_menu.gd")
+const Workbench := preload("res://src/ui/workbench_ui.gd")
 const Voice := preload("res://src/audio/voice.gd")
 const TouchControls := preload("res://src/ui/touch_controls.gd")
 
@@ -29,7 +30,15 @@ var laser_toggled := false   # touch: the Laser button toggles it
 var paused := false
 var results := false
 var spectating := -1
+## r24 spectator options. Views: behind the player, close over the shoulder, from high above, or a free camera (a
+## solo host only). Watching everyone (enemies too) is allowed when no other human is in the match (alone vs bots).
+enum SpectView { BEHIND, SHOULDER, OVERHEAD, FREE }
+const SPECT_VIEW_NAMES := ["Behind", "Over the shoulder", "Overhead", "Free camera"]
+var spect_view := SpectView.BEHIND
+var spect_all := false
+var _free_pos := Vector3.ZERO
 var _pause_ui: Control = null
+var workbench: Control = null    # (r24) the attachment workbench while it is open (K)
 var _climb_left := 0.0
 var _yaw_left := 0.0
 var _correction := Vector3.ZERO
@@ -133,6 +142,15 @@ func setup_spectator(w) -> void:
 func _exit_tree() -> void:
 	if cam and is_instance_valid(cam):
 		cam.queue_free()
+	# The pause menu lives under Game.UI, not under this controller: leaving the match must take it down too.
+	for ui in [_pause_ui, workbench]:
+		if ui and is_instance_valid(ui):
+			if ui.get_parent():
+				ui.get_parent().remove_child(ui)
+			ui.queue_free()
+	_pause_ui = null
+	workbench = null
+	paused = false
 
 
 # ------------------------------------------------------------------ input
@@ -146,10 +164,15 @@ func _unhandled_input(event: InputEvent) -> void:
 		return
 	if ch == null:
 		# Spectating: fire / jump / next weapon watch the next teammate, aim / previous weapon the one before.
-		if event.is_action_pressed("fire") or event.is_action_pressed("jump") or event.is_action_pressed("next_weapon"):
+		# r24: E changes the camera view, R switches between teammates and everyone (alone vs bots).
+		if event.is_action_pressed("fire") or (event.is_action_pressed("jump") and spect_view != SpectView.FREE) or event.is_action_pressed("next_weapon"):
 			spectate_cycle(1)
 		elif event.is_action_pressed("aim") or event.is_action_pressed("prev_weapon"):
 			spectate_cycle(-1)
+		elif event.is_action_pressed("interact"):
+			spectate_next_view()
+		elif event.is_action_pressed("reload"):
+			spectate_toggle_all()
 	for a in LATCH:
 		if event.is_action_pressed(a):
 			_latched |= int(LATCH[a])
@@ -176,6 +199,24 @@ func _unhandled_input(event: InputEvent) -> void:
 		sprint_toggled = not sprint_toggled
 	if event.is_action_pressed("text_chat") and world.hud:
 		world.hud.open_text_chat()
+	if event.is_action_pressed("workbench") and ch != null and not tab_held:
+		open_workbench()
+
+
+func open_workbench() -> void:
+	## (r24) The attachment workbench over the match (which goes on): the player stands still while it is open.
+	if workbench and is_instance_valid(workbench):
+		return
+	var start = slot if slot in [1, 2, 3] and ch.wpn.slots[slot] != null else null
+	workbench = Workbench.new(Workbench.MatchSource.new(world), start)
+	Game.ui.add_child(workbench)
+	paused = true
+	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
+	workbench.closed.connect(func():
+		workbench = null
+		paused = false
+		if not results:
+			Input.mouse_mode = Settings.play_mouse_mode())
 
 
 func _cycle_slot(d: int) -> int:
@@ -539,7 +580,42 @@ func spectate_candidates() -> Array:
 			others.append(c.eid)
 	mates.sort()
 	others.sort()
+	if spect_all and can_watch_enemies():
+		return mates + others
 	return mates if not mates.is_empty() else others
+
+
+func can_watch_enemies() -> bool:
+	## Watching the other teams is fair only when no other human is playing (it would show where they are).
+	return Net.humans() <= 1
+
+
+func can_free_camera() -> bool:
+	## The free camera can fly anywhere: only on a solo host, which simulates the whole map (a client is sent only
+	## what is around the player it watches).
+	return can_watch_enemies() and world != null and world.is_server
+
+
+func spectate_next_view() -> void:
+	var n := SPECT_VIEW_NAMES.size() if can_free_camera() else SPECT_VIEW_NAMES.size() - 1
+	spect_view = (spect_view + 1) % n
+	if spect_view == SpectView.FREE and cam:
+		_free_pos = cam.global_position
+		var e := cam.global_transform.basis.get_euler()
+		pitch = clampf(e.x, -1.4, 1.4)
+		yaw = e.y
+	if world.hud:
+		world.hud.spect_changed()
+
+
+func spectate_toggle_all() -> void:
+	if not can_watch_enemies():
+		return
+	spect_all = not spect_all
+	if not spect_all:
+		_pick_spectate()   # back to a teammate when one is standing
+	if world.hud:
+		world.hud.spect_changed()
 
 
 func spectate_cycle(d: int) -> void:
@@ -632,6 +708,9 @@ func _on_motion_event(kind: String, value: float) -> void:
 
 func _process(dt: float) -> void:
 	if ch == null or not is_instance_valid(ch):
+		# r24: dying while aimed through a scope left the scope's zoom on the death and spectator cameras.
+		if cam:
+			cam.fov = float(Settings.get_value("graphics", "fov"))
 		if not _death_camera():
 			_spectate_camera(dt)
 		return
@@ -771,18 +850,28 @@ func _spectate_camera(dt: float) -> void:
 	var cur = world.characters.get(spectating)
 	if cur == null or cur.mode in [Motor.DEAD, Motor.SPECTATE]:
 		_pick_spectate()
-	elif cur.team != int(Net.players.get(Net.local_pid, {}).get("team", -1)) and Engine.get_process_frames() % 30 == 0:
+	elif not spect_all and cur.team != int(Net.players.get(Net.local_pid, {}).get("team", -1)) and Engine.get_process_frames() % 30 == 0:
 		# Watching an enemy because no teammate was left: back to a teammate as soon as one is (late spawn, rebind).
 		var list := spectate_candidates()
 		if not list.is_empty() and world.characters[list[0]].team != cur.team:
 			_pick_spectate()
 	var t = world.characters.get(spectating)
+	if spect_view == SpectView.FREE and can_free_camera():
+		_free_camera(dt, t)
+		return
 	if t == null:
 		return
 	_look(dt)
 	var b := Basis.from_euler(Vector3(clampf(pitch, -1.0, 0.6), yaw, 0))
 	var focus: Vector3 = t.get_global_transform_interpolated().origin + Vector3.UP * 1.6
 	var desired := focus + b * Vector3(0.4, 0.3, 3.2)
+	if spect_view == SpectView.SHOULDER:
+		desired = focus + b * Vector3(0.55, 0.05, 1.35)
+	elif spect_view == SpectView.OVERHEAD:
+		# High above and a little behind, looking down at the player and what is around them.
+		var back := Basis(Vector3.UP, yaw) * Vector3(0.0, 0.0, 6.0)
+		desired = focus + Vector3.UP * 13.0 + back
+		b = Basis.looking_at(focus - desired, Vector3.UP)
 	var space = world.get_world_3d().direct_space_state
 	var q := PhysicsRayQueryParameters3D.create(focus, desired, Defs.SIGHT_MASK)
 	var r = space.intersect_ray(q)
@@ -791,5 +880,21 @@ func _spectate_camera(dt: float) -> void:
 	cam.global_transform = Transform3D(b, desired)
 	if world.hud:
 		world.hud.set_spectating(t)
+
+
+func _free_camera(dt: float, t) -> void:
+	## Fly anywhere: move keys, Space up, Crouch down, Sprint faster. The HUD still names who Next/Previous selected.
+	_look(dt)
+	pitch = clampf(pitch, -1.5, 1.5)
+	var b := Basis.from_euler(Vector3(pitch, yaw, 0))
+	var mv := Input.get_vector("move_left", "move_right", "move_forward", "move_back")
+	var up := (1.0 if Input.is_action_pressed("jump") else 0.0) - (1.0 if Input.is_action_pressed("crouch") else 0.0)
+	var speed := 26.0 if Input.is_action_pressed("sprint") else 9.0
+	_free_pos += (b * Vector3(mv.x, 0.0, mv.y) + Vector3.UP * up) * speed * dt
+	cam.global_transform = Transform3D(b, _free_pos)
+	if world.hud:
+		world.hud.set_spectating(t)
+
+
 
 

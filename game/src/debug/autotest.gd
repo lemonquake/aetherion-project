@@ -107,6 +107,10 @@ func _run() -> void:
 		await preload("res://src/debug/autotest_r14.gd").new(self).run()
 		_finish()
 		return
+	if str(Game.arg("autotest", "")) == "r24":
+		await preload("res://src/debug/autotest_r24.gd").new(self).run()
+		_finish()
+		return
 	if str(Game.arg("autotest", "")) == "canal":
 		await preload("res://src/debug/autotest_canal.gd").new(self).run()
 		_finish()

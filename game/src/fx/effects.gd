@@ -311,9 +311,10 @@ func _attach(att: int) -> Node3D:
 func _decal(pos: Vector3, normal: Vector3, tex: Texture2D, nrm: Texture2D, size: Vector3, mod: Color, parent: Node3D) -> Decal:
 	var d: Decal
 	if _decals.size() >= MAX_DECALS:
-		d = _decals.pop_front()
-		if not is_instance_valid(d):
-			d = Decal.new()
+		# (r24) untyped first: the oldest may have gone with the door or window it was on, and assigning a freed
+		# object to a typed variable is an error (it spammed the log and left d null).
+		var old = _decals.pop_front()
+		d = old if is_instance_valid(old) else Decal.new()
 	else:
 		d = Decal.new()
 	if d.get_parent():
@@ -810,4 +811,5 @@ func _update_zone(dt: float) -> void:
 				SoundSys.play_at("field_zap", at + Vector3(randf_range(-3, 3), randf_range(-1, 2), randf_range(-3, 3)), (6.0 - gap) * 0.5)
 		else:
 			SoundSys.stop_loop("field_hum")
+
 

@@ -74,6 +74,14 @@ func close() -> void:
 	queue_free()
 
 
+func open_workbench(which: String) -> Control:
+	## (r24) The 3D workbench for one of the two guns; what is fitted there is fitted here.
+	var WB := preload("res://src/ui/workbench_ui.gd")
+	var w: Control = WB.new(WB.LoadoutSource.new(self), which)
+	add_child(w)
+	return w
+
+
 func _unhandled_input(e: InputEvent) -> void:
 	if e.is_action_pressed("ui_cancel"):
 		get_viewport().set_input_as_handled()
@@ -316,6 +324,13 @@ func _fill_attachments() -> void:
 		nm.clip_text = true
 		nm.size_flags_horizontal = Control.SIZE_EXPAND_FILL
 		head.add_child(nm)
+		if not Attach.kinds_for(wid).is_empty():
+			# (r24) the 3D workbench: drag attachments onto the gun
+			var w_which: String = which
+			var wb := UITheme.button("Workbench", func(): open_workbench(w_which), 150)
+			wb.name = "workbench_" + which
+			wb.add_theme_font_size_override("font_size", 17)
+			head.add_child(wb)
 		box.add_child(head)
 		var kinds := Attach.kinds_for(wid)
 		if kinds.is_empty():

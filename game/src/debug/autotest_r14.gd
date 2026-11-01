@@ -457,8 +457,10 @@ func _scopes() -> void:
 	var nv: Dictionary = filters.get("scope_night", {})
 	var th: Dictionary = filters.get("scope_thermal", {})
 	var green: bool = not nv.is_empty() and float(nv.mean[1]) > float(nv.mean[0]) * 1.3 and float(nv.mean[1]) > float(nv.mean[2]) * 1.3
-	t._check("r14_scope_night", bool(nv.get("on", false)) and green, "night vision filter %s, eyepiece mean colour %s" % [str(nv.get("on")), str(nv.get("mean"))])
-	t._check("r14_scope_thermal", bool(th.get("on", false)) and int(th.get("heat_bodies", 0)) >= 1 and float(th.get("body_luma", 0.0)) > 0.75,
+	# (r24) no green phosphor or grey picture any more: night vision brightens in natural colour, thermal outlines
+	# the enemy over the real picture (its filter layer stays off).
+	t._check("r14_scope_night", bool(nv.get("on", false)) and not green, "night vision filter %s, eyepiece mean colour %s" % [str(nv.get("on")), str(nv.get("mean"))])
+	t._check("r14_scope_thermal", int(th.get("heat_bodies", 0)) >= 1,
 		"thermal filter %s, %d warm bodies in the lens, brightest pixel on the enemy %.2f" % [str(th.get("on")), int(th.get("heat_bodies", 0)), float(th.get("body_luma", 0.0))])
 	# The 1-4x scope: the wheel (next weapon) while aiming turns the ring down and keeps the gun in hand.
 	await _gun("rifle_556", ["scope_lpvo"])

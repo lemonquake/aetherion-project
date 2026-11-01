@@ -10,6 +10,7 @@ const Attach := preload("res://src/weapons/attachments.gd")
 const BINS := 64
 const MAG_EXT := 0.05     # how far an extended magazine reaches below the gun's own
 const MAG_QUICK := 0.022
+const MAG_DRUM := 0.12    # (r24) the tallest a drum magazine is drawn
 
 static var _profiles := {}
 
@@ -138,6 +139,9 @@ static func mount_xf(map, wid: String, att: String) -> Transform3D:
 				lo = minf(lo, p.bot[j])
 			var reach := MAG_EXT if Attach.flag({"att": [att]}, "ext") else MAG_QUICK
 			basis = Basis().scaled(Vector3(1.0, reach / maxf(asz.y, 0.01), 1.0))
+			if float(Defs.attachments.get(att, {}).get("cap_mult", 1.0)) > 1.0:
+				# (r24) a drum is drawn whole, its own shape, under the gun's magazine well
+				basis = Basis().scaled(Vector3.ONE * minf(1.0, MAG_DRUM / maxf(asz.y, 0.01)))
 			at = Vector3(0, lo + 0.003, front + f3 * L)
 			anchor = Vector3(0, asz.y, 0)
 		"stock":
@@ -177,6 +181,7 @@ static func sight_rear_z(map, wid: String, att: String) -> float:
 static func build(map, parent: Node3D, wid: String, atts: Array, layers: int, shadows: int) -> void:
 	## Replaces parent's children with one MeshInstance3D per fitted attachment.
 	for c in parent.get_children():
+		parent.remove_child(c)   # (r24) out at once: a new one of the same name keeps its name (the workbench finds it)
 		c.queue_free()
 	if wid == "":
 		return

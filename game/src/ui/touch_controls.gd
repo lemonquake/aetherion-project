@@ -51,6 +51,7 @@ const BUTTONS := [
 	{"name": "weapon", "action": "next_weapon", "label": "Weapon", "pos": Vector2(-540, 115), "r": 54.0, "mode": "tap"},
 	{"name": "radio", "action": "push_to_talk", "label": "Radio", "pos": Vector2(-680, 115), "r": 54.0, "mode": "hold"},
 	{"name": "fire_mode", "action": "fire_mode", "label": "Auto", "pos": Vector2(-540, 245), "r": 58.0, "mode": "tap"},
+	{"name": "workbench", "action": "workbench", "label": "Gear", "pos": Vector2(-680, 245), "r": 54.0, "mode": "tap"},
 	{"name": "menu", "action": "menu", "label": "Menu", "pos": Vector2(80, 80), "r": 48.0, "mode": "tap", "tab": true},
 	{"name": "page_prev", "action": "smartab_prev", "label": "<", "pos": Vector2(-400, -300), "r": 60.0, "mode": "tap", "tab_only": true},
 	{"name": "page_next", "action": "smartab_next", "label": ">", "pos": Vector2(-250, -300), "r": 60.0, "mode": "tap", "tab_only": true},

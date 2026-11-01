@@ -50,17 +50,17 @@ func _ready() -> void:
 	sc.size_flags_vertical = Control.SIZE_EXPAND_FILL
 	sc.size_flags_horizontal = Control.SIZE_EXPAND_FILL
 	col.add_child(sc)
-	var table := UITheme.vbox(6)
-	table.size_flags_horizontal = Control.SIZE_EXPAND_FILL
-	sc.add_child(table)
-	var widths := [340, 200, 90, 110, 130]
-	_row(table, ["Player", "Team", "Kills", "Damage" if dm else "Downs", "Time alive"], widths, UITheme.TEXT_DIM)
-	for r in summary.get("rows", []):
-		var team := int(r.get("team", -1))
-		var team_text := str(names[team]) if team >= 0 and team < names.size() else "Team %d" % (team + 1)
-		_row(table, [str(r.name) + (" (bot)" if r.get("bot", false) else ""), team_text, str(r.get("kills", 0)),
-			str(int(r.get("damage", 0))) if dm else str(r.get("downs", 0)), "%d:%02d" % [int(r.get("time", 0)) / 60, int(r.get("time", 0)) % 60]],
-			widths, UITheme.ACCENT if r.get("winner", false) else UITheme.TEXT)
+	# (r24) The same scoreboard as the one held on ~ during the match: every team, every player's numbers.
+	var board := preload("res://src/ui/scoreboard.gd").new()
+	board.set_title("Final scoreboard")
+	board.size_flags_horizontal = Control.SIZE_SHRINK_CENTER
+	sc.add_child(board)
+	var tn: Array = names.duplicate()
+	if tn.is_empty():
+		for r in summary.get("rows", []):
+			while tn.size() <= int(r.get("team", 0)):
+				tn.append(UITheme.team_name(tn.size()))
+	board.show_rows(summary.get("rows", []), {"team_names": tn, "score": summary.get("score", {}), "final": true}, Net.local_pid)
 	col.add_child(UITheme.label("You can stay here to review the stats.", 20, UITheme.TEXT_DIM))
 	var actions := HFlowContainer.new()
 	actions.add_theme_constant_override("h_separation", 10)

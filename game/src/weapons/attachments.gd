@@ -106,6 +106,9 @@ static func mag_cap(w: Dictionary) -> int:
 	var cap := int(d.get("mag_size", 1))
 	if flag(w, "ext"):
 		cap = int(d.get("mag_ext", cap))
+	var m := mult(w, "cap_mult")   # (r24) drums
+	if m > 1.0:
+		cap = maxi(cap, int(round(float(d.get("mag_size", 1)) * m)))
 	return cap
 
 
@@ -164,6 +167,65 @@ static func score(weapon_id: String, att_id: String) -> float:
 		var z := float(a.get("zoom", 1.3))
 		return 3.5 - absf(log(z / preferred_zoom(weapon_id)) / log(2.0)) * 1.2
 	return float(a.get("rank", 1.0))
+
+
+## (r24) What each multiplier means to a player, for the workbench's hover card: [what it changes, whether a smaller
+## multiplier is the better one, wording when it improves, wording when it gets worse].
+const EFFECT_TEXT := [
+	["recoil_up_mult", true, "+%d%% vertical recoil control", "%d%% more vertical recoil"],
+	["recoil_side_mult", true, "+%d%% horizontal recoil control", "%d%% more horizontal recoil"],
+	["recovery_mult", false, "+%d%% recoil recovery", "%d%% slower recoil recovery"],
+	["sway_mult", true, "+%d%% weapon sway resistance", "%d%% more weapon sway"],
+	["ads_time_mult", true, "%d%% faster aiming", "%d%% slower aiming"],
+	["reload_mult", true, "%d%% faster reload", "%d%% slower reload"],
+	["spread_hip_mult", true, "+%d%% hip-fire accuracy", "%d%% wider hip-fire spread"],
+	["move_spread_mult", true, "+%d%% accuracy while moving", "%d%% less accurate while moving"],
+	["pellet_spread_mult", true, "%d%% tighter pellet spread", "%d%% wider pellet spread"],
+	["loudness_mult", true, "%d%% quieter shots", "%d%% louder shots"],
+	["flash_mult", true, "%d%% less muzzle flash", "%d%% brighter muzzle flash"],
+]
+
+
+static func effects(att_id: String, weapon_id: String = "") -> Array:
+	## (r24) [text, good] lines saying what an attachment does (on this gun, for magazine sizes).
+	var a: Dictionary = Defs.attachments.get(att_id, {})
+	var out := []
+	if a.has("zoom"):
+		var z := "%sx magnification" % String.num(float(a.zoom), 1)
+		if a.has("zoom_min"):
+			z = "%s-%sx variable magnification" % [String.num(float(a.zoom_min), 1), String.num(float(a.zoom), 1)]
+		out.append([z, true])
+	if weapon_id != "" and (bool(a.get("ext", false)) or float(a.get("cap_mult", 1.0)) > 1.0):
+		var base := mag_cap({"id": weapon_id, "att": []})
+		var more := mag_cap({"id": weapon_id, "att": [att_id]})
+		if more > base:
+			out.append(["+%d rounds per magazine (%d -> %d)" % [more - base, base, more], true])
+	elif bool(a.get("ext", false)):
+		out.append(["More rounds per magazine", true])
+	elif float(a.get("cap_mult", 1.0)) > 1.0:
+		out.append(["%d%% more rounds per magazine" % roundi((float(a.cap_mult) - 1.0) * 100.0), true])
+	for e in EFFECT_TEXT:
+		if not a.has(e[0]):
+			continue
+		var m := float(a[e[0]])
+		if absf(m - 1.0) < 0.005:
+			continue
+		var pct := roundi(absf(m - 1.0) * 100.0)
+		var good: bool = (m < 1.0) == bool(e[1])
+		out.append([(str(e[2]) if good else str(e[3])) % pct, good])
+	if bool(a.get("suppressed", false)):
+		out.append(["Suppressed: shots are hard to hear and to trace back", true])
+	if bool(a.get("laser", false)):
+		out.append(["Laser pointer (V)", true])
+	if att_id == "weapon_light":
+		out.append(["Flashlight on the gun (F)", true])
+	if str(a.get("filter", "")) == "thermal":
+		out.append(["Outlines enemies through smoke and darkness", true])
+	elif str(a.get("filter", "")) == "night":
+		out.append(["Brightens the dark", true])
+	if a.has("mass"):
+		out.append(["Weight %.2f kg" % float(a.mass), float(a.mass) < 0.3])
+	return out
 
 
 static func best_slot_upgrade(weapons: Array, att_id: String) -> Array:

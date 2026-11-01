@@ -913,9 +913,40 @@ func server_after_damage(ch: Character, res: Dictionary, attacker: int) -> void:
 
 
 func _count_damage(ch: Character, res: Dictionary, attacker: int) -> void:
-	## Damage dealt to the other teams, for XP and the stats.
-	if match_server and match_server.stats.has(attacker) and attacker != ch.eid and team_of(attacker) != ch.team:
+	## Damage dealt to the other teams, for XP and the stats; (r24) damage received and assists for the scoreboard.
+	if match_server == null:
+		return
+	if match_server.stats.has(attacker) and attacker != ch.eid and team_of(attacker) != ch.team:
 		match_server.stats[attacker].damage = float(match_server.stats[attacker].damage) + float(res.get("damage", 0.0))
+	if float(res.get("damage", 0.0)) > 0.0:
+		match_server.on_damage(ch, attacker, float(res.get("damage", 0.0)))
+
+
+# ------------------------------------------------------------------ r24: the scoreboard (held ~)
+
+var board_rows: Array = []        # the latest scoreboard rows (clients: as the server last sent them)
+var board_at := 0                 # msec when they arrived
+
+
+func request_board() -> void:
+	if is_server:
+		if match_server:
+			board_rows = match_server.board()
+			board_at = Time.get_ticks_msec()
+	else:
+		_req_board.rpc_id(1)
+
+
+@rpc("any_peer", "reliable")
+func _req_board() -> void:
+	if is_server and match_server:
+		_board.rpc_id(multiplayer.get_remote_sender_id(), match_server.board())
+
+
+@rpc("authority", "call_remote", "reliable")
+func _board(rows: Array) -> void:
+	board_rows = rows
+	board_at = Time.get_ticks_msec()
 
 
 func _after_damage(ch: Character, res: Dictionary, attacker: int) -> void:

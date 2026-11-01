@@ -301,7 +301,7 @@ func _controls() -> Control:
 		"aim": "Aim", "reload": "Reload", "interact": "Use / pick up items", "grab": "Grab, drag or carry objects", "flashlight": "Light (hold: change battery)",
 		"smartab": "SmarTab (hold)", "map": "SmarTab map (hold)", "heal": "Treat injuries", "weapon_1": "Primary weapon",
 		"weapon_2": "Secondary weapon", "weapon_3": "Handgun", "holster": "Holster", "fire_mode": "Fire mode",
-		"push_to_talk": "Push to talk", "ping": "Ping the spot you look at", "laser": "Laser pointer (hold)", "text_chat": "Team text", "drop_held": "Drop held object", "throw_grenade": "Throw a frag grenade", "next_weapon": "Next weapon",
+		"push_to_talk": "Push to talk", "ping": "Ping the spot you look at", "laser": "Laser pointer (hold)", "text_chat": "Team text", "scoreboard": "Scoreboard (hold)", "workbench": "Weapon workbench (attachments)", "drop_held": "Drop held object", "throw_grenade": "Throw a frag grenade", "next_weapon": "Next weapon",
 		"prev_weapon": "Previous weapon", "smartab_prev": "SmarTab: previous page", "smartab_next": "SmarTab: next page",
 	}
 	var head := UITheme.hbox(16)

@@ -61,7 +61,7 @@ const BINDINGS := {
 	"next_weapon": ["mouse:5", "joy:3"], "prev_weapon": ["mouse:4", ""], "holster": ["X", "joy:13"],
 	"fire_mode": ["B", "joy:14"], "push_to_talk": ["CapsLock", "joy:11"], "ping": ["mouse:3", "joy:5"], "laser": ["V", ""], "text_chat": ["Y", ""],
 	"drop_held": ["", ""], "throw_grenade": ["G", "joy:15"], "menu": ["Escape", "joy:6"], "map": ["M", ""],
-	"smartab_prev": ["Q", "joy:11"], "smartab_next": ["E", "joy:10"],
+	"smartab_prev": ["Q", "joy:11"], "smartab_next": ["E", "joy:10"], "scoreboard": ["QuoteLeft", ""], "workbench": ["K", ""],
 }
 
 var data: Dictionary = {}

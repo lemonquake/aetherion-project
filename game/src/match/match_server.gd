@@ -49,6 +49,18 @@ var round_number := 1
 var _next_round_at := 0
 var _round_winner := -1
 var _field_enabled := true
+var _hurt_by := {}            # (r24) victim eid -> {attacker pid: true}: who earns an assist when it dies
+var _spawn_queue: Array = []  # (r24) pids still to bring back at a round start, a couple per tick
+var _spawn_us := []           # (r24) microseconds each of this round's respawns took (the match log's [roundtime])
+const SPAWN_BUDGET_US := 2500  # per rendered frame: a slow frame runs several ticks, which must not each spawn more
+var _spawn_frame := -1
+
+
+static func new_stats(pid: int, p: Dictionary, team: int) -> Dictionary:
+	## One player's numbers for the match (r24: the scoreboard's deaths, assists, damage received, headshot and grenade
+	## kills and deaths too).
+	return {"pid": pid, "name": p.name, "team": team, "kills": 0, "damage": 0.0, "downs": 0, "alive_t": 0.0, "placed": 0, "bot": p.bot,
+		"deaths": 0, "assists": 0, "taken": 0.0, "hs_kills": 0, "hs_deaths": 0, "nade_kills": 0, "nade_deaths": 0}
 
 
 func setup(w) -> void:
@@ -105,7 +117,7 @@ func start() -> void:
 		var p: Dictionary = Net.players[pid]
 		var ch: Character = world.server_spawn_character(pid, int(p.team), str(p.name), plane.a, Motor.PLANE)
 		_loadout(ch)
-		stats[ch.eid] = {"pid": pid, "name": p.name, "team": p.team, "kills": 0, "damage": 0.0, "downs": 0, "alive_t": 0.0, "placed": 0, "bot": p.bot}
+		stats[ch.eid] = new_stats(pid, p, int(p.team))
 		teams[int(p.team)] = true
 	initial_teams = teams.size()
 	phase = "plane"
@@ -166,7 +178,7 @@ func _start_dm() -> void:
 		var ch: Character = world.server_spawn_character(pid, team, str(p.name), slot[0], Motor.GROUND, float(slot[1]))
 		_loadout(ch)
 		_dm_loadout(ch, pid, gear_rng)
-		stats[ch.eid] = {"pid": pid, "name": p.name, "team": team, "kills": 0, "damage": 0.0, "downs": 0, "alive_t": 0.0, "placed": 0, "bot": p.bot}
+		stats[ch.eid] = new_stats(pid, p, team)
 		_pid_stats[pid] = stats[ch.eid]
 		teams[team] = true
 	initial_teams = teams.size()
@@ -212,6 +224,7 @@ func _reset_dm_field(rng: RandomNumberGenerator) -> void:
 
 func _start_next_round() -> void:
 	# Keep match totals while replacing every life, including the winning survivors.
+	var us0 := Time.get_ticks_usec()
 	for ch in world.characters.values():
 		world.interaction.server_drop_held(ch, false)
 		world.server_remove_character(ch)
@@ -227,19 +240,45 @@ func _start_next_round() -> void:
 	round_number += 1
 	_next_round_at = 0
 	_round_winner = -1
+	var us1 := Time.get_ticks_usec()
 	var rng := RandomNumberGenerator.new()
 	rng.seed = Game.match_seed + round_number * 31
 	_reset_dm_field(rng)
-	for pid in Net.players:
-		var p: Dictionary = Net.players[pid]
-		if not p.bot and not p.connected:
-			continue
-		if _pid_stats.has(pid):
-			_pid_stats[pid].placed = 0
-		_respawn(pid)
+	# Humans first (their camera comes back at once), then the bots, a couple per tick (the start hold covers it).
+	_spawn_queue.clear()
+	_spawn_us.clear()
+	for human in [true, false]:
+		for pid in Net.players:
+			var p: Dictionary = Net.players[pid]
+			if bool(p.bot) == human or (not p.bot and not p.connected):
+				continue
+			if _pid_stats.has(pid):
+				_pid_stats[pid].placed = 0
+			_spawn_queue.append(pid)
 	phase = "playing"
+	_spawn_some()
 	_broadcast()
 	log_event("round %d started; scores %s" % [round_number, str(team_score)])
+	log_event("[roundtime] remove %.1f ms, field %.1f ms" % [(us1 - us0) / 1000.0, (Time.get_ticks_usec() - us1) / 1000.0])
+
+
+func _spawn_some() -> void:
+	## At least one player per rendered frame, more while the frame's budget lasts.
+	if Engine.get_process_frames() == _spawn_frame:
+		return
+	_spawn_frame = Engine.get_process_frames()
+	var start := Time.get_ticks_usec()
+	while not _spawn_queue.is_empty() and Time.get_ticks_usec() - start < SPAWN_BUDGET_US:
+		var pid: int = _spawn_queue.pop_front()
+		if not Net.players.has(pid):
+			continue
+		var a := Time.get_ticks_usec()
+		_respawn(pid)
+		_spawn_us.append(Time.get_ticks_usec() - a)
+	if _spawn_queue.is_empty() and not _spawn_us.is_empty():
+		_spawn_us.sort()
+		log_event("[roundtime] %d respawns, slowest %.1f ms, median %.1f ms" % [_spawn_us.size(), _spawn_us[-1] / 1000.0, _spawn_us[_spawn_us.size() / 2] / 1000.0])
+		_spawn_us.clear()
 
 
 func _dm_centre(rng: RandomNumberGenerator, n_teams: int = 2) -> Vector2:
@@ -533,7 +572,10 @@ func tick(dt: float) -> void:
 			_zone_tick(dt)
 		"playing":
 			_zone_tick(dt)
-			_check_end()
+			if not _spawn_queue.is_empty():
+				_spawn_some()   # a round is still bringing its players back: nobody can have won it yet
+			else:
+				_check_end()
 		"round_end":
 			if Net.tick >= _next_round_at:
 				_start_next_round()
@@ -943,9 +985,78 @@ func _log_loot() -> void:
 		% [alive, wet, armed, fed, long_guns, atts, junk, world.map.dyn.items.size(), str(BotBrain.counts)] + (" wet at %s" % str(wet_at) if wet > 0 else ""))
 
 
+func on_damage(ch: Character, attacker: int, dmg: float) -> void:
+	## (r24) Damage received, and who hurt this life (an assist when someone else finishes it).
+	if stats.has(ch.eid):
+		stats[ch.eid].taken = float(stats[ch.eid].get("taken", 0.0)) + dmg
+	if stats.has(attacker) and attacker != ch.eid and world.team_of(attacker) != ch.team:
+		if not _hurt_by.has(ch.eid):
+			_hurt_by[ch.eid] = {}
+		_hurt_by[ch.eid][int(stats[attacker].pid)] = true
+
+
+func _stats_of_pid(pid: int):
+	if _pid_stats.has(pid):
+		return _pid_stats[pid]
+	for s in stats.values():
+		if int(s.pid) == pid:
+			return s
+	return null
+
+
+func _score_death(ch: Character, attacker: int) -> void:
+	## (r24) Deaths, assists, headshot and grenade kills and deaths for the scoreboard.
+	var cause := str(ch.health.last_cause)
+	var hit: Array = ch.get_meta("killing_hit", [""]) if ch.has_meta("killing_hit") else [""]
+	var head := cause == "gunshot" and str(hit[0]) == "head"
+	var grenade := cause == "explosion"
+	var vs = stats.get(ch.eid)
+	if vs:
+		vs.deaths = int(vs.get("deaths", 0)) + 1
+		vs.hs_deaths = int(vs.get("hs_deaths", 0)) + (1 if head else 0)
+		vs.nade_deaths = int(vs.get("nade_deaths", 0)) + (1 if grenade else 0)
+	var killer_pid := -1
+	if stats.has(attacker) and attacker != ch.eid and world.team_of(attacker) != ch.team:
+		var ks = stats[attacker]
+		killer_pid = int(ks.pid)
+		ks.hs_kills = int(ks.get("hs_kills", 0)) + (1 if head else 0)
+		ks.nade_kills = int(ks.get("nade_kills", 0)) + (1 if grenade else 0)
+	for pid in _hurt_by.get(ch.eid, {}):
+		if int(pid) == killer_pid:
+			continue
+		var s = _stats_of_pid(int(pid))
+		if s:
+			s.assists = int(s.get("assists", 0)) + 1
+	_hurt_by.erase(ch.eid)
+
+
+func board() -> Array:
+	## (r24) The scoreboard: one row per player with every number it shows, and whether they are standing now.
+	var standing := {}
+	for c in world.characters.values():
+		if c.mode in [Motor.GROUND, Motor.FREEFALL, Motor.CHUTE, Motor.PLANE, Motor.DOWNED]:
+			standing[c.pid] = true
+	var rows := []
+	var seen := {}
+	for s in (_pid_stats.values() if dm else stats.values()):
+		if seen.has(int(s.pid)):
+			continue
+		seen[int(s.pid)] = true
+		rows.append(_board_row(s, standing.has(int(s.pid))))
+	return rows
+
+
+static func _board_row(s: Dictionary, alive: bool) -> Dictionary:
+	return {"pid": int(s.pid), "name": str(s.name), "team": int(s.team), "bot": bool(s.bot), "alive": alive,
+		"kills": int(s.kills), "deaths": int(s.get("deaths", 0)), "assists": int(s.get("assists", 0)),
+		"damage": int(float(s.damage)), "taken": int(float(s.get("taken", 0.0))), "hs_kills": int(s.get("hs_kills", 0)),
+		"hs_deaths": int(s.get("hs_deaths", 0)), "nade_kills": int(s.get("nade_kills", 0)), "nade_deaths": int(s.get("nade_deaths", 0))}
+
+
 func on_killed(ch: Character, attacker: int) -> void:
 	if stats.has(attacker) and attacker != ch.eid and world.team_of(attacker) != ch.team:
 		stats[attacker].kills += 1
+	_score_death(ch, attacker)
 	preload("res://src/ai/bot_team.gd").on_killed(ch, attacker)
 	if stats.has(ch.eid):
 		stats[ch.eid].placed = _alive_team_count()
@@ -1039,7 +1150,7 @@ func _respawn(pid: int) -> void:
 	_dm_loadout(ch, pid, _spawn_rng)
 	ch.health.shield_until = Net.tick + int(float(_dm_rule("spawn_shield_s", 3.0)) * Defs.TICK_RATE)
 	if not _pid_stats.has(pid):
-		_pid_stats[pid] = {"pid": pid, "name": p.name, "team": team, "kills": 0, "damage": 0.0, "downs": 0, "alive_t": 0.0, "placed": 0, "bot": p.bot}
+		_pid_stats[pid] = new_stats(pid, p, team)
 	stats[ch.eid] = _pid_stats[pid]
 	log_event("%s respawned at %s (nearest enemy %.0f m)" % [ch.pname, str(ch.global_position.round()), best_d])
 	_broadcast()
@@ -1175,8 +1286,9 @@ func _summary(winner: int) -> Dictionary:
 			continue
 		seen[int(s.pid)] = true
 		var place := 1 if int(s.team) == winner else maxi(int(s.placed), 2)
-		rows.append({"pid": int(s.pid), "name": s.name, "team": s.team, "kills": s.kills, "downs": s.downs, "time": int(s.alive_t), "winner": int(s.team) == winner,
-			"bot": s.bot, "damage": int(float(s.damage)), "place": place})
+		var row := _board_row(s, false)
+		row.merge({"downs": s.downs, "time": int(s.alive_t), "winner": int(s.team) == winner, "place": place}, true)
+		rows.append(row)
 	rows.sort_custom(func(a, b): return (a.winner and not b.winner) or (a.winner == b.winner and a.kills > b.kills))
 	var names := []
 	for r in rows:

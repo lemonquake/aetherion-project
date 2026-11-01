@@ -192,14 +192,14 @@ void fragment() {
 	root.add_child(hint)
 	spect_label = UITheme.label("", 20, Color(0.8, 0.82, 0.8))
 	spect_label.set_anchors_preset(Control.PRESET_CENTER_BOTTOM)
-	spect_label.position = Vector2(-300, -70)
-	spect_label.size = Vector2(600, 30)
+	spect_label.position = Vector2(-500, -70)
+	spect_label.size = Vector2(1000, 30)
 	spect_label.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
 	root.add_child(spect_label)
 	spect_hint = UITheme.label("", 17, Color(0.72, 0.76, 0.74, 0.9))
 	spect_hint.set_anchors_preset(Control.PRESET_CENTER_BOTTOM)
-	spect_hint.position = Vector2(-400, -42)
-	spect_hint.size = Vector2(800, 26)
+	spect_hint.position = Vector2(-640, -42)
+	spect_hint.size = Vector2(1280, 26)
 	spect_hint.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
 	root.add_child(spect_hint)
 	kill_feed = UITheme.vbox(4)
@@ -361,6 +361,17 @@ func _ensure_team_bar(info: Dictionary) -> void:
 		var nm := UITheme.label(base + (" (you)" if t == _my_team() else ""), 24, col, UITheme.font_condensed)
 		nm.set_meta("base", base)
 		nm.clip_text = false
+		# (r24) how many of the team are still standing, always shown under its name
+		var alive_l := UITheme.label("", 16, Color(0.85, 0.87, 0.84), UITheme.font_semibold)
+		alive_l.add_theme_color_override("font_outline_color", Color(0, 0, 0, 0.8))
+		alive_l.add_theme_constant_override("outline_size", 4)
+		alive_l.horizontal_alignment = HORIZONTAL_ALIGNMENT_RIGHT if t == 0 else HORIZONTAL_ALIGNMENT_LEFT
+		var name_col := VBoxContainer.new()
+		name_col.add_theme_constant_override("separation", -4)
+		name_col.mouse_filter = Control.MOUSE_FILTER_IGNORE
+		name_col.add_child(nm)
+		name_col.add_child(alive_l)
+		nm.horizontal_alignment = alive_l.horizontal_alignment
 		var cnt := UITheme.label("0", 38, Color(0.95, 0.96, 0.94), UITheme.font_condensed)
 		cnt.add_theme_color_override("font_outline_color", Color(0, 0, 0, 0.8))
 		cnt.add_theme_constant_override("outline_size", 6)
@@ -369,12 +380,12 @@ func _ensure_team_bar(info: Dictionary) -> void:
 		if t > 0:
 			row.add_child(UITheme.label("vs", 20, UITheme.TEXT_DIM))
 		if t == 0:
-			row.add_child(nm)
+			row.add_child(name_col)
 			row.add_child(cnt)
 		else:
 			row.add_child(cnt)
-			row.add_child(nm)
-		_team_labels.append([nm, cnt])
+			row.add_child(name_col)
+		_team_labels.append([nm, cnt, alive_l])
 	team_bar = Control.new()
 	team_bar.set_anchors_preset(Control.PRESET_CENTER_TOP)
 	team_bar.mouse_filter = Control.MOUSE_FILTER_IGNORE
@@ -408,6 +419,12 @@ func _update_team_bar(info: Dictionary) -> void:
 		var nm: Label = _team_labels[t][0]
 		var cnt: Label = _team_labels[t][1]
 		cnt.text = str(n)
+		var standing := int(alive.get(t, alive.get(str(t), 0)))
+		var al: Label = _team_labels[t][2]
+		var at := ("%d alive" % standing) if standing > 0 else "Out"
+		if al.text != at:
+			al.text = at
+			al.modulate = Color(1, 1, 1, 1.0) if standing > 0 else Color(1, 0.55, 0.5, 0.9)
 		cnt.modulate = Color(1, 1, 1, 1.0 if n > 0 or info.has("score") else 0.45)
 		var base: String = nm.get_meta("base", nm.text)
 		nm.set_meta("base", base)
@@ -497,25 +514,42 @@ func show_death_report(info: Dictionary) -> void:
 func set_spectating(t) -> void:
 	## Called every frame by the spectator camera: the labels change only when what they say changes (setting a
 	## Label's text re-shapes and re-lays it out, every frame for nothing).
-	if t:
+	var ctl = world.controller
+	var free: bool = ctl != null and ctl.spect_view == ctl.SpectView.FREE and ctl.can_free_camera()
+	if t or free:
 		var now := Time.get_ticks_msec()
-		if t.eid == _spect_eid and now - _spect_at < 500:
+		var key: int = t.eid if t else -2
+		if key == _spect_eid and now - _spect_at < 500:
 			return
-		_spect_eid = t.eid
+		_spect_eid = key
 		_spect_at = now
 		var mine := _my_team()
 		var mates := 0
 		for c in world.characters.values():
 			if c.team == mine and c.mode not in [Motor.DEAD, Motor.SPECTATE]:
 				mates += 1
-		var s := ("Watching %s" % t.pname) + ("  ·  %d teammate%s still standing" % [mates, "" if mates == 1 else "s"] if mates > 0 else "  ·  your team is out")
+		var who := "Free camera"
+		if t:
+			who = "Watching %s" % t.pname
+			if t.team != mine:
+				who += " (%s)" % UITheme.team_name(t.team)
+			if free:
+				who = "Free camera  ·  selected " + str(t.pname)
+		var s := who + ("  ·  %d teammate%s still standing" % [mates, "" if mates == 1 else "s"] if mates > 0 else "  ·  your team is out")
 		if spect_label.text != s:
 			spect_label.text = s
 		if Settings.touch_active():
 			spect_hint.text = ""
 			_ensure_spect_buttons()
-		elif spect_hint.text == "":
-			spect_hint.text = "Click or Space: next teammate    Right click: previous"
+		else:
+			# r24: the camera view and who can be watched are spectator options too.
+			var h := "Click: next    Right click: previous    E: camera (%s)" % ctl.SPECT_VIEW_NAMES[ctl.spect_view] if ctl else ""
+			if ctl and ctl.can_watch_enemies():
+				h += "    R: watch %s" % ("teammates only" if ctl.spect_all else "everyone")
+			if free:
+				h += "    Move keys fly, Space up, C down"
+			if spect_hint.text != h:
+				spect_hint.text = h
 	else:
 		_spect_eid = -1
 		if spect_label.text != "":
@@ -523,16 +557,24 @@ func set_spectating(t) -> void:
 			spect_hint.text = ""
 
 
+func spect_changed() -> void:
+	## The spectator view or watch list changed: rewrite the labels now, not up to half a second later.
+	_spect_at = 0
+
+
 func _ensure_spect_buttons() -> void:
 	if spect_buttons:
 		return
 	var row := UITheme.hbox(16)
 	row.set_anchors_preset(Control.PRESET_CENTER_BOTTOM)
-	row.position = Vector2(-170, -150)
-	row.size = Vector2(340, 64)
+	row.position = Vector2(-340, -150)
+	row.size = Vector2(680, 64)
 	row.alignment = BoxContainer.ALIGNMENT_CENTER
 	row.add_child(UITheme.button("Previous", func(): if world.controller: world.controller.spectate_cycle(-1), 150))
 	row.add_child(UITheme.button("Next", func(): if world.controller: world.controller.spectate_cycle(1), 150))
+	row.add_child(UITheme.button("Camera", func(): if world.controller: world.controller.spectate_next_view(), 150))
+	if world.controller and world.controller.can_watch_enemies():
+		row.add_child(UITheme.button("Everyone", func(): if world.controller: world.controller.spectate_toggle_all(), 150))
 	root.add_child(row)
 	spect_buttons = row
 
@@ -646,6 +688,9 @@ func _round_ui() -> void:
 				var winner := int(info.get("round_winner", -1))
 				var names: Array = info.get("team_names", [])
 				s = ("%s +1 point" % str(names[winner]) if winner >= 0 and winner < names.size() else "Round draw") + " · Next round in %d" % left
+				_round_banner_show(winner, names, left)
+			elif _round_banner:
+				_round_banner.visible = false
 		else:
 			s = "First to %d kills" % int(info.get("score_limit", 30))
 		if s != _goal_text:
@@ -667,6 +712,78 @@ func _round_ui() -> void:
 	var t := "Respawning in %d" % maxi(int(ceil(left_s)), 1) if left_s > 0.0 else "Respawning..."
 	if _respawn_label.text != t:
 		_respawn_label.text = t
+
+
+var _round_banner: Control = null
+var _round_banner_title: Label
+var _round_banner_count: Label
+
+
+func _round_banner_show(winner: int, names: Array, left: int) -> void:
+	## (r24) "<Team> wins the round" in the team's colour, then the seconds to the next round.
+	if _round_banner == null:
+		_round_banner = UITheme.vbox(2)
+		_round_banner.mouse_filter = Control.MOUSE_FILTER_IGNORE
+		_round_banner.set_anchors_preset(Control.PRESET_CENTER)
+		_round_banner.size = Vector2(1200, 150)
+		_round_banner.position = Vector2(-600, -230)
+		_round_banner_title = UITheme.label("", 64, UITheme.TEXT, UITheme.font_condensed)
+		_round_banner_count = UITheme.label("", 30, Color(0.95, 0.96, 0.94), UITheme.font_semibold)
+		for l in [_round_banner_title, _round_banner_count]:
+			l.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+			l.add_theme_color_override("font_outline_color", Color(0, 0, 0, 0.85))
+			l.add_theme_constant_override("outline_size", 9)
+			_round_banner.add_child(l)
+		root.add_child(_round_banner)
+	var title := "Nobody wins the round"
+	var col := UITheme.TEXT
+	if winner >= 0 and winner < names.size():
+		title = "%s wins the round" % str(names[winner])
+		col = UITheme.TEAM_COLORS[winner % UITheme.TEAM_COLORS.size()]
+	if _round_banner_title.text != title:
+		_round_banner_title.text = title
+		_round_banner_title.add_theme_color_override("font_color", col)
+	var c := "Next round in %d" % maxi(left, 1)
+	if _round_banner_count.text != c:
+		_round_banner_count.text = c
+	_round_banner.visible = true
+
+
+# ------------------------------------------------------------------ r24: the scoreboard (hold ~)
+
+var scoreboard = null
+var _board_req_t := 0.0
+
+
+func _scoreboard_ui(dt: float) -> void:
+	var want: bool = Input.is_action_pressed("scoreboard") and not tab_held and not map_held and chat_edit == null \
+		and (world.controller == null or not world.controller.paused)
+	if not want:
+		if scoreboard:
+			scoreboard.visible = false
+		return
+	if scoreboard == null:
+		# Centred under the team bar by a full-screen column (a Control's position is not anchor-relative).
+		var holder := VBoxContainer.new()
+		holder.name = "ScoreboardHolder"
+		holder.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
+		holder.mouse_filter = Control.MOUSE_FILTER_IGNORE
+		holder.add_child(UITheme.spacer(96))
+		scoreboard = preload("res://src/ui/scoreboard.gd").new()
+		scoreboard.size_flags_horizontal = Control.SIZE_SHRINK_CENTER
+		holder.add_child(scoreboard)
+		root.add_child(holder)
+	scoreboard.visible = true
+	_board_req_t -= dt
+	if _board_req_t <= 0.0:
+		_board_req_t = 0.5
+		world.request_board()
+	var info: Dictionary = world.match_info
+	var title := "Scoreboard"
+	if info.has("round") and str(info.get("win_by", "")) == "wipe":
+		title = "Scoreboard  ·  Round %d" % int(info.round)
+	scoreboard.set_title(title)
+	scoreboard.show_rows(world.board_rows, info, Net.local_pid)
 
 
 func _field_overlay(dt: float) -> void:
@@ -706,6 +823,7 @@ func _process(dt: float) -> void:
 	_field_overlay(dt)
 	_treat_ui(dt)
 	_round_ui()
+	_scoreboard_ui(dt)
 	# The SmarTab screen renders only while the device is up, plus its lowering animation.
 	_tab_vis_t = 0.8 if (tab_held or map_held) else maxf(_tab_vis_t - dt, 0.0)
 	# The hologram fills most of the view: the score and kill feed would sit on top of its edges (the minimap and
@@ -873,3 +991,4 @@ func _prompt_text() -> String:
 		"revive":
 			return "Hold %s  Revive" % key
 	return ""
+

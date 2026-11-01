@@ -1,5 +1,5 @@
 {
- "_doc": "Firearm definitions. Times in seconds, angles in degrees, velocity m/s. recoil.kick_up/kick_side are per-shot weapon impulses; camera_share is the fraction of the kick that moves the view (the rest is weapon-only offset that recovers). climb is the extra upward bias added per consecutive shot, recovery is deg/s back toward the aim point, pattern lists horizontal bias multipliers cycled per shot so guns do not share one spray pattern. Attachments: kind is the slot (sight, muzzle, grip, mag, stock, light; one of each per weapon). *_mult fields multiply the weapon's value (recoil_up, recoil_side, recovery, spread_hip, move_spread, sway, ads_time, reload, loudness, flash, pellet_spread). ext switches to the weapon's mag_ext capacity. Sights: zoom; axis = optical axis height above the rail in metres (axis_f: fraction of the model height); reticle style; scope = magnified, drawn as a scope view while aiming. rank orders same-slot attachments when picking up. Weapons: value ranks weapons for bots; hold = [grip, fore-end] as fractions of the length from the muzzle, optionally followed by their heights as fractions of the model height; mounts overrides the automatic mount points.",
+ "_doc": "Firearm definitions. Times in seconds, angles in degrees, velocity m/s. recoil.kick_up/kick_side are per-shot weapon impulses; camera_share is the fraction of the kick that moves the view (the rest is weapon-only offset that recovers). climb is the extra upward bias added per consecutive shot, recovery is deg/s back toward the aim point, pattern lists horizontal bias multipliers cycled per shot so guns do not share one spray pattern. Attachments: kind is the slot (sight, muzzle, grip, mag, stock, light; one of each per weapon). *_mult fields multiply the weapon's value (recoil_up, recoil_side, recovery, spread_hip, move_spread, sway, ads_time, reload, loudness, flash, pellet_spread). ext switches to the weapon's mag_ext capacity; cap_mult multiplies the magazine (drums). desc is the workbench's one-line description. Sights: zoom; axis = optical axis height above the rail in metres (axis_f: fraction of the model height); reticle style; scope = magnified, drawn as a scope view while aiming. rank orders same-slot attachments when picking up. Weapons: value ranks weapons for bots; hold = [grip, fore-end] as fractions of the length from the muzzle, optionally followed by their heights as fractions of the model height; mounts overrides the automatic mount points.",
  "weapons": {
   "pistol_9": {
    "name": "P92",
@@ -46,7 +46,10 @@
     "mag_quick_light",
     "mag_extquick_light",
     "weapon_light",
-    "sight_reflex"
+    "sight_reflex",
+    "mag_drum_light",
+    "mag_polymer_light",
+    "laser_green"
    ],
    "model": "pistol_9",
    "sound": "p92",
@@ -103,7 +106,10 @@
     "mag_quick_light",
     "mag_extquick_light",
     "weapon_light",
-    "sight_reflex"
+    "sight_reflex",
+    "mag_drum_light",
+    "mag_polymer_light",
+    "laser_green"
    ],
    "model": "pistol_45",
    "sound": "p1911",
@@ -216,7 +222,10 @@
     "choke",
     "bullet_loops",
     "sight_reflex",
-    "duckbill"
+    "duckbill",
+    "laser_green",
+    "rail_cover",
+    "sling_quick"
    ],
    "model": "shotgun_pump",
    "sound": "shotgun",
@@ -293,7 +302,15 @@
     "scope_night",
     "grip_thumb",
     "grip_light",
-    "grip_ergonomic"
+    "grip_ergonomic",
+    "mag_drum_light",
+    "mag_polymer_light",
+    "muzzle_tactical",
+    "grip_stubby",
+    "grip_heavy",
+    "laser_green",
+    "rail_cover",
+    "sling_quick"
    ],
    "model": "smg_9",
    "sound": "smg_9",
@@ -359,7 +376,13 @@
     "mag_extquick_light",
     "stock_tactical",
     "sight_reflex",
-    "stock_heavy"
+    "stock_heavy",
+    "mag_drum_light",
+    "mag_polymer_light",
+    "muzzle_tactical",
+    "laser_green",
+    "rail_cover",
+    "sling_quick"
    ],
    "model": "machine_pistol",
    "sound": "smg_9",
@@ -440,7 +463,15 @@
     "muzzle_brake",
     "grip_thumb",
     "grip_light",
-    "grip_ergonomic"
+    "grip_ergonomic",
+    "mag_drum_rifle",
+    "mag_polymer_rifle",
+    "muzzle_tactical",
+    "grip_stubby",
+    "grip_heavy",
+    "laser_green",
+    "rail_cover",
+    "sling_quick"
    ],
    "model": "rifle_556",
    "sound": "rifle_556",
@@ -514,7 +545,13 @@
     "scope_lpvo",
     "scope_night",
     "scope_thermal",
-    "muzzle_brake"
+    "muzzle_brake",
+    "mag_drum_rifle",
+    "mag_polymer_rifle",
+    "muzzle_tactical",
+    "laser_green",
+    "rail_cover",
+    "sling_quick"
    ],
    "model": "rifle_762",
    "sound": "rifle_762",
@@ -579,7 +616,8 @@
     "sight_reflex",
     "scope_thermal",
     "scope_15x",
-    "muzzle_brake"
+    "muzzle_brake",
+    "suppressor_sniper"
    ],
    "model": "bolt_308",
    "sound": "m24",
@@ -746,7 +784,9 @@
     "scope_night",
     "scope_thermal",
     "scope_15x",
-    "muzzle_brake"
+    "muzzle_brake",
+    "suppressor_sniper",
+    "muzzle_tactical"
    ],
    "mag_ext": 30,
    "model": "marksman_308",
@@ -827,7 +867,15 @@
     "muzzle_brake",
     "grip_thumb",
     "grip_light",
-    "grip_ergonomic"
+    "grip_ergonomic",
+    "mag_drum_rifle",
+    "mag_polymer_rifle",
+    "muzzle_tactical",
+    "grip_stubby",
+    "grip_heavy",
+    "laser_green",
+    "rail_cover",
+    "sling_quick"
    ],
    "model": "rifle_scar",
    "sound": "scar",
@@ -910,7 +958,15 @@
     "grip_thumb",
     "grip_light",
     "grip_ergonomic",
-    "stock_heavy"
+    "stock_heavy",
+    "mag_drum_rifle",
+    "mag_polymer_rifle",
+    "muzzle_tactical",
+    "grip_stubby",
+    "grip_heavy",
+    "laser_green",
+    "rail_cover",
+    "sling_quick"
    ],
    "model": "rifle_m416",
    "sound": "m416",
@@ -979,7 +1035,10 @@
     "scope_night",
     "scope_thermal",
     "muzzle_brake",
-    "stock_heavy"
+    "stock_heavy",
+    "laser_green",
+    "rail_cover",
+    "sling_quick"
    ],
    "model": "lmg_m249",
    "sound": "m249",
@@ -1046,7 +1105,9 @@
     "scope_night",
     "scope_thermal",
     "scope_15x",
-    "muzzle_brake"
+    "muzzle_brake",
+    "suppressor_sniper",
+    "muzzle_tactical"
    ],
    "mag_ext": 30,
    "model": "dmr_mini14",
@@ -1126,7 +1187,15 @@
     "muzzle_brake",
     "grip_thumb",
     "grip_light",
-    "grip_ergonomic"
+    "grip_ergonomic",
+    "mag_drum_rifle",
+    "mag_polymer_rifle",
+    "muzzle_tactical",
+    "grip_stubby",
+    "grip_heavy",
+    "laser_green",
+    "rail_cover",
+    "sling_quick"
    ],
    "model": "rifle_m762",
    "sound": "m762",
@@ -1194,7 +1263,9 @@
     "scope_night",
     "scope_thermal",
     "scope_15x",
-    "muzzle_brake"
+    "muzzle_brake",
+    "suppressor_sniper",
+    "muzzle_tactical"
    ],
    "mag_ext": 20,
    "model": "dmr_sks",
@@ -1332,7 +1403,15 @@
     "scope_night",
     "grip_thumb",
     "grip_light",
-    "grip_ergonomic"
+    "grip_ergonomic",
+    "mag_drum_light",
+    "mag_polymer_light",
+    "muzzle_tactical",
+    "grip_stubby",
+    "grip_heavy",
+    "laser_green",
+    "rail_cover",
+    "sling_quick"
    ],
    "model": "smg_ump45",
    "sound": "ump45",
@@ -1408,7 +1487,15 @@
     "grip_thumb",
     "grip_light",
     "grip_ergonomic",
-    "stock_heavy"
+    "stock_heavy",
+    "mag_drum_light",
+    "mag_polymer_light",
+    "muzzle_tactical",
+    "grip_stubby",
+    "grip_heavy",
+    "laser_green",
+    "rail_cover",
+    "sling_quick"
    ],
    "model": "smg_vector",
    "sound": "vector",
@@ -1470,7 +1557,11 @@
     "grip_vertical",
     "grip_thumb",
     "grip_light",
-    "grip_ergonomic"
+    "grip_ergonomic",
+    "mag_drum_light",
+    "mag_polymer_light",
+    "grip_stubby",
+    "grip_heavy"
    ],
    "model": "smg_tommy",
    "sound": "tommy",
@@ -1531,7 +1622,13 @@
     "mag_extquick_rifle",
     "compensator",
     "sight_reflex",
-    "duckbill"
+    "duckbill",
+    "mag_drum_rifle",
+    "mag_polymer_rifle",
+    "muzzle_tactical",
+    "laser_green",
+    "rail_cover",
+    "sling_quick"
    ],
    "model": "shotgun_saiga",
    "sound": "saiga",
@@ -1588,7 +1685,10 @@
     "mag_quick_light",
     "mag_extquick_light",
     "weapon_light",
-    "sight_reflex"
+    "sight_reflex",
+    "mag_drum_light",
+    "mag_polymer_light",
+    "laser_green"
    ],
    "model": "pistol_deagle",
    "sound": "deagle",
@@ -1652,7 +1752,8 @@
     "sight_reflex",
     "scope_thermal",
     "scope_15x",
-    "muzzle_brake"
+    "muzzle_brake",
+    "suppressor_sniper"
    ],
    "model": "bolt_308",
    "sound": "awp",
@@ -1675,7 +1776,8 @@
    "ads_time_mult": 1.0,
    "axis": 0.042,
    "reticle": "dot",
-   "mass": 0.12
+   "mass": 0.12,
+   "desc": "A lit dot on clear glass: quick to aim, a little magnification."
   },
   "sight_holo": {
    "name": "Holographic Sight",
@@ -1684,7 +1786,8 @@
    "ads_time_mult": 1.0,
    "axis": 0.049,
    "reticle": "holo",
-   "mass": 0.32
+   "mass": 0.32,
+   "desc": "A wide holographic window with a ring and dot, for close fights."
   },
   "scope_2x": {
    "name": "2x Scope",
@@ -1694,7 +1797,8 @@
    "axis": 0.034,
    "reticle": "circle_dot",
    "scope": true,
-   "mass": 0.3
+   "mass": 0.3,
+   "desc": "2x magnification with an open circle-dot reticle."
   },
   "scope_3x": {
    "name": "3x Prism Scope",
@@ -1704,7 +1808,8 @@
    "axis": 0.038,
    "reticle": "chevron",
    "scope": true,
-   "mass": 0.36
+   "mass": 0.36,
+   "desc": "3x prism scope with a lit chevron."
   },
   "scope_4x": {
    "name": "4x Prism Scope",
@@ -1714,7 +1819,8 @@
    "axis_f": 0.62,
    "reticle": "acog",
    "scope": true,
-   "mass": 0.45
+   "mass": 0.45,
+   "desc": "4x prism scope with a bullet-drop ladder under a lit chevron."
   },
   "scope_6x": {
    "name": "6x Rifle Scope",
@@ -1724,7 +1830,8 @@
    "axis": 0.05,
    "reticle": "mildot",
    "scope": true,
-   "mass": 0.6
+   "mass": 0.6,
+   "desc": "6x rifle scope with a mil-dot cross."
   },
   "scope_8x": {
    "name": "8x Rifle Scope",
@@ -1734,7 +1841,8 @@
    "axis": 0.056,
    "reticle": "duplex",
    "scope": true,
-   "mass": 0.75
+   "mass": 0.75,
+   "desc": "8x rifle scope with a duplex cross."
   },
   "suppressor_light": {
    "name": "Pistol/SMG Suppressor",
@@ -1745,7 +1853,8 @@
    "recoil_up_mult": 0.95,
    "sway_mult": 1.05,
    "rank": 3.0,
-   "mass": 0.2
+   "mass": 0.2,
+   "desc": "Quiets a pistol or SMG and hides the flash."
   },
   "suppressor_rifle": {
    "name": "Rifle Suppressor",
@@ -1756,7 +1865,8 @@
    "recoil_up_mult": 0.92,
    "sway_mult": 1.08,
    "rank": 3.0,
-   "mass": 0.5
+   "mass": 0.5,
+   "desc": "Quiets a rifle and hides the flash; a little heavier on the front."
   },
   "compensator": {
    "name": "Compensator",
@@ -1766,7 +1876,8 @@
    "loudness_mult": 1.1,
    "flash_mult": 1.15,
    "rank": 2.2,
-   "mass": 0.1
+   "mass": 0.1,
+   "desc": "Ports gas up and sideways to hold the muzzle down. Louder."
   },
   "flash_hider": {
    "name": "Flash Hider",
@@ -1775,14 +1886,16 @@
    "recoil_up_mult": 0.92,
    "recoil_side_mult": 0.9,
    "rank": 1.8,
-   "mass": 0.08
+   "mass": 0.08,
+   "desc": "Hides the muzzle flash and softens the kick a little."
   },
   "choke": {
    "name": "Shotgun Choke",
    "kind": "muzzle",
    "pellet_spread_mult": 0.65,
    "rank": 2.0,
-   "mass": 0.06
+   "mass": 0.06,
+   "desc": "Tightens a shotgun's pellet spread."
   },
   "grip_vertical": {
    "name": "Vertical Foregrip",
@@ -1790,7 +1903,8 @@
    "recoil_up_mult": 0.85,
    "sway_mult": 0.9,
    "rank": 2.2,
-   "mass": 0.1
+   "mass": 0.1,
+   "desc": "A post to hold: less vertical recoil and sway."
   },
   "grip_angled": {
    "name": "Angled Foregrip",
@@ -1798,7 +1912,8 @@
    "ads_time_mult": 0.85,
    "recoil_side_mult": 0.82,
    "rank": 2.0,
-   "mass": 0.08
+   "mass": 0.08,
+   "desc": "Angled grip: faster aiming and less sideways kick."
   },
   "grip_half": {
    "name": "Half Grip",
@@ -1807,7 +1922,8 @@
    "recoil_side_mult": 0.92,
    "recovery_mult": 1.15,
    "rank": 2.0,
-   "mass": 0.07
+   "mass": 0.07,
+   "desc": "Half grip: a little less recoil both ways, faster recovery."
   },
   "laser_sight": {
    "name": "Laser Sight",
@@ -1816,27 +1932,31 @@
    "move_spread_mult": 0.85,
    "laser": true,
    "rank": 1.6,
-   "mass": 0.1
+   "mass": 0.1,
+   "desc": "Laser on the grip mount: tighter hip fire and spread while moving."
   },
   "weapon_light": {
    "name": "Weapon Light",
    "kind": "light",
    "rank": 2.5,
-   "mass": 0.12
+   "mass": 0.12,
+   "desc": "A flashlight on the gun (F switches it)."
   },
   "mag_ext_light": {
    "name": "Extended Pistol/SMG Magazine",
    "kind": "mag",
    "ext": true,
    "rank": 2.0,
-   "mass": 0.15
+   "mass": 0.15,
+   "desc": "More rounds in a pistol or SMG."
   },
   "mag_quick_light": {
    "name": "Quickdraw Pistol/SMG Magazine",
    "kind": "mag",
    "reload_mult": 0.7,
    "rank": 1.5,
-   "mass": 0.12
+   "mass": 0.12,
+   "desc": "A pull tab for faster pistol and SMG reloads."
   },
   "mag_extquick_light": {
    "name": "Extended Quickdraw Pistol/SMG Magazine",
@@ -1844,21 +1964,24 @@
    "ext": true,
    "reload_mult": 0.78,
    "rank": 3.0,
-   "mass": 0.17
+   "mass": 0.17,
+   "desc": "More rounds and a faster reload for a pistol or SMG."
   },
   "mag_ext_rifle": {
    "name": "Extended Rifle Magazine",
    "kind": "mag",
    "ext": true,
    "rank": 2.0,
-   "mass": 0.25
+   "mass": 0.25,
+   "desc": "More rounds in a rifle."
   },
   "mag_quick_rifle": {
    "name": "Quickdraw Rifle Magazine",
    "kind": "mag",
    "reload_mult": 0.7,
    "rank": 1.5,
-   "mass": 0.3
+   "mass": 0.3,
+   "desc": "Two magazines clamped together: much faster reloads."
   },
   "mag_extquick_rifle": {
    "name": "Extended Quickdraw Rifle Magazine",
@@ -1866,14 +1989,16 @@
    "ext": true,
    "reload_mult": 0.78,
    "rank": 3.0,
-   "mass": 0.3
+   "mass": 0.3,
+   "desc": "More rounds and a faster rifle reload."
   },
   "mag_ext_sniper": {
    "name": "Extended Marksman Magazine",
    "kind": "mag",
    "ext": true,
    "rank": 2.0,
-   "mass": 0.2
+   "mass": 0.2,
+   "desc": "More rounds for a marksman or sniper rifle."
   },
   "stock_tactical": {
    "name": "Tactical Stock",
@@ -1882,7 +2007,8 @@
    "recoil_up_mult": 0.9,
    "recovery_mult": 1.2,
    "rank": 2.0,
-   "mass": 0.35
+   "mass": 0.35,
+   "desc": "Collapsible stock: steadier aim and less recoil."
   },
   "cheek_pad": {
    "name": "Cheek Pad",
@@ -1891,14 +2017,16 @@
    "recoil_up_mult": 0.9,
    "recovery_mult": 1.15,
    "rank": 2.0,
-   "mass": 0.08
+   "mass": 0.08,
+   "desc": "A pad for the cheek weld: steadier aim and less recoil."
   },
   "bullet_loops": {
    "name": "Bullet Loops",
    "kind": "stock",
    "reload_mult": 0.75,
    "rank": 1.6,
-   "mass": 0.1
+   "mass": 0.1,
+   "desc": "Spare shells on the stock: faster reloads."
   },
   "sight_reflex": {
    "name": "Reflex Sight",
@@ -1907,7 +2035,8 @@
    "ads_time_mult": 0.95,
    "axis": 0.032,
    "reticle": "reflex",
-   "mass": 0.15
+   "mass": 0.15,
+   "desc": "A small open reflex sight; the fastest to bring up."
   },
   "scope_lpvo": {
    "name": "1-4x Variable Scope",
@@ -1918,7 +2047,8 @@
    "axis": 0.045,
    "reticle": "horseshoe",
    "scope": true,
-   "mass": 0.55
+   "mass": 0.55,
+   "desc": "Variable 1-4x: turn the ring with the mouse wheel while aiming."
   },
   "scope_night": {
    "name": "3x Night Vision Scope",
@@ -1929,7 +2059,8 @@
    "reticle": "stadia",
    "scope": true,
    "filter": "night",
-   "mass": 0.7
+   "mass": 0.7,
+   "desc": "3x night vision: amplifies what little light there is."
   },
   "scope_thermal": {
    "name": "4x Thermal Scope",
@@ -1940,7 +2071,8 @@
    "reticle": "thermal",
    "scope": true,
    "filter": "thermal",
-   "mass": 0.8
+   "mass": 0.8,
+   "desc": "4x thermal: people show white hot, through smoke and darkness."
   },
   "scope_15x": {
    "name": "15x Sniper Scope",
@@ -1950,7 +2082,8 @@
    "axis": 0.062,
    "reticle": "tree",
    "scope": true,
-   "mass": 0.95
+   "mass": 0.95,
+   "desc": "15x sniper scope with a holdover tree for long shots."
   },
   "muzzle_brake": {
    "name": "Muzzle Brake",
@@ -1960,7 +2093,8 @@
    "loudness_mult": 1.25,
    "flash_mult": 1.3,
    "rank": 2.4,
-   "mass": 0.12
+   "mass": 0.12,
+   "desc": "Big side ports: much less vertical kick, but loud and bright."
   },
   "duckbill": {
    "name": "Duckbill Choke",
@@ -1968,7 +2102,8 @@
    "pellet_spread_mult": 0.8,
    "recoil_up_mult": 0.95,
    "rank": 1.8,
-   "mass": 0.07
+   "mass": 0.07,
+   "desc": "Spreads shotgun pellets into a wide flat line."
   },
   "grip_thumb": {
    "name": "Thumb Grip",
@@ -1976,7 +2111,8 @@
    "ads_time_mult": 0.85,
    "recoil_up_mult": 0.94,
    "rank": 2.1,
-   "mass": 0.06
+   "mass": 0.06,
+   "desc": "Thumb rest: faster aiming, slightly less vertical recoil."
   },
   "grip_light": {
    "name": "Lightweight Grip",
@@ -1985,7 +2121,8 @@
    "sway_mult": 0.92,
    "recoil_up_mult": 1.03,
    "rank": 1.9,
-   "mass": 0.05
+   "mass": 0.05,
+   "desc": "Skeleton grip: quick recovery, steadier aim, a touch more kick."
   },
   "grip_ergonomic": {
    "name": "Ergonomic Grip",
@@ -1994,7 +2131,8 @@
    "recovery_mult": 1.15,
    "recoil_side_mult": 0.92,
    "rank": 2.0,
-   "mass": 0.09
+   "mass": 0.09,
+   "desc": "Shaped for the hand: faster aiming and recovery."
   },
   "stock_heavy": {
    "name": "Heavy Stock",
@@ -2003,7 +2141,121 @@
    "recoil_side_mult": 0.84,
    "ads_time_mult": 1.08,
    "rank": 2.1,
-   "mass": 0.6
+   "mass": 0.6,
+   "desc": "Heavy fixed stock: very steady aim, slower to bring up."
+  },
+  "mag_drum_rifle": {
+   "name": "Rifle Drum Magazine",
+   "kind": "mag",
+   "cap_mult": 2.0,
+   "reload_mult": 1.4,
+   "ads_time_mult": 1.08,
+   "sway_mult": 1.08,
+   "rank": 2.6,
+   "mass": 0.95,
+   "desc": "A rifle drum: twice the rounds, heavy and slow to reload."
+  },
+  "mag_drum_light": {
+   "name": "Pistol/SMG Drum Magazine",
+   "kind": "mag",
+   "cap_mult": 1.8,
+   "reload_mult": 1.35,
+   "ads_time_mult": 1.06,
+   "sway_mult": 1.05,
+   "rank": 2.6,
+   "mass": 0.6,
+   "desc": "A drum for a pistol or SMG: far more rounds, slower to reload."
+  },
+  "mag_polymer_rifle": {
+   "name": "Lightweight Rifle Magazine",
+   "kind": "mag",
+   "reload_mult": 0.88,
+   "ads_time_mult": 0.95,
+   "rank": 1.7,
+   "mass": 0.12,
+   "desc": "A light polymer rifle magazine: quicker reloads and aiming."
+  },
+  "mag_polymer_light": {
+   "name": "Lightweight Pistol/SMG Magazine",
+   "kind": "mag",
+   "reload_mult": 0.88,
+   "ads_time_mult": 0.95,
+   "rank": 1.7,
+   "mass": 0.06,
+   "desc": "A light polymer magazine: quicker reloads and aiming."
+  },
+  "suppressor_sniper": {
+   "name": "Marksman Suppressor",
+   "kind": "muzzle",
+   "loudness_mult": 0.4,
+   "flash_mult": 0.1,
+   "suppressed": true,
+   "recoil_up_mult": 0.88,
+   "sway_mult": 1.1,
+   "ads_time_mult": 1.05,
+   "rank": 3.2,
+   "mass": 0.6,
+   "desc": "A long can for marksman and sniper rifles: quiet, no flash, less kick."
+  },
+  "muzzle_tactical": {
+   "name": "Tactical Compensator",
+   "kind": "muzzle",
+   "recoil_side_mult": 0.72,
+   "recoil_up_mult": 0.9,
+   "loudness_mult": 1.15,
+   "flash_mult": 1.1,
+   "rank": 2.3,
+   "mass": 0.09,
+   "desc": "Short compensator tuned against the sideways kick."
+  },
+  "grip_stubby": {
+   "name": "Stubby Grip",
+   "kind": "grip",
+   "recoil_up_mult": 0.9,
+   "ads_time_mult": 0.92,
+   "recovery_mult": 1.08,
+   "rank": 2.1,
+   "mass": 0.06,
+   "desc": "Short stub grip: faster aiming and a little less recoil."
+  },
+  "grip_heavy": {
+   "name": "Heavy Foregrip",
+   "kind": "grip",
+   "recoil_up_mult": 0.78,
+   "recoil_side_mult": 0.85,
+   "sway_mult": 0.92,
+   "ads_time_mult": 1.1,
+   "rank": 2.3,
+   "mass": 0.2,
+   "desc": "A heavy foregrip that drags the muzzle down: much less recoil, slower to aim."
+  },
+  "laser_green": {
+   "name": "Green Laser Module",
+   "kind": "light",
+   "spread_hip_mult": 0.7,
+   "move_spread_mult": 0.9,
+   "laser": true,
+   "rank": 1.8,
+   "mass": 0.09,
+   "desc": "A bright green laser module: tighter hip fire."
+  },
+  "rail_cover": {
+   "name": "Ergonomic Rail Covers",
+   "kind": "light",
+   "sway_mult": 0.9,
+   "recovery_mult": 1.06,
+   "rank": 1.5,
+   "mass": 0.05,
+   "desc": "Rubber rail covers for a steadier hold."
+  },
+  "sling_quick": {
+   "name": "Quick-Deploy Sling",
+   "kind": "light",
+   "ads_time_mult": 0.9,
+   "sway_mult": 1.04,
+   "rank": 1.6,
+   "mass": 0.08,
+   "desc": "A sling that keeps the gun up and ready: faster aiming."
   }
  }
 }

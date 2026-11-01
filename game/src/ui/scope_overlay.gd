@@ -4,9 +4,9 @@ extends Control
 ## as they move the bullets). The camera zoom itself comes from the player controller (field of view / zoom).
 ##
 ## Reticles are drawn in black with an illuminated centre, so the aim point stays visible in the dark. Every scope has
-## its own (r14: twelve sights, no two alike). Two scopes also change the picture inside the lens: the night vision
-## scope amplifies what little light there is into green phosphor, the thermal scope shows the scene as dull grey
-## with people standing out white hot (it sees them through smoke and darkness, not through walls).
+## its own (r14: twelve sights, no two alike). Two scopes also help inside the lens, over the real picture (r24: no
+## grey, green or grain filters): the night vision scope brightens the dark in natural colour, the thermal scope
+## outlines people with a soft warm glow (it finds them through smoke and darkness, not through walls).
 
 const Attach := preload("res://src/weapons/attachments.gd")
 
@@ -47,38 +47,25 @@ uniform float radius = 100.0;
 uniform vec2 size = vec2(1.0);
 uniform int mode = 0;
 uniform float alpha = 0.0;
-float hash(vec2 p) { return fract(sin(dot(p, vec2(12.9898, 78.233))) * 43758.5453); }
 void fragment() {
 	vec2 p = UV * size;
 	float inside = 1.0 - smoothstep(radius - 2.0, radius + 1.0, distance(p, center));
 	vec3 c = textureLod(screen_tex, SCREEN_UV, 0.0).rgb;
-	float lum = dot(c, vec3(0.299, 0.587, 0.114));
-	float grain = hash(floor(p * 0.5) + vec2(TIME * 61.0, TIME * 37.0)) - 0.5;
 	vec3 o = c;
 	if (mode == 1) {
-		// Image intensifier with automatic gain: the tube settles on the average light in the lens (about 40x in the
-		// dark, little in daylight, so the picture is not one flat glare), soft-clipped; green phosphor, grain and a
-		// faint scan pattern.
+		// Night vision (r24): the real picture in its own colours, brightened by an automatic gain that settles on
+		// the average light in the lens (up to 5x in the dark, none in daylight), soft-clipped so lamps do not glare.
 		vec2 cuv = center / size;
 		float avg = 0.0;
 		for (int i = 0; i < 5; i++) {
-			vec2 o = vec2(float(i == 1) - float(i == 2), float(i == 3) - float(i == 4)) * radius * 0.45 / size;
-			avg += dot(textureLod(screen_tex, cuv + o, 6.0).rgb, vec3(0.299, 0.587, 0.114));
+			vec2 d = vec2(float(i == 1) - float(i == 2), float(i == 3) - float(i == 4)) * radius * 0.45 / size;
+			avg += dot(textureLod(screen_tex, cuv + d, 6.0).rgb, vec3(0.299, 0.587, 0.114));
 		}
 		avg /= 5.0;
-		float gain = clamp(0.8 / max(avg, 0.002), 1.6, 40.0);
-		float v = 1.0 - exp(-lum * gain);
-		v = clamp(v + grain * 0.16, 0.0, 1.0);
-		v *= 0.92 + 0.08 * sin(p.y * 1.6);
-		o = vec3(0.18, 1.0, 0.32) * v + vec3(0.02, 0.07, 0.03);
-	} else if (mode == 2) {
-		// Thermal background: a flat, cool grey; slightly blurred (low sensor resolution).
-		vec3 b = textureLod(screen_tex, SCREEN_UV, 2.0).rgb;
-		float l2 = dot(b, vec3(0.299, 0.587, 0.114));
-		float v = 0.16 + 0.32 * sqrt(clamp(l2, 0.0, 1.0)) + grain * 0.05;
-		o = vec3(v);
+		float gain = clamp(0.3 / max(avg, 0.002), 1.0, 5.0);
+		o = min(c * gain / (vec3(1.0) + c * (gain - 1.0) * 0.6), vec3(1.0));   // gain 1: the picture unchanged
 	}
-	COLOR = vec4(o, inside * alpha);
+	COLOR = vec4(o, inside * alpha * (mode == 1 ? 1.0 : 0.0));
 }"""
 	var fm := ShaderMaterial.new()
 	fm.shader = fsh
@@ -98,7 +85,7 @@ void fragment() {
 	vec2 p = UV * size;
 	float d = distance(p, center);
 	float outside = smoothstep(radius - 2.0, radius + 1.5, d);
-	float rim = smoothstep(radius * 0.72, radius, d) * 0.6;
+	float rim = smoothstep(radius * 0.86, radius, d) * 0.35;
 	COLOR = vec4(0.0, 0.0, 0.0, max(outside, rim) * alpha);
 }"""
 	var m := ShaderMaterial.new()
@@ -133,7 +120,7 @@ func _process(_dt: float) -> void:
 		(sm as ShaderMaterial).set_shader_parameter("radius", _radius)
 		(sm as ShaderMaterial).set_shader_parameter("alpha", _alpha)
 		(sm as ShaderMaterial).set_shader_parameter("size", vs)
-	_filter.visible = MODES.has(_mode)
+	_filter.visible = _mode == "night"   # (r24) thermal draws its outlines only, over the real picture
 	if _filter.visible:
 		(_filter.material as ShaderMaterial).set_shader_parameter("mode", int(MODES[_mode]))
 	if _mode == "thermal" and Time.get_ticks_msec() - _heat_t > 33:
@@ -158,7 +145,8 @@ func _find_heat() -> void:
 
 
 func _add_body(c, space: PhysicsDirectSpaceState3D, eye: Vector3, px_per_m: float) -> void:
-	if c == ch or c.mode in [Motor.DEAD, Motor.SPECTATE, Motor.PLANE]:
+	# (r24) enemies only: teammates carry their name tags already
+	if c == ch or c.team == ch.team or c.mode in [Motor.DEAD, Motor.SPECTATE, Motor.PLANE]:
 		return
 	var base: Vector3 = c.get_global_transform_interpolated().origin
 	var d := eye.distance_to(base)
@@ -203,19 +191,30 @@ func _text(t: String, p: Vector2, size: int, col: Color) -> void:
 	_marks.draw_string(UITheme.font_mono, _center + p, t, HORIZONTAL_ALIGNMENT_LEFT, -1, size, Color(col, col.a * _alpha))
 
 
+const HEAT := Color(1.0, 0.52, 0.16)
+
+
 func _draw_heat() -> void:
+	## (r24) A warm outline round each person in the lens, the person still visible inside it (it was a white blob).
 	for hb in _heat:
 		var pts: Array = hb[0]
 		var r: float = hb[1]
 		var w: float = hb[2]
-		for i in pts.size():
-			var p: Vector2 = pts[i]
-			var rr := r * (0.85 if i == 0 else (1.25 if i == 1 else 1.0))
-			# Soft edge: a halo ring, then the hot core.
-			_marks.draw_circle(p, rr * 1.6, Color(0.85, 0.85, 0.85, 0.18 * w * _alpha))
-			_marks.draw_circle(p, rr, Color(1.0, 1.0, 1.0, 0.92 * w * _alpha))
-			if i > 0:
-				_marks.draw_line(pts[i - 1], p, Color(1, 1, 1, 0.9 * w * _alpha), rr * 1.6, true)
+		var head: Vector2 = pts[0]
+		var feet: Vector2 = pts[pts.size() - 1]
+		var hh := maxf(feet.y - head.y, r * 4.0)
+		var box := Rect2(Vector2(minf(head.x, feet.x) - hh * 0.22, head.y - r * 1.2), Vector2(absf(head.x - feet.x) + hh * 0.44, hh + r * 1.6))
+		# Corner brackets only, so the person inside stays in plain view.
+		var cl := minf(box.size.x, box.size.y) * 0.28
+		var lw := clampf(r * 0.12, 1.5, 3.0)
+		var col := Color(HEAT, 0.95 * w * _alpha)
+		for sx in [0.0, 1.0]:
+			for sy in [0.0, 1.0]:
+				var corner := box.position + box.size * Vector2(sx, sy)
+				var dx := cl * (1.0 if sx == 0.0 else -1.0)
+				var dy := cl * (1.0 if sy == 0.0 else -1.0)
+				_marks.draw_line(corner, corner + Vector2(dx, 0), col, lw, true)
+				_marks.draw_line(corner, corner + Vector2(0, dy), col, lw, true)
 
 
 func _draw_marks() -> void:
@@ -297,7 +296,7 @@ func _draw_marks() -> void:
 				for sy in [-1.0, 1.0]:
 					_line(Vector2(sx * bk, sy * bk), Vector2(sx * (bk - bl), sy * bk), 1.6 * px, WHITE)
 					_line(Vector2(sx * bk, sy * bk), Vector2(sx * bk, sy * (bk - bl)), 1.6 * px, WHITE)
-			_text("WHT  4.0x", Vector2(-R * 0.6, -R * 0.68), int(13 * px), WHITE)
+			_text("HEAT  4.0x", Vector2(-R * 0.6, -R * 0.68), int(13 * px), WHITE)
 			_text("REC  ||||", Vector2(R * 0.28, -R * 0.68), int(13 * px), WHITE)
 		"tree":
 			# 15x: hairline cross with a holdover tree below: rows of dots widening with range, numbered every other.

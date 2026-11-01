@@ -38,7 +38,7 @@
       ]
     },
     "day_offsets": [0], "_day_offsets": "r17: a round always starts at night (was 0/150/300/450 s into the cycle).",
-    "round_break_s": 4.0
+    "round_break_s": 3.0, "_round_break_s": "r24: the winner is announced, then the next round starts 3 s later (with a countdown)."
   },
   "lobby": {"min_players_to_start": 1, "countdown_s": 5, "fill_with_bots": true},
   "official": {
