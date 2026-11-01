@@ -1,0 +1,29 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+Vulkan 1.4.329 - Forward+ - Using Device #0: NVIDIA - NVIDIA GeForce RTX 4060
+
+[ui] loadout_received pid=1 Hehe {"att_primary":["scope_4x","muzzle_brake","mag_ext_sniper","cheek_pad"],"att_secondary":["sight_reflex","suppressor_light","mag_drum_light","laser_green"],"primary":"marksman_308","secondary":"pistol_deagle"}
+[ui] lobby shows my loadout (pid 1): {"att_primary":["scope_4x","muzzle_brake","mag_ext_sniper","cheek_pad"],"att_secondary":["sight_reflex","suppressor_light","mag_drum_light","laser_green"],"primary":"marksman_308","secondary":"pistol_deagle"}
+[ui] request_loadout {"att_primary":["scope_4x","muzzle_brake","mag_ext_sniper","cheek_pad"],"att_secondary":["sight_reflex","suppressor_light","mag_drum_light","laser_green"],"primary":"marksman_308","secondary":"pistol_deagle"}
+[dyn] 51 prop models, breakable ones cut into chunks in 255 ms
+[world] map built in 18244 ms
+[map] 243 buildings, 1951 doors, 2617 containers, 2745 props, #b1fba961 on PC
+[botnav] lawless_sub: walk check and 564 spots from res://data/botnav/lawless_sub.json { "hide": 38, "snipe": 95, "cover": 56, "open": 375 }
+[waypoints] lawless_sub: 3193 nodes, 10383 edges (auto, res://data/waypoints/lawless_sub.json), 30 off the main graph, 243 ms { "snipe": 95, "junction": 1205, "road": 518, "area": 660, "corner": 650, "hide": 38, "bridge": 27 }
+[bots] learned from 419 cells, 0 stuck spots, 0 spots learned from play, 86 spot records (user://bot_memory_lawless_sub.json)
+[game] autotest bursts
+[autotest] PASS bursts_flat: open ground: run { "bursts": 0, "top_tick": 4.4, "top_at": 113, "top_0.1s": 4.4, "rise_0.25s": 2.43, "step_ups": 0, "steps": [] }, sprint { "bursts": 0, "top_tick": 6.3, "top_at": 71, "top_0.1s": 6.3, "rise_0.25s": 2.43, "step_ups": 0, "steps": [] }
+[bursts] stairs (19.5, 1.0, -124.1) run: { "bursts": 0, "top_tick": 4.43, "top_at": 110, "top_0.1s": 4.4, "rise_0.25s": 1.81, "step_ups": 0, "steps": [], "gait": "run", "foot": "(19.5, 1.0, -124.1)", "climbed": 3.02 }
+[bursts] stairs (19.5, 1.0, -124.1) sprint: { "bursts": 0, "top_tick": 6.35, "top_at": 89, "top_0.1s": 6.31, "rise_0.25s": 2.49, "step_ups": 0, "steps": [], "gait": "sprint", "foot": "(19.5, 1.0, -124.1)", "climbed": 3.01 }
+[bursts] stairs (119.5, 0.9, -50.2) run: { "bursts": 0, "top_tick": 4.43, "top_at": 123, "top_0.1s": 4.4, "rise_0.25s": 1.81, "step_ups": 0, "steps": [], "gait": "run", "foot": "(119.5, 0.9, -50.2)", "climbed": 3.42 }
+[bursts] stairs (119.5, 0.9, -50.2) sprint: { "bursts": 0, "top_tick": 6.46, "top_at": 98, "top_0.1s": 6.33, "rise_0.25s": 2.52, "step_ups": 0, "steps": [], "gait": "sprint", "foot": "(119.5, 0.9, -50.2)", "climbed": 3.42 }
+[bursts] stairs (89.4, 7.2, 69.8) run: { "bursts": 0, "top_tick": 4.73, "top_at": 116, "top_0.1s": 4.46, "rise_0.25s": 1.88, "step_ups": 0, "steps": [], "gait": "run", "foot": "(89.4, 7.2, 69.8)", "climbed": 3.14 }
+[bursts] stairs (89.4, 7.2, 69.8) sprint: { "bursts": 0, "top_tick": 6.64, "top_at": 93, "top_0.1s": 6.36, "rise_0.25s": 2.55, "step_ups": 0, "steps": [], "gait": "sprint", "foot": "(89.4, 7.2, 69.8)", "climbed": 3.15 }
+[bursts] stairs (110.6, 1.1, 23.7) run: { "bursts": 0, "top_tick": 4.42, "top_at": 110, "top_0.1s": 4.4, "rise_0.25s": 1.8, "step_ups": 0, "steps": [], "gait": "run", "foot": "(110.6, 1.1, 23.7)", "climbed": 3.02 }
+[bursts] stairs (-30.3, 1.1, -34.8) run: { "bursts": 0, "top_tick": 3.32, "top_at": 114, "top_0.1s": 3.28, "rise_0.25s": 2.02, "step_ups": 0, "steps": [], "gait": "run", "foot": "(-30.3, 1.1, -34.8)", "climbed": 4.95 }
+[bursts] stairs (-160.6, 7.1, 183.8) run: { "bursts": 0, "top_tick": 4.42, "top_at": 115, "top_0.1s": 4.4, "rise_0.25s": 1.77, "step_ups": 0, "steps": [], "gait": "run", "foot": "(-160.6, 7.1, 183.8)", "climbed": 3.15 }
+[bursts] stairs (83.4, 4.1, -169.3) run: { "bursts": 0, "top_tick": 4.61, "top_at": 111, "top_0.1s": 4.45, "rise_0.25s": 1.9, "step_ups": 0, "steps": [], "gait": "run", "foot": "(83.4, 4.1, -169.3)", "climbed": 3.01 }
+[bursts] stairs (89.5, 1.0, -120.0) run: { "bursts": 0, "top_tick": 4.42, "top_at": 110, "top_0.1s": 4.4, "rise_0.25s": 1.81, "step_ups": 0, "steps": [], "gait": "run", "foot": "(89.5, 1.0, -120.0)", "climbed": 3.02 }
+[bursts] stairs (159.5, 1.0, -120.1) run: { "bursts": 0, "top_tick": 4.42, "top_at": 110, "top_0.1s": 4.4, "rise_0.25s": 1.81, "step_ups": 0, "steps": [], "gait": "run", "foot": "(159.5, 1.0, -120.1)", "climbed": 3.02 }
+[bursts] stairs (89.4, 1.1, -175.2) run: { "bursts": 0, "top_tick": 4.42, "top_at": 110, "top_0.1s": 4.4, "rise_0.25s": 1.81, "step_ups": 0, "steps": [], "gait": "run", "foot": "(89.4, 1.1, -175.2)", "climbed": 3.02 }
+[autotest] PASS bursts_stairs: 13 stair runs, 0 with bursts; worst tick 6.6 m/s, worst 0.1 s 6.4 m/s (run 4.4, sprint 6.3)
+[autotest] done: 2 checks, 0 failed

@@ -1,0 +1,94 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+Vulkan 1.4.329 - Forward+ - Using Device #0: NVIDIA - NVIDIA GeForce RTX 4060
+
+[ui] loadout_received pid=1 Hehe {"att_primary":["scope_4x","muzzle_brake","mag_ext_sniper","cheek_pad"],"att_secondary":["sight_reflex","suppressor_light","mag_drum_light","laser_green"],"primary":"marksman_308","secondary":"pistol_deagle"}
+[ui] lobby shows my loadout (pid 1): {"att_primary":["scope_4x","muzzle_brake","mag_ext_sniper","cheek_pad"],"att_secondary":["sight_reflex","suppressor_light","mag_drum_light","laser_green"],"primary":"marksman_308","secondary":"pistol_deagle"}
+[ui] request_loadout {"att_primary":["scope_4x","muzzle_brake","mag_ext_sniper","cheek_pad"],"att_secondary":["sight_reflex","suppressor_light","mag_drum_light","laser_green"],"primary":"marksman_308","secondary":"pistol_deagle"}
+[dyn] 24 prop models, breakable ones cut into chunks in 106 ms
+[world] map built in 4117 ms
+[map] 0 buildings, 213 doors, 163 containers, 779 props, #55dd752c on PC
+[nav] levels: 56959 points, 32 links, 134 ms
+[nav] r21: 1424 cells closed by the physics check, main walk 49517 of 55567 points (6050 in pockets), 249 ms
+[botnav] malasugue_mall: walk check and 1304 spots from res://data/botnav/malasugue_mall.json { "hide": 301, "snipe": 618, "cover": 190, "open": 195 }
+[waypoints] malasugue_mall: 6107 nodes, 23338 edges (auto, res://data/waypoints/malasugue_mall.json), 60 off the main graph, 291 ms { "plaza": 790, "road": 679, "junction": 1232, "area": 905, "snipe": 356, "corner": 1459, "hide": 200, "cover": 16, "stair": 64, "escalator": 32, "door": 374 }
+[bots] learned from 134 cells, 0 stuck spots, 0 spots learned from play, 139 spot records (user://bot_memory_malasugue_mall.json)
+[game] autotest firefight
+[firefight] NVIDIA GeForce RTX 4060, window (1280, 720), shadows 2, render scale 1.00
+[firefight] 10 shooters on 11 candidate spots, camera at (18.0, 0.0, -10.0) looking at (-8.0, 1.2, 4.0)
+[autotest] PASS firefight_shooters: 10 shooters placed in front of the camera
+[perf]   view tier -1 -> 0 at 2 m above ground (ff_quiet)
+[perf] ff_quiet         528 fr  avg  11.35 ms (   88 fps)  p50  11.71  p95  15.30  p99  17.33  max  22.53  >16.7ms    8 | render cpu  3.42 gpu  3.68 | process 14.48 physics  5.22 | draws   1134 objs   1448 prims  2611453 | agl 0
+[perf]   0.68 physics steps/frame; engine physics step avg 0.47 ms max 0.92 ms; active bodies 0, pairs 0, islands 0
+[perf]   ms/frame: 
+[perf]   worst single call (ms): 
+[firefight] quiet: 2 sound voices playing, 0 debris pieces
+[firefight] quiet: 0 rounds fired, avg 11.35 ms, p95 15.30, max 22.53, gpu 3.68 ms
+[perf]   hitch 26.4 ms in ff_fire_warm, tier 0, 2 m above ground
+[perf]   hitch 25.2 ms in ff_fire_warm, tier 0, 2 m above ground
+[perf]   hitch 30.0 ms in ff_fire_warm, tier 0, 2 m above ground
+[perf]   hitch 25.9 ms in ff_fire_warm, tier 0, 2 m above ground
+[perf]   hitch 25.0 ms in ff_fire_warm, tier 0, 2 m above ground
+[perf]   hitch 26.2 ms in ff_fire_warm, tier 0, 2 m above ground
+[perf] ff_fire_warm     413 fr  avg  14.52 ms (   69 fps)  p50  14.58  p95  18.95  p99  25.21  max  30.01  >16.7ms   59 | render cpu  3.80 gpu  4.43 | process 16.68 physics 10.36 | draws   1393 objs   1769 prims  3115224 | agl 0
+[perf]   0.87 physics steps/frame; engine physics step avg 0.54 ms max 1.69 ms; active bodies 0, pairs 0, islands 0
+[perf]   ms/frame: 
+[perf]   worst single call (ms): 
+[firefight] fire_warm: 41 sound voices playing, 125 debris pieces
+[firefight] fire_warm: 180 rounds fired, avg 14.52 ms, p95 18.95, max 30.01, gpu 4.43 ms
+[autotest] shot A:/Python/aetherion-project/.claude/worktrees/malasugue-mall-perf-ff2e6a/work/r25/glass_legacy/01_firefight_fire.png
+[perf]   hitch 357.9 ms in ff_fire, tier 0, 2 m above ground
+[perf]   hitch 28.1 ms in ff_fire, tier 0, 2 m above ground
+[perf]   hitch 41.7 ms in ff_fire, tier 0, 2 m above ground
+[perf]   hitch 29.1 ms in ff_fire, tier 0, 2 m above ground
+[perf]   hitch 32.6 ms in ff_fire, tier 0, 2 m above ground
+[perf]   hitch 28.7 ms in ff_fire, tier 0, 2 m above ground
+[perf] ff_fire          384 fr  avg  16.19 ms (   62 fps)  p50  15.07  p95  20.57  p99  29.11  max 357.94  >16.7ms   85 | render cpu  3.99 gpu  4.68 | process 79.43 physics  9.08 | draws   1403 objs   1801 prims  3119834 | agl 0
+[perf]   0.94 physics steps/frame; engine physics step avg 0.48 ms max 0.95 ms; active bodies 0, pairs 0, islands 0
+[perf]   ms/frame: 
+[perf]   worst single call (ms): 
+[firefight] fire: 44 sound voices playing, 125 debris pieces
+[firefight] fire: 192 rounds fired, avg 16.19 ms, p95 20.57, max 357.94, gpu 4.68 ms
+[perf]   hitch 29.8 ms in ff_fire_flash_noshadow, tier 0, 2 m above ground
+[perf]   hitch 29.0 ms in ff_fire_flash_noshadow, tier 0, 2 m above ground
+[perf]   hitch 32.4 ms in ff_fire_flash_noshadow, tier 0, 2 m above ground
+[perf] ff_fire_flash_noshadow   396 fr  avg  15.15 ms (   66 fps)  p50  15.02  p95  19.69  p99  24.07  max  32.42  >16.7ms   76 | render cpu  3.85 gpu  4.62 | process 16.53 physics  8.59 | draws   1263 objs   1659 prims  2577465 | agl 0
+[perf]   0.91 physics steps/frame; engine physics step avg 0.49 ms max 1.06 ms; active bodies 0, pairs 0, islands 0
+[perf]   ms/frame: 
+[perf]   worst single call (ms): 
+[firefight] fire_flash_noshadow: 37 sound voices playing, 125 debris pieces
+[firefight] fire_flash_noshadow: 183 rounds fired, avg 15.15 ms, p95 19.69, max 32.42, gpu 4.62 ms
+[perf]   hitch 28.8 ms in ff_fire_no_flash, tier 0, 2 m above ground
+[perf] ff_fire_no_flash   393 fr  avg  15.25 ms (   66 fps)  p50  15.20  p95  19.56  p99  24.46  max  28.85  >16.7ms   83 | render cpu  3.84 gpu  4.55 | process 15.28 physics  9.86 | draws   1262 objs   1659 prims  2577464 | agl 0
+[perf]   0.92 physics steps/frame; engine physics step avg 0.49 ms max 0.96 ms; active bodies 0, pairs 0, islands 0
+[perf]   ms/frame: 
+[perf]   worst single call (ms): 
+[firefight] fire_no_flash: 31 sound voices playing, 125 debris pieces
+[firefight] fire_no_flash: 168 rounds fired, avg 15.25 ms, p95 19.56, max 28.85, gpu 4.55 ms
+[perf]   hitch 27.0 ms in ff_fire_no_lamp_shadow, tier 0, 2 m above ground
+[perf]   hitch 32.9 ms in ff_fire_no_lamp_shadow, tier 0, 2 m above ground
+[perf]   hitch 33.7 ms in ff_fire_no_lamp_shadow, tier 0, 2 m above ground
+[perf] ff_fire_no_lamp_shadow   397 fr  avg  15.09 ms (   66 fps)  p50  15.16  p95  19.44  p99  23.57  max  33.67  >16.7ms   73 | render cpu  3.66 gpu  4.77 | process 16.56 physics  9.55 | draws   1218 objs   1608 prims  2343597 | agl 0
+[perf]   0.91 physics steps/frame; engine physics step avg 0.48 ms max 0.88 ms; active bodies 0, pairs 0, islands 0
+[perf]   ms/frame: 
+[perf]   worst single call (ms): 
+[firefight] fire_no_lamp_shadow: 33 sound voices playing, 125 debris pieces
+[firefight] fire_no_lamp_shadow: 178 rounds fired, avg 15.09 ms, p95 19.44, max 33.67, gpu 4.77 ms
+[perf]   hitch 28.5 ms in ff_fire_again, tier 0, 2 m above ground
+[perf] ff_fire_again    388 fr  avg  15.47 ms (   65 fps)  p50  15.48  p95  19.65  p99  23.59  max  28.54  >16.7ms   97 | render cpu  3.92 gpu  4.90 | process 14.93 physics 10.05 | draws   1399 objs   1807 prims  3139133 | agl 0
+[perf]   0.93 physics steps/frame; engine physics step avg 0.53 ms max 1.02 ms; active bodies 0, pairs 0, islands 0
+[perf]   ms/frame: 
+[perf]   worst single call (ms): 
+[firefight] fire_again: 31 sound voices playing, 166 debris pieces
+[firefight] fire_again: 179 rounds fired, avg 15.47 ms, p95 19.65, max 28.54, gpu 4.90 ms
+[perf]   hitch 30.6 ms in ff_glass_after, tier 0, 2 m above ground
+[perf]   hitch 28.7 ms in ff_glass_after, tier 0, 2 m above ground
+[perf] ff_glass_after   413 fr  avg  14.52 ms (   69 fps)  p50  14.69  p95  17.56  p99  21.34  max  30.63  >16.7ms   34 | render cpu  4.85 gpu  4.69 | process 16.47 physics  5.79 | draws   1938 objs   2366 prims  2628120 | agl 0
+[perf]   0.87 physics steps/frame; engine physics step avg 0.47 ms max 0.81 ms; active bodies 0, pairs 0, islands 0
+[perf]   ms/frame: 
+[perf]   worst single call (ms): 
+[firefight] glass_after (legacy): 150 panes broken, 2790 debris pieces kept, avg 14.52 ms, p95 17.56, draws 1938
+[autotest] PASS firefight_fired: 192 rounds in the fire phase
+[firefight] quiet 11.35 ms -> fire 16.19 ms (gpu 3.68 -> 4.68)
+[autotest] done: 2 checks, 0 failed
+WARNING: 7 RIDs of type "Texture" were leaked.
+   at: finalize (servers/rendering/rendering_device.cpp:8900)

@@ -1,0 +1,180 @@
+{
+  "flat": {
+    "run": {
+      "bursts": 0,
+      "rise_0.25s": 2.43,
+      "step_ups": 0,
+      "steps": [],
+      "top_0.1s": 4.4,
+      "top_at": 113,
+      "top_tick": 4.4
+    },
+    "sprint": {
+      "bursts": 0,
+      "rise_0.25s": 2.43,
+      "step_ups": 0,
+      "steps": [],
+      "top_0.1s": 6.3,
+      "top_at": 71,
+      "top_tick": 6.3
+    }
+  },
+  "stairs": [
+    {
+      "bursts": 0,
+      "climbed": 3.02,
+      "foot": "(19.5, 1.0, -124.1)",
+      "gait": "run",
+      "rise_0.25s": 1.81,
+      "step_ups": 0,
+      "steps": [],
+      "top_0.1s": 4.4,
+      "top_at": 110,
+      "top_tick": 4.43
+    },
+    {
+      "bursts": 0,
+      "climbed": 3.01,
+      "foot": "(19.5, 1.0, -124.1)",
+      "gait": "sprint",
+      "rise_0.25s": 2.49,
+      "step_ups": 0,
+      "steps": [],
+      "top_0.1s": 6.31,
+      "top_at": 89,
+      "top_tick": 6.35
+    },
+    {
+      "bursts": 0,
+      "climbed": 3.42,
+      "foot": "(119.5, 0.9, -50.2)",
+      "gait": "run",
+      "rise_0.25s": 1.81,
+      "step_ups": 0,
+      "steps": [],
+      "top_0.1s": 4.4,
+      "top_at": 123,
+      "top_tick": 4.43
+    },
+    {
+      "bursts": 0,
+      "climbed": 3.42,
+      "foot": "(119.5, 0.9, -50.2)",
+      "gait": "sprint",
+      "rise_0.25s": 2.52,
+      "step_ups": 0,
+      "steps": [],
+      "top_0.1s": 6.33,
+      "top_at": 98,
+      "top_tick": 6.46
+    },
+    {
+      "bursts": 0,
+      "climbed": 3.14,
+      "foot": "(89.4, 7.2, 69.8)",
+      "gait": "run",
+      "rise_0.25s": 1.88,
+      "step_ups": 0,
+      "steps": [],
+      "top_0.1s": 4.46,
+      "top_at": 116,
+      "top_tick": 4.73
+    },
+    {
+      "bursts": 0,
+      "climbed": 3.15,
+      "foot": "(89.4, 7.2, 69.8)",
+      "gait": "sprint",
+      "rise_0.25s": 2.55,
+      "step_ups": 0,
+      "steps": [],
+      "top_0.1s": 6.36,
+      "top_at": 93,
+      "top_tick": 6.64
+    },
+    {
+      "bursts": 0,
+      "climbed": 3.02,
+      "foot": "(110.6, 1.1, 23.7)",
+      "gait": "run",
+      "rise_0.25s": 1.8,
+      "step_ups": 0,
+      "steps": [],
+      "top_0.1s": 4.4,
+      "top_at": 110,
+      "top_tick": 4.42
+    },
+    {
+      "bursts": 0,
+      "climbed": 4.95,
+      "foot": "(-30.3, 1.1, -34.8)",
+      "gait": "run",
+      "rise_0.25s": 2.02,
+      "step_ups": 0,
+      "steps": [],
+      "top_0.1s": 3.28,
+      "top_at": 114,
+      "top_tick": 3.32
+    },
+    {
+      "bursts": 0,
+      "climbed": 3.15,
+      "foot": "(-160.6, 7.1, 183.8)",
+      "gait": "run",
+      "rise_0.25s": 1.77,
+      "step_ups": 0,
+      "steps": [],
+      "top_0.1s": 4.4,
+      "top_at": 115,
+      "top_tick": 4.42
+    },
+    {
+      "bursts": 0,
+      "climbed": 3.01,
+      "foot": "(83.4, 4.1, -169.3)",
+      "gait": "run",
+      "rise_0.25s": 1.9,
+      "step_ups": 0,
+      "steps": [],
+      "top_0.1s": 4.45,
+      "top_at": 111,
+      "top_tick": 4.61
+    },
+    {
+      "bursts": 0,
+      "climbed": 3.02,
+      "foot": "(89.5, 1.0, -120.0)",
+      "gait": "run",
+      "rise_0.25s": 1.81,
+      "step_ups": 0,
+      "steps": [],
+      "top_0.1s": 4.4,
+      "top_at": 110,
+      "top_tick": 4.42
+    },
+    {
+      "bursts": 0,
+      "climbed": 3.02,
+      "foot": "(159.5, 1.0, -120.1)",
+      "gait": "run",
+      "rise_0.25s": 1.81,
+      "step_ups": 0,
+      "steps": [],
+      "top_0.1s": 4.4,
+      "top_at": 110,
+      "top_tick": 4.42
+    },
+    {
+      "bursts": 0,
+      "climbed": 3.02,
+      "foot": "(89.4, 1.1, -175.2)",
+      "gait": "run",
+      "rise_0.25s": 1.81,
+      "step_ups": 0,
+      "steps": [],
+      "top_0.1s": 4.4,
+      "top_at": 110,
+      "top_tick": 4.42
+    }
+  ]
+}

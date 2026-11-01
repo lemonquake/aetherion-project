@@ -1,0 +1,26 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+Vulkan 1.4.329 - Forward+ - Using Device #0: NVIDIA - NVIDIA GeForce RTX 4060
+
+[ui] loadout_received pid=1 Hehe {"att_primary":["scope_4x","muzzle_brake","mag_ext_sniper","cheek_pad"],"att_secondary":["sight_reflex","suppressor_light","mag_drum_light","laser_green"],"primary":"marksman_308","secondary":"pistol_deagle"}
+[ui] lobby shows my loadout (pid 1): {"att_primary":["scope_4x","muzzle_brake","mag_ext_sniper","cheek_pad"],"att_secondary":["sight_reflex","suppressor_light","mag_drum_light","laser_green"],"primary":"marksman_308","secondary":"pistol_deagle"}
+[ui] request_loadout {"att_primary":["scope_4x","muzzle_brake","mag_ext_sniper","cheek_pad"],"att_secondary":["sight_reflex","suppressor_light","mag_drum_light","laser_green"],"primary":"marksman_308","secondary":"pistol_deagle"}
+[dyn] 24 prop models, breakable ones cut into chunks in 140 ms
+[world] map built in 4366 ms
+[map] 0 buildings, 213 doors, 163 containers, 779 props, #55dd752c on PC
+[nav] levels: 56959 points, 32 links, 135 ms
+[nav] r21: 1424 cells closed by the physics check, main walk 49517 of 55567 points (6050 in pockets), 236 ms
+[botnav] malasugue_mall: walk check and 1304 spots from res://data/botnav/malasugue_mall.json { "hide": 301, "snipe": 618, "cover": 190, "open": 195 }
+[waypoints] malasugue_mall: 6107 nodes, 23338 edges (auto, res://data/waypoints/malasugue_mall.json), 60 off the main graph, 322 ms { "plaza": 790, "road": 679, "junction": 1232, "area": 905, "snipe": 356, "corner": 1459, "hide": 200, "cover": 16, "stair": 64, "escalator": 32, "door": 374 }
+[bots] learned from 134 cells, 0 stuck spots, 0 spots learned from play, 139 spot records (user://bot_memory_malasugue_mall.json)
+[game] autotest r25
+[r25] lane from (18.0, 0.0, -10.0) toward (0.0, 0.0, 1.0)
+[autotest] shot A:/Python/aetherion-project/.claude/worktrees/malasugue-mall-perf-ff2e6a/work/r25/r25b/01_r25_sprint_gun.png
+[autotest] PASS r25_sprint_gun: sprinting with smg_9: gun drawn and on screen { "sprinting": true, "weapon_visible": true, "carry": 1.0, "muzzle_on_screen": true, "muzzle_px": "(765.0, 823.0)", "weapon": "smg_9" }
+[autotest] shot A:/Python/aetherion-project/.claude/worktrees/malasugue-mall-perf-ff2e6a/work/r25/r25b/02_r25_sprint_fire.png
+[autotest] PASS r25_fire_ends_sprint: sprint 5.78 m/s, trigger pulled: sprint ended after 1 ticks, 4.40 m/s while firing (run 4.4), 12 rounds
+[autotest] PASS r25_sprint_resumes: after letting go: sprinting true, 6.19 m/s
+[autotest] shot A:/Python/aetherion-project/.claude/worktrees/malasugue-mall-perf-ff2e6a/work/r25/r25b/03_r25_smoke_auto.png
+[autotest] PASS r25_smoke_light: 15 rounds, 2 smoke puffs (3 cards each, alpha 0.14, 0.8 s)
+[autotest] done: 4 checks, 0 failed
+WARNING: 7 RIDs of type "Texture" were leaked.
+   at: finalize (servers/rendering/rendering_device.cpp:8900)

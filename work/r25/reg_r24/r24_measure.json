@@ -1,0 +1,133 @@
+{
+  "drum": {
+    "pistol_9": {
+      "fp_drum_on_mag": false,
+      "fp_mag_hidden": false,
+      "ok": true,
+      "tp_without_mag": true,
+      "well": false
+    },
+    "rifle_m416": {
+      "drum_visible_in_hand": true,
+      "fp_drum_on_mag": true,
+      "fp_mag_hidden": true,
+      "ok": true,
+      "reload_moved_m": 0.2,
+      "seat_m": 0.015,
+      "tp_without_mag": true,
+      "well": true
+    },
+    "smg_ump45": {
+      "drum_visible_in_hand": true,
+      "fp_drum_on_mag": true,
+      "fp_mag_hidden": true,
+      "ok": true,
+      "reload_moved_m": 0.19,
+      "seat_m": 0.015,
+      "tp_without_mag": true,
+      "well": true
+    }
+  },
+  "scopes": {
+    "none": {
+      "mean": 33.9,
+      "rgb": [
+        0.12,
+        0.14,
+        0.13
+      ],
+      "sat": 0.36,
+      "sd": 41.5
+    },
+    "scope_15x": {
+      "mean": 26.6,
+      "rgb": [
+        0.11,
+        0.11,
+        0.09
+      ],
+      "sat": 0.47,
+      "sd": 18.8
+    },
+    "scope_2x": {
+      "mean": 44.2,
+      "rgb": [
+        0.15,
+        0.18,
+        0.17
+      ],
+      "sat": 0.27,
+      "sd": 32.6
+    },
+    "scope_3x": {
+      "mean": 41.5,
+      "rgb": [
+        0.15,
+        0.17,
+        0.16
+      ],
+      "sat": 0.3,
+      "sd": 31.3
+    },
+    "scope_4x": {
+      "mean": 37.9,
+      "rgb": [
+        0.13,
+        0.15,
+        0.14
+      ],
+      "sat": 0.34,
+      "sd": 29.5
+    },
+    "scope_6x": {
+      "mean": 32.6,
+      "rgb": [
+        0.11,
+        0.13,
+        0.13
+      ],
+      "sat": 0.35,
+      "sd": 16.7
+    },
+    "scope_8x": {
+      "mean": 29.2,
+      "rgb": [
+        0.1,
+        0.12,
+        0.12
+      ],
+      "sat": 0.36,
+      "sd": 15.3
+    },
+    "scope_lpvo": {
+      "mean": 38.1,
+      "rgb": [
+        0.13,
+        0.16,
+        0.14
+      ],
+      "sat": 0.34,
+      "sd": 30.3
+    },
+    "scope_night": {
+      "mean": 60.2,
+      "rgb": [
+        0.22,
+        0.24,
+        0.22
+      ],
+      "sat": 0.3,
+      "sd": 41.2
+    },
+    "scope_thermal": {
+      "mean": 41.2,
+      "rgb": [
+        0.15,
+        0.17,
+        0.15
+      ],
+      "sat": 0.33,
+      "sd": 33.3
+    }
+  }
+}

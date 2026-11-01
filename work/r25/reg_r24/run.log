@@ -1,0 +1,109 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+Vulkan 1.4.329 - Forward+ - Using Device #0: NVIDIA - NVIDIA GeForce RTX 4060
+
+[ui] loadout_received pid=1 Hehe {"att_primary":["grip_heavy"],"att_secondary":[],"primary":"rifle_m416","secondary":"pistol_9"}
+[ui] lobby shows my loadout (pid 1): {"att_primary":["grip_heavy"],"att_secondary":[],"primary":"rifle_m416","secondary":"pistol_9"}
+[ui] request_loadout {"att_primary":["grip_heavy"],"att_secondary":[],"primary":"rifle_m416","secondary":"pistol_9"}
+[dyn] 24 prop models, breakable ones cut into chunks in 140 ms
+[world] map built in 5138 ms
+[map] 0 buildings, 213 doors, 163 containers, 779 props, #55dd752c on PC
+[loadout] Hehe rifle_m416 [grip_heavy] mag 30/30 | pistol_9 [] mag 15/15
+[nav] levels: 56959 points, 32 links, 168 ms
+[nav] r21: 1424 cells closed by the physics check, main walk 49517 of 55567 points (6050 in pockets), 283 ms
+[botnav] malasugue_mall: walk check and 1304 spots from res://data/botnav/malasugue_mall.json { "hide": 301, "snipe": 618, "cover": 190, "open": 195 }
+[waypoints] malasugue_mall: 6107 nodes, 23338 edges (auto, res://data/waypoints/malasugue_mall.json), 60 off the main graph, 501 ms { "plaza": 790, "road": 679, "junction": 1232, "area": 905, "snipe": 356, "corner": 1459, "hide": 200, "cover": 16, "stair": 64, "escalator": 32, "door": 374 }
+[bots] learned from 134 cells, 0 stuck spots, 0 spots learned from play, 139 spot records (user://bot_memory_malasugue_mall.json)
+[loadout] Nanay Kakanin shotgun_pump [sight_holo,bullet_loops] mag 6/6 | pistol_45 [sight_reddot,mag_extquick_light,weapon_light] mag 12/12
+[loadout] Tsong Ramil smg_tommy [suppressor_light,mag_extquick_light] mag 50/50 | pistol_deagle [suppressor_light,mag_extquick_light] mag 10/10
+[loadout] Mang Tomas shotgun_double [choke,bullet_loops] mag 2/2 | pistol_45 [sight_reflex,mag_extquick_light,weapon_light] mag 12/12
+[loadout] Aling Nena rifle_scar [suppressor_rifle,grip_vertical,mag_extquick_rifle,weapon_light] mag 40/40 | pistol_deagle [sight_reddot,mag_extquick_light,weapon_light] mag 10/10
+[loadout] Lola Basyang machine_pistol [sight_holo,suppressor_light,laser_sight,mag_extquick_light] mag 45/45 | pistol_45 [sight_reddot,mag_extquick_light] mag 12/12
+[loadout] Pareng Jun rifle_m762 [scope_night,grip_stubby,mag_extquick_rifle,weapon_light] mag 40/40 | revolver_357 [sight_reddot] mag 6/6
+[loadout] Kuya Bert dmr_mini14 [scope_6x,suppressor_rifle,cheek_pad] mag 20/20 | pistol_9 [sight_reddot,suppressor_light,mag_extquick_light,weapon_light] mag 21/21
+[loadout] Bossing Barbecue smg_9 [scope_2x,suppressor_light,grip_vertical,mag_extquick_light,weapon_light] mag 40/40 | pistol_deagle [mag_extquick_light] mag 10/10
+[loadout] Dodong Lechon bolt_kar98 [scope_6x,suppressor_rifle] mag 5/5 | pistol_deagle [sight_reddot,suppressor_light,mag_extquick_light,laser_green] mag 10/10
+[loadout] Inday Tsismis lmg_m249 [muzzle_brake,laser_sight] mag 100/100 | revolver_357 [sight_reddot] mag 6/6
+[loadout] Ising Batingaw bolt_308 [scope_6x,cheek_pad] mag 5/5 | revolver_357 [sight_reflex] mag 6/6
+[loadout] Kumareng Marites shotgun_saiga [sight_reddot,mag_drum_rifle,weapon_light] mag 10/10 | revolver_357 [sight_reflex] mag 6/6
+[loadout] Lola Basyang Jr smg_tommy [mag_extquick_light] mag 50/50 | revolver_357 [sight_reflex] mag 6/6
+[loadout] Bebot Karaoke smg_9 [suppressor_light,mag_extquick_light,weapon_light] mag 40/40 | revolver_357 [sight_reddot] mag 6/6
+[loadout] Tsong Balut bolt_kar98 [scope_6x,cheek_pad] mag 5/5 | pistol_9 [sight_reddot,suppressor_light,mag_extquick_light,weapon_light] mag 21/21
+[loadout] Inday Rice Cooker smg_vector [suppressor_light,mag_extquick_light,weapon_light] mag 33/33 | pistol_deagle [sight_reddot,mag_drum_light,weapon_light] mag 13/13
+[loadout] Tito Karaoke King smg_ump45 [sight_holo,suppressor_light,grip_stubby,mag_extquick_light,weapon_light] mag 35/35 | revolver_357 [sight_reddot] mag 6/6
+[loadout] Tito Videoke smg_9 [scope_2x,suppressor_light,mag_extquick_light] mag 40/40 | pistol_45 [sight_reddot,weapon_light] mag 7/7
+[loadout] Ate Load lmg_m249 [sight_reddot,muzzle_brake,laser_sight,weapon_light] mag 100/100 | revolver_357 [sight_reflex] mag 6/6
+[loadout] Bayaw Erning bolt_308 [scope_6x,suppressor_sniper,mag_ext_sniper,cheek_pad] mag 8/8 | revolver_357 [sight_reddot] mag 6/6
+[match    0.0] deathmatch start on malasugue_mall: 21 players, 3 teams; spawns (42.0, 10.0, -26.0), (-40.0, 0.0, -27.0), (0.0, 20.0, 27.0) (82/67/68 m apart, floors); day offset 0 s; zone centre (-4.0, 11.0) r=128; win by wipe
+[game] autotest r24
+[match    0.0] status: { "ground": 21 }; armed 21; shots 0; zone -1 hold r=128; corpses 0; levels { "L3": 7, "between": 1, "L1": 7, "L5": 6 }
+[match    0.0] dm teams: North Team 7 at (42.0, -26.0) spread 2 m; East Team 7 at (-40.0, -27.0) spread 2 m; South Team 7 at (-1.0, 29.0) spread 2 m; gap 83 m; zone centre (-4.0, 11.0)
+[match    0.0] bots: { "roam": 20 }; containers searched by bots 0 (all players 0); plan steps done 0; guns carried 40
+[match    0.0] roles: { "stalker": { "roam": 8 }, "looter": { "roam": 4 }, "rusher": { "roam": 2 }, "sniper": { "roam": 6 } }; stuck now 0; waypoints 1304; team { "lines": 0, "pings": 0, "laser_follow": 0, "learned_cells": 134, "blocked_cells": 0, "squads": 0, "following_humans": 0, &"learned_spots": 0 }
+[match    0.0] [lootstats] bots on the ground 20 (in water 0); armed 20; armed with ammo for a gun 20; long guns 20; attachments fitted 100; rounds of unusable ammo carried 0; items on the ground 391; bot pickups { "detours": 0, "detour_taken": 0, "fetches": 0, "fetch_done": 0, "items_taken": 0 }
+[autotest] PASS r24_wb_opens: K opened the workbench true; player held true
+[autotest] shot A:/Python/aetherion-project/.claude/worktrees/malasugue-mall-perf-ff2e6a/work/r24/r25_reg24/01_workbench_open.png
+[autotest] shot A:/Python/aetherion-project/.claude/worktrees/malasugue-mall-perf-ff2e6a/work/r24/r25_reg24/02_workbench_hover_info.png
+[autotest] PASS r24_wb_info: hover card: Rifle Drum Magazine | Magazine attachment | A rifle drum: twice the rounds, heavy and slow to reload. | ▲ | +30 rounds per magazine (30 -> 60) | ▼ | 8% more weapon sway | ▼ | 8% slower aiming | ▼ | 40% slower reload | ▼ | Weight 0.95 kg | 
+[r24] drag probe: dragging true, data { "wb_att": { "id": "mag_drum_rifle", "n": 1, "where": "In your bag", "from": 0 , mouse (1440.0, 809.9999), focus <Object#null>
+[autotest] shot A:/Python/aetherion-project/.claude/worktrees/malasugue-mall-perf-ff2e6a/work/r24/r25_reg24/03_workbench_drum_snapping.png
+[autotest] PASS r24_wb_drag_fits: after dragging the drum onto the gun: fitted ["sight_reddot", "mag_drum_rifle"]; magazine 60
+[autotest] shot A:/Python/aetherion-project/.claude/worktrees/malasugue-mall-perf-ff2e6a/work/r24/r25_reg24/04_workbench_plus_burst.png
+[autotest] shot A:/Python/aetherion-project/.claude/worktrees/malasugue-mall-perf-ff2e6a/work/r24/r25_reg24/05_workbench_full_kit.png
+[autotest] PASS r24_wb_fits_all: fitted ["mag_drum_rifle", "scope_4x", "grip_heavy", "stock_tactical", "suppressor_rifle", "laser_green"]; missing []; the red dot it replaced went to the bag: true
+[r24] drag probe: dragging false, data <null>, mouse (1440.0, 809.9999), focus <Object#null>
+[autotest] shot A:/Python/aetherion-project/.claude/worktrees/malasugue-mall-perf-ff2e6a/work/r24/r25_reg24/06_workbench_turned.png
+[autotest] PASS r24_wb_turn_zoom: yaw -0.56 -> 2.47, zoom 1.00 -> 0.90
+[autotest] PASS r24_wb_remove: after x: fitted ["mag_drum_rifle", "scope_4x", "grip_heavy", "stock_tactical", "suppressor_rifle"]; laser in bag 1
+[autotest] PASS r24_wb_closes: Esc: workbench gone true, player free true, no pause menu true
+[autotest] shot A:/Python/aetherion-project/.claude/worktrees/malasugue-mall-perf-ff2e6a/work/r24/r25_reg24/07_workbench_game_setup.png
+[autotest] PASS r24_wb_loadout: Game Setup bench on rifle_m416: model true, fitted grip_heavy -> profile ["grip_heavy"]
+[match   15.0] status: { "ground": 21 }; armed 21; shots 0; zone 0 wait r=9000; corpses 0; levels { "L3": 7, "between": 1, "L1": 7, "L5": 6 }; server tick avg 3.83 ms, p99 5.50 ms, max 26.87 ms over 900 ticks; objects 17357
+[match   15.0] dm teams: North Team 7 at (42.0, -26.0) spread 2 m; East Team 7 at (-40.0, -27.0) spread 2 m; South Team 7 at (-1.0, 29.0) spread 2 m; gap 83 m; zone centre (0.0, 0.0)
+[autotest] shot A:/Python/aetherion-project/.claude/worktrees/malasugue-mall-perf-ff2e6a/work/r24/r25_reg24/08_drum_rifle_m416_rest.png
+[autotest] shot A:/Python/aetherion-project/.claude/worktrees/malasugue-mall-perf-ff2e6a/work/r24/r25_reg24/09_drum_rifle_m416_reload.png
+[autotest] shot A:/Python/aetherion-project/.claude/worktrees/malasugue-mall-perf-ff2e6a/work/r24/r25_reg24/10_drum_smg_ump45_rest.png
+[autotest] shot A:/Python/aetherion-project/.claude/worktrees/malasugue-mall-perf-ff2e6a/work/r24/r25_reg24/11_drum_smg_ump45_reload.png
+[autotest] shot A:/Python/aetherion-project/.claude/worktrees/malasugue-mall-perf-ff2e6a/work/r24/r25_reg24/12_drum_pistol_9_rest.png
+[autotest] PASS r25_drum_in_well: {"pistol_9":{"fp_drum_on_mag":false,"fp_mag_hidden":false,"ok":true,"tp_without_mag":true,"well":false},"rifle_m416":{"drum_visible_in_hand":true,"fp_drum_on_mag":true,"fp_mag_hidden":true,"ok":true,"reload_moved_m":0.2,"seat_m":0.015,"tp_without_mag":true,"well":true},"smg_ump45":{"drum_visible_in_hand":true,"fp_drum_on_mag":true,"fp_mag_hidden":true,"ok":true,"reload_moved_m":0.19,"seat_m":0.015,"tp_without_mag":true,"well":true}}
+[autotest] shot A:/Python/aetherion-project/.claude/worktrees/malasugue-mall-perf-ff2e6a/work/r24/r25_reg24/13_drum_workbench_rifle_m416.png
+[match   30.0] status: { "ground": 21 }; armed 21; shots 8; zone 0 wait r=9000; corpses 0; levels { "L3": 7, "between": 1, "L1": 7, "L5": 6 }; server tick avg 3.64 ms, p99 5.75 ms, max 9.07 ms over 900 ticks; objects 17536
+[match   30.0] dm teams: North Team 7 at (42.0, -26.0) spread 2 m; East Team 7 at (-40.0, -27.0) spread 2 m; South Team 7 at (-1.0, 29.0) spread 2 m; gap 83 m; zone centre (0.0, 0.0)
+[autotest] shot A:/Python/aetherion-project/.claude/worktrees/malasugue-mall-perf-ff2e6a/work/r24/r25_reg24/14_drum_workbench_smg_ump45.png
+[autotest] PASS r25_drum_workbench: workbench gun mesh without its magazine: { "rifle_m416": true, "smg_ump45": true }
+[match   32.8] Nanay Kakanin killed by Hehe (gunshot); 3 teams left
+[match   32.8] alive: North Team 7, East Team 7; score { 0: 0, 1: 0, 2: 0 }
+[match   32.8] Tsong Ramil killed by Hehe (explosion); 3 teams left
+[match   32.8] alive: North Team 7, East Team 6; score { 0: 0, 1: 0, 2: 0 }
+[match   32.8] Aling Nena killed by Mang Tomas (gunshot); 3 teams left
+[match   32.8] alive: North Team 7, East Team 6; score { 0: 0, 1: 0, 2: 0 }
+[autotest] PASS r24_board_stats: changes for the player { "kills": 2.0, "hs_kills": 1.0, "nade_kills": 1.0, "assists": 1.0, "damage": 20028.0 }; headshot victim deaths 1 / headshot deaths 1
+[autotest] shot A:/Python/aetherion-project/.claude/worktrees/malasugue-mall-perf-ff2e6a/work/r24/r25_reg24/15_scoreboard_held.png
+[autotest] PASS r24_board_shown: held: shown true (1370 x 808), released: hidden true
+[autotest] PASS r24_alive_counts: team bar ["7 alive", "6 alive", "5 alive"]; server { 0: 7, 1: 6, 2: 5 }
+[autotest] shot A:/Python/aetherion-project/.claude/worktrees/malasugue-mall-perf-ff2e6a/work/r24/r25_reg24/16_team_bar_alive.png
+[autotest] shot A:/Python/aetherion-project/.claude/worktrees/malasugue-mall-perf-ff2e6a/work/r24/r25_reg24/17_scope_ref_noscope.png
+[autotest] shot A:/Python/aetherion-project/.claude/worktrees/malasugue-mall-perf-ff2e6a/work/r24/r25_reg24/18_scope_level_scope_2x.png
+[autotest] shot A:/Python/aetherion-project/.claude/worktrees/malasugue-mall-perf-ff2e6a/work/r24/r25_reg24/19_scope_level_scope_3x.png
+[autotest] shot A:/Python/aetherion-project/.claude/worktrees/malasugue-mall-perf-ff2e6a/work/r24/r25_reg24/20_scope_aiming_scope_4x_0.png
+[autotest] shot A:/Python/aetherion-project/.claude/worktrees/malasugue-mall-perf-ff2e6a/work/r24/r25_reg24/21_scope_aiming_scope_4x_1.png
+[autotest] shot A:/Python/aetherion-project/.claude/worktrees/malasugue-mall-perf-ff2e6a/work/r24/r25_reg24/22_scope_aiming_scope_4x_2.png
+[autotest] shot A:/Python/aetherion-project/.claude/worktrees/malasugue-mall-perf-ff2e6a/work/r24/r25_reg24/23_scope_level_scope_4x.png
+[match   45.0] status: { "ground": 18 }; armed 18; shots 8; zone 0 wait r=9000; corpses 3; levels { "L3": 8, "L5": 5, "L1": 5 }; server tick avg 3.12 ms, p99 5.12 ms, max 7.56 ms over 900 ticks; objects 17771
+[match   45.0] dm teams: North Team 7 at (42.0, -26.0) spread 2 m; East Team 6 at (-28.0, -22.0) spread 23 m; South Team 5 at (-1.0, 29.0) spread 2 m; gap 70 m; zone centre (0.0, 0.0)
+[autotest] shot A:/Python/aetherion-project/.claude/worktrees/malasugue-mall-perf-ff2e6a/work/r24/r25_reg24/24_scope_aiming_scope_thermal_0.png
+[autotest] shot A:/Python/aetherion-project/.claude/worktrees/malasugue-mall-perf-ff2e6a/work/r24/r25_reg24/25_scope_aiming_scope_thermal_1.png
+[autotest] shot A:/Python/aetherion-project/.claude/worktrees/malasugue-mall-perf-ff2e6a/work/r24/r25_reg24/26_scope_aiming_scope_thermal_2.png
+[autotest] shot A:/Python/aetherion-project/.claude/worktrees/malasugue-mall-perf-ff2e6a/work/r24/r25_reg24/27_scope_level_scope_thermal.png
+[autotest] shot A:/Python/aetherion-project/.claude/worktrees/malasugue-mall-perf-ff2e6a/work/r24/r25_reg24/28_scope_level_scope_night.png
+[autotest] shot A:/Python/aetherion-project/.claude/worktrees/malasugue-mall-perf-ff2e6a/work/r24/r25_reg24/29_scope_level_scope_6x.png
+[autotest] shot A:/Python/aetherion-project/.claude/worktrees/malasugue-mall-perf-ff2e6a/work/r24/r25_reg24/30_scope_level_scope_8x.png
+[autotest] shot A:/Python/aetherion-project/.claude/worktrees/malasugue-mall-perf-ff2e6a/work/r24/r25_reg24/31_scope_level_scope_lpvo.png
+[match   60.0] status: { "ground": 18 }; armed 18; shots 8; zone 0 wait r=9000; corpses 3; levels { "L3": 8, "L5": 5, "L1": 5 }; server tick avg 3.08 ms, p99 4.60 ms, max 5.11 ms over 900 ticks; objects 17799
+[match   60.0] dm teams: North Team 7 at (42.0, -26.0) spread 2 m; East Team 6 at (-28.0, -22.0) spread 23 m; South Team 5 at (-1.0, 29.0) spread 2 m; gap 70 m; zone centre (0.0, 0.0)
+[autotest] shot A:/Python/aetherion-project/.claude/worktrees/malasugue-mall-perf-ff2e6a/work/r24/r25_reg24/32_scope_level_scope_15x.png
+[autotest] PASS r24_scopes_clear: lens mean/contrast/saturation per sight ["none 34/42/0.36", "scope_2x 44/33/0.27", "scope_3x 42/31/0.30", "scope_4x 38/30/0.34", "scope_thermal 41/33/0.33", "scope_night 60/41/0.30", "scope_6x 33/17/0.35", "scope_8x 29/15/0.36", "scope_lpvo 38/30/0.34", "scope_15x 27/19/0.47"] (no scope [33.9, 41.5, 0.36]); filtered or washed out: []
+[match   62.5] [endgame] North Team mates 7 foes 5 nocontact 74s
+[match   62.5] [endgame] South Team mates 5 foes 6 nocontact 74s
+[autotest] done: 14 checks, 0 failed
+WARNING: 7 RIDs of type "Texture" were leaked.
+   at: finalize (servers/rendering/rendering_device.cpp:8900)

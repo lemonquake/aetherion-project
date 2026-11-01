@@ -1,0 +1,15 @@
+r25_reg24 exit 0
+[autotest] PASS r24_wb_opens: K opened the workbench true; player held true
+[autotest] PASS r24_wb_info: hover card: Rifle Drum Magazine | Magazine attachment | A rifle drum: twice the rounds, heavy and slow to reload. | ▲ | +30 rounds per magazine (30 -> 60) | ▼ | 8% more weapon sway | ▼ | 8% slower aiming | ▼ | 40% slower reload | ▼ | Weight 0.95 kg | 
+[autotest] PASS r24_wb_drag_fits: after dragging the drum onto the gun: fitted ["sight_reddot", "mag_drum_rifle"]; magazine 60
+[autotest] PASS r24_wb_fits_all: fitted ["mag_drum_rifle", "scope_4x", "grip_heavy", "stock_tactical", "suppressor_rifle", "laser_green"]; missing []; the red dot it replaced went to the bag: true
+[autotest] PASS r24_wb_turn_zoom: yaw -0.56 -> 2.47, zoom 1.00 -> 0.90
+[autotest] PASS r24_wb_remove: after x: fitted ["mag_drum_rifle", "scope_4x", "grip_heavy", "stock_tactical", "suppressor_rifle"]; laser in bag 1
+[autotest] PASS r24_wb_closes: Esc: workbench gone true, player free true, no pause menu true
+[autotest] PASS r24_wb_loadout: Game Setup bench on rifle_m416: model true, fitted grip_heavy -> profile ["grip_heavy"]
+[autotest] PASS r25_drum_in_well: {"pistol_9":{"fp_drum_on_mag":false,"fp_mag_hidden":false,"ok":true,"tp_without_mag":true,"well":false},"rifle_m416":{"drum_visible_in_hand":true,"fp_drum_on_mag":true,"fp_mag_hidden":true,"ok":true,"reload_moved_m":0.2,"seat_m":0.015,"tp_without_mag":true,"well":true},"smg_ump45":{"drum_visible_in_hand":true,"fp_drum_on_mag":true,"fp_mag_hidden":true,"ok":true,"reload_moved_m":0.19,"seat_m":0.015,"tp_without_mag":true,"well":true}}
+[autotest] PASS r25_drum_workbench: workbench gun mesh without its magazine: { "rifle_m416": true, "smg_ump45": true }
+[autotest] PASS r24_board_stats: changes for the player { "kills": 2.0, "hs_kills": 1.0, "nade_kills": 1.0, "assists": 1.0, "damage": 20028.0 }; headshot victim deaths 1 / headshot deaths 1
+[autotest] PASS r24_board_shown: held: shown true (1370 x 808), released: hidden true
+[autotest] PASS r24_alive_counts: team bar ["7 alive", "6 alive", "5 alive"]; server { 0: 7, 1: 6, 2: 5 }
+[autotest] PASS r24_scopes_clear: lens mean/contrast/saturation per sight ["none 34/42/0.36", "scope_2x 44/33/0.27", "scope_3x 42/31/0.30", "scope_4x 38/30/0.34", "scope_thermal 41/33/0.33", "scope_night 60/41/0.30", "scope_6x 33/17/0.35", "scope_8x 29/15/0.36", "scope_lpvo 38/30/0.34", "scope_15x 27/19/0.47"] (no scope [33.9, 41.5, 0.36]); filtered or washed out: []

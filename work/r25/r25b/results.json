@@ -1,0 +1,22 @@
+[
+  [
+    "r25_sprint_gun",
+    true,
+    "sprinting with smg_9: gun drawn and on screen { \"sprinting\": true, \"weapon_visible\": true, \"carry\": 1.0, \"muzzle_on_screen\": true, \"muzzle_px\": \"(765.0, 823.0)\", \"weapon\": \"smg_9\" }"
+  ],
+  [
+    "r25_fire_ends_sprint",
+    true,
+    "sprint 5.78 m/s, trigger pulled: sprint ended after 1 ticks, 4.40 m/s while firing (run 4.4), 12 rounds"
+  ],
+  [
+    "r25_sprint_resumes",
+    true,
+    "after letting go: sprinting true, 6.19 m/s"
+  ],
+  [
+    "r25_smoke_light",
+    true,
+    "15 rounds, 2 smoke puffs (3 cards each, alpha 0.14, 0.8 s)"
+  ]
+]
