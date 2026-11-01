@@ -1,5 +1,7 @@
 """Draws the plan of a map-editor map (game/maps/<id>/map.json): one picture per level, every piece with its id,
-the spawns, lights, bot spots, landmarks and the QA notes pinned in the editor (game/maps/<id>/qa.json).
+the spawns, lights, bot spots, landmarks and the QA notes pinned in the editor (game/maps/<id>/qa.json). (r27) A map
+with Terrain3D ground is drawn on its relief (work/maps/<id>/heights.png, baked when the map is saved): the floor
+dark, the banks lighter the higher they stand; vines are green lines, fires flame-coloured dots, trees green rings.
 
     python -I tools/map_plan.py <map_id> [--scale 12] [--out <dir>] [--no-ids]
 
@@ -39,7 +41,15 @@ def rot(x, z, yaw):
     return x * math.cos(b) - z * math.sin(b), x * math.sin(b) + z * math.cos(b)
 
 
+NATURE = ("hf_mossrock", "hf_cliff", "tree_", "hf_canopy", "hf_ceiba", "hf_log", "hf_stump", "hf_root", "hf_buttress", "hf_boulder")
+TREES = ("hf_canopy", "hf_ceiba", "tree_", "hf_buttress", "hf_root_arch")
+
+
 def frame(p):
+    if p.get("type") == "vines":
+        a, b = p["from"], p["to"]
+        yaw = math.degrees(math.atan2(b[2] - a[2], b[0] - a[0]))
+        return ((a[0] + b[0]) / 2, min(float(a[1]), float(b[1])) - float(p.get("drop", 3)), (a[2] + b[2]) / 2), yaw
     if p.get("type") == "wall":
         a, b = p["from"], p["to"]
         yaw = math.degrees(math.atan2(b[1] - a[1], b[0] - a[0]))
@@ -98,11 +108,38 @@ class Plan:
     def level_of(self, y):
         return max(0, int(math.floor((y + 0.5) / self.fh)))
 
+    def relief(self, img):
+        """The Terrain3D ground under level 1: the baked heights as a shaded relief."""
+        hp = ROOT / "work" / "maps" / self.doc.get("id", "") / "heights.png"
+        hj = hp.with_suffix(".json")
+        if not hp.exists() or not hj.exists():
+            return
+        try:
+            import numpy as np
+        except ImportError:
+            return
+        meta = json.loads(hj.read_text())
+        a = meta["area"]
+        hgt = np.asarray(Image.open(hp).convert("L")).astype(np.float32) / 255.0 * (meta["max"] - meta["min"]) + meta["min"]
+        gz, gx = np.gradient(hgt)
+        shade_ = np.clip(0.75 + (gx * -0.7 + gz * -0.5) * 0.6, 0.35, 1.25)
+        t = np.clip(hgt / 7.0, -0.4, 1.0)
+        base = np.where(t[..., None] < 0.08, np.array([34, 38, 32]), np.array([46, 72, 40]) + t[..., None] * np.array([40, 46, 20]))
+        rgb = np.clip(base * shade_[..., None], 0, 255).astype(np.uint8)
+        im = Image.fromarray(rgb, "RGB")
+        x0, y0 = self.px(a[0], a[1])
+        x1, y1 = self.px(a[2], a[3])
+        im = im.resize((int(x1 - x0), int(y1 - y0)), Image.BILINEAR)
+        img.paste(im, (int(x0), int(y0)))
+        img.paste(BG, (0, 0, self.w, 46))
+
     def draw(self, level, notes):
         img = Image.new("RGB", (self.w, self.h), BG)
+        if level == 0 and self.doc.get("terrain"):
+            self.relief(img)
         dr = ImageDraw.Draw(img, "RGBA")
         pieces = self.doc.get("pieces", [])
-        order = {"floor": 0, "poly": 1, "ramp": 2, "stairs": 3, "box": 4, "column": 5, "wall": 6, "prop": 7, "light": 8,
+        order = {"floor": 0, "poly": 1, "ramp": 2, "stairs": 3, "box": 4, "column": 5, "wall": 6, "prop": 7, "vines": 7, "light": 8,
                  "spot": 9, "spawn": 10, "landmark": 11}
         labels = []
         for p in sorted(pieces, key=lambda q: (order.get(q.get("type"), 5), frame(q)[0][1])):
@@ -220,6 +257,19 @@ class Plan:
             dr.line([self.px(cx, cz), self.px(cx + ax, cz + az)], fill=(255, 255, 255, int(220 * k)), width=2)
             hx, hz = rot(0, -ln * 0.5, yaw)
             labels.append((self.px(cx + hx, cz + hz), "%s ↑%.1f" % (pid, float(p.get("rise", 1))), (255, 230, 140) if here else (120, 110, 80)))
+        elif t == "prop" and str(p.get("model", "")).startswith(NATURE):
+            x, y = self.px(cx, cz)
+            m = str(p.get("model", ""))
+            if m.startswith(TREES):
+                r = self.s * (3.2 if "ceiba" in m else 2.2)
+                dr.ellipse((x - r, y - r, x + r, y + r), outline=(90, 170, 80, int(170 * k)), width=2)
+                dr.ellipse((x - 3, y - 3, x + 3, y + 3), fill=(120, 90, 60, int(255 * k)))
+            else:
+                r = max(3, self.s * 0.7)
+                dr.ellipse((x - r, y - r, x + r, y + r), fill=(120, 124, 110, int(220 * k)), outline=(30, 30, 30))
+        elif t == "vines" and here:
+            a, b2 = p["from"], p["to"]
+            dr.line([self.px(a[0], a[2]), self.px(b2[0], b2[2])], fill=(110, 220, 90, 230), width=3)
         elif t == "prop":
             x, y = self.px(cx, cz)
             r = max(3, self.s * 0.4)
@@ -232,7 +282,11 @@ class Plan:
             rgb = tuple(int(col[i:i + 2], 16) for i in (0, 2, 4)) if len(col) == 6 else (255, 200, 140)
             rng = float(p.get("range", 9)) * self.s
             dr.ellipse((x - rng, y - rng, x + rng, y + rng), fill=rgb + (14,))
-            dr.ellipse((x - 4, y - 4, x + 4, y + 4), fill=rgb + (255,), outline=(0, 0, 0))
+            if p.get("kind") in ("torch", "brazier"):
+                fr = 6 if p.get("kind") == "brazier" else 4
+                dr.polygon([(x, y - fr * 2), (x + fr, y + fr * 0.6), (x - fr, y + fr * 0.6)], fill=(255, 150, 40, 255), outline=(60, 20, 0))
+            else:
+                dr.ellipse((x - 4, y - 4, x + 4, y + 4), fill=rgb + (255,), outline=(0, 0, 0))
             if p.get("fault"):
                 dr.text((x + 6, y - 6), "~", fill=rgb, font=self.f_small)
         elif t == "spawn" and here:

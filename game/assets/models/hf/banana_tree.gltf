@@ -1,0 +1,166 @@
+{
+ "asset": {
+  "generator": "Khronos glTF Blender I/O v5.2.40",
+  "version": "2.0"
+ },
+ "scene": 0,
+ "scenes": [
+  {
+   "name": "Scene",
+   "nodes": [
+    0
+   ]
+  }
+ ],
+ "nodes": [
+  {
+   "mesh": 0,
+   "name": "banana_tree"
+  }
+ ],
+ "materials": [
+  {
+   "doubleSided": true,
+   "name": "lambert1",
+   "normalTexture": {
+    "index": 0
+   },
+   "pbrMetallicRoughness": {
+    "baseColorTexture": {
+     "index": 1
+    },
+    "metallicFactor": 0,
+    "metallicRoughnessTexture": {
+     "index": 2
+    }
+   },
+   "alphaMode": "MASK",
+   "alphaCutoff": 0.45
+  }
+ ],
+ "meshes": [
+  {
+   "name": "BANANA_PLANT_lambert1_0",
+   "primitives": [
+    {
+     "attributes": {
+      "POSITION": 0,
+      "NORMAL": 1,
+      "TEXCOORD_0": 2
+     },
+     "indices": 3,
+     "material": 0
+    }
+   ]
+  }
+ ],
+ "textures": [
+  {
+   "sampler": 0,
+   "source": 0
+  },
+  {
+   "sampler": 0,
+   "source": 1
+  },
+  {
+   "sampler": 1,
+   "source": 2
+  }
+ ],
+ "images": [
+  {
+   "mimeType": "image/jpeg",
+   "name": "banana_tree_Image_2",
+   "uri": "textures/banana_tree_Image_2.jpg"
+  },
+  {
+   "mimeType": "image/jpeg",
+   "name": "banana_tree_Image_0",
+   "uri": "textures/banana_tree_Image_0.jpg"
+  },
+  {
+   "mimeType": "image/jpeg",
+   "name": "banana_tree_Image_1",
+   "uri": "textures/banana_tree_Image_1.jpg"
+  }
+ ],
+ "accessors": [
+  {
+   "bufferView": 0,
+   "componentType": 5126,
+   "count": 2825,
+   "max": [
+    2.8039000034332275,
+    5.029220104217529,
+    2.9872493743896484
+   ],
+   "min": [
+    -2.8034567832946777,
+    -0.02243567444384098,
+    -2.6939876079559326
+   ],
+   "type": "VEC3"
+  },
+  {
+   "bufferView": 1,
+   "componentType": 5126,
+   "count": 2825,
+   "type": "VEC3"
+  },
+  {
+   "bufferView": 2,
+   "componentType": 5126,
+   "count": 2825,
+   "type": "VEC2"
+  },
+  {
+   "bufferView": 3,
+   "componentType": 5123,
+   "count": 8583,
+   "type": "SCALAR"
+  }
+ ],
+ "bufferViews": [
+  {
+   "buffer": 0,
+   "byteLength": 33900,
+   "byteOffset": 0,
+   "target": 34962
+  },
+  {
+   "buffer": 0,
+   "byteLength": 33900,
+   "byteOffset": 33900,
+   "target": 34962
+  },
+  {
+   "buffer": 0,
+   "byteLength": 22600,
+   "byteOffset": 67800,
+   "target": 34962
+  },
+  {
+   "buffer": 0,
+   "byteLength": 17166,
+   "byteOffset": 90400,
+   "target": 34963
+  }
+ ],
+ "samplers": [
+  {
+   "magFilter": 9729,
+   "minFilter": 9987
+  },
+  {
+   "magFilter": 9728,
+   "minFilter": 9984
+  }
+ ],
+ "buffers": [
+  {
+   "byteLength": 107568,
+   "uri": "banana_tree.bin"
+  }
+ ]
+}

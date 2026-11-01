@@ -1,0 +1,22 @@
+{
+  "source": "Sketchfab (downloaded from the Objaverse mirror, allenai/objaverse on Hugging Face)",
+  "title": "Olmec Head",
+  "url": "https://sketchfab.com/3d-models/a9ec7d1b19374447869b97a3362e4ee1",
+  "mirror_url": "https://huggingface.co/datasets/allenai/objaverse/resolve/main/glbs/000-087/a9ec7d1b19374447869b97a3362e4ee1.glb",
+  "authors": [
+    "michael"
+  ],
+  "author_url": "https://sketchfab.com/michael_carroll",
+  "license": "CC-BY-4.0",
+  "license_url": "http://creativecommons.org/licenses/by/4.0/",
+  "attribution_required": true,
+  "kind": "model",
+  "purpose": "colossal stone head",
+  "modifications": "Scaled to 2.7 m tall; decimated to 6,998 triangles; 819,439 -> 6,998 triangles (tools/blender/process_hf.py).",
+  "retrieved": "2026-11-02",
+  "files": {
+    "olmec_head.gltf": "c7e2e35b1b0a114eee5a7704d77bc92136640c5f8470bd3a77a77b378c7fcc04",
+    "olmec_head.bin": "284903e1687387a3c349273723356a4aee5877a8fa6647628030d8248d7a9652"
+  },
+  "processed_from": "tools/cache/sketchfab/hf_olmec_head/hf_olmec_head.glb"
+}

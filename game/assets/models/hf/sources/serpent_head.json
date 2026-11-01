@@ -1,0 +1,22 @@
+{
+  "source": "Sketchfab (downloaded from the Objaverse mirror, allenai/objaverse on Hugging Face)",
+  "title": "Xiuhcoatl statue",
+  "url": "https://sketchfab.com/3d-models/951c458eaf604a05b14a5531b315d11c",
+  "mirror_url": "https://huggingface.co/datasets/allenai/objaverse/resolve/main/glbs/000-143/951c458eaf604a05b14a5531b315d11c.glb",
+  "authors": [
+    "franchus"
+  ],
+  "author_url": "https://sketchfab.com/franchus",
+  "license": "CC-BY-4.0",
+  "license_url": "http://creativecommons.org/licenses/by/4.0/",
+  "attribution_required": true,
+  "kind": "model",
+  "purpose": "fire serpent head sculpture",
+  "modifications": "Scaled to 2.2 m tall; decimated to 6,000 triangles; 94,458 -> 6,000 triangles (tools/blender/process_hf.py).",
+  "retrieved": "2026-11-02",
+  "files": {
+    "serpent_head.gltf": "5875e2337d9a3c1831491c94af4b3a9193269c3e09d72ef245a6d1b31726e5a7",
+    "serpent_head.bin": "89f036b7fc7815a8781ef9822dec2f3fc8573e98ad223f8d0b0b249bdaa55ca6"
+  },
+  "processed_from": "tools/cache/sketchfab/hf_xiuhcoatl/hf_xiuhcoatl.glb"
+}

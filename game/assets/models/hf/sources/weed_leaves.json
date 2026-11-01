@@ -1,0 +1,21 @@
+{
+  "source": "Poly Haven",
+  "title": "Weed Plant 02",
+  "url": "https://polyhaven.com/a/weed_plant_02",
+  "authors": [
+    "Rob Tuytel",
+    "Rico Cilliers"
+  ],
+  "license": "CC0-1.0",
+  "license_url": "https://polyhaven.com/license",
+  "attribution_required": false,
+  "kind": "model",
+  "resolution": "1k",
+  "modifications": "Kept weed_plant_02_a_LOD0 of the set; scaled 3x (grown into a jungle-sized plant); leaves thinned to 2,967 triangles (whole leaves dropped, the rest enlarged up to 1.0x), kept cut out; 2,967 -> 2,967 triangles (tools/blender/process_hf.py).",
+  "retrieved": "2026-10-25",
+  "files": {
+    "weed_leaves.gltf": "860caf2297cbfc20ed5f11e7e6acd861386e3fca20525c8d11f969b48f43fdd6",
+    "weed_leaves.bin": "7feb34c958aae9840c6802ccba25237056e50c03064abaf706fd9e192da3b525"
+  },
+  "processed_from": "game/assets/thirdparty/polyhaven/models/weed_plant_02/weed_plant_02_1k.gltf"
+}

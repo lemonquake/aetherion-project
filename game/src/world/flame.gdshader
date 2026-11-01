@@ -6,8 +6,8 @@ shader_type spatial;
 // fire and the light it throws pulse together. Additive, unshaded, so it costs a few noise lookups per pixel.
 render_mode unshaded, blend_add, depth_draw_never, cull_disabled, shadows_disabled, skip_vertex_transform, fog_disabled;
 
-uniform vec4 core_color : source_color = vec4(1.0, 0.86, 0.52, 1.0);
-uniform vec4 body_color : source_color = vec4(1.0, 0.45, 0.08, 1.0);
+uniform vec4 core_color : source_color = vec4(1.0, 0.74, 0.32, 1.0);
+uniform vec4 body_color : source_color = vec4(1.0, 0.38, 0.05, 1.0);
 uniform vec4 tip_color : source_color = vec4(0.75, 0.12, 0.02, 1.0);
 uniform float intensity = 2.6;
 uniform float speed = 1.0;
@@ -61,7 +61,7 @@ void fragment() {
 		float n2 = fbm(vec2(uv.x * 6.3 + 3.1, uv.y * 4.6 - rise * 1.6));
 		// The tongue leans and sways more toward its tip.
 		float sway = (n - 0.5) * 0.42 * uv.y + sin(t * 3.7 + uv.y * 4.0) * 0.035 * uv.y;
-		float width = mix(0.36, 0.035, pow(clamp(uv.y, 0.0, 1.0), 0.75));
+		float width = mix(0.42, 0.05, pow(clamp(uv.y, 0.0, 1.0), 0.9));
 		float dx = abs(uv.x - 0.5 + sway);
 		float body = smoothstep(width, width * 0.25, dx);
 		float top = 1.0 - smoothstep(0.35, 0.98, uv.y + (n2 - 0.5) * 0.45);
@@ -72,7 +72,7 @@ void fragment() {
 		shape = max(shape, lick * 0.55);
 		float heat = clamp(shape * (1.25 - uv.y) * 1.35, 0.0, 1.0);
 		vec3 col = mix(tip_color.rgb, body_color.rgb, smoothstep(0.05, 0.45, heat));
-		col = mix(col, core_color.rgb, smoothstep(0.55, 0.95, heat));
+		col = mix(col, core_color.rgb, smoothstep(0.62, 0.98, heat));
 		ALBEDO = col * shape * intensity * k;
 		ALPHA = shape;
 	}

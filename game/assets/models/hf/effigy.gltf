@@ -1,0 +1,164 @@
+{
+ "asset": {
+  "generator": "Khronos glTF Blender I/O v5.2.40",
+  "version": "2.0"
+ },
+ "scene": 0,
+ "scenes": [
+  {
+   "name": "Scene",
+   "nodes": [
+    0
+   ]
+  }
+ ],
+ "nodes": [
+  {
+   "mesh": 0,
+   "name": "effigy"
+  }
+ ],
+ "materials": [
+  {
+   "doubleSided": true,
+   "name": "3400_Jadestatue_Opfer_hp",
+   "normalTexture": {
+    "index": 0
+   },
+   "occlusionTexture": {
+    "index": 1
+   },
+   "pbrMetallicRoughness": {
+    "baseColorTexture": {
+     "index": 2
+    },
+    "metallicFactor": 0,
+    "metallicRoughnessTexture": {
+     "index": 1
+    },
+    "roughnessFactor": 0.9289407730102539
+   }
+  }
+ ],
+ "meshes": [
+  {
+   "name": "Object_0",
+   "primitives": [
+    {
+     "attributes": {
+      "POSITION": 0,
+      "NORMAL": 1,
+      "TEXCOORD_0": 2
+     },
+     "indices": 3,
+     "material": 0
+    }
+   ]
+  }
+ ],
+ "textures": [
+  {
+   "sampler": 0,
+   "source": 0
+  },
+  {
+   "sampler": 0,
+   "source": 1
+  },
+  {
+   "sampler": 0,
+   "source": 2
+  }
+ ],
+ "images": [
+  {
+   "mimeType": "image/jpeg",
+   "name": "effigy_Image_2",
+   "uri": "textures/effigy_Image_2.jpg"
+  },
+  {
+   "mimeType": "image/jpeg",
+   "name": "effigy_Image_1",
+   "uri": "textures/effigy_Image_1.jpg"
+  },
+  {
+   "mimeType": "image/jpeg",
+   "name": "effigy_Image_0",
+   "uri": "textures/effigy_Image_0.jpg"
+  }
+ ],
+ "accessors": [
+  {
+   "bufferView": 0,
+   "componentType": 5126,
+   "count": 5166,
+   "max": [
+    0.41677677631378174,
+    1.8991035223007202,
+    0.34344884753227234
+   ],
+   "min": [
+    -0.41735896468162537,
+    0.0012233469169586897,
+    -0.3426830470561981
+   ],
+   "type": "VEC3"
+  },
+  {
+   "bufferView": 1,
+   "componentType": 5126,
+   "count": 5166,
+   "type": "VEC3"
+  },
+  {
+   "bufferView": 2,
+   "componentType": 5126,
+   "count": 5166,
+   "type": "VEC2"
+  },
+  {
+   "bufferView": 3,
+   "componentType": 5123,
+   "count": 15000,
+   "type": "SCALAR"
+  }
+ ],
+ "bufferViews": [
+  {
+   "buffer": 0,
+   "byteLength": 61992,
+   "byteOffset": 0,
+   "target": 34962
+  },
+  {
+   "buffer": 0,
+   "byteLength": 61992,
+   "byteOffset": 61992,
+   "target": 34962
+  },
+  {
+   "buffer": 0,
+   "byteLength": 41328,
+   "byteOffset": 123984,
+   "target": 34962
+  },
+  {
+   "buffer": 0,
+   "byteLength": 30000,
+   "byteOffset": 165312,
+   "target": 34963
+  }
+ ],
+ "samplers": [
+  {
+   "magFilter": 9729,
+   "minFilter": 9987
+  }
+ ],
+ "buffers": [
+  {
+   "byteLength": 195312,
+   "uri": "effigy.bin"
+  }
+ ]
+}

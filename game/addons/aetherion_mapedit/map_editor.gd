@@ -7,12 +7,16 @@ extends Node3D
 ## there are unsaved edits here.
 ##   Notes      QA notes pinned on the map (res://maps/<id>/qa.json)
 ##   Waypoints  the bots' waypoint graph (load, edit, save, check: see the aetherion-waypoints skill)
+##   Terrain3D  (r27) the uneven ground, when the map has one: sculpt, paint and plant it with Terrain3D's own tools
+##              (select the node: its toolbar and the Terrain3D asset dock appear). Save map also writes its regions
+##              and bakes the heights the game collides with (map_terrain.gd).
 ## The game never loads this scene.
 
 const MapDoc := preload("res://src/world/maps/authored/map_doc.gd")
 const MapPiece := preload("res://addons/aetherion_mapedit/map_piece.gd")
 const QaNote := preload("res://addons/aetherion_mapedit/qa_note.gd")
 const WaypointSet := preload("res://addons/aetherion_waypoints/waypoint_set.gd")
+const MapTerrain := preload("res://src/world/maps/authored/map_terrain.gd")
 
 @export var map_id := "":
 	set(v):
@@ -172,6 +176,7 @@ func load_map() -> void:
 	wp.floor_height = level_height
 	wp.levels = levels
 	_preview_env()
+	_ensure_terrain()
 	_draw_outline()
 	_apply_level()
 	_mtime = FileAccess.get_modified_time(MapDoc.path_of(map_id))
@@ -229,10 +234,38 @@ func save_map() -> void:
 		return
 	_mtime = FileAccess.get_modified_time(MapDoc.path_of(map_id))
 	dirty = false
+	_save_terrain()
 	_save_notes()
 	print("[map editor] saved %s: %d pieces, %d notes" % [MapDoc.path_of(map_id), (doc.pieces as Array).size(), notes().size()])
 	for pr in MapDoc.check(doc):
 		push_warning("[map editor] %s: %s" % [pr.id if pr.id != "" else map_id, pr.msg])
+
+
+func _ensure_terrain() -> void:
+	## (r27) The map's Terrain3D ground under the pieces, kept in this scene (its data lives in the map's folder).
+	var s := MapTerrain.spec_of(doc)
+	if s.is_empty():
+		return
+	var t := get_node_or_null("Terrain3D")
+	if t == null:
+		t = MapTerrain.make_node(s, false)
+		if t == null:
+			push_warning("[map editor] %s has Terrain3D ground but the Terrain3D extension is not loaded" % map_id)
+			return
+		add_child(t)
+		t.owner = _scene_root()
+
+
+func _save_terrain() -> void:
+	## (r27) Writes the Terrain3D regions and bakes the heights the game collides with and the bots survey.
+	var s := MapTerrain.spec_of(doc)
+	var t := get_node_or_null("Terrain3D")
+	if s.is_empty() or t == null or t.get("data") == null:
+		return
+	t.get("data").save_directory(str(s.dir))
+	var img := MapTerrain.bake(t, s)
+	var err := MapTerrain.save_baked(img, s, map_id)
+	print("[map editor] baked the ground of %s: %d x %d heights (%s)" % [map_id, img.get_width(), img.get_height(), error_string(err)])
 
 
 func _save_notes() -> void:

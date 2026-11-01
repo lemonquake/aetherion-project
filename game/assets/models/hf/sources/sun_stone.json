@@ -1,0 +1,22 @@
+{
+  "source": "Sketchfab (downloaded from the Objaverse mirror, allenai/objaverse on Hugging Face)",
+  "title": "Aztec Calendar Stone",
+  "url": "https://sketchfab.com/3d-models/c5546bcb4b0447e3acf0031df9338ff5",
+  "mirror_url": "https://huggingface.co/datasets/allenai/objaverse/resolve/main/glbs/000-012/c5546bcb4b0447e3acf0031df9338ff5.glb",
+  "authors": [
+    "rmark"
+  ],
+  "author_url": "https://sketchfab.com/rmark",
+  "license": "CC-BY-4.0",
+  "license_url": "http://creativecommons.org/licenses/by/4.0/",
+  "attribution_required": true,
+  "kind": "model",
+  "purpose": "the sun stone, standing in its frame",
+  "modifications": "Scaled to 3.8 m tall; decimated to 7,000 triangles; 70,436 -> 7,000 triangles (tools/blender/process_hf.py).",
+  "retrieved": "2026-11-02",
+  "files": {
+    "sun_stone.gltf": "6a8ec1a6a4dc90e23b4865610965951c2932f2d451e575b4682f08e642fa2605",
+    "sun_stone.bin": "18c824396314cc6992bd4e370c1ac786b6b4759acd8ed5c887ccd6045736a4a4"
+  },
+  "processed_from": "tools/cache/sketchfab/hf_calendar_stone/hf_calendar_stone.glb"
+}

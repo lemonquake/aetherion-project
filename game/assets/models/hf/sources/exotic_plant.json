@@ -1,0 +1,22 @@
+{
+  "source": "Sketchfab (downloaded from the Objaverse mirror, allenai/objaverse on Hugging Face)",
+  "title": "Exotic Pink Leafed Plant",
+  "url": "https://sketchfab.com/3d-models/868828fad0e348378c6be5397da0895c",
+  "mirror_url": "https://huggingface.co/datasets/allenai/objaverse/resolve/main/glbs/000-086/868828fad0e348378c6be5397da0895c.glb",
+  "authors": [
+    "Nicola Hynes"
+  ],
+  "author_url": "https://sketchfab.com/zNKHz",
+  "license": "CC-BY-4.0",
+  "license_url": "http://creativecommons.org/licenses/by/4.0/",
+  "attribution_required": true,
+  "kind": "model",
+  "purpose": "exotic broadleaf plant",
+  "modifications": "Scaled to 1.3 m tall; leaves thinned to 2,600 triangles (whole leaves dropped, the rest enlarged up to 1.0x), kept cut out; 3,120 -> 2,600 triangles (tools/blender/process_hf.py).",
+  "retrieved": "2026-11-02",
+  "files": {
+    "exotic_plant.gltf": "dbffa3d3117716a0d453edef0a0058514b14869b42c9f68bc5c0353f5f996e81",
+    "exotic_plant.bin": "04478e0fe6279a744b06d91072a1da32fe9b5f2b955bfbe46296e2582865ca83"
+  },
+  "processed_from": "tools/cache/sketchfab/hf_pink_plant/hf_pink_plant.glb"
+}

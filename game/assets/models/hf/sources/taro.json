@@ -1,0 +1,22 @@
+{
+  "source": "Sketchfab (downloaded from the Objaverse mirror, allenai/objaverse on Hugging Face)",
+  "title": "Taro",
+  "url": "https://sketchfab.com/3d-models/3c9390ddb8c04387afa22241ada26a7b",
+  "mirror_url": "https://huggingface.co/datasets/allenai/objaverse/resolve/main/glbs/000-006/3c9390ddb8c04387afa22241ada26a7b.glb",
+  "authors": [
+    "The_Structure_World"
+  ],
+  "author_url": "https://sketchfab.com/The_Structure_World",
+  "license": "CC-BY-4.0",
+  "license_url": "http://creativecommons.org/licenses/by/4.0/",
+  "attribution_required": true,
+  "kind": "model",
+  "purpose": "taro (elephant ear)",
+  "modifications": "Scaled to 1.7 m tall; leaves thinned to 1,260 triangles (whole leaves dropped, the rest enlarged up to 1.0x), kept cut out; 1,260 -> 1,260 triangles (tools/blender/process_hf.py).",
+  "retrieved": "2026-11-02",
+  "files": {
+    "taro.gltf": "d1f16314e7ee5dff4434d2aa1ad7cde91fc5339ff1638f6a4e2885687d81c27d",
+    "taro.bin": "a9cd52b7abe4ead1778155d64f8496a4c293e850c22745f543b8a76c73d2982f"
+  },
+  "processed_from": "tools/cache/sketchfab/hf_taro/hf_taro.glb"
+}

@@ -1,0 +1,22 @@
+{
+  "source": "Sketchfab (downloaded from the Objaverse mirror, allenai/objaverse on Hugging Face)",
+  "title": "jaguar statue",
+  "url": "https://sketchfab.com/3d-models/0f8a760e6f674b26987cd24b4ecc54a1",
+  "mirror_url": "https://huggingface.co/datasets/allenai/objaverse/resolve/main/glbs/000-134/0f8a760e6f674b26987cd24b4ecc54a1.glb",
+  "authors": [
+    "zung115"
+  ],
+  "author_url": "https://sketchfab.com/zung115",
+  "license": "CC-BY-4.0",
+  "license_url": "http://creativecommons.org/licenses/by/4.0/",
+  "attribution_required": true,
+  "kind": "model",
+  "purpose": "jaguar statue on its plinth",
+  "modifications": "Scaled to 2.3 m tall; decimated to 6,000 triangles; 9,357 -> 6,000 triangles (tools/blender/process_hf.py).",
+  "retrieved": "2026-11-02",
+  "files": {
+    "jaguar.gltf": "9dcdf20fa6b05fcd7ebdbf0486cadafa775705004ee03d13f33b0e47c0b2ec65",
+    "jaguar.bin": "26691584b20a32caa5f8ddc7b1fbae15c75995ebfcbbb5e7f34368eb2344d5c4"
+  },
+  "processed_from": "tools/cache/sketchfab/hf_jaguar/hf_jaguar.glb"
+}

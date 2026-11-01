@@ -37,7 +37,13 @@ extends RefCounted
 ##   landmark  at, name (a place on the SmarTab map)
 ##   spot      at, kind (hide | snipe | cover), yaw (the way a bot watches), name: designated bot spots
 ##   prop      at, model (a model library name: crate_wood, sandbag, basketball_hoop...), yaw, physics (false:
-##             static; true: it can be pushed and knocked over)
+##             static; true: it can be pushed and knocked over), foot (r, or [w, d]): an invisible collider round its
+##             base, foot_h tall (2.5), the bots' walk grid sees it (trees, rocks, statues that keep no collision)
+## (r27) Hidden Forest's additions:
+##   light     kind torch | brazier: an open fire (a drawn flame, a fire flicker); mount (pole | wall | stand | bowl |
+##             none): what it burns on, pole (metres up a pole); minor (true: on phones only the flame, no light)
+##   vines     from [x, y, z], to [x, y, z], drop, density, sag, w, seed: hanging strands along a line (map_nature.gd)
+## The header may name a Terrain3D ground: "terrain": {...} (map_terrain.gd).
 ## The QA notes people pin in the editor are kept apart, in res://maps/<id>/qa.json.
 
 const FORMAT := "aetherion-map/1"
@@ -46,8 +52,10 @@ const UPM := 32.0
 const TEX_ROOT := "res://assets/maps/textures"
 const SURFACES := "res://assets/maps/surfaces.json"
 const GEOMETRY := ["box", "floor", "wall", "poly", "column", "stairs", "ramp"]
-const THINGS := ["light", "spawn", "landmark", "spot", "prop"]
-const TYPES := ["box", "floor", "wall", "poly", "column", "stairs", "ramp", "light", "spawn", "landmark", "spot", "prop"]
+const THINGS := ["light", "spawn", "landmark", "spot", "prop", "vines"]
+const TYPES := ["box", "floor", "wall", "poly", "column", "stairs", "ramp", "light", "spawn", "landmark", "spot", "prop", "vines"]
+const MapNature := preload("res://src/world/maps/authored/map_nature.gd")
+const FIRE_KINDS := ["torch", "brazier"]
 const DEFAULT_MAT := {"box": "freight/concrete_rough", "floor": "freight/concrete_rough", "wall": "freight/chb_white",
 	"poly": "freight/concrete_rough", "column": "freight/concrete_rough", "stairs": "freight/concrete_rough",
 	"ramp": "freight/concrete_rough"}
@@ -65,6 +73,7 @@ const DEFAULTS := {
 	"landmark": {"at": [0, 0, 0], "name": "Place"},
 	"spot": {"at": [0, 0, 0], "kind": "hide", "yaw": 0, "name": ""},
 	"prop": {"at": [0, 0, 0], "model": "crate_wood", "yaw": 0, "physics": false},
+	"vines": {"from": [-1, 3, 0], "to": [1, 3, 0], "drop": 3.0, "density": 3.0, "sag": 0.0},
 }
 const SPOT_LIGHTS := ["flood", "street", "down", "shaft"]
 
@@ -154,7 +163,7 @@ static func normalise(js: Dictionary, id: String = "") -> Dictionary:
 static func to_json(doc: Dictionary) -> String:
 	## Stable, readable text: the header keys first, then one piece per line (diffs stay small, people can read it).
 	var head := ["format", "id", "name", "code", "modes", "bounds", "levels", "level_height", "night_only",
-		"field_optional", "teams", "night_grade", "note"]
+		"field_optional", "teams", "night_grade", "terrain", "note"]
 	var lines := ["{"]
 	for k in head:
 		if doc.has(k):
@@ -288,6 +297,8 @@ static func yaw_basis(yaw_deg: float) -> Basis:
 
 static func frame(p: Dictionary) -> Transform3D:
 	## The piece's own frame: where its node sits in the editor and what its local geometry is relative to.
+	if str(p.get("type", "")) == "vines":
+		return MapNature.vines_frame(p)
 	if str(p.get("type", "")) == "wall":
 		var a := v2(p.get("from"))
 		var b := v2(p.get("to"), Vector2(1, 0))
@@ -302,6 +313,14 @@ static func set_frame(p: Dictionary, xf: Transform3D) -> void:
 	## The piece moved and turned in the editor: write its position and bearing back (keeping a wall's length).
 	var f := -xf.basis.z
 	var yaw := snappedf(fposmod(rad_to_deg(atan2(f.x, -f.z)), 360.0), 0.001)
+	if str(p.get("type", "")) == "vines":
+		# keep the line's own shape (its length, how its ends differ in height), moved and turned with the node
+		var old := MapNature.vines_frame(p)
+		var rel := xf * old.affine_inverse()
+		for k in ["from", "to"]:
+			var q: Vector3 = rel * v3(p.get(k))
+			p[k] = [snappedf(q.x, 0.001), snappedf(q.y, 0.001), snappedf(q.z, 0.001)]
+		return
 	if str(p.get("type", "")) == "wall":
 		var ln := wall_len(p)
 		var dir := xf.basis.x.normalized()
@@ -590,6 +609,8 @@ static func bounds_local(p: Dictionary) -> AABB:
 			return AABB(Vector3(-0.3, 0, -0.3), Vector3(0.6, 1.8, 0.6))
 		"prop":
 			return AABB(Vector3(-0.4, 0, -0.4), Vector3(0.8, 1.0, 0.8))
+		"vines":
+			return MapNature.vines_bounds(p)
 	return AABB(Vector3(-0.3, 0, -0.3), Vector3(0.6, 1.2, 0.6))
 
 
@@ -774,7 +795,20 @@ static func entities(doc: Dictionary, only: Array = [], local := false) -> Array
 				ents.append({"props": {"classname": "light", "origin": _origin(at), "kind": str(p.get("kind", "bulb")),
 					"_color": _hex_rgb(str(p.get("color", "#ffc98a"))), "energy": str(p.get("energy", 1.2)),
 					"range": str(p.get("range", 9)), "fault": str(p.get("fault", "")), "angle": q_angle,
-					"pitch": str(p.get("pitch", 90)), "cone": str(p.get("cone", 45))}, "brushes": []})
+					"pitch": str(p.get("pitch", 90)), "cone": str(p.get("cone", 45)),
+					"minor": "1" if bool(p.get("minor", false)) else "0"}, "brushes": []})
+			"prop":
+				# (r27) an invisible collider round the base of a tree, rock or statue (its model keeps none)
+				var ft = p.get("foot", null)
+				if ft == null or local:
+					continue
+				var fh := float(p.get("foot_h", 2.5))
+				var clip := {"type": "column", "r": float(ft), "h": fh, "sides": 8, "mat": "freight/clip"} if (ft is float or ft is int) 					else {"type": "box", "size": [float(ft[0]), fh, float(ft[1])], "mat": "freight/clip"}
+				for br in brushes(clip):
+					var qf := []
+					for f in br.faces:
+						qf.append(_qface(f, xf))
+					world.brushes.append(qf)
 			"spawn":
 				ents.append({"props": {"classname": "info_team_spawn", "origin": _origin(at), "team": str(int(p.get("team", 1))),
 					"angle": q_angle, "for": str(p.get("for", ""))}, "brushes": []})
@@ -814,6 +848,29 @@ static func props(doc: Dictionary) -> Array:
 	for p in doc.get("pieces", []):
 		if str(p.get("type", "")) == "prop":
 			out.append({"model": str(p.get("model", "crate_wood")), "xf": frame(p), "physics": bool(p.get("physics", false))})
+	return out
+
+
+static func fires(doc: Dictionary) -> Array:
+	## (r27) What every torch and brazier burns on: [{mount, pole, xf (the fixture's base)}].
+	var out := []
+	for p in doc.get("pieces", []):
+		if str(p.get("type", "")) != "light" or not (str(p.get("kind", "")) in FIRE_KINDS):
+			continue
+		var mount := str(p.get("mount", "pole" if str(p.get("kind", "")) == "torch" else "stand"))
+		if mount == "none" or mount == "":
+			continue
+		var q: Dictionary = (p as Dictionary).duplicate()
+		q.mount = mount
+		out.append({"mount": mount, "pole": float(p.get("pole", 1.9)), "xf": MapNature.fixture_xf(q)})
+	return out
+
+
+static func vines(doc: Dictionary) -> Array:
+	var out := []
+	for p in doc.get("pieces", []):
+		if str(p.get("type", "")) == "vines":
+			out.append(p)
 	return out
 
 

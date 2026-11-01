@@ -1,0 +1,22 @@
+{
+  "source": "Sketchfab (downloaded from the Objaverse mirror, allenai/objaverse on Hugging Face)",
+  "title": "Brazier Bowl",
+  "url": "https://sketchfab.com/3d-models/817b9a33d48a46098f25b761dd36ac9f",
+  "mirror_url": "https://huggingface.co/datasets/allenai/objaverse/resolve/main/glbs/000-024/817b9a33d48a46098f25b761dd36ac9f.glb",
+  "authors": [
+    "JDegville"
+  ],
+  "author_url": "https://sketchfab.com/JDegville",
+  "license": "CC-BY-4.0",
+  "license_url": "http://creativecommons.org/licenses/by/4.0/",
+  "attribution_required": true,
+  "kind": "model",
+  "purpose": "brazier bowl",
+  "modifications": "Scaled to 0.7 m tall; 960 -> 960 triangles (tools/blender/process_hf.py).",
+  "retrieved": "2026-11-02",
+  "files": {
+    "brazier_bowl.gltf": "7ee6a65b2ff0a6d3113ccead1fd451c65677fbc787bf6a127442f6ef9a34670c",
+    "brazier_bowl.bin": "12bb342ffac626f4b7bc3ef6fe8fec9b882b975f70586507a4dac584d46c3695"
+  },
+  "processed_from": "tools/cache/sketchfab/hf_brazier_bowl/hf_brazier_bowl.glb"
+}

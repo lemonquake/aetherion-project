@@ -569,6 +569,7 @@ func _light(props: Dictionary, pos: Vector3, dir: Vector3) -> Light3D:
 	l.set_meta("kind", kind)
 	l.set_meta("fault", str(props.get("fault", "")))
 	l.set_meta("axis", dir)
+	l.set_meta("minor", str(props.get("minor", "0")) == "1")
 	return l
 
 

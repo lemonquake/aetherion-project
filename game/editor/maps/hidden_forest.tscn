@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3]
+
+[ext_resource type="Script" path="res://addons/aetherion_mapedit/map_editor.gd" id="1_hf"]
+[ext_resource type="Terrain3DAssets" path="res://maps/hidden_forest/terrain/assets.tres" id="2_hf"]
+[ext_resource type="Terrain3DMaterial" path="res://maps/hidden_forest/terrain/material.tres" id="3_hf"]
+
+[node name="HiddenForest" type="Node3D"]
+script = ExtResource("1_hf")
+map_id = "hidden_forest"
+night_preview = true
+
+[node name="Terrain3D" type="Terrain3D" parent="."]
+data_directory = "res://maps/hidden_forest/terrain"
+material = ExtResource("3_hf")
+assets = ExtResource("2_hf")
+region_size = 256
+vertex_spacing = 0.5

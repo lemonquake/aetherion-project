@@ -1,0 +1,22 @@
+{
+  "source": "Sketchfab (downloaded from the Objaverse mirror, allenai/objaverse on Hugging Face)",
+  "title": "Aztec Statue",
+  "url": "https://sketchfab.com/3d-models/adbc224b78064b4aa09f55908c805405",
+  "mirror_url": "https://huggingface.co/datasets/allenai/objaverse/resolve/main/glbs/000-129/adbc224b78064b4aa09f55908c805405.glb",
+  "authors": [
+    "Snakeskin.Cecil"
+  ],
+  "author_url": "https://sketchfab.com/SirCecilV",
+  "license": "CC-BY-4.0",
+  "license_url": "http://creativecommons.org/licenses/by/4.0/",
+  "attribution_required": true,
+  "kind": "model",
+  "purpose": "carved stele with a serpent head",
+  "modifications": "Scaled to 2.9 m tall; decimated to 6,000 triangles; 18,240 -> 6,000 triangles (tools/blender/process_hf.py).",
+  "retrieved": "2026-11-02",
+  "files": {
+    "serpent_stele.gltf": "d5c141871f90efcb3cebfe860773da6663c8a8725947b32d9a0b306ce616532f",
+    "serpent_stele.bin": "ff7c86531f6079a5ba4ad42a5684ceb1f34de8eb80cc3b4f1370f33e653b4d8a"
+  },
+  "processed_from": "tools/cache/sketchfab/hf_aztec_statue/hf_aztec_statue.glb"
+}

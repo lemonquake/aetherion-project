@@ -1135,5 +1135,308 @@
    512,
    512
   ]
+ },
+ "jungle/basalt": {
+  "phys": "concrete",
+  "rough": 0.88,
+  "metal": 0.0,
+  "size": 2.0,
+  "normal": true,
+  "rough_map": true,
+  "px": [
+   1024,
+   1024
+  ]
+ },
+ "jungle/cenote_water": {
+  "phys": "water",
+  "rough": 0.06,
+  "metal": 0.0,
+  "size": 4.0,
+  "normal": true,
+  "rough_map": false,
+  "px": [
+   512,
+   512
+  ]
+ },
+ "jungle/cliff": {
+  "phys": "concrete",
+  "rough": 0.88,
+  "metal": 0.0,
+  "size": 6.0,
+  "normal": true,
+  "rough_map": true,
+  "px": [
+   1024,
+   1024
+  ]
+ },
+ "jungle/fret_panel": {
+  "phys": "concrete",
+  "rough": 0.86,
+  "metal": 0.0,
+  "size": 1.6,
+  "normal": true,
+  "rough_map": false,
+  "px": [
+   1024,
+   1024
+  ]
+ },
+ "jungle/glyph_panel": {
+  "phys": "concrete",
+  "rough": 0.86,
+  "metal": 0.0,
+  "size": 2.4,
+  "normal": true,
+  "rough_map": false,
+  "px": [
+   1024,
+   1024
+  ]
+ },
+ "jungle/planks": {
+  "phys": "wood",
+  "rough": 0.88,
+  "metal": 0.0,
+  "size": 2.0,
+  "normal": true,
+  "rough_map": true,
+  "px": [
+   1024,
+   1024
+  ]
+ },
+ "jungle/rock_face": {
+  "phys": "concrete",
+  "rough": 0.88,
+  "metal": 0.0,
+  "size": 5.0,
+  "normal": true,
+  "rough_map": true,
+  "px": [
+   1024,
+   1024
+  ]
+ },
+ "jungle/rubble_wall": {
+  "phys": "concrete",
+  "rough": 0.88,
+  "metal": 0.0,
+  "size": 2.5,
+  "normal": true,
+  "rough_map": true,
+  "px": [
+   1024,
+   1024
+  ]
+ },
+ "jungle/serpent_scales": {
+  "phys": "concrete",
+  "rough": 0.86,
+  "metal": 0.0,
+  "size": 1.4,
+  "normal": true,
+  "rough_map": false,
+  "px": [
+   1024,
+   1024
+  ]
+ },
+ "jungle/skull_rack": {
+  "phys": "concrete",
+  "rough": 0.86,
+  "metal": 0.0,
+  "size": 1.8,
+  "normal": true,
+  "rough_map": false,
+  "px": [
+   1024,
+   1024
+  ]
+ },
+ "jungle/stucco_red": {
+  "phys": "concrete",
+  "rough": 0.88,
+  "metal": 0.0,
+  "size": 3.0,
+  "normal": true,
+  "rough_map": true,
+  "px": [
+   1024,
+   1024
+  ]
+ },
+ "jungle/stucco_white": {
+  "phys": "concrete",
+  "rough": 0.88,
+  "metal": 0.0,
+  "size": 3.0,
+  "normal": true,
+  "rough_map": true,
+  "px": [
+   1024,
+   1024
+  ]
+ },
+ "jungle/sun_disc": {
+  "phys": "concrete",
+  "rough": 0.86,
+  "metal": 0.0,
+  "size": 3.6,
+  "normal": true,
+  "rough_map": false,
+  "px": [
+   1024,
+   1024
+  ],
+  "fit": true
+ },
+ "jungle/temple_cobble": {
+  "phys": "concrete",
+  "rough": 0.88,
+  "metal": 0.0,
+  "size": 2.5,
+  "normal": true,
+  "rough_map": true,
+  "px": [
+   1024,
+   1024
+  ]
+ },
+ "jungle/temple_floor": {
+  "phys": "concrete",
+  "rough": 0.88,
+  "metal": 0.0,
+  "size": 4.0,
+  "normal": true,
+  "rough_map": true,
+  "px": [
+   1024,
+   1024
+  ]
+ },
+ "jungle/temple_paving": {
+  "phys": "concrete",
+  "rough": 0.88,
+  "metal": 0.0,
+  "size": 3.0,
+  "normal": true,
+  "rough_map": true,
+  "px": [
+   1024,
+   1024
+  ]
+ },
+ "jungle/temple_rubble": {
+  "phys": "concrete",
+  "rough": 0.88,
+  "metal": 0.0,
+  "size": 2.5,
+  "normal": true,
+  "rough_map": true,
+  "px": [
+   1024,
+   1024
+  ]
+ },
+ "jungle/temple_steps": {
+  "phys": "concrete",
+  "rough": 0.88,
+  "metal": 0.0,
+  "size": 2.0,
+  "normal": true,
+  "rough_map": true,
+  "px": [
+   1024,
+   1024
+  ]
+ },
+ "jungle/temple_stone": {
+  "phys": "concrete",
+  "rough": 0.88,
+  "metal": 0.0,
+  "size": 3.0,
+  "normal": true,
+  "rough_map": true,
+  "px": [
+   1024,
+   1024
+  ]
+ },
+ "jungle/temple_talud": {
+  "phys": "concrete",
+  "rough": 0.88,
+  "metal": 0.0,
+  "size": 3.0,
+  "normal": true,
+  "rough_map": true,
+  "px": [
+   1024,
+   1024
+  ]
+ },
+ "jungle/tezontle": {
+  "phys": "concrete",
+  "rough": 0.88,
+  "metal": 0.0,
+  "size": 2.0,
+  "normal": true,
+  "rough_map": true,
+  "px": [
+   1024,
+   1024
+  ]
+ },
+ "jungle/torch_wood": {
+  "phys": "wood",
+  "rough": 0.88,
+  "metal": 0.0,
+  "size": 1.0,
+  "normal": true,
+  "rough_map": true,
+  "px": [
+   1024,
+   1024
+  ]
+ },
+ "jungle/torch_wrap": {
+  "phys": "wood",
+  "rough": 0.95,
+  "metal": 0.0,
+  "size": 0.5,
+  "normal": true,
+  "rough_map": false,
+  "px": [
+   512,
+   512
+  ]
+ },
+ "jungle/vine_strand": {
+  "phys": "foliage",
+  "rough": 0.7,
+  "metal": 0.0,
+  "size": 1.0,
+  "normal": true,
+  "rough_map": false,
+  "px": [
+   256,
+   1024
+  ],
+  "alpha": "scissor",
+  "two_sided": true
+ },
+ "jungle/wood_moss": {
+  "phys": "wood",
+  "rough": 0.88,
+  "metal": 0.0,
+  "size": 2.0,
+  "normal": true,
+  "rough_map": true,
+  "px": [
+   1024,
+   1024
+  ]
  }
 }

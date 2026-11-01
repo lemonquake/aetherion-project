@@ -1,0 +1,160 @@
+{
+ "asset": {
+  "generator": "Khronos glTF Blender I/O v5.2.40",
+  "version": "2.0"
+ },
+ "scene": 0,
+ "scenes": [
+  {
+   "name": "Scene",
+   "nodes": [
+    0
+   ]
+  }
+ ],
+ "nodes": [
+  {
+   "mesh": 0,
+   "name": "stump_1"
+  }
+ ],
+ "materials": [
+  {
+   "doubleSided": true,
+   "name": "tree_stump_01",
+   "normalTexture": {
+    "index": 0
+   },
+   "pbrMetallicRoughness": {
+    "baseColorTexture": {
+     "index": 1
+    },
+    "metallicFactor": 0,
+    "metallicRoughnessTexture": {
+     "index": 2
+    }
+   }
+  }
+ ],
+ "meshes": [
+  {
+   "name": "tt_01_rep.001",
+   "primitives": [
+    {
+     "attributes": {
+      "POSITION": 0,
+      "NORMAL": 1,
+      "TEXCOORD_0": 2
+     },
+     "indices": 3,
+     "material": 0
+    }
+   ]
+  }
+ ],
+ "textures": [
+  {
+   "sampler": 0,
+   "source": 0
+  },
+  {
+   "sampler": 0,
+   "source": 1
+  },
+  {
+   "sampler": 0,
+   "source": 2
+  }
+ ],
+ "images": [
+  {
+   "mimeType": "image/jpeg",
+   "name": "tree_stump_01_nor_gl_1k",
+   "uri": "textures/tree_stump_01_nor_gl_1k.jpg"
+  },
+  {
+   "mimeType": "image/jpeg",
+   "name": "tree_stump_01_diff_1k",
+   "uri": "textures/tree_stump_01_diff_1k.jpg"
+  },
+  {
+   "mimeType": "image/jpeg",
+   "name": "tree_stump_01_arm_1k",
+   "uri": "textures/tree_stump_01_arm_1k.jpg"
+  }
+ ],
+ "accessors": [
+  {
+   "bufferView": 0,
+   "componentType": 5126,
+   "count": 1547,
+   "max": [
+    0.7110028266906738,
+    0.5713574886322021,
+    0.7949267029762268
+   ],
+   "min": [
+    -0.7136166095733643,
+    -0.0006138331955298781,
+    -0.7949796319007874
+   ],
+   "type": "VEC3"
+  },
+  {
+   "bufferView": 1,
+   "componentType": 5126,
+   "count": 1547,
+   "type": "VEC3"
+  },
+  {
+   "bufferView": 2,
+   "componentType": 5126,
+   "count": 1547,
+   "type": "VEC2"
+  },
+  {
+   "bufferView": 3,
+   "componentType": 5123,
+   "count": 5997,
+   "type": "SCALAR"
+  }
+ ],
+ "bufferViews": [
+  {
+   "buffer": 0,
+   "byteLength": 18564,
+   "byteOffset": 0,
+   "target": 34962
+  },
+  {
+   "buffer": 0,
+   "byteLength": 18564,
+   "byteOffset": 18564,
+   "target": 34962
+  },
+  {
+   "buffer": 0,
+   "byteLength": 12376,
+   "byteOffset": 37128,
+   "target": 34962
+  },
+  {
+   "buffer": 0,
+   "byteLength": 11994,
+   "byteOffset": 49504,
+   "target": 34963
+  }
+ ],
+ "samplers": [
+  {
+   "magFilter": 9729,
+   "minFilter": 9987
+  }
+ ],
+ "buffers": [
+  {
+   "byteLength": 61500,
+   "uri": "stump_1.bin"
+  }
+ ]
+}

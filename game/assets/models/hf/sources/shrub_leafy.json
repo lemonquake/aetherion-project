@@ -1,0 +1,20 @@
+{
+  "source": "Poly Haven",
+  "title": "Shrub 04",
+  "url": "https://polyhaven.com/a/shrub_04",
+  "authors": [
+    "Rico Cilliers"
+  ],
+  "license": "CC0-1.0",
+  "license_url": "https://polyhaven.com/license",
+  "attribution_required": false,
+  "kind": "model",
+  "resolution": "1k",
+  "modifications": "Scaled 2.2x (grown into a jungle-sized plant); leaves thinned to 1,944 triangles (whole leaves dropped, the rest enlarged up to 1.2x), kept cut out; 27,327 -> 1,944 triangles (tools/blender/process_hf.py).",
+  "retrieved": "2026-10-25",
+  "files": {
+    "shrub_leafy.gltf": "a01d5e8886ecd6d54ddc221ef5252b5dbd998d5a5a86a28b8cfddedd6879259d",
+    "shrub_leafy.bin": "073e68c25936a2b39290d3948d1cd5b9192c11dbcd95ead25eced7f9a02ba82b"
+  },
+  "processed_from": "game/assets/thirdparty/polyhaven/models/shrub_04/shrub_04_1k.gltf"
+}

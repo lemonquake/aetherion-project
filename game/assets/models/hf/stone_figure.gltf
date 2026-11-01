@@ -1,0 +1,137 @@
+{
+ "asset": {
+  "generator": "Khronos glTF Blender I/O v5.2.40",
+  "version": "2.0"
+ },
+ "scene": 0,
+ "scenes": [
+  {
+   "name": "Scene",
+   "nodes": [
+    0
+   ]
+  }
+ ],
+ "nodes": [
+  {
+   "mesh": 0,
+   "name": "stone_figure"
+  }
+ ],
+ "materials": [
+  {
+   "doubleSided": true,
+   "name": "OlmecManL_003OlmecManL_003",
+   "pbrMetallicRoughness": {
+    "baseColorTexture": {
+     "index": 0
+    },
+    "metallicFactor": 0,
+    "roughnessFactor": 0.3728511929512024
+   }
+  }
+ ],
+ "meshes": [
+  {
+   "name": "Object_0",
+   "primitives": [
+    {
+     "attributes": {
+      "POSITION": 0,
+      "NORMAL": 1,
+      "TEXCOORD_0": 2
+     },
+     "indices": 3,
+     "material": 0
+    }
+   ]
+  }
+ ],
+ "textures": [
+  {
+   "sampler": 0,
+   "source": 0
+  }
+ ],
+ "images": [
+  {
+   "mimeType": "image/jpeg",
+   "name": "stone_figure_Image_0",
+   "uri": "textures/stone_figure_Image_0.jpg"
+  }
+ ],
+ "accessors": [
+  {
+   "bufferView": 0,
+   "componentType": 5126,
+   "count": 2687,
+   "max": [
+    0.2819907069206238,
+    1.5994733572006226,
+    0.2200566977262497
+   ],
+   "min": [
+    -0.28070175647735596,
+    8.963319851318374e-05,
+    -0.221512109041214
+   ],
+   "type": "VEC3"
+  },
+  {
+   "bufferView": 1,
+   "componentType": 5126,
+   "count": 2687,
+   "type": "VEC3"
+  },
+  {
+   "bufferView": 2,
+   "componentType": 5126,
+   "count": 2687,
+   "type": "VEC2"
+  },
+  {
+   "bufferView": 3,
+   "componentType": 5123,
+   "count": 8988,
+   "type": "SCALAR"
+  }
+ ],
+ "bufferViews": [
+  {
+   "buffer": 0,
+   "byteLength": 32244,
+   "byteOffset": 0,
+   "target": 34962
+  },
+  {
+   "buffer": 0,
+   "byteLength": 32244,
+   "byteOffset": 32244,
+   "target": 34962
+  },
+  {
+   "buffer": 0,
+   "byteLength": 21496,
+   "byteOffset": 64488,
+   "target": 34962
+  },
+  {
+   "buffer": 0,
+   "byteLength": 17976,
+   "byteOffset": 85984,
+   "target": 34963
+  }
+ ],
+ "samplers": [
+  {
+   "magFilter": 9729,
+   "minFilter": 9987
+  }
+ ],
+ "buffers": [
+  {
+   "byteLength": 103960,
+   "uri": "stone_figure.bin"
+  }
+ ]
+}

@@ -1,0 +1,22 @@
+{
+  "source": "Sketchfab (downloaded from the Objaverse mirror, allenai/objaverse on Hugging Face)",
+  "title": "Polished green stone, Olmec Man",
+  "url": "https://sketchfab.com/3d-models/5df0e70cb0e1466399b459f5fd0f91ab",
+  "mirror_url": "https://huggingface.co/datasets/allenai/objaverse/resolve/main/glbs/000-041/5df0e70cb0e1466399b459f5fd0f91ab.glb",
+  "authors": [
+    "The Hunt Museum"
+  ],
+  "author_url": "https://sketchfab.com/TheHuntMuseum",
+  "license": "CC0-1.0",
+  "license_url": "http://creativecommons.org/publicdomain/zero/1.0/",
+  "attribution_required": false,
+  "kind": "model",
+  "purpose": "green stone figure",
+  "modifications": "Scaled to 1.6 m tall; decimated to 2,999 triangles; 139,000 -> 2,999 triangles (tools/blender/process_hf.py).",
+  "retrieved": "2026-11-02",
+  "files": {
+    "stone_figure.gltf": "605fcaa4fc331688212e869a9043b40b7b1d22bf24572e24b765ded1ef70c7f4",
+    "stone_figure.bin": "59010591a06a47e31560d958fd62455da90d0bfa4f35d9c7eebd78a254ee66bd"
+  },
+  "processed_from": "tools/cache/sketchfab/hf_olmec_cc0/hf_olmec_cc0.glb"
+}

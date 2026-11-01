@@ -1,0 +1,22 @@
+{
+  "source": "Sketchfab (downloaded from the Objaverse mirror, allenai/objaverse on Hugging Face)",
+  "title": "Banana Plant",
+  "url": "https://sketchfab.com/3d-models/85695b82c7ba4b3497a663616cc3bf25",
+  "mirror_url": "https://huggingface.co/datasets/allenai/objaverse/resolve/main/glbs/000-041/85695b82c7ba4b3497a663616cc3bf25.glb",
+  "authors": [
+    "evolveduk"
+  ],
+  "author_url": "https://sketchfab.com/evolveduk",
+  "license": "CC-BY-4.0",
+  "license_url": "http://creativecommons.org/licenses/by/4.0/",
+  "attribution_required": true,
+  "kind": "model",
+  "purpose": "banana plant",
+  "modifications": "Scaled to 3.2 m tall; leaves thinned to 4,023 triangles (whole leaves dropped, the rest enlarged up to 1.4x), kept cut out; 4,702 -> 4,023 triangles (tools/blender/process_hf.py).",
+  "retrieved": "2026-11-02",
+  "files": {
+    "banana.gltf": "339de2dbb2ac7d425a67966d39c66339785a82705fe9143ecb4cbe926490e1d6",
+    "banana.bin": "cac7236d25a1ae7d33b88e6f997c91dec8655fa4141d96af694b62f19d758607"
+  },
+  "processed_from": "tools/cache/sketchfab/hf_banana_plant2/hf_banana_plant2.glb"
+}

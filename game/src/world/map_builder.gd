@@ -32,6 +32,8 @@ const MallBuilder := preload("res://src/world/maps/malasugue_mall/mall_builder.g
 const FreightLayout := preload("res://src/world/maps/freight_delight/freight_layout.gd")
 const JsonLayout := preload("res://src/world/maps/authored/json_layout.gd")
 const MapDoc := preload("res://src/world/maps/authored/map_doc.gd")
+const MapTerrain := preload("res://src/world/maps/authored/map_terrain.gd")
+const MapNature := preload("res://src/world/maps/authored/map_nature.gd")
 
 const GROUND_SHADER := preload("res://src/world/ground.gdshader")
 const WATER_SHADER := preload("res://src/world/water.gdshader")
@@ -251,7 +253,30 @@ func _build_json(world_node: Node3D, map_seed: int, match_seed: int, opts: Dicti
 
 
 func _place_json(lay) -> void:
-	## The doors in the walls' openings and the props the map file places.
+	## The doors in the walls' openings and the props the map file places; (r27) the Terrain3D ground, the vines and
+	## what the torches and braziers burn on.
+	_place_terrain(lay)
+	if sink.visual:
+		for vp in MapDoc.vines(lay.doc):
+			root.add_child(MapNature.vines_node(vp))
+		var by := {}
+		for f in MapDoc.fires(lay.doc):
+			var key := "%s|%.2f" % [f.mount, f.pole]
+			if not by.has(key):
+				by[key] = {"mesh": MapNature.fixture_mesh(str(f.mount), float(f.pole)), "xf": []}
+			by[key].xf.append(f.xf)
+		for key in by:
+			var mm := MultiMesh.new()
+			mm.transform_format = MultiMesh.TRANSFORM_3D
+			mm.mesh = by[key].mesh
+			mm.instance_count = (by[key].xf as Array).size()
+			for i in mm.instance_count:
+				mm.set_instance_transform(i, by[key].xf[i])
+			var mmi := MultiMeshInstance3D.new()
+			mmi.name = "Fixtures_" + str(key).replace("|", "_").replace(".", "_")
+			mmi.multimesh = mm
+			mmi.cast_shadow = GeometryInstance3D.SHADOW_CASTING_SETTING_OFF
+			root.add_child(mmi)
 	for d in MapDoc.doors(lay.doc):
 		dyn.add_door({"xf": d.xf, "w": d.w, "h": d.h, "t": d.t, "mat": d.mat, "outer": true, "outward": d.outward,
 			"seed": hash(d.piece), "role": "map", "locked": d.locked})
@@ -263,6 +288,26 @@ func _place_json(lay) -> void:
 			dyn.add_prop_spec(str(pr.model), dyn.seat(str(pr.model), pr.xf))
 		else:
 			dyn.add_static_prop(str(pr.model), dyn.seat(str(pr.model), pr.xf))
+
+
+func _place_terrain(lay) -> void:
+	## (r27) A map's Terrain3D ground: its baked heightfield collides on every machine; clients draw it with Terrain3D
+	## (or, without the extension, a plain mesh of the same heights).
+	if lay.get("ground") == null:
+		return
+	root.add_child(lay.ground.collision_body(Defs.PHYS_WORLD))
+	if not sink.visual:
+		return
+	var t3 := MapTerrain.make_node(lay.ground.spec, Settings.is_mobile())
+	if t3 != null:
+		root.add_child(t3)
+		stats.terrain3d = true
+	else:
+		var gm := StandardMaterial3D.new()
+		gm.albedo_color = Color(0.2, 0.17, 0.12)
+		gm.roughness = 0.95
+		root.add_child(lay.ground.fallback_mesh(gm))
+		stats.terrain3d = false
 
 
 func _build_authored(world_node: Node3D, lay, map_seed: int, match_seed: int, opts: Dictionary, msgs: Array, place: Callable = Callable()) -> void:
@@ -334,6 +379,8 @@ func _freight_light(lay, l: Light3D) -> Dictionary:
 		spec.axis = l.get_meta("axis")
 	if kind == "candle":
 		spec.fault = "candle"
+	if bool(l.get_meta("minor", false)) and Settings.is_mobile():
+		spec.no_light = true   # (r27) phones: a minor torch keeps its flame, the light is left out
 	return spec
 
 

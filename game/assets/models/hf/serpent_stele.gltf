@@ -1,0 +1,163 @@
+{
+ "asset": {
+  "generator": "Khronos glTF Blender I/O v5.2.40",
+  "version": "2.0"
+ },
+ "scene": 0,
+ "scenes": [
+  {
+   "name": "Scene",
+   "nodes": [
+    0
+   ]
+  }
+ ],
+ "nodes": [
+  {
+   "mesh": 0,
+   "name": "serpent_stele"
+  }
+ ],
+ "materials": [
+  {
+   "doubleSided": true,
+   "name": "lambert7",
+   "pbrMetallicRoughness": {
+    "baseColorTexture": {
+     "index": 0
+    },
+    "metallicFactor": 0.810373067855835,
+    "roughnessFactor": 0
+   }
+  }
+ ],
+ "meshes": [
+  {
+   "name": "group41_pasted__group36_pasted__pasted__group35_pasted__pasted__pasted__group34_pasted__pasted__pasted__pasted__polySurface110_lambert7_0",
+   "primitives": [
+    {
+     "attributes": {
+      "POSITION": 0,
+      "NORMAL": 1,
+      "TEXCOORD_0": 2,
+      "TEXCOORD_1": 3,
+      "TEXCOORD_2": 4
+     },
+     "indices": 5,
+     "material": 0
+    }
+   ]
+  }
+ ],
+ "textures": [
+  {
+   "sampler": 0,
+   "source": 0
+  }
+ ],
+ "images": [
+  {
+   "mimeType": "image/jpeg",
+   "name": "serpent_stele_Image_0",
+   "uri": "textures/serpent_stele_Image_0.jpg"
+  }
+ ],
+ "accessors": [
+  {
+   "bufferView": 0,
+   "componentType": 5126,
+   "count": 7696,
+   "max": [
+    0.686297595500946,
+    2.9000000953674316,
+    0.6245786547660828
+   ],
+   "min": [
+    -0.6861412525177002,
+    0,
+    -0.6245786547660828
+   ],
+   "type": "VEC3"
+  },
+  {
+   "bufferView": 1,
+   "componentType": 5126,
+   "count": 7696,
+   "type": "VEC3"
+  },
+  {
+   "bufferView": 2,
+   "componentType": 5126,
+   "count": 7696,
+   "type": "VEC2"
+  },
+  {
+   "bufferView": 3,
+   "componentType": 5126,
+   "count": 7696,
+   "type": "VEC2"
+  },
+  {
+   "bufferView": 4,
+   "componentType": 5126,
+   "count": 7696,
+   "type": "VEC2"
+  },
+  {
+   "bufferView": 5,
+   "componentType": 5123,
+   "count": 17997,
+   "type": "SCALAR"
+  }
+ ],
+ "bufferViews": [
+  {
+   "buffer": 0,
+   "byteLength": 92352,
+   "byteOffset": 0,
+   "target": 34962
+  },
+  {
+   "buffer": 0,
+   "byteLength": 92352,
+   "byteOffset": 92352,
+   "target": 34962
+  },
+  {
+   "buffer": 0,
+   "byteLength": 61568,
+   "byteOffset": 184704,
+   "target": 34962
+  },
+  {
+   "buffer": 0,
+   "byteLength": 61568,
+   "byteOffset": 246272,
+   "target": 34962
+  },
+  {
+   "buffer": 0,
+   "byteLength": 61568,
+   "byteOffset": 307840,
+   "target": 34962
+  },
+  {
+   "buffer": 0,
+   "byteLength": 35994,
+   "byteOffset": 369408,
+   "target": 34963
+  }
+ ],
+ "samplers": [
+  {
+   "magFilter": 9729,
+   "minFilter": 9987
+  }
+ ],
+ "buffers": [
+  {
+   "byteLength": 405404,
+   "uri": "serpent_stele.bin"
+  }
+ ]
+}

@@ -1,0 +1,21 @@
+{
+  "source": "Poly Haven",
+  "title": "Fern 02",
+  "url": "https://polyhaven.com/a/fern_02",
+  "authors": [
+    "Rob Tuytel",
+    "Rico Cilliers"
+  ],
+  "license": "CC0-1.0",
+  "license_url": "https://polyhaven.com/license",
+  "attribution_required": false,
+  "kind": "model",
+  "resolution": "1k",
+  "modifications": "Kept fern_02_b of the set; leaves thinned to 912 triangles (whole leaves dropped, the rest enlarged up to 1.2x), kept cut out; 2,384 -> 912 triangles (tools/blender/process_hf.py).",
+  "retrieved": "2026-10-25",
+  "files": {
+    "fern_a.gltf": "ae34d1690ef0dd787d7d4bb5f396d42fa630ba3cb86b804aa50edfac2eb18eb2",
+    "fern_a.bin": "685f438623675fe71550e8eabc992ebfa86692308e6d3ba68dcc0ba2b9735ba3"
+  },
+  "processed_from": "game/assets/thirdparty/polyhaven/models/fern_02/fern_02_1k.gltf"
+}

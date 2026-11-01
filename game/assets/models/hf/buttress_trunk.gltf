@@ -1,0 +1,159 @@
+{
+ "asset": {
+  "generator": "Khronos glTF Blender I/O v5.2.40",
+  "version": "2.0"
+ },
+ "scene": 0,
+ "scenes": [
+  {
+   "name": "Scene",
+   "nodes": [
+    0
+   ]
+  }
+ ],
+ "nodes": [
+  {
+   "mesh": 0,
+   "name": "buttress_trunk"
+  }
+ ],
+ "materials": [
+  {
+   "doubleSided": true,
+   "name": "buttress_trunk",
+   "normalTexture": {
+    "index": 0
+   },
+   "pbrMetallicRoughness": {
+    "baseColorTexture": {
+     "index": 1
+    },
+    "metallicRoughnessTexture": {
+     "index": 2
+    }
+   }
+  }
+ ],
+ "meshes": [
+  {
+   "name": "Model_material1_0",
+   "primitives": [
+    {
+     "attributes": {
+      "POSITION": 0,
+      "NORMAL": 1,
+      "TEXCOORD_0": 2
+     },
+     "indices": 3,
+     "material": 0
+    }
+   ]
+  }
+ ],
+ "textures": [
+  {
+   "sampler": 0,
+   "source": 0
+  },
+  {
+   "sampler": 0,
+   "source": 1
+  },
+  {
+   "sampler": 0,
+   "source": 2
+  }
+ ],
+ "images": [
+  {
+   "mimeType": "image/jpeg",
+   "name": "buttress_trunk_atlas_nor_gl",
+   "uri": "textures/buttress_trunk_atlas_nor_gl.jpg"
+  },
+  {
+   "mimeType": "image/jpeg",
+   "name": "buttress_trunk_atlas_diff",
+   "uri": "textures/buttress_trunk_atlas_diff.jpg"
+  },
+  {
+   "mimeType": "image/jpeg",
+   "name": "buttress_trunk_atlas_arm",
+   "uri": "textures/buttress_trunk_atlas_arm.jpg"
+  }
+ ],
+ "accessors": [
+  {
+   "bufferView": 0,
+   "componentType": 5126,
+   "count": 6443,
+   "max": [
+    3.0212864875793457,
+    5.504918575286865,
+    2.147756338119507
+   ],
+   "min": [
+    -3.0109305381774902,
+    0.01853986084461212,
+    -2.1658542156219482
+   ],
+   "type": "VEC3"
+  },
+  {
+   "bufferView": 1,
+   "componentType": 5126,
+   "count": 6443,
+   "type": "VEC3"
+  },
+  {
+   "bufferView": 2,
+   "componentType": 5126,
+   "count": 6443,
+   "type": "VEC2"
+  },
+  {
+   "bufferView": 3,
+   "componentType": 5123,
+   "count": 20997,
+   "type": "SCALAR"
+  }
+ ],
+ "bufferViews": [
+  {
+   "buffer": 0,
+   "byteLength": 77316,
+   "byteOffset": 0,
+   "target": 34962
+  },
+  {
+   "buffer": 0,
+   "byteLength": 77316,
+   "byteOffset": 77316,
+   "target": 34962
+  },
+  {
+   "buffer": 0,
+   "byteLength": 51544,
+   "byteOffset": 154632,
+   "target": 34962
+  },
+  {
+   "buffer": 0,
+   "byteLength": 41994,
+   "byteOffset": 206176,
+   "target": 34963
+  }
+ ],
+ "samplers": [
+  {
+   "magFilter": 9729,
+   "minFilter": 9987
+  }
+ ],
+ "buffers": [
+  {
+   "byteLength": 248172,
+   "uri": "buttress_trunk.bin"
+  }
+ ]
+}

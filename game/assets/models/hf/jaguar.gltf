@@ -1,0 +1,160 @@
+{
+ "asset": {
+  "generator": "Khronos glTF Blender I/O v5.2.40",
+  "version": "2.0"
+ },
+ "scene": 0,
+ "scenes": [
+  {
+   "name": "Scene",
+   "nodes": [
+    0
+   ]
+  }
+ ],
+ "nodes": [
+  {
+   "mesh": 0,
+   "name": "jaguar"
+  }
+ ],
+ "materials": [
+  {
+   "doubleSided": true,
+   "name": "lambert1",
+   "normalTexture": {
+    "index": 0
+   },
+   "pbrMetallicRoughness": {
+    "baseColorTexture": {
+     "index": 1
+    },
+    "metallicRoughnessTexture": {
+     "index": 2
+    },
+    "roughnessFactor": 0.6000000238418579
+   }
+  }
+ ],
+ "meshes": [
+  {
+   "name": "polySurface1_lambert1_0",
+   "primitives": [
+    {
+     "attributes": {
+      "POSITION": 0,
+      "NORMAL": 1,
+      "TEXCOORD_0": 2
+     },
+     "indices": 3,
+     "material": 0
+    }
+   ]
+  }
+ ],
+ "textures": [
+  {
+   "sampler": 0,
+   "source": 0
+  },
+  {
+   "sampler": 0,
+   "source": 1
+  },
+  {
+   "sampler": 0,
+   "source": 2
+  }
+ ],
+ "images": [
+  {
+   "mimeType": "image/jpeg",
+   "name": "jaguar_Image_2",
+   "uri": "textures/jaguar_Image_2.jpg"
+  },
+  {
+   "mimeType": "image/jpeg",
+   "name": "jaguar_Image_0",
+   "uri": "textures/jaguar_Image_0.jpg"
+  },
+  {
+   "mimeType": "image/jpeg",
+   "name": "jaguar_Image_1",
+   "uri": "textures/jaguar_Image_1.jpg"
+  }
+ ],
+ "accessors": [
+  {
+   "bufferView": 0,
+   "componentType": 5126,
+   "count": 3482,
+   "max": [
+    0.6791177988052368,
+    2.3000001907348633,
+    0.991879940032959
+   ],
+   "min": [
+    -0.6790980696678162,
+    -4.655430166167207e-05,
+    -0.9919338822364807
+   ],
+   "type": "VEC3"
+  },
+  {
+   "bufferView": 1,
+   "componentType": 5126,
+   "count": 3482,
+   "type": "VEC3"
+  },
+  {
+   "bufferView": 2,
+   "componentType": 5126,
+   "count": 3482,
+   "type": "VEC2"
+  },
+  {
+   "bufferView": 3,
+   "componentType": 5123,
+   "count": 18000,
+   "type": "SCALAR"
+  }
+ ],
+ "bufferViews": [
+  {
+   "buffer": 0,
+   "byteLength": 41784,
+   "byteOffset": 0,
+   "target": 34962
+  },
+  {
+   "buffer": 0,
+   "byteLength": 41784,
+   "byteOffset": 41784,
+   "target": 34962
+  },
+  {
+   "buffer": 0,
+   "byteLength": 27856,
+   "byteOffset": 83568,
+   "target": 34962
+  },
+  {
+   "buffer": 0,
+   "byteLength": 36000,
+   "byteOffset": 111424,
+   "target": 34963
+  }
+ ],
+ "samplers": [
+  {
+   "magFilter": 9729,
+   "minFilter": 9987
+  }
+ ],
+ "buffers": [
+  {
+   "byteLength": 147424,
+   "uri": "jaguar.bin"
+  }
+ ]
+}

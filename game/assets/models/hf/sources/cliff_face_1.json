@@ -1,0 +1,20 @@
+{
+  "source": "Poly Haven",
+  "title": "Rock Face 01",
+  "url": "https://polyhaven.com/a/rock_face_01",
+  "authors": [
+    "Dario Barresi"
+  ],
+  "license": "CC0-1.0",
+  "license_url": "https://polyhaven.com/license",
+  "attribution_required": false,
+  "kind": "model",
+  "resolution": "1k",
+  "modifications": "Scaled to 7.0 m tall; decimated to 4,000 triangles; 20,174 -> 4,000 triangles (tools/blender/process_hf.py).",
+  "retrieved": "2026-11-02",
+  "files": {
+    "cliff_face_1.gltf": "6da38424ec36ff37869a751f6248c4fee1b392e5829e7a5db95d3755d0eb4a09",
+    "cliff_face_1.bin": "99abd00994f367e0e7319ed2f1314193714326b5e27a35d25d985d3f6f21cd0f"
+  },
+  "processed_from": "game/assets/thirdparty/polyhaven/models/rock_face_01/rock_face_01_1k.gltf"
+}

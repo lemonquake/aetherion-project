@@ -15,9 +15,9 @@ static func mesh(kind: String) -> Mesh:
 		return _meshes[kind]
 	var big := kind == "brazier"
 	var am := ArrayMesh.new()
-	var w := 0.62 if big else 0.24
-	var y0 := -0.32 if big else -0.14
-	var y1 := 0.95 if big else 0.42
+	var w := 0.7 if big else 0.32
+	var y0 := -0.32 if big else -0.16
+	var y1 := 1.05 if big else 0.55
 	for halo in [false, true]:
 		var hw := w * (2.6 if halo else 0.5)
 		var a := y0 - (0.5 if halo else 0.0) * (y1 - y0)
@@ -33,7 +33,7 @@ static func mesh(kind: String) -> Mesh:
 		var sm := ShaderMaterial.new()
 		sm.shader = SHADER
 		sm.set_shader_parameter("halo", halo)
-		sm.set_shader_parameter("intensity", 3.2 if big else 2.6)
+		sm.set_shader_parameter("intensity", 2.6 if big else 2.2)
 		sm.set_shader_parameter("speed", 0.85 if big else 1.0)
 		st.set_material(sm)
 		st.commit(am)

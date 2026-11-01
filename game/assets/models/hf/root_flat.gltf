@@ -1,0 +1,173 @@
+{
+ "asset": {
+  "generator": "Khronos glTF Blender I/O v5.2.40",
+  "version": "2.0"
+ },
+ "scene": 0,
+ "scenes": [
+  {
+   "name": "Scene",
+   "nodes": [
+    0
+   ]
+  }
+ ],
+ "nodes": [
+  {
+   "mesh": 0,
+   "name": "root_flat"
+  }
+ ],
+ "materials": [
+  {
+   "doubleSided": true,
+   "name": "root_cluster_02",
+   "normalTexture": {
+    "index": 0
+   },
+   "pbrMetallicRoughness": {
+    "baseColorTexture": {
+     "index": 1
+    },
+    "metallicFactor": 0,
+    "metallicRoughnessTexture": {
+     "index": 2
+    }
+   }
+  }
+ ],
+ "meshes": [
+  {
+   "name": "realCap_1M.012",
+   "primitives": [
+    {
+     "attributes": {
+      "POSITION": 0,
+      "NORMAL": 1,
+      "TEXCOORD_0": 2,
+      "COLOR_0": 3
+     },
+     "indices": 4,
+     "material": 0
+    }
+   ]
+  }
+ ],
+ "textures": [
+  {
+   "sampler": 0,
+   "source": 0
+  },
+  {
+   "sampler": 0,
+   "source": 1
+  },
+  {
+   "sampler": 0,
+   "source": 2
+  }
+ ],
+ "images": [
+  {
+   "mimeType": "image/jpeg",
+   "name": "root_cluster_02_nor_gl_1k",
+   "uri": "textures/root_cluster_02_nor_gl_1k.jpg"
+  },
+  {
+   "mimeType": "image/jpeg",
+   "name": "root_cluster_02_diff_1k",
+   "uri": "textures/root_cluster_02_diff_1k.jpg"
+  },
+  {
+   "mimeType": "image/jpeg",
+   "name": "root_cluster_02_arm_1k",
+   "uri": "textures/root_cluster_02_arm_1k.jpg"
+  }
+ ],
+ "accessors": [
+  {
+   "bufferView": 0,
+   "componentType": 5126,
+   "count": 2084,
+   "max": [
+    1.1909760236740112,
+    0.20000451803207397,
+    1.3530011177062988
+   ],
+   "min": [
+    -1.1889934539794922,
+    0.0009949407540261745,
+    -1.3538364171981812
+   ],
+   "type": "VEC3"
+  },
+  {
+   "bufferView": 1,
+   "componentType": 5126,
+   "count": 2084,
+   "type": "VEC3"
+  },
+  {
+   "bufferView": 2,
+   "componentType": 5126,
+   "count": 2084,
+   "type": "VEC2"
+  },
+  {
+   "bufferView": 3,
+   "componentType": 5126,
+   "count": 2084,
+   "type": "VEC3"
+  },
+  {
+   "bufferView": 4,
+   "componentType": 5123,
+   "count": 7500,
+   "type": "SCALAR"
+  }
+ ],
+ "bufferViews": [
+  {
+   "buffer": 0,
+   "byteLength": 25008,
+   "byteOffset": 0,
+   "target": 34962
+  },
+  {
+   "buffer": 0,
+   "byteLength": 25008,
+   "byteOffset": 25008,
+   "target": 34962
+  },
+  {
+   "buffer": 0,
+   "byteLength": 16672,
+   "byteOffset": 50016,
+   "target": 34962
+  },
+  {
+   "buffer": 0,
+   "byteLength": 25008,
+   "byteOffset": 66688,
+   "target": 34962
+  },
+  {
+   "buffer": 0,
+   "byteLength": 15000,
+   "byteOffset": 91696,
+   "target": 34963
+  }
+ ],
+ "samplers": [
+  {
+   "magFilter": 9729,
+   "minFilter": 9987
+  }
+ ],
+ "buffers": [
+  {
+   "byteLength": 106696,
+   "uri": "root_flat.bin"
+  }
+ ]
+}

@@ -1,0 +1,179 @@
+{
+ "asset": {
+  "generator": "Khronos glTF Blender I/O v5.2.40",
+  "version": "2.0"
+ },
+ "scene": 0,
+ "scenes": [
+  {
+   "name": "Scene",
+   "nodes": [
+    0
+   ]
+  }
+ ],
+ "nodes": [
+  {
+   "mesh": 0,
+   "name": "exotic_plant"
+  }
+ ],
+ "materials": [
+  {
+   "alphaCutoff": 0.45,
+   "alphaMode": "MASK",
+   "doubleSided": true,
+   "name": "T_PinkLeaf",
+   "normalTexture": {
+    "index": 0
+   },
+   "occlusionTexture": {
+    "index": 1
+   },
+   "pbrMetallicRoughness": {
+    "baseColorTexture": {
+     "index": 2
+    },
+    "metallicFactor": 0,
+    "metallicRoughnessTexture": {
+     "index": 1
+    },
+    "roughnessFactor": 0.9015756845474243
+   }
+  }
+ ],
+ "meshes": [
+  {
+   "name": "StemA_low_T_PinkLeaf_0",
+   "primitives": [
+    {
+     "attributes": {
+      "POSITION": 0,
+      "NORMAL": 1,
+      "TEXCOORD_0": 2,
+      "TEXCOORD_1": 3
+     },
+     "indices": 4,
+     "material": 0
+    }
+   ]
+  }
+ ],
+ "textures": [
+  {
+   "sampler": 0,
+   "source": 0
+  },
+  {
+   "sampler": 0,
+   "source": 1
+  },
+  {
+   "sampler": 0,
+   "source": 2
+  }
+ ],
+ "images": [
+  {
+   "mimeType": "image/jpeg",
+   "name": "exotic_plant_Image_2",
+   "uri": "textures/exotic_plant_Image_2.jpg"
+  },
+  {
+   "mimeType": "image/jpeg",
+   "name": "exotic_plant_Image_1",
+   "uri": "textures/exotic_plant_Image_1.jpg"
+  },
+  {
+   "mimeType": "image/png",
+   "name": "exotic_plant_Image_0",
+   "uri": "textures/exotic_plant_Image_0.png"
+  }
+ ],
+ "accessors": [
+  {
+   "bufferView": 0,
+   "componentType": 5126,
+   "count": 1650,
+   "max": [
+    0.49249106645584106,
+    1.1845697164535522,
+    0.28647035360336304
+   ],
+   "min": [
+    -0.49249106645584106,
+    0,
+    -0.45989251136779785
+   ],
+   "type": "VEC3"
+  },
+  {
+   "bufferView": 1,
+   "componentType": 5126,
+   "count": 1650,
+   "type": "VEC3"
+  },
+  {
+   "bufferView": 2,
+   "componentType": 5126,
+   "count": 1650,
+   "type": "VEC2"
+  },
+  {
+   "bufferView": 3,
+   "componentType": 5126,
+   "count": 1650,
+   "type": "VEC2"
+  },
+  {
+   "bufferView": 4,
+   "componentType": 5123,
+   "count": 7800,
+   "type": "SCALAR"
+  }
+ ],
+ "bufferViews": [
+  {
+   "buffer": 0,
+   "byteLength": 19800,
+   "byteOffset": 0,
+   "target": 34962
+  },
+  {
+   "buffer": 0,
+   "byteLength": 19800,
+   "byteOffset": 19800,
+   "target": 34962
+  },
+  {
+   "buffer": 0,
+   "byteLength": 13200,
+   "byteOffset": 39600,
+   "target": 34962
+  },
+  {
+   "buffer": 0,
+   "byteLength": 13200,
+   "byteOffset": 52800,
+   "target": 34962
+  },
+  {
+   "buffer": 0,
+   "byteLength": 15600,
+   "byteOffset": 66000,
+   "target": 34963
+  }
+ ],
+ "samplers": [
+  {
+   "magFilter": 9729,
+   "minFilter": 9987
+  }
+ ],
+ "buffers": [
+  {
+   "byteLength": 81600,
+   "uri": "exotic_plant.bin"
+  }
+ ]
+}

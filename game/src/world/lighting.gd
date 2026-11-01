@@ -306,7 +306,7 @@ func _add_light(parent: Node3D, spec: Dictionary) -> void:
 		fault = "flicker"
 	var big := kind in ["street", "flood", "sodium", "beacon", "emergency"]
 	var light: Light3D = null
-	if not dead:
+	if not dead and not bool(spec.get("no_light", false)):
 		if kind in ["street", "flood", "down", "shaft"]:
 			# (r16) "down": a ceiling downlight's pool straight below; "shaft": daylight falling through a skylight.
 			var sl := SpotLight3D.new()
@@ -324,7 +324,7 @@ func _add_light(parent: Node3D, spec: Dictionary) -> void:
 			ol.omni_range = rng_range
 			ol.omni_attenuation = 1.8 if kind == "candle" else (1.0 if spec.get("outdoor", false) else 1.4)
 			if kind in FIRE_KINDS:
-				ol.omni_attenuation = 1.25   # (r27) firelight falls off softly into the dark round it
+				ol.omni_attenuation = 0.85   # (r27) firelight reaches out softly into the dark round it
 				fault = "torch" if fault == "" or fault == "candle" else fault
 			# (r17) Safe graphics (OpenGL) has no dual-paraboloid shadows: it printed an error for every lamp.
 			ol.omni_shadow_mode = OmniLight3D.SHADOW_CUBE if _gl else OmniLight3D.SHADOW_DUAL_PARABOLOID

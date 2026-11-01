@@ -1,0 +1,22 @@
+{
+  "source": "Sketchfab (downloaded from the Objaverse mirror, allenai/objaverse on Hugging Face)",
+  "title": "Old jungle tribal pillar",
+  "url": "https://sketchfab.com/3d-models/e65f43f72c5942579015c208a3eccf3a",
+  "mirror_url": "https://huggingface.co/datasets/allenai/objaverse/resolve/main/glbs/000-139/e65f43f72c5942579015c208a3eccf3a.glb",
+  "authors": [
+    "Baardus"
+  ],
+  "author_url": "https://sketchfab.com/baardus",
+  "license": "CC-BY-4.0",
+  "license_url": "http://creativecommons.org/licenses/by/4.0/",
+  "attribution_required": true,
+  "kind": "model",
+  "purpose": "carved jungle pillar",
+  "modifications": "Scaled to 3.8 m tall; decimated to 5,000 triangles; 19,628 -> 5,000 triangles (tools/blender/process_hf.py).",
+  "retrieved": "2026-11-02",
+  "files": {
+    "tribal_pillar.gltf": "44f35375e9610b1156610adc65c891deff5a479111ca87f120dcaaaac5b2402f",
+    "tribal_pillar.bin": "5473aacf48a6673fb0ff5f588120da0b375353047a940bd0ed13fb1f21367eea"
+  },
+  "processed_from": "tools/cache/sketchfab/hf_tribal_pillar/hf_tribal_pillar.glb"
+}

@@ -1,0 +1,21 @@
+{
+  "source": "Poly Haven",
+  "title": "Rock Face 02",
+  "url": "https://polyhaven.com/a/rock_face_02",
+  "authors": [
+    "Dario Barresi",
+    "Rico Cilliers"
+  ],
+  "license": "CC0-1.0",
+  "license_url": "https://polyhaven.com/license",
+  "attribution_required": false,
+  "kind": "model",
+  "resolution": "1k",
+  "modifications": "Scaled to 6.0 m tall; decimated to 3,999 triangles; 29,566 -> 3,999 triangles (tools/blender/process_hf.py).",
+  "retrieved": "2026-11-02",
+  "files": {
+    "cliff_face_2.gltf": "0ca033192666d6ae054988f77c84e31908fd0abd8f8dcf9697d0526f8e7f5776",
+    "cliff_face_2.bin": "0ef4ecb0a244af9f9de052e37a66e7fa41e0503fdcce7ffcbb99b0fa5043208b"
+  },
+  "processed_from": "game/assets/thirdparty/polyhaven/models/rock_face_02/rock_face_02_1k.gltf"
+}

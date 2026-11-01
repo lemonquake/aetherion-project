@@ -1,0 +1,22 @@
+{
+  "source": "Sketchfab (downloaded from the Objaverse mirror, allenai/objaverse on Hugging Face)",
+  "title": "Ceiba Pentandra Tree",
+  "url": "https://sketchfab.com/3d-models/9142b8f06e384f1c9554c9b10da79d2a",
+  "mirror_url": "https://huggingface.co/datasets/allenai/objaverse/resolve/main/glbs/000-104/9142b8f06e384f1c9554c9b10da79d2a.glb",
+  "authors": [
+    "Valery.Li"
+  ],
+  "author_url": "https://sketchfab.com/Valery.Li",
+  "license": "CC-BY-4.0",
+  "license_url": "http://creativecommons.org/licenses/by/4.0/",
+  "attribution_required": true,
+  "kind": "model",
+  "purpose": "ceiba (kapok), the canopy giant",
+  "modifications": "Scaled to 33.0 m tall; leaves thinned to 24,947 triangles (whole leaves dropped, the rest enlarged up to 5.0x), kept cut out; decimated to 16,164 triangles; 3 materials packed into one 1024x1280 atlas (20256 tiling UV corners clamped); 1,622,318 -> 41,111 triangles (tools/blender/process_hf.py).",
+  "retrieved": "2026-11-02",
+  "files": {
+    "ceiba.gltf": "8ac0d9c4b578e79afdffc761569b82222ed31a3bde9e851c5db02ac41fea06b7",
+    "ceiba.bin": "8299ba35746d587d82330db7b07e18964c46d5295e6967f823fd677449347eaa"
+  },
+  "processed_from": "tools/cache/sketchfab/hf_ceiba/hf_ceiba.glb"
+}

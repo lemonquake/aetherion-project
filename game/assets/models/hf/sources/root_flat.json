@@ -1,0 +1,20 @@
+{
+  "source": "Poly Haven",
+  "title": "Root Cluster 02",
+  "url": "https://polyhaven.com/a/root_cluster_02",
+  "authors": [
+    "Jenelle van Heerden"
+  ],
+  "license": "CC0-1.0",
+  "license_url": "https://polyhaven.com/license",
+  "attribution_required": false,
+  "kind": "model",
+  "resolution": "1k",
+  "modifications": "Decimated to 2,500 triangles; 339,641 -> 2,500 triangles (tools/blender/process_hf.py).",
+  "retrieved": "2026-11-02",
+  "files": {
+    "root_flat.gltf": "030d1de99a0b2f08a44c7a5869605e2c8bae5343e325d574e76f9df146efddf4",
+    "root_flat.bin": "be7ab88cb9bde3d95b733ec5dc5946915ffb0bf578b8f3d836ec3ba27d4f9a7d"
+  },
+  "processed_from": "game/assets/thirdparty/polyhaven/models/root_cluster_02/root_cluster_02_1k.gltf"
+}

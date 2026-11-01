@@ -1,0 +1,203 @@
+{
+ "asset": {
+  "generator": "Khronos glTF Blender I/O v5.2.40",
+  "version": "2.0"
+ },
+ "scene": 0,
+ "scenes": [
+  {
+   "name": "Scene",
+   "nodes": [
+    0
+   ]
+  }
+ ],
+ "nodes": [
+  {
+   "mesh": 0,
+   "name": "periwinkle"
+  }
+ ],
+ "materials": [
+  {
+   "alphaMode": "MASK",
+   "doubleSided": true,
+   "name": "periwinkle_plant",
+   "normalTexture": {
+    "index": 0
+   },
+   "pbrMetallicRoughness": {
+    "baseColorTexture": {
+     "index": 1
+    },
+    "metallicFactor": 0,
+    "metallicRoughnessTexture": {
+     "index": 2
+    }
+   },
+   "alphaCutoff": 0.45
+  }
+ ],
+ "meshes": [
+  {
+   "name": "tree.048",
+   "primitives": [
+    {
+     "attributes": {
+      "POSITION": 0,
+      "NORMAL": 1,
+      "TEXCOORD_0": 2,
+      "TEXCOORD_1": 3,
+      "COLOR_0": 4,
+      "COLOR_1": 5
+     },
+     "indices": 6,
+     "material": 0
+    }
+   ]
+  }
+ ],
+ "textures": [
+  {
+   "sampler": 0,
+   "source": 0
+  },
+  {
+   "sampler": 0,
+   "source": 1
+  },
+  {
+   "sampler": 0,
+   "source": 2
+  }
+ ],
+ "images": [
+  {
+   "mimeType": "image/jpeg",
+   "name": "periwinkle_plant_nor_gl_1k",
+   "uri": "textures/periwinkle_plant_nor_gl_1k.jpg"
+  },
+  {
+   "mimeType": "image/jpeg",
+   "name": "periwinkle_plant_diff_1k",
+   "uri": "textures/periwinkle_plant_diff_1k.jpg"
+  },
+  {
+   "mimeType": "image/jpeg",
+   "name": "periwinkle_plant_arm_1k",
+   "uri": "textures/periwinkle_plant_arm_1k.jpg"
+  }
+ ],
+ "accessors": [
+  {
+   "bufferView": 0,
+   "componentType": 5126,
+   "count": 1739,
+   "max": [
+    0.22745272517204285,
+    0.7925965189933777,
+    0.32002660632133484
+   ],
+   "min": [
+    -0.26153722405433655,
+    0.39905112981796265,
+    -0.3116135001182556
+   ],
+   "type": "VEC3"
+  },
+  {
+   "bufferView": 1,
+   "componentType": 5126,
+   "count": 1739,
+   "type": "VEC3"
+  },
+  {
+   "bufferView": 2,
+   "componentType": 5126,
+   "count": 1739,
+   "type": "VEC2"
+  },
+  {
+   "bufferView": 3,
+   "componentType": 5126,
+   "count": 1739,
+   "type": "VEC2"
+  },
+  {
+   "bufferView": 4,
+   "componentType": 5123,
+   "count": 1739,
+   "normalized": true,
+   "type": "VEC4"
+  },
+  {
+   "bufferView": 5,
+   "componentType": 5123,
+   "count": 1739,
+   "normalized": true,
+   "type": "VEC4"
+  },
+  {
+   "bufferView": 6,
+   "componentType": 5123,
+   "count": 5766,
+   "type": "SCALAR"
+  }
+ ],
+ "bufferViews": [
+  {
+   "buffer": 0,
+   "byteLength": 20868,
+   "byteOffset": 0,
+   "target": 34962
+  },
+  {
+   "buffer": 0,
+   "byteLength": 20868,
+   "byteOffset": 20868,
+   "target": 34962
+  },
+  {
+   "buffer": 0,
+   "byteLength": 13912,
+   "byteOffset": 41736,
+   "target": 34962
+  },
+  {
+   "buffer": 0,
+   "byteLength": 13912,
+   "byteOffset": 55648,
+   "target": 34962
+  },
+  {
+   "buffer": 0,
+   "byteLength": 13912,
+   "byteOffset": 69560,
+   "target": 34962
+  },
+  {
+   "buffer": 0,
+   "byteLength": 13912,
+   "byteOffset": 83472,
+   "target": 34962
+  },
+  {
+   "buffer": 0,
+   "byteLength": 11532,
+   "byteOffset": 97384,
+   "target": 34963
+  }
+ ],
+ "samplers": [
+  {
+   "magFilter": 9729,
+   "minFilter": 9987
+  }
+ ],
+ "buffers": [
+  {
+   "byteLength": 108916,
+   "uri": "periwinkle.bin"
+  }
+ ]
+}

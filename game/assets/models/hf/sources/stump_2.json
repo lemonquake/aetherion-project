@@ -1,0 +1,20 @@
+{
+  "source": "Poly Haven",
+  "title": "Tree Stump 02",
+  "url": "https://polyhaven.com/a/tree_stump_02",
+  "authors": [
+    "Rob Tuytel"
+  ],
+  "license": "CC0-1.0",
+  "license_url": "https://polyhaven.com/license",
+  "attribution_required": false,
+  "kind": "model",
+  "resolution": "1k",
+  "modifications": "Decimated to 1,999 triangles; 62,345 -> 1,999 triangles (tools/blender/process_hf.py).",
+  "retrieved": "2026-11-02",
+  "files": {
+    "stump_2.gltf": "a754966d2900f60c31f288991ec7bcd49a5457aaa4e9a56eb7b8f9e41fa31b63",
+    "stump_2.bin": "357576c3da5f903762c87a5093dd0d443bc40f502625cfd790d76a048af1cf35"
+  },
+  "processed_from": "game/assets/thirdparty/polyhaven/models/tree_stump_02/tree_stump_02_1k.gltf"
+}

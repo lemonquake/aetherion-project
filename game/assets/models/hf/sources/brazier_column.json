@@ -1,0 +1,22 @@
+{
+  "source": "Sketchfab (downloaded from the Objaverse mirror, allenai/objaverse on Hugging Face)",
+  "title": "Stone Column Brazier",
+  "url": "https://sketchfab.com/3d-models/c820670f8cc64049878c89f2a668e78b",
+  "mirror_url": "https://huggingface.co/datasets/allenai/objaverse/resolve/main/glbs/000-011/c820670f8cc64049878c89f2a668e78b.glb",
+  "authors": [
+    "Amarveer"
+  ],
+  "author_url": "https://sketchfab.com/amarveer",
+  "license": "CC-BY-4.0",
+  "license_url": "http://creativecommons.org/licenses/by/4.0/",
+  "attribution_required": true,
+  "kind": "model",
+  "purpose": "stone column brazier",
+  "modifications": "Scaled to 1.4 m tall; 3 materials packed into one 2048x1280 atlas; 1,698 -> 1,698 triangles (tools/blender/process_hf.py).",
+  "retrieved": "2026-11-02",
+  "files": {
+    "brazier_column.gltf": "a236b11806282f0add4e3b329afd5173b478a10794c1823bf893d68c2751d528",
+    "brazier_column.bin": "b9e6238d7de39125b6d692517cc8c93dbf9e257ebcca11dd3f904a19a07bcdf3"
+  },
+  "processed_from": "tools/cache/sketchfab/hf_column_brazier/hf_column_brazier.glb"
+}

@@ -1,0 +1,22 @@
+{
+  "source": "Sketchfab (downloaded from the Objaverse mirror, allenai/objaverse on Hugging Face)",
+  "title": "Jungle tree",
+  "url": "https://sketchfab.com/3d-models/e6fac27a832f4eec8b8ca49f4da26fbc",
+  "mirror_url": "https://huggingface.co/datasets/allenai/objaverse/resolve/main/glbs/000-134/e6fac27a832f4eec8b8ca49f4da26fbc.glb",
+  "authors": [
+    "stuff scanner"
+  ],
+  "author_url": "https://sketchfab.com/boypuff",
+  "license": "CC-BY-4.0",
+  "license_url": "http://creativecommons.org/licenses/by/4.0/",
+  "attribution_required": true,
+  "kind": "model",
+  "purpose": "buttress-rooted jungle trunk",
+  "modifications": "Scaled to 5.5 m tall; decimated to 6,999 triangles; 2 materials packed into one 2048x1024 atlas; 172,706 -> 6,999 triangles (tools/blender/process_hf.py).",
+  "retrieved": "2026-11-02",
+  "files": {
+    "buttress_trunk.gltf": "c4adc8b7a9469812a8792d5e463518d2a7254c47771a53cdf1bb497651d9aae9",
+    "buttress_trunk.bin": "73254b9a046b5ff2462d74bfefb3199ad0036cfaaf673a5872edfdcea2ffeb96"
+  },
+  "processed_from": "tools/cache/sketchfab/hf_jungle_tree_b/hf_jungle_tree_b.glb"
+}

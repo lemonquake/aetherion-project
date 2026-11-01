@@ -1,0 +1,219 @@
+{
+ "asset": {
+  "generator": "Khronos glTF Blender I/O v5.2.40",
+  "version": "2.0"
+ },
+ "extensionsUsed": [
+  "KHR_materials_specular",
+  "KHR_materials_ior"
+ ],
+ "scene": 0,
+ "scenes": [
+  {
+   "name": "Scene",
+   "nodes": [
+    0
+   ]
+  }
+ ],
+ "nodes": [
+  {
+   "mesh": 0,
+   "name": "serpent_head"
+  }
+ ],
+ "materials": [
+  {
+   "doubleSided": true,
+   "extensions": {
+    "KHR_materials_specular": {
+     "specularColorTexture": {
+      "index": 0
+     }
+    },
+    "KHR_materials_ior": {
+     "ior": 1000
+    }
+   },
+   "name": "BakedMaterial.1",
+   "normalTexture": {
+    "index": 1
+   },
+   "occlusionTexture": {
+    "index": 2,
+    "strength": 0.32882604002952576
+   },
+   "pbrMetallicRoughness": {
+    "baseColorTexture": {
+     "index": 3
+    },
+    "metallicFactor": 0,
+    "metallicRoughnessTexture": {
+     "index": 2
+    }
+   }
+  }
+ ],
+ "meshes": [
+  {
+   "name": "xiuhcoatl3_1_BakedMaterial.1_0",
+   "primitives": [
+    {
+     "attributes": {
+      "POSITION": 0,
+      "NORMAL": 1,
+      "TEXCOORD_0": 2,
+      "TEXCOORD_1": 3,
+      "TEXCOORD_2": 4
+     },
+     "indices": 5,
+     "material": 0
+    }
+   ]
+  }
+ ],
+ "textures": [
+  {
+   "sampler": 0,
+   "source": 0
+  },
+  {
+   "sampler": 0,
+   "source": 1
+  },
+  {
+   "sampler": 1,
+   "source": 2
+  },
+  {
+   "sampler": 0,
+   "source": 3
+  }
+ ],
+ "images": [
+  {
+   "mimeType": "image/png",
+   "name": "serpent_head_Image_1",
+   "uri": "textures/serpent_head_Image_1.png"
+  },
+  {
+   "mimeType": "image/jpeg",
+   "name": "serpent_head_Image_2",
+   "uri": "textures/serpent_head_Image_2.jpg"
+  },
+  {
+   "mimeType": "image/jpeg",
+   "name": "serpent_head_Image_3-serpent_head_Image_1",
+   "uri": "textures/serpent_head_Image_3-serpent_head_Image_1.jpg"
+  },
+  {
+   "mimeType": "image/jpeg",
+   "name": "serpent_head_Image_0",
+   "uri": "textures/serpent_head_Image_0.jpg"
+  }
+ ],
+ "accessors": [
+  {
+   "bufferView": 0,
+   "componentType": 5126,
+   "count": 5365,
+   "max": [
+    0.9124952554702759,
+    2.199911594390869,
+    0.7362462878227234
+   ],
+   "min": [
+    -0.9136261343955994,
+    -0.00017356521857436746,
+    -0.7364221811294556
+   ],
+   "type": "VEC3"
+  },
+  {
+   "bufferView": 1,
+   "componentType": 5126,
+   "count": 5365,
+   "type": "VEC3"
+  },
+  {
+   "bufferView": 2,
+   "componentType": 5126,
+   "count": 5365,
+   "type": "VEC2"
+  },
+  {
+   "bufferView": 3,
+   "componentType": 5126,
+   "count": 5365,
+   "type": "VEC2"
+  },
+  {
+   "bufferView": 4,
+   "componentType": 5126,
+   "count": 5365,
+   "type": "VEC2"
+  },
+  {
+   "bufferView": 5,
+   "componentType": 5123,
+   "count": 18000,
+   "type": "SCALAR"
+  }
+ ],
+ "bufferViews": [
+  {
+   "buffer": 0,
+   "byteLength": 64380,
+   "byteOffset": 0,
+   "target": 34962
+  },
+  {
+   "buffer": 0,
+   "byteLength": 64380,
+   "byteOffset": 64380,
+   "target": 34962
+  },
+  {
+   "buffer": 0,
+   "byteLength": 42920,
+   "byteOffset": 128760,
+   "target": 34962
+  },
+  {
+   "buffer": 0,
+   "byteLength": 42920,
+   "byteOffset": 171680,
+   "target": 34962
+  },
+  {
+   "buffer": 0,
+   "byteLength": 42920,
+   "byteOffset": 214600,
+   "target": 34962
+  },
+  {
+   "buffer": 0,
+   "byteLength": 36000,
+   "byteOffset": 257520,
+   "target": 34963
+  }
+ ],
+ "samplers": [
+  {
+   "magFilter": 9729,
+   "minFilter": 9987,
+   "wrapS": 33071,
+   "wrapT": 33071
+  },
+  {
+   "magFilter": 9729,
+   "minFilter": 9987
+  }
+ ],
+ "buffers": [
+  {
+   "byteLength": 293520,
+   "uri": "serpent_head.bin"
+  }
+ ]
+}

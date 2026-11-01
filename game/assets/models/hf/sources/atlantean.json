@@ -1,0 +1,22 @@
+{
+  "source": "Sketchfab (downloaded from the Objaverse mirror, allenai/objaverse on Hugging Face)",
+  "title": "Photoscan_Aztec_Statue",
+  "url": "https://sketchfab.com/3d-models/c7f5af7a86344097bc1d1a90a4f6a494",
+  "mirror_url": "https://huggingface.co/datasets/allenai/objaverse/resolve/main/glbs/000-088/c7f5af7a86344097bc1d1a90a4f6a494.glb",
+  "authors": [
+    "Jose Pasillas"
+  ],
+  "author_url": "https://sketchfab.com/jpasillas2",
+  "license": "CC-BY-4.0",
+  "license_url": "http://creativecommons.org/licenses/by/4.0/",
+  "attribution_required": true,
+  "kind": "model",
+  "purpose": "warrior column statue (atlante)",
+  "modifications": "Scaled to 3.6 m tall; decimated to 5,000 triangles; 19,071 -> 5,000 triangles (tools/blender/process_hf.py).",
+  "retrieved": "2026-11-02",
+  "files": {
+    "atlantean.gltf": "033a031725cebb3637d7d909252a2f18b0f11ad079b6ae1fce3e110d34b9603b",
+    "atlantean.bin": "9e961f817515be564bc8dd7f78833ea0382132bcc0eec2019962130ae72386ca"
+  },
+  "processed_from": "tools/cache/sketchfab/hf_aztec_statue_scan/hf_aztec_statue_scan.glb"
+}

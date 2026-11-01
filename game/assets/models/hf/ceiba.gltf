@@ -1,0 +1,434 @@
+{
+ "asset": {
+  "generator": "Khronos glTF Blender I/O v5.2.40",
+  "version": "2.0"
+ },
+ "extensionsUsed": [
+  "KHR_materials_specular",
+  "KHR_materials_ior"
+ ],
+ "scene": 0,
+ "scenes": [
+  {
+   "name": "Scene",
+   "nodes": [
+    0
+   ]
+  }
+ ],
+ "nodes": [
+  {
+   "mesh": 0,
+   "name": "ceiba"
+  }
+ ],
+ "materials": [
+  {
+   "doubleSided": true,
+   "name": "ceiba",
+   "normalTexture": {
+    "index": 0
+   },
+   "pbrMetallicRoughness": {
+    "baseColorTexture": {
+     "index": 1
+    },
+    "metallicRoughnessTexture": {
+     "index": 2
+    }
+   }
+  },
+  {
+   "alphaCutoff": 0.45,
+   "alphaMode": "MASK",
+   "doubleSided": true,
+   "extensions": {
+    "KHR_materials_specular": {
+     "specularColorFactor": [
+      0.05000000074505806,
+      0.05000000074505806,
+      0.05000000074505806
+     ],
+     "specularColorTexture": {
+      "index": 3,
+      "texCoord": 1
+     }
+    },
+    "KHR_materials_ior": {
+     "ior": 1000
+    }
+   },
+   "name": "KapokLeaf_1",
+   "normalTexture": {
+    "index": 4,
+    "texCoord": 2
+   },
+   "pbrMetallicRoughness": {
+    "baseColorTexture": {
+     "index": 5
+    },
+    "metallicFactor": 0,
+    "metallicRoughnessTexture": {
+     "index": 6,
+     "texCoord": 1
+    }
+   }
+  }
+ ],
+ "meshes": [
+  {
+   "name": "Kapok_High_Cap_02_0",
+   "primitives": [
+    {
+     "attributes": {
+      "POSITION": 0,
+      "NORMAL": 1,
+      "TEXCOORD_0": 2,
+      "TEXCOORD_1": 3,
+      "TEXCOORD_2": 4,
+      "TEXCOORD_3": 5,
+      "TEXCOORD_4": 6,
+      "COLOR_0": 7
+     },
+     "indices": 8,
+     "material": 0
+    },
+    {
+     "attributes": {
+      "POSITION": 9,
+      "NORMAL": 10,
+      "TEXCOORD_0": 11,
+      "TEXCOORD_1": 12,
+      "TEXCOORD_2": 13,
+      "TEXCOORD_3": 14,
+      "TEXCOORD_4": 15,
+      "COLOR_0": 16
+     },
+     "indices": 17,
+     "material": 1
+    }
+   ]
+  }
+ ],
+ "textures": [
+  {
+   "sampler": 0,
+   "source": 0
+  },
+  {
+   "sampler": 0,
+   "source": 1
+  },
+  {
+   "sampler": 0,
+   "source": 2
+  },
+  {
+   "sampler": 0,
+   "source": 3
+  },
+  {
+   "sampler": 0,
+   "source": 4
+  },
+  {
+   "sampler": 0,
+   "source": 5
+  },
+  {
+   "sampler": 0,
+   "source": 6
+  }
+ ],
+ "images": [
+  {
+   "mimeType": "image/jpeg",
+   "name": "ceiba_atlas_nor_gl",
+   "uri": "textures/ceiba_atlas_nor_gl.jpg"
+  },
+  {
+   "mimeType": "image/jpeg",
+   "name": "ceiba_atlas_diff",
+   "uri": "textures/ceiba_atlas_diff.jpg"
+  },
+  {
+   "mimeType": "image/jpeg",
+   "name": "ceiba_atlas_arm",
+   "uri": "textures/ceiba_atlas_arm.jpg"
+  },
+  {
+   "mimeType": "image/jpeg",
+   "name": "ceiba_Image_3",
+   "uri": "textures/ceiba_Image_3.jpg"
+  },
+  {
+   "mimeType": "image/jpeg",
+   "name": "ceiba_Image_4",
+   "uri": "textures/ceiba_Image_4.jpg"
+  },
+  {
+   "mimeType": "image/png",
+   "name": "ceiba_Image_2",
+   "uri": "textures/ceiba_Image_2.png"
+  },
+  {
+   "mimeType": "image/jpeg",
+   "name": "ceiba_Image_3",
+   "uri": "textures/ceiba_Image_3-1.jpg"
+  }
+ ],
+ "accessors": [
+  {
+   "bufferView": 0,
+   "componentType": 5126,
+   "count": 29261,
+   "max": [
+    13.099454879760742,
+    33,
+    12.832414627075195
+   ],
+   "min": [
+    -12.336137771606445,
+    -0.587604820728302,
+    -12.903270721435547
+   ],
+   "type": "VEC3"
+  },
+  {
+   "bufferView": 1,
+   "componentType": 5126,
+   "count": 29261,
+   "type": "VEC3"
+  },
+  {
+   "bufferView": 2,
+   "componentType": 5126,
+   "count": 29261,
+   "type": "VEC2"
+  },
+  {
+   "bufferView": 3,
+   "componentType": 5126,
+   "count": 29261,
+   "type": "VEC2"
+  },
+  {
+   "bufferView": 4,
+   "componentType": 5126,
+   "count": 29261,
+   "type": "VEC2"
+  },
+  {
+   "bufferView": 5,
+   "componentType": 5126,
+   "count": 29261,
+   "type": "VEC2"
+  },
+  {
+   "bufferView": 6,
+   "componentType": 5126,
+   "count": 29261,
+   "type": "VEC2"
+  },
+  {
+   "bufferView": 7,
+   "componentType": 5123,
+   "count": 29261,
+   "normalized": true,
+   "type": "VEC4"
+  },
+  {
+   "bufferView": 8,
+   "componentType": 5123,
+   "count": 48225,
+   "type": "SCALAR"
+  },
+  {
+   "bufferView": 9,
+   "componentType": 5126,
+   "count": 24951,
+   "max": [
+    12.905281066894531,
+    32.888916015625,
+    13.80117416381836
+   ],
+   "min": [
+    -13.247400283813477,
+    18.295461654663086,
+    -13.722865104675293
+   ],
+   "type": "VEC3"
+  },
+  {
+   "bufferView": 10,
+   "componentType": 5126,
+   "count": 24951,
+   "type": "VEC3"
+  },
+  {
+   "bufferView": 11,
+   "componentType": 5126,
+   "count": 24951,
+   "type": "VEC2"
+  },
+  {
+   "bufferView": 12,
+   "componentType": 5126,
+   "count": 24951,
+   "type": "VEC2"
+  },
+  {
+   "bufferView": 13,
+   "componentType": 5126,
+   "count": 24951,
+   "type": "VEC2"
+  },
+  {
+   "bufferView": 14,
+   "componentType": 5126,
+   "count": 24951,
+   "type": "VEC2"
+  },
+  {
+   "bufferView": 15,
+   "componentType": 5126,
+   "count": 24951,
+   "type": "VEC2"
+  },
+  {
+   "bufferView": 16,
+   "componentType": 5123,
+   "count": 24951,
+   "normalized": true,
+   "type": "VEC4"
+  },
+  {
+   "bufferView": 17,
+   "componentType": 5123,
+   "count": 74841,
+   "type": "SCALAR"
+  }
+ ],
+ "bufferViews": [
+  {
+   "buffer": 0,
+   "byteLength": 351132,
+   "byteOffset": 0,
+   "target": 34962
+  },
+  {
+   "buffer": 0,
+   "byteLength": 351132,
+   "byteOffset": 351132,
+   "target": 34962
+  },
+  {
+   "buffer": 0,
+   "byteLength": 234088,
+   "byteOffset": 702264,
+   "target": 34962
+  },
+  {
+   "buffer": 0,
+   "byteLength": 234088,
+   "byteOffset": 936352,
+   "target": 34962
+  },
+  {
+   "buffer": 0,
+   "byteLength": 234088,
+   "byteOffset": 1170440,
+   "target": 34962
+  },
+  {
+   "buffer": 0,
+   "byteLength": 234088,
+   "byteOffset": 1404528,
+   "target": 34962
+  },
+  {
+   "buffer": 0,
+   "byteLength": 234088,
+   "byteOffset": 1638616,
+   "target": 34962
+  },
+  {
+   "buffer": 0,
+   "byteLength": 234088,
+   "byteOffset": 1872704,
+   "target": 34962
+  },
+  {
+   "buffer": 0,
+   "byteLength": 96450,
+   "byteOffset": 2106792,
+   "target": 34963
+  },
+  {
+   "buffer": 0,
+   "byteLength": 299412,
+   "byteOffset": 2203244,
+   "target": 34962
+  },
+  {
+   "buffer": 0,
+   "byteLength": 299412,
+   "byteOffset": 2502656,
+   "target": 34962
+  },
+  {
+   "buffer": 0,
+   "byteLength": 199608,
+   "byteOffset": 2802068,
+   "target": 34962
+  },
+  {
+   "buffer": 0,
+   "byteLength": 199608,
+   "byteOffset": 3001676,
+   "target": 34962
+  },
+  {
+   "buffer": 0,
+   "byteLength": 199608,
+   "byteOffset": 3201284,
+   "target": 34962
+  },
+  {
+   "buffer": 0,
+   "byteLength": 199608,
+   "byteOffset": 3400892,
+   "target": 34962
+  },
+  {
+   "buffer": 0,
+   "byteLength": 199608,
+   "byteOffset": 3600500,
+   "target": 34962
+  },
+  {
+   "buffer": 0,
+   "byteLength": 199608,
+   "byteOffset": 3800108,
+   "target": 34962
+  },
+  {
+   "buffer": 0,
+   "byteLength": 149682,
+   "byteOffset": 3999716,
+   "target": 34963
+  }
+ ],
+ "samplers": [
+  {
+   "magFilter": 9729,
+   "minFilter": 9987
+  }
+ ],
+ "buffers": [
+  {
+   "byteLength": 4149400,
+   "uri": "ceiba.bin"
+  }
+ ]
+}

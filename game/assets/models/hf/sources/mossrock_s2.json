@@ -1,0 +1,20 @@
+{
+  "source": "Poly Haven",
+  "title": "Rock Moss Set 02",
+  "url": "https://polyhaven.com/a/rock_moss_set_02",
+  "authors": [
+    "Kless Gyzen"
+  ],
+  "license": "CC0-1.0",
+  "license_url": "https://polyhaven.com/license",
+  "attribution_required": false,
+  "kind": "model",
+  "resolution": "1k",
+  "modifications": "Kept rock_moss_set_02_rock11 of the set; decimated to 1,200 triangles; 8,000 -> 1,200 triangles (tools/blender/process_hf.py).",
+  "retrieved": "2026-11-02",
+  "files": {
+    "mossrock_s2.gltf": "105f684ef40f8141deb77e08714934ce1318e8dcfe14ea1e82eb33a1a54cf532",
+    "mossrock_s2.bin": "e4456957c785423e6d650ae582fedbb1d2556f324b2e8436bd997e09c8916ec8"
+  },
+  "processed_from": "game/assets/thirdparty/polyhaven/models/rock_moss_set_02/rock_moss_set_02_1k.gltf"
+}

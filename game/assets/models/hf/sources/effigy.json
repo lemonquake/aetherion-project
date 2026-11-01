@@ -1,0 +1,22 @@
+{
+  "source": "Sketchfab (downloaded from the Objaverse mirror, allenai/objaverse on Hugging Face)",
+  "title": "Cast of Aztec stone effigy",
+  "url": "https://sketchfab.com/3d-models/81034f59f5134d78a62d64f4dcbfe3b4",
+  "mirror_url": "https://huggingface.co/datasets/allenai/objaverse/resolve/main/glbs/000-140/81034f59f5134d78a62d64f4dcbfe3b4.glb",
+  "authors": [
+    "Bonn Center for Digital Humanities"
+  ],
+  "author_url": "https://sketchfab.com/bcdh",
+  "license": "CC-BY-4.0",
+  "license_url": "http://creativecommons.org/licenses/by/4.0/",
+  "attribution_required": true,
+  "kind": "model",
+  "purpose": "death-god effigy statue",
+  "modifications": "Scaled to 1.9 m tall; decimated to 5,000 triangles; 18,974 -> 5,000 triangles (tools/blender/process_hf.py).",
+  "retrieved": "2026-11-02",
+  "files": {
+    "effigy.gltf": "151fbdb2492f92f5e1786381cc82e95cb6c157227a978ba29236265fdd53df4a",
+    "effigy.bin": "f9df004e16c3e724951f09a77b7e788660f9e213dc91c27ff81eef3d582d7f92"
+  },
+  "processed_from": "tools/cache/sketchfab/hf_aztec_effigy/hf_aztec_effigy.glb"
+}

@@ -1,0 +1,21 @@
+{
+  "source": "Poly Haven",
+  "title": "Namaqualand Boulder 02",
+  "url": "https://polyhaven.com/a/namaqualand_boulder_02",
+  "authors": [
+    "Greg Zaal",
+    "Rico Cilliers"
+  ],
+  "license": "CC0-1.0",
+  "license_url": "https://polyhaven.com/license",
+  "attribution_required": false,
+  "kind": "model",
+  "resolution": "1k",
+  "modifications": "Scaled to 2.2 m tall; decimated to 3,000 triangles; 97,964 -> 3,000 triangles (tools/blender/process_hf.py).",
+  "retrieved": "2026-11-02",
+  "files": {
+    "boulder_split.gltf": "17fbe0a207bd980f92ba2159540dad9e53db2f1c3bb380839d20e2b78e633e55",
+    "boulder_split.bin": "fa179eb619a7e2edcb2d6973210e035656bfde861af81d81ac032ac4fb6d19d7"
+  },
+  "processed_from": "game/assets/thirdparty/polyhaven/models/namaqualand_boulder_02/namaqualand_boulder_02_1k.gltf"
+}

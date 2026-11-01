@@ -1,0 +1,20 @@
+{
+  "source": "Poly Haven",
+  "title": "Shrub 01",
+  "url": "https://polyhaven.com/a/shrub_01",
+  "authors": [
+    "Rico Cilliers"
+  ],
+  "license": "CC0-1.0",
+  "license_url": "https://polyhaven.com/license",
+  "attribution_required": false,
+  "kind": "model",
+  "resolution": "1k",
+  "modifications": "Kept shrub_01_a of the set; leaves thinned to 1,064 triangles (whole leaves dropped, the rest enlarged up to 1.3x), kept cut out; 156,012 -> 1,064 triangles (tools/blender/process_hf.py).",
+  "retrieved": "2026-10-25",
+  "files": {
+    "shrub_tall.gltf": "4bf8e8c98085832825363a1287c42ab81a73bc875df82b22748f4b0c21274f3d",
+    "shrub_tall.bin": "163b9c8231290eef47ef20961328032bbcaf66340a2210e306d39f92a6eaa7a7"
+  },
+  "processed_from": "game/assets/thirdparty/polyhaven/models/shrub_01/shrub_01_1k.gltf"
+}

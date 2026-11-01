@@ -1,0 +1,160 @@
+{
+ "asset": {
+  "generator": "Khronos glTF Blender I/O v5.2.40",
+  "version": "2.0"
+ },
+ "scene": 0,
+ "scenes": [
+  {
+   "name": "Scene",
+   "nodes": [
+    0
+   ]
+  }
+ ],
+ "nodes": [
+  {
+   "mesh": 0,
+   "name": "log_1"
+  }
+ ],
+ "materials": [
+  {
+   "doubleSided": true,
+   "name": "dead_tree_trunk",
+   "normalTexture": {
+    "index": 0
+   },
+   "pbrMetallicRoughness": {
+    "baseColorTexture": {
+     "index": 1
+    },
+    "metallicFactor": 0,
+    "metallicRoughnessTexture": {
+     "index": 2
+    }
+   }
+  }
+ ],
+ "meshes": [
+  {
+   "name": "dead_tree",
+   "primitives": [
+    {
+     "attributes": {
+      "POSITION": 0,
+      "NORMAL": 1,
+      "TEXCOORD_0": 2
+     },
+     "indices": 3,
+     "material": 0
+    }
+   ]
+  }
+ ],
+ "textures": [
+  {
+   "sampler": 0,
+   "source": 0
+  },
+  {
+   "sampler": 0,
+   "source": 1
+  },
+  {
+   "sampler": 0,
+   "source": 2
+  }
+ ],
+ "images": [
+  {
+   "mimeType": "image/jpeg",
+   "name": "dead_tree_trunk_nor_gl_1k",
+   "uri": "textures/dead_tree_trunk_nor_gl_1k.jpg"
+  },
+  {
+   "mimeType": "image/jpeg",
+   "name": "dead_tree_trunk_diff_1k",
+   "uri": "textures/dead_tree_trunk_diff_1k.jpg"
+  },
+  {
+   "mimeType": "image/jpeg",
+   "name": "dead_tree_trunk_arm_1k",
+   "uri": "textures/dead_tree_trunk_arm_1k.jpg"
+  }
+ ],
+ "accessors": [
+  {
+   "bufferView": 0,
+   "componentType": 5126,
+   "count": 1922,
+   "max": [
+    1.5244477987289429,
+    0.2894451320171356,
+    0.13840007781982422
+   ],
+   "min": [
+    -1.5225695371627808,
+    -0.0004927128320559859,
+    -0.13795243203639984
+   ],
+   "type": "VEC3"
+  },
+  {
+   "bufferView": 1,
+   "componentType": 5126,
+   "count": 1922,
+   "type": "VEC3"
+  },
+  {
+   "bufferView": 2,
+   "componentType": 5126,
+   "count": 1922,
+   "type": "VEC2"
+  },
+  {
+   "bufferView": 3,
+   "componentType": 5123,
+   "count": 9000,
+   "type": "SCALAR"
+  }
+ ],
+ "bufferViews": [
+  {
+   "buffer": 0,
+   "byteLength": 23064,
+   "byteOffset": 0,
+   "target": 34962
+  },
+  {
+   "buffer": 0,
+   "byteLength": 23064,
+   "byteOffset": 23064,
+   "target": 34962
+  },
+  {
+   "buffer": 0,
+   "byteLength": 15376,
+   "byteOffset": 46128,
+   "target": 34962
+  },
+  {
+   "buffer": 0,
+   "byteLength": 18000,
+   "byteOffset": 61504,
+   "target": 34963
+  }
+ ],
+ "samplers": [
+  {
+   "magFilter": 9729,
+   "minFilter": 9987
+  }
+ ],
+ "buffers": [
+  {
+   "byteLength": 79504,
+   "uri": "log_1.bin"
+  }
+ ]
+}

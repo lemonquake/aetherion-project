@@ -1,0 +1,53 @@
+{
+  "cells": 31012,
+  "coverage_pct": 100.0,
+  "covered": 31011,
+  "edge_kinds": {
+    "stair": 60,
+    "tight": 1038,
+    "walk": 2293
+  },
+  "edges": 3391,
+  "edges_failing_list": [],
+  "edges_failing_now": 0,
+  "from": "res://data/waypoints/hidden_forest.json",
+  "images": [
+    "A:/Python/aetherion-project/.claude/worktrees/hidden-forest-map-design-6c5420/work/hf/wpqa/hidden_forest_L1.png",
+    "A:/Python/aetherion-project/.claude/worktrees/hidden-forest-map-design-6c5420/work/hf/wpqa/hidden_forest_L2.png"
+  ],
+  "kinds": {
+    "area": 219,
+    "corner": 206,
+    "cover": 1,
+    "hide": 36,
+    "junction": 130,
+    "plaza": 164,
+    "road": 233,
+    "snipe": 47,
+    "stair": 75
+  },
+  "map": "hidden_forest",
+  "nodes": 1111,
+  "nodes_blocked": 0,
+  "nodes_blocked_list": [],
+  "orphans": 0,
+  "orphans_why": [],
+  "priority": {
+    "1": 159,
+    "2": 419,
+    "3": 533
+  },
+  "qa_ms": 1884,
+  "route_detour_avg": 1.35,
+  "route_detour_max": 4.3,
+  "route_ms_avg": 0.059,
+  "routes_found": 500,
+  "routes_tried": 500,
+  "source": "auto",
+  "uncovered_worst": [
+    [
+      "0:12,52",
+      1
+    ]
+  ]
+}

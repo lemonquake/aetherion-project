@@ -1,0 +1,22 @@
+{
+  "source": "Poly Haven",
+  "title": "Jacaranda Tree",
+  "url": "https://polyhaven.com/a/jacaranda_tree",
+  "authors": [
+    "Rob Tuytel",
+    "Rico Cilliers"
+  ],
+  "license": "CC0-1.0",
+  "license_url": "https://polyhaven.com/license",
+  "attribution_required": false,
+  "kind": "model",
+  "resolution": "1k",
+  "modifications": "Leaves thinned to 15,693 triangles (whole leaves dropped, the rest enlarged up to 3.5x), kept cut out; decimated to 7,284 triangles; 2 materials packed into one 2048x1024 atlas (8057 tiling UV corners clamped); 3,863,832 -> 22,977 triangles (tools/blender/process_hf.py).",
+  "retrieved": "2026-11-02",
+  "files": {
+    "canopy_tree.gltf": "687006fc2551118e431835364ef184d189598210743c1fb7022900668959567a",
+    "canopy_tree.bin": "c4265d97920e9fe41c78a41ac1c1428646aa6c7e94bae11d5524a11f11d08b9c"
+  },
+  "processed_from": "game/assets/thirdparty/polyhaven/models/jacaranda_tree/jacaranda_tree_1k.gltf",
+  "purpose": "broadleaf canopy tree"
+}

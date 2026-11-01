@@ -11,3 +11,9 @@ work/screens/
 builds/
 __pycache__/
 work/lemondev/r7/zf/
+# (r27) regenerable Hidden Forest working files: raw candidate renders, the binary terrain draft
+work/hf/raw/
+work/hf/check/
+work/hf/terrain_draft/*.f32
+work/hf/terrain_draft/*.u32
+work/hf/terrain_draft/cover.json

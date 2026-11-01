@@ -1,0 +1,143 @@
+{
+ "asset": {
+  "generator": "Khronos glTF Blender I/O v5.2.40",
+  "version": "2.0"
+ },
+ "extensionsUsed": [
+  "KHR_materials_unlit"
+ ],
+ "scene": 0,
+ "scenes": [
+  {
+   "name": "Scene",
+   "nodes": [
+    0
+   ]
+  }
+ ],
+ "nodes": [
+  {
+   "mesh": 0,
+   "name": "olmec_head"
+  }
+ ],
+ "materials": [
+  {
+   "doubleSided": true,
+   "extensions": {
+    "KHR_materials_unlit": {}
+   },
+   "name": "olmechead",
+   "pbrMetallicRoughness": {
+    "baseColorTexture": {
+     "index": 0
+    },
+    "metallicFactor": 0,
+    "roughnessFactor": 0.9
+   }
+  }
+ ],
+ "meshes": [
+  {
+   "name": "Object_0",
+   "primitives": [
+    {
+     "attributes": {
+      "POSITION": 0,
+      "NORMAL": 1,
+      "TEXCOORD_0": 2
+     },
+     "indices": 3,
+     "material": 0
+    }
+   ]
+  }
+ ],
+ "textures": [
+  {
+   "sampler": 0,
+   "source": 0
+  }
+ ],
+ "images": [
+  {
+   "mimeType": "image/jpeg",
+   "name": "olmec_head_Image_0",
+   "uri": "textures/olmec_head_Image_0.jpg"
+  }
+ ],
+ "accessors": [
+  {
+   "bufferView": 0,
+   "componentType": 5126,
+   "count": 5658,
+   "max": [
+    1.2102445363998413,
+    2.700462579727173,
+    1.1141716241836548
+   ],
+   "min": [
+    -1.207826852798462,
+    -0.00014663739420939237,
+    -1.1141276359558105
+   ],
+   "type": "VEC3"
+  },
+  {
+   "bufferView": 1,
+   "componentType": 5126,
+   "count": 5658,
+   "type": "VEC3"
+  },
+  {
+   "bufferView": 2,
+   "componentType": 5126,
+   "count": 5658,
+   "type": "VEC2"
+  },
+  {
+   "bufferView": 3,
+   "componentType": 5123,
+   "count": 20994,
+   "type": "SCALAR"
+  }
+ ],
+ "bufferViews": [
+  {
+   "buffer": 0,
+   "byteLength": 67896,
+   "byteOffset": 0,
+   "target": 34962
+  },
+  {
+   "buffer": 0,
+   "byteLength": 67896,
+   "byteOffset": 67896,
+   "target": 34962
+  },
+  {
+   "buffer": 0,
+   "byteLength": 45264,
+   "byteOffset": 135792,
+   "target": 34962
+  },
+  {
+   "buffer": 0,
+   "byteLength": 41988,
+   "byteOffset": 181056,
+   "target": 34963
+  }
+ ],
+ "samplers": [
+  {
+   "magFilter": 9729,
+   "minFilter": 9987
+  }
+ ],
+ "buffers": [
+  {
+   "byteLength": 223044,
+   "uri": "olmec_head.bin"
+  }
+ ]
+}

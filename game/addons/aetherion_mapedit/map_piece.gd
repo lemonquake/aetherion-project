@@ -7,9 +7,11 @@ extends Node3D
 
 const MapDoc := preload("res://src/world/maps/authored/map_doc.gd")
 const MapScene := preload("res://addons/aetherion_map/map_scene.gd")
+const MapNature := preload("res://src/world/maps/authored/map_nature.gd")
+const Fire := preload("res://src/world/fire.gd")
 
-const LIGHT_KINDS := "bulb,tube,lamp,flood,street,down,candle"
-const FAULTS := ",flicker,dying,starter,sag,candle"
+const LIGHT_KINDS := "bulb,tube,lamp,flood,street,down,candle,torch,brazier"
+const FAULTS := ",flicker,dying,starter,sag,candle,torch"
 const TEAM_COLORS := {1: Color(0.25, 0.5, 1.0), 2: Color(1.0, 0.35, 0.25), 3: Color(0.3, 0.9, 0.35)}
 const SPOT_COLORS := {"hide": Color(0.65, 0.35, 1.0), "snipe": Color(1.0, 0.2, 0.2), "cover": Color(1.0, 0.6, 0.8)}
 
@@ -41,11 +43,20 @@ const FIELDS := {
 	"light": [["kind", TYPE_STRING, PROPERTY_HINT_ENUM, LIGHT_KINDS, "fitting"], ["color", TYPE_COLOR, PROPERTY_HINT_COLOR_NO_ALPHA, "", "colour"],
 		["energy", TYPE_FLOAT, PROPERTY_HINT_RANGE, "0,16,0.05", "brightness"], ["range", TYPE_FLOAT, PROPERTY_HINT_RANGE, "0.5,80,0.1", "reach, metres"],
 		["fault", TYPE_STRING, PROPERTY_HINT_ENUM, FAULTS, "fault (faulty lamps flicker)"], ["pitch", TYPE_FLOAT, PROPERTY_HINT_RANGE, "-90,90,1", "spots: aim below level"],
-		["cone", TYPE_FLOAT, PROPERTY_HINT_RANGE, "5,170,1", "spots: cone angle"]],
+		["cone", TYPE_FLOAT, PROPERTY_HINT_RANGE, "5,170,1", "spots: cone angle"],
+		["mount", TYPE_STRING, PROPERTY_HINT_ENUM, ",pole,wall,stand,bowl,none", "torch / brazier: what it burns on"],
+		["pole", TYPE_FLOAT, PROPERTY_HINT_RANGE, "0.5,4,0.05", "torch on a pole: the flame's height above the ground"],
+		["minor", TYPE_BOOL, 0, "", "on phones only the flame (no light): torches between the main ones"]],
 	"spawn": [["team", TYPE_INT, PROPERTY_HINT_RANGE, "1,3", "team"], ["for", TYPE_STRING, PROPERTY_HINT_ENUM, ",2,3", "used with two teams (2), three (3), or both (empty)"]],
 	"landmark": [],
 	"spot": [["kind", TYPE_STRING, PROPERTY_HINT_ENUM, "hide,snipe,cover", "what bots do here"]],
-	"prop": [["model", TYPE_STRING, -2, "", "model library name"], ["physics", TYPE_BOOL, 0, "", "can be pushed and knocked over"]],
+	"prop": [["model", TYPE_STRING, -2, "", "model library name"], ["physics", TYPE_BOOL, 0, "", "can be pushed and knocked over"],
+		["foot", TYPE_FLOAT, PROPERTY_HINT_RANGE, "0,10,0.05", "invisible collider round its base (radius; 0: none)"],
+		["foot_h", TYPE_FLOAT, PROPERTY_HINT_RANGE, "0.2,12,0.05", "the collider's height"]],
+	"vines": [["from", TYPE_VECTOR3, 0, "", "one end of the line the strands hang from"], ["to", TYPE_VECTOR3, 0, "", "the other end"],
+		["drop", TYPE_FLOAT, PROPERTY_HINT_RANGE, "0.3,20,0.05", "longest strand, metres"], ["density", TYPE_FLOAT, PROPERTY_HINT_RANGE, "0.2,12,0.1", "strands a metre"],
+		["sag", TYPE_FLOAT, PROPERTY_HINT_RANGE, "0,5,0.05", "how far the line itself droops in the middle"],
+		["w", TYPE_FLOAT, PROPERTY_HINT_RANGE, "0.1,1.5,0.01", "strand width"], ["seed", TYPE_INT, 0, "", "another seed, other strands"]],
 }
 
 var data: Dictionary = {}:
@@ -212,6 +223,8 @@ func _get(prop: StringName):
 		TYPE_FLOAT:
 			if k == "len":
 				return MapDoc.wall_len(data)
+			if v is Array:
+				return float(v[0]) if not (v as Array).is_empty() else 0.0
 			return float(v) if v != null else 0.0
 		TYPE_INT:
 			return int(v) if v != null else 0
@@ -268,6 +281,12 @@ func _set(prop: StringName, value) -> bool:
 			_put(k, str(value))
 		_:
 			data[k] = value
+	if piece_type() == "vines" and k in ["from", "to"]:
+		_syncing = true
+		transform = MapDoc.frame(data)
+		_syncing = false
+	if k == "foot" and float(data.get("foot", 0.0)) <= 0.0:
+		data.erase("foot")
 	_queue_rebuild()
 	_dirty()
 	return true
@@ -416,6 +435,21 @@ func _build_thing(t: String) -> void:
 				sc.free()
 			if str(data.get("kind", "")) in MapDoc.SPOT_LIGHTS:
 				_arrow(col, 0.7)
+			if str(data.get("kind", "")) in MapDoc.FIRE_KINDS:
+				# (r27) the fire and what it burns on, as the game draws them
+				mi.visible = false
+				var fl := MeshInstance3D.new()
+				fl.mesh = Fire.mesh(str(data.kind))
+				fl.cast_shadow = GeometryInstance3D.SHADOW_CASTING_SETTING_OFF
+				_preview.add_child(fl)
+				for f in MapDoc.fires({"pieces": [data]}):
+					var fx := MeshInstance3D.new()
+					fx.mesh = MapNature.fixture_mesh(str(f.mount), float(f.pole))
+					fx.transform = MapDoc.frame(data).affine_inverse() * (f.xf as Transform3D)
+					_preview.add_child(fx)
+		"vines":
+			_preview.add_child(MapNature.vines_node(data, true))
+			mi.free()
 		"landmark":
 			var cy := CylinderMesh.new()
 			cy.top_radius = 0.04

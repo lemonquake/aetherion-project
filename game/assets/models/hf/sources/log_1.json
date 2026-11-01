@@ -1,0 +1,20 @@
+{
+  "source": "Poly Haven",
+  "title": "Dead Tree Trunk",
+  "url": "https://polyhaven.com/a/dead_tree_trunk",
+  "authors": [
+    "Rob Tuytel"
+  ],
+  "license": "CC0-1.0",
+  "license_url": "https://polyhaven.com/license",
+  "attribution_required": false,
+  "kind": "model",
+  "resolution": "1k",
+  "modifications": "Decimated to 3,000 triangles; 101,802 -> 3,000 triangles (tools/blender/process_hf.py).",
+  "retrieved": "2026-10-25",
+  "files": {
+    "log_1.gltf": "2898fe7f24faa0f0169f7d2e7ec226b0beefa87688f2d86ac0397689cb44ef50",
+    "log_1.bin": "563f6d290c8a5cf4b4e36fb5690c31c4a9d13d64ec13ac67869a65c512049c39"
+  },
+  "processed_from": "game/assets/thirdparty/polyhaven/models/dead_tree_trunk/dead_tree_trunk_1k.gltf"
+}

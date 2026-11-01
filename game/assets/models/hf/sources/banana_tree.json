@@ -1,0 +1,22 @@
+{
+  "source": "Sketchfab (downloaded from the Objaverse mirror, allenai/objaverse on Hugging Face)",
+  "title": "Banana Tree",
+  "url": "https://sketchfab.com/3d-models/7186ebfc24fc42c599f81713cd28d55e",
+  "mirror_url": "https://huggingface.co/datasets/allenai/objaverse/resolve/main/glbs/000-091/7186ebfc24fc42c599f81713cd28d55e.glb",
+  "authors": [
+    "DJMiddi"
+  ],
+  "author_url": "https://sketchfab.com/DJMiddi",
+  "license": "CC-BY-4.0",
+  "license_url": "http://creativecommons.org/licenses/by/4.0/",
+  "attribution_required": true,
+  "kind": "model",
+  "purpose": "banana tree",
+  "modifications": "Scaled to 5.0 m tall; leaves thinned to 2,861 triangles (whole leaves dropped, the rest enlarged up to 1.2x), kept cut out; 3,332 -> 2,861 triangles (tools/blender/process_hf.py).",
+  "retrieved": "2026-11-02",
+  "files": {
+    "banana_tree.gltf": "d78da9fa244d57c8ffb928fc988f7b246692cd631cf7e5d2da4c74d5c9805b5c",
+    "banana_tree.bin": "f8b2e9282560deac5659eb8ba0bcf6f38c886e876a2ffe813c1aab6b9d409159"
+  },
+  "processed_from": "tools/cache/sketchfab/hf_banana_tree/hf_banana_tree.glb"
+}

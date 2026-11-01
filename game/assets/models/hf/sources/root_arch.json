@@ -1,0 +1,22 @@
+{
+  "source": "Sketchfab (downloaded from the Objaverse mirror, allenai/objaverse on Hugging Face)",
+  "title": "Liana tree",
+  "url": "https://sketchfab.com/3d-models/91190d6fe4fd44ada32f6156e1d066ab",
+  "mirror_url": "https://huggingface.co/datasets/allenai/objaverse/resolve/main/glbs/000-131/91190d6fe4fd44ada32f6156e1d066ab.glb",
+  "authors": [
+    "JonathanPepe"
+  ],
+  "author_url": "https://sketchfab.com/JonathanPepe",
+  "license": "CC-BY-4.0",
+  "license_url": "http://creativecommons.org/licenses/by/4.0/",
+  "attribution_required": true,
+  "kind": "model",
+  "purpose": "strangler fig root arch",
+  "modifications": "Scaled to 10.0 m tall; decimated to 11,999 triangles; 2 materials packed into one 2048x1024 atlas; 49,999 -> 11,999 triangles (tools/blender/process_hf.py).",
+  "retrieved": "2026-11-02",
+  "files": {
+    "root_arch.gltf": "fa99c860d119f1704553718df734b12f705a0713a06fca81dfa119ae672d1814",
+    "root_arch.bin": "90a5d32a1390c9a1d45129ed365db0d75f0ea00a081f436278f871e797d37a28"
+  },
+  "processed_from": "tools/cache/sketchfab/hf_liana_tree/hf_liana_tree.glb"
+}

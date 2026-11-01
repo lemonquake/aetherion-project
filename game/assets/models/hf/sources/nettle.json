@@ -1,0 +1,21 @@
+{
+  "source": "Poly Haven",
+  "title": "Nettle Plant",
+  "url": "https://polyhaven.com/a/nettle_plant",
+  "authors": [
+    "Rob Tuytel",
+    "Rico Cilliers"
+  ],
+  "license": "CC0-1.0",
+  "license_url": "https://polyhaven.com/license",
+  "attribution_required": false,
+  "kind": "model",
+  "resolution": "1k",
+  "modifications": "Kept nettle_plant_tall_a_LOD0 of the set; scaled 3x (grown into a jungle-sized plant); leaves thinned to 552 triangles (whole leaves dropped, the rest enlarged up to 1.1x), kept cut out; 6,984 -> 552 triangles (tools/blender/process_hf.py).",
+  "retrieved": "2026-10-25",
+  "files": {
+    "nettle.gltf": "0b9c3a6ec1fa59fe115c4be0746732003fee24fc563632bad2c4cfa7a359f797",
+    "nettle.bin": "c7f8fdd02c3b88862f30d3be0c75e804cce8e3822009408781881d327818ca0f"
+  },
+  "processed_from": "game/assets/thirdparty/polyhaven/models/nettle_plant/nettle_plant_1k.gltf"
+}

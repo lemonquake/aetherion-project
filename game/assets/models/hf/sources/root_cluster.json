@@ -1,0 +1,21 @@
+{
+  "source": "Poly Haven",
+  "title": "Root Cluster 01",
+  "url": "https://polyhaven.com/a/root_cluster_01",
+  "authors": [
+    "Jenelle van Heerden",
+    "Rico Cilliers"
+  ],
+  "license": "CC0-1.0",
+  "license_url": "https://polyhaven.com/license",
+  "attribution_required": false,
+  "kind": "model",
+  "resolution": "1k",
+  "modifications": "Decimated to 3,000 triangles; 225,261 -> 3,000 triangles (tools/blender/process_hf.py).",
+  "retrieved": "2026-10-25",
+  "files": {
+    "root_cluster.gltf": "1c4623e9dca1119eda69b849ce60694b0e9b8c0df8db5199b77811c0f12b91fb",
+    "root_cluster.bin": "e8c79e75e8dcc8b36296c8bd856d4d142cbbed169a5224877d6b654d07cf8600"
+  },
+  "processed_from": "game/assets/thirdparty/polyhaven/models/root_cluster_01/root_cluster_01_1k.gltf"
+}

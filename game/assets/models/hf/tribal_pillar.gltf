@@ -1,0 +1,162 @@
+{
+ "asset": {
+  "generator": "Khronos glTF Blender I/O v5.2.40",
+  "version": "2.0"
+ },
+ "scene": 0,
+ "scenes": [
+  {
+   "name": "Scene",
+   "nodes": [
+    0
+   ]
+  }
+ ],
+ "nodes": [
+  {
+   "mesh": 0,
+   "name": "tribal_pillar"
+  }
+ ],
+ "materials": [
+  {
+   "doubleSided": true,
+   "name": "Totem",
+   "normalTexture": {
+    "index": 0
+   },
+   "occlusionTexture": {
+    "index": 1
+   },
+   "pbrMetallicRoughness": {
+    "baseColorTexture": {
+     "index": 2
+    },
+    "metallicRoughnessTexture": {
+     "index": 1
+    }
+   }
+  }
+ ],
+ "meshes": [
+  {
+   "name": "Totemp_low_Totem_0",
+   "primitives": [
+    {
+     "attributes": {
+      "POSITION": 0,
+      "NORMAL": 1,
+      "TEXCOORD_0": 2
+     },
+     "indices": 3,
+     "material": 0
+    }
+   ]
+  }
+ ],
+ "textures": [
+  {
+   "sampler": 0,
+   "source": 0
+  },
+  {
+   "sampler": 0,
+   "source": 1
+  },
+  {
+   "sampler": 0,
+   "source": 2
+  }
+ ],
+ "images": [
+  {
+   "mimeType": "image/jpeg",
+   "name": "tribal_pillar_Image_2",
+   "uri": "textures/tribal_pillar_Image_2.jpg"
+  },
+  {
+   "mimeType": "image/jpeg",
+   "name": "tribal_pillar_Image_1",
+   "uri": "textures/tribal_pillar_Image_1.jpg"
+  },
+  {
+   "mimeType": "image/jpeg",
+   "name": "tribal_pillar_Image_0",
+   "uri": "textures/tribal_pillar_Image_0.jpg"
+  }
+ ],
+ "accessors": [
+  {
+   "bufferView": 0,
+   "componentType": 5126,
+   "count": 3026,
+   "max": [
+    0.7534294724464417,
+    3.8000001907348633,
+    0.7032888531684875
+   ],
+   "min": [
+    -0.7517340183258057,
+    -5.6461436220844874e-11,
+    -0.7032888531684875
+   ],
+   "type": "VEC3"
+  },
+  {
+   "bufferView": 1,
+   "componentType": 5126,
+   "count": 3026,
+   "type": "VEC3"
+  },
+  {
+   "bufferView": 2,
+   "componentType": 5126,
+   "count": 3026,
+   "type": "VEC2"
+  },
+  {
+   "bufferView": 3,
+   "componentType": 5123,
+   "count": 15000,
+   "type": "SCALAR"
+  }
+ ],
+ "bufferViews": [
+  {
+   "buffer": 0,
+   "byteLength": 36312,
+   "byteOffset": 0,
+   "target": 34962
+  },
+  {
+   "buffer": 0,
+   "byteLength": 36312,
+   "byteOffset": 36312,
+   "target": 34962
+  },
+  {
+   "buffer": 0,
+   "byteLength": 24208,
+   "byteOffset": 72624,
+   "target": 34962
+  },
+  {
+   "buffer": 0,
+   "byteLength": 30000,
+   "byteOffset": 96832,
+   "target": 34963
+  }
+ ],
+ "samplers": [
+  {
+   "magFilter": 9729,
+   "minFilter": 9987
+  }
+ ],
+ "buffers": [
+  {
+   "byteLength": 126832,
+   "uri": "tribal_pillar.bin"
+  }
+ ]
+}

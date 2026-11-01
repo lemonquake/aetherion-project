@@ -1,0 +1,21 @@
+{
+  "source": "Poly Haven",
+  "title": "Dead Tree Trunk 02",
+  "url": "https://polyhaven.com/a/dead_tree_trunk_02",
+  "authors": [
+    "Jenelle van Heerden",
+    "Rico Cilliers"
+  ],
+  "license": "CC0-1.0",
+  "license_url": "https://polyhaven.com/license",
+  "attribution_required": false,
+  "kind": "model",
+  "resolution": "1k",
+  "modifications": "Decimated to 3,000 triangles; 83,128 -> 3,000 triangles (tools/blender/process_hf.py).",
+  "retrieved": "2026-11-02",
+  "files": {
+    "log_2.gltf": "f4c3359e1caaac8403230ba329a766de16df8643ba112738e94dab20dcd4f487",
+    "log_2.bin": "e2fd2c80ae165cde2d0d718840c45f63c985ac4875d83861d99cf4ea4928de9c"
+  },
+  "processed_from": "game/assets/thirdparty/polyhaven/models/dead_tree_trunk_02/dead_tree_trunk_02_1k.gltf"
+}

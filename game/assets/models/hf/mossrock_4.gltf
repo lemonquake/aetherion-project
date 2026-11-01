@@ -1,0 +1,160 @@
+{
+ "asset": {
+  "generator": "Khronos glTF Blender I/O v5.2.40",
+  "version": "2.0"
+ },
+ "scene": 0,
+ "scenes": [
+  {
+   "name": "Scene",
+   "nodes": [
+    0
+   ]
+  }
+ ],
+ "nodes": [
+  {
+   "mesh": 0,
+   "name": "mossrock_4"
+  }
+ ],
+ "materials": [
+  {
+   "doubleSided": true,
+   "name": "rock_moss_set_01",
+   "normalTexture": {
+    "index": 0
+   },
+   "pbrMetallicRoughness": {
+    "baseColorTexture": {
+     "index": 1
+    },
+    "metallicFactor": 0,
+    "metallicRoughnessTexture": {
+     "index": 2
+    }
+   }
+  }
+ ],
+ "meshes": [
+  {
+   "name": "modelShape.003",
+   "primitives": [
+    {
+     "attributes": {
+      "POSITION": 0,
+      "NORMAL": 1,
+      "TEXCOORD_0": 2
+     },
+     "indices": 3,
+     "material": 0
+    }
+   ]
+  }
+ ],
+ "textures": [
+  {
+   "sampler": 0,
+   "source": 0
+  },
+  {
+   "sampler": 0,
+   "source": 1
+  },
+  {
+   "sampler": 0,
+   "source": 2
+  }
+ ],
+ "images": [
+  {
+   "mimeType": "image/jpeg",
+   "name": "rock_moss_set_01_nor_gl_1k",
+   "uri": "textures/rock_moss_set_01_nor_gl_1k.jpg"
+  },
+  {
+   "mimeType": "image/jpeg",
+   "name": "rock_moss_set_01_diff_1k",
+   "uri": "textures/rock_moss_set_01_diff_1k.jpg"
+  },
+  {
+   "mimeType": "image/jpeg",
+   "name": "rock_moss_set_01_rough_1k",
+   "uri": "textures/rock_moss_set_01_rough_1k.jpg"
+  }
+ ],
+ "accessors": [
+  {
+   "bufferView": 0,
+   "componentType": 5126,
+   "count": 1308,
+   "max": [
+    0.9093303680419922,
+    1.2075949907302856,
+    1.504181146621704
+   ],
+   "min": [
+    -0.909095048904419,
+    -0.0003974198771174997,
+    -1.5025259256362915
+   ],
+   "type": "VEC3"
+  },
+  {
+   "bufferView": 1,
+   "componentType": 5126,
+   "count": 1308,
+   "type": "VEC3"
+  },
+  {
+   "bufferView": 2,
+   "componentType": 5126,
+   "count": 1308,
+   "type": "VEC2"
+  },
+  {
+   "bufferView": 3,
+   "componentType": 5123,
+   "count": 7200,
+   "type": "SCALAR"
+  }
+ ],
+ "bufferViews": [
+  {
+   "buffer": 0,
+   "byteLength": 15696,
+   "byteOffset": 0,
+   "target": 34962
+  },
+  {
+   "buffer": 0,
+   "byteLength": 15696,
+   "byteOffset": 15696,
+   "target": 34962
+  },
+  {
+   "buffer": 0,
+   "byteLength": 10464,
+   "byteOffset": 31392,
+   "target": 34962
+  },
+  {
+   "buffer": 0,
+   "byteLength": 14400,
+   "byteOffset": 41856,
+   "target": 34963
+  }
+ ],
+ "samplers": [
+  {
+   "magFilter": 9729,
+   "minFilter": 9987
+  }
+ ],
+ "buffers": [
+  {
+   "byteLength": 56256,
+   "uri": "mossrock_4.bin"
+  }
+ ]
+}
