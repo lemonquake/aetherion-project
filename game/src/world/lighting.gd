@@ -69,6 +69,10 @@ var _buzz_t := 0.0
 ## shadow high up.
 var air_tier := 0
 const GLINT_SHADER := preload("res://src/world/light_glint.gdshader")
+## (r27) Open fires: a torch (a flame on a stick or a wall bracket) and a brazier (a big fire in a stone bowl). Their
+## emitter is a drawn flame (flame.gdshader) and their light flickers like fire.
+const FIRE_KINDS := ["torch", "brazier"]
+const Fire := preload("res://src/world/fire.gd")
 
 
 func _init(map_builder) -> void:
@@ -319,6 +323,9 @@ func _add_light(parent: Node3D, spec: Dictionary) -> void:
 			var ol := OmniLight3D.new()
 			ol.omni_range = rng_range
 			ol.omni_attenuation = 1.8 if kind == "candle" else (1.0 if spec.get("outdoor", false) else 1.4)
+			if kind in FIRE_KINDS:
+				ol.omni_attenuation = 1.25   # (r27) firelight falls off softly into the dark round it
+				fault = "torch" if fault == "" or fault == "candle" else fault
 			# (r17) Safe graphics (OpenGL) has no dual-paraboloid shadows: it printed an error for every lamp.
 			ol.omni_shadow_mode = OmniLight3D.SHADOW_CUBE if _gl else OmniLight3D.SHADOW_DUAL_PARABOLOID
 			light = ol
@@ -362,8 +369,15 @@ func _add_light(parent: Node3D, spec: Dictionary) -> void:
 		em.visibility_range_end = 110.0
 		em.visible = false
 	var animated := fault != "" or float(spec.get("blink", 0.0)) > 0.0
-	var m: StandardMaterial3D = _emitter_material(col, dead, animated)
-	em.material_override = m
+	var fire := kind in FIRE_KINDS
+	var m: StandardMaterial3D = null
+	if fire:
+		# (r27) a torch's or brazier's own flame (flame.gdshader on the mesh's surfaces), out when the fire is
+		if dead:
+			em.mesh = null
+	else:
+		m = _emitter_material(col, dead, animated)
+		em.material_override = m
 	parent.add_child(em)
 	# Shown while within reach: past the light's fade (plus one update's worth of free fall) it adds nothing.
 	var fix := {"light": light, "em": em if not big and not no_emitter else null, "lamp": null}
@@ -389,7 +403,7 @@ func _add_light(parent: Node3D, spec: Dictionary) -> void:
 		return
 	var rec := {"light": light, "base": energy, "fault": fault, "amount": float(spec.get("flicker", 0.35)), "blink": float(spec.get("blink", 0.0)),
 		"phase": rng.randf() * 100.0, "period": rng.randf_range(7.0, 19.0), "mesh": m, "col": col, "pos": spec.pos, "big": big, "kind": kind,
-		"anim": animated, "no_shadow": bool(spec.get("no_shadow", false)) or kind == "shaft"}
+		"anim": animated, "no_shadow": bool(spec.get("no_shadow", false)) or kind == "shaft", "em": em if fire else null}
 	fix.lamp = rec
 	lamps.append(rec)
 	if animated:
@@ -436,6 +450,8 @@ func _emitter_mesh(kind: String) -> Mesh:
 			sb.radius = 0.2
 			sb.height = 0.4
 			mesh = sb
+		"torch", "brazier":
+			mesh = Fire.mesh(kind)
 		_:
 			var sp := SphereMesh.new()
 			sp.radius = 0.045 if kind == "bulb" else 0.07
@@ -640,7 +656,15 @@ func tick(dt: float) -> void:
 		L.k = k
 		if L.light:
 			(L.light as Light3D).light_energy = L.base * k
-		(L.mesh as StandardMaterial3D).emission_energy_multiplier = 3.0 * k
+		if L.em != null:
+			# (r27) fire: the flame pulses with its light, and the light sways with the flame (the shadows of
+			# everything round a torch move a little, as they do by real firelight)
+			(L.em as GeometryInstance3D).set_instance_shader_parameter("flick", 0.7 + 0.45 * k)
+			if L.light:
+				var ph: float = _t * 5.3 + float(L.phase)
+				(L.light as Node3D).position = (L.pos as Vector3) + Vector3(sin(ph) * 0.035, sin(ph * 1.7) * 0.025, cos(ph * 1.3) * 0.035)
+		elif L.mesh is StandardMaterial3D:
+			(L.mesh as StandardMaterial3D).emission_energy_multiplier = 3.0 * k
 	if _indoor.get("buzz", false):
 		_buzz_t -= dt
 		if _buzz_t <= 0.0:
@@ -709,6 +733,12 @@ func _fault_level(L: Dictionary, reduce: bool) -> float:
 				k *= 0.35
 		"candle":
 			k = 0.82 + 0.1 * sin(t * 9.0) + 0.06 * sin(t * 23.0 + 1.0) + 0.05 * sin(t * 3.1)
+		"torch":
+			# (r27) open fire: a restless flicker over a slow breathing, now and then a gust that dips it
+			var fl := sin(t * 10.7) * 0.07 + sin(t * 17.3 + 1.1) * 0.05 + sin(t * 29.9 + 2.3) * 0.035
+			var br := sin(t * 1.3) * 0.06 + sin(t * 0.43 + 0.7) * 0.05
+			var gust := smoothstep(0.93, 1.0, sin(t * 0.21 + 1.9) * 0.5 + sin(t * 0.57) * 0.5)
+			k = 0.86 + fl + br - gust * 0.3 * absf(sin(t * 7.0))
 	if reduce:
 		k = lerpf(0.75, 1.0, k)
 	return k

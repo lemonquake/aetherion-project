@@ -330,10 +330,45 @@ func _init_nav() -> void:
 						var j := iz * nav_nx + ix
 						if sp.y > sup[j]:
 							sup[j] = sp.y
+		# (r27) Terrain3D ground: the heightfield is a floor wherever it lies within this level's step band and no
+		# neighbouring cell is steeper than a body walks; where it rises into the body (a bank beside a trail, the
+		# ground over a buried slab) the cell is closed. One height per cell, sampled once for every level.
+		if has_terrain and _cell_th.is_empty():
+			_cell_th.resize(nav_nx * nav_nz)
+			for iz in nav_nz:
+				for ix in nav_nx:
+					var c3 := nav_cell_centre(ix, iz)
+					_cell_th[iz * nav_nx + ix] = _terrain_h(c3.x, c3.y)
+		if has_terrain and lv == 0:
+			# (the ground is level 0's floor only: a bank's top that happens to reach an upper level is not a floor)
+			var lim := MAX_SLOPE * NAV_CELL
+			for iz in nav_nz:
+				for ix in nav_nx:
+					var j3 := iz * nav_nx + ix
+					var th := _cell_th[j3]
+					if is_nan(th) or th < ly - 0.5 or th > ly + 0.45 or th <= sup[j3]:
+						continue
+					var steep := false
+					for nb2 in [j3 - 1 if ix > 0 else -1, j3 + 1 if ix < nav_nx - 1 else -1, j3 - nav_nx if iz > 0 else -1, j3 + nav_nx if iz < nav_nz - 1 else -1]:
+						if nb2 >= 0 and not is_nan(_cell_th[nb2]) and absf(_cell_th[nb2] - th) > lim:
+							steep = true
+							break
+					if not steep:
+						sup[j3] = th
 		var g := PackedByteArray()
 		g.resize(nav_nx * nav_nz)
 		for j in g.size():
 			g[j] = 1 if sup[j] > -1e8 else 0
+		if has_terrain:
+			for iz in nav_nz:
+				for ix in nav_nx:
+					var j4 := iz * nav_nx + ix
+					if g[j4] == 0:
+						continue
+					for nb4 in [j4, j4 - 1 if ix > 0 else -1, j4 + 1 if ix < nav_nx - 1 else -1, j4 - nav_nx if iz > 0 else -1, j4 + nav_nx if iz < nav_nz - 1 else -1]:
+						if nb4 >= 0 and not is_nan(_cell_th[nb4]) and _cell_th[nb4] > sup[j4] + CLEAR_LO and _cell_th[nb4] < sup[j4] + 40.0:
+							g[j4] = 0
+							break
 		for i in nb:
 			var r2 := _cells(i, BODY_R)
 			var a := i * 6
@@ -380,6 +415,16 @@ func _init_nav() -> void:
 		if la != lb:
 			add_link(Vector3(foot.x, level_y(la), foot.z), Vector3(top.x, level_y(lb), top.z), via, foot.distance_to(top) * 1.3, true)
 	stats.links = nav_links.size()
+
+
+## (r27) Uneven ground (a JsonLayout with Terrain3D): the subclass sets has_terrain and answers _terrain_h.
+var has_terrain := false
+const MAX_SLOPE := 0.8       # rise per metre a body walks up (about 39 degrees)
+var _cell_th := PackedFloat32Array()
+
+
+func _terrain_h(_x: float, _z: float) -> float:
+	return NAN
 
 
 func _reachable(g: PackedByteArray, from: Array) -> PackedByteArray:

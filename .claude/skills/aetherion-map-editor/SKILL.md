@@ -14,6 +14,15 @@ in the editor.
 
 Full reference for people: `docs/MAP_EDITOR.md`. Bots: the `aetherion-waypoints` skill.
 
+**Standing rule (the user, 2026-11-02): uneven ground is always Terrain3D, together with the map editor.** Terrain3D
+(`game/addons/terrain_3d/`, built from the user's source at `A:\Python\terrain`, MIT) draws, sculpts, paints and plants
+the ground; the map file's pieces stand on it. Never write a custom heightfield or terrain mesh. The map header's
+`"terrain"` block points at its data (`game/maps/<id>/terrain/`); saving the map bakes the heights to
+`terrain/heights.res`, which the game collides with on every machine (servers need no extension), the bots survey and
+`ground_height()` reads. Code: `game/src/world/maps/authored/map_terrain.gd` (r27). Rebuild the binaries with
+`python -m SCons` in `A:\Python\terrain` (Windows: MSVC; Android: `platform=android arch=arm64` with
+`ANDROID_NDK_ROOT=A:\Python\re\android-ndk\android-ndk-r28c`), then copy `project/addons/terrain_3d` into `game/addons/`.
+
 ## The pieces
 
 | Path | What |

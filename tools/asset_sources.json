@@ -26,7 +26,15 @@
     "coast_sand_01": "1k", "damp_beach_sand": "1k", "mud_cracked_dry_riverbed_002": "1k", "low_tide_rocks": "1k",
     "fabric_pattern_07": "1k", "dirty_carpet": "1k", "hessian_230": "1k", "rough_linen": "1k", "gingham_check": "1k",
     "denim_fabric": "1k", "cotton_jersey": "1k", "polystyrene": "1k", "container_side": "1k", "asbestos_sheet": "1k",
-    "palm_tree_bark": "1k", "bark_brown_01": "1k", "decrepit_wallpaper": "1k", "ceiling_interior": "1k"
+    "palm_tree_bark": "1k", "bark_brown_01": "1k", "decrepit_wallpaper": "1k", "ceiling_interior": "1k",
+    "forest_leaves_02": "1k", "leaves_forest_ground": "1k", "roots": "1k", "mud_forest": "1k",
+    "rock_pitted_mossy": "1k", "mossy_rock": "1k", "rocky_trail": "1k", "forest_ground_04": "1k",
+    "mossy_cobblestone": "1k", "rock_face_03": "1k", "rock_wall_08": "1k", "mossy_stone_wall": "1k",
+    "mossy_sandstone": "1k", "large_sandstone_blocks": "1k", "stone_block_wall": "1k", "castle_wall_slates": "1k",
+    "volcanic_rock_tiles": "1k", "mossy_brick_floor": "1k", "stone_tiles_02": "1k", "old_sandstone_02": "1k",
+    "stacked_stone_wall": "1k", "monastery_stone_floor": "1k", "worn_rock_natural_01": "1k", "japanese_stone_wall": "1k",
+    "moss_wood": "1k", "bark_brown_02": "1k", "palm_bark": "1k", "tree_bark_03": "1k",
+    "medieval_blocks_02": "1k", "rock_wall_02": "1k"
   },
   "polyhaven_hdris": {
     "qwantani_night_puresky": "2k", "kloppenheim_02_puresky": "2k", "qwantani_moonrise_puresky": "2k"
@@ -70,7 +78,13 @@
     "coast_rocks_01": "1k", "coast_land_rocks_02": "1k", "boulder_01": "1k",
     "service_pistol": "2k", "bolt_action_rifle_7_62": "2k", "ammo_box": "1k", "signal_flashlight": "1k",
     "small_plastic_torch": "1k", "pastic_torch_6v": "1k", "vintage_flashlight": "1k", "wooden_military_crate": "1k",
-    "old_military_crate": "1k", "binoculars": "1k"
+    "old_military_crate": "1k", "binoculars": "1k",
+    "rock_moss_set_01": "1k", "rock_moss_set_02": "1k", "rock_07": "1k", "rock_09": "1k",
+    "stone_01": "1k", "root_cluster_02": "1k", "single_root": "1k", "pine_roots": "1k",
+    "tree_stump_02": "1k", "dead_tree_trunk_02": "1k", "bark_debris_01": "1k", "periwinkle_plant": "1k",
+    "moss_01": "1k", "rock_face_01": "1k", "rock_face_02": "1k", "namaqualand_boulder_02": "1k",
+    "namaqualand_boulder_05": "1k", "jacaranda_tree": "1k", "celandine_01": "1k", "calathea_orbifolia_01": "1k",
+    "anthurium_botany_01": "1k"
   },
   "sketchfab": {
     "pistol_1911": {"uid": "e9c4fa703b6f4b388d84068c417da642", "purpose": ".45 handgun"},
@@ -146,7 +160,39 @@
     "shotgun_saiga_b": {"uid": "68598a9575f9429e8d37e67af4174d85", "purpose": "Saiga 12 gauge shotgun (alternative)"},
     "rifle_m762": {"uid": "57c1744d3fbf4c758dbcaabc5c05089b", "purpose": "M762 7.62x39 assault rifle"},
     "smg_vector_c": {"uid": "47e55aeceb8d441493f77330a33d28b8", "purpose": "Vector 9mm submachine gun (realistic)"},
-    "smg_vector_d": {"uid": "f5e6f9c35cb2440196166815b018fec3", "purpose": "Vector 9mm submachine gun (realistic, alternative)"}
+    "smg_vector_d": {"uid": "f5e6f9c35cb2440196166815b018fec3", "purpose": "Vector 9mm submachine gun (realistic, alternative)"},
+    "hf_temple_kit": {"uid": "c7c5c028570f4e90a88814d9264cc31e", "purpose": "Hidden Forest: Aztec temple kit pieces"},
+    "hf_aztec_temple": {"uid": "3279eccde05346b3af53bf19f0f21690", "purpose": "Hidden Forest: temple reference/props"},
+    "hf_tribal_pillar": {"uid": "e65f43f72c5942579015c208a3eccf3a", "purpose": "Hidden Forest: carved jungle pillar"},
+    "hf_aztec_effigy": {"uid": "81034f59f5134d78a62d64f4dcbfe3b4", "purpose": "Hidden Forest: stone effigy statue"},
+    "hf_aztec_statue_scan": {"uid": "c7f5af7a86344097bc1d1a90a4f6a494", "purpose": "Hidden Forest: scanned Aztec statue"},
+    "hf_xiuhcoatl": {"uid": "951c458eaf604a05b14a5531b315d11c", "purpose": "Hidden Forest: serpent statue"},
+    "hf_aztec_statue": {"uid": "adbc224b78064b4aa09f55908c805405", "purpose": "Hidden Forest: Aztec statue"},
+    "hf_aztec_throne": {"uid": "db646b285a6044db99e33116c1927111", "purpose": "Hidden Forest: stone throne"},
+    "hf_lowpoly_aztec_pack": {"uid": "8e4f0a3ca8d94e4d91b551ce721a2ada", "purpose": "Hidden Forest: Aztec props"},
+    "hf_old_temple_modular": {"uid": "41158b747f36450cb8faeb3a3d061e28", "purpose": "Hidden Forest: ruined temple pieces"},
+    "hf_calendar_stone": {"uid": "c5546bcb4b0447e3acf0031df9338ff5", "purpose": "Hidden Forest: sun stone"},
+    "hf_olmec_cc0": {"uid": "5df0e70cb0e1466399b459f5fd0f91ab", "purpose": "Hidden Forest: green stone figure"},
+    "hf_olmec_head": {"uid": "a9ec7d1b19374447869b97a3362e4ee1", "purpose": "Hidden Forest: colossal head"},
+    "hf_jaguar": {"uid": "0f8a760e6f674b26987cd24b4ecc54a1", "purpose": "Hidden Forest: jaguar statue"},
+    "hf_jungle_tree_a": {"uid": "46f83ec5f6c04abf9d509c1070f67d1e", "purpose": "Hidden Forest: jungle tree"},
+    "hf_jungle_tree_b": {"uid": "e6fac27a832f4eec8b8ca49f4da26fbc", "purpose": "Hidden Forest: jungle tree"},
+    "hf_old_tree": {"uid": "5793911821d04f73926ac4ab1d46727a", "purpose": "Hidden Forest: old tree"},
+    "hf_ceiba": {"uid": "9142b8f06e384f1c9554c9b10da79d2a", "purpose": "Hidden Forest: ceiba (kapok) tree"},
+    "hf_liana_tree": {"uid": "91190d6fe4fd44ada32f6156e1d066ab", "purpose": "Hidden Forest: liana tree"},
+    "hf_banana_plant": {"uid": "bcee47f9119f46a1a758064690f21941", "purpose": "Hidden Forest: banana plant"},
+    "hf_banana_plant2": {"uid": "85695b82c7ba4b3497a663616cc3bf25", "purpose": "Hidden Forest: banana plant"},
+    "hf_banana_tree": {"uid": "7186ebfc24fc42c599f81713cd28d55e", "purpose": "Hidden Forest: banana tree"},
+    "hf_taro": {"uid": "3c9390ddb8c04387afa22241ada26a7b", "purpose": "Hidden Forest: taro (elephant ear)"},
+    "hf_pink_plant": {"uid": "868828fad0e348378c6be5397da0895c", "purpose": "Hidden Forest: exotic plant"},
+    "hf_brazier_bowl": {"uid": "817b9a33d48a46098f25b761dd36ac9f", "purpose": "Hidden Forest: brazier bowl"},
+    "hf_brazier_pillar": {"uid": "0b751c752c4547688340a6158528704d", "purpose": "Hidden Forest: brazier pillar"},
+    "hf_column_brazier": {"uid": "c820670f8cc64049878c89f2a668e78b", "purpose": "Hidden Forest: column brazier"},
+    "hf_wall_torch": {"uid": "68f61f1132ba46999709c26e79400961", "purpose": "Hidden Forest: wall torch"},
+    "hf_wall_torch2": {"uid": "9727602bdd334c8ba3e3ea8f2102336f", "purpose": "Hidden Forest: wall torch"},
+    "hf_wall_torch3": {"uid": "7ede870750ba4831b6cb4669bb1c58c0", "purpose": "Hidden Forest: wall torch"},
+    "hf_mayan_temple_ms": {"uid": "6eaca8031502499db6c1041b6c99ef96", "purpose": "Hidden Forest: temple reference"},
+    "hf_jungle_temple_lp": {"uid": "ff86302ab03043feb6a194178ffcbfcc", "purpose": "Hidden Forest: temple reference"}
   },
   "kenney": {
     "impact-sounds": "", "interface-sounds": "", "rpg-audio": "", "particle-pack": "", "smoke-particles": ""
