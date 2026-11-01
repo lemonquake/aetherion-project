@@ -1,4 +1,104 @@
 {
+ "brgy/court_green": {
+  "phys": "concrete",
+  "rough": 0.62,
+  "metal": 0.0,
+  "size": 4.0,
+  "normal": true,
+  "rough_map": false,
+  "px": [
+   512,
+   512
+  ]
+ },
+ "brgy/court_line": {
+  "phys": "concrete",
+  "rough": 0.55,
+  "metal": 0.0,
+  "size": 1.0,
+  "normal": true,
+  "rough_map": false,
+  "px": [
+   512,
+   512
+  ]
+ },
+ "brgy/court_red": {
+  "phys": "concrete",
+  "rough": 0.62,
+  "metal": 0.0,
+  "size": 4.0,
+  "normal": true,
+  "rough_map": false,
+  "px": [
+   512,
+   512
+  ]
+ },
+ "brgy/plaza": {
+  "phys": "concrete",
+  "rough": 0.85,
+  "metal": 0.0,
+  "size": 4.0,
+  "normal": true,
+  "rough_map": false,
+  "px": [
+   512,
+   512
+  ]
+ },
+ "brgy/sign_court": {
+  "phys": "sheet_metal",
+  "rough": 0.7,
+  "metal": 0.0,
+  "size": 2.0,
+  "fit": true,
+  "normal": true,
+  "rough_map": false,
+  "px": [
+   640,
+   256
+  ]
+ },
+ "brgy/sign_hall": {
+  "phys": "sheet_metal",
+  "rough": 0.7,
+  "metal": 0.0,
+  "size": 2.0,
+  "fit": true,
+  "normal": true,
+  "rough_map": false,
+  "px": [
+   640,
+   256
+  ]
+ },
+ "brgy/sign_kapilya": {
+  "phys": "plywood",
+  "rough": 0.7,
+  "metal": 0.0,
+  "size": 2.0,
+  "fit": true,
+  "normal": true,
+  "rough_map": false,
+  "px": [
+   640,
+   256
+  ]
+ },
+ "brgy/sign_toda": {
+  "phys": "sheet_metal",
+  "rough": 0.7,
+  "metal": 0.0,
+  "size": 2.0,
+  "fit": true,
+  "normal": true,
+  "rough_map": false,
+  "px": [
+   640,
+   256
+  ]
+ },
  "freight/asphalt": {
   "phys": "concrete",
   "rough": 0.742,

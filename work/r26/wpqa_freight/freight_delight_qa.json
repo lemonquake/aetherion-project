@@ -1,0 +1,90 @@
+{
+  "cells": 34218,
+  "coverage_pct": 100.0,
+  "covered": 34218,
+  "edge_kinds": {
+    "stair": 12,
+    "tight": 1242,
+    "walk": 2669
+  },
+  "edges": 3923,
+  "edges_failing_list": [],
+  "edges_failing_now": 0,
+  "from": "res://data/waypoints/freight_delight.json",
+  "images": [
+    "../work/r26/wpqa_freight/freight_delight_L1.png",
+    "../work/r26/wpqa_freight/freight_delight_L2.png"
+  ],
+  "kinds": {
+    "area": 220,
+    "corner": 301,
+    "hide": 46,
+    "junction": 125,
+    "plaza": 236,
+    "road": 240,
+    "snipe": 54,
+    "stair": 15
+  },
+  "map": "freight_delight",
+  "nodes": 1237,
+  "nodes_blocked": 2,
+  "nodes_blocked_list": [
+    [
+      "FD1-0723",
+      "area",
+      [
+        15.3,
+        0.0,
+        -1.2
+      ]
+    ],
+    [
+      "FD1-0933",
+      "corner",
+      [
+        27.8,
+        0.0,
+        35.5
+      ]
+    ]
+  ],
+  "orphans": 1,
+  "orphans_why": [
+    {
+      "kind": "corner",
+      "name": "Eskinita, Level 1",
+      "node": "FD1-0933",
+      "p": "(27.7, 0.0, 35.5)",
+      "to_main": [
+        [
+          "FD1-0947",
+          1.3,
+          "closed cells on the line (a wall, a shelf, a void)"
+        ],
+        [
+          "FD1-0563",
+          2.0,
+          "closed cells on the line (a wall, a shelf, a void)"
+        ],
+        [
+          "FD1-0930",
+          2.1,
+          "closed cells on the line (a wall, a shelf, a void)"
+        ]
+      ]
+    }
+  ],
+  "priority": {
+    "1": 184,
+    "2": 436,
+    "3": 617
+  },
+  "qa_ms": 1963,
+  "route_detour_avg": 1.99,
+  "route_detour_max": 26.13,
+  "route_ms_avg": 0.091,
+  "routes_found": 500,
+  "routes_tried": 500,
+  "source": "auto",
+  "uncovered_worst": []
+}

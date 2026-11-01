@@ -24,6 +24,7 @@ FONTS = ROOT / "game" / "assets" / "fonts"
 N = 512
 
 SURFACES: dict = {}
+FOLDER = "freight"   # the texture folder save() writes into (tools/make_map_textures.py draws other sets with it)
 
 
 # ------------------------------------------------------------------ noise and helpers
@@ -160,23 +161,23 @@ def save(name, alb, hgt=None, strength=4.0, **surf):
     if isinstance(surf.get("rough"), np.ndarray):
         rough = surf["rough"]
         surf["rough"] = round(float(np.mean(rough)), 3)
-    (OUT / "textures" / "freight").mkdir(parents=True, exist_ok=True)
-    (OUT / "normals" / "freight").mkdir(parents=True, exist_ok=True)
-    (OUT / "roughness" / "freight").mkdir(parents=True, exist_ok=True)
+    (OUT / "textures" / FOLDER).mkdir(parents=True, exist_ok=True)
+    (OUT / "normals" / FOLDER).mkdir(parents=True, exist_ok=True)
+    (OUT / "roughness" / FOLDER).mkdir(parents=True, exist_ok=True)
     a = np.clip(alb, 0, 1)
     mode = "RGBA" if a.shape[-1] == 4 else "RGB"
-    Image.fromarray((a * 255 + 0.5).astype(np.uint8), mode).save(OUT / "textures" / "freight" / f"{name}.png", optimize=True)
+    Image.fromarray((a * 255 + 0.5).astype(np.uint8), mode).save(OUT / "textures" / FOLDER / f"{name}.png", optimize=True)
     if hgt is not None:
         nm = normal_from(hgt, strength)
-        Image.fromarray((nm * 255 + 0.5).astype(np.uint8), "RGB").save(OUT / "normals" / "freight" / f"{name}_normal.png", optimize=True)
+        Image.fromarray((nm * 255 + 0.5).astype(np.uint8), "RGB").save(OUT / "normals" / FOLDER / f"{name}_normal.png", optimize=True)
     if rough is not None:
-        Image.fromarray((np.clip(rough, 0, 1) * 255 + 0.5).astype(np.uint8), "L").save(OUT / "roughness" / "freight" / f"{name}_rough.png", optimize=True)
+        Image.fromarray((np.clip(rough, 0, 1) * 255 + 0.5).astype(np.uint8), "L").save(OUT / "roughness" / FOLDER / f"{name}_rough.png", optimize=True)
     rec = {"phys": "concrete", "rough": 0.8, "metal": 0.0, "size": 2.0}
     rec.update(surf)
     rec["normal"] = hgt is not None
     rec["rough_map"] = rough is not None
     rec["px"] = [int(a.shape[1]), int(a.shape[0])]
-    SURFACES["freight/" + name] = rec
+    SURFACES[FOLDER + "/" + name] = rec
 
 
 # ------------------------------------------------------------------ corrugated iron (yero)

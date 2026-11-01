@@ -1,0 +1,45 @@
+{
+  "checks": [
+    {
+      "detail": "443 piece nodes for 443 pieces in res://maps/covered_court/map.json (220 ms)",
+      "name": "open",
+      "ok": true
+    },
+    {
+      "detail": "439 of 443 pieces drawn (4 invisible clip pieces)",
+      "name": "previews",
+      "ok": true
+    },
+    {
+      "detail": "every piece the editor writes is the piece it read (443)",
+      "name": "unchanged_on_save",
+      "ok": true
+    },
+    {
+      "detail": "truss_1 moved to [-14.5, 6.7, 1.5], bearing 30.0",
+      "name": "move_turn",
+      "ok": true
+    },
+    {
+      "detail": "truss_1 size (0.18, 0.3, 18.4) -> (0.36, 0.3, 18.4), scale back to (1.0, 1.0, 1.0)",
+      "name": "scale_resizes",
+      "ok": true
+    },
+    {
+      "detail": "clip_n 88.00 m -> 90.00 m about the same middle",
+      "name": "wall_length",
+      "ok": true
+    },
+    {
+      "detail": "a ray down at (0, -28) hits road",
+      "name": "pick",
+      "ok": true
+    },
+    {
+      "detail": "N1 pinned on court, saved to res://maps/covered_court/qa.json",
+      "name": "qa_note",
+      "ok": true
+    }
+  ],
+  "ok": true
+}

@@ -55,7 +55,8 @@ const MAX_TEAM_SIZE := 4      # Classic squads
 const DM_MAX_TEAM_SIZE := 7   # Deathmatch: two or three teams of up to 7 (r11)
 const DM_MAX_TEAMS := 3
 const GAME_MODES := ["classic", "deathmatch"]
-const MAPS := ["kalinaw", "lawless_sub", "malasugue_mall", "freight_delight"]
+## (r26) plus every map made in the map editor (res://maps/<id>/map.json)
+static var MAPS: Array = ["kalinaw", "lawless_sub", "malasugue_mall", "freight_delight"] + preload("res://src/world/maps/authored/map_doc.gd").ids()
 
 ## Server tick (authoritative on the server, estimated on clients).
 var tick: int = 0

@@ -1,0 +1,472 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+[server] dedicated server listening on 27773
+[dyn] 6 prop models, breakable ones cut into chunks in 34 ms
+[world] map built in 1057 ms
+[map] 0 buildings, 20 doors, 0 containers, 14 props, #7f276958 on PC
+[nav] levels: 19918 points, 4 links, 46 ms
+[nav] r21: 597 cells closed by the physics check, main walk 19243 of 19333 points (90 in pockets), 109 ms
+[botnav] covered_court: walk check and 92 spots from res://data/botnav/covered_court.json { "hide": 20, "snipe": 31, "cover": 15, "open": 26 }
+[waypoints] covered_court: 638 nodes, 2483 edges (auto, res://data/waypoints/covered_court.json), 0 off the main graph, 45 ms { "plaza": 194, "junction": 75, "road": 68, "snipe": 21, "hide": 15, "cover": 2, "area": 93, "corner": 130, "stair": 20, "door": 20 }
+[loadout] Pinsan Gardo shotgun_saiga [muzzle_tactical,mag_drum_rifle,weapon_light] mag 10/10 | pistol_9 [suppressor_light,mag_extquick_light] mag 21/21
+[loadout] Pareng Pandesal rifle_m416 [scope_3x,grip_vertical,mag_extquick_rifle,stock_heavy] mag 40/40 | pistol_45 [suppressor_light,mag_extquick_light,weapon_light] mag 12/12
+[loadout] Bossing Dodong smg_9 [sight_reddot,suppressor_light,grip_heavy,mag_extquick_light,weapon_light] mag 40/40 | revolver_357 [sight_reddot] mag 6/6
+[loadout] Aling Puring bolt_awp [scope_8x,suppressor_sniper,bullet_loops] mag 5/5 | revolver_357 [sight_reddot] mag 6/6
+[loadout] Lola Basyang Jr machine_pistol [sight_reddot,suppressor_light,laser_sight,mag_extquick_light,stock_heavy,weapon_light] mag 45/45 | revolver_357 [sight_reddot] mag 6/6
+[loadout] Ate Load shotgun_double [] mag 2/2 | revolver_357 [sight_reddot] mag 6/6
+[loadout] Utoy Kalabaw rifle_m762 [scope_3x,suppressor_rifle,mag_drum_rifle,weapon_light] mag 60/60 | pistol_9 [sight_reddot,suppressor_light,mag_extquick_light,weapon_light] mag 21/21
+[loadout] Tatay Kulas bolt_308 [suppressor_sniper,mag_ext_sniper] mag 8/8 | pistol_45 [sight_reddot,suppressor_light,weapon_light] mag 7/7
+[loadout] Kapitbahay Lito machine_pistol [sight_reddot,suppressor_light,laser_sight,mag_extquick_light,stock_heavy,weapon_light] mag 45/45 | pistol_deagle [sight_reddot,suppressor_light,mag_extquick_light,weapon_light] mag 10/10
+[loadout] Ate Load Dito shotgun_saiga [sight_reflex,muzzle_tactical,weapon_light] mag 5/5 | revolver_357 [sight_reddot] mag 6/6
+[loadout] Lolo Kalesa rifle_m416 [suppressor_rifle,stock_tactical,weapon_light] mag 30/30 | pistol_45 [sight_reddot,suppressor_light,mag_extquick_light,weapon_light] mag 12/12
+[loadout] Mang Tani smg_tommy [suppressor_light,grip_thumb,mag_extquick_light] mag 50/50 | revolver_357 [sight_reflex] mag 6/6
+[match    0.0] deathmatch start on covered_court: 12 players, 2 teams; spawns (-39.0, 0.0, -4.0), (41.0, 0.0, 1.0) (80/80 m apart, layout); day offset 0 s; zone centre (3.0, 5.0) r=69; win by wipe
+[match    0.0] status: { "ground": 12 }; armed 12; shots 0; zone -1 hold r=69; corpses 0; levels { "L1": 12 }
+[match    0.0] dm teams: West Team 6 at (-39.0, -3.0) spread 3 m; East Team 6 at (41.0, 3.0) spread 3 m; gap 80 m; zone centre (3.0, 5.0)
+[match    0.0] bots: { "roam": 12 }; containers searched by bots 0 (all players 0); plan steps done 0; guns carried 24
+[match    0.0] roles: { "stalker": { "roam": 4 }, "looter": { "roam": 4 }, "sniper": { "roam": 3 }, "rusher": { "roam": 1 } }; stuck now 0; waypoints 92; team { "lines": 0, "pings": 0, "laser_follow": 0, "learned_cells": 0, "blocked_cells": 0, "squads": 0, "following_humans": 0 }
+[match    0.0] [lootstats] bots on the ground 12 (in water 0); armed 12; armed with ammo for a gun 12; long guns 12; attachments fitted 68; rounds of unusable ammo carried 0; items on the ground 0; bot pickups { "detours": 0, "detour_taken": 0, "fetches": 0, "fetch_done": 0, "items_taken": 0 }
+[match    6.9] [hold] Mang Tani overwatch spot 40 92s
+[match   13.4] [hold] Utoy Kalabaw overwatch spot 46 63s
+[match   14.4] [hold] Tatay Kulas camp spot 19 38s
+[match   15.0] [botstates] 180 bot-s: roam 54%, hunt 19%, fight 12%, follow 9%, overwatch 5%, camp 0%, heal 0%, investigate 0%
+[match   15.0] [botskill] normal shots 77 hits 10 reaction_avg 0.30 (n 15) dmg 103 bots 12
+[match   15.0] status: { "ground": 12 }; armed 12; shots 78; zone -1 hold r=69; corpses 0; levels { "L1": 12 }; server tick avg 1.87 ms, p99 5.03 ms, max 9.75 ms over 900 ticks; objects 5129
+[match   15.0] dm teams: West Team 6 at (-20.0, 5.0) spread 14 m; East Team 6 at (21.0, 12.0) spread 10 m; gap 42 m; zone centre (3.0, 5.0)
+[match   15.0] bots: { "fight": 8, "overwatch": 2, "investigate": 1, "roam": 1 }; containers searched by bots 0 (all players 0); plan steps done 0; guns carried 24
+[match   15.0] roles: { "stalker": { "fight": 4 }, "looter": { "fight": 2, "investigate": 1, "roam": 1 }, "sniper": { "fight": 1, "overwatch": 2 }, "rusher": { "fight": 1 } }; stuck now 0; waypoints 92; team { "lines": 6, "pings": 0, "laser_follow": 0, "learned_cells": 0, "blocked_cells": 0, "squads": 2, "following_humans": 0 }
+[match   15.0] [lootstats] bots on the ground 12 (in water 0); armed 12; armed with ammo for a gun 12; long guns 12; attachments fitted 68; rounds of unusable ammo carried 0; items on the ground 0; bot pickups { "detours": 0, "detour_taken": 0, "fetches": 0, "fetch_done": 0, "items_taken": 0 }
+[match   15.6] Lolo Kalesa killed by Pareng Pandesal (gunshot); 2 teams left
+[match   15.6] alive: West Team 6, East Team 5; score { 0: 0, 1: 0 }
+[match   16.1] [hold] Kapitbahay Lito camp spot 22 67s
+[match   17.4] Tatay Kulas (team 0) landed at (-31.0, 0.0, 25.0), 4.9 m/s, health 100; teammates -
+[match   18.1] Pinsan Gardo killed by Lola Basyang Jr (gunshot); 2 teams left
+[match   18.1] alive: West Team 6, East Team 4; score { 0: 0, 1: 0 }
+[match   18.8] Utoy Kalabaw (team 1) landed at (21.0, 0.0, 25.0), 4.9 m/s, health 100; teammates -
+[match   21.4] Pareng Pandesal killed by Lola Basyang Jr (gunshot); 2 teams left
+[match   21.4] alive: West Team 5, East Team 4; score { 0: 0, 1: 0 }
+[match   24.3] Aling Puring killed by Mang Tani (gunshot); 2 teams left
+[match   24.3] alive: West Team 4, East Team 4; score { 0: 0, 1: 0 }
+[match   26.0] Lola Basyang Jr killed by Mang Tani (gunshot); 2 teams left
+[match   26.0] alive: West Team 4, East Team 3; score { 0: 0, 1: 0 }
+[match   28.4] Ate Load Dito (team 0) landed at (-8.0, 0.0, -2.0), 4.9 m/s, health 80; teammates 19 m
+[navwatch] stall Ate Load looter order at (-11.1, 0.1, 6.2): goal 3.5 m, path 1/3 next CC1-0088 4.8 m, ahead '', order help 3.5 m arrived true
+[match   30.0] [botstates] 315 bot-s: roam 38%, fight 31%, hunt 11%, order 6%, follow 6%, overwatch 4%, heal 3%, investigate 1%, camp 0%
+[match   30.0] [botskill] normal shots 348 hits 39 reaction_avg 0.32 (n 54) dmg 403 bots 7
+[match   30.0] status: { "ground": 7 }; armed 7; shots 349; zone -1 hold r=69; corpses 5; levels { "L1": 7 }; server tick avg 2.74 ms, p99 6.11 ms, max 35.91 ms over 900 ticks; objects 4655
+[match   30.0] dm teams: West Team 4 at (-17.0, 7.0) spread 14 m; East Team 3 at (17.0, 17.0) spread 4 m; gap 35 m; zone centre (3.0, 5.0)
+[match   30.0] bots: { "fight": 5, "order": 1, "roam": 1 }; containers searched by bots 0 (all players 0); plan steps done 0; guns carried 14
+[match   30.0] roles: { "looter": { "fight": 3, "order": 1 }, "sniper": { "fight": 1, "roam": 1 }, "stalker": { "fight": 1 } }; stuck now 0; waypoints 92; team { "lines": 32, "pings": 0, "laser_follow": 0, "learned_cells": 5, "blocked_cells": 0, "squads": 2, "following_humans": 0 }
+[match   30.0] [lootstats] bots on the ground 7 (in water 0); armed 7; armed with ammo for a gun 7; long guns 7; attachments fitted 38; rounds of unusable ammo carried 0; items on the ground 0; bot pickups { "detours": 0, "detour_taken": 0, "fetches": 0, "fetch_done": 0, "items_taken": 0 }
+[match   33.5] Tatay Kulas killed by Kapitbahay Lito (gunshot); 2 teams left
+[match   33.5] alive: West Team 3, East Team 3; score { 0: 0, 1: 0 }
+[match   40.7] Utoy Kalabaw killed by Bossing Dodong (gunshot); 2 teams left
+[match   40.7] alive: West Team 3, East Team 2; score { 0: 0, 1: 0 }
+[match   40.8] [endgame] West Team mates 3 foes 2 nocontact 0s
+[match   40.9] [endgame] East Team mates 2 foes 3 nocontact 0s
+[match   41.9] Mang Tani killed by Bossing Dodong (gunshot); 2 teams left
+[match   41.9] alive: West Team 2, East Team 2; score { 0: 0, 1: 0 }
+[match   45.0] [botstates] 401 bot-s: fight 32%, roam 32%, order 9%, hunt 9%, investigate 5%, follow 5%, heal 4%, overwatch 3%, camp 0%
+[match   45.0] [botskill] normal shots 444 hits 60 reaction_avg 0.33 (n 61) dmg 689 bots 4
+[match   45.0] status: { "ground": 4 }; armed 4; shots 445; zone -1 hold r=69; corpses 8; levels { "L1": 4 }; server tick avg 1.43 ms, p99 3.13 ms, max 14.40 ms over 900 ticks; objects 4317
+[match   45.0] dm teams: West Team 2 at (-11.0, 0.0) spread 9 m; East Team 2 at (5.0, 17.0) spread 15 m; gap 24 m; zone centre (3.0, 5.0)
+[match   45.0] bots: { "order": 1, "investigate": 3 }; containers searched by bots 0 (all players 0); plan steps done 0; guns carried 8
+[match   45.0] roles: { "looter": { "order": 1, "investigate": 2 }, "stalker": { "investigate": 1 } }; stuck now 0; waypoints 92; team { "lines": 47, "pings": 0, "laser_follow": 0, "learned_cells": 8, "blocked_cells": 0, "squads": 2, "following_humans": 0 }
+[match   45.0] [lootstats] bots on the ground 4 (in water 0); armed 4; armed with ammo for a gun 4; long guns 4; attachments fitted 21; rounds of unusable ammo carried 0; items on the ground 0; bot pickups { "detours": 0, "detour_taken": 0, "fetches": 0, "fetch_done": 0, "items_taken": 0 }
+[navwatch] stall Bossing Dodong looter order at (19.9, 0.0, 17.6): goal 4.4 m, path 0/0 next -, ahead '', order help 4.4 m arrived true
+[match   47.9] Ate Load killed by Kapitbahay Lito (gunshot); 2 teams left
+[match   47.9] alive: West Team 1, East Team 2; score { 0: 0, 1: 0 }
+[navwatch] stall Bossing Dodong looter order at (20.2, 0.0, 17.2): goal 4.8 m, path 1/4 next CC1-0416 3.0 m, ahead '', order help 4.8 m arrived true
+[navwatch] stall Bossing Dodong looter order at (19.9, 0.0, 17.4): goal 4.5 m, path 1/4 next CC1-0416 2.7 m, ahead '', order help 4.5 m arrived true
+[match   60.0] [botstates] 449 bot-s: fight 35%, roam 29%, order 11%, hunt 8%, investigate 6%, follow 4%, heal 4%, overwatch 3%, camp 0%
+[match   60.0] [botskill] normal shots 489 hits 81 reaction_avg 0.35 (n 69) dmg 890 bots 3
+[match   60.0] status: { "ground": 3 }; armed 3; shots 490; zone -1 hold r=69; corpses 9; levels { "L1": 3 }; server tick avg 1.13 ms, p99 2.32 ms, max 6.65 ms over 900 ticks; objects 4205
+[match   60.0] dm teams: West Team 1 at (-17.0, -9.0) spread 0 m; East Team 2 at (3.0, 16.0) spread 17 m; gap 32 m; zone centre (3.0, 5.0)
+[match   60.0] bots: { "investigate": 1, "fight": 2 }; containers searched by bots 0 (all players 0); plan steps done 0; guns carried 6
+[match   60.0] roles: { "looter": { "investigate": 1, "fight": 1 }, "stalker": { "fight": 1 } }; stuck now 0; waypoints 92; team { "lines": 55, "pings": 0, "laser_follow": 0, "learned_cells": 8, "blocked_cells": 0, "squads": 2, "following_humans": 0 }
+[match   60.0] [lootstats] bots on the ground 3 (in water 0); armed 3; armed with ammo for a gun 3; long guns 3; attachments fitted 20; rounds of unusable ammo carried 0; items on the ground 0; bot pickups { "detours": 0, "detour_taken": 0, "fetches": 0, "fetch_done": 0, "items_taken": 0 }
+[navwatch] covered_court: 443 bot-s (199 moving), stalls 4 (0.5/bot-min, 10.9% of moving time), facing a wall 0 (0.0/bot-min)
+[match   69.7] Ate Load Dito killed by Bossing Dodong (gunshot); 1 teams left
+[match   69.7] alive: West Team 0, East Team 2; score { 0: 0, 1: 0 }
+[match   69.8] round 1 over: winner 1, scores { 0: 0, 1: 1 }
+[loadout] Mang Tani shotgun_saiga [mag_extquick_rifle] mag 8/8 | pistol_45 [sight_reddot] mag 7/7
+[match   72.8] Mang Tani respawned at (-41.0, 0.0, -3.0) (nearest enemy 1000 m)
+[loadout] Lolo Kalesa machine_pistol [suppressor_light,laser_sight,mag_extquick_light,weapon_light] mag 45/45 | pistol_45 [sight_reddot,mag_extquick_light,weapon_light] mag 12/12
+[match   72.8] Lolo Kalesa respawned at (42.0, 0.0, -6.0) (nearest enemy 83 m)
+[match   72.8] round 2 started; scores { 0: 0, 1: 1 }
+[match   72.8] [roundtime] remove 0.7 ms, field 5.0 ms
+[loadout] Ate Load Dito rifle_m416 [scope_night,grip_heavy,mag_extquick_rifle,stock_heavy,weapon_light] mag 40/40 | pistol_45 [suppressor_light,mag_extquick_light,weapon_light] mag 12/12
+[match   72.8] Ate Load Dito respawned at (-41.0, 0.0, 1.0) (nearest enemy 83 m)
+[loadout] Kapitbahay Lito shotgun_saiga [sight_reflex] mag 5/5 | pistol_9 [weapon_light] mag 15/15
+[match   72.8] Kapitbahay Lito respawned at (42.0, 0.0, 3.0) (nearest enemy 83 m)
+[match   72.8] [endgame] East Team mates 2 foes 2 nocontact 0s
+[loadout] Tatay Kulas shotgun_saiga [muzzle_tactical,mag_drum_rifle] mag 10/10 | revolver_357 [sight_reflex] mag 6/6
+[match   72.8] Tatay Kulas respawned at (-41.0, 0.0, -9.0) (nearest enemy 83 m)
+[match   72.8] [endgame] West Team mates 3 foes 2 nocontact 0s
+[loadout] Utoy Kalabaw marksman_308 [scope_4x,suppressor_sniper,mag_ext_sniper,cheek_pad] mag 30/30 | revolver_357 [] mag 6/6
+[match   72.8] Utoy Kalabaw respawned at (42.0, 0.0, 7.0) (nearest enemy 83 m)
+[loadout] Ate Load lmg_m249 [sight_holo,muzzle_brake,laser_sight,stock_heavy,weapon_light] mag 100/100 | revolver_357 [sight_reddot] mag 6/6
+[match   72.8] Ate Load respawned at (-38.0, 0.0, -3.0) (nearest enemy 80 m)
+[loadout] Lola Basyang Jr smg_9 [suppressor_light,mag_drum_light,weapon_light] mag 54/54 | pistol_45 [sight_reddot,suppressor_light,mag_extquick_light] mag 12/12
+[match   72.8] Lola Basyang Jr respawned at (42.0, 0.0, -2.0) (nearest enemy 80 m)
+[loadout] Aling Puring rifle_scar [scope_3x,suppressor_rifle,grip_angled,mag_extquick_rifle,weapon_light] mag 40/40 | revolver_357 [] mag 6/6
+[match   72.9] Aling Puring respawned at (-38.0, 0.0, -9.0) (nearest enemy 80 m)
+[loadout] Bossing Dodong machine_pistol [sight_reddot,laser_sight,stock_heavy] mag 32/32 | pistol_deagle [suppressor_light,mag_extquick_light,weapon_light] mag 10/10
+[match   72.9] Bossing Dodong respawned at (40.0, 0.0, 7.0) (nearest enemy 78 m)
+[loadout] Pareng Pandesal bolt_kar98 [scope_4x,suppressor_rifle,cheek_pad] mag 5/5 | pistol_9 [sight_reddot,mag_drum_light,weapon_light] mag 27/27
+[match   72.9] Pareng Pandesal respawned at (-41.0, 0.0, -6.0) (nearest enemy 81 m)
+[loadout] Pinsan Gardo rifle_scar [suppressor_rifle,grip_vertical,mag_extquick_rifle] mag 40/40 | revolver_357 [sight_reddot] mag 6/6
+[match   72.9] Pinsan Gardo respawned at (40.0, 0.0, 3.0) (nearest enemy 78 m)
+[match   72.9] [roundtime] 12 respawns, slowest 3.1 ms, median 2.8 ms
+[match   75.0] status: { "ground": 12 }; armed 12; shots 570; zone -1 hold r=68; corpses 0; levels { "L1": 12 }; server tick avg 1.28 ms, p99 4.66 ms, max 10.44 ms over 720 ticks; objects 5212
+[match   75.0] dm teams: West Team 6 at (-40.0, -5.0) spread 3 m; East Team 6 at (41.0, 2.0) spread 4 m; gap 81 m; zone centre (-4.0, 1.0)
+[match   75.0] bots: { "roam": 12 }; containers searched by bots 0 (all players 0); plan steps done 0; guns carried 24
+[match   75.0] roles: { "looter": { "roam": 3 }, "stalker": { "roam": 3 }, "rusher": { "roam": 6 } }; stuck now 0; waypoints 92; team { "lines": 58, "pings": 0, "laser_follow": 0, "learned_cells": 10, "blocked_cells": 0, "squads": 2, "following_humans": 0 }
+[match   75.0] [lootstats] bots on the ground 12 (in water 0); armed 12; armed with ammo for a gun 12; long guns 12; attachments fitted 59; rounds of unusable ammo carried 0; items on the ground 0; bot pickups { "detours": 0, "detour_taken": 0, "fetches": 0, "fetch_done": 0, "items_taken": 0 }
+[match   78.0] [botstates] 540 bot-s: roam 35%, fight 34%, order 9%, hunt 8%, investigate 5%, follow 4%, heal 3%, overwatch 2%, camp 0%
+[match   78.0] [botskill] normal shots 568 hits 82 reaction_avg 0.40 (n 74) dmg 896 bots 12
+[match   84.5] Aling Puring (team 0) landed at (-21.0, 0.0, 7.0), 2.5 m/s, health 100; teammates -
+[match   87.2] Ate Load Dito killed by Utoy Kalabaw (gunshot); 2 teams left
+[match   87.2] alive: West Team 5, East Team 6; score { 0: 0, 1: 1 }
+[match   87.2] Kapitbahay Lito killed by Ate Load (gunshot); 2 teams left
+[match   87.2] alive: West Team 5, East Team 5; score { 0: 0, 1: 1 }
+[match   88.3] Lola Basyang Jr killed by Pareng Pandesal (gunshot); 2 teams left
+[match   88.3] alive: West Team 5, East Team 4; score { 0: 0, 1: 1 }
+[match   88.8] Pinsan Gardo killed by Ate Load (gunshot); 2 teams left
+[match   88.8] alive: West Team 5, East Team 3; score { 0: 0, 1: 1 }
+[match   89.1] Tatay Kulas killed by Utoy Kalabaw (gunshot); 2 teams left
+[match   89.1] alive: West Team 4, East Team 3; score { 0: 0, 1: 1 }
+[match   90.0] status: { "ground": 7 }; armed 7; shots 775; zone -1 hold r=68; corpses 5; levels { "L1": 7 }; server tick avg 2.34 ms, p99 6.01 ms, max 9.09 ms over 900 ticks; objects 4670
+[match   90.0] dm teams: West Team 4 at (-14.0, 3.0) spread 10 m; East Team 3 at (21.0, 4.0) spread 10 m; gap 35 m; zone centre (-4.0, 1.0)
+[match   90.0] bots: { "fight": 5, "heal": 2 }; containers searched by bots 0 (all players 0); plan steps done 0; guns carried 14
+[match   90.0] roles: { "looter": { "fight": 3 }, "stalker": { "heal": 2, "fight": 1 }, "rusher": { "fight": 1 } }; stuck now 0; waypoints 92; team { "lines": 73, "pings": 0, "laser_follow": 0, "learned_cells": 15, "blocked_cells": 0, "squads": 4, "following_humans": 0 }
+[match   90.0] [lootstats] bots on the ground 7 (in water 0); armed 7; armed with ammo for a gun 7; long guns 7; attachments fitted 36; rounds of unusable ammo carried 0; items on the ground 0; bot pickups { "detours": 0, "detour_taken": 0, "fetches": 0, "fetch_done": 0, "items_taken": 0 }
+[match   91.8] Pareng Pandesal killed by Utoy Kalabaw (gunshot); 2 teams left
+[match   91.8] alive: West Team 3, East Team 3; score { 0: 0, 1: 1 }
+[match   93.0] [botstates] 695 bot-s: fight 35%, roam 30%, hunt 13%, order 7%, follow 5%, investigate 4%, heal 3%, overwatch 2%, camp 0%
+[match   93.0] [botskill] normal shots 800 hits 120 reaction_avg 0.37 (n 124) dmg 1664 bots 6
+[match   93.2] Lolo Kalesa (team 1) landed at (20.0, 0.0, -10.0), 4.9 m/s, health 12; teammates -
+[match   95.8] Bossing Dodong (team 1) landed at (20.0, 0.0, -4.0), 3.1 m/s, health 92; teammates 5 m
+[match   98.2] Utoy Kalabaw killed by Aling Puring (gunshot); 2 teams left
+[match   98.2] alive: West Team 3, East Team 2; score { 0: 0, 1: 1 }
+[match   98.4] [endgame] East Team mates 2 foes 3 nocontact 0s
+[match   98.4] [endgame] West Team mates 3 foes 2 nocontact 0s
+[match   99.7] Ate Load (team 0) landed at (8.0, 0.0, 19.0), 3.8 m/s, health 100; teammates 23 m
+[match  102.3] Ate Load killed by Bossing Dodong (gunshot); 2 teams left
+[match  102.3] alive: West Team 2, East Team 2; score { 0: 0, 1: 1 }
+[match  105.0] status: { "ground": 4 }; armed 4; shots 863; zone -1 hold r=68; corpses 8; levels { "L1": 4 }; server tick avg 1.48 ms, p99 3.34 ms, max 7.20 ms over 900 ticks; objects 4336
+[match  105.0] dm teams: West Team 2 at (-7.0, 15.0) spread 6 m; East Team 2 at (20.0, -6.0) spread 2 m; gap 34 m; zone centre (-4.0, 1.0)
+[match  105.0] bots: { "hunt": 1, "fight": 3 }; containers searched by bots 0 (all players 0); plan steps done 0; guns carried 8
+[match  105.0] roles: { "looter": { "hunt": 1, "fight": 1 }, "stalker": { "fight": 2 } }; stuck now 0; waypoints 92; team { "lines": 90, "pings": 0, "laser_follow": 0, "learned_cells": 16, "blocked_cells": 0, "squads": 4, "following_humans": 0 }
+[match  105.0] [lootstats] bots on the ground 4 (in water 0); armed 4; armed with ammo for a gun 4; long guns 4; attachments fitted 20; rounds of unusable ammo carried 0; items on the ground 0; bot pickups { "detours": 0, "detour_taken": 0, "fetches": 0, "fetch_done": 0, "items_taken": 0 }
+[match  106.2] Bossing Dodong killed by Aling Puring (gunshot); 2 teams left
+[match  106.2] alive: West Team 2, East Team 1; score { 0: 0, 1: 1 }
+[match  108.0] [botstates] 768 bot-s: fight 36%, roam 28%, hunt 14%, order 8%, follow 4%, heal 4%, investigate 4%, overwatch 2%, camp 0%
+[match  108.0] [botskill] normal shots 918 hits 133 reaction_avg 0.37 (n 138) dmg 1923 bots 3
+[match  111.1] Lolo Kalesa killed by Aling Puring (bleeding); 1 teams left
+[match  111.1] alive: West Team 2, East Team 0; score { 0: 0, 1: 1 }
+[match  111.1] round 2 over: winner 0, scores { 0: 1, 1: 1 }
+[loadout] Mang Tani shotgun_saiga [sight_holo,muzzle_tactical,weapon_light] mag 5/5 | pistol_9 [sight_reddot,mag_extquick_light,weapon_light] mag 21/21
+[match  114.1] Mang Tani respawned at (-41.0, 0.0, 1.0) (nearest enemy 1000 m)
+[loadout] Lolo Kalesa shotgun_double [bullet_loops] mag 2/2 | pistol_deagle [sight_reddot,mag_extquick_light] mag 10/10
+[match  114.1] Lolo Kalesa respawned at (42.0, 0.0, -6.0) (nearest enemy 83 m)
+[match  114.1] round 3 started; scores { 0: 1, 1: 1 }
+[match  114.1] [roundtime] remove 0.7 ms, field 4.7 ms
+[loadout] Ate Load Dito marksman_308 [scope_4x,suppressor_sniper,mag_ext_sniper,cheek_pad] mag 30/30 | pistol_9 [suppressor_light] mag 15/15
+[match  114.1] Ate Load Dito respawned at (-41.0, 0.0, -3.0) (nearest enemy 83 m)
+[match  114.1] [endgame] East Team mates 1 foes 2 nocontact 0s
+[loadout] Kapitbahay Lito dmr_sks [suppressor_rifle,mag_ext_sniper,cheek_pad] mag 20/20 | pistol_deagle [sight_reddot,suppressor_light,mag_extquick_light,weapon_light] mag 10/10
+[match  114.1] Kapitbahay Lito respawned at (42.0, 0.0, 3.0) (nearest enemy 83 m)
+[match  114.1] [endgame] West Team mates 2 foes 2 nocontact 0s
+[loadout] Tatay Kulas rifle_scar [scope_3x,suppressor_rifle,grip_heavy,weapon_light] mag 30/30 | pistol_9 [sight_reflex] mag 15/15
+[match  114.1] Tatay Kulas respawned at (-41.0, 0.0, -6.0) (nearest enemy 83 m)
+[loadout] Utoy Kalabaw smg_tommy [suppressor_light,grip_heavy,mag_extquick_light] mag 50/50 | revolver_357 [sight_reddot] mag 6/6
+[match  114.2] Utoy Kalabaw respawned at (40.0, 0.0, 7.0) (nearest enemy 81 m)
+[loadout] Ate Load smg_ump45 [suppressor_light,weapon_light] mag 25/25 | pistol_45 [sight_reddot,suppressor_light,mag_extquick_light,weapon_light] mag 12/12
+[match  114.2] Ate Load respawned at (-41.0, 0.0, -9.0) (nearest enemy 82 m)
+[loadout] Lola Basyang Jr rifle_m762 [scope_3x,grip_heavy,mag_extquick_rifle] mag 40/40 | revolver_357 [] mag 6/6
+[match  114.2] Lola Basyang Jr respawned at (42.0, 0.0, 7.0) (nearest enemy 83 m)
+[loadout] Aling Puring rifle_scar [suppressor_rifle,grip_vertical,mag_drum_rifle,weapon_light] mag 60/60 | revolver_357 [] mag 6/6
+[match  114.2] Aling Puring respawned at (-38.0, 0.0, -3.0) (nearest enemy 78 m)
+[loadout] Bossing Dodong smg_tommy [grip_vertical,mag_extquick_light] mag 50/50 | revolver_357 [sight_reddot] mag 6/6
+[match  114.2] Bossing Dodong respawned at (40.0, 0.0, -6.0) (nearest enemy 78 m)
+[loadout] Pareng Pandesal bolt_kar98 [scope_6x,suppressor_rifle,cheek_pad] mag 5/5 | revolver_357 [] mag 6/6
+[match  114.2] Pareng Pandesal respawned at (-38.0, 0.0, 1.0) (nearest enemy 78 m)
+[loadout] Pinsan Gardo rifle_m416 [scope_night,suppressor_rifle,grip_half,mag_extquick_rifle,stock_heavy,weapon_light] mag 40/40 | pistol_9 [sight_reddot,suppressor_light,mag_extquick_light,weapon_light] mag 21/21
+[match  114.3] Pinsan Gardo respawned at (42.0, 0.0, -2.0) (nearest enemy 80 m)
+[match  114.3] [roundtime] 12 respawns, slowest 21.1 ms, median 3.0 ms
+[match  120.0] status: { "ground": 12 }; armed 12; shots 951; zone -1 hold r=66; corpses 0; levels { "L1": 12 }; server tick avg 1.44 ms, p99 5.33 ms, max 22.83 ms over 720 ticks; objects 5236
+[match  120.0] dm teams: West Team 6 at (-38.0, -2.0) spread 3 m; East Team 6 at (41.0, 1.0) spread 6 m; gap 79 m; zone centre (-1.0, -2.0)
+[match  120.0] bots: { "hunt": 3, "roam": 7, "follow": 2 }; containers searched by bots 0 (all players 0); plan steps done 0; guns carried 24
+[match  120.0] roles: { "stalker": { "hunt": 3, "follow": 1 }, "sniper": { "roam": 2, "follow": 1 }, "looter": { "roam": 3 }, "rusher": { "roam": 2 } }; stuck now 0; waypoints 92; team { "lines": 96, "pings": 0, "laser_follow": 0, "learned_cells": 17, "blocked_cells": 0, "squads": 6, "following_humans": 0 }
+[match  120.0] [lootstats] bots on the ground 12 (in water 0); armed 12; armed with ammo for a gun 12; long guns 12; attachments fitted 59; rounds of unusable ammo carried 0; items on the ground 0; bot pickups { "detours": 0, "detour_taken": 0, "fetches": 0, "fetch_done": 0, "items_taken": 0 }
+[match  120.6] [hold] Ate Load Dito overwatch spot 42 101s
+[match  126.0] [botstates] 918 bot-s: roam 33%, fight 31%, hunt 16%, order 7%, follow 5%, heal 3%, investigate 3%, overwatch 2%, camp 0%
+[match  126.0] [botskill] normal shots 948 hits 135 reaction_avg 0.37 (n 138) dmg 1962 bots 12
+[navwatch] covered_court: 910 bot-s (408 moving), stalls 4 (0.3/bot-min, 5.3% of moving time), facing a wall 0 (0.0/bot-min)
+[match  127.2] [hold] Utoy Kalabaw camp spot 22 55s
+[match  128.1] Aling Puring killed by Pinsan Gardo (gunshot); 2 teams left
+[match  128.1] alive: West Team 5, East Team 6; score { 0: 1, 1: 1 }
+[match  129.5] Ate Load killed by Kapitbahay Lito (gunshot); 2 teams left
+[match  129.5] alive: West Team 4, East Team 6; score { 0: 1, 1: 1 }
+[match  131.1] Lola Basyang Jr (team 1) landed at (14.0, 0.0, 22.0), 4.9 m/s, health 100; teammates -
+[match  134.8] Mang Tani killed by Lola Basyang Jr (gunshot); 2 teams left
+[match  134.8] alive: West Team 3, East Team 6; score { 0: 1, 1: 1 }
+[match  135.0] status: { "ground": 9 }; armed 9; shots 1072; zone -1 hold r=66; corpses 3; levels { "L1": 9 }; server tick avg 2.28 ms, p99 5.14 ms, max 7.87 ms over 900 ticks; objects 4902
+[match  135.0] dm teams: West Team 3 at (-15.0, 2.0) spread 14 m; East Team 6 at (15.0, 7.0) spread 8 m; gap 30 m; zone centre (-1.0, -2.0)
+[match  135.0] bots: { "investigate": 2, "fight": 5, "roam": 1, "follow": 1 }; containers searched by bots 0 (all players 0); plan steps done 0; guns carried 18
+[match  135.0] roles: { "stalker": { "investigate": 1, "fight": 2 }, "sniper": { "fight": 2, "follow": 1 }, "looter": { "investigate": 1, "roam": 1, "fight": 1 } }; stuck now 0; waypoints 92; team { "lines": 114, "pings": 0, "laser_follow": 0, "learned_cells": 19, "blocked_cells": 0, "squads": 6, "following_humans": 0 }
+[match  135.0] [lootstats] bots on the ground 9 (in water 0); armed 9; armed with ammo for a gun 9; long guns 9; attachments fitted 43; rounds of unusable ammo carried 0; items on the ground 0; bot pickups { "detours": 0, "detour_taken": 0, "fetches": 0, "fetch_done": 0, "items_taken": 0 }
+[match  136.5] Pareng Pandesal killed by Pinsan Gardo (gunshot); 2 teams left
+[match  136.5] alive: West Team 2, East Team 6; score { 0: 1, 1: 1 }
+[match  136.5] [endgame] East Team mates 6 foes 2 nocontact 0s
+[match  136.5] [endgame] West Team mates 2 foes 6 nocontact 0s
+[match  138.6] Ate Load Dito (team 0) landed at (-20.0, 0.0, 8.0), 3.8 m/s, health 100; teammates -
+[match  139.5] Bossing Dodong killed by Tatay Kulas (bleeding); 2 teams left
+[match  139.5] alive: West Team 2, East Team 5; score { 0: 1, 1: 1 }
+[match  140.5] Pinsan Gardo killed by Ate Load Dito (gunshot); 2 teams left
+[match  140.5] alive: West Team 2, East Team 4; score { 0: 1, 1: 1 }
+[match  141.0] [botstates] 1061 bot-s: fight 33%, roam 30%, hunt 14%, order 8%, follow 6%, heal 4%, investigate 3%, overwatch 2%, camp 0%
+[match  141.0] [botskill] normal shots 1104 hits 180 reaction_avg 0.36 (n 187) dmg 2725 bots 6
+[match  143.1] Lola Basyang Jr killed by Ate Load Dito (gunshot); 2 teams left
+[match  143.1] alive: West Team 2, East Team 3; score { 0: 1, 1: 1 }
+[navwatch] stall Lolo Kalesa stalker order at (12.4, 0.0, 11.7): goal 1.2 m, path 1/2 next grid 1.2 m, ahead '', order help 1.2 m arrived true
+[match  143.7] Ate Load Dito killed by Utoy Kalabaw (gunshot); 2 teams left
+[match  143.7] alive: West Team 1, East Team 3; score { 0: 1, 1: 1 }
+[match  145.4] Tatay Kulas (team 0) landed at (0.0, 0.0, 17.0), 4.9 m/s, health 79; teammates -
+[match  148.2] Tatay Kulas killed by Kapitbahay Lito (bleeding); 1 teams left
+[match  148.2] alive: West Team 0, East Team 3; score { 0: 1, 1: 1 }
+[match  148.2] round 3 over: winner 1, scores { 0: 1, 1: 2 }
+[loadout] Mang Tani rifle_762 [laser_sight,mag_drum_rifle,weapon_light] mag 60/60 | pistol_deagle [suppressor_light,mag_extquick_light,weapon_light] mag 10/10
+[match  151.2] Mang Tani respawned at (-41.0, 0.0, -6.0) (nearest enemy 1000 m)
+[match  151.2] round 4 started; scores { 0: 1, 1: 2 }
+[match  151.2] [roundtime] remove 1.0 ms, field 4.0 ms
+[match  151.2] status: { "ground": 1 }; armed 1; shots 1155; zone -1 hold r=69; corpses 0; levels { "L1": 1 }; server tick avg 1.47 ms, p99 5.37 ms, max 8.18 ms over 790 ticks; objects 2944
+[match  151.2] dm teams: West Team 1 at (-41.0, -6.0) spread 0 m; gap -1 m; zone centre (1.0, 5.0)
+[match  151.2] bots: { "roam": 1 }; containers searched by bots 0 (all players 0); plan steps done 0; guns carried 2
+[match  151.2] roles: { "looter": { "roam": 1 } }; stuck now 0; waypoints 92; team { "lines": 134, "pings": 0, "laser_follow": 0, "learned_cells": 23, "blocked_cells": 0, "squads": 6, "following_humans": 0 }
+[match  151.2] [lootstats] bots on the ground 1 (in water 0); armed 1; armed with ammo for a gun 1; long guns 1; attachments fitted 6; rounds of unusable ammo carried 0; items on the ground 0; bot pickups { "detours": 0, "detour_taken": 0, "fetches": 0, "fetch_done": 0, "items_taken": 0 }
+[loadout] Lolo Kalesa machine_pistol [laser_sight,stock_heavy] mag 32/32 | revolver_357 [sight_reflex] mag 6/6
+[match  151.2] Lolo Kalesa respawned at (42.0, 0.0, 7.0) (nearest enemy 83 m)
+[match  151.2] [endgame] East Team mates 1 foes 1 nocontact 0s
+[loadout] Ate Load Dito bolt_kar98 [scope_6x,suppressor_rifle] mag 5/5 | pistol_45 [suppressor_light,weapon_light] mag 7/7
+[match  151.2] Ate Load Dito respawned at (-41.0, 0.0, 1.0) (nearest enemy 83 m)
+[match  151.2] [endgame] West Team mates 2 foes 1 nocontact 0s
+[loadout] Kapitbahay Lito rifle_m762 [mag_extquick_rifle,weapon_light] mag 40/40 | pistol_9 [sight_reddot,suppressor_light,mag_extquick_light,weapon_light] mag 21/21
+[match  151.2] Kapitbahay Lito respawned at (42.0, 0.0, 3.0) (nearest enemy 83 m)
+[loadout] Tatay Kulas lmg_m249 [sight_holo,laser_sight] mag 100/100 | pistol_45 [sight_reflex,suppressor_light,mag_extquick_light,weapon_light] mag 12/12
+[match  151.2] Tatay Kulas respawned at (-41.0, 0.0, -3.0) (nearest enemy 83 m)
+[loadout] Utoy Kalabaw bolt_308 [scope_8x,mag_ext_sniper] mag 8/8 | revolver_357 [sight_reddot] mag 6/6
+[match  151.3] Utoy Kalabaw respawned at (42.0, 0.0, -2.0) (nearest enemy 83 m)
+[loadout] Ate Load shotgun_pump [sight_reddot,bullet_loops] mag 6/6 | pistol_9 [sight_reddot,mag_extquick_light] mag 21/21
+[match  151.3] Ate Load respawned at (-41.0, 0.0, -9.0) (nearest enemy 83 m)
+[loadout] Lola Basyang Jr smg_ump45 [sight_reddot,suppressor_light,grip_heavy,mag_extquick_light] mag 35/35 | pistol_45 [suppressor_light,mag_extquick_light,weapon_light] mag 12/12
+[match  151.3] Lola Basyang Jr respawned at (42.0, 0.0, -6.0) (nearest enemy 83 m)
+[loadout] Aling Puring dmr_sks [scope_lpvo,suppressor_sniper,cheek_pad] mag 10/10 | pistol_45 [sight_reddot,suppressor_light,weapon_light] mag 7/7
+[match  151.3] Aling Puring respawned at (-38.0, 0.0, -3.0) (nearest enemy 80 m)
+[loadout] Bossing Dodong smg_ump45 [sight_holo,suppressor_light,grip_heavy,mag_extquick_light,weapon_light] mag 35/35 | pistol_deagle [sight_reddot,suppressor_light,mag_extquick_light,weapon_light] mag 10/10
+[match  151.3] Bossing Dodong respawned at (40.0, 0.0, 7.0) (nearest enemy 78 m)
+[loadout] Pareng Pandesal rifle_m416 [scope_night,grip_stubby,mag_extquick_rifle,stock_tactical,weapon_light] mag 40/40 | pistol_45 [sight_reflex,suppressor_light,mag_extquick_light] mag 12/12
+[match  151.3] Pareng Pandesal respawned at (-38.0, 0.0, -9.0) (nearest enemy 79 m)
+[loadout] Pinsan Gardo marksman_308 [scope_4x,suppressor_sniper,mag_ext_sniper,cheek_pad] mag 30/30 | pistol_9 [suppressor_light,mag_extquick_light,weapon_light] mag 21/21
+[match  151.4] Pinsan Gardo respawned at (40.0, 0.0, 3.0) (nearest enemy 78 m)
+[match  151.4] [roundtime] 12 respawns, slowest 3.0 ms, median 3.0 ms
+[match  159.0] [botstates] 1187 bot-s: roam 33%, fight 30%, hunt 15%, order 8%, follow 5%, investigate 3%, heal 3%, overwatch 1%, camp 0%
+[match  159.0] [botskill] normal shots 1152 hits 185 reaction_avg 0.37 (n 191) dmg 2981 bots 12
+[match  166.0] Pareng Pandesal killed by Bossing Dodong (gunshot); 2 teams left
+[match  166.0] alive: West Team 5, East Team 6; score { 0: 1, 1: 2 }
+[match  166.2] status: { "ground": 11 }; armed 11; shots 1269; zone -1 hold r=69; corpses 1; levels { "L1": 11 }; server tick avg 1.90 ms, p99 4.82 ms, max 8.37 ms over 900 ticks; objects 5150
+[match  166.2] dm teams: West Team 5 at (-19.0, 6.0) spread 18 m; East Team 6 at (19.0, 7.0) spread 10 m; gap 38 m; zone centre (1.0, 5.0)
+[match  166.2] bots: { "roam": 2, "follow": 2, "fight": 6, "hunt": 1 }; containers searched by bots 0 (all players 0); plan steps done 0; guns carried 22
+[match  166.2] roles: { "looter": { "roam": 2, "follow": 1, "fight": 1 }, "stalker": { "follow": 1, "fight": 1, "hunt": 1 }, "rusher": { "fight": 3 }, "sniper": { "fight": 1 } }; stuck now 0; waypoints 92; team { "lines": 140, "pings": 0, "laser_follow": 0, "learned_cells": 23, "blocked_cells": 0, "squads": 8, "following_humans": 0 }
+[match  166.2] [lootstats] bots on the ground 11 (in water 0); armed 11; armed with ammo for a gun 11; long guns 11; attachments fitted 61; rounds of unusable ammo carried 0; items on the ground 0; bot pickups { "detours": 0, "detour_taken": 0, "fetches": 0, "fetch_done": 0, "items_taken": 0 }
+[match  166.6] Kapitbahay Lito killed by Ate Load Dito (gunshot); 2 teams left
+[match  166.6] alive: West Team 5, East Team 5; score { 0: 1, 1: 2 }
+[match  166.7] [hold] Mang Tani camp spot 19 52s
+[match  167.4] [hold] Pinsan Gardo camp spot 9 47s
+[match  168.2] Ate Load Dito killed by Utoy Kalabaw (gunshot); 2 teams left
+[match  168.2] alive: West Team 4, East Team 5; score { 0: 1, 1: 2 }
+[match  169.4] Lola Basyang Jr (team 1) landed at (21.0, 0.0, -1.0), 2.5 m/s, health 100; teammates -
+[match  172.1] Ate Load killed by Utoy Kalabaw (gunshot); 2 teams left
+[match  172.1] alive: West Team 3, East Team 5; score { 0: 1, 1: 2 }
+[match  172.7] [hold] Bossing Dodong overwatch spot 49 90s
+[match  174.0] [botstates] 1344 bot-s: roam 31%, fight 30%, hunt 16%, order 8%, follow 6%, investigate 3%, heal 3%, overwatch 1%, camp 1%
+[match  174.0] [botskill] normal shots 1319 hits 208 reaction_avg 0.37 (n 220) dmg 3469 bots 8
+[match  179.4] Bossing Dodong (team 1) landed at (16.0, 0.0, 12.0), 4.9 m/s, health 100; teammates 11 m
+[match  180.3] Mang Tani killed by Utoy Kalabaw (gunshot); 2 teams left
+[match  180.3] alive: West Team 2, East Team 5; score { 0: 1, 1: 2 }
+[match  180.5] [endgame] West Team mates 2 foes 5 nocontact 0s
+[match  180.5] [endgame] East Team mates 5 foes 2 nocontact 0s
+[match  181.2] status: { "ground": 7 }; armed 7; shots 1409; zone -1 hold r=69; corpses 5; levels { "L1": 7 }; server tick avg 1.93 ms, p99 3.86 ms, max 8.10 ms over 900 ticks; objects 4699
+[match  181.2] dm teams: West Team 2 at (-4.0, 3.0) spread 25 m; East Team 5 at (6.0, 15.0) spread 14 m; gap 16 m; zone centre (1.0, 5.0)
+[match  181.2] bots: { "investigate": 1, "fight": 2, "hunt": 3, "heal": 1 }; containers searched by bots 0 (all players 0); plan steps done 0; guns carried 14
+[match  181.2] roles: { "stalker": { "investigate": 1, "hunt": 1, "heal": 1 }, "looter": { "fight": 1, "hunt": 1 }, "rusher": { "fight": 1 }, "sniper": { "hunt": 1 } }; stuck now 0; waypoints 92; team { "lines": 160, "pings": 0, "laser_follow": 0, "learned_cells": 23, "blocked_cells": 0, "squads": 8, "following_humans": 0 }
+[match  181.2] [lootstats] bots on the ground 7 (in water 0); armed 7; armed with ammo for a gun 7; long guns 7; attachments fitted 41; rounds of unusable ammo carried 0; items on the ground 0; bot pickups { "detours": 0, "detour_taken": 0, "fetches": 0, "fetch_done": 0, "items_taken": 0 }
+[match  182.1] Lolo Kalesa killed by Tatay Kulas (gunshot); 2 teams left
+[match  182.1] alive: West Team 2, East Team 4; score { 0: 1, 1: 2 }
+[match  183.2] Utoy Kalabaw killed by Tatay Kulas (gunshot); 2 teams left
+[match  183.2] alive: West Team 2, East Team 3; score { 0: 1, 1: 2 }
+[match  188.0] Tatay Kulas killed by Pinsan Gardo (gunshot); 2 teams left
+[match  188.0] alive: West Team 1, East Team 3; score { 0: 1, 1: 2 }
+[match  189.0] [botstates] 1442 bot-s: fight 31%, roam 29%, hunt 17%, order 7%, follow 6%, investigate 4%, heal 3%, camp 1%, overwatch 1%
+[match  189.0] [botskill] normal shots 1434 hits 228 reaction_avg 0.39 (n 238) dmg 4006 bots 4
+[navwatch] covered_court: 1421 bot-s (670 moving), stalls 5 (0.2/bot-min, 4.0% of moving time), facing a wall 0 (0.0/bot-min)
+[match  193.0] [sweep] Bossing Dodong -> cell (-2, 1, 1) spot 1 stale 72s 6 m
+[match  194.3] [sweep] Pinsan Gardo -> cell (-3, 0, 0) spot 35 stale 73s 40 m
+[match  196.2] status: { "ground": 4 }; armed 4; shots 1438; zone -1 hold r=69; corpses 8; levels { "L1": 4 }; server tick avg 0.98 ms, p99 2.71 ms, max 6.30 ms over 900 ticks; objects 4360
+[match  196.2] dm teams: West Team 1 at (17.0, 7.0) spread 0 m; East Team 3 at (-9.0, 21.0) spread 8 m; gap 29 m; zone centre (1.0, 5.0)
+[match  196.2] bots: { "hunt": 4 }; containers searched by bots 0 (all players 0); plan steps done 0; guns carried 8
+[match  196.2] roles: { "stalker": { "hunt": 2 }, "sniper": { "hunt": 1 }, "looter": { "hunt": 1 } }; stuck now 0; waypoints 92; team { "lines": 173, "pings": 0, "laser_follow": 0, "learned_cells": 26, "blocked_cells": 0, "squads": 8, "following_humans": 0 }
+[match  196.2] [lootstats] bots on the ground 4 (in water 0); armed 4; armed with ammo for a gun 4; long guns 4; attachments fitted 29; rounds of unusable ammo carried 0; items on the ground 0; bot pickups { "detours": 0, "detour_taken": 0, "fetches": 0, "fetch_done": 0, "items_taken": 0 }
+[navwatch] stall Bossing Dodong sniper hunt at (-19.7, 0.0, 16.6): goal 5.4 m, path 4/12 next CC1-0555 2.5 m, ahead '', order -
+[match  200.5] Pinsan Gardo (team 1) landed at (-14.0, 0.0, 17.0), 4.9 m/s, health 100; teammates 11 m, 6 m
+[match  203.1] [sweep] Bossing Dodong -> cell (0, 1, 1) spot 2 stale 82s 30 m
+[match  203.4] [sweep] Lola Basyang Jr -> cell (-3, 1, 0) spot 18 stale 82s 23 m
+[match  204.0] [botstates] 1502 bot-s: fight 29%, roam 28%, hunt 20%, order 7%, follow 6%, investigate 4%, heal 3%, camp 1%, overwatch 1%
+[match  204.0] [botskill] normal shots 1434 hits 228 reaction_avg 0.39 (n 238) dmg 4006 bots 4
+[match  208.1] [sweep] Aling Puring -> cell (0, 1, 1) spot 24 stale 87s 6 m
+[match  211.2] status: { "ground": 4 }; armed 4; shots 1438; zone -1 hold r=69; corpses 8; levels { "L1": 3, "between": 1 }; server tick avg 0.73 ms, p99 1.83 ms, max 5.42 ms over 900 ticks; objects 4361
+[match  211.2] dm teams: West Team 1 at (10.0, 21.0) spread 0 m; East Team 3 at (-15.0, 21.0) spread 6 m; gap 24 m; zone centre (1.0, 5.0)
+[match  211.2] bots: { "hunt": 4 }; containers searched by bots 0 (all players 0); plan steps done 0; guns carried 8
+[match  211.2] roles: { "stalker": { "hunt": 2 }, "sniper": { "hunt": 1 }, "looter": { "hunt": 1 } }; stuck now 0; waypoints 92; team { "lines": 173, "pings": 0, "laser_follow": 0, "learned_cells": 26, "blocked_cells": 0, "squads": 8, "following_humans": 0 }
+[match  211.2] [lootstats] bots on the ground 4 (in water 0); armed 4; armed with ammo for a gun 4; long guns 4; attachments fitted 29; rounds of unusable ammo carried 0; items on the ground 0; bot pickups { "detours": 0, "detour_taken": 0, "fetches": 0, "fetch_done": 0, "items_taken": 0 }
+[match  213.5] [sweep] Pinsan Gardo -> cell (0, 1, 1) spot 24 stale 92s 25 m
+[match  213.8] [sweep] Bossing Dodong -> cell (-3, 0, 0) spot 28 stale 93s 31 m
+[match  219.0] [botstates] 1562 bot-s: fight 28%, roam 27%, hunt 23%, order 7%, follow 5%, investigate 4%, heal 3%, camp 1%, overwatch 1%
+[match  219.0] [botskill] normal shots 1434 hits 228 reaction_avg 0.39 (n 238) dmg 4006 bots 4
+[match  221.3] Aling Puring killed by Bossing Dodong (gunshot); 1 teams left
+[match  221.3] alive: West Team 0, East Team 3; score { 0: 1, 1: 2 }
+[match  221.3] round 4 over: winner 1, scores { 0: 1, 1: 3 }
+[loadout] Mang Tani bolt_308 [scope_6x,suppressor_sniper,mag_ext_sniper,bullet_loops] mag 8/8 | pistol_9 [sight_reddot,mag_extquick_light,weapon_light] mag 21/21
+[match  224.3] Mang Tani respawned at (-38.0, 0.0, -3.0) (nearest enemy 1000 m)
+[match  224.3] round 5 started; scores { 0: 1, 1: 3 }
+[match  224.3] [roundtime] remove 1.1 ms, field 3.9 ms
+[loadout] Lolo Kalesa bolt_awp [scope_6x,mag_ext_sniper,cheek_pad] mag 8/8 | revolver_357 [sight_reddot] mag 6/6
+[match  224.3] Lolo Kalesa respawned at (42.0, 0.0, 7.0) (nearest enemy 80 m)
+[loadout] Ate Load Dito smg_vector [scope_2x,grip_heavy,mag_drum_light,stock_tactical,weapon_light] mag 34/34 | pistol_45 [sight_reddot,suppressor_light,mag_extquick_light,weapon_light] mag 12/12
+[match  224.3] Ate Load Dito respawned at (-41.0, 0.0, -9.0) (nearest enemy 84 m)
+[match  224.3] [endgame] East Team mates 1 foes 2 nocontact 0s
+[loadout] Kapitbahay Lito rifle_556 [scope_3x,suppressor_rifle,grip_vertical,mag_extquick_rifle,laser_green] mag 40/40 | pistol_45 [sight_reddot,suppressor_light,mag_extquick_light,weapon_light] mag 12/12
+[match  224.3] Kapitbahay Lito respawned at (42.0, 0.0, -6.0) (nearest enemy 80 m)
+[match  224.3] [endgame] West Team mates 2 foes 2 nocontact 0s
+[loadout] Tatay Kulas bolt_308 [scope_8x,suppressor_sniper,cheek_pad] mag 5/5 | pistol_deagle [suppressor_light,mag_extquick_light,weapon_light] mag 10/10
+[match  224.4] Tatay Kulas respawned at (-41.0, 0.0, 1.0) (nearest enemy 83 m)
+[loadout] Utoy Kalabaw rifle_scar [suppressor_rifle,mag_drum_rifle,weapon_light] mag 60/60 | pistol_9 [sight_reddot,suppressor_light,mag_extquick_light] mag 21/21
+[match  224.4] Utoy Kalabaw respawned at (42.0, 0.0, -2.0) (nearest enemy 80 m)
+[loadout] Ate Load marksman_308 [cheek_pad] mag 20/20 | pistol_9 [mag_extquick_light,weapon_light] mag 21/21
+[match  224.4] Ate Load respawned at (-41.0, 0.0, -3.0) (nearest enemy 83 m)
+[loadout] Lola Basyang Jr rifle_762 [scope_night,suppressor_rifle,laser_sight,mag_extquick_rifle,weapon_light] mag 40/40 | revolver_357 [sight_reddot] mag 6/6
+[match  224.4] Lola Basyang Jr respawned at (40.0, 0.0, 3.0) (nearest enemy 78 m)
+[loadout] Aling Puring dmr_mini14 [suppressor_sniper,mag_ext_sniper,cheek_pad] mag 30/30 | pistol_deagle [suppressor_light,mag_extquick_light,weapon_light] mag 10/10
+[match  224.4] Aling Puring respawned at (-38.0, 0.0, -6.0) (nearest enemy 78 m)
+[loadout] Bossing Dodong smg_9 [sight_holo,grip_vertical,mag_extquick_light,weapon_light] mag 40/40 | pistol_45 [sight_reddot,suppressor_light,mag_extquick_light,weapon_light] mag 12/12
+[match  224.4] Bossing Dodong respawned at (42.0, 0.0, 3.0) (nearest enemy 80 m)
+[loadout] Pareng Pandesal smg_9 [sight_reddot,suppressor_light,grip_half,mag_extquick_light,weapon_light] mag 40/40 | pistol_45 [sight_reddot,suppressor_light,weapon_light] mag 7/7
+[match  224.5] Pareng Pandesal respawned at (-41.0, 0.0, -6.0) (nearest enemy 81 m)
+[loadout] Pinsan Gardo rifle_m762 [scope_night,grip_half,weapon_light] mag 30/30 | pistol_9 [sight_reddot,suppressor_light,mag_extquick_light,laser_green] mag 21/21
+[match  224.5] Pinsan Gardo respawned at (40.0, 0.0, 7.0) (nearest enemy 78 m)
+[match  224.5] [roundtime] 12 respawns, slowest 3.4 ms, median 2.9 ms
+[match  226.2] status: { "ground": 12 }; armed 12; shots 1459; zone -1 hold r=69; corpses 0; levels { "L1": 12 }; server tick avg 1.02 ms, p99 4.72 ms, max 7.13 ms over 720 ticks; objects 5255
+[match  226.2] dm teams: West Team 6 at (-40.0, -4.0) spread 3 m; East Team 6 at (41.0, 2.0) spread 4 m; gap 81 m; zone centre (-3.0, -4.0)
+[match  226.2] bots: { "roam": 12 }; containers searched by bots 0 (all players 0); plan steps done 0; guns carried 24
+[match  226.2] roles: { "stalker": { "roam": 3 }, "looter": { "roam": 6 }, "sniper": { "roam": 3 } }; stuck now 0; waypoints 92; team { "lines": 178, "pings": 0, "laser_follow": 0, "learned_cells": 27, "blocked_cells": 0, "squads": 8, "following_humans": 0 }
+[match  226.2] [lootstats] bots on the ground 12 (in water 0); armed 12; armed with ammo for a gun 12; long guns 12; attachments fitted 79; rounds of unusable ammo carried 0; items on the ground 0; bot pickups { "detours": 0, "detour_taken": 0, "fetches": 0, "fetch_done": 0, "items_taken": 0 }
+[match  232.4] [hold] Tatay Kulas overwatch spot 40 76s
+[match  235.9] [hold] Bossing Dodong overwatch spot 49 81s
+[match  237.0] [botstates] 1722 bot-s: roam 31%, fight 26%, hunt 23%, order 6%, follow 6%, investigate 3%, heal 3%, overwatch 1%, camp 1%
+[match  237.0] [botskill] normal shots 1455 hits 236 reaction_avg 0.39 (n 241) dmg 4158 bots 12
+[match  237.9] [hold] Lolo Kalesa camp spot 22 46s
+[match  239.1] Lola Basyang Jr killed by Ate Load Dito (gunshot); 2 teams left
+[match  239.1] alive: West Team 6, East Team 5; score { 0: 1, 1: 3 }
+[match  240.4] Mang Tani killed by Pareng Pandesal (gunshot); 2 teams left
+[match  240.4] alive: West Team 5, East Team 5; score { 0: 1, 1: 3 }
+[match  241.2] status: { "ground": 10 }; armed 10; shots 1533; zone -1 hold r=69; corpses 2; levels { "L1": 10 }; server tick avg 1.78 ms, p99 4.33 ms, max 7.72 ms over 900 ticks; objects 5045
+[match  241.2] dm teams: West Team 5 at (-23.0, 4.0) spread 15 m; East Team 5 at (16.0, 21.0) spread 9 m; gap 43 m; zone centre (-3.0, -4.0)
+[match  241.2] bots: { "roam": 1, "hunt": 2, "overwatch": 1, "follow": 2, "fight": 4 }; containers searched by bots 0 (all players 0); plan steps done 0; guns carried 20
+[match  241.2] roles: { "looter": { "roam": 1, "follow": 2, "fight": 3 }, "stalker": { "hunt": 2 }, "sniper": { "overwatch": 1, "fight": 1 } }; stuck now 0; waypoints 92; team { "lines": 191, "pings": 0, "laser_follow": 0, "learned_cells": 28, "blocked_cells": 0, "squads": 10, "following_humans": 0 }
+[match  241.2] [lootstats] bots on the ground 10 (in water 0); armed 10; armed with ammo for a gun 10; long guns 10; attachments fitted 66; rounds of unusable ammo carried 0; items on the ground 0; bot pickups { "detours": 0, "detour_taken": 0, "fetches": 0, "fetch_done": 0, "items_taken": 0 }
+[match  246.1] Bossing Dodong killed by Ate Load (gunshot); 2 teams left
+[match  246.1] alive: West Team 5, East Team 4; score { 0: 1, 1: 3 }
+[match  248.1] Pinsan Gardo killed by Kapitbahay Lito (bleeding); 2 teams left
+[match  248.1] alive: West Team 5, East Team 3; score { 0: 1, 1: 3 }
+[match  250.0] Pareng Pandesal killed by Lolo Kalesa (gunshot); 2 teams left
+[match  250.0] alive: West Team 4, East Team 3; score { 0: 1, 1: 3 }
+[match  250.0] Lolo Kalesa killed by Pareng Pandesal (gunshot); 2 teams left
+[match  250.0] alive: West Team 4, East Team 2; score { 0: 1, 1: 3 }
+[match  250.1] [endgame] East Team mates 2 foes 4 nocontact 0s
+[match  250.4] [endgame] West Team mates 4 foes 2 nocontact 0s
+[navwatch] stall Ate Load Dito stalker order at (-18.6, 0.0, 13.7): goal 5.2 m, path 1/3 next CC1-0158 4.4 m, ahead '', order help 5.2 m arrived true
+[match  252.0] [botstates] 1864 bot-s: roam 29%, fight 27%, hunt 22%, order 7%, follow 6%, investigate 3%, heal 2%, overwatch 2%, camp 1%
+[match  252.0] [botskill] normal shots 1715 hits 257 reaction_avg 0.39 (n 279) dmg 4739 bots 6
+[navwatch] covered_court: 1841 bot-s (945 moving), stalls 7 (0.2/bot-min, 3.2% of moving time), facing a wall 0 (0.0/bot-min)
+[match  256.2] status: { "ground": 6 }; armed 6; shots 1726; zone -1 hold r=69; corpses 6; levels { "L1": 6 }; server tick avg 1.90 ms, p99 4.05 ms, max 10.78 ms over 900 ticks; objects 4569
+[match  256.2] dm teams: West Team 4 at (-9.0, 14.0) spread 11 m; East Team 2 at (12.0, 21.0) spread 4 m; gap 22 m; zone centre (-3.0, -4.0)
+[match  256.2] bots: { "order": 1, "hunt": 3, "fight": 2 }; containers searched by bots 0 (all players 0); plan steps done 0; guns carried 12
+[match  256.2] roles: { "stalker": { "order": 1, "hunt": 1 }, "sniper": { "hunt": 1 }, "looter": { "fight": 2, "hunt": 1 } }; stuck now 0; waypoints 92; team { "lines": 210, "pings": 0, "laser_follow": 0, "learned_cells": 29, "blocked_cells": 0, "squads": 10, "following_humans": 0 }
+[match  256.2] [lootstats] bots on the ground 6 (in water 0); armed 6; armed with ammo for a gun 6; long guns 6; attachments fitted 39; rounds of unusable ammo carried 0; items on the ground 0; bot pickups { "detours": 0, "detour_taken": 0, "fetches": 0, "fetch_done": 0, "items_taken": 0 }
+[match  257.1] Aling Puring killed by Utoy Kalabaw (gunshot); 2 teams left
+[match  257.1] alive: West Team 3, East Team 2; score { 0: 1, 1: 3 }
+[match  263.6] Utoy Kalabaw killed by Ate Load (gunshot); 2 teams left
+[match  263.6] alive: West Team 3, East Team 1; score { 0: 1, 1: 3 }
+[match  267.0] [botstates] 1940 bot-s: roam 28%, fight 27%, hunt 22%, order 8%, follow 6%, investigate 3%, heal 3%, overwatch 2%, camp 1%
+[match  267.0] [botskill] normal shots 1769 hits 274 reaction_avg 0.39 (n 287) dmg 5109 bots 4
+[navwatch] stall Kapitbahay Lito stalker order at (14.0, 0.0, 23.5): goal 1.6 m, path 1/2 next grid 1.6 m, ahead 'wall', order help 1.6 m arrived true
+[match  271.2] status: { "ground": 4 }; armed 4; shots 1774; zone -1 hold r=69; corpses 8; levels { "L1": 4 }; server tick avg 0.99 ms, p99 2.30 ms, max 9.79 ms over 900 ticks; objects 4342
+[match  271.2] dm teams: West Team 3 at (-4.0, 16.0) spread 14 m; East Team 1 at (14.0, 23.0) spread 0 m; gap 19 m; zone centre (-3.0, -4.0)
+[match  271.2] bots: { "order": 2, "hunt": 2 }; containers searched by bots 0 (all players 0); plan steps done 0; guns carried 8
+[match  271.2] roles: { "stalker": { "order": 2 }, "sniper": { "hunt": 1 }, "looter": { "hunt": 1 } }; stuck now 0; waypoints 92; team { "lines": 220, "pings": 0, "laser_follow": 0, "learned_cells": 29, "blocked_cells": 0, "squads": 10, "following_humans": 0 }
+[match  271.2] [lootstats] bots on the ground 4 (in water 0); armed 4; armed with ammo for a gun 4; long guns 4; attachments fitted 27; rounds of unusable ammo carried 0; items on the ground 0; bot pickups { "detours": 0, "detour_taken": 0, "fetches": 0, "fetch_done": 0, "items_taken": 0 }
+[match  282.0] [botstates] 2000 bot-s: roam 27%, fight 26%, hunt 23%, order 9%, follow 6%, investigate 3%, heal 3%, overwatch 2%, camp 1%
+[match  282.0] [botskill] normal shots 1769 hits 274 reaction_avg 0.39 (n 287) dmg 5109 bots 4
+[match  286.2] status: { "ground": 4 }; armed 4; shots 1774; zone -1 hold r=69; corpses 8; levels { "L1": 4 }; server tick avg 0.76 ms, p99 2.21 ms, max 6.13 ms over 900 ticks; objects 4342
+[match  286.2] dm teams: West Team 3 at (4.0, 20.0) spread 8 m; East Team 1 at (14.0, 23.0) spread 0 m; gap 10 m; zone centre (-3.0, -4.0)
+[match  286.2] bots: { "hunt": 3, "order": 1 }; containers searched by bots 0 (all players 0); plan steps done 0; guns carried 8
+[match  286.2] roles: { "stalker": { "hunt": 1, "order": 1 }, "sniper": { "hunt": 1 }, "looter": { "hunt": 1 } }; stuck now 0; waypoints 92; team { "lines": 220, "pings": 0, "laser_follow": 0, "learned_cells": 29, "blocked_cells": 0, "squads": 10, "following_humans": 0 }
+[match  286.2] [lootstats] bots on the ground 4 (in water 0); armed 4; armed with ammo for a gun 4; long guns 4; attachments fitted 27; rounds of unusable ammo carried 0; items on the ground 0; bot pickups { "detours": 0, "detour_taken": 0, "fetches": 0, "fetch_done": 0, "items_taken": 0 }
+[match  288.6] [sweep] Ate Load Dito -> cell (0, 1, 1) spot 2 stale 94s 9 m
+[match  295.3] Kapitbahay Lito killed by Ate Load (gunshot); 1 teams left
+[match  295.3] alive: West Team 3, East Team 0; score { 0: 1, 1: 3 }
+[match  295.3] round 5 over: winner 0, scores { 0: 2, 1: 3 }
+[loadout] Mang Tani smg_9 [suppressor_light,grip_angled,mag_extquick_light,weapon_light] mag 40/40 | pistol_deagle [sight_reddot,suppressor_light,weapon_light] mag 7/7
+[match  298.3] Mang Tani respawned at (-38.0, 0.0, -3.0) (nearest enemy 1000 m)
+[match  298.3] round 6 started; scores { 0: 2, 1: 3 }
+[match  298.3] [roundtime] remove 1.1 ms, field 4.0 ms
+[loadout] Lolo Kalesa smg_9 [sight_reddot,grip_vertical,mag_extquick_light,weapon_light] mag 40/40 | pistol_45 [sight_reddot,suppressor_light,weapon_light] mag 7/7
+[match  298.3] Lolo Kalesa respawned at (42.0, 0.0, 3.0) (nearest enemy 80 m)
+[loadout] Ate Load Dito machine_pistol [sight_holo,laser_sight,mag_extquick_light,stock_tactical,weapon_light] mag 45/45 | pistol_45 [sight_reflex,suppressor_light,mag_extquick_light,weapon_light] mag 12/12
+[match  298.3] Ate Load Dito respawned at (-41.0, 0.0, -6.0) (nearest enemy 83 m)
+[match  298.3] [endgame] East Team mates 1 foes 2 nocontact 0s
+[loadout] Kapitbahay Lito rifle_m762 [scope_night,grip_heavy,mag_extquick_rifle,weapon_light] mag 40/40 | revolver_357 [sight_reflex] mag 6/6
+[match  298.3] Kapitbahay Lito respawned at (42.0, 0.0, -6.0) (nearest enemy 80 m)
+[match  298.3] [endgame] West Team mates 2 foes 2 nocontact 0s
+[loadout] Tatay Kulas smg_9 [scope_2x,suppressor_light,grip_vertical,mag_extquick_light,weapon_light] mag 40/40 | pistol_45 [suppressor_light,mag_drum_light,weapon_light] mag 13/13
+[match  298.4] Tatay Kulas respawned at (-41.0, 0.0, -3.0) (nearest enemy 83 m)
+[loadout] Utoy Kalabaw rifle_762 [suppressor_rifle,laser_sight,mag_extquick_rifle,weapon_light] mag 40/40 | pistol_deagle [sight_reddot,mag_drum_light,weapon_light] mag 13/13
+[match  298.4] Utoy Kalabaw respawned at (42.0, 0.0, 7.0) (nearest enemy 80 m)
+[loadout] Ate Load rifle_m762 [suppressor_rifle,mag_extquick_rifle] mag 40/40 | pistol_deagle [sight_reddot,suppressor_light,mag_extquick_light,weapon_light] mag 10/10
+[match  298.4] Ate Load respawned at (-38.0, 0.0, -9.0) (nearest enemy 80 m)
+[loadout] Lola Basyang Jr rifle_m762 [muzzle_tactical,mag_extquick_rifle,weapon_light] mag 40/40 | pistol_deagle [suppressor_light,weapon_light] mag 7/7
+[match  298.4] Lola Basyang Jr respawned at (40.0, 0.0, 7.0) (nearest enemy 78 m)
+[loadout] Aling Puring shotgun_pump [choke,bullet_loops] mag 6/6 | pistol_45 [sight_reddot,mag_extquick_light] mag 12/12
+[match  298.4] Aling Puring respawned at (-41.0, 0.0, 1.0) (nearest enemy 81 m)
+[loadout] Bossing Dodong dmr_mini14 [scope_lpvo,suppressor_sniper,mag_ext_sniper,cheek_pad] mag 30/30 | pistol_45 [sight_reflex,suppressor_light,weapon_light] mag 7/7
+[match  298.4] Bossing Dodong respawned at (40.0, 0.0, 3.0) (nearest enemy 78 m)
+[loadout] Pareng Pandesal rifle_scar [scope_3x,suppressor_rifle,grip_heavy,mag_extquick_rifle,weapon_light] mag 40/40 | pistol_deagle [mag_extquick_light,weapon_light] mag 10/10
+[match  298.5] Pareng Pandesal respawned at (-38.0, 0.0, -6.0) (nearest enemy 78 m)
+[loadout] Pinsan Gardo rifle_762 [scope_night,laser_sight,weapon_light] mag 30/30 | pistol_45 [sight_reddot,suppressor_light,mag_drum_light,weapon_light] mag 13/13
+[match  298.5] Pinsan Gardo respawned at (40.0, 0.0, -6.0) (nearest enemy 78 m)
+[match  298.5] [roundtime] 12 respawns, slowest 3.4 ms, median 3.0 ms
+[match  300.0] [botstates] 2072 bot-s: roam 27%, fight 25%, hunt 24%, order 9%, follow 6%, investigate 4%, heal 3%, overwatch 1%, camp 1%
+[match  300.0] [botskill] normal shots 1801 hits 280 reaction_avg 0.39 (n 291) dmg 5166 bots 12
+[match  300.0] match ended early (test): winner team 0 after 300 s
+[bots] saved 29 learned cells, 18 spot records, 0 spots learned from play to user://bot_memory_covered_court.json
+[navwatch] covered_court: 2032 bot-s (1050 moving), stalls 8 (0.2/bot-min, 6.7% of moving time), facing a wall 2 (0.1/bot-min)
+[navwatch] waypoints: 95.3% of moving time on graph edges, 91.5% of that within 0.8 m of the swept line (farthest 4.5 m); { "routes": 749, "leads": 14, "grid": 0, "off_line": 0, "stuck_edges": 0, "door_waits": 5, "locked": 0, "edge_reports": 0, "route_fail": {  } }
+[navwatch]   0:14,22 { "stall": 1, "wall": 2, "states": { "order": 3 } }
+[navwatch]   0:18,16 { "stall": 2, "wall": 0, "states": { "order": 2 } }
+[navwatch]   0:-12,6 { "stall": 1, "wall": 0, "states": { "order": 1 } }
+[navwatch]   0:20,16 { "stall": 1, "wall": 0, "states": { "order": 1 } }
+[navwatch]   0:12,10 { "stall": 1, "wall": 0, "states": { "order": 1 } }
+[navwatch]   0:-20,16 { "stall": 1, "wall": 0, "states": { "hunt": 1 } }
+[navwatch]   0:-20,12 { "stall": 1, "wall": 0, "states": { "order": 1 } }
+[game] results: {}

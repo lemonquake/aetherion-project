@@ -30,6 +30,8 @@ const SubBuildings := preload("res://src/world/maps/lawless_sub/buildings.gd")
 const MallLayout := preload("res://src/world/maps/malasugue_mall/mall_layout.gd")
 const MallBuilder := preload("res://src/world/maps/malasugue_mall/mall_builder.gd")
 const FreightLayout := preload("res://src/world/maps/freight_delight/freight_layout.gd")
+const JsonLayout := preload("res://src/world/maps/authored/json_layout.gd")
+const MapDoc := preload("res://src/world/maps/authored/map_doc.gd")
 
 const GROUND_SHADER := preload("res://src/world/ground.gdshader")
 const WATER_SHADER := preload("res://src/world/water.gdshader")
@@ -81,6 +83,9 @@ func build(world_node: Node3D, map_seed: int, match_seed: int, opts: Dictionary 
 		return
 	if str(opts.get("map", "kalinaw")) == "freight_delight":
 		_build_freight(world_node, map_seed, match_seed, opts)
+		return
+	if MapDoc.exists(str(opts.get("map", ""))):
+		_build_json(world_node, map_seed, match_seed, opts)
 		return
 	var t0 := Time.get_ticks_msec()
 	_progress(0.02, "Surveying Sitio Kalinaw")
@@ -221,20 +226,55 @@ func _mall_extras() -> void:
 
 func _build_freight(world_node: Node3D, map_seed: int, match_seed: int, opts: Dictionary) -> void:
 	## Freight Delight, the third Deathmatch map. Its geometry is authored in TrenchBroom (assets/maps/
-	## freight_delight.map) and arrives as a scene (FreightLayout loads it): this puts it under the map root, hands its
-	## lights to Lighting (managed, faulty, flickering like every other lamp), and on a dedicated server keeps only
-	## the collision.
+	## freight_delight.map) and arrives as a scene (FreightLayout loads it).
 	var t0 := Time.get_ticks_msec()
 	_progress(0.02, "Unloading the containers")
 	var lay = FreightLayout.new(map_seed)
 	stats.layout_ms = Time.get_ticks_msec() - t0
+	_build_authored(world_node, lay, map_seed, match_seed, opts, ["Stringing up the bulbs (and the ones that buzz)",
+		"Stacking the containers three high", "Sweeping the eskinita"])
+	stats.freight = lay.stats
+
+
+func _build_json(world_node: Node3D, map_seed: int, match_seed: int, opts: Dictionary) -> void:
+	## (r26) A map made in the map editor (res://maps/<id>/map.json): JsonLayout compiles its pieces into the same
+	## kind of scene a TrenchBroom map gives, then the doors and props the file places.
+	var t0 := Time.get_ticks_msec()
+	var id := str(opts.get("map", ""))
+	_progress(0.02, "Reading the plans of %s" % MapDoc.title(id))
+	var lay = JsonLayout.new(map_seed, id)
+	stats.layout_ms = Time.get_ticks_msec() - t0
+	extras_hash = lay.doc_hash   # the map file is part of the fingerprint (and of the waypoint graph's key)
+	_build_authored(world_node, lay, map_seed, match_seed, opts, ["Hanging the lights", "Raising the walls",
+		"Putting the furniture in"], _place_json.bind(lay))
+	stats.json_map = lay.stats
+
+
+func _place_json(lay) -> void:
+	## The doors in the walls' openings and the props the map file places.
+	for d in MapDoc.doors(lay.doc):
+		dyn.add_door({"xf": d.xf, "w": d.w, "h": d.h, "t": d.t, "mat": d.mat, "outer": true, "outward": d.outward,
+			"seed": hash(d.piece), "role": "map", "locked": d.locked})
+	for pr in MapDoc.props(lay.doc):
+		if models.spec(str(pr.model)).is_empty():
+			push_warning("[map] %s: no model %s" % [str(lay.MAP_ID), str(pr.model)])
+			continue
+		if pr.physics:
+			dyn.add_prop_spec(str(pr.model), dyn.seat(str(pr.model), pr.xf))
+		else:
+			dyn.add_static_prop(str(pr.model), dyn.seat(str(pr.model), pr.xf))
+
+
+func _build_authored(world_node: Node3D, lay, map_seed: int, match_seed: int, opts: Dictionary, msgs: Array, place: Callable = Callable()) -> void:
+	## An authored map's scene (lay.scene, built by MapScene): this puts it under the map root, hands its lights to
+	## Lighting (managed, faulty, flickering like every other lamp), and on a dedicated server keeps only the collision.
 	setup(world_node, lay, map_seed, match_seed, opts)
-	t0 = Time.get_ticks_msec()
+	var t0 := Time.get_ticks_msec()
 	var sc: Node3D = lay.scene
 	if sc == null:
-		push_error("[freight] the map scene is missing: building an empty yard")
+		push_error("[%s] the map scene is missing: building an empty map" % str(lay.MAP_ID))
 		sc = Node3D.new()
-	_progress(0.3, "Stringing up the bulbs (and the ones that buzz)")
+	_progress(0.3, str(msgs[0]))
 	var stack: Array = [sc]
 	var drop: Array = []
 	while not stack.is_empty():
@@ -260,11 +300,12 @@ func _build_freight(world_node: Node3D, map_seed: int, match_seed: int, opts: Di
 		if is_instance_valid(n) and n.get_parent():
 			n.get_parent().remove_child(n)
 			n.free()
-	_progress(0.6, "Stacking the containers three high")
+	_progress(0.6, str(msgs[1]))
 	root.add_child(sc)
 	_safety_floor(-3.0)
-	stats.freight = lay.stats
-	_progress(0.78, "Sweeping the eskinita")
+	if place.is_valid():
+		place.call()
+	_progress(0.78, str(msgs[2]))
 	dyn.place_deferred()
 	stats.towns_ms = Time.get_ticks_msec() - t0
 	finalize(world_node)
@@ -272,7 +313,7 @@ func _build_freight(world_node: Node3D, map_seed: int, match_seed: int, opts: Di
 
 
 func _freight_light(lay, l: Light3D) -> Dictionary:
-	## A light from the map (a light entity, or any Light3D added to the scene in Godot) as a Lighting spec.
+	## A light from an authored map (a light entity, or any Light3D added to the scene in Godot) as a Lighting spec.
 	var kind := str(l.get_meta("kind", "flood" if l is SpotLight3D else "bulb"))
 	var spec := {"pos": lay._local_to_scene(l), "kind": kind, "color": l.light_color, "energy": l.light_energy,
 		"fault": str(l.get_meta("fault", ""))}

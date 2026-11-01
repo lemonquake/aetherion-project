@@ -62,6 +62,7 @@ func reload() -> void:
 	health = it.get("health", {})
 	loot = _load("res://data/loot.json")
 	rules = _load("res://data/rules.json")
+	preload("res://src/world/maps/authored/map_doc.gd").merge_rules(rules)   # (r26) maps made in the map editor
 
 
 func _load(path: String) -> Dictionary:

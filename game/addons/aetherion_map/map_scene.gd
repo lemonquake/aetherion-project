@@ -274,6 +274,15 @@ func _phys(tex: String) -> String:
 # ------------------------------------------------------------------ build
 
 func build(text: String, options: Dictionary = {}, map_name: String = "map") -> Node3D:
+	configure(options)
+	var ents := parse(text)
+	if ents.is_empty():
+		push_error("[map import] no entities in the map")
+		return null
+	return build_entities(ents, map_name)
+
+
+func configure(options: Dictionary = {}) -> void:
 	upm = float(options.get("units_per_metre", 32.0))
 	tex_root = str(options.get("textures_root", tex_root)).trim_suffix("/")
 	overrides = str(options.get("material_overrides", overrides)).trim_suffix("/")
@@ -283,10 +292,16 @@ func build(text: String, options: Dictionary = {}, map_name: String = "map") -> 
 		var js = JSON.parse_string(FileAccess.get_file_as_string(sp))
 		if js is Dictionary:
 			surfaces = js
-	var ents := parse(text)
-	if ents.is_empty():
-		push_error("[map import] no entities in the map")
-		return null
+
+
+func build_entities(ents: Array, map_name: String = "map") -> Node3D:
+	## The scene from parsed entities ([{props, brushes}], as parse() gives them, or as the map editor's MapDoc makes
+	## them from a map file). Materials stay cached on this builder from one build to the next.
+	_brush_aabbs = PackedFloat32Array()
+	_brush_planes = PackedFloat32Array()
+	_brush_start = PackedInt32Array()
+	_brush_flags = PackedByteArray()
+	stats = {"brushes": 0, "faces": 0, "tris": 0, "col_tris": 0, "meshes": 0, "bodies": 0, "lights": 0, "spawns": 0, "missing": []}
 	var root := Node3D.new()
 	root.name = map_name.to_pascal_case() if map_name != "" else "Map"
 	var groups := {}
@@ -338,6 +353,8 @@ func build(text: String, options: Dictionary = {}, map_name: String = "map") -> 
 				mk.position = pos
 				mk.rotation.y = atan2(-dir.x, -dir.z)
 				mk.set_meta("team", team)
+				if str(e.props.get("for", "")) != "":
+					mk.set_meta("for", str(e.props.get("for", "")))   # (r26) the team layout it is for: "2" or "3"
 				mk.gizmo_extents = 0.4
 				groups.Spawns.add_child(mk)
 				mk.owner = root

@@ -330,7 +330,16 @@ static func bar(value: float, max_value: float, color: Color = ACCENT, h: int = 
 const GUN_CLASS_NAMES := {"rifle": "Assault rifle", "smg": "Submachine gun", "marksman": "Marksman rifle", "precision": "Sniper rifle",
 	"lmg": "Light machine gun", "shotgun": "Shotgun", "handgun": "Handgun"}
 const MODE_NAMES := {"classic": "Classic", "deathmatch": "Deathmatch"}
-const MAP_NAMES := {"kalinaw": "Sitio Kalinaw", "lawless_sub": "Lawless Sub", "malasugue_mall": "Malasugue Mall", "freight_delight": "Freight Delight"}
+static var MAP_NAMES: Dictionary = _map_names()
+
+
+static func _map_names() -> Dictionary:
+	## The built-in maps, and (r26) every map made in the map editor by the name in its file.
+	var out := {"kalinaw": "Sitio Kalinaw", "lawless_sub": "Lawless Sub", "malasugue_mall": "Malasugue Mall", "freight_delight": "Freight Delight"}
+	var md = preload("res://src/world/maps/authored/map_doc.gd")
+	for id in md.ids():
+		out[id] = md.title(id)
+	return out
 
 
 static func gun_picture(id: String) -> Texture2D:

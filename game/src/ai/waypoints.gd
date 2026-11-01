@@ -1122,7 +1122,7 @@ static func _junctions() -> void:
 
 
 static func _name_all() -> void:
-	var code: String = CODES.get(map_id, map_id.substr(0, 2).to_upper())
+	var code: String = CODES.get(map_id, preload("res://src/world/maps/authored/map_doc.gd").code_of(map_id))
 	var per_level := {}
 	for nd in nodes:
 		var lv := int(nd.lv)

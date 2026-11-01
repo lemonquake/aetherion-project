@@ -65,7 +65,6 @@ var _goal_label: Label = null
 var _goal_text := ""
 var _respawn_label: Label = null
 var _died_at := -1.0
-const MAP_TITLES := {"kalinaw": "Sitio Kalinaw", "lawless_sub": "Lawless Sub", "malasugue_mall": "Malasugue Mall", "freight_delight": "Freight Delight"}
 
 
 func setup(w) -> void:
@@ -279,7 +278,7 @@ func _build_loading() -> void:
 	loading = ColorRect.new()
 	(loading as ColorRect).color = Color(0.01, 0.012, 0.016)
 	loading.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
-	var title := str(MAP_TITLES.get(str(Net.config.get("map", "kalinaw")), "Sitio Kalinaw"))
+	var title := str(UITheme.MAP_NAMES.get(str(Net.config.get("map", "kalinaw")), "Sitio Kalinaw"))
 	if Net.is_dm():
 		title += "  ·  Deathmatch"
 	var l := UITheme.label(title, 54, Color(0.86, 0.88, 0.86), UITheme.font_condensed)

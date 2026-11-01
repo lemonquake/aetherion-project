@@ -110,7 +110,7 @@ func all_nodes(shown_only: bool = false) -> Array:
 
 
 func new_name(lv: int) -> String:
-	var code := {"malasugue_mall": "MM", "freight_delight": "FD", "lawless_sub": "LS", "kalinaw": "SK"}.get(map_id, "WP") as String
+	var code := {"malasugue_mall": "MM", "freight_delight": "FD", "lawless_sub": "LS", "kalinaw": "SK"}.get(map_id, preload("res://src/world/maps/authored/map_doc.gd").code_of(map_id)) as String
 	var g := level_group(lv)
 	var k := int(_next.get(lv, 0))
 	if k == 0:
