@@ -24,6 +24,9 @@ UNICODES = "U+0020-007E,U+00A0-00FF,U+2010-2027,U+2030-203A,U+2190-2193,U+2212,U
 
 # (output name, source, caption is in index.html)
 SCREENS = [
+    # 0.24.0: the Workbench (--autotest=r24 --r24_only=workbench --size=1920x1080, work/release_shots/r24)
+    ("workbench", SHOTS / "r24" / "05_workbench_full_kit.png"),
+    ("workbench-info", SHOTS / "r24" / "02_workbench_hover_info.png"),
     # 0.22.0: Deathmatch Game Setup with attachments (--ui_tour_r7, work/r22/ui/tour)
     ("loadout", SHOTS / "ui" / "1920x1080_game_setup_picked.png"),
     # 0.21.0: Freight Delight, always night (tools/map_preview.tscn --map=freight_delight --cams=..., docs/FREIGHT_DELIGHT.md)
