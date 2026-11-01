@@ -1,0 +1,34 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+Vulkan 1.4.329 - Forward+ - Using Device #0: NVIDIA - NVIDIA GeForce RTX 4060
+
+[ui] loadout_received pid=1 Hehe {"att_primary":["scope_thermal","suppressor_rifle","mag_ext_sniper","cheek_pad"],"att_secondary":["sight_reflex","suppressor_light","mag_extquick_light","weapon_light"],"primary":"marksman_308","secondary":"pistol_9"}
+[ui] lobby shows my loadout (pid 1): {"att_primary":["scope_thermal","suppressor_rifle","mag_ext_sniper","cheek_pad"],"att_secondary":["sight_reflex","suppressor_light","mag_extquick_light","weapon_light"],"primary":"marksman_308","secondary":"pistol_9"}
+[ui] request_loadout {"att_primary":["scope_thermal","suppressor_rifle","mag_ext_sniper","cheek_pad"],"att_secondary":["sight_reflex","suppressor_light","mag_extquick_light","weapon_light"],"primary":"marksman_308","secondary":"pistol_9"}
+[world] map built in 15054 ms
+[map] 243 buildings, 1951 doors, 2617 containers, 2745 props, #b1fba961 on PC
+[botnav] lawless_sub: walk check and 564 spots from res://data/botnav/lawless_sub.json { "hide": 38, "snipe": 95, "cover": 56, "open": 375 }
+[waypoints] lawless_sub: 3193 nodes, 10383 edges (auto, res://data/waypoints/lawless_sub.json), 30 off the main graph, 211 ms { "snipe": 95, "junction": 1205, "road": 518, "area": 660, "corner": 650, "hide": 38, "bridge": 27 }
+[bots] learned from 419 cells, 0 stuck spots, 0 spots learned from play, 86 spot records (user://bot_memory_lawless_sub.json)
+[game] autotest r14
+[autotest] shot A:/Python/aetherion-project/.claude/worktrees/epic-wescoff-100904/work/r24/r14reg/scopes_ls/01_sight_sight_reddot.png
+[autotest] shot A:/Python/aetherion-project/.claude/worktrees/epic-wescoff-100904/work/r24/r14reg/scopes_ls/02_sight_sight_holo.png
+[autotest] shot A:/Python/aetherion-project/.claude/worktrees/epic-wescoff-100904/work/r24/r14reg/scopes_ls/03_sight_sight_reflex.png
+[autotest] shot A:/Python/aetherion-project/.claude/worktrees/epic-wescoff-100904/work/r24/r14reg/scopes_ls/04_sight_scope_2x.png
+[autotest] shot A:/Python/aetherion-project/.claude/worktrees/epic-wescoff-100904/work/r24/r14reg/scopes_ls/05_sight_scope_3x.png
+[autotest] shot A:/Python/aetherion-project/.claude/worktrees/epic-wescoff-100904/work/r24/r14reg/scopes_ls/06_sight_scope_4x.png
+[autotest] shot A:/Python/aetherion-project/.claude/worktrees/epic-wescoff-100904/work/r24/r14reg/scopes_ls/07_sight_scope_lpvo.png
+[autotest] shot A:/Python/aetherion-project/.claude/worktrees/epic-wescoff-100904/work/r24/r14reg/scopes_ls/08_sight_scope_6x.png
+[autotest] shot A:/Python/aetherion-project/.claude/worktrees/epic-wescoff-100904/work/r24/r14reg/scopes_ls/09_sight_scope_8x.png
+[autotest] shot A:/Python/aetherion-project/.claude/worktrees/epic-wescoff-100904/work/r24/r14reg/scopes_ls/10_sight_scope_night.png
+[autotest] shot A:/Python/aetherion-project/.claude/worktrees/epic-wescoff-100904/work/r24/r14reg/scopes_ls/11_sight_scope_thermal.png
+[autotest] shot A:/Python/aetherion-project/.claude/worktrees/epic-wescoff-100904/work/r24/r14reg/scopes_ls/12_sight_scope_15x.png
+[autotest] PASS r14_sights_on_line: sight window vs where the bullets go, px (looking up 62 deg, level): { "sight_reddot": [0.4, 0.4], "sight_holo": [0.5, 0.4], "sight_reflex": [0.4, 0.5] }
+[autotest] PASS r14_scopes_unique: 12 sights, 12 reticle styles; most alike: sight_reddot / sight_reflex overlap 51%; reticle pixels { "sight_reddot": 9037, "sight_holo": 7377, "sight_reflex": 10317, "scope_2x": 5910, "scope_3x": 4623, "scope_4x": 3450, "scope_lpvo": 3056, "scope_6x": 1821, "scope_8x": 317, "scope_night": 4258, "scope_thermal": 2260, "scope_15x": 148 }
+[autotest] shot A:/Python/aetherion-project/.claude/worktrees/epic-wescoff-100904/work/r24/r14reg/scopes_ls/13_sight_scope_night_body.png
+[autotest] shot A:/Python/aetherion-project/.claude/worktrees/epic-wescoff-100904/work/r24/r14reg/scopes_ls/14_sight_scope_thermal_body.png
+[r14] thermal probe { "mode": 3, "dist": 22.0, "behind": false, "from_centre_px": 5.9, "radius": 496.8, "blocked_by": "", "world_set": true, "chars": 21 }
+[autotest] PASS r14_scope_night: night vision filter true, eyepiece mean colour [0.26, 0.29, 0.3]
+[autotest] PASS r14_scope_thermal: thermal filter false, 1 warm bodies in the lens, brightest pixel on the enemy 0.04
+[autotest] shot A:/Python/aetherion-project/.claude/worktrees/epic-wescoff-100904/work/r24/r14reg/scopes_ls/15_sight_scope_lpvo_turned_down.png
+[autotest] PASS r14_scope_variable: 1-4x scope: 4.00x -> 2.05x after three wheel steps, field of view 20.0 -> 39.0, gun in hand rifle_556
+[autotest] done: 5 checks, 0 failed

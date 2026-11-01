@@ -1,0 +1,85 @@
+{
+  "scope_filters": {
+    "scope_night": {
+      "body_luma": 0.0,
+      "heat_bodies": 0,
+      "mean": [
+        0.26,
+        0.29,
+        0.3
+      ],
+      "mode": "night",
+      "on": true
+    },
+    "scope_thermal": {
+      "body_luma": 0.04,
+      "heat_bodies": 1,
+      "mean": [
+        0.2,
+        0.22,
+        0.23
+      ],
+      "mode": "thermal",
+      "on": false,
+      "probe": {
+        "behind": false,
+        "blocked_by": "",
+        "chars": 21,
+        "dist": 22.0,
+        "from_centre_px": 5.9,
+        "mode": 3,
+        "radius": 496.8,
+        "world_set": true
+      }
+    }
+  },
+  "scopes": {
+    "most_alike": [
+      "sight_reddot",
+      "sight_reflex",
+      0.513568467975287
+    ],
+    "pixels": {
+      "scope_15x": 148,
+      "scope_2x": 5910,
+      "scope_3x": 4623,
+      "scope_4x": 3450,
+      "scope_6x": 1821,
+      "scope_8x": 317,
+      "scope_lpvo": 3056,
+      "scope_night": 4258,
+      "scope_thermal": 2260,
+      "sight_holo": 7377,
+      "sight_reddot": 9037,
+      "sight_reflex": 10317
+    },
+    "sight_error_px_up_level": {
+      "sight_holo": [
+        0.5,
+        0.4
+      ],
+      "sight_reddot": [
+        0.4,
+        0.4
+      ],
+      "sight_reflex": [
+        0.4,
+        0.5
+      ]
+    },
+    "styles": [
+      "dot",
+      "holo",
+      "reflex",
+      "circle_dot",
+      "chevron",
+      "acog",
+      "horseshoe",
+      "mildot",
+      "duplex",
+      "stadia",
+      "thermal",
+      "tree"
+    ]
+  }
+}

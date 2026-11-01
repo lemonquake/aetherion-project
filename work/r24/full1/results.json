@@ -1,0 +1,97 @@
+[
+  [
+    "r24_wb_opens",
+    true,
+    "K opened the workbench true; player held true"
+  ],
+  [
+    "r24_wb_info",
+    true,
+    "hover card: Rifle Drum Magazine | Magazine attachment | A rifle drum: twice the rounds, heavy and slow to reload. | ▲ | +30 rounds per magazine (30 -> 60) | ▼ | 8% more weapon sway | ▼ | 8% slower aiming | ▼ | 40% slower reload | ▼ | Weight 0.95 kg | "
+  ],
+  [
+    "r24_wb_drag_fits",
+    true,
+    "after dragging the drum onto the gun: fitted [\"sight_reddot\", \"mag_drum_rifle\"]; magazine 60"
+  ],
+  [
+    "r24_wb_fits_all",
+    true,
+    "fitted [\"mag_drum_rifle\", \"scope_4x\", \"grip_heavy\", \"stock_tactical\", \"suppressor_rifle\", \"laser_green\"]; missing []; the red dot it replaced went to the bag: true"
+  ],
+  [
+    "r24_wb_turn_zoom",
+    true,
+    "yaw -0.57 -> 2.46, zoom 1.00 -> 0.90"
+  ],
+  [
+    "r24_wb_remove",
+    true,
+    "after x: fitted [\"mag_drum_rifle\", \"scope_4x\", \"grip_heavy\", \"stock_tactical\", \"suppressor_rifle\"]; laser in bag 1"
+  ],
+  [
+    "r24_wb_closes",
+    true,
+    "Esc: workbench gone true, player free true, no pause menu true"
+  ],
+  [
+    "r24_wb_loadout",
+    true,
+    "Game Setup bench on rifle_m416: model true, fitted grip_heavy -> profile [\"grip_heavy\"]"
+  ],
+  [
+    "r24_board_stats",
+    true,
+    "changes for the player { \"kills\": 2.0, \"hs_kills\": 1.0, \"nade_kills\": 1.0, \"assists\": 1.0, \"damage\": 20028.0 }; headshot victim deaths 1 / headshot deaths 1"
+  ],
+  [
+    "r24_board_shown",
+    true,
+    "held: shown true (1370 x 808), released: hidden true"
+  ],
+  [
+    "r24_alive_counts",
+    true,
+    "team bar [\"7 alive\", \"6 alive\", \"5 alive\"]; server { 0: 7, 1: 6, 2: 5 }"
+  ],
+  [
+    "r24_scopes_clear",
+    true,
+    "lens mean/contrast/saturation per sight [\"none 24/25/0.34\", \"scope_2x 37/36/0.28\", \"scope_3x 34/34/0.33\", \"scope_4x 44/44/0.36\", \"scope_thermal 46/44/0.36\", \"scope_night 78/67/0.31\", \"scope_6x 39/43/0.38\", \"scope_8x 30/30/0.39\", \"scope_lpvo 44/45/0.37\", \"scope_15x 23/22/0.40\"] (no scope [23.8, 25.2, 0.34]); filtered or washed out: []"
+  ],
+  [
+    "r24_round_banner",
+    true,
+    "banner 'North Team wins the round' / 'Next round in 1'"
+  ],
+  [
+    "r24_round_break_3s",
+    true,
+    "round 1 -> 2; break 3.22 s of wall time (rule 3.0 s)"
+  ],
+  [
+    "r24_round_no_spike",
+    false,
+    "longest frame at the win 21.5 ms, at the next round 50.1 ms (median 16.6 ms); worst [3.58, 50.1, \"playing\"]"
+  ],
+  [
+    "r24_spectate_fov",
+    true,
+    "field of view aimed 20.0, death camera 80.0, spectating 80.0 (normal 80.0); scope picture hidden true"
+  ],
+  [
+    "r24_spectate_views",
+    false,
+    "camera distance to the watched player per view [[\"Behind\", 3.7], [\"Over the shoulder\", 2.2], [\"Overhead\", 4.9], [\"Free camera\", 5.5]]"
+  ],
+  [
+    "r24_spectate_everyone",
+    true,
+    "free camera flew 9.0 m in 1 s; watch list 6 -> 20 (enemy 23 watched: true); hint 'Click: next    Right click: previous    E: camera (Behind)    R: watch teammates only'"
+  ],
+  [
+    "r24_pause_cleared",
+    true,
+    "left []"
+  ]
+]

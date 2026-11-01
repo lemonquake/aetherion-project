@@ -1,0 +1,17 @@
+[
+  [
+    "r24_round_banner",
+    true,
+    "banner 'North Team wins the round' / 'Next round in 1'"
+  ],
+  [
+    "r24_round_break_3s",
+    true,
+    "round 1 -> 2; break 3.34 s of wall time (rule 3.0 s)"
+  ],
+  [
+    "r24_round_no_spike",
+    true,
+    "longest frame at the win 23.0 ms, at the next round 37.1 ms (median 16.7 ms); worst [3.399, 37.1, \"playing\"]"
+  ]
+]

@@ -1,0 +1,69 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+Vulkan 1.4.329 - Forward+ - Using Device #0: NVIDIA - NVIDIA GeForce RTX 4060
+
+[ui] loadout_received pid=1 Hehe {"att_primary":["grip_heavy"],"att_secondary":[],"primary":"rifle_m416","secondary":"pistol_9"}
+[ui] lobby shows my loadout (pid 1): {"att_primary":["grip_heavy"],"att_secondary":[],"primary":"rifle_m416","secondary":"pistol_9"}
+[ui] request_loadout {"att_primary":["grip_heavy"],"att_secondary":[],"primary":"rifle_m416","secondary":"pistol_9"}
+[world] map built in 3923 ms
+[map] 0 buildings, 213 doors, 163 containers, 779 props, #55dd752c on PC
+[loadout] Hehe rifle_m416 [grip_heavy] mag 30/30 | pistol_9 [] mag 15/15
+[nav] levels: 56959 points, 32 links, 136 ms
+[botnav] walk check: 1424 of 56959 cells closed by the real collision, 880 ms
+[botnav] link check: 4148 links between open cells cross a wall, 2192 ms
+[nav] r21: 1424 cells closed by the physics check, main walk 49517 of 55567 points (6050 in pockets), 240 ms
+[botnav] malasugue_mall: analysing 6164 candidate spots (walk check 880 ms)
+[waypoints] malasugue_mall: 6107 nodes, 23338 edges (auto, res://data/waypoints/malasugue_mall.json), 60 off the main graph, 286 ms { "plaza": 790, "road": 679, "junction": 1232, "area": 905, "snipe": 356, "corner": 1459, "hide": 200, "cover": 16, "stair": 64, "escalator": 32, "door": 374 }
+[bots] learned from 134 cells, 0 stuck spots, 0 spots learned from play, 139 spot records (user://bot_memory_malasugue_mall.json)
+[loadout] Mang Tomas Ketchup dmr_sks [mag_ext_sniper,cheek_pad] mag 20/20 | pistol_45 [sight_reddot,suppressor_light,mag_drum_light,weapon_light] mag 13/13
+[loadout] Ate Load shotgun_double [choke,bullet_loops] mag 2/2 | pistol_45 [sight_reddot,suppressor_light,mag_extquick_light,weapon_light] mag 12/12
+[loadout] Ate Load Dito lmg_m249 [sight_holo,laser_sight,stock_heavy,weapon_light] mag 100/100 | pistol_9 [sight_reddot,mag_extquick_light,weapon_light] mag 21/21
+[loadout] Lolo Pepe dmr_mini14 [mag_ext_sniper,cheek_pad] mag 30/30 | pistol_deagle [sight_reflex,weapon_light] mag 7/7
+[loadout] Tito Videoke dmr_mini14 [scope_6x,suppressor_rifle] mag 20/20 | pistol_9 [suppressor_light] mag 15/15
+[loadout] Lola Basyang shotgun_double [bullet_loops] mag 2/2 | revolver_357 [sight_reflex] mag 6/6
+[loadout] Bossing Dodong smg_9 [sight_reflex,grip_thumb] mag 30/30 | revolver_357 [] mag 6/6
+[loadout] Toto Pancit bolt_308 [scope_6x,cheek_pad] mag 5/5 | pistol_9 [sight_reddot,suppressor_light,mag_drum_light,weapon_light] mag 27/27
+[loadout] Totoy Bibo rifle_m416 [scope_3x,suppressor_rifle,grip_heavy,stock_tactical] mag 30/30 | revolver_357 [sight_reflex] mag 6/6
+[loadout] Kuya Fishball lmg_m249 [muzzle_brake,laser_sight,stock_heavy] mag 100/100 | pistol_45 [sight_reddot,suppressor_light,mag_drum_light,weapon_light] mag 13/13
+[loadout] Boy Pickup marksman_308 [scope_4x,suppressor_rifle,mag_ext_sniper,cheek_pad] mag 30/30 | pistol_45 [sight_reflex,suppressor_light,mag_extquick_light,weapon_light] mag 12/12
+[loadout] Mang Isko shotgun_saiga [weapon_light] mag 5/5 | pistol_45 [suppressor_light,laser_green] mag 7/7
+[loadout] Lolo Kalesa shotgun_saiga [sight_reddot,mag_extquick_rifle,weapon_light] mag 8/8 | pistol_9 [sight_reddot,suppressor_light,mag_extquick_light] mag 21/21
+[loadout] Kapitan Tikoy marksman_308 [scope_thermal,suppressor_rifle,mag_ext_sniper] mag 30/30 | pistol_9 [mag_extquick_light,weapon_light] mag 21/21
+[loadout] Mang Tomas bolt_kar98 [scope_6x,muzzle_brake,cheek_pad] mag 5/5 | pistol_45 [suppressor_light] mag 7/7
+[loadout] Tsong Ramil shotgun_double [choke,bullet_loops] mag 2/2 | pistol_9 [sight_reddot,suppressor_light] mag 15/15
+[loadout] Inday Rice Cooker smg_vector [sight_holo,suppressor_light,grip_angled,mag_extquick_light,stock_tactical,weapon_light] mag 33/33 | revolver_357 [] mag 6/6
+[loadout] Tatay Kulas marksman_308 [mag_ext_sniper,cheek_pad] mag 30/30 | pistol_deagle [sight_reddot,suppressor_light,mag_extquick_light,weapon_light] mag 10/10
+[loadout] Utoy Kalabaw rifle_556 [scope_3x,suppressor_rifle,mag_drum_rifle] mag 60/60 | pistol_45 [sight_reddot,suppressor_light,mag_extquick_light,weapon_light] mag 12/12
+[loadout] Kuya Wifi bolt_kar98 [suppressor_rifle] mag 5/5 | revolver_357 [sight_reflex] mag 6/6
+[match    0.0] deathmatch start on malasugue_mall: 21 players, 3 teams; spawns (42.0, 10.0, -26.0), (-40.0, 0.0, -27.0), (0.0, 20.0, 27.0) (82/67/68 m apart, floors); day offset 0 s; zone centre (-9.0, 15.0) r=134; win by wipe
+[game] autotest r24
+[match    0.0] status: { "ground": 21 }; armed 21; shots 0; zone -1 hold r=134; corpses 0; levels { "L3": 7, "between": 1, "L1": 7, "L5": 6 }
+[match    0.0] dm teams: North Team 7 at (42.0, -26.0) spread 2 m; East Team 7 at (-40.0, -27.0) spread 2 m; South Team 7 at (-1.0, 29.0) spread 2 m; gap 83 m; zone centre (-9.0, 15.0)
+[match    0.0] bots: { "roam": 20 }; containers searched by bots 0 (all players 0); plan steps done 0; guns carried 40
+[match    0.0] roles: { "rusher": { "roam": 7 }, "sniper": { "roam": 5 }, "looter": { "roam": 4 }, "stalker": { "roam": 4 } }; stuck now 0; waypoints 0; team { "lines": 0, "pings": 0, "laser_follow": 0, "learned_cells": 134, "blocked_cells": 0, "squads": 0, "following_humans": 0, &"learned_spots": 0 }
+[match    0.0] [lootstats] bots on the ground 20 (in water 0); armed 20; armed with ammo for a gun 20; long guns 20; attachments fitted 99; rounds of unusable ammo carried 0; items on the ground 402; bot pickups { "detours": 0, "detour_taken": 0, "fetches": 0, "fetch_done": 0, "items_taken": 0 }
+[match    4.0] Hehe killed by the world (test); 3 teams left
+[match    4.0] alive: North Team 6, East Team 7; score { 0: 0, 1: 0, 2: 0 }
+[botnav] saved user://botnav/malasugue_mall.json (1304 spots)
+[botnav] malasugue_mall: 1304 spots from 6164 candidates in 628 ms of ticks { "hide": 308, "snipe": 620, "cover": 190, "open": 186 }
+[autotest] shot A:/Python/aetherion-project/.claude/worktrees/epic-wescoff-100904/work/r24/spec2/01_spectate_death_cam_after_scope.png
+[match    5.4] Mang Tomas Ketchup (team 2) landed at (2.0, 20.0, 27.0), 4.4 m/s, health 100; teammates -
+[match    5.8] Tsong Ramil (team 2) landed at (-2.0, 20.0, 27.0), 2.8 m/s, health 100; teammates 4 m
+[autotest] shot A:/Python/aetherion-project/.claude/worktrees/epic-wescoff-100904/work/r24/spec2/02_spectate_after_scope.png
+[autotest] PASS r24_spectate_fov: field of view aimed 20.0, death camera 80.0, spectating 80.0 (normal 80.0); scope picture hidden true
+[autotest] shot A:/Python/aetherion-project/.claude/worktrees/epic-wescoff-100904/work/r24/spec2/03_spectate_view_0.png
+[autotest] shot A:/Python/aetherion-project/.claude/worktrees/epic-wescoff-100904/work/r24/spec2/04_spectate_view_1.png
+[match    7.1] Totoy Bibo (team 0) landed at (40.0, 10.0, -25.0), 4.4 m/s, health 100; teammates -
+[autotest] shot A:/Python/aetherion-project/.claude/worktrees/epic-wescoff-100904/work/r24/spec2/05_spectate_view_2.png
+[match    7.3] Kuya Fishball (team 2) landed at (0.0, 20.0, 29.0), 2.2 m/s, health 100; teammates 4 m, 3 m
+[autotest] shot A:/Python/aetherion-project/.claude/worktrees/epic-wescoff-100904/work/r24/spec2/06_spectate_view_3.png
+[autotest] PASS r24_spectate_views: camera [distance, height above] the watched player per view [["Behind", 3.7, 1.9], ["Over the shoulder", 2.2, 1.7], ["Overhead", 4.8, 4.6], ["Free camera", 4.6, 3.9]]
+[match    8.6] Ate Load Dito (team 0) landed at (40.0, 10.0, -27.0), 4.4 m/s, health 100; teammates 7 m
+[match    9.3] [hold] Tatay Kulas overwatch spot 470 78s
+[autotest] shot A:/Python/aetherion-project/.claude/worktrees/epic-wescoff-100904/work/r24/spec2/07_spectate_free_camera.png
+[autotest] shot A:/Python/aetherion-project/.claude/worktrees/epic-wescoff-100904/work/r24/spec2/08_spectate_enemy.png
+[autotest] PASS r24_spectate_everyone: free camera flew 9.0 m in 1 s; watch list 6 -> 20 (enemy 2 watched: true); hint 'Click: next    Right click: previous    E: camera (Behind)    R: watch teammates only'
+[autotest] shot A:/Python/aetherion-project/.claude/worktrees/epic-wescoff-100904/work/r24/spec2/09_pause_open.png
+[autotest] PASS r24_pause_cleared: pause menu was open true; pause menus left over the main menu []; state menu
+[autotest] done: 4 checks, 0 failed
+WARNING: 7 RIDs of type "Texture" were leaked.
+   at: finalize (servers/rendering/rendering_device.cpp:8900)

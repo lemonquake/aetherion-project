@@ -1,0 +1,42 @@
+[
+  [
+    "r24_wb_opens",
+    true,
+    "K opened the workbench true; player held true"
+  ],
+  [
+    "r24_wb_info",
+    true,
+    "hover card: Rifle Drum Magazine | Magazine attachment | A rifle drum: twice the rounds, heavy and slow to reload. | ▲ | +30 rounds per magazine (30 -> 60) | ▼ | 8% more weapon sway | ▼ | 8% slower aiming | ▼ | 40% slower reload | ▼ | Weight 0.95 kg | "
+  ],
+  [
+    "r24_wb_drag_fits",
+    true,
+    "after dragging the drum onto the gun: fitted [\"sight_reddot\", \"mag_drum_rifle\"]; magazine 60"
+  ],
+  [
+    "r24_wb_fits_all",
+    true,
+    "fitted [\"mag_drum_rifle\", \"scope_4x\", \"grip_heavy\", \"stock_tactical\", \"suppressor_rifle\", \"laser_green\"]; missing []; the red dot it replaced went to the bag: true"
+  ],
+  [
+    "r24_wb_turn_zoom",
+    true,
+    "yaw -0.57 -> 2.46, zoom 1.00 -> 0.90"
+  ],
+  [
+    "r24_wb_remove",
+    true,
+    "after x: fitted [\"mag_drum_rifle\", \"scope_4x\", \"grip_heavy\", \"stock_tactical\", \"suppressor_rifle\"]; laser in bag 1"
+  ],
+  [
+    "r24_wb_closes",
+    true,
+    "Esc: workbench gone true, player free true, no pause menu true"
+  ],
+  [
+    "r24_wb_loadout",
+    true,
+    "Game Setup bench on rifle_m416: model true, fitted grip_heavy -> profile [\"grip_heavy\"]"
+  ]
+]

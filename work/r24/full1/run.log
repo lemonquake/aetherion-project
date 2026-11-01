@@ -1,0 +1,201 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+Vulkan 1.4.329 - Forward+ - Using Device #0: NVIDIA - NVIDIA GeForce RTX 4060
+
+[ui] loadout_received pid=1 Hehe {"att_primary":["grip_heavy"],"att_secondary":[],"primary":"rifle_m416","secondary":"pistol_9"}
+[ui] lobby shows my loadout (pid 1): {"att_primary":["grip_heavy"],"att_secondary":[],"primary":"rifle_m416","secondary":"pistol_9"}
+[ui] request_loadout {"att_primary":["grip_heavy"],"att_secondary":[],"primary":"rifle_m416","secondary":"pistol_9"}
+[world] map built in 4083 ms
+[map] 0 buildings, 213 doors, 163 containers, 779 props, #55dd752c on PC
+[loadout] Hehe rifle_m416 [grip_heavy] mag 30/30 | pistol_9 [] mag 15/15
+[nav] levels: 56959 points, 32 links, 129 ms
+[nav] r21: 1424 cells closed by the physics check, main walk 49517 of 55567 points (6050 in pockets), 242 ms
+[botnav] malasugue_mall: walk check and 1304 spots from res://data/botnav/malasugue_mall.json { "hide": 301, "snipe": 618, "cover": 190, "open": 195 }
+[waypoints] malasugue_mall: 6107 nodes, 23338 edges (auto, res://data/waypoints/malasugue_mall.json), 60 off the main graph, 279 ms { "plaza": 790, "road": 679, "junction": 1232, "area": 905, "snipe": 356, "corner": 1459, "hide": 200, "cover": 16, "stair": 64, "escalator": 32, "door": 374 }
+[bots] learned from 134 cells, 14 stuck spots, 0 spots learned from play, 139 spot records (user://bot_memory_malasugue_mall.json)
+[loadout] Mang Tomas rifle_556 [suppressor_rifle,mag_drum_rifle,weapon_light] mag 60/60 | revolver_357 [sight_reddot] mag 6/6
+[loadout] Totoy Kulot rifle_m416 [suppressor_rifle,grip_angled,mag_extquick_rifle,stock_heavy] mag 40/40 | pistol_deagle [sight_reddot,mag_extquick_light,weapon_light] mag 10/10
+[loadout] Ate Load Dito rifle_scar [scope_night,suppressor_rifle,grip_heavy,mag_extquick_rifle,weapon_light] mag 40/40 | pistol_deagle [sight_reddot,mag_extquick_light,weapon_light] mag 10/10
+[loadout] Tito Videoke marksman_308 [mag_ext_sniper] mag 30/30 | pistol_9 [sight_reddot,suppressor_light,mag_extquick_light,weapon_light] mag 21/21
+[loadout] Totoy Bibo rifle_m416 [scope_night,suppressor_rifle,grip_heavy,mag_extquick_rifle,stock_heavy,weapon_light] mag 40/40 | pistol_9 [suppressor_light] mag 15/15
+[loadout] Mang Tani bolt_308 [scope_8x,mag_ext_sniper,cheek_pad] mag 8/8 | pistol_deagle [sight_reflex,mag_extquick_light,weapon_light] mag 10/10
+[loadout] Aling Nena bolt_308 [scope_6x,suppressor_sniper,mag_ext_sniper,cheek_pad] mag 8/8 | pistol_deagle [sight_reflex,suppressor_light,mag_extquick_light,weapon_light] mag 10/10
+[loadout] Ka Pedring marksman_308 [scope_thermal,mag_ext_sniper] mag 30/30 | pistol_deagle [sight_reddot,suppressor_light,mag_drum_light,weapon_light] mag 13/13
+[loadout] Manong Guard rifle_scar [grip_heavy,mag_drum_rifle,weapon_light] mag 60/60 | revolver_357 [sight_reflex] mag 6/6
+[loadout] Lola Basyang rifle_556 [scope_night,suppressor_rifle,grip_thumb,mag_extquick_rifle,weapon_light] mag 40/40 | pistol_9 [sight_reflex,suppressor_light,mag_extquick_light,weapon_light] mag 21/21
+[loadout] Bunso Badong rifle_556 [grip_angled,mag_drum_rifle,weapon_light] mag 60/60 | pistol_45 [sight_reddot,mag_extquick_light,weapon_light] mag 12/12
+[loadout] Kuya Fishball smg_tommy [suppressor_light,grip_heavy,mag_drum_light] mag 54/54 | pistol_45 [suppressor_light,mag_extquick_light,weapon_light] mag 12/12
+[loadout] Tita Baby rifle_m762 [scope_night,suppressor_rifle,grip_vertical,mag_extquick_rifle,weapon_light] mag 40/40 | pistol_deagle [sight_reflex,suppressor_light,mag_extquick_light,weapon_light] mag 10/10
+[loadout] Tatay Kulas bolt_kar98 [scope_6x,suppressor_rifle] mag 5/5 | pistol_deagle [sight_reddot,suppressor_light,mag_drum_light,weapon_light] mag 13/13
+[loadout] Aling Puring dmr_sks [scope_4x,mag_ext_sniper,cheek_pad] mag 20/20 | pistol_9 [sight_reddot,suppressor_light] mag 15/15
+[loadout] Kuya Bert smg_vector [sight_holo,stock_tactical,weapon_light] mag 19/19 | pistol_45 [sight_reddot,suppressor_light,mag_extquick_light,weapon_light] mag 12/12
+[loadout] Pinsan Gardo bolt_kar98 [scope_6x,cheek_pad] mag 5/5 | pistol_9 [sight_reflex,mag_extquick_light,weapon_light] mag 21/21
+[loadout] Bossing Dodong bolt_awp [] mag 5/5 | pistol_deagle [sight_reddot,weapon_light] mag 7/7
+[loadout] Tsong Balut bolt_kar98 [scope_8x] mag 5/5 | revolver_357 [sight_reddot] mag 6/6
+[loadout] Lola Basyang Jr shotgun_saiga [sight_holo,muzzle_tactical] mag 5/5 | revolver_357 [sight_reddot] mag 6/6
+[match    0.0] deathmatch start on malasugue_mall: 21 players, 3 teams; spawns (-40.0, 0.0, -27.0), (42.0, 10.0, -26.0), (0.0, 20.0, 27.0) (82/68/67 m apart, floors); day offset 0 s; zone centre (11.0, -12.0) r=132; win by wipe
+[game] autotest r24
+[match    0.0] status: { "ground": 21 }; armed 21; shots 0; zone -1 hold r=132; corpses 0; levels { "L1": 7, "between": 1, "L3": 7, "L5": 6 }
+[match    0.0] dm teams: North Team 7 at (-40.0, -27.0) spread 2 m; East Team 7 at (42.0, -26.0) spread 2 m; South Team 7 at (-1.0, 29.0) spread 2 m; gap 83 m; zone centre (11.0, -12.0)
+[match    0.0] bots: { "roam": 20 }; containers searched by bots 0 (all players 0); plan steps done 0; guns carried 40
+[match    0.0] roles: { "sniper": { "roam": 6 }, "stalker": { "roam": 4 }, "looter": { "roam": 4 }, "rusher": { "roam": 6 } }; stuck now 0; waypoints 1304; team { "lines": 0, "pings": 0, "laser_follow": 0, "learned_cells": 134, "blocked_cells": 0, "squads": 0, "following_humans": 0, &"learned_spots": 0 }
+[match    0.0] [lootstats] bots on the ground 20 (in water 0); armed 20; armed with ammo for a gun 20; long guns 20; attachments fitted 115; rounds of unusable ammo carried 0; items on the ground 403; bot pickups { "detours": 0, "detour_taken": 0, "fetches": 0, "fetch_done": 0, "items_taken": 0 }
+[autotest] PASS r24_wb_opens: K opened the workbench true; player held true
+[autotest] shot A:/Python/aetherion-project/.claude/worktrees/epic-wescoff-100904/work/r24/full1/01_workbench_open.png
+[autotest] shot A:/Python/aetherion-project/.claude/worktrees/epic-wescoff-100904/work/r24/full1/02_workbench_hover_info.png
+[autotest] PASS r24_wb_info: hover card: Rifle Drum Magazine | Magazine attachment | A rifle drum: twice the rounds, heavy and slow to reload. | ▲ | +30 rounds per magazine (30 -> 60) | ▼ | 8% more weapon sway | ▼ | 8% slower aiming | ▼ | 40% slower reload | ▼ | Weight 0.95 kg | 
+[r24] drag probe: dragging true, data { "wb_att": { "id": "mag_drum_rifle", "n": 1, "where": "In your bag", "from": 0 , mouse (1440.0, 809.9999), focus <Object#null>
+[autotest] shot A:/Python/aetherion-project/.claude/worktrees/epic-wescoff-100904/work/r24/full1/03_workbench_drum_snapping.png
+[autotest] PASS r24_wb_drag_fits: after dragging the drum onto the gun: fitted ["sight_reddot", "mag_drum_rifle"]; magazine 60
+[autotest] shot A:/Python/aetherion-project/.claude/worktrees/epic-wescoff-100904/work/r24/full1/04_workbench_plus_burst.png
+[autotest] shot A:/Python/aetherion-project/.claude/worktrees/epic-wescoff-100904/work/r24/full1/05_workbench_full_kit.png
+[autotest] PASS r24_wb_fits_all: fitted ["mag_drum_rifle", "scope_4x", "grip_heavy", "stock_tactical", "suppressor_rifle", "laser_green"]; missing []; the red dot it replaced went to the bag: true
+[r24] drag probe: dragging false, data <null>, mouse (1440.0, 809.9999), focus <Object#null>
+[autotest] shot A:/Python/aetherion-project/.claude/worktrees/epic-wescoff-100904/work/r24/full1/06_workbench_turned.png
+[autotest] PASS r24_wb_turn_zoom: yaw -0.57 -> 2.46, zoom 1.00 -> 0.90
+[autotest] PASS r24_wb_remove: after x: fitted ["mag_drum_rifle", "scope_4x", "grip_heavy", "stock_tactical", "suppressor_rifle"]; laser in bag 1
+[autotest] PASS r24_wb_closes: Esc: workbench gone true, player free true, no pause menu true
+[autotest] shot A:/Python/aetherion-project/.claude/worktrees/epic-wescoff-100904/work/r24/full1/07_workbench_game_setup.png
+[autotest] PASS r24_wb_loadout: Game Setup bench on rifle_m416: model true, fitted grip_heavy -> profile ["grip_heavy"]
+[match   14.5] Mang Tomas killed by Hehe (gunshot); 3 teams left
+[match   14.5] alive: North Team 7, East Team 7; score { 0: 0, 1: 0, 2: 0 }
+[match   14.5] Totoy Kulot killed by Hehe (explosion); 3 teams left
+[match   14.5] alive: North Team 7, East Team 6; score { 0: 0, 1: 0, 2: 0 }
+[match   14.5] Tito Videoke killed by Ate Load Dito (gunshot); 3 teams left
+[match   14.5] alive: North Team 7, East Team 6; score { 0: 0, 1: 0, 2: 0 }
+[autotest] PASS r24_board_stats: changes for the player { "kills": 2.0, "hs_kills": 1.0, "nade_kills": 1.0, "assists": 1.0, "damage": 20028.0 }; headshot victim deaths 1 / headshot deaths 1
+[match   15.0] status: { "ground": 18 }; armed 18; shots 0; zone 0 wait r=9000; corpses 3; levels { "L1": 7, "L3": 6, "L5": 5 }; server tick avg 3.25 ms, p99 5.32 ms, max 31.05 ms over 900 ticks; objects 18111
+[match   15.0] dm teams: North Team 7 at (-40.0, -27.0) spread 2 m; East Team 6 at (41.0, -26.0) spread 2 m; South Team 5 at (-1.0, 29.0) spread 2 m; gap 83 m; zone centre (0.0, 0.0)
+[autotest] shot A:/Python/aetherion-project/.claude/worktrees/epic-wescoff-100904/work/r24/full1/08_scoreboard_held.png
+[autotest] PASS r24_board_shown: held: shown true (1370 x 808), released: hidden true
+[autotest] PASS r24_alive_counts: team bar ["7 alive", "6 alive", "5 alive"]; server { 0: 7, 1: 6, 2: 5 }
+[autotest] shot A:/Python/aetherion-project/.claude/worktrees/epic-wescoff-100904/work/r24/full1/09_team_bar_alive.png
+[autotest] shot A:/Python/aetherion-project/.claude/worktrees/epic-wescoff-100904/work/r24/full1/10_scope_ref_noscope.png
+[autotest] shot A:/Python/aetherion-project/.claude/worktrees/epic-wescoff-100904/work/r24/full1/11_scope_level_scope_2x.png
+[autotest] shot A:/Python/aetherion-project/.claude/worktrees/epic-wescoff-100904/work/r24/full1/12_scope_level_scope_3x.png
+[autotest] shot A:/Python/aetherion-project/.claude/worktrees/epic-wescoff-100904/work/r24/full1/13_scope_aiming_scope_4x_0.png
+[autotest] shot A:/Python/aetherion-project/.claude/worktrees/epic-wescoff-100904/work/r24/full1/14_scope_aiming_scope_4x_1.png
+[autotest] shot A:/Python/aetherion-project/.claude/worktrees/epic-wescoff-100904/work/r24/full1/15_scope_aiming_scope_4x_2.png
+[autotest] shot A:/Python/aetherion-project/.claude/worktrees/epic-wescoff-100904/work/r24/full1/16_scope_level_scope_4x.png
+[autotest] shot A:/Python/aetherion-project/.claude/worktrees/epic-wescoff-100904/work/r24/full1/17_scope_aiming_scope_thermal_0.png
+[autotest] shot A:/Python/aetherion-project/.claude/worktrees/epic-wescoff-100904/work/r24/full1/18_scope_aiming_scope_thermal_1.png
+[autotest] shot A:/Python/aetherion-project/.claude/worktrees/epic-wescoff-100904/work/r24/full1/19_scope_aiming_scope_thermal_2.png
+[autotest] shot A:/Python/aetherion-project/.claude/worktrees/epic-wescoff-100904/work/r24/full1/20_scope_level_scope_thermal.png
+[match   30.0] status: { "ground": 18 }; armed 17; shots 0; zone 0 wait r=9000; corpses 3; levels { "L1": 8, "L5": 5, "L3": 5 }; server tick avg 2.67 ms, p99 4.27 ms, max 4.99 ms over 900 ticks; objects 17585
+[match   30.0] dm teams: North Team 7 at (-40.0, -27.0) spread 2 m; East Team 6 at (33.0, -25.0) spread 15 m; South Team 5 at (-1.0, 29.0) spread 2 m; gap 74 m; zone centre (0.0, 0.0)
+[autotest] shot A:/Python/aetherion-project/.claude/worktrees/epic-wescoff-100904/work/r24/full1/21_scope_level_scope_night.png
+[autotest] shot A:/Python/aetherion-project/.claude/worktrees/epic-wescoff-100904/work/r24/full1/22_scope_level_scope_6x.png
+[autotest] shot A:/Python/aetherion-project/.claude/worktrees/epic-wescoff-100904/work/r24/full1/23_scope_level_scope_8x.png
+[autotest] shot A:/Python/aetherion-project/.claude/worktrees/epic-wescoff-100904/work/r24/full1/24_scope_level_scope_lpvo.png
+[autotest] shot A:/Python/aetherion-project/.claude/worktrees/epic-wescoff-100904/work/r24/full1/25_scope_level_scope_15x.png
+[autotest] PASS r24_scopes_clear: lens mean/contrast/saturation per sight ["none 24/25/0.34", "scope_2x 37/36/0.28", "scope_3x 34/34/0.33", "scope_4x 44/44/0.36", "scope_thermal 46/44/0.36", "scope_night 78/67/0.31", "scope_6x 39/43/0.38", "scope_8x 30/30/0.39", "scope_lpvo 44/45/0.37", "scope_15x 23/22/0.40"] (no scope [23.8, 25.2, 0.34]); filtered or washed out: []
+[match   44.1] [endgame] North Team mates 7 foes 5 nocontact 52s
+[match   44.2] [endgame] East Team mates 6 foes 5 nocontact 52s
+[match   44.2] [endgame] South Team mates 5 foes 6 nocontact 52s
+[match   44.3] Totoy Bibo killed by the world (test); 3 teams left
+[match   44.3] alive: North Team 7, East Team 5; score { 0: 0, 1: 0, 2: 0 }
+[match   44.3] Aling Nena killed by the world (test); 3 teams left
+[match   44.3] alive: North Team 7, East Team 5; score { 0: 0, 1: 0, 2: 0 }
+[match   44.3] Ka Pedring killed by the world (test); 3 teams left
+[match   44.3] alive: North Team 7, East Team 4; score { 0: 0, 1: 0, 2: 0 }
+[match   44.3] Lola Basyang killed by the world (test); 3 teams left
+[match   44.3] alive: North Team 7, East Team 4; score { 0: 0, 1: 0, 2: 0 }
+[match   44.3] Bunso Badong killed by the world (test); 3 teams left
+[match   44.3] alive: North Team 7, East Team 3; score { 0: 0, 1: 0, 2: 0 }
+[match   44.3] Tita Baby killed by the world (test); 3 teams left
+[match   44.3] alive: North Team 7, East Team 3; score { 0: 0, 1: 0, 2: 0 }
+[match   44.3] Tatay Kulas killed by the world (test); 3 teams left
+[match   44.3] alive: North Team 7, East Team 2; score { 0: 0, 1: 0, 2: 0 }
+[match   44.3] Kuya Bert killed by the world (test); 3 teams left
+[match   44.3] alive: North Team 7, East Team 2; score { 0: 0, 1: 0, 2: 0 }
+[match   44.3] Pinsan Gardo killed by the world (test); 3 teams left
+[match   44.3] alive: North Team 7, East Team 1; score { 0: 0, 1: 0, 2: 0 }
+[match   44.3] Tsong Balut killed by the world (test); 2 teams left
+[match   44.3] alive: North Team 7, East Team 1; score { 0: 0, 1: 0, 2: 0 }
+[match   45.0] status: { "ground": 8 }; armed 8; shots 0; zone 0 wait r=9000; corpses 13; levels { "L1": 7, "L3": 1 }; server tick avg 2.75 ms, p99 4.75 ms, max 5.60 ms over 900 ticks; objects 16197
+[match   45.0] dm teams: North Team 7 at (-40.0, -27.0) spread 2 m; East Team 1 at (40.0, -24.0) spread 0 m; gap 82 m; zone centre (0.0, 0.0)
+[match   45.0] bots: { "roam": 7 }; containers searched by bots 0 (all players 0); plan steps done 0; guns carried 14
+[match   45.0] roles: { "looter": { "roam": 2 }, "sniper": { "roam": 4 }, "stalker": { "roam": 1 } }; stuck now 0; waypoints 1304; team { "lines": 2, "pings": 0, "laser_follow": 0, "learned_cells": 134, "blocked_cells": 0, "squads": 0, "following_humans": 0, &"learned_spots": 0 }
+[match   45.0] [lootstats] bots on the ground 7 (in water 0); armed 7; armed with ammo for a gun 7; long guns 7; attachments fitted 34; rounds of unusable ammo carried 0; items on the ground 403; bot pickups { "detours": 0, "detour_taken": 0, "fetches": 0, "fetch_done": 0, "items_taken": 0 }
+[match   45.8] Lola Basyang Jr killed by the world (test); 1 teams left
+[match   45.8] alive: North Team 7, East Team 0; score { 0: 0, 1: 0, 2: 0 }
+[match   45.9] round 1 over: winner 0, scores { 0: 1, 1: 0, 2: 0 }
+[autotest] shot A:/Python/aetherion-project/.claude/worktrees/epic-wescoff-100904/work/r24/full1/26_round_won_banner.png
+[loadout] Hehe rifle_m416 [grip_heavy] mag 30/30 | pistol_9 [] mag 15/15
+[match   48.9] Hehe respawned at (-42.0, 0.0, -25.0) (nearest enemy 1000 m)
+[match   48.9] round 2 started; scores { 0: 1, 1: 0, 2: 0 }
+[match   48.9] [roundtime] remove 2.3 ms, field 10.4 ms
+[loadout] Lola Basyang Jr rifle_m762 [scope_3x,weapon_light] mag 30/30 | pistol_9 [sight_reflex,suppressor_light,weapon_light] mag 15/15
+[match   48.9] Lola Basyang Jr respawned at (45.0, 10.0, -26.0) (nearest enemy 87 m)
+[loadout] Tsong Balut rifle_m762 [scope_night,suppressor_rifle,grip_heavy,weapon_light] mag 30/30 | revolver_357 [sight_reddot] mag 6/6
+[match   48.9] Tsong Balut respawned at (1.0, 20.0, 32.0) (nearest enemy 73 m)
+[loadout] Bossing Dodong shotgun_saiga [sight_holo,compensator,weapon_light] mag 5/5 | pistol_45 [suppressor_light,weapon_light] mag 7/7
+[match   48.9] Bossing Dodong respawned at (-43.0, 0.0, -29.0) (nearest enemy 78 m)
+[loadout] Pinsan Gardo bolt_308 [cheek_pad] mag 5/5 | pistol_deagle [sight_reddot,suppressor_light,mag_extquick_light] mag 10/10
+[match   48.9] Pinsan Gardo respawned at (42.0, 10.0, -29.0) (nearest enemy 74 m)
+[loadout] Kuya Bert shotgun_saiga [sight_holo,mag_extquick_rifle] mag 8/8 | revolver_357 [sight_reddot] mag 6/6
+[match   48.9] Kuya Bert respawned at (-1.0, 20.0, 30.0) (nearest enemy 71 m)
+[loadout] Aling Puring rifle_m416 [scope_night,suppressor_rifle,grip_angled,mag_extquick_rifle,stock_tactical] mag 40/40 | revolver_357 [] mag 6/6
+[match   49.0] Aling Puring respawned at (-41.0, 0.0, -30.0) (nearest enemy 74 m)
+[loadout] Tatay Kulas smg_ump45 [sight_holo,grip_angled,mag_extquick_light,weapon_light] mag 35/35 | pistol_deagle [sight_reddot,mag_extquick_light,weapon_light] mag 10/10
+[match   49.0] Tatay Kulas respawned at (44.0, 10.0, -26.0) (nearest enemy 72 m)
+[loadout] Tita Baby rifle_556 [scope_3x,suppressor_rifle,mag_extquick_rifle,weapon_light] mag 40/40 | pistol_9 [sight_reflex,suppressor_light,mag_extquick_light] mag 21/21
+[match   49.0] Tita Baby respawned at (0.0, 20.0, 32.0) (nearest enemy 73 m)
+[loadout] Kuya Fishball rifle_m762 [scope_night,suppressor_rifle,grip_heavy,mag_extquick_rifle,laser_green] mag 40/40 | pistol_deagle [sight_reflex,suppressor_light,weapon_light] mag 7/7
+[match   49.0] Kuya Fishball respawned at (-42.0, 0.0, -29.0) (nearest enemy 74 m)
+[loadout] Bunso Badong dmr_sks [scope_6x,suppressor_sniper] mag 10/10 | revolver_357 [sight_reflex] mag 6/6
+[match   49.0] Bunso Badong respawned at (44.0, 10.0, -28.0) (nearest enemy 74 m)
+[loadout] Lola Basyang rifle_556 [scope_4x,suppressor_rifle,grip_half,mag_extquick_rifle] mag 40/40 | pistol_deagle [sight_reddot,suppressor_light,mag_drum_light,weapon_light] mag 13/13
+[match   49.0] Lola Basyang respawned at (-1.0, 20.0, 29.0) (nearest enemy 71 m)
+[loadout] Manong Guard shotgun_saiga [compensator,weapon_light] mag 5/5 | revolver_357 [] mag 6/6
+[match   49.1] Manong Guard respawned at (-38.0, 0.0, -29.0) (nearest enemy 72 m)
+[loadout] Ka Pedring shotgun_pump [sight_reflex,choke,bullet_loops] mag 6/6 | pistol_9 [sight_reddot,weapon_light] mag 15/15
+[match   49.1] Ka Pedring respawned at (42.0, 10.0, -28.0) (nearest enemy 72 m)
+[loadout] Aling Nena rifle_556 [scope_2x,suppressor_rifle,grip_heavy,mag_drum_rifle,weapon_light] mag 60/60 | revolver_357 [sight_reddot] mag 6/6
+[match   49.1] Aling Nena respawned at (1.0, 20.0, 29.0) (nearest enemy 70 m)
+[loadout] Mang Tani shotgun_pump [sight_holo,bullet_loops] mag 6/6 | revolver_357 [sight_reddot] mag 6/6
+[match   49.1] Mang Tani respawned at (-38.0, 0.0, -27.0) (nearest enemy 71 m)
+[loadout] Totoy Bibo rifle_m762 [suppressor_rifle,grip_vertical,mag_extquick_rifle,weapon_light] mag 40/40 | pistol_45 [sight_reflex,suppressor_light,mag_extquick_light] mag 12/12
+[match   49.1] Totoy Bibo respawned at (40.0, 10.0, -28.0) (nearest enemy 70 m)
+[loadout] Tito Videoke machine_pistol [sight_reflex,suppressor_light,laser_sight,stock_heavy,weapon_light] mag 32/32 | pistol_9 [suppressor_light,mag_extquick_light,laser_green] mag 21/21
+[match   49.2] Tito Videoke respawned at (-2.0, 20.0, 29.0) (nearest enemy 70 m)
+[loadout] Ate Load Dito smg_9 [suppressor_light,grip_heavy,weapon_light] mag 30/30 | pistol_9 [suppressor_light,mag_extquick_light,weapon_light] mag 21/21
+[match   49.2] Ate Load Dito respawned at (-43.0, 0.0, -27.0) (nearest enemy 72 m)
+[loadout] Totoy Kulot smg_vector [scope_2x,suppressor_light,grip_vertical,mag_extquick_light,stock_heavy,weapon_light] mag 33/33 | pistol_deagle [sight_reddot,mag_drum_light,weapon_light] mag 13/13
+[match   49.2] Totoy Kulot respawned at (42.0, 10.0, -24.0) (nearest enemy 68 m)
+[loadout] Mang Tomas dmr_mini14 [cheek_pad] mag 20/20 | pistol_deagle [sight_reddot,suppressor_light,mag_drum_light] mag 13/13
+[match   49.3] Mang Tomas respawned at (-2.0, 20.0, 27.0) (nearest enemy 68 m)
+[match   49.3] [roundtime] 21 respawns, slowest 9.7 ms, median 4.0 ms
+[autotest] PASS r24_round_banner: banner 'North Team wins the round' / 'Next round in 1'
+[autotest] PASS r24_round_break_3s: round 1 -> 2; break 3.22 s of wall time (rule 3.0 s)
+[autotest] FAIL r24_round_no_spike: longest frame at the win 21.5 ms, at the next round 50.1 ms (median 16.6 ms); worst [3.58, 50.1, "playing"]
+[match   53.6] Hehe killed by the world (test); 3 teams left
+[match   53.6] alive: North Team 6, East Team 7; score { 0: 1, 1: 0, 2: 0 }
+[autotest] shot A:/Python/aetherion-project/.claude/worktrees/epic-wescoff-100904/work/r24/full1/27_spectate_death_cam_after_scope.png
+[autotest] shot A:/Python/aetherion-project/.claude/worktrees/epic-wescoff-100904/work/r24/full1/28_spectate_after_scope.png
+[autotest] PASS r24_spectate_fov: field of view aimed 20.0, death camera 80.0, spectating 80.0 (normal 80.0); scope picture hidden true
+[autotest] shot A:/Python/aetherion-project/.claude/worktrees/epic-wescoff-100904/work/r24/full1/29_spectate_view_0.png
+[autotest] shot A:/Python/aetherion-project/.claude/worktrees/epic-wescoff-100904/work/r24/full1/30_spectate_view_1.png
+[autotest] shot A:/Python/aetherion-project/.claude/worktrees/epic-wescoff-100904/work/r24/full1/31_spectate_view_2.png
+[match   57.5] Lola Basyang Jr (team 1) landed at (41.0, 10.0, -25.0), 4.5 m/s, health 100; teammates -
+[autotest] shot A:/Python/aetherion-project/.claude/worktrees/epic-wescoff-100904/work/r24/full1/32_spectate_view_3.png
+[autotest] FAIL r24_spectate_views: camera distance to the watched player per view [["Behind", 3.7], ["Over the shoulder", 2.2], ["Overhead", 4.9], ["Free camera", 5.5]]
+[autotest] shot A:/Python/aetherion-project/.claude/worktrees/epic-wescoff-100904/work/r24/full1/33_spectate_free_camera.png
+[match   60.0] status: { "ground": 20 }; armed 20; shots 0; zone -1 hold r=125; corpses 1; levels { "L3": 3, "L5": 7, "L1": 5, "between": 5 }; server tick avg 4.44 ms, p99 15.52 ms, max 34.28 ms over 720 ticks; objects 18239
+[match   60.0] dm teams: North Team 6 at (-38.0, -25.0) spread 20 m; East Team 7 at (44.0, -35.0) spread 14 m; South Team 7 at (-4.0, 22.0) spread 17 m; gap 82 m; zone centre (4.0, -8.0)
+[match   60.0] bots: { "follow": 5, "roam": 10, "hunt": 5 }; containers searched by bots 0 (all players 0); plan steps done 0; guns carried 40
+[match   60.0] roles: { "looter": { "follow": 3, "roam": 4 }, "sniper": { "roam": 6, "follow": 2 }, "stalker": { "hunt": 3 }, "rusher": { "hunt": 2 } }; stuck now 0; waypoints 1304; team { "lines": 6, "pings": 0, "laser_follow": 0, "learned_cells": 134, "blocked_cells": 0, "squads": 5, "following_humans": 0, &"learned_spots": 0 }
+[match   60.0] [lootstats] bots on the ground 20 (in water 0); armed 20; armed with ammo for a gun 20; long guns 20; attachments fitted 110; rounds of unusable ammo carried 0; items on the ground 403; bot pickups { "detours": 0, "detour_taken": 0, "fetches": 0, "fetch_done": 0, "items_taken": 0 }
+[autotest] shot A:/Python/aetherion-project/.claude/worktrees/epic-wescoff-100904/work/r24/full1/34_spectate_enemy.png
+[autotest] PASS r24_spectate_everyone: free camera flew 9.0 m in 1 s; watch list 6 -> 20 (enemy 23 watched: true); hint 'Click: next    Right click: previous    E: camera (Behind)    R: watch teammates only'
+[match   61.6] Bunso Badong (team 1) landed at (23.0, 10.0, -22.0), 3.9 m/s, health 100; teammates 31 m
+[autotest] shot A:/Python/aetherion-project/.claude/worktrees/epic-wescoff-100904/work/r24/full1/35_pause_open.png
+SCRIPT ERROR: Invalid call. Nonexistent function '_wait' in base 'previously freed'.
+   at: run (res://src/debug/autotest_r24.gd:48)
+   GDScript backtrace (most recent call first):
+       [0] run (res://src/debug/autotest_r24.gd:48)
+       [1] _pause (res://src/debug/autotest_r24.gd:564)
+       [2] _shot (res://src/debug/autotest.gd:1575)
+[autotest] PASS r24_pause_cleared: pause menu was open true; pause menus left over the main menu []; state menu
+[autotest] done: 19 checks, 2 failed
+WARNING: 7 RIDs of type "Texture" were leaked.
+   at: finalize (servers/rendering/rendering_device.cpp:8900)

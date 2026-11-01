@@ -1,0 +1,60 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+Vulkan 1.4.329 - Forward+ - Using Device #0: NVIDIA - NVIDIA GeForce RTX 4060
+
+[ui] loadout_received pid=1 Hehe {"att_primary":["scope_thermal","suppressor_rifle","mag_ext_sniper","cheek_pad"],"att_secondary":["sight_reflex","suppressor_light","mag_extquick_light","weapon_light"],"primary":"marksman_308","secondary":"pistol_9"}
+[ui] lobby shows my loadout (pid 1): {"att_primary":["scope_thermal","suppressor_rifle","mag_ext_sniper","cheek_pad"],"att_secondary":["sight_reflex","suppressor_light","mag_extquick_light","weapon_light"],"primary":"marksman_308","secondary":"pistol_9"}
+[ui] request_loadout {"att_primary":["scope_thermal","suppressor_rifle","mag_ext_sniper","cheek_pad"],"att_secondary":["sight_reflex","suppressor_light","mag_extquick_light","weapon_light"],"primary":"marksman_308","secondary":"pistol_9"}
+[world] map built in 13315 ms
+[map] 243 buildings, 1951 doors, 2617 containers, 2745 props, #b1fba961 on PC
+[loadout] Hehe marksman_308 [scope_thermal,suppressor_rifle,mag_ext_sniper,cheek_pad] mag 30/30 | pistol_9 [sight_reflex,suppressor_light,mag_extquick_light,weapon_light] mag 21/21
+[botnav] lawless_sub: walk check and 564 spots from res://data/botnav/lawless_sub.json { "hide": 38, "snipe": 95, "cover": 56, "open": 375 }
+[waypoints] lawless_sub: 3193 nodes, 10383 edges (auto, res://data/waypoints/lawless_sub.json), 30 off the main graph, 125 ms { "snipe": 95, "junction": 1205, "road": 518, "area": 660, "corner": 650, "hide": 38, "bridge": 27 }
+[bots] learned from 419 cells, 2 stuck spots, 0 spots learned from play, 86 spot records (user://bot_memory_lawless_sub.json)
+[loadout] Kulot Sabaw rifle_m762 [scope_night,suppressor_rifle,grip_heavy] mag 30/30 | pistol_9 [sight_reddot,suppressor_light] mag 15/15
+[loadout] Tita Baby smg_tommy [mag_extquick_light] mag 50/50 | pistol_9 [suppressor_light,weapon_light] mag 15/15
+[loadout] Nanay Kakanin bolt_308 [scope_8x,suppressor_sniper,mag_ext_sniper,bullet_loops] mag 8/8 | pistol_45 [sight_reddot,suppressor_light,weapon_light] mag 7/7
+[loadout] Aling Nena shotgun_saiga [sight_holo,mag_extquick_rifle,weapon_light] mag 8/8 | revolver_357 [] mag 6/6
+[loadout] Aling Taho smg_tommy [mag_extquick_light] mag 50/50 | pistol_deagle [sight_reddot,mag_drum_light,weapon_light] mag 13/13
+[loadout] Kumareng Marites marksman_308 [suppressor_sniper,mag_ext_sniper,cheek_pad] mag 30/30 | pistol_9 [sight_reddot,suppressor_light,mag_extquick_light] mag 21/21
+[loadout] Tsong Balut rifle_m416 [scope_night,suppressor_rifle,grip_heavy,mag_extquick_rifle,stock_heavy,weapon_light] mag 40/40 | pistol_45 [suppressor_light,mag_drum_light] mag 13/13
+[loadout] Tito Karaoke King rifle_m762 [suppressor_rifle,grip_vertical,mag_drum_rifle,weapon_light] mag 60/60 | pistol_9 [sight_reddot,suppressor_light,weapon_light] mag 15/15
+[loadout] Kuya Fishball bolt_308 [scope_6x,suppressor_sniper,mag_ext_sniper,cheek_pad] mag 8/8 | pistol_9 [sight_reddot,suppressor_light,mag_extquick_light] mag 21/21
+[loadout] Kuya Wifi rifle_m762 [scope_3x,suppressor_rifle,weapon_light] mag 30/30 | pistol_deagle [suppressor_light,mag_extquick_light,weapon_light] mag 10/10
+[loadout] Inday Rice Cooker smg_9 [sight_reflex,suppressor_light,mag_drum_light] mag 54/54 | revolver_357 [sight_reddot] mag 6/6
+[loadout] Tatay Kulas smg_vector [sight_reddot,weapon_light] mag 19/19 | pistol_deagle [sight_reflex,suppressor_light,weapon_light] mag 7/7
+[loadout] Ate Load rifle_m762 [scope_night,muzzle_brake,mag_extquick_rifle] mag 40/40 | pistol_9 [weapon_light] mag 15/15
+[loadout] Mang Isko smg_ump45 [scope_2x,grip_vertical] mag 25/25 | pistol_9 [sight_reddot,suppressor_light,mag_extquick_light,weapon_light] mag 21/21
+[loadout] Toto Pancit rifle_m416 [scope_3x,suppressor_rifle,grip_stubby,mag_extquick_rifle,stock_heavy] mag 40/40 | revolver_357 [sight_reddot] mag 6/6
+[loadout] Mang Kanor shotgun_saiga [sight_reddot,mag_extquick_rifle,weapon_light] mag 8/8 | pistol_9 [sight_reflex,suppressor_light,mag_extquick_light,weapon_light] mag 21/21
+[loadout] Bossing Barbecue smg_tommy [suppressor_light,grip_vertical,mag_extquick_light] mag 50/50 | revolver_357 [] mag 6/6
+[loadout] Dodong Lechon shotgun_double [choke] mag 2/2 | pistol_deagle [sight_reddot,suppressor_light,mag_extquick_light,weapon_light] mag 10/10
+[loadout] Ka Pedring lmg_m249 [sight_holo,muzzle_brake,laser_sight,stock_heavy,weapon_light] mag 100/100 | pistol_9 [sight_reddot,suppressor_light,mag_extquick_light,weapon_light] mag 21/21
+[loadout] Pareng Pandesal smg_ump45 [sight_reddot,grip_thumb,mag_extquick_light,laser_green] mag 35/35 | pistol_deagle [sight_reflex,suppressor_light,mag_extquick_light,weapon_light] mag 10/10
+[match    0.0] deathmatch start on lawless_sub: 21 players, 3 teams; spawns (-119.0, 1.0, -144.0), (190.0, 1.0, -40.0), (-72.0, 1.0, 196.0) (326/353/343 m apart, layout); day offset 0 s; zone centre (-58.0, 6.0) r=378; win by wipe
+[game] autotest r24
+[match    0.0] status: { "ground": 21 }; armed 21; shots 0; zone 0 wait r=378; corpses 0
+[match    0.0] dm teams: North Team 7 at (-120.0, -144.0) spread 3 m; East Team 7 at (189.0, -40.0) spread 3 m; South Team 7 at (-73.0, 196.0) spread 3 m; gap 326 m; zone centre (-58.0, 6.0)
+[match    0.0] bots: { "roam": 14, "zone": 6 }; containers searched by bots 0 (all players 0); plan steps done 0; guns carried 40
+[match    0.0] roles: { "looter": { "roam": 5, "zone": 3 }, "rusher": { "zone": 3, "roam": 4 }, "stalker": { "roam": 3 }, "sniper": { "roam": 2 } }; stuck now 0; waypoints 564; team { "lines": 1, "pings": 0, "laser_follow": 0, "learned_cells": 419, "blocked_cells": 0, "squads": 0, "following_humans": 0, &"learned_spots": 0 }
+[match    0.0] [lootstats] bots on the ground 20 (in water 0); armed 20; armed with ammo for a gun 20; long guns 20; attachments fitted 113; rounds of unusable ammo carried 0; items on the ground 6365; bot pickups { "detours": 0, "detour_taken": 0, "fetches": 0, "fetch_done": 0, "items_taken": 0 }
+[match    2.4] Kulot Sabaw (team 2) landed at (-84.0, -1.0, -125.0), 7.0 m/s, health 100; teammates -
+[autotest] shot A:/Python/aetherion-project/.claude/worktrees/epic-wescoff-100904/work/r24/scopes3n/01_scope_ref_noscope.png
+[autotest] shot A:/Python/aetherion-project/.claude/worktrees/epic-wescoff-100904/work/r24/scopes3n/02_scope_level_scope_2x.png
+[autotest] shot A:/Python/aetherion-project/.claude/worktrees/epic-wescoff-100904/work/r24/scopes3n/03_scope_level_scope_3x.png
+[autotest] shot A:/Python/aetherion-project/.claude/worktrees/epic-wescoff-100904/work/r24/scopes3n/04_scope_aiming_scope_4x_0.png
+[autotest] shot A:/Python/aetherion-project/.claude/worktrees/epic-wescoff-100904/work/r24/scopes3n/05_scope_aiming_scope_4x_1.png
+[autotest] shot A:/Python/aetherion-project/.claude/worktrees/epic-wescoff-100904/work/r24/scopes3n/06_scope_aiming_scope_4x_2.png
+[autotest] shot A:/Python/aetherion-project/.claude/worktrees/epic-wescoff-100904/work/r24/scopes3n/07_scope_level_scope_4x.png
+[autotest] shot A:/Python/aetherion-project/.claude/worktrees/epic-wescoff-100904/work/r24/scopes3n/08_scope_aiming_scope_thermal_0.png
+[autotest] shot A:/Python/aetherion-project/.claude/worktrees/epic-wescoff-100904/work/r24/scopes3n/09_scope_aiming_scope_thermal_1.png
+[autotest] shot A:/Python/aetherion-project/.claude/worktrees/epic-wescoff-100904/work/r24/scopes3n/10_scope_aiming_scope_thermal_2.png
+[autotest] shot A:/Python/aetherion-project/.claude/worktrees/epic-wescoff-100904/work/r24/scopes3n/11_scope_level_scope_thermal.png
+[match   15.0] status: { "ground": 21 }; armed 21; shots 0; zone 0 wait r=9000; corpses 0; server tick avg 3.00 ms, p99 4.88 ms, max 28.58 ms over 900 ticks; objects 27874
+[match   15.0] dm teams: North Team 7 at (-117.0, -140.0) spread 5 m; East Team 7 at (189.0, -40.0) spread 3 m; South Team 7 at (-75.0, 150.0) spread 79 m; gap 322 m; zone centre (0.0, 0.0)
+[autotest] shot A:/Python/aetherion-project/.claude/worktrees/epic-wescoff-100904/work/r24/scopes3n/12_scope_level_scope_night.png
+[autotest] shot A:/Python/aetherion-project/.claude/worktrees/epic-wescoff-100904/work/r24/scopes3n/13_scope_level_scope_6x.png
+[autotest] shot A:/Python/aetherion-project/.claude/worktrees/epic-wescoff-100904/work/r24/scopes3n/14_scope_level_scope_8x.png
+[autotest] shot A:/Python/aetherion-project/.claude/worktrees/epic-wescoff-100904/work/r24/scopes3n/15_scope_level_scope_lpvo.png
+[autotest] shot A:/Python/aetherion-project/.claude/worktrees/epic-wescoff-100904/work/r24/scopes3n/16_scope_level_scope_15x.png
+[autotest] FAIL r24_scopes_clear: lens mean/contrast/saturation per sight ["none 12/18/0.59", "scope_2x 17/20/0.43", "scope_3x 19/24/0.27", "scope_4x 20/23/0.31", "scope_thermal 33/49/0.27", "scope_night 66/75/0.24", "scope_6x 22/21/0.31", "scope_8x 22/18/0.36", "scope_lpvo 20/26/0.25", "scope_15x 34/9/0.34"] (no scope [11.6, 17.9, 0.59]); filtered or washed out: ["scope_night"]
+[autotest] done: 1 checks, 1 failed

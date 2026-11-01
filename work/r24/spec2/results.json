@@ -1,0 +1,22 @@
+[
+  [
+    "r24_spectate_fov",
+    true,
+    "field of view aimed 20.0, death camera 80.0, spectating 80.0 (normal 80.0); scope picture hidden true"
+  ],
+  [
+    "r24_spectate_views",
+    true,
+    "camera [distance, height above] the watched player per view [[\"Behind\", 3.7, 1.9], [\"Over the shoulder\", 2.2, 1.7], [\"Overhead\", 4.8, 4.6], [\"Free camera\", 4.6, 3.9]]"
+  ],
+  [
+    "r24_spectate_everyone",
+    true,
+    "free camera flew 9.0 m in 1 s; watch list 6 -> 20 (enemy 2 watched: true); hint 'Click: next    Right click: previous    E: camera (Behind)    R: watch teammates only'"
+  ],
+  [
+    "r24_pause_cleared",
+    true,
+    "left []"
+  ]
+]

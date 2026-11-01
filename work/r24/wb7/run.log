@@ -1,0 +1,61 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+Vulkan 1.4.329 - Forward+ - Using Device #0: NVIDIA - NVIDIA GeForce RTX 4060
+
+[ui] loadout_received pid=1 Hehe {"att_primary":["grip_heavy"],"att_secondary":[],"primary":"rifle_m416","secondary":"pistol_9"}
+[ui] lobby shows my loadout (pid 1): {"att_primary":["grip_heavy"],"att_secondary":[],"primary":"rifle_m416","secondary":"pistol_9"}
+[ui] request_loadout {"att_primary":["grip_heavy"],"att_secondary":[],"primary":"rifle_m416","secondary":"pistol_9"}
+[world] map built in 3958 ms
+[map] 0 buildings, 213 doors, 163 containers, 779 props, #55dd752c on PC
+[loadout] Hehe rifle_m416 [grip_heavy] mag 30/30 | pistol_9 [] mag 15/15
+[nav] levels: 56959 points, 32 links, 132 ms
+[nav] r21: 1424 cells closed by the physics check, main walk 49517 of 55567 points (6050 in pockets), 236 ms
+[botnav] malasugue_mall: walk check and 1304 spots from res://data/botnav/malasugue_mall.json { "hide": 301, "snipe": 618, "cover": 190, "open": 195 }
+[waypoints] malasugue_mall: 6107 nodes, 23338 edges (auto, res://data/waypoints/malasugue_mall.json), 60 off the main graph, 277 ms { "plaza": 790, "road": 679, "junction": 1232, "area": 905, "snipe": 356, "corner": 1459, "hide": 200, "cover": 16, "stair": 64, "escalator": 32, "door": 374 }
+[bots] learned from 134 cells, 14 stuck spots, 0 spots learned from play, 139 spot records (user://bot_memory_malasugue_mall.json)
+[loadout] Pareng Pandesal bolt_308 [scope_6x,suppressor_rifle,mag_ext_sniper,bullet_loops] mag 8/8 | revolver_357 [] mag 6/6
+[loadout] Totoy Bibo dmr_mini14 [scope_6x,mag_ext_sniper,cheek_pad] mag 30/30 | pistol_45 [suppressor_light,mag_extquick_light,weapon_light] mag 12/12
+[loadout] Boy Pickup shotgun_saiga [sight_reflex,compensator] mag 5/5 | pistol_45 [sight_reddot,mag_extquick_light,weapon_light] mag 12/12
+[loadout] Aling Puring lmg_m249 [muzzle_brake,stock_heavy] mag 100/100 | pistol_45 [sight_reflex,suppressor_light] mag 7/7
+[loadout] Inday Rice Cooker smg_vector [sight_holo,muzzle_tactical,grip_thumb,stock_heavy,weapon_light] mag 19/19 | pistol_45 [sight_reddot,suppressor_light,mag_extquick_light,weapon_light] mag 12/12
+[loadout] Bunso Badong machine_pistol [suppressor_light,laser_sight,stock_tactical,weapon_light] mag 32/32 | pistol_9 [sight_reddot,suppressor_light,mag_drum_light,weapon_light] mag 27/27
+[loadout] Mang Tomas Ketchup bolt_awp [scope_6x,mag_ext_sniper,cheek_pad] mag 8/8 | pistol_45 [sight_reddot,suppressor_light,weapon_light] mag 7/7
+[loadout] Mang Tomas smg_9 [scope_2x,suppressor_light,grip_vertical,mag_extquick_light] mag 40/40 | pistol_deagle [sight_reflex,suppressor_light,mag_extquick_light,weapon_light] mag 10/10
+[loadout] Kuya Tricycle rifle_m416 [stock_heavy,weapon_light] mag 30/30 | pistol_9 [sight_reddot,suppressor_light,weapon_light] mag 15/15
+[loadout] Ka Pedring shotgun_double [choke,bullet_loops] mag 2/2 | revolver_357 [] mag 6/6
+[loadout] Kuya Wifi dmr_mini14 [suppressor_sniper,cheek_pad] mag 20/20 | pistol_9 [sight_reddot,suppressor_light,mag_drum_light,weapon_light] mag 27/27
+[loadout] Kulot Sabaw rifle_m762 [scope_3x,suppressor_rifle,grip_vertical,weapon_light] mag 30/30 | revolver_357 [sight_reddot] mag 6/6
+[loadout] Ate Load shotgun_pump [sight_holo,choke,bullet_loops,weapon_light] mag 6/6 | pistol_9 [sight_reddot,suppressor_light,mag_extquick_light,weapon_light] mag 21/21
+[loadout] Pareng Jun rifle_m416 [suppressor_rifle,grip_heavy,mag_extquick_rifle,stock_heavy,weapon_light] mag 40/40 | pistol_deagle [sight_reflex,suppressor_light,mag_extquick_light] mag 10/10
+[loadout] Mang Kanor rifle_m762 [suppressor_rifle,mag_extquick_rifle,weapon_light] mag 40/40 | pistol_45 [sight_reddot,suppressor_light,mag_extquick_light] mag 12/12
+[loadout] Bebot Karaoke shotgun_double [choke,bullet_loops] mag 2/2 | pistol_45 [sight_reddot,suppressor_light,mag_extquick_light,weapon_light] mag 12/12
+[loadout] Tito Karaoke King smg_vector [sight_reddot,suppressor_light,grip_heavy,mag_extquick_light,stock_tactical] mag 33/33 | pistol_9 [sight_reddot,suppressor_light,mag_extquick_light,weapon_light] mag 21/21
+[loadout] Utoy Kalabaw shotgun_double [choke,bullet_loops] mag 2/2 | pistol_45 [sight_reflex,suppressor_light,mag_extquick_light] mag 12/12
+[loadout] Lolo Kalesa shotgun_double [bullet_loops] mag 2/2 | pistol_deagle [sight_reddot,suppressor_light,weapon_light] mag 7/7
+[loadout] Pinsan Gardo rifle_m762 [scope_3x,suppressor_rifle,grip_angled,mag_extquick_rifle,weapon_light] mag 40/40 | revolver_357 [sight_reflex] mag 6/6
+[match    0.0] deathmatch start on malasugue_mall: 21 players, 3 teams; spawns (42.0, 10.0, -26.0), (-40.0, 0.0, -27.0), (0.0, 20.0, 27.0) (82/67/68 m apart, floors); day offset 0 s; zone centre (11.0, 8.0) r=130; win by wipe
+[game] autotest r24
+[match    0.0] status: { "ground": 21 }; armed 21; shots 0; zone -1 hold r=130; corpses 0; levels { "L3": 7, "between": 1, "L1": 7, "L5": 6 }
+[match    0.0] dm teams: North Team 7 at (42.0, -26.0) spread 2 m; East Team 7 at (-40.0, -27.0) spread 2 m; South Team 7 at (-1.0, 29.0) spread 2 m; gap 83 m; zone centre (11.0, 8.0)
+[match    0.0] bots: { "roam": 20 }; containers searched by bots 0 (all players 0); plan steps done 0; guns carried 40
+[match    0.0] roles: { "stalker": { "roam": 3 }, "sniper": { "roam": 5 }, "looter": { "roam": 5 }, "rusher": { "roam": 7 } }; stuck now 0; waypoints 1304; team { "lines": 0, "pings": 0, "laser_follow": 0, "learned_cells": 134, "blocked_cells": 0, "squads": 0, "following_humans": 0, &"learned_spots": 0 }
+[match    0.0] [lootstats] bots on the ground 20 (in water 0); armed 20; armed with ammo for a gun 20; long guns 20; attachments fitted 120; rounds of unusable ammo carried 0; items on the ground 430; bot pickups { "detours": 0, "detour_taken": 0, "fetches": 0, "fetch_done": 0, "items_taken": 0 }
+[autotest] PASS r24_wb_opens: K opened the workbench true; player held true
+[autotest] shot A:/Python/aetherion-project/.claude/worktrees/epic-wescoff-100904/work/r24/wb7/01_workbench_open.png
+[autotest] shot A:/Python/aetherion-project/.claude/worktrees/epic-wescoff-100904/work/r24/wb7/02_workbench_hover_info.png
+[autotest] PASS r24_wb_info: hover card: Rifle Drum Magazine | Magazine attachment | A rifle drum: twice the rounds, heavy and slow to reload. | ▲ | +30 rounds per magazine (30 -> 60) | ▼ | 8% more weapon sway | ▼ | 8% slower aiming | ▼ | 40% slower reload | ▼ | Weight 0.95 kg | 
+[r24] drag probe: dragging true, data { "wb_att": { "id": "mag_drum_rifle", "n": 1, "where": "In your bag", "from": 0 , mouse (1440.0, 809.9999), focus <Object#null>
+[autotest] shot A:/Python/aetherion-project/.claude/worktrees/epic-wescoff-100904/work/r24/wb7/03_workbench_drum_snapping.png
+[autotest] PASS r24_wb_drag_fits: after dragging the drum onto the gun: fitted ["sight_reddot", "mag_drum_rifle"]; magazine 60
+[autotest] shot A:/Python/aetherion-project/.claude/worktrees/epic-wescoff-100904/work/r24/wb7/04_workbench_plus_burst.png
+[autotest] shot A:/Python/aetherion-project/.claude/worktrees/epic-wescoff-100904/work/r24/wb7/05_workbench_full_kit.png
+[autotest] PASS r24_wb_fits_all: fitted ["mag_drum_rifle", "scope_4x", "grip_heavy", "stock_tactical", "suppressor_rifle", "laser_green"]; missing []; the red dot it replaced went to the bag: true
+[r24] drag probe: dragging false, data <null>, mouse (1440.0, 809.9999), focus <Object#null>
+[autotest] shot A:/Python/aetherion-project/.claude/worktrees/epic-wescoff-100904/work/r24/wb7/06_workbench_turned.png
+[autotest] PASS r24_wb_turn_zoom: yaw -0.57 -> 2.46, zoom 1.00 -> 0.90
+[autotest] PASS r24_wb_remove: after x: fitted ["mag_drum_rifle", "scope_4x", "grip_heavy", "stock_tactical", "suppressor_rifle"]; laser in bag 1
+[autotest] PASS r24_wb_closes: Esc: workbench gone true, player free true, no pause menu true
+[autotest] shot A:/Python/aetherion-project/.claude/worktrees/epic-wescoff-100904/work/r24/wb7/07_workbench_game_setup.png
+[autotest] PASS r24_wb_loadout: Game Setup bench on rifle_m416: model true, fitted grip_heavy -> profile ["grip_heavy"]
+[autotest] done: 8 checks, 0 failed
+WARNING: 7 RIDs of type "Texture" were leaked.
+   at: finalize (servers/rendering/rendering_device.cpp:8900)
