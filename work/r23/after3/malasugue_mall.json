@@ -1,0 +1,197 @@
+{
+  "map": "malasugue_mall",
+  "totals": {
+    "bot_s": 11792.9166666638,
+    "graph_s": 8224.29999999886,
+    "moving_s": 9142.93333333176,
+    "off_max": 16.0697841644287,
+    "on_edge_s": 6858.7499999995,
+    "stall_events": 25,
+    "stall_s": 116.766666666666,
+    "wall_events": 2,
+    "wall_s": 21.7,
+    "waypoints": {
+      "door_waits": 21,
+      "edge_reports": 47,
+      "grid": 0,
+      "leads": 666,
+      "locked": 0,
+      "off_line": 12,
+      "route_fail": {},
+      "routes": 2722,
+      "stuck_edges": 47
+    }
+  },
+  "worst": [
+    [
+      "0:56,34",
+      {
+        "stall": 2,
+        "states": {
+          "hunt": 3
+        },
+        "wall": 1
+      }
+    ],
+    [
+      "1:6,-4",
+      {
+        "stall": 3,
+        "states": {
+          "order": 3
+        },
+        "wall": 0
+      }
+    ],
+    [
+      "0:-58,-36",
+      {
+        "stall": 2,
+        "states": {
+          "order": 2
+        },
+        "wall": 0
+      }
+    ],
+    [
+      "1:52,-36",
+      {
+        "stall": 1,
+        "states": {
+          "order": 2
+        },
+        "wall": 1
+      }
+    ],
+    [
+      "2:44,-40",
+      {
+        "stall": 2,
+        "states": {
+          "roam": 2
+        },
+        "wall": 0
+      }
+    ],
+    [
+      "0:16,-34",
+      {
+        "stall": 2,
+        "states": {
+          "order": 2
+        },
+        "wall": 0
+      }
+    ],
+    [
+      "1:10,-2",
+      {
+        "stall": 2,
+        "states": {
+          "order": 2
+        },
+        "wall": 0
+      }
+    ],
+    [
+      "1:8,-4",
+      {
+        "stall": 2,
+        "states": {
+          "order": 2
+        },
+        "wall": 0
+      }
+    ],
+    [
+      "0:6,-2",
+      {
+        "stall": 1,
+        "states": {
+          "order": 1
+        },
+        "wall": 0
+      }
+    ],
+    [
+      "0:-6,0",
+      {
+        "stall": 1,
+        "states": {
+          "order": 1
+        },
+        "wall": 0
+      }
+    ],
+    [
+      "0:52,42",
+      {
+        "stall": 1,
+        "states": {
+          "hunt": 1
+        },
+        "wall": 0
+      }
+    ],
+    [
+      "2:50,-42",
+      {
+        "stall": 1,
+        "states": {
+          "hunt": 1
+        },
+        "wall": 0
+      }
+    ],
+    [
+      "1:46,-30",
+      {
+        "stall": 1,
+        "states": {
+          "order": 1
+        },
+        "wall": 0
+      }
+    ],
+    [
+      "0:-28,-24",
+      {
+        "stall": 1,
+        "states": {
+          "order": 1
+        },
+        "wall": 0
+      }
+    ],
+    [
+      "0:-24,-26",
+      {
+        "stall": 1,
+        "states": {
+          "order": 1
+        },
+        "wall": 0
+      }
+    ],
+    [
+      "0:48,-2",
+      {
+        "stall": 1,
+        "states": {
+          "order": 1
+        },
+        "wall": 0
+      }
+    ],
+    [
+      "2:-6,2",
+      {
+        "stall": 1,
+        "states": {
+          "order": 1
+        },
+        "wall": 0
+      }
+    ]
+  ]
+}

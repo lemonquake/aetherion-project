@@ -1,0 +1,323 @@
+{
+  "map": "kalinaw",
+  "totals": {
+    "bot_s": 6054.29999999987,
+    "graph_s": 3266.88333333378,
+    "moving_s": 4271.28333333404,
+    "off_max": 116.815589904785,
+    "on_edge_s": 2603.48333333351,
+    "stall_events": 60,
+    "stall_s": 793.599999999987,
+    "wall_events": 6,
+    "wall_s": 23.7666666666666,
+    "waypoints": {
+      "door_waits": 0,
+      "edge_reports": 5,
+      "grid": 0,
+      "leads": 217,
+      "locked": 0,
+      "off_line": 33,
+      "route_fail": {},
+      "routes": 1824,
+      "stuck_edges": 5
+    }
+  },
+  "worst": [
+    [
+      "0:-136,-32",
+      {
+        "stall": 12,
+        "states": {
+          "hunt": 1,
+          "roam": 11
+        },
+        "wall": 0
+      }
+    ],
+    [
+      "0:0,8",
+      {
+        "stall": 6,
+        "states": {
+          "loot": 6
+        },
+        "wall": 0
+      }
+    ],
+    [
+      "0:30,-122",
+      {
+        "stall": 6,
+        "states": {
+          "loot": 3,
+          "roam": 3
+        },
+        "wall": 0
+      }
+    ],
+    [
+      "0:-4,-188",
+      {
+        "stall": 5,
+        "states": {
+          "investigate": 2,
+          "loot": 3
+        },
+        "wall": 0
+      }
+    ],
+    [
+      "0:24,82",
+      {
+        "stall": 3,
+        "states": {
+          "heal": 1,
+          "investigate": 1,
+          "loot": 1
+        },
+        "wall": 0
+      }
+    ],
+    [
+      "0:24,84",
+      {
+        "stall": 3,
+        "states": {
+          "loot": 2,
+          "order": 1
+        },
+        "wall": 0
+      }
+    ],
+    [
+      "0:-12,-172",
+      {
+        "stall": 1,
+        "states": {
+          "loot": 2
+        },
+        "wall": 1
+      }
+    ],
+    [
+      "0:-12,-176",
+      {
+        "stall": 1,
+        "states": {
+          "loot": 2
+        },
+        "wall": 1
+      }
+    ],
+    [
+      "0:-136,-30",
+      {
+        "stall": 2,
+        "states": {
+          "roam": 2
+        },
+        "wall": 0
+      }
+    ],
+    [
+      "0:-138,-32",
+      {
+        "stall": 2,
+        "states": {
+          "roam": 2
+        },
+        "wall": 0
+      }
+    ],
+    [
+      "0:-18,-46",
+      {
+        "stall": 1,
+        "states": {
+          "loot": 2
+        },
+        "wall": 1
+      }
+    ],
+    [
+      "0:-46,-150",
+      {
+        "stall": 1,
+        "states": {
+          "loot": 2
+        },
+        "wall": 1
+      }
+    ],
+    [
+      "0:38,108",
+      {
+        "stall": 1,
+        "states": {
+          "loot": 2
+        },
+        "wall": 1
+      }
+    ],
+    [
+      "0:0,10",
+      {
+        "stall": 2,
+        "states": {
+          "loot": 2
+        },
+        "wall": 0
+      }
+    ],
+    [
+      "0:-10,-144",
+      {
+        "stall": 1,
+        "states": {
+          "loot": 1
+        },
+        "wall": 0
+      }
+    ],
+    [
+      "0:22,80",
+      {
+        "stall": 1,
+        "states": {
+          "loot": 1
+        },
+        "wall": 0
+      }
+    ],
+    [
+      "0:-14,-202",
+      {
+        "stall": 1,
+        "states": {
+          "loot": 1
+        },
+        "wall": 0
+      }
+    ],
+    [
+      "0:24,80",
+      {
+        "stall": 1,
+        "states": {
+          "loot": 1
+        },
+        "wall": 0
+      }
+    ],
+    [
+      "0:0,-4",
+      {
+        "stall": 1,
+        "states": {
+          "loot": 1
+        },
+        "wall": 0
+      }
+    ],
+    [
+      "0:80,-80",
+      {
+        "stall": 0,
+        "states": {
+          "fetch": 1
+        },
+        "wall": 1
+      }
+    ],
+    [
+      "0:54,68",
+      {
+        "stall": 1,
+        "states": {
+          "loot": 1
+        },
+        "wall": 0
+      }
+    ],
+    [
+      "0:-24,-204",
+      {
+        "stall": 1,
+        "states": {
+          "loot": 1
+        },
+        "wall": 0
+      }
+    ],
+    [
+      "0:-8,-146",
+      {
+        "stall": 1,
+        "states": {
+          "loot": 1
+        },
+        "wall": 0
+      }
+    ],
+    [
+      "0:-58,2",
+      {
+        "stall": 1,
+        "states": {
+          "loot": 1
+        },
+        "wall": 0
+      }
+    ],
+    [
+      "0:-10,-142",
+      {
+        "stall": 1,
+        "states": {
+          "loot": 1
+        },
+        "wall": 0
+      }
+    ],
+    [
+      "0:26,86",
+      {
+        "stall": 1,
+        "states": {
+          "order": 1
+        },
+        "wall": 0
+      }
+    ],
+    [
+      "0:-14,-146",
+      {
+        "stall": 1,
+        "states": {
+          "loot": 1
+        },
+        "wall": 0
+      }
+    ],
+    [
+      "0:-6,-200",
+      {
+        "stall": 1,
+        "states": {
+          "investigate": 1
+        },
+        "wall": 0
+      }
+    ],
+    [
+      "0:-94,210",
+      {
+        "stall": 1,
+        "states": {
+          "loot": 1
+        },
+        "wall": 0
+      }
+    ]
+  ]
+}

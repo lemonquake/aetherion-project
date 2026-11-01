@@ -1,0 +1,762 @@
+{
+  "cells": 49485,
+  "coverage_pct": 99.88,
+  "covered": 49425,
+  "edge_kinds": {
+    "door": 402,
+    "escalator": 16,
+    "stair": 48,
+    "tight": 1866,
+    "walk": 21006
+  },
+  "edges": 23338,
+  "edges_failing_list": [],
+  "edges_failing_now": 0,
+  "from": "res://data/waypoints/malasugue_mall.json",
+  "images": [
+    "A:/Python/aetherion-project/.claude/worktrees/epic-wescoff-100904/work/r23/qa/malasugue_mall_L1.png",
+    "A:/Python/aetherion-project/.claude/worktrees/epic-wescoff-100904/work/r23/qa/malasugue_mall_L2.png",
+    "A:/Python/aetherion-project/.claude/worktrees/epic-wescoff-100904/work/r23/qa/malasugue_mall_L3.png",
+    "A:/Python/aetherion-project/.claude/worktrees/epic-wescoff-100904/work/r23/qa/malasugue_mall_L4.png",
+    "A:/Python/aetherion-project/.claude/worktrees/epic-wescoff-100904/work/r23/qa/malasugue_mall_L5.png"
+  ],
+  "kinds": {
+    "area": 905,
+    "corner": 1459,
+    "cover": 16,
+    "door": 374,
+    "escalator": 32,
+    "hide": 200,
+    "junction": 1232,
+    "plaza": 790,
+    "road": 679,
+    "snipe": 356,
+    "stair": 64
+  },
+  "map": "malasugue_mall",
+  "nodes": 6107,
+  "nodes_blocked": 1,
+  "nodes_blocked_list": [
+    [
+      "MM5-0731",
+      "door",
+      [
+        -26.0,
+        20.0,
+        18.9
+      ]
+    ]
+  ],
+  "orphans": 60,
+  "orphans_why": [
+    {
+      "kind": "corner",
+      "name": "West Court, Level 1",
+      "node": "MM1-1505",
+      "p": "(-49.2, 0.0, -36.5)",
+      "to_main": [
+        [
+          "MM1-1236",
+          3.0,
+          "the body sweep stops at 0.14 of the way: ?"
+        ],
+        [
+          "MM1-1511",
+          3.3,
+          "the body sweep stops at 0.10 of the way: ?"
+        ],
+        [
+          "MM1-0593",
+          4.0,
+          "the body sweep stops at 0.27 of the way: ?"
+        ]
+      ]
+    },
+    {
+      "kind": "corner",
+      "name": "West Court, Level 1",
+      "node": "MM1-1506",
+      "p": "(-44.7, 0.0, -36.5)",
+      "to_main": [
+        [
+          "MM1-0840",
+          3.1,
+          "the body sweep stops at 0.36 of the way: ?"
+        ],
+        [
+          "MM1-0841",
+          4.4,
+          "closed cells on the line (a wall, a shelf, a void)"
+        ],
+        [
+          "MM1-0593",
+          6.2,
+          "the body sweep stops at 0.27 of the way: ?"
+        ]
+      ]
+    },
+    {
+      "kind": "corner",
+      "name": "Grand Atrium, Level 1",
+      "node": "MM1-1622",
+      "p": "(-3.5, 0.0, -5.2)",
+      "to_main": [
+        [
+          "MM1-1298",
+          3.0,
+          "closed cells on the line (a wall, a shelf, a void)"
+        ],
+        [
+          "MM1-1623",
+          3.0,
+          "closed cells on the line (a wall, a shelf, a void)"
+        ],
+        [
+          "MM1-1892",
+          3.7,
+          "closed cells on the line (a wall, a shelf, a void)"
+        ]
+      ]
+    },
+    {
+      "kind": "corner",
+      "name": "West Court, Level 2",
+      "node": "MM2-0575",
+      "p": "(-49.2, 5.0, -36.5)",
+      "to_main": [
+        [
+          "MM2-0442",
+          3.0,
+          "the body sweep stops at 0.14 of the way: ?"
+        ],
+        [
+          "MM2-0582",
+          3.3,
+          "the body sweep stops at 0.10 of the way: ?"
+        ],
+        [
+          "MM2-0158",
+          4.0,
+          "the body sweep stops at 0.27 of the way: ?"
+        ]
+      ]
+    },
+    {
+      "kind": "corner",
+      "name": "West Court, Level 2",
+      "node": "MM2-0576",
+      "p": "(-44.7, 5.0, -36.5)",
+      "to_main": [
+        [
+          "MM2-0276",
+          3.1,
+          "the body sweep stops at 0.36 of the way: ?"
+        ],
+        [
+          "MM2-0277",
+          4.4,
+          "closed cells on the line (a wall, a shelf, a void)"
+        ],
+        [
+          "MM2-0158",
+          6.2,
+          "the body sweep stops at 0.27 of the way: ?"
+        ]
+      ]
+    },
+    {
+      "kind": "corner",
+      "name": "Tita Baby Bridal, Level 2",
+      "node": "MM2-0703",
+      "p": "(-29.5, 5.0, 7.5)",
+      "to_main": [
+        [
+          "MM2-0943",
+          2.2,
+          "the body sweep stops at 0.54 of the way: ?"
+        ],
+        [
+          "MM2-0342",
+          3.2,
+          "the body sweep stops at 0.09 of the way: ?"
+        ],
+        [
+          "MM2-0348",
+          3.6,
+          "closed cells on the line (a wall, a shelf, a void)"
+        ]
+      ]
+    },
+    {
+      "kind": "corner",
+      "name": "West Court, Level 3",
+      "node": "MM3-0610",
+      "p": "(-49.2, 10.0, -36.5)",
+      "to_main": [
+        [
+          "MM3-0485",
+          3.0,
+          "the body sweep stops at 0.14 of the way: ?"
+        ],
+        [
+          "MM3-0618",
+          3.3,
+          "the body sweep stops at 0.10 of the way: ?"
+        ],
+        [
+          "MM3-0168",
+          4.0,
+          "the body sweep stops at 0.27 of the way: ?"
+        ]
+      ]
+    },
+    {
+      "kind": "corner",
+      "name": "West Court, Level 3",
+      "node": "MM3-0611",
+      "p": "(-44.7, 10.0, -36.5)",
+      "to_main": [
+        [
+          "MM3-0976",
+          1.6,
+          "the body sweep stops at 0.27 of the way: ?"
+        ],
+        [
+          "MM3-1065",
+          2.5,
+          "the body sweep stops at 0.15 of the way: ?"
+        ],
+        [
+          "MM3-1066",
+          3.0,
+          "the body sweep stops at 0.15 of the way: ?"
+        ]
+      ]
+    },
+    {
+      "kind": "corner",
+      "name": "Restrooms, Level 3",
+      "node": "MM3-0619",
+      "p": "(-33.5, 10.0, -35.5)",
+      "to_main": [
+        [
+          "MM3-0628",
+          2.7,
+          "the body sweep stops at 0.05 of the way: ?"
+        ],
+        [
+          "MM3-0621",
+          3.4,
+          "the body sweep stops at 0.37 of the way: ?"
+        ],
+        [
+          "MM3-0620",
+          5.1,
+          "closed cells on the line (a wall, a shelf, a void)"
+        ]
+      ]
+    },
+    {
+      "kind": "corner",
+      "name": "Banig Home, Level 4",
+      "node": "MM4-0635",
+      "p": "(-25.5, 15.0, -14.5)",
+      "to_main": [
+        [
+          "MM4-0946",
+          0.0,
+          ""
+        ],
+        [
+          "MM4-0638",
+          2.2,
+          "closed cells on the line (a wall, a shelf, a void)"
+        ],
+        [
+          "MM4-0945",
+          2.8,
+          ""
+        ]
+      ]
+    },
+    {
+      "kind": "corner",
+      "name": "West Court, Level 5",
+      "node": "MM5-0515",
+      "p": "(-49.2, 20.0, -36.5)",
+      "to_main": [
+        [
+          "MM5-0387",
+          3.0,
+          "the body sweep stops at 0.14 of the way: ?"
+        ],
+        [
+          "MM5-0517",
+          3.3,
+          "the body sweep stops at 0.10 of the way: ?"
+        ],
+        [
+          "MM5-0149",
+          4.0,
+          "the body sweep stops at 0.27 of the way: ?"
+        ]
+      ]
+    },
+    {
+      "kind": "corner",
+      "name": "West Court, Level 5",
+      "node": "MM5-0516",
+      "p": "(-44.7, 20.0, -36.5)",
+      "to_main": [
+        [
+          "MM5-0250",
+          3.1,
+          "the body sweep stops at 0.36 of the way: ?"
+        ],
+        [
+          "MM5-0832",
+          3.4,
+          "closed cells on the line (a wall, a shelf, a void)"
+        ],
+        [
+          "MM5-0527",
+          4.6,
+          "the body sweep stops at 0.15 of the way: ?"
+        ]
+      ]
+    },
+    {
+      "kind": "corner",
+      "name": "Kakanin Corner, Level 5",
+      "node": "MM5-0521",
+      "p": "(-7.5, 20.0, -35.5)",
+      "to_main": [
+        [
+          "MM5-0804",
+          2.8,
+          "closed cells on the line (a wall, a shelf, a void)"
+        ],
+        [
+          "MM5-0252",
+          2.8,
+          "the body sweep stops at 0.09 of the way: ?"
+        ],
+        [
+          "MM5-0522",
+          3.0,
+          "the body sweep stops at 0.36 of the way: ?"
+        ]
+      ]
+    },
+    {
+      "kind": "corner",
+      "name": "Grand Atrium, Level 5",
+      "node": "MM5-0661",
+      "p": "(-4.5, 20.0, 25.5)",
+      "to_main": [
+        [
+          "MM5-0656",
+          2.8,
+          "closed cells on the line (a wall, a shelf, a void)"
+        ],
+        [
+          "MM5-0670",
+          3.0,
+          "closed cells on the line (a wall, a shelf, a void)"
+        ],
+        [
+          "MM5-0662",
+          3.0,
+          "closed cells on the line (a wall, a shelf, a void)"
+        ]
+      ]
+    },
+    {
+      "kind": "hide",
+      "name": "West Court, Level 5",
+      "node": "MM5-0783",
+      "p": "(-49.5, 20.0, -35.5)",
+      "to_main": [
+        [
+          "MM5-0149",
+          3.0,
+          "the body sweep stops at 0.03 of the way: ?"
+        ],
+        [
+          "MM5-0517",
+          3.0,
+          "the body sweep stops at 0.02 of the way: ?"
+        ],
+        [
+          "MM5-0387",
+          3.6,
+          "the body sweep stops at 0.03 of the way: ?"
+        ]
+      ]
+    },
+    {
+      "kind": "hide",
+      "name": "West Court, Level 2",
+      "node": "MM2-0939",
+      "p": "(-49.5, 5.0, -35.5)",
+      "to_main": [
+        [
+          "MM2-0158",
+          3.0,
+          "the body sweep stops at 0.03 of the way: ?"
+        ],
+        [
+          "MM2-0582",
+          3.0,
+          "the body sweep stops at 0.02 of the way: ?"
+        ],
+        [
+          "MM2-0442",
+          3.6,
+          "the body sweep stops at 0.03 of the way: ?"
+        ]
+      ]
+    },
+    {
+      "kind": "hide",
+      "name": "West Court, Level 1",
+      "node": "MM1-2027",
+      "p": "(-49.5, 0.0, -35.5)",
+      "to_main": [
+        [
+          "MM1-0593",
+          3.0,
+          "the body sweep stops at 0.03 of the way: ?"
+        ],
+        [
+          "MM1-1511",
+          3.0,
+          "the body sweep stops at 0.02 of the way: ?"
+        ],
+        [
+          "MM1-1236",
+          3.6,
+          "the body sweep stops at 0.03 of the way: ?"
+        ]
+      ]
+    },
+    {
+      "kind": "hide",
+      "name": "Tsokolate Haus, Level 3",
+      "node": "MM3-0979",
+      "p": "(44.5, 10.0, -35.5)",
+      "to_main": [
+        [
+          "MM3-0491",
+          2.2,
+          "crosses a doorway off its middle or at a slant"
+        ],
+        [
+          "MM3-0288",
+          2.8,
+          "the body sweep stops at 0.02 of the way: ?"
+        ],
+        [
+          "MM3-0274",
+          3.6,
+          "closed cells on the line (a wall, a shelf, a void)"
+        ]
+      ]
+    },
+    {
+      "kind": "snipe",
+      "name": "Tsokolate Haus, Level 3",
+      "node": "MM3-1017",
+      "p": "(48.5, 10.0, -35.5)",
+      "to_main": [
+        [
+          "MM3-0495",
+          2.2,
+          "the body sweep stops at 0.09 of the way: ?"
+        ],
+        [
+          "MM3-0491",
+          2.2,
+          "crosses a doorway off its middle or at a slant"
+        ],
+        [
+          "MM3-0865",
+          2.6,
+          "the body sweep stops at 0.42 of the way: ?"
+        ]
+      ]
+    },
+    {
+      "kind": "corner",
+      "name": "West Court, Level 1",
+      "node": "MM1-2154",
+      "p": "(-47.5, 0.0, -35.5)",
+      "to_main": [
+        [
+          "MM1-0840",
+          2.8,
+          ""
+        ],
+        [
+          "MM1-0593",
+          3.6,
+          "the body sweep stops at 0.05 of the way: ?"
+        ],
+        [
+          "MM1-1236",
+          5.0,
+          "closed cells on the line (a wall, a shelf, a void)"
+        ]
+      ]
+    },
+    {
+      "kind": "corner",
+      "name": "West Court, Level 2",
+      "node": "MM2-0987",
+      "p": "(-47.5, 5.0, -35.5)",
+      "to_main": [
+        [
+          "MM2-0276",
+          2.8,
+          ""
+        ],
+        [
+          "MM2-0158",
+          3.6,
+          "the body sweep stops at 0.05 of the way: ?"
+        ],
+        [
+          "MM2-0442",
+          5.0,
+          "closed cells on the line (a wall, a shelf, a void)"
+        ]
+      ]
+    },
+    {
+      "kind": "corner",
+      "name": "Tita Baby Bridal, Level 2",
+      "node": "MM2-0995",
+      "p": "(-30.5, 5.0, 8.5)",
+      "to_main": [
+        [
+          "MM2-0943",
+          1.0,
+          "the body sweep stops at 0.09 of the way: ?"
+        ],
+        [
+          "MM2-0505",
+          2.2,
+          "the body sweep stops at 0.04 of the way: ?"
+        ],
+        [
+          "MM2-0342",
+          2.8,
+          "the body sweep stops at 0.04 of the way: ?"
+        ]
+      ]
+    },
+    {
+      "kind": "corner",
+      "name": "Tita Baby Bridal, Level 2",
+      "node": "MM2-0996",
+      "p": "(-26.5, 5.0, 19.5)",
+      "to_main": [
+        [
+          "MM2-0730",
+          1.0,
+          "crosses a doorway off its middle or at a slant"
+        ],
+        [
+          "MM2-0724",
+          2.2,
+          ""
+        ],
+        [
+          "MM2-0965",
+          3.2,
+          "crosses a doorway off its middle or at a slant"
+        ]
+      ]
+    },
+    {
+      "kind": "corner",
+      "name": "West Court, Level 3",
+      "node": "MM3-1047",
+      "p": "(-47.5, 10.0, -35.5)",
+      "to_main": [
+        [
+          "MM3-0280",
+          2.8,
+          ""
+        ],
+        [
+          "MM3-0168",
+          3.6,
+          "the body sweep stops at 0.05 of the way: ?"
+        ],
+        [
+          "MM3-0976",
+          4.0,
+          "the body sweep stops at 0.77 of the way: ?"
+        ]
+      ]
+    },
+    {
+      "kind": "corner",
+      "name": "West Court, Level 5",
+      "node": "MM5-0833",
+      "p": "(-47.5, 20.0, -35.5)",
+      "to_main": [
+        [
+          "MM5-0250",
+          2.8,
+          ""
+        ],
+        [
+          "MM5-0149",
+          3.6,
+          "the body sweep stops at 0.05 of the way: ?"
+        ],
+        [
+          "MM5-0387",
+          5.0,
+          "closed cells on the line (a wall, a shelf, a void)"
+        ]
+      ]
+    }
+  ],
+  "priority": {
+    "1": 902,
+    "2": 2381,
+    "3": 2824
+  },
+  "qa_ms": 6447,
+  "route_detour_avg": 2.06,
+  "route_detour_max": 11.15,
+  "route_ms_avg": 0.381,
+  "routes_found": 500,
+  "routes_tried": 500,
+  "source": "auto",
+  "uncovered_worst": [
+    [
+      "4:-32,32",
+      3
+    ],
+    [
+      "4:-48,-36",
+      2
+    ],
+    [
+      "4:-8,-36",
+      2
+    ],
+    [
+      "1:-32,4",
+      2
+    ],
+    [
+      "4:-52,-36",
+      2
+    ],
+    [
+      "1:-48,-36",
+      2
+    ],
+    [
+      "1:-52,-36",
+      2
+    ],
+    [
+      "2:-52,-36",
+      2
+    ],
+    [
+      "2:-48,-36",
+      2
+    ],
+    [
+      "4:20,32",
+      2
+    ],
+    [
+      "0:-48,-36",
+      2
+    ],
+    [
+      "0:-52,-36",
+      2
+    ],
+    [
+      "2:44,-36",
+      2
+    ],
+    [
+      "2:48,-36",
+      2
+    ],
+    [
+      "3:28,32",
+      2
+    ],
+    [
+      "4:-48,-40",
+      1
+    ],
+    [
+      "4:-52,-40",
+      1
+    ],
+    [
+      "4:-12,-36",
+      1
+    ],
+    [
+      "4:-28,16",
+      1
+    ],
+    [
+      "4:20,16",
+      1
+    ],
+    [
+      "4:28,16",
+      1
+    ],
+    [
+      "4:-8,24",
+      1
+    ],
+    [
+      "4:16,32",
+      1
+    ],
+    [
+      "4:48,36",
+      1
+    ],
+    [
+      "4:8,36",
+      1
+    ],
+    [
+      "4:36,36",
+      1
+    ],
+    [
+      "0:32,-40",
+      1
+    ],
+    [
+      "0:-52,-40",
+      1
+    ],
+    [
+      "0:-48,-40",
+      1
+    ],
+    [
+      "0:-68,36",
+      1
+    ]
+  ]
+}

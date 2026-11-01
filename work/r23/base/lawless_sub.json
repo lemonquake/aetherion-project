@@ -1,0 +1,185 @@
+{
+  "map": "lawless_sub",
+  "totals": {
+    "bot_s": 12170.599999997,
+    "moving_s": 5473.56666666681,
+    "stall_events": 20,
+    "stall_s": 115.733333333333,
+    "wall_events": 6,
+    "wall_s": 13.4333333333333
+  },
+  "worst": [
+    [
+      "0:-20,0",
+      {
+        "stall": 3,
+        "states": {
+          "hunt": 2,
+          "order": 2,
+          "roam": 1
+        },
+        "wall": 2
+      }
+    ],
+    [
+      "0:148,-68",
+      {
+        "stall": 0,
+        "states": {
+          "camp": 4
+        },
+        "wall": 4
+      }
+    ],
+    [
+      "0:26,74",
+      {
+        "stall": 3,
+        "states": {
+          "order": 3
+        },
+        "wall": 0
+      }
+    ],
+    [
+      "0:-10,-50",
+      {
+        "stall": 1,
+        "states": {
+          "roam": 1
+        },
+        "wall": 0
+      }
+    ],
+    [
+      "0:30,70",
+      {
+        "stall": 1,
+        "states": {
+          "order": 1
+        },
+        "wall": 0
+      }
+    ],
+    [
+      "0:30,64",
+      {
+        "stall": 1,
+        "states": {
+          "order": 1
+        },
+        "wall": 0
+      }
+    ],
+    [
+      "0:84,-124",
+      {
+        "stall": 1,
+        "states": {
+          "roam": 1
+        },
+        "wall": 0
+      }
+    ],
+    [
+      "0:-86,-62",
+      {
+        "stall": 1,
+        "states": {
+          "hunt": 1
+        },
+        "wall": 0
+      }
+    ],
+    [
+      "0:34,2",
+      {
+        "stall": 1,
+        "states": {
+          "hunt": 1
+        },
+        "wall": 0
+      }
+    ],
+    [
+      "0:98,124",
+      {
+        "stall": 1,
+        "states": {
+          "roam": 1
+        },
+        "wall": 0
+      }
+    ],
+    [
+      "0:-20,-4",
+      {
+        "stall": 1,
+        "states": {
+          "hunt": 1
+        },
+        "wall": 0
+      }
+    ],
+    [
+      "0:-86,-68",
+      {
+        "stall": 1,
+        "states": {
+          "hunt": 1
+        },
+        "wall": 0
+      }
+    ],
+    [
+      "0:38,-112",
+      {
+        "stall": 1,
+        "states": {
+          "order": 1
+        },
+        "wall": 0
+      }
+    ],
+    [
+      "0:36,-122",
+      {
+        "stall": 1,
+        "states": {
+          "order": 1
+        },
+        "wall": 0
+      }
+    ],
+    [
+      "0:-42,-10",
+      {
+        "stall": 1,
+        "states": {
+          "order": 1
+        },
+        "wall": 0
+      }
+    ],
+    [
+      "0:-20,2",
+      {
+        "stall": 1,
+        "states": {
+          "hunt": 1
+        },
+        "wall": 0
+      }
+    ],
+    [
+      "0:92,-14",
+      {
+        "stall": 1,
+        "states": {
+          "follow": 1
+        },
+        "wall": 0
+      }
+    ]
+  ]
+}

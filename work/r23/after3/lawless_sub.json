@@ -1,0 +1,147 @@
+{
+  "map": "lawless_sub",
+  "totals": {
+    "bot_s": 12112.7333333304,
+    "graph_s": 6799.33333333286,
+    "moving_s": 6996.69999999943,
+    "off_max": 5.86462593078613,
+    "on_edge_s": 6378.76666666639,
+    "stall_events": 11,
+    "stall_s": 38.2333333333333,
+    "wall_events": 2,
+    "wall_s": 3.1,
+    "waypoints": {
+      "door_waits": 0,
+      "edge_reports": 3,
+      "grid": 0,
+      "leads": 10,
+      "locked": 0,
+      "off_line": 8,
+      "route_fail": {},
+      "routes": 2562,
+      "stuck_edges": 3
+    }
+  },
+  "worst": [
+    [
+      "0:-122,56",
+      {
+        "stall": 1,
+        "states": {
+          "order": 2
+        },
+        "wall": 1
+      }
+    ],
+    [
+      "0:36,-30",
+      {
+        "stall": 0,
+        "states": {
+          "overwatch": 1
+        },
+        "wall": 1
+      }
+    ],
+    [
+      "0:-98,140",
+      {
+        "stall": 1,
+        "states": {
+          "roam": 1
+        },
+        "wall": 0
+      }
+    ],
+    [
+      "0:36,96",
+      {
+        "stall": 1,
+        "states": {
+          "roam": 1
+        },
+        "wall": 0
+      }
+    ],
+    [
+      "0:-124,40",
+      {
+        "stall": 1,
+        "states": {
+          "order": 1
+        },
+        "wall": 0
+      }
+    ],
+    [
+      "0:-126,58",
+      {
+        "stall": 1,
+        "states": {
+          "order": 1
+        },
+        "wall": 0
+      }
+    ],
+    [
+      "0:-132,84",
+      {
+        "stall": 1,
+        "states": {
+          "hunt": 1
+        },
+        "wall": 0
+      }
+    ],
+    [
+      "0:-84,100",
+      {
+        "stall": 1,
+        "states": {
+          "order": 1
+        },
+        "wall": 0
+      }
+    ],
+    [
+      "0:-84,130",
+      {
+        "stall": 1,
+        "states": {
+          "order": 1
+        },
+        "wall": 0
+      }
+    ],
+    [
+      "0:-84,134",
+      {
+        "stall": 1,
+        "states": {
+          "order": 1
+        },
+        "wall": 0
+      }
+    ],
+    [
+      "0:-80,124",
+      {
+        "stall": 1,
+        "states": {
+          "order": 1
+        },
+        "wall": 0
+      }
+    ],
+    [
+      "0:-58,142",
+      {
+        "stall": 1,
+        "states": {
+          "hunt": 1
+        },
+        "wall": 0
+      }
+    ]
+  ]
+}
