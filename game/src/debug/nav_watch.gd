@@ -46,6 +46,19 @@ func tick(dt: float) -> void:
 		var wants: bool = b.goal != Vector3.INF and b.state not in ["fight", "camp", "overwatch"]
 		if wants:
 			totals.moving_s += step
+			# (r23) on the waypoint graph: walking an edge, and how far off its swept line
+			var pw = b.get("path_wp")
+			if pw is PackedInt32Array and b.path_i < pw.size() and pw[b.path_i] >= 0 and b._seg_from != Vector3.INF:
+				totals.graph_s = float(totals.get("graph_s", 0.0)) + step
+				var a2 := Vector2(b._seg_from.x, b._seg_from.z)
+				var t2: Vector3 = b.path[b.path_i]
+				var b2 := Vector2(t2.x, t2.z)
+				var q2 := Vector2(p.x, p.z)
+				var ab := b2 - a2
+				var lat := q2.distance_to(a2) if ab.length() < 0.01 else q2.distance_to(a2 + ab * clampf((q2 - a2).dot(ab) / ab.length_squared(), 0.0, 1.0))
+				if lat < 0.8:
+					totals.on_edge_s = float(totals.get("on_edge_s", 0.0)) + step
+				totals.off_max = maxf(float(totals.get("off_max", 0.0)), lat)
 		if wants and moved < STALL_SPEED * step:
 			e.stall = float(e.stall) + step
 		else:
@@ -57,6 +70,16 @@ func tick(dt: float) -> void:
 				e.stalled = true
 				totals.stall_events += 1
 				_place(p, "stall", str(b.state))
+				if int(totals.stall_events) <= 40:
+					# (r23) what the bot was doing: its order, its route, what is in front of it
+					var o: Dictionary = b.order
+					var nxt := "-"
+					if b.path_i < b.path.size():
+						var wi: int = b.path_wp[b.path_i] if b.path_i < b.path_wp.size() else -1
+						nxt = "%s %.1f m" % [str(load("res://src/ai/waypoints.gd").nodes[wi].id) if wi >= 0 else "grid", Vector2(p.x - b.path[b.path_i].x, p.z - b.path[b.path_i].z).length()]
+					print("[navwatch] stall %s %s %s at %s: goal %s, path %d/%d next %s, ahead '%s', order %s" % [ch.pname, b.role, b.state,
+						str(p.snapped(Vector3.ONE * 0.1)), "%.1f m" % p.distance_to(b.goal) if b.goal != Vector3.INF else "-", b.path_i, b.path.size(), nxt,
+						b._ahead(), ("%s %.1f m arrived %s" % [str(o.get("kind")), p.distance_to(o.get("p", p)), str(o.get("arrived"))]) if not o.is_empty() else "-"])
 		# standing still, a wall right in front of the eyes
 		var still: bool = moved < 0.1 * step
 		var wall := false
@@ -112,6 +135,14 @@ func worst(n: int = 15) -> Array:
 
 func finish() -> void:
 	print(summary_line())
+	var wp: Dictionary = load("res://src/ai/bot_brain.gd").wp_stats
+	var W = load("res://src/ai/waypoints.gd")
+	totals["waypoints"] = wp.duplicate()
+	totals["waypoints"]["edge_reports"] = int(W.stats.get("stuck_reports", 0))
+	totals["waypoints"]["route_fail"] = W.stats.get("route_fail", {})
+	print("[navwatch] waypoints: %.1f%% of moving time on graph edges, %.1f%% of that within 0.8 m of the swept line (farthest %.1f m); %s" % [
+		100.0 * float(totals.get("graph_s", 0.0)) / maxf(float(totals.moving_s), 1.0),
+		100.0 * float(totals.get("on_edge_s", 0.0)) / maxf(float(totals.get("graph_s", 0.0)), 1.0), float(totals.get("off_max", 0.0)), str(totals.waypoints)])
 	for w in worst(12):
 		print("[navwatch]   %s %s" % [w[0], str(w[1])])
 	var path := str(Game.arg("navwatch", ""))

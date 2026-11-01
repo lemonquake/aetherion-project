@@ -51,6 +51,7 @@ static var radio_t := {}         # team -> msec of the last callout
 static var stats := {"lines": 0, "pings": 0, "laser_follow": 0, "learned_cells": 0, "blocked_cells": 0, "squads": 0, "following_humans": 0}
 # r21
 const BotNav := preload("res://src/ai/bot_nav.gd")
+const Waypoints := preload("res://src/ai/waypoints.gd")
 static var learned: Array = []     # spots learned from play (appended to spots)
 static var spot_stats := {}        # spot key -> [uses, held_s, kills, deaths]
 static var claims := {}            # spot index -> [eid, msec until]
@@ -345,6 +346,7 @@ static func _load() -> void:
 static func save() -> void:
 	if world == null or not learning():
 		return
+	Waypoints.save_learned()   # r23: the waypoint edges bots got stuck on
 	var cells := {}
 	for k in memory:
 		var v: Array = memory[k]
@@ -467,13 +469,24 @@ static func tick(dt: float) -> void:
 			preload("res://src/debug/nav_probe.gd").run(world, BotNav.nav)
 		_quit()
 		return
+	if Game.arg("wpcheck") != null:
+		_quit()   # r23: the editor's check ran in Waypoints.prepare
+		return
+	if Game.arg("wpqa") != null and Waypoints.ready():
+		# r23: the waypoint graph's strict check (debug/waypoint_qa.gd), then quit
+		preload("res://src/debug/waypoint_qa.gd").run(world, BotNav.nav, str(Game.arg("wpqa")))
+		_quit()
+		return
 	if Game.arg("botnav_bake") != null and BotNav.phase == "spots":
 		# Making the file the game ships with: the whole analysis now, written under res://data/botnav, then quit.
 		BotNav.bake_to_res()
 		print("[botnav] baked %s: %s" % [BotNav.map_id, str(BotNav.stats)])
+		Waypoints.bake_to_res()   # r23: the waypoint graph, now the spots are known
+		print("[waypoints] baked %s: %s" % [Waypoints.map_id, str(Waypoints.stats)])
 		_quit()
 		return
 	BotNav.pump()
+	Waypoints.tick()
 	_skill_t += dt
 	if _skill_t >= 15.0:
 		_skill_t = 0.0

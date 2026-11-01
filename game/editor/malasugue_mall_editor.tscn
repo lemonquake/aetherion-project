@@ -1,0 +1,32 @@
+[gd_scene load_steps=5 format=3]
+
+[ext_resource type="Script" path="res://addons/aetherion_waypoints/mall_editor.gd" id="1"]
+[ext_resource type="Script" path="res://addons/aetherion_waypoints/waypoint_set.gd" id="2"]
+
+[sub_resource type="ProceduralSkyMaterial" id="sky_mat"]
+
+[sub_resource type="Sky" id="sky"]
+sky_material = SubResource("sky_mat")
+
+[sub_resource type="Environment" id="env"]
+background_mode = 2
+sky = SubResource("sky")
+ambient_light_source = 3
+ambient_light_energy = 1.4
+
+[node name="MalasugueMallEditor" type="Node3D"]
+script = ExtResource("1")
+level = 1
+
+[node name="Sun" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.866, -0.354, 0.354, 0, 0.707, 0.707, -0.5, -0.612, 0.612, 0, 60, 0)
+light_energy = 1.2
+
+[node name="Environment" type="WorldEnvironment" parent="."]
+environment = SubResource("env")
+
+[node name="Waypoints" type="Node3D" parent="."]
+script = ExtResource("2")
+show_level = 1
+
+[node name="Extras" type="Node3D" parent="."]

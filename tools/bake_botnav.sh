@@ -9,7 +9,7 @@ GODOT="/a/Installer/Godot_v4.7.2-stable_win64/Godot_v4.7.2-stable_win64_console.
 cd "$(dirname "$0")/../game"
 mkdir -p data/botnav ../tools/cache
 MAPS="${*:-malasugue_mall freight_delight lawless_sub kalinaw}"
-port=27700
+port=${BAKE_PORT:-27700}   # (r23) set BAKE_PORT when baking maps in parallel: two runs on one port fail to start
 for m in $MAPS; do
   port=$((port + 1))
   mode=deathmatch

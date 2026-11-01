@@ -1,5 +1,9 @@
 # How bots know a map (BotNav, 0.21.0)
 
+> **0.23.0:** bots now walk a proven **waypoint graph** on every map (`docs/WAYPOINTS.md`, `src/ai/waypoints.gd`). The
+> walk grids below still decide where the waypoints go and carry a bot back onto the graph; the routes themselves are
+> the graph's. Malasugue Mall's waypoints can be edited in Godot (`game/editor/malasugue_mall_editor.tscn`).
+
 One system for every map (Sitio Kalinaw, Lawless Sub, Malasugue Mall, Freight Delight, and any map added later). It
 replaces the old per-map waypoint survey and fixes bots standing stuck against walls, mostly on the mall.
 

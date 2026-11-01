@@ -35,7 +35,8 @@ def excluded() -> list:
         for im in d.get("images", []):
             if im.get("uri"):
                 used.add(os.path.normpath(os.path.join(os.path.dirname(g), im["uri"])).replace("\\", "/"))
-    out = ["assets/thirdparty/polyhaven/models/*/*.gltf", "assets/thirdparty/polyhaven/models/*/*.bin"]
+    # r23: the map editors (editor/: the mall's preview geometry and editor scene) are for the Godot editor only
+    out = ["assets/thirdparty/polyhaven/models/*/*.gltf", "assets/thirdparty/polyhaven/models/*/*.bin", "editor/*"]
     for t in sorted(glob.glob("assets/thirdparty/polyhaven/models/*/textures/*")):
         t = t.replace("\\", "/")
         if t not in used and not t.endswith(".import"):

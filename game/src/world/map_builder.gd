@@ -193,10 +193,30 @@ func _build_mall(world_node: Node3D, map_seed: int, match_seed: int, opts: Dicti
 	var mbld = MallBuilder.new(self, lay)
 	mbld.build()
 	stats.mall = mbld.stats
+	_mall_extras()
 	_progress(0.78, "Hiding the loot under the counters")
 	dyn.place_deferred()
 	stats.towns_ms = Time.get_ticks_msec() - t0
 	finalize(world_node)
+
+
+const MALL_EXTRAS := "res://assets/maps/malasugue_mall_extras.scn"
+var extras_hash := 0
+
+
+func _mall_extras() -> void:
+	## (r23) What the mall's map editor (editor/malasugue_mall_editor.tscn) added under its Extras node: walls, props,
+	## lights, cover, saved there as their own scene. Part of the map on every machine (its file is in the fingerprint).
+	if not ResourceLoader.exists(MALL_EXTRAS):
+		return
+	var ps = load(MALL_EXTRAS)
+	if not (ps is PackedScene):
+		return
+	var n: Node = (ps as PackedScene).instantiate()
+	n.name = "Extras"
+	root.add_child(n)
+	extras_hash = hash(FileAccess.get_file_as_bytes(MALL_EXTRAS))
+	stats.extras = n.get_child_count()
 
 
 func _build_freight(world_node: Node3D, map_seed: int, match_seed: int, opts: Dictionary) -> void:
@@ -578,6 +598,8 @@ func _fingerprint() -> String:
 		h = hash([h, Vector3i(((c.pos as Vector3) * 100.0).round())])
 	for p in dyn.props:
 		h = hash([h, Vector3i(((p.xf as Transform3D).origin * 100.0).round())])
+	if extras_hash != 0:
+		h = hash([h, extras_hash])   # (r23) the mall editor's extras
 	return "%d buildings, %d doors, %d containers, %d props, #%08x" % [buildings.size(), dyn.doors.size(), dyn.containers.size(), dyn.props.size(), h & 0xFFFFFFFF]
 
 
