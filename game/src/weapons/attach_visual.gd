@@ -11,6 +11,8 @@ const BINS := 64
 const MAG_EXT := 0.05     # how far an extended magazine reaches below the gun's own
 const MAG_QUICK := 0.022
 const MAG_DRUM := 0.12    # (r24) the tallest a drum magazine is drawn
+const MAG_SEAT := 0.015   # (r25) how far a drum's top goes up into the magazine well
+const GunModel := preload("res://src/weapons/gun_model.gd")
 
 static var _profiles := {}
 
@@ -139,11 +141,16 @@ static func mount_xf(map, wid: String, att: String) -> Transform3D:
 				lo = minf(lo, p.bot[j])
 			var reach := MAG_EXT if Attach.flag({"att": [att]}, "ext") else MAG_QUICK
 			basis = Basis().scaled(Vector3(1.0, reach / maxf(asz.y, 0.01), 1.0))
-			if float(Defs.attachments.get(att, {}).get("cap_mult", 1.0)) > 1.0:
-				# (r24) a drum is drawn whole, its own shape, under the gun's magazine well
-				basis = Basis().scaled(Vector3.ONE * minf(1.0, MAG_DRUM / maxf(asz.y, 0.01)))
 			at = Vector3(0, lo + 0.003, front + f3 * L)
 			anchor = Vector3(0, asz.y, 0)
+			if is_drum(att):
+				# (r24) a drum is drawn whole, its own shape; (r25) in the magazine well in place of the gun's own
+				# magazine, where it has one of its own (handguns: under the grip)
+				basis = Basis().scaled(Vector3.ONE * minf(1.0, MAG_DRUM / maxf(asz.y, 0.01)))
+				var w := GunModel.well(wid)
+				if not w.is_empty():
+					var lip: Vector3 = (map.item_visual(wid).get("xf", Transform3D()) as Transform3D) * (w.lip as Vector3)
+					at = Vector3(0, lip.y + MAG_SEAT, lip.z)
 		"stock":
 			match att:
 				"cheek_pad":
@@ -160,6 +167,27 @@ static func mount_xf(map, wid: String, att: String) -> Transform3D:
 					at = Vector3(0, p.top[i6] - 0.02, front + L - 0.01)
 					anchor = Vector3(0, asz.y - 0.035, -asz.z * 0.5)
 	return Transform3D(basis, at) * Transform3D(Basis(), -anchor) * axf
+
+
+static func is_drum(att: String) -> bool:
+	return float(Defs.attachments.get(att, {}).get("cap_mult", 1.0)) > 1.0
+
+
+static func drum_in_well(wid: String, atts: Array) -> String:
+	## (r25) The fitted drum that takes the place of the gun's own magazine ("" when none does).
+	if wid == "":
+		return ""
+	for a in atts:
+		if is_drum(str(a)):
+			return str(a) if not GunModel.well(wid).is_empty() else ""   # the model is looked at only for a drum
+	return ""
+
+
+static func gun_mesh(md: Dictionary, wid: String, atts: Array) -> Mesh:
+	## (r25) The gun's merged mesh, without its own magazine while a drum is in the well.
+	if drum_in_well(wid, atts) != "":
+		return GunModel.without_mag(wid)
+	return md.get("mesh")
 
 
 static func sight_axis(map, wid: String, att: String) -> Vector3:

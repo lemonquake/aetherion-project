@@ -21,6 +21,59 @@ static func parts(id: String) -> Dictionary:
 	return out
 
 
+static var _wells: Dictionary = {}
+static var _no_mag: Dictionary = {}
+
+
+static func well(id: String) -> Dictionary:
+	## (r25) Where the gun's own magazine goes into the gun (model space): {"lip": the middle of the well's lower
+	## edge}. Empty when the magazine is not a part of its own or is too short to see (handguns keep theirs in the grip).
+	if _wells.has(id):
+		return _wells[id]
+	var out := {}
+	var p := parts(id)
+	if p.has("mag") and p.has("body") and (p.mag.aabb as AABB).size.y >= 0.04:
+		var top: float = (p.mag.aabb as AABB).end.y
+		# The magazine's top: the part inside the gun, and its footprint there.
+		var lo := Vector3(INF, 0, INF)
+		var hi := Vector3(-INF, 0, -INF)
+		for si in (p.mag.mesh as Mesh).get_surface_count():
+			for v in (p.mag.mesh as Mesh).surface_get_arrays(si)[Mesh.ARRAY_VERTEX]:
+				if v.y > top - 0.02:
+					lo = Vector3(minf(lo.x, v.x), 0, minf(lo.z, v.z))
+					hi = Vector3(maxf(hi.x, v.x), 0, maxf(hi.z, v.z))
+		var c := (lo + hi) * 0.5
+		var half := (hi - lo) * 0.5 + Vector3(0.004, 0, 0.004)
+		# The lowest point of the body around that footprint is the well's lip.
+		var lip := INF
+		for si in (p.body.mesh as Mesh).get_surface_count():
+			for v in (p.body.mesh as Mesh).surface_get_arrays(si)[Mesh.ARRAY_VERTEX]:
+				if absf(v.x - c.x) < half.x and absf(v.z - c.z) < half.z and v.y < top + 0.01:
+					lip = minf(lip, v.y)
+		if lip == INF:
+			lip = top - 0.03
+		out = {"lip": Vector3(c.x, lip, c.z)}
+	_wells[id] = out
+	return out
+
+
+static func without_mag(id: String) -> Mesh:
+	## (r25) The whole gun as one mesh, but without its own magazine (a drum is in the well instead).
+	if _no_mag.has(id):
+		return _no_mag[id]
+	var am := ArrayMesh.new()
+	var p := parts(id)
+	for role in p:
+		if role == "mag":
+			continue
+		var m: Mesh = p[role].mesh
+		for si in m.get_surface_count():
+			am.add_surface_from_arrays(Mesh.PRIMITIVE_TRIANGLES, _plain(m.surface_get_arrays(si)))
+			am.surface_set_material(am.get_surface_count() - 1, m.surface_get_material(si))
+	_no_mag[id] = am
+	return am
+
+
 static func _collect(n: Node, xf: Transform3D, out: Dictionary) -> void:
 	for c in n.get_children():
 		var cx := xf

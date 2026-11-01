@@ -829,10 +829,36 @@ func _build_props() -> void:
 		p.visible = false
 
 
+func _drum_in_well(wid: String, atts: Array) -> void:
+	## (r25) A drum takes the place of the gun's own magazine: the magazine part draws nothing and carries the drum,
+	## so a reload pulls the drum out and puts it back.
+	if not _parts.has("mag") or not (_parts.mag.node is MeshInstance3D):
+		return
+	var mag: MeshInstance3D = _parts.mag.node
+	if not _parts.mag.has("mesh0"):
+		_parts.mag["mesh0"] = mag.mesh
+	var old := mag.get_node_or_null("WellDrum")
+	if old:
+		mag.remove_child(old)
+		old.queue_free()
+	mag.mesh = _parts.mag.mesh0
+	var did := AttachVisual.drum_in_well(wid, atts)
+	var drum := att_root.get_node_or_null(did) as MeshInstance3D if did != "" else null
+	if drum == null:
+		return
+	mag.mesh = null
+	var xf := (_parts.mag.base as Transform3D).affine_inverse() * att_root.transform * drum.transform
+	att_root.remove_child(drum)
+	drum.name = "WellDrum"
+	mag.add_child(drum)
+	drum.transform = xf
+
+
 func _fit_attachments(wid: String, atts: Array) -> void:
 	## Draws the fitted attachments and moves what they change: the aim line (sight), the muzzle (device), the
 	## support hand (grip) and the weapon light.
 	AttachVisual.build(world.map, att_root, wid, atts, Defs.RENDER_VIEWMODEL, GeometryInstance3D.SHADOW_CASTING_SETTING_OFF)
+	_drum_in_well(wid, atts)
 	var md: Dictionary = world.map.item_visual(wid)
 	var sz: Vector3 = md.get("size", Vector3(0.05, 0.1, 0.4))
 	var front := -sz.z * 0.5

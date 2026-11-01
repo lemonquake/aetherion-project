@@ -389,7 +389,7 @@ func _weapon(dt: float) -> void:
 		_cur_weapon = wid
 		_cur_att = att_mask
 		var md: Dictionary = world.map.item_visual(wid) if wid != "" and world.map else {}
-		weapon_mesh.mesh = md.get("mesh")
+		weapon_mesh.mesh = AttachVisual.gun_mesh(md, wid, Attach.from_bitmask(att_mask)) if wid != "" else null
 		weapon_mesh.transform = _weapon_xf(wid, md, att_mask)
 		att_root.transform = Transform3D(Basis(), -_grip_local)
 		if world.map:

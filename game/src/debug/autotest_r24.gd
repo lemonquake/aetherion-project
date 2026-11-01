@@ -8,11 +8,16 @@ extends RefCounted
 ## must not be washed out (mean brightness and contrast against the same view without the scope).
 ## spectate: the player dies aimed through a 4x scope: the death and spectator cameras get the normal field of
 ## view back; the spectator views and watching everyone (alone vs bots).
+## drum (r25): a drum sits in the magazine well in place of the gun's own magazine (first person at rest and while a
+## reload carries it, third person, workbench); on a handgun it hangs under the grip.
 ## pause (last): the pause menu is open when the player leaves the match: nothing of it is left over the main menu.
 ## Measurements go to <shots>/r24_measure.json.
 
 const R14 := preload("res://src/debug/autotest_r14.gd")
 const Attach := preload("res://src/weapons/attachments.gd")
+const AttachVisual := preload("res://src/weapons/attach_visual.gd")
+const GunModel := preload("res://src/weapons/gun_model.gd")
+const WeaponState := preload("res://src/weapons/weapon_state.gd")
 
 var t = null
 var world = null
@@ -33,10 +38,10 @@ func run() -> void:
 	await t._wait(1.5)
 	world.map.lighting.forced_time = float(Game.arg("r24_time", 450.0))
 	h._freeze_zone()
-	for n in ["workbench", "board", "scopes", "round", "spectate", "pause"]:
+	for n in ["workbench", "drum", "board", "scopes", "round", "spectate", "pause"]:
 		if not want.call(n):
 			continue
-		if n in ["workbench", "board", "scopes"]:
+		if n in ["workbench", "drum", "board", "scopes"]:
 			h._holding = true
 			h._keep_holding()
 			h._freeze_bots(true)
@@ -315,6 +320,70 @@ func _workbench() -> void:
 	lw.close()
 	await t._wait(0.3)
 	Input.mouse_mode = Settings.play_mouse_mode()
+
+
+func _drum() -> void:
+	var vm = t.ctl.vm
+	var map = world.map
+	var rows := {}
+	for pair in [["rifle_m416", "mag_drum_rifle"], ["smg_ump45", "mag_drum_light"], ["pistol_9", "mag_drum_light"]]:
+		var wid: String = pair[0]
+		var aid: String = pair[1]
+		if not Attach.compatible(wid, aid):
+			rows[wid] = {"ok": false, "why": "does not take " + aid}
+			continue
+		await h._gun(wid, [aid])
+		t.ctl.pitch = -0.12
+		await t._wait(0.8)
+		var in_well := not GunModel.well(wid).is_empty()
+		var mag = vm._parts.get("mag", {}).get("node")
+		var drum: Node3D = mag.get_node_or_null("WellDrum") if mag is MeshInstance3D else null
+		var tp_mesh: Mesh = t.ch.visual.weapon_mesh.mesh
+		var r := {"well": in_well, "fp_mag_hidden": mag is MeshInstance3D and (mag as MeshInstance3D).mesh == null,
+			"fp_drum_on_mag": drum != null, "tp_without_mag": tp_mesh == GunModel.without_mag(wid) if in_well else tp_mesh == map.item_visual(wid).get("mesh")}
+		if in_well:
+			# The drum's top is up in the well, a little above the lip (weapon item_visual space).
+			var amd: Dictionary = map.item_visual(aid)
+			var top: Vector3 = (AttachVisual.mount_xf(map, wid, aid) * (amd.get("xf", Transform3D()) as Transform3D).affine_inverse()) * Vector3(0, (amd.size as Vector3).y, 0)
+			var lip: Vector3 = (map.item_visual(wid).get("xf", Transform3D()) as Transform3D) * (GunModel.well(wid).lip as Vector3)
+			r["seat_m"] = snappedf(top.y - lip.y, 0.001)
+		await t._shot("drum_%s_rest" % wid)
+		if drum:
+			# A reload carries the drum out in the left hand.
+			var rest: Vector3 = drum.global_position
+			t._act_press("fire")
+			await t._wait(0.35)
+			t._act_release("fire")
+			await t._wait(0.3)
+			await t._tap("reload")
+			await t._until(func(): return vm._mag_mode == "hand", 4.0)
+			await t._wait(0.25)
+			r["reload_moved_m"] = snappedf(drum.global_position.distance_to(rest), 0.01)
+			r["drum_visible_in_hand"] = drum.is_visible_in_tree()
+			await t._shot("drum_%s_reload" % wid)
+			await t._until(func(): return t.ch.wpn.state == WeaponState.IDLE, 6.0)
+		if in_well:
+			r["ok"] = r.fp_mag_hidden and r.fp_drum_on_mag and r.tp_without_mag and float(r.seat_m) > 0.005 and float(r.seat_m) < 0.03 \
+				and float(r.get("reload_moved_m", 0.0)) > 0.05 and bool(r.get("drum_visible_in_hand", false))
+		else:
+			r["ok"] = not r.fp_drum_on_mag and r.tp_without_mag
+		rows[wid] = r
+	measure["drum"] = rows
+	var bad := rows.keys().filter(func(k): return not bool(rows[k].ok))
+	t._check("r25_drum_in_well", bad.is_empty(), "%s" % JSON.stringify(rows))
+	# The workbench draws the gun without its own magazine too.
+	var wb_rows := {}
+	for pair in [["rifle_m416", "mag_drum_rifle"], ["smg_ump45", "mag_drum_light"]]:
+		await h._gun(pair[0], [pair[1]])
+		await t._tap("workbench")
+		await t._wait(1.0)
+		var wb = t.ctl.workbench
+		wb_rows[pair[0]] = wb != null and wb._gun_mesh.mesh == GunModel.without_mag(pair[0])
+		await t._shot("drum_workbench_" + str(pair[0]))
+		if wb:
+			await t._tap("menu")
+			await t._wait(0.4)
+	t._check("r25_drum_workbench", not false in wb_rows.values(), "workbench gun mesh without its magazine: %s" % str(wb_rows))
 
 
 static func Attach_cap(w) -> int:

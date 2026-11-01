@@ -709,6 +709,7 @@ func _sync_att_models(att: Array) -> void:
 	if want == _shown_att:
 		return
 	_shown_att = want
+	_gun_mesh.mesh = AttachVisual.gun_mesh(source.models().item_visual(_wid), _wid, att)
 	AttachVisual.build(source.models(), _att_root, _wid, att, 1, GeometryInstance3D.SHADOW_CASTING_SETTING_ON)
 	_settle()
 

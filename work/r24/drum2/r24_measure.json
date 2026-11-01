@@ -1,0 +1,31 @@
+{
+  "drum": {
+    "pistol_9": {
+      "fp_drum_on_mag": false,
+      "fp_mag_hidden": false,
+      "ok": true,
+      "tp_without_mag": true,
+      "well": false
+    },
+    "rifle_m416": {
+      "drum_visible_in_hand": true,
+      "fp_drum_on_mag": true,
+      "fp_mag_hidden": true,
+      "ok": true,
+      "reload_moved_m": 0.2,
+      "seat_m": 0.015,
+      "tp_without_mag": true,
+      "well": true
+    },
+    "smg_ump45": {
+      "drum_visible_in_hand": true,
+      "fp_drum_on_mag": true,
+      "fp_mag_hidden": true,
+      "ok": true,
+      "reload_moved_m": 0.19,
+      "seat_m": 0.015,
+      "tp_without_mag": true,
+      "well": true
+    }
+  }
+}

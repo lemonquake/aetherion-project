@@ -1,0 +1,43 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+Vulkan 1.4.329 - Forward+ - Using Device #0: NVIDIA - NVIDIA GeForce RTX 4060
+
+[ui] loadout_received pid=1 Hehe {"att_primary":["grip_heavy"],"att_secondary":[],"primary":"rifle_m416","secondary":"pistol_9"}
+[ui] lobby shows my loadout (pid 1): {"att_primary":["grip_heavy"],"att_secondary":[],"primary":"rifle_m416","secondary":"pistol_9"}
+[ui] request_loadout {"att_primary":["grip_heavy"],"att_secondary":[],"primary":"rifle_m416","secondary":"pistol_9"}
+[world] map built in 3238 ms
+[map] 0 buildings, 213 doors, 163 containers, 779 props, #55dd752c on PC
+[nav] levels: 56959 points, 32 links, 113 ms
+[nav] r21: 1424 cells closed by the physics check, main walk 49517 of 55567 points (6050 in pockets), 200 ms
+[botnav] malasugue_mall: walk check and 1304 spots from res://data/botnav/malasugue_mall.json { "hide": 301, "snipe": 618, "cover": 190, "open": 195 }
+[waypoints] malasugue_mall: 6107 nodes, 23338 edges (auto, res://data/waypoints/malasugue_mall.json), 60 off the main graph, 404 ms { "plaza": 790, "road": 679, "junction": 1232, "area": 905, "snipe": 356, "corner": 1459, "hide": 200, "cover": 16, "stair": 64, "escalator": 32, "door": 374 }
+[bots] learned from 134 cells, 0 stuck spots, 0 spots learned from play, 139 spot records (user://bot_memory_malasugue_mall.json)
+[game] autotest r24
+[autotest] PASS r24_wb_opens: K opened the workbench true; player held true
+[autotest] shot A:/Python/aetherion-project/.claude/worktrees/epic-wescoff-100904/work/r24/exe_smoke2/01_workbench_open.png
+[autotest] shot A:/Python/aetherion-project/.claude/worktrees/epic-wescoff-100904/work/r24/exe_smoke2/02_workbench_hover_info.png
+[autotest] PASS r24_wb_info: hover card: Rifle Drum Magazine | Magazine attachment | A rifle drum: twice the rounds, heavy and slow to reload. | ▲ | +30 rounds per magazine (30 -> 60) | ▼ | 8% more weapon sway | ▼ | 8% slower aiming | ▼ | 40% slower reload | ▼ | Weight 0.95 kg | 
+[r24] drag probe: dragging true, data { "wb_att": { "id": "mag_drum_rifle", "n": 1, "where": "In your bag", "from": 0 , mouse (1440.0, 809.9999), focus <Object#null>
+[autotest] shot A:/Python/aetherion-project/.claude/worktrees/epic-wescoff-100904/work/r24/exe_smoke2/03_workbench_drum_snapping.png
+[autotest] PASS r24_wb_drag_fits: after dragging the drum onto the gun: fitted ["sight_reddot", "mag_drum_rifle"]; magazine 60
+[autotest] shot A:/Python/aetherion-project/.claude/worktrees/epic-wescoff-100904/work/r24/exe_smoke2/04_workbench_plus_burst.png
+[autotest] shot A:/Python/aetherion-project/.claude/worktrees/epic-wescoff-100904/work/r24/exe_smoke2/05_workbench_full_kit.png
+[autotest] PASS r24_wb_fits_all: fitted ["mag_drum_rifle", "scope_4x", "grip_heavy", "stock_tactical", "suppressor_rifle", "laser_green"]; missing []; the red dot it replaced went to the bag: true
+[r24] drag probe: dragging false, data <null>, mouse (1440.0, 809.9999), focus <Object#null>
+[autotest] shot A:/Python/aetherion-project/.claude/worktrees/epic-wescoff-100904/work/r24/exe_smoke2/06_workbench_turned.png
+[autotest] PASS r24_wb_turn_zoom: yaw -0.58 -> 2.46, zoom 1.00 -> 0.90
+[autotest] PASS r24_wb_remove: after x: fitted ["mag_drum_rifle", "scope_4x", "grip_heavy", "stock_tactical", "suppressor_rifle"]; laser in bag 1
+[autotest] PASS r24_wb_closes: Esc: workbench gone true, player free true, no pause menu true
+[autotest] shot A:/Python/aetherion-project/.claude/worktrees/epic-wescoff-100904/work/r24/exe_smoke2/07_workbench_game_setup.png
+[autotest] PASS r24_wb_loadout: Game Setup bench on rifle_m416: model true, fitted grip_heavy -> profile ["grip_heavy"]
+[autotest] shot A:/Python/aetherion-project/.claude/worktrees/epic-wescoff-100904/work/r24/exe_smoke2/08_drum_rifle_m416_rest.png
+[autotest] shot A:/Python/aetherion-project/.claude/worktrees/epic-wescoff-100904/work/r24/exe_smoke2/09_drum_rifle_m416_reload.png
+[autotest] shot A:/Python/aetherion-project/.claude/worktrees/epic-wescoff-100904/work/r24/exe_smoke2/10_drum_smg_ump45_rest.png
+[autotest] shot A:/Python/aetherion-project/.claude/worktrees/epic-wescoff-100904/work/r24/exe_smoke2/11_drum_smg_ump45_reload.png
+[autotest] shot A:/Python/aetherion-project/.claude/worktrees/epic-wescoff-100904/work/r24/exe_smoke2/12_drum_pistol_9_rest.png
+[autotest] PASS r25_drum_in_well: {"pistol_9":{"fp_drum_on_mag":false,"fp_mag_hidden":false,"ok":true,"tp_without_mag":true,"well":false},"rifle_m416":{"drum_visible_in_hand":true,"fp_drum_on_mag":true,"fp_mag_hidden":true,"ok":true,"reload_moved_m":0.2,"seat_m":0.015,"tp_without_mag":true,"well":true},"smg_ump45":{"drum_visible_in_hand":true,"fp_drum_on_mag":true,"fp_mag_hidden":true,"ok":true,"reload_moved_m":0.19,"seat_m":0.015,"tp_without_mag":true,"well":true}}
+[autotest] shot A:/Python/aetherion-project/.claude/worktrees/epic-wescoff-100904/work/r24/exe_smoke2/13_drum_workbench_rifle_m416.png
+[autotest] shot A:/Python/aetherion-project/.claude/worktrees/epic-wescoff-100904/work/r24/exe_smoke2/14_drum_workbench_smg_ump45.png
+[autotest] PASS r25_drum_workbench: workbench gun mesh without its magazine: { "rifle_m416": true, "smg_ump45": true }
+[autotest] done: 10 checks, 0 failed
+WARNING: 7 RIDs of type "Texture" were leaked.
+   at: finalize (servers/rendering/rendering_device.cpp:8900)
