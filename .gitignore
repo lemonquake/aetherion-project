@@ -17,3 +17,5 @@ work/hf/check/
 work/hf/terrain_draft/*.f32
 work/hf/terrain_draft/*.u32
 work/hf/terrain_draft/cover.json
+# Godot copies a GDExtension library to ~<name> while it is loaded (hot reload); never commit the copy
+game/addons/terrain_3d/bin/~*
