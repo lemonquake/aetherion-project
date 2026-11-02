@@ -1,0 +1,18 @@
+{
+  "version": "0.27.0",
+  "activated": "2026-11-02 ~08:50 (UTC+8)",
+  "checks": {
+    "launcher_selftest": "public AetherionLauncher.exe 1.4.0 (hash = build) --selftest installed 0.27.0 in 28.3 s, 1.54 GB downloaded; Aetherion.pck, Aetherion.exe and libterrain.windows.release.x86_64.dll hashes = builds",
+    "official_dm_join": "that install joined the official Deathmatch lobby (UDP 27417); /api/status counted 1 player; lobby map list: Malasugue Mall, Freight Delight, Lawless Sub, Hidden Forest",
+    "apks": "live Aetherion.apk and Aetherion-opengl.apk 0.27.0 (842 MB, versionCode 2700), sha256 = builds",
+    "servers": "Official Deathmatch and Classic report aetherion-0.27.0",
+    "linux_server_wsl": "exported server on hidden_forest: map hash #8c536662 (same as Windows), shipped botnav and waypoints loaded, 21 bots, rounds complete, tick avg 2-3.6 ms",
+    "windows_exe": "exported game hosting hidden_forest with 6 bots: Terrain3D ground, torches, HUD, in-match capture exe_smoke/in_match.png",
+    "site": "desktop and 375 px: version 0.27.0 everywhere, Hidden Forest section, no Covered Court, no broken images, no console errors"
+  },
+  "vps": "gc --keep 2: removed server releases 0.20.0, 0.21.0, 0.22.0, 0.24.0 and 725 chunks (1.72 GB); 0.25.0 kept for rollback; 18 GB free",
+  "known": [
+    "macOS build has no Terrain3D library (none built); there is no Mac launcher, the map would draw its plain ground mesh",
+    "Covered Court was removed before release"
+  ]
+}
