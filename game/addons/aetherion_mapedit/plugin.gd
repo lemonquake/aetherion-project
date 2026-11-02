@@ -47,7 +47,7 @@ func _enter_tree() -> void:
 func _selftest() -> void:
 	## The editor's own check (editor_selftest.gd), when the editor was started for it.
 	var mid := OS.get_environment("AETHERION_MAPEDIT_MAP")
-	await preload("res://addons/aetherion_mapedit/editor_selftest.gd").new().run(self, OS.get_environment("AETHERION_MAPEDIT_TEST"), mid if mid != "" else "covered_court")
+	await preload("res://addons/aetherion_mapedit/editor_selftest.gd").new().run(self, OS.get_environment("AETHERION_MAPEDIT_TEST"), mid if mid != "" else "hidden_forest")
 
 
 func _exit_tree() -> void:

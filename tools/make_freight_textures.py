@@ -24,7 +24,7 @@ FONTS = ROOT / "game" / "assets" / "fonts"
 N = 512
 
 SURFACES: dict = {}
-FOLDER = "freight"   # the texture folder save() writes into (tools/make_map_textures.py draws other sets with it)
+FOLDER = "freight"   # the texture folder save() writes into (tools/make_jungle_textures.py draws other sets with it)
 
 
 # ------------------------------------------------------------------ noise and helpers

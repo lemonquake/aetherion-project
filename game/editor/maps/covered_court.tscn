@@ -1,7 +1,0 @@
-[gd_scene format=3 uid="uid://c8hpemgreyjet"]
-
-[ext_resource type="Script" uid="uid://ieyxhm7jjgij" path="res://addons/aetherion_mapedit/map_editor.gd" id="1_tri1b"]
-
-[node name="CoveredCourt" type="Node3D" unique_id=1705980386]
-script = ExtResource("1_tri1b")
-map_id = "covered_court"
