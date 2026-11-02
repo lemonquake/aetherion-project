@@ -1,0 +1,162 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+[server] dedicated server listening on 7811
+[dyn] 0 prop models, breakable ones cut into chunks in 0 ms
+[world] map built in 2070 ms
+[map] 0 buildings, 0 doors, 0 containers, 0 props, #00000000 on PC
+[nav] levels: 34890 points, 3 links, 123 ms
+[nav] r21: 617 cells closed by the physics check, main walk 34227 of 34282 points (55 in pockets), 163 ms
+[botnav] freight_delight: walk check and 258 spots from res://data/botnav/freight_delight.json { "hide": 102, "snipe": 83, "cover": 45, "open": 28 }
+[waypoints] freight_delight: 1237 nodes, 3923 edges (auto, res://data/waypoints/freight_delight.json), 1 off the main graph, 67 ms { "plaza": 236, "road": 240, "junction": 125, "snipe": 54, "hide": 46, "area": 220, "corner": 301, "stair": 15 }
+[bots] learned from 41 cells, 0 stuck spots, 0 spots learned from play, 31 spot records (user://bot_memory_freight_delight.json)
+[loadout] Boy Pickup machine_pistol [suppressor_light,laser_sight,mag_extquick_light,stock_tactical,weapon_light] mag 45/45 | revolver_357 [sight_reddot] mag 6/6
+[loadout] Tito Boy bolt_awp [scope_8x,suppressor_sniper,mag_ext_sniper,bullet_loops] mag 8/8 | pistol_45 [sight_reflex,mag_extquick_light,weapon_light] mag 12/12
+[loadout] Toto Pancit rifle_556 [scope_3x,suppressor_rifle,grip_angled,mag_extquick_rifle] mag 40/40 | revolver_357 [sight_reddot] mag 6/6
+[loadout] Pareng Pandesal rifle_556 [suppressor_rifle,grip_heavy,weapon_light] mag 30/30 | revolver_357 [sight_reddot] mag 6/6
+[loadout] Ka Pedring rifle_m416 [scope_night,suppressor_rifle,grip_vertical,mag_extquick_rifle,stock_heavy,weapon_light] mag 40/40 | pistol_45 [sight_reflex,suppressor_light,weapon_light] mag 7/7
+[loadout] Junjun Tisoy shotgun_pump [sight_holo,bullet_loops,weapon_light] mag 6/6 | pistol_9 [sight_reflex,mag_extquick_light,weapon_light] mag 21/21
+[loadout] Pareng Jun rifle_762 [suppressor_rifle,mag_extquick_rifle,weapon_light] mag 40/40 | pistol_9 [suppressor_light,mag_extquick_light,weapon_light] mag 21/21
+[loadout] Aling Nena shotgun_double [choke,bullet_loops] mag 2/2 | revolver_357 [sight_reddot] mag 6/6
+[loadout] Tita Baby marksman_308 [scope_4x,suppressor_sniper,mag_ext_sniper,cheek_pad] mag 30/30 | pistol_deagle [sight_reflex,suppressor_light,mag_drum_light,weapon_light] mag 13/13
+[loadout] Ate Load Dito shotgun_pump [sight_holo,duckbill,bullet_loops,weapon_light] mag 6/6 | pistol_deagle [suppressor_light,weapon_light] mag 7/7
+[loadout] Tito Videoke smg_9 [mag_extquick_light,weapon_light] mag 40/40 | pistol_45 [sight_reddot,suppressor_light,mag_extquick_light] mag 12/12
+[loadout] Kuya Fishball marksman_308 [mag_ext_sniper] mag 30/30 | revolver_357 [sight_reddot] mag 6/6
+[loadout] Kulot Sabaw shotgun_double [choke,bullet_loops] mag 2/2 | revolver_357 [sight_reddot] mag 6/6
+[loadout] Kuya Tricycle marksman_308 [suppressor_rifle,mag_ext_sniper,cheek_pad] mag 30/30 | revolver_357 [] mag 6/6
+[loadout] Mang Isko shotgun_saiga [sight_holo,muzzle_tactical,weapon_light] mag 5/5 | revolver_357 [sight_reflex] mag 6/6
+[loadout] Tsong Ramil shotgun_pump [choke,weapon_light] mag 6/6 | pistol_9 [sight_reddot,suppressor_light,mag_drum_light] mag 27/27
+[loadout] Tatay Kulas marksman_308 [scope_4x,mag_ext_sniper,cheek_pad] mag 30/30 | pistol_deagle [sight_reddot,suppressor_light,mag_extquick_light] mag 10/10
+[loadout] Dodong Lechon marksman_308 [suppressor_sniper,mag_ext_sniper,cheek_pad] mag 30/30 | pistol_deagle [sight_reddot,suppressor_light] mag 7/7
+[loadout] Ate Siomai shotgun_double [bullet_loops] mag 2/2 | revolver_357 [] mag 6/6
+[loadout] Manong Guard rifle_762 [scope_3x,suppressor_rifle,laser_sight,mag_extquick_rifle,laser_green] mag 40/40 | pistol_45 [suppressor_light] mag 7/7
+[match    0.0] [grenades] round 1: 4 pickups at [(10.6, 0.1, 32.6), (24.2, 0.0, -31.7), (42.6, 0.1, 32.6), (-17.7, 0.1, 38.2)] (0 cleared)
+[match    0.0] deathmatch start on freight_delight: 20 players, 2 teams; spawns (-52.0, 0.0, 0.0), (50.0, 0.0, 0.0) (103/103 m apart, layout); day offset 0 s; zone centre (-6.0, 1.0) r=96; win by wipe
+[match    0.0] status: { "ground": 20 }; armed 20; shots 0; zone -1 hold r=96; corpses 0; levels { "L1": 20 }
+[match    0.0] dm teams: West Team 10 at (-51.0, 1.0) spread 4 m; East Team 10 at (52.0, 2.0) spread 7 m; gap 102 m; zone centre (-6.0, 1.0)
+[match    0.0] bots: { "roam": 20 }; containers searched by bots 0 (all players 0); plan steps done 0; guns carried 40
+[match    0.0] roles: { "stalker": { "roam": 9 }, "looter": { "roam": 4 }, "rusher": { "roam": 3 }, "sniper": { "roam": 4 } }; stuck now 0; waypoints 258; team { "lines": 0, "pings": 0, "laser_follow": 0, "learned_cells": 41, "blocked_cells": 0, "squads": 0, "following_humans": 0, &"learned_spots": 0 }
+[match    0.0] [lootstats] bots on the ground 20 (in water 0); armed 20; armed with ammo for a gun 20; long guns 20; attachments fitted 100; rounds of unusable ammo carried 0; items on the ground 4; bot pickups { "detours": 0, "detour_taken": 0, "fetches": 0, "fetch_done": 0, "items_taken": 0 }
+[match    5.6] Ate Siomai (team 1) landed at (47.0, 0.0, -3.0), 2.5 m/s, health 100; teammates -
+[match    6.8] Toto Pancit (team 1) landed at (47.0, 0.0, 2.0), 2.5 m/s, health 100; teammates 4 m
+[match    7.6] Ka Pedring (team 1) landed at (47.0, 0.0, 1.0), 2.5 m/s, health 100; teammates 2 m, 8 m
+[match    9.3] [hold] Tatay Kulas overwatch spot 109 59s
+[match   12.8] [hold] Manong Guard camp spot 64 51s
+[match   12.9] [hold] Junjun Tisoy overwatch spot 174 84s
+[match   13.7] Tito Boy (team 0) landed at (-42.0, 0.0, 25.0), 4.9 m/s, health 100; teammates -
+[match   13.9] [hold] Tsong Ramil overwatch spot 167 95s
+[match   14.7] Pareng Pandesal killed by Ate Siomai (gunshot); 2 teams left
+[match   14.7] alive: West Team 9, East Team 10; score { 0: 0, 1: 0 }
+[match   15.0] [botstates] 299 bot-s: roam 49%, hunt 25%, follow 20%, overwatch 3%, fight 1%, camp 1%, investigate 0%
+[match   15.0] [botskill] normal shots 11 hits 7 reaction_avg 0.26 (n 6) dmg 141 bots 19
+[match   15.0] status: { "ground": 19 }; armed 19; shots 13; zone -1 hold r=96; corpses 1; levels { "L1": 18, "L2": 1 }; server tick avg 2.53 ms, p99 6.96 ms, max 167.38 ms over 900 ticks; objects 6409
+[match   15.0] dm teams: West Team 9 at (-30.0, 9.0) spread 16 m; East Team 10 at (19.0, 1.0) spread 11 m; gap 50 m; zone centre (-6.0, 1.0)
+[match   15.0] bots: { "follow": 5, "hunt": 2, "investigate": 4, "fight": 5, "roam": 3 }; containers searched by bots 0 (all players 0); plan steps done 0; guns carried 38
+[match   15.0] roles: { "stalker": { "follow": 3, "hunt": 2, "fight": 2, "investigate": 1, "roam": 1 }, "looter": { "investigate": 2, "roam": 1, "follow": 1 }, "sniper": { "investigate": 1, "follow": 1, "roam": 1, "fight": 1 }, "rusher": { "fight": 2 } }; stuck now 0; waypoints 258; team { "lines": 6, "pings": 0, "laser_follow": 0, "learned_cells": 41, "blocked_cells": 0, "squads": 6, "following_humans": 0, &"learned_spots": 0 }
+[match   15.0] [lootstats] bots on the ground 19 (in water 0); armed 19; armed with ammo for a gun 19; long guns 19; attachments fitted 96; rounds of unusable ammo carried 0; items on the ground 4; bot pickups { "detours": 0, "detour_taken": 0, "fetches": 0, "fetch_done": 0, "items_taken": 0 }
+[match   17.5] Ate Siomai killed by Pareng Jun (gunshot); 2 teams left
+[match   17.5] alive: West Team 9, East Team 9; score { 0: 0, 1: 0 }
+[match   17.6] Mang Isko killed by Kuya Fishball (gunshot); 2 teams left
+[match   17.6] alive: West Team 9, East Team 8; score { 0: 0, 1: 0 }
+[match   17.6] Boy Pickup killed by Tito Videoke (gunshot); 2 teams left
+[match   17.6] alive: West Team 9, East Team 7; score { 0: 0, 1: 0 }
+[match   18.9] Kuya Fishball killed by Toto Pancit (gunshot); 2 teams left
+[match   18.9] alive: West Team 8, East Team 7; score { 0: 0, 1: 0 }
+[match   19.0] Kuya Tricycle (team 0) landed at (-21.0, 0.0, 2.0), 4.9 m/s, health 84; teammates 40 m
+[match   19.8] Dodong Lechon (team 0) landed at (-25.0, 0.0, -1.0), 3.8 m/s, health 92; teammates 40 m, 3 m
+[match   20.3] Tsong Ramil killed by Tita Baby (gunshot); 2 teams left
+[match   20.3] alive: West Team 7, East Team 7; score { 0: 0, 1: 0 }
+[match   25.0] Ate Load Dito (team 0) landed at (-42.0, 0.0, 34.0), 4.9 m/s, health 100; teammates 11 m, 39 m, 39 m
+[match   25.8] [hold] Kuya Tricycle overwatch spot 154 67s
+[match   26.9] Tita Baby (team 1) landed at (8.0, 0.0, 0.0), 4.7 m/s, health 75; teammates 2 m, 35 m
+[match   27.7] Junjun Tisoy killed by Tatay Kulas (gunshot); 2 teams left
+[match   27.7] alive: West Team 6, East Team 7; score { 0: 0, 1: 0 }
+[match   30.0] [botstates] 524 bot-s: roam 34%, hunt 24%, follow 18%, fight 10%, heal 5%, investigate 4%, order 3%, overwatch 2%, camp 0%
+[match   30.0] [botskill] normal shots 119 hits 37 reaction_avg 0.32 (n 43) dmg 1129 bots 13
+[match   30.0] status: { "ground": 13 }; armed 13; shots 119; zone -1 hold r=96; corpses 7; levels { "L1": 12, "L2": 1 }; server tick avg 3.11 ms, p99 9.16 ms, max 19.23 ms over 900 ticks; objects 5736
+[match   30.0] dm teams: West Team 6 at (-33.0, 8.0) spread 18 m; East Team 7 at (12.0, 3.0) spread 12 m; gap 46 m; zone centre (-6.0, 1.0)
+[match   30.0] bots: { "hunt": 3, "heal": 1, "fight": 5, "follow": 2, "roam": 2 }; containers searched by bots 0 (all players 0); plan steps done 0; guns carried 26
+[match   30.0] roles: { "stalker": { "hunt": 3, "fight": 3, "follow": 1 }, "looter": { "heal": 1, "fight": 1, "follow": 1, "roam": 1 }, "sniper": { "roam": 1, "fight": 1 } }; stuck now 0; waypoints 258; team { "lines": 33, "pings": 0, "laser_follow": 0, "learned_cells": 42, "blocked_cells": 0, "squads": 6, "following_humans": 0, &"learned_spots": 0 }
+[match   30.0] [lootstats] bots on the ground 13 (in water 0); armed 13; armed with ammo for a gun 13; long guns 13; attachments fitted 72; rounds of unusable ammo carried 0; items on the ground 4; bot pickups { "detours": 0, "detour_taken": 0, "fetches": 0, "fetch_done": 0, "items_taken": 0 }
+[match   30.6] Dodong Lechon killed by Tita Baby (gunshot); 2 teams left
+[match   30.6] alive: West Team 5, East Team 7; score { 0: 0, 1: 0 }
+[match   33.5] Manong Guard (team 0) landed at (-32.0, 3.0, -15.0), 4.9 m/s, health 98; teammates 46 m, 41 m, 6 m
+[match   35.4] [hold] Kuya Tricycle overwatch spot 178 70s
+[match   37.6] Kuya Tricycle killed by Tatay Kulas (gunshot); 2 teams left
+[match   37.6] alive: West Team 4, East Team 7; score { 0: 0, 1: 0 }
+[match   44.5] Toto Pancit killed by Tita Baby (gunshot); 2 teams left
+[match   44.5] alive: West Team 4, East Team 6; score { 0: 0, 1: 0 }
+[match   45.0] [botstates] 696 bot-s: roam 28%, hunt 25%, follow 18%, fight 10%, heal 8%, order 5%, investigate 4%, overwatch 1%, camp 0%
+[match   45.0] [botskill] normal shots 183 hits 44 reaction_avg 0.31 (n 62) dmg 1483 bots 10
+[match   45.0] status: { "ground": 10 }; armed 10; shots 183; zone -1 hold r=96; corpses 10; levels { "L1": 9, "L2": 1 }; server tick avg 2.18 ms, p99 5.33 ms, max 12.37 ms over 900 ticks; objects 5401
+[match   45.0] dm teams: West Team 4 at (-36.0, 13.0) spread 20 m; East Team 6 at (-1.0, 5.0) spread 17 m; gap 36 m; zone centre (-6.0, 1.0)
+[match   45.0] bots: { "order": 3, "hunt": 3, "heal": 2, "follow": 1, "investigate": 1 }; containers searched by bots 0 (all players 0); plan steps done 0; guns carried 20
+[match   45.0] roles: { "stalker": { "order": 2, "hunt": 3, "follow": 1 }, "looter": { "heal": 2, "order": 1 }, "sniper": { "investigate": 1 } }; stuck now 0; waypoints 258; team { "lines": 47, "pings": 0, "laser_follow": 0, "learned_cells": 43, "blocked_cells": 0, "squads": 6, "following_humans": 0, &"learned_spots": 0 }
+[match   45.0] [lootstats] bots on the ground 10 (in water 0); armed 10; armed with ammo for a gun 10; long guns 10; attachments fitted 59; rounds of unusable ammo carried 0; items on the ground 4; bot pickups { "detours": 0, "detour_taken": 0, "fetches": 0, "fetch_done": 0, "items_taken": 0 }
+[match   53.2] Ate Load Dito killed by Tatay Kulas (gunshot); 2 teams left
+[match   53.2] alive: West Team 3, East Team 6; score { 0: 0, 1: 0 }
+[match   56.3] [hold] Manong Guard camp spot 17 55s
+[match   58.7] Tito Boy killed by Tatay Kulas (gunshot); 2 teams left
+[match   58.7] alive: West Team 2, East Team 6; score { 0: 0, 1: 0 }
+[match   59.1] [endgame] West Team mates 2 foes 6 nocontact 0s
+[match   59.2] [endgame] East Team mates 6 foes 2 nocontact 0s
+[match   60.0] [botstates] 838 bot-s: hunt 26%, roam 24%, follow 16%, heal 10%, fight 10%, order 8%, investigate 4%, overwatch 1%, camp 0%
+[match   60.0] [botskill] normal shots 197 hits 52 reaction_avg 0.33 (n 71) dmg 1832 bots 8
+[match   60.0] status: { "ground": 8 }; armed 8; shots 197; zone -1 hold r=96; corpses 12; levels { "L1": 8 }; server tick avg 1.77 ms, p99 3.97 ms, max 7.44 ms over 900 ticks; objects 5175
+[match   60.0] dm teams: West Team 2 at (-36.0, -2.0) spread 23 m; East Team 6 at (-15.0, 3.0) spread 19 m; gap 21 m; zone centre (-6.0, 1.0)
+[match   60.0] bots: { "hunt": 6, "heal": 1, "follow": 1 }; containers searched by bots 0 (all players 0); plan steps done 0; guns carried 16
+[match   60.0] roles: { "stalker": { "hunt": 4, "follow": 1 }, "looter": { "heal": 1, "hunt": 1 }, "sniper": { "hunt": 1 } }; stuck now 0; waypoints 258; team { "lines": 60, "pings": 0, "laser_follow": 0, "learned_cells": 47, "blocked_cells": 0, "squads": 6, "following_humans": 0, &"learned_spots": 0 }
+[match   60.0] [lootstats] bots on the ground 8 (in water 0); armed 8; armed with ammo for a gun 8; long guns 8; attachments fitted 46; rounds of unusable ammo carried 0; items on the ground 4; bot pickups { "detours": 0, "detour_taken": 0, "fetches": 0, "fetch_done": 0, "items_taken": 0 }
+[match   61.6] Kulot Sabaw (team 1) landed at (-42.0, 0.0, -2.0), 4.4 m/s, health 67; teammates 32 m, 47 m
+[match   69.1] Tatay Kulas killed by Manong Guard (gunshot); 2 teams left
+[match   69.1] alive: West Team 2, East Team 5; score { 0: 0, 1: 0 }
+[match   71.7] Aling Nena (team 0) landed at (-48.0, 0.0, 20.0), 4.5 m/s, health 76; teammates 48 m
+[match   75.0] [botstates] 953 bot-s: hunt 26%, roam 21%, follow 16%, fight 14%, heal 11%, order 7%, investigate 4%, overwatch 1%, camp 0%
+[match   75.0] [botskill] normal shots 380 hits 59 reaction_avg 0.36 (n 87) dmg 2020 bots 7
+[match   75.0] status: { "ground": 7 }; armed 7; shots 380; zone -1 hold r=96; corpses 13; levels { "L1": 7 }; server tick avg 2.47 ms, p99 5.27 ms, max 6.28 ms over 900 ticks; objects 5062
+[match   75.0] dm teams: West Team 2 at (-38.0, -3.0) spread 24 m; East Team 5 at (-20.0, 2.0) spread 15 m; gap 19 m; zone centre (-6.0, 1.0)
+[match   75.0] bots: { "fight": 2, "hunt": 1, "investigate": 1, "heal": 2, "follow": 1 }; containers searched by bots 0 (all players 0); plan steps done 0; guns carried 14
+[match   75.0] roles: { "stalker": { "fight": 1, "hunt": 1, "investigate": 1, "follow": 1, "heal": 1 }, "looter": { "heal": 1, "fight": 1 } }; stuck now 0; waypoints 258; team { "lines": 72, "pings": 0, "laser_follow": 0, "learned_cells": 48, "blocked_cells": 0, "squads": 6, "following_humans": 0, &"learned_spots": 0 }
+[match   75.0] [lootstats] bots on the ground 7 (in water 0); armed 7; armed with ammo for a gun 7; long guns 7; attachments fitted 40; rounds of unusable ammo carried 0; items on the ground 4; bot pickups { "detours": 0, "detour_taken": 0, "fetches": 0, "fetch_done": 0, "items_taken": 0 }
+[match   85.1] Kulot Sabaw killed by Manong Guard (gunshot); 2 teams left
+[match   85.1] alive: West Team 2, East Team 4; score { 0: 0, 1: 0 }
+[match   90.0] [botstates] 1053 bot-s: hunt 26%, roam 19%, fight 16%, follow 16%, heal 12%, order 6%, investigate 4%, overwatch 1%, camp 0%
+[match   90.0] [botskill] normal shots 544 hits 62 reaction_avg 0.36 (n 93) dmg 2092 bots 6
+[match   90.0] status: { "ground": 6 }; armed 6; shots 544; zone -1 hold r=96; corpses 14; levels { "L1": 6 }; server tick avg 2.18 ms, p99 4.07 ms, max 9.52 ms over 900 ticks; objects 4948
+[match   90.0] dm teams: West Team 2 at (-25.0, 3.0) spread 27 m; East Team 4 at (-17.0, -4.0) spread 15 m; gap 11 m; zone centre (-6.0, 1.0)
+[match   90.0] bots: { "fight": 2, "hunt": 2, "heal": 1, "follow": 1 }; containers searched by bots 0 (all players 0); plan steps done 0; guns carried 12
+[match   90.0] roles: { "stalker": { "fight": 1, "hunt": 2, "follow": 1 }, "looter": { "heal": 1, "fight": 1 } }; stuck now 0; waypoints 258; team { "lines": 81, "pings": 0, "laser_follow": 0, "learned_cells": 49, "blocked_cells": 0, "squads": 6, "following_humans": 0, &"learned_spots": 0 }
+[match   90.0] [lootstats] bots on the ground 6 (in water 0); armed 6; armed with ammo for a gun 6; long guns 6; attachments fitted 37; rounds of unusable ammo carried 0; items on the ground 4; bot pickups { "detours": 0, "detour_taken": 0, "fetches": 0, "fetch_done": 0, "items_taken": 0 }
+[match   99.1] Manong Guard killed by Ka Pedring (gunshot); 2 teams left
+[match   99.1] alive: West Team 1, East Team 4; score { 0: 0, 1: 0 }
+[match  105.0] [botstates] 1137 bot-s: hunt 27%, roam 18%, fight 16%, follow 16%, heal 12%, order 6%, investigate 4%, overwatch 1%, camp 0%
+[match  105.0] [botskill] normal shots 587 hits 66 reaction_avg 0.36 (n 95) dmg 2161 bots 5
+[match  105.0] status: { "ground": 5 }; armed 5; shots 587; zone -1 hold r=96; corpses 15; levels { "L1": 5 }; server tick avg 1.65 ms, p99 4.49 ms, max 5.62 ms over 900 ticks; objects 4833
+[match  105.0] dm teams: West Team 1 at (-45.0, 32.0) spread 0 m; East Team 4 at (-20.0, -8.0) spread 14 m; gap 47 m; zone centre (-6.0, 1.0)
+[match  105.0] bots: { "hunt": 3, "heal": 1, "follow": 1 }; containers searched by bots 0 (all players 0); plan steps done 0; guns carried 10
+[match  105.0] roles: { "stalker": { "hunt": 3, "follow": 1 }, "looter": { "heal": 1 } }; stuck now 0; waypoints 258; team { "lines": 86, "pings": 0, "laser_follow": 0, "learned_cells": 49, "blocked_cells": 0, "squads": 6, "following_humans": 0, &"learned_spots": 0 }
+[match  105.0] [lootstats] bots on the ground 5 (in water 0); armed 5; armed with ammo for a gun 5; long guns 5; attachments fitted 31; rounds of unusable ammo carried 0; items on the ground 4; bot pickups { "detours": 0, "detour_taken": 0, "fetches": 0, "fetch_done": 0, "items_taken": 0 }
+[match  110.7] [sweep] Ka Pedring -> cell (-3, -2, 1) spot 8 stale 142s 13 m
+[match  120.0] [botstates] 1212 bot-s: hunt 29%, roam 17%, follow 16%, fight 15%, heal 13%, order 6%, investigate 3%, overwatch 1%, camp 0%
+[match  120.0] [botskill] normal shots 587 hits 66 reaction_avg 0.36 (n 95) dmg 2161 bots 5
+[match  120.0] status: { "ground": 5 }; armed 5; shots 587; zone -1 hold r=96; corpses 15; levels { "L1": 5 }; server tick avg 1.15 ms, p99 4.14 ms, max 7.06 ms over 900 ticks; objects 4833
+[match  120.0] dm teams: West Team 1 at (-45.0, 28.0) spread 0 m; East Team 4 at (-25.0, -12.0) spread 17 m; gap 45 m; zone centre (-6.0, 1.0)
+[match  120.0] bots: { "hunt": 3, "heal": 1, "follow": 1 }; containers searched by bots 0 (all players 0); plan steps done 0; guns carried 10
+[match  120.0] roles: { "stalker": { "hunt": 3, "follow": 1 }, "looter": { "heal": 1 } }; stuck now 0; waypoints 258; team { "lines": 87, "pings": 0, "laser_follow": 0, "learned_cells": 49, "blocked_cells": 0, "squads": 6, "following_humans": 0, &"learned_spots": 0 }
+[match  120.0] [lootstats] bots on the ground 5 (in water 0); armed 5; armed with ammo for a gun 5; long guns 5; attachments fitted 31; rounds of unusable ammo carried 0; items on the ground 4; bot pickups { "detours": 0, "detour_taken": 0, "fetches": 0, "fetch_done": 0, "items_taken": 0 }
+[match  129.0] [sweep] Pareng Jun -> cell (-3, -1, 1) spot 205 stale 160s 13 m
+[match  135.0] [botstates] 1287 bot-s: hunt 31%, follow 16%, roam 16%, fight 15%, heal 13%, order 5%, investigate 3%, overwatch 1%, camp 0%
+[match  135.0] [botskill] normal shots 587 hits 66 reaction_avg 0.36 (n 95) dmg 2161 bots 5
+[match  135.0] status: { "ground": 5 }; armed 5; shots 587; zone -1 hold r=96; corpses 15; levels { "L1": 5 }; server tick avg 0.99 ms, p99 3.10 ms, max 3.71 ms over 900 ticks; objects 4833
+[match  135.0] dm teams: West Team 1 at (-33.0, 28.0) spread 0 m; East Team 4 at (-21.0, -13.0) spread 20 m; gap 43 m; zone centre (-6.0, 1.0)
+[match  135.0] bots: { "hunt": 3, "heal": 1, "follow": 1 }; containers searched by bots 0 (all players 0); plan steps done 0; guns carried 10
+[match  135.0] roles: { "stalker": { "hunt": 3, "follow": 1 }, "looter": { "heal": 1 } }; stuck now 0; waypoints 258; team { "lines": 87, "pings": 0, "laser_follow": 0, "learned_cells": 49, "blocked_cells": 0, "squads": 6, "following_humans": 0, &"learned_spots": 0 }
+[match  135.0] [lootstats] bots on the ground 5 (in water 0); armed 5; armed with ammo for a gun 5; long guns 5; attachments fitted 31; rounds of unusable ammo carried 0; items on the ground 4; bot pickups { "detours": 0, "detour_taken": 0, "fetches": 0, "fetch_done": 0, "items_taken": 0 }
+[match  137.1] [sweep] Ka Pedring -> cell (-4, -3, 0) spot 218 stale 168s 38 m
+[match  141.0] [sweep] Aling Nena -> cell (1, -1, 0) spot 219 stale 172s 60 m
+[match  143.2] [sweep] Pareng Jun -> cell (-3, -2, 1) spot 8 stale 174s 22 m
+[match  144.1] Pareng Jun (team 1) landed at (-40.0, 0.0, -7.0), 5.7 m/s, health 100; teammates 30 m, 45 m
+[match  150.0] [botstates] 1362 bot-s: hunt 32%, follow 16%, roam 15%, fight 14%, heal 14%, order 5%, investigate 3%, overwatch 1%, camp 0%
+[match  150.0] [botskill] normal shots 587 hits 66 reaction_avg 0.36 (n 95) dmg 2161 bots 5
+[match  150.0] match ended early (test): winner team 1 after 150 s
+[bots] saved 49 learned cells, 36 spot records, 0 spots learned from play to user://bot_memory_freight_delight.json
+[game] results: {}
