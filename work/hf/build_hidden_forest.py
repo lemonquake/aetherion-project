@@ -53,6 +53,8 @@ _ids = set()
 
 
 def add(**p):
+    if "yaw" in p:
+        p["yaw"] = round(float(p["yaw"]) % 360.0, 3)   # the editor writes bearings in [0, 360)
     pid = p["id"]
     k = 2
     while pid in _ids:
@@ -480,7 +482,7 @@ def build(h, walk, d_out, d_in, pav, paths):
     prop("jg_jaguar_s", L, (68.5, 1.2, 28.5), "hf_jaguar", 270, foot=[1.3, 1.9], foot_h=2.4)
     # a colonnade down the middle and low inner walls for cover
     for k in range(5):
-        column("jg_col%d" % k, L, (57.5, 0, 17.5 + k * 3.25), 3.4, r=0.42, mat="jungle/stucco_red")
+        column("jg_col%d" % k, L, (57.5, 0, 17.5 + k * 3.25), 3.4, r=0.42, mat="jungle/tezontle")
     floor("jg_colroof", L, (57.5, 3.75, 24.0), (2.4, 15.0), "jungle/temple_stone", t=0.35)
     broken_wall("jg_inner_a", L, (61.0, 16.5), (61.0, 21.0), "jungle/rubble_wall", 1.1, 1.5, 31, t=0.6)
     broken_wall("jg_inner_b", L, (61.0, 27.0), (61.0, 31.5), "jungle/rubble_wall", 1.1, 1.5, 32, t=0.6)
@@ -936,7 +938,6 @@ def ground_cover(h, walk, d_out, d_in, paths):
         ("weed_leaves", 0.14, 0.04, (0.8, 1.3), 7.0),
         ("periwinkle", 0.05, 0.03, (0.8, 1.2), 6.0),
         ("taro", 0.07, 0.006, (0.8, 1.35), 10.0),
-        ("exotic_plant", 0.04, 0.004, (0.8, 1.3), 8.0),
         ("banana", 0.03, 0.0, (0.8, 1.2), 12.0),
         ("banana_tree", 0.012, 0.0, (0.75, 1.15), 14.0),
         ("mossrock_s1", 0.012, 0.004, (0.3, 0.6), 10.0),
@@ -963,6 +964,8 @@ def ground_cover(h, walk, d_out, d_in, paths):
                 if d > dmax:
                     if rng.random() > 0.15:
                         continue
+                elif d > 5.0 and rng.random() > 0.45:
+                    continue          # the banks' tops are above eye level from the floor: plant them thinner
                 if rng.random() > dens_bank / max(dens_bank, dens_in):
                     continue
             y = float(h[i, j])
@@ -1000,14 +1003,14 @@ def main():
         "night_grade": {"moon_k": 0.95, "ambient": "#22362f", "ambient_energy": 0.34, "fog": 0.0055, "fog_color": "#0d1714",
                         "vol_fog": 0.012, "exposure_k": 1.4, "saturation": 0.95, "contrast": 1.06, "sky_glow": "#0e120d", "sky_cloud": 0.4},
         "terrain": {"dir": "res://maps/%s/terrain" % MAP_ID, "spacing": SP, "region_size": 256, "area": [-96, -96, 96, 96], "phys": "dirt"},
-        "dm_centre": [-4, -4],
+        "dm_centre": [-4, -4], "fireflies": 40,
         "note": "Hidden Forest (r27): an ancient city swallowed by the jungle, always night. Team 1 the Eagle Gate (west), "
                 "Team 2 the Jaguar Gate (east), Team 3 behind the Temple of the Sun (north). Ground: Terrain3D.",
         "pieces": pieces,
     }
     OUT.parent.mkdir(parents=True, exist_ok=True)
     head = ["format", "id", "name", "code", "modes", "bounds", "levels", "level_height", "night_only", "field_optional",
-            "teams", "night_grade", "terrain", "dm_centre", "note"]
+            "teams", "night_grade", "terrain", "dm_centre", "fireflies", "note"]
     lines = ["{"]
     for k in head:
         lines.append(" %s: %s," % (json.dumps(k), json.dumps(doc[k])))

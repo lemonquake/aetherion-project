@@ -503,7 +503,7 @@ def maps(only=None):
 
 TERRAIN = [
     # name, Poly Haven id, uv scale hint (repeats per metre, Terrain3D's uv_scale), grade
-    ("litter", "leaves_forest_ground", {"sat": 0.85, "gain": 0.85}),
+    ("litter", "leaves_forest_ground", {"sat": 0.75, "gain": 0.7, "tint": (0.92, 0.98, 0.86)}),
     ("sprouts", "brown_mud_leaves_01", {"sat": 0.9, "gain": 0.9}),
     ("soil", "mud_forest", {"sat": 1.0, "gain": 1.0}),
     ("roots", "roots", {"sat": 0.8, "gain": 0.62, "tint": (0.95, 0.9, 0.82)}),
@@ -511,7 +511,7 @@ TERRAIN = [
     ("lichen_rock", "mossy_rock", {"sat": 0.8, "gain": 0.75}),
     ("cliff", "rock_wall_02", {"sat": 0.9, "gain": 0.95}),
     ("flagstones", "monastery_stone_floor", {"sat": 0.55, "gain": 0.95, "tint": (0.95, 0.98, 0.95)}),
-    ("leaf_grass", "forest_leaves_02", {"sat": 0.9, "gain": 0.85}),
+    ("leaf_grass", "forest_leaves_02", {"sat": 1.05, "gain": 0.72, "tint": (0.72, 1.0, 0.55)}),   # greener: a jungle, not autumn
 ]
 
 

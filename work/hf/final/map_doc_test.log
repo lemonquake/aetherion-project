@@ -1,0 +1,11 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+PASS load: 770 pieces
+PASS problems: 0
+PASS text_round_trip: 132918 chars (written, read back, written again: the same text)
+PASS built: 783 brushes, 32 meshes, 76 bodies, 116 lights in 650 ms, missing []
+PASS spawns: team 1: 8, team 2: 8
+PASS walk_grids: open cells per level [27459, 4546]
+PASS stair_links: 16 flights, 15 links (15 full-storey stairs)
+PASS doors: 0 doors, 207 props, 21 bot spots
+map_doc_test: PASS (0 failed)

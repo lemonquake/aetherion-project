@@ -123,14 +123,23 @@ func collision_body(layer: int) -> StaticBody3D:
 	return body
 
 
-static func make_node(s: Dictionary, mobile: bool) -> Node3D:
+## The render layer the ground and its plants go on in the game: the one lamps and muzzle flashes leave out of
+## their shadow maps (Defs.RENDER_INTERIOR_PROPS), which the camera draws. A torch's shadow pass would otherwise draw
+## the whole terrain and every fern again (millions of triangles a frame); the moon still shadows them.
+const GAME_LAYER := 32
+## On phones the ground cover is drawn this much nearer.
+const MOBILE_COVER_RANGE := 0.6
+
+
+static func make_node(s: Dictionary, mobile: bool, in_game := true) -> Node3D:
 	## Terrain3D drawing the ground (no collision of its own: the baked heightfield collides). null without the
 	## extension.
 	if s.is_empty() or not ClassDB.class_exists("Terrain3D"):
 		return null
 	var t: Node3D = ClassDB.instantiate("Terrain3D")
 	t.name = "Terrain3D"
-	t.set("region_size", int(s.region_size))
+	# No "region_size": its setter resizes the data (an editor action) and crashes on a node not yet set up; the
+	# region size comes from the data directory's own files.
 	t.set("vertex_spacing", float(s.spacing))
 	t.set("collision_mode", 0)
 	var mp: String = s.mobile_material if mobile and ResourceLoader.exists(s.mobile_material) else s.material
@@ -141,6 +150,18 @@ static func make_node(s: Dictionary, mobile: bool) -> Node3D:
 	t.set("mesh_size", int(s.mesh_size) if not mobile else mini(int(s.mesh_size), 32))
 	t.set("mesh_lods", int(s.mesh_lods) if not mobile else mini(int(s.mesh_lods), 6))
 	t.set("cast_shadows", 1 if bool(s.cast_shadows) and not mobile else 0)
+	if in_game:
+		t.set("render_layers", GAME_LAYER)
+		var assets = t.get("assets")
+		if assets != null:
+			for i in int(assets.get_mesh_count()):
+				var ma = assets.get_mesh_asset(i)
+				if ma == null:
+					continue
+				ma.set("visibility_layers", GAME_LAYER)
+				ma.set("cast_shadows", 0)
+				if mobile:
+					ma.set("lod0_range", float(ma.get("lod0_range")) * MOBILE_COVER_RANGE)
 	t.set("data_directory", str(s.dir))
 	return t
 

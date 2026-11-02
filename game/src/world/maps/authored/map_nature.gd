@@ -98,8 +98,38 @@ static func vines_node(p: Dictionary, local := false) -> MeshInstance3D:
 	mi.cast_shadow = GeometryInstance3D.SHADOW_CASTING_SETTING_OFF
 	mi.visibility_range_end = 75.0
 	mi.visibility_range_end_margin = 8.0
-	mi.visibility_range_fade_mode = GeometryInstance3D.VISIBILITY_RANGE_FADE_SELF
+	mi.visibility_range_fade_mode = GeometryInstance3D.VISIBILITY_RANGE_FADE_DISABLED   # past the fog: no fade (it would draw them blended)
 	return mi
+
+
+static func vines_batched(pieces: Array, cell := 32.0) -> Array:
+	## Every vines piece of a map merged into one mesh per cell (one draw each, not one per piece), in world space.
+	var by := {}
+	for p in pieces:
+		var xf := vines_frame(p)
+		var k := Vector2i(floori(xf.origin.x / cell), floori(xf.origin.z / cell))
+		if not by.has(k):
+			by[k] = []
+		by[k].append([p, xf])
+	var out := []
+	for k in by:
+		var st := SurfaceTool.new()
+		st.begin(Mesh.PRIMITIVE_TRIANGLES)
+		for e in by[k]:
+			var m := vines_mesh(e[0])
+			st.append_from(m, 0, e[1])
+		st.generate_tangents()
+		var am := st.commit()
+		am.surface_set_material(0, vine_material())
+		var mi := MeshInstance3D.new()
+		mi.name = "Vines_%d_%d" % [k.x, k.y]
+		mi.mesh = am
+		mi.cast_shadow = GeometryInstance3D.SHADOW_CASTING_SETTING_OFF
+		mi.visibility_range_end = 85.0
+		mi.visibility_range_end_margin = 8.0
+		mi.visibility_range_fade_mode = GeometryInstance3D.VISIBILITY_RANGE_FADE_DISABLED   # past the fog: no fade (it would draw them blended)
+		out.append(mi)
+	return out
 
 
 static func vines_bounds(p: Dictionary) -> AABB:
@@ -109,6 +139,78 @@ static func vines_bounds(p: Dictionary) -> AABB:
 	var bb := AABB(la, Vector3.ZERO).expand(lb)
 	bb = bb.expand(la - Vector3(0, float(p.get("drop", 3.0)), 0)).expand(lb - Vector3(0, float(p.get("drop", 3.0)), 0))
 	return bb.grow(0.25)
+
+
+# ------------------------------------------------------------------ fireflies (a map header's "fireflies": how many a place)
+
+static var _fly_mat: StandardMaterial3D = null
+static var _fly_proc: ParticleProcessMaterial = null
+
+
+static func fireflies_node(at: Vector3, amount: int, spread := 11.0) -> GPUParticles3D:
+	## Glowing specks drifting and blinking over a clearing: GPU particles, a few dozen, never drawn past 70 m.
+	if _fly_proc == null:
+		var pm := ParticleProcessMaterial.new()
+		pm.emission_shape = ParticleProcessMaterial.EMISSION_SHAPE_BOX
+		pm.emission_box_extents = Vector3(spread, 1.4, spread)
+		pm.gravity = Vector3.ZERO
+		pm.direction = Vector3(0, 1, 0)
+		pm.spread = 180.0
+		pm.initial_velocity_min = 0.05
+		pm.initial_velocity_max = 0.35
+		pm.turbulence_enabled = true
+		pm.turbulence_noise_strength = 1.6
+		pm.turbulence_noise_scale = 3.0
+		pm.turbulence_noise_speed = Vector3(0.1, 0.05, 0.1)
+		pm.turbulence_influence_min = 0.08
+		pm.turbulence_influence_max = 0.2
+		pm.scale_min = 0.6
+		pm.scale_max = 1.2
+		# each one glows up, holds, fades: a blink every few seconds
+		var g := Gradient.new()
+		g.offsets = PackedFloat32Array([0.0, 0.15, 0.3, 0.55, 0.7, 1.0])
+		g.colors = PackedColorArray([Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 0.15), Color(1, 1, 1, 0.1), Color(1, 1, 1, 0.9), Color(1, 1, 1, 0)])
+		var gt := GradientTexture1D.new()
+		gt.gradient = g
+		pm.color_ramp = gt
+		_fly_proc = pm
+		var m := StandardMaterial3D.new()
+		m.shading_mode = BaseMaterial3D.SHADING_MODE_UNSHADED
+		m.transparency = BaseMaterial3D.TRANSPARENCY_ALPHA
+		m.blend_mode = BaseMaterial3D.BLEND_MODE_ADD
+		m.billboard_mode = BaseMaterial3D.BILLBOARD_PARTICLES
+		m.vertex_color_use_as_albedo = true
+		m.albedo_color = Color(0.75, 1.0, 0.35)
+		m.disable_fog = true
+		# a soft round glow, not a square
+		var dot := GradientTexture2D.new()
+		dot.fill = GradientTexture2D.FILL_RADIAL
+		dot.fill_from = Vector2(0.5, 0.5)
+		dot.fill_to = Vector2(1.0, 0.5)
+		dot.width = 32
+		dot.height = 32
+		var dg := Gradient.new()
+		dg.offsets = PackedFloat32Array([0.0, 0.25, 1.0])
+		dg.colors = PackedColorArray([Color(1, 1, 1, 1), Color(1, 1, 1, 0.55), Color(1, 1, 1, 0)])
+		dot.gradient = dg
+		m.albedo_texture = dot
+		_fly_mat = m
+	var qm := QuadMesh.new()
+	qm.size = Vector2(0.09, 0.09)
+	qm.material = _fly_mat
+	var gp := GPUParticles3D.new()
+	gp.name = "Fireflies"
+	gp.amount = amount
+	gp.lifetime = 7.0
+	gp.preprocess = 7.0
+	gp.randomness = 0.6
+	gp.process_material = _fly_proc
+	gp.draw_pass_1 = qm
+	gp.position = at
+	gp.visibility_aabb = AABB(Vector3(-spread - 2, -2.5, -spread - 2), Vector3(spread * 2 + 4, 5.0, spread * 2 + 4))
+	gp.visibility_range_end = 70.0
+	gp.cast_shadow = GeometryInstance3D.SHADOW_CASTING_SETTING_OFF
+	return gp
 
 
 # ------------------------------------------------------------------ torch and brazier fixtures

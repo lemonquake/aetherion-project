@@ -11,20 +11,20 @@
  "banana": {
   "leaves": true,
   "size": [
-   2.293,
-   3.315,
-   2.522
+   2.491,
+   3.835,
+   2.863
   ],
-  "tris": 4023
+  "tris": 1185
  },
  "banana_tree": {
   "leaves": true,
   "size": [
-   5.607,
-   5.052,
-   5.681
+   4.04,
+   4.855,
+   4.081
   ],
-  "tris": 2861
+  "tris": 1240
  },
  "boulder_split": {
   "leaves": false,
@@ -110,29 +110,29 @@
  "exotic_plant": {
   "leaves": true,
   "size": [
-   0.985,
-   1.185,
-   0.746
+   0.376,
+   0.099,
+   0.236
   ],
-  "tris": 2600
+  "tris": 304
  },
  "fern_a": {
   "leaves": true,
   "size": [
-   0.847,
-   0.526,
-   0.917
+   0.647,
+   0.568,
+   0.957
   ],
-  "tris": 912
+  "tris": 688
  },
  "fern_b": {
   "leaves": true,
   "size": [
-   0.521,
+   0.382,
    0.265,
-   0.856
+   0.893
   ],
-  "tris": 672
+  "tris": 352
  },
  "jaguar": {
   "leaves": false,
@@ -254,11 +254,11 @@
  "periwinkle": {
   "leaves": true,
   "size": [
-   0.489,
-   0.394,
-   0.632
+   0.474,
+   0.342,
+   0.638
   ],
-  "tris": 1922
+  "tris": 680
  },
  "root_arch": {
   "leaves": false,
@@ -371,11 +371,11 @@
  "taro": {
   "leaves": true,
   "size": [
-   2.349,
-   1.7,
-   3.014
+   2.415,
+   1.668,
+   2.878
   ],
-  "tris": 1260
+  "tris": 680
  },
  "tribal_pillar": {
   "leaves": false,
@@ -389,10 +389,10 @@
  "weed_leaves": {
   "leaves": true,
   "size": [
-   0.658,
-   0.217,
-   0.873
+   0.392,
+   0.25,
+   0.723
   ],
-  "tris": 2967
+  "tris": 1040
  }
 }

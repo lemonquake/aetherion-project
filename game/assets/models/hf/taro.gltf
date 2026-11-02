@@ -78,61 +78,61 @@
   {
    "bufferView": 0,
    "componentType": 5126,
-   "count": 859,
+   "count": 466,
    "max": [
-    1.1745378971099854,
-    1.7000000476837158,
-    1.5072228908538818
+    1.2422130107879639,
+    1.513486623764038,
+    1.6244032382965088
    ],
    "min": [
-    -1.1745378971099854,
-    0,
-    -1.5072228908538818
+    -1.1727296113967896,
+    -0.15487328171730042,
+    -1.254031777381897
    ],
    "type": "VEC3"
   },
   {
    "bufferView": 1,
    "componentType": 5126,
-   "count": 859,
+   "count": 466,
    "type": "VEC3"
   },
   {
    "bufferView": 2,
    "componentType": 5126,
-   "count": 859,
+   "count": 466,
    "type": "VEC2"
   },
   {
    "bufferView": 3,
    "componentType": 5123,
-   "count": 3780,
+   "count": 2040,
    "type": "SCALAR"
   }
  ],
  "bufferViews": [
   {
    "buffer": 0,
-   "byteLength": 10308,
+   "byteLength": 5592,
    "byteOffset": 0,
    "target": 34962
   },
   {
    "buffer": 0,
-   "byteLength": 10308,
-   "byteOffset": 10308,
+   "byteLength": 5592,
+   "byteOffset": 5592,
    "target": 34962
   },
   {
    "buffer": 0,
-   "byteLength": 6872,
-   "byteOffset": 20616,
+   "byteLength": 3728,
+   "byteOffset": 11184,
    "target": 34962
   },
   {
    "buffer": 0,
-   "byteLength": 7560,
-   "byteOffset": 27488,
+   "byteLength": 4080,
+   "byteOffset": 14912,
    "target": 34963
   }
  ],
@@ -144,7 +144,7 @@
  ],
  "buffers": [
   {
-   "byteLength": 35048,
+   "byteLength": 18992,
    "uri": "taro.bin"
   }
  ]

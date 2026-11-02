@@ -257,8 +257,17 @@ func _place_json(lay) -> void:
 	## what the torches and braziers burn on.
 	_place_terrain(lay)
 	if sink.visual:
-		for vp in MapDoc.vines(lay.doc):
-			root.add_child(MapNature.vines_node(vp))
+		for vn in MapNature.vines_batched(MapDoc.vines(lay.doc)):
+			root.add_child(vn)
+		# (r27) fireflies over every named place (the header's "fireflies": how many; fewer on phones)
+		var ff := int(lay.doc.get("fireflies", 0))
+		if ff > 0:
+			if Settings.is_mobile():
+				ff = ff / 2
+			for p in lay.doc.get("pieces", []):
+				if str(p.get("type", "")) == "landmark":
+					var lp := MapDoc.v3(p.get("at"))
+					root.add_child(MapNature.fireflies_node(Vector3(lp.x, maxf(lp.y, lay.ground_height(lp.x, lp.z)) + 1.6, lp.z), ff))
 		var by := {}
 		for f in MapDoc.fires(lay.doc):
 			var key := "%s|%.2f" % [f.mount, f.pole]

@@ -11,11 +11,11 @@
   "attribution_required": false,
   "kind": "model",
   "resolution": "1k",
-  "modifications": "Kept weed_plant_02_a_LOD0 of the set; scaled 3x (grown into a jungle-sized plant); leaves thinned to 2,967 triangles (whole leaves dropped, the rest enlarged up to 1.0x), kept cut out; 2,967 -> 2,967 triangles (tools/blender/process_hf.py).",
+  "modifications": "Kept weed_plant_02_a_LOD0 of the set; scaled 3x (grown into a jungle-sized plant); leaves thinned to 1,040 triangles (whole leaves dropped, the rest enlarged up to 1.3x), kept cut out; 2,967 -> 1,040 triangles (tools/blender/process_hf.py).",
   "retrieved": "2026-10-25",
   "files": {
-    "weed_leaves.gltf": "860caf2297cbfc20ed5f11e7e6acd861386e3fca20525c8d11f969b48f43fdd6",
-    "weed_leaves.bin": "7feb34c958aae9840c6802ccba25237056e50c03064abaf706fd9e192da3b525"
+    "weed_leaves.gltf": "95fefaea56c6355cd7809673ae7acd81e5f698da690de97632f8cb5a41de0a1e",
+    "weed_leaves.bin": "55bdbb69764a34a95fe3e36a4df598a37625b775780b1f80f9368547c151ef7d"
   },
   "processed_from": "game/assets/thirdparty/polyhaven/models/weed_plant_02/weed_plant_02_1k.gltf"
 }

@@ -1,0 +1,63 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+[server] dedicated server listening on 27991
+[dyn] 0 prop models, breakable ones cut into chunks in 0 ms
+[world] map built in 1032 ms
+[map] 0 buildings, 0 doors, 0 containers, 0 props, #00000000 on PC
+[nav] levels: 34890 points, 3 links, 56 ms
+[botnav] walk check: 617 of 34890 cells closed by the real collision, 120 ms
+[botnav] link check: 0 links between open cells cross a wall, 279 ms
+[nav] r21: 617 cells closed by the physics check, main walk 34227 of 34282 points (55 in pockets), 154 ms
+[botnav] freight_delight: analysing 1241 candidate spots (walk check 120 ms)
+[waypoints] freight_delight: 1237 nodes, 3923 edges (auto, res://data/waypoints/freight_delight.json), 1 off the main graph, 33 ms { "plaza": 236, "road": 240, "junction": 125, "snipe": 54, "hide": 46, "area": 220, "corner": 301, "stair": 15 }
+[loadout] Utoy Kalabaw smg_tommy [suppressor_light,mag_drum_light] mag 54/54 | pistol_9 [sight_reflex,mag_extquick_light,weapon_light] mag 21/21
+[loadout] Toto Pancit rifle_scar [scope_night,mag_extquick_rifle] mag 40/40 | pistol_9 [sight_reddot,suppressor_light,mag_extquick_light,weapon_light] mag 21/21
+[loadout] Mang Isko dmr_sks [scope_6x,suppressor_sniper,mag_ext_sniper,cheek_pad] mag 20/20 | revolver_357 [sight_reflex] mag 6/6
+[loadout] Ate Load shotgun_double [] mag 2/2 | revolver_357 [sight_reflex] mag 6/6
+[loadout] Bossing Barbecue rifle_556 [suppressor_rifle,grip_heavy,weapon_light] mag 30/30 | pistol_45 [sight_reflex,suppressor_light,mag_extquick_light,weapon_light] mag 12/12
+[loadout] Junjun Tisoy smg_vector [sight_holo,suppressor_light,mag_extquick_light,stock_tactical,weapon_light] mag 33/33 | pistol_45 [sight_reddot,suppressor_light,weapon_light] mag 7/7
+[loadout] Totoy Kulot bolt_kar98 [suppressor_rifle,cheek_pad] mag 5/5 | pistol_9 [sight_reddot,mag_drum_light] mag 27/27
+[loadout] Lola Basyang rifle_m416 [scope_3x,muzzle_tactical,mag_extquick_rifle,stock_heavy,weapon_light] mag 40/40 | pistol_45 [sight_reddot,suppressor_light,mag_extquick_light] mag 12/12
+[loadout] Mang Tomas Ketchup rifle_m416 [scope_night,suppressor_rifle,mag_extquick_rifle,weapon_light] mag 40/40 | pistol_45 [sight_reddot,suppressor_light,mag_drum_light,weapon_light] mag 13/13
+[loadout] Kuya Tricycle bolt_kar98 [scope_6x,suppressor_rifle] mag 5/5 | revolver_357 [sight_reflex] mag 6/6
+[loadout] Lolo Pepe marksman_308 [suppressor_sniper,mag_ext_sniper,cheek_pad] mag 30/30 | pistol_45 [sight_reddot,suppressor_light,mag_extquick_light,weapon_light] mag 12/12
+[loadout] Tatay Kulas bolt_awp [scope_8x,suppressor_rifle,mag_ext_sniper,cheek_pad] mag 8/8 | pistol_deagle [sight_reddot,mag_extquick_light,weapon_light] mag 10/10
+[loadout] Kapitan Tikoy shotgun_pump [sight_holo,choke,bullet_loops,weapon_light] mag 6/6 | pistol_45 [sight_reddot] mag 7/7
+[loadout] Aling Puring rifle_556 [scope_3x,suppressor_rifle,mag_extquick_rifle,weapon_light] mag 40/40 | pistol_9 [sight_reddot,suppressor_light,mag_extquick_light,weapon_light] mag 21/21
+[match    0.0] deathmatch start on freight_delight: 14 players, 2 teams; spawns (-52.0, 0.0, 0.0), (50.0, 0.0, 0.0) (103/103 m apart, layout); day offset 0 s; zone centre (-6.0, 0.0) r=96; win by wipe
+[match    0.0] status: { "ground": 14 }; armed 14; shots 0; zone -1 hold r=96; corpses 0; levels { "L1": 14 }
+[match    0.0] dm teams: West Team 7 at (-50.0, 1.0) spread 3 m; East Team 7 at (52.0, 2.0) spread 8 m; gap 102 m; zone centre (-6.0, 0.0)
+[match    0.0] bots: { "roam": 14 }; containers searched by bots 0 (all players 0); plan steps done 0; guns carried 28
+[match    0.0] roles: { "rusher": { "roam": 5 }, "sniper": { "roam": 5 }, "looter": { "roam": 4 } }; stuck now 0; waypoints 791; team { "lines": 0, "pings": 0, "laser_follow": 0, "learned_cells": 0, "blocked_cells": 0, "squads": 0, "following_humans": 0 }
+[match    0.0] [lootstats] bots on the ground 14 (in water 0); armed 14; armed with ammo for a gun 14; long guns 14; attachments fitted 82; rounds of unusable ammo carried 0; items on the ground 0; bot pickups { "detours": 0, "detour_taken": 0, "fetches": 0, "fetch_done": 0, "items_taken": 0 }
+[botnav] saved user://botnav/freight_delight.json (258 spots)
+[botnav] freight_delight: 258 spots from 1241 candidates in 66 ms of ticks { "hide": 102, "snipe": 83, "cover": 45, "open": 28 }
+[match    8.0] [hold] Kuya Tricycle overwatch spot 148 94s
+[match    8.1] Mang Tomas Ketchup (team 1) landed at (48.0, 0.0, -5.0), 2.5 m/s, health 100; teammates -
+[match    8.3] Totoy Kulot (team 1) landed at (50.0, 0.0, -3.0), 4.9 m/s, health 100; teammates 3 m
+[match    9.6] [hold] Bossing Barbecue overwatch spot 109 95s
+[match    9.6] Utoy Kalabaw (team 1) landed at (43.0, 0.0, 2.0), 4.9 m/s, health 100; teammates 7 m, 6 m
+[match   12.8] [hold] Kapitan Tikoy overwatch spot 112 109s
+[match   15.0] status: { "ground": 14 }; armed 14; shots 0; zone -1 hold r=96; corpses 0; levels { "L1": 14 }; server tick avg 1.88 ms, p99 4.73 ms, max 12.75 ms over 900 ticks; objects 5279
+[match   15.0] dm teams: West Team 7 at (-22.0, -7.0) spread 14 m; East Team 7 at (31.0, 2.0) spread 15 m; gap 54 m; zone centre (-6.0, 0.0)
+[match   15.0] bots: { "fight": 4, "roam": 2, "follow": 4, "overwatch": 3, "hunt": 1 }; containers searched by bots 0 (all players 0); plan steps done 0; guns carried 28
+[match   15.0] roles: { "rusher": { "fight": 4, "hunt": 1 }, "sniper": { "roam": 2, "overwatch": 3 }, "looter": { "follow": 4 } }; stuck now 0; waypoints 258; team { "lines": 4, "pings": 0, "laser_follow": 0, "learned_cells": 0, "blocked_cells": 0, "squads": 4, "following_humans": 0 }
+[match   15.0] [lootstats] bots on the ground 14 (in water 0); armed 14; armed with ammo for a gun 14; long guns 14; attachments fitted 82; rounds of unusable ammo carried 0; items on the ground 0; bot pickups { "detours": 0, "detour_taken": 0, "fetches": 0, "fetch_done": 0, "items_taken": 0 }
+[match   15.9] Totoy Kulot killed by Mang Tomas Ketchup (gunshot); 2 teams left
+[match   15.9] alive: West Team 7, East Team 6; score { 0: 0, 1: 0 }
+[match   16.0] Junjun Tisoy killed by Mang Tomas Ketchup (gunshot); 2 teams left
+[match   16.0] alive: West Team 6, East Team 6; score { 0: 0, 1: 0 }
+[match   17.0] Kapitan Tikoy (team 1) landed at (58.0, 0.0, -5.0), 2.5 m/s, health 100; teammates 42 m, 21 m
+[match   17.9] [hold] Lola Basyang overwatch spot 111 96s
+[match   18.7] Lolo Pepe killed by Utoy Kalabaw (gunshot); 2 teams left
+[match   18.7] alive: West Team 6, East Team 5; score { 0: 0, 1: 0 }
+[match   20.6] Tatay Kulas killed by Utoy Kalabaw (gunshot); 2 teams left
+[match   20.6] alive: West Team 5, East Team 5; score { 0: 0, 1: 0 }
+[match   22.7] [hold] Toto Pancit overwatch spot 111 80s
+[match   24.0] Mang Isko killed by Aling Puring (gunshot); 2 teams left
+[match   24.0] alive: West Team 5, East Team 4; score { 0: 0, 1: 0 }
+[match   25.2] Lola Basyang killed by Bossing Barbecue (gunshot); 2 teams left
+[match   25.2] alive: West Team 4, East Team 4; score { 0: 0, 1: 0 }
+[match   25.4] Utoy Kalabaw killed by Toto Pancit (gunshot); 2 teams left
+[match   25.4] alive: West Team 4, East Team 3; score { 0: 0, 1: 0 }
+exit 124

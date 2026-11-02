@@ -34,6 +34,7 @@ var _anim: Array = []        # lamps with a fault or a blink
 var _near_anim: Array = []   # the ones close enough to the camera to animate, refreshed four times a second
 var _shadowed: Array = []
 var _budget_t := 0.0
+var _frame := 0
 var _meshes := {}
 var _mats := {}
 var _glint_xf: Array = []
@@ -648,7 +649,10 @@ func tick(dt: float) -> void:
 		_budget_t = 0.25
 		_shadow_budget()
 	var reduce := bool(Settings.get_value("accessibility", "reduce_flashes"))
+	_frame += 1
 	for L in _near_anim:
+		if L.em != null and not L.get("close", true) and (_frame + int(L.phase)) % 3 != 0:
+			continue   # (r27) a fire past 45 m flickers at a third of the rate: nobody sees the difference
 		# Quantised, and sent to the renderer only when it changes: most faults hold a level for seconds.
 		var k := snappedf(_fault_level(L, reduce), 1.0 / 48.0)
 		if k == float(L.get("k", -1.0)):
@@ -657,12 +661,9 @@ func tick(dt: float) -> void:
 		if L.light:
 			(L.light as Light3D).light_energy = L.base * k
 		if L.em != null:
-			# (r27) fire: the flame pulses with its light, and the light sways with the flame (the shadows of
-			# everything round a torch move a little, as they do by real firelight)
+			# (r27) fire: the flame pulses with its light. The light itself stays put: a light that moves has its
+			# shadow map drawn again every frame, a light that only changes brightness keeps it.
 			(L.em as GeometryInstance3D).set_instance_shader_parameter("flick", 0.7 + 0.45 * k)
-			if L.light:
-				var ph: float = _t * 5.3 + float(L.phase)
-				(L.light as Node3D).position = (L.pos as Vector3) + Vector3(sin(ph) * 0.035, sin(ph * 1.7) * 0.025, cos(ph * 1.3) * 0.035)
 		elif L.mesh is StandardMaterial3D:
 			(L.mesh as StandardMaterial3D).emission_energy_multiplier = 3.0 * k
 	if _indoor.get("buzz", false):
@@ -788,6 +789,7 @@ func _shadow_budget() -> void:
 					if (d2 < 1600.0 or (L.big and d2 < 6400.0)) and not L.no_shadow:
 						near.append([d2, L])
 					if L.anim and d2 < (25600.0 if L.big else 12100.0):
+						L.close = d2 < 2025.0
 						_near_anim.append(L)
 	for id in _shown:
 		if _seen[id] != _gen:

@@ -1,0 +1,45 @@
+{
+  "checks": [
+    {
+      "detail": "770 piece nodes for 770 pieces in res://maps/hidden_forest/map.json (527 ms)",
+      "name": "open",
+      "ok": true
+    },
+    {
+      "detail": "759 of 770 pieces drawn (11 invisible clip pieces)",
+      "name": "previews",
+      "ok": true
+    },
+    {
+      "detail": "every piece the editor writes is the piece it read (770)",
+      "name": "unchanged_on_save",
+      "ok": true
+    },
+    {
+      "detail": "eg_cap1 moved to [-48.375, 2.8, 35.5], bearing 30.0",
+      "name": "move_turn",
+      "ok": true
+    },
+    {
+      "detail": "eg_cap1 size (9.102, 0.3, 1.2) -> (18.2, 0.3, 1.2), scale back to (1.0, 1.0, 1.0)",
+      "name": "scale_resizes",
+      "ok": true
+    },
+    {
+      "detail": "eg_wall1 8.80 m -> 10.80 m about the same middle",
+      "name": "wall_length",
+      "ok": true
+    },
+    {
+      "detail": "a ray down at (57.5, 24.0) hits jg_colroof (jg_colroof expected)",
+      "name": "pick",
+      "ok": true
+    },
+    {
+      "detail": "N1 pinned on court, saved to res://maps/hidden_forest/qa.json",
+      "name": "qa_note",
+      "ok": true
+    }
+  ],
+  "ok": true
+}

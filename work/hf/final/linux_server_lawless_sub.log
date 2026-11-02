@@ -1,0 +1,47 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+[server] dedicated server listening on 27991
+[dyn] 51 prop models, breakable ones cut into chunks in 156 ms
+[world] map built in 13899 ms
+[map] 243 buildings, 1951 doors, 2617 containers, 2745 props, #b1fba961 on PC
+[botnav] lawless_sub: analysing 2075 candidate spots (walk check 0 ms)
+[waypoints] lawless_sub: 3193 nodes, 10383 edges (auto, res://data/waypoints/lawless_sub.json), 30 off the main graph, 108 ms { "snipe": 95, "junction": 1205, "road": 518, "area": 660, "corner": 650, "hide": 38, "bridge": 27 }
+[loadout] Tsong Balut bolt_308 [scope_6x,suppressor_sniper,mag_ext_sniper,cheek_pad] mag 8/8 | pistol_9 [weapon_light] mag 15/15
+[loadout] Bebot Karaoke shotgun_saiga [sight_reddot,compensator,mag_extquick_rifle,weapon_light] mag 8/8 | pistol_deagle [sight_reddot,suppressor_light] mag 7/7
+[loadout] Pinsan Gardo smg_ump45 [scope_2x,suppressor_light,mag_extquick_light] mag 35/35 | pistol_deagle [sight_reddot,weapon_light] mag 7/7
+[loadout] Tsong Ramil rifle_scar [suppressor_rifle] mag 30/30 | revolver_357 [] mag 6/6
+[loadout] Utoy Kalabaw dmr_mini14 [scope_4x,suppressor_sniper,mag_ext_sniper] mag 30/30 | pistol_9 [sight_reddot,suppressor_light,mag_extquick_light,weapon_light] mag 21/21
+[loadout] Inday Tsismis smg_tommy [suppressor_light,grip_stubby] mag 30/30 | pistol_9 [sight_reddot,suppressor_light,mag_drum_light,weapon_light] mag 27/27
+[loadout] Totoy Bibo bolt_awp [scope_8x,suppressor_sniper,mag_ext_sniper,cheek_pad] mag 8/8 | pistol_45 [sight_reddot,suppressor_light,weapon_light] mag 7/7
+[loadout] Kuya Wifi shotgun_saiga [compensator,weapon_light] mag 5/5 | pistol_45 [sight_reddot,suppressor_light,mag_drum_light,weapon_light] mag 13/13
+[loadout] Mang Tomas shotgun_pump [sight_holo,choke,bullet_loops,weapon_light] mag 6/6 | revolver_357 [sight_reddot] mag 6/6
+[loadout] Ate Bebang shotgun_double [choke,bullet_loops] mag 2/2 | pistol_45 [suppressor_light,mag_drum_light,weapon_light] mag 13/13
+[loadout] Bayaw Erning bolt_kar98 [suppressor_rifle] mag 5/5 | pistol_deagle [sight_reflex,suppressor_light] mag 7/7
+[loadout] Kapitan Tikoy rifle_556 [scope_3x,suppressor_rifle,grip_vertical,mag_extquick_rifle] mag 40/40 | pistol_9 [suppressor_light,mag_drum_light,weapon_light] mag 27/27
+[loadout] Aling Puring bolt_awp [mag_ext_sniper,cheek_pad] mag 8/8 | revolver_357 [] mag 6/6
+[loadout] Ate Load Dito shotgun_pump [choke,bullet_loops] mag 6/6 | pistol_9 [suppressor_light,weapon_light] mag 15/15
+[loadout] Ising Batingaw rifle_m762 [scope_night,suppressor_rifle,grip_heavy,mag_extquick_rifle,weapon_light] mag 40/40 | pistol_deagle [mag_extquick_light,weapon_light] mag 10/10
+[loadout] Pareng Pandesal rifle_762 [scope_3x,mag_drum_rifle,weapon_light] mag 60/60 | revolver_357 [] mag 6/6
+[loadout] Nanay Kakanin machine_pistol [sight_holo,suppressor_light,mag_extquick_light,weapon_light] mag 45/45 | pistol_9 [sight_reflex,suppressor_light,mag_drum_light,weapon_light] mag 27/27
+[loadout] Kumareng Marites shotgun_saiga [sight_reddot,choke,mag_extquick_rifle,weapon_light] mag 8/8 | pistol_deagle [] mag 7/7
+[loadout] Mang Kanor rifle_556 [grip_heavy,weapon_light] mag 30/30 | pistol_deagle [sight_reddot,suppressor_light,mag_extquick_light,weapon_light] mag 10/10
+[loadout] Aling Nena rifle_762 [scope_3x,muzzle_tactical,weapon_light] mag 30/30 | pistol_9 [sight_reddot,mag_extquick_light,weapon_light] mag 21/21
+[loadout] Lola Basyang smg_vector [scope_2x,suppressor_light,grip_stubby,stock_tactical,weapon_light] mag 19/19 | pistol_deagle [sight_reflex,mag_extquick_light,weapon_light] mag 10/10
+[match    0.0] deathmatch start on lawless_sub: 21 players, 3 teams; spawns (-119.0, 1.0, -144.0), (190.0, 1.0, -40.0), (-72.0, 1.0, 196.0) (326/353/343 m apart, layout); day offset 0 s; zone centre (-23.0, 19.0) r=348; win by wipe
+[match    0.0] status: { "ground": 21 }; armed 21; shots 0; zone 0 wait r=348; corpses 0
+[match    0.0] dm teams: North Team 7 at (-120.0, -144.0) spread 3 m; East Team 7 at (189.0, -40.0) spread 3 m; South Team 7 at (-73.0, 196.0) spread 3 m; gap 326 m; zone centre (-23.0, 19.0)
+[match    0.0] bots: { "roam": 18, "zone": 3 }; containers searched by bots 0 (all players 0); plan steps done 0; guns carried 42
+[match    0.0] roles: { "stalker": { "roam": 7, "zone": 2 }, "looter": { "roam": 4 }, "sniper": { "roam": 3, "zone": 1 }, "rusher": { "roam": 4 } }; stuck now 0; waypoints 0; team { "lines": 2, "pings": 0, "laser_follow": 0, "learned_cells": 0, "blocked_cells": 0, "squads": 0, "following_humans": 0 }
+[match    0.0] [lootstats] bots on the ground 21 (in water 0); armed 21; armed with ammo for a gun 21; long guns 21; attachments fitted 111; rounds of unusable ammo carried 0; items on the ground 6271; bot pickups { "detours": 0, "detour_taken": 0, "fetches": 0, "fetch_done": 0, "items_taken": 0 }
+[botnav] saved user://botnav/lawless_sub.json (565 spots)
+[botnav] lawless_sub: 565 spots from 2075 candidates in 108 ms of ticks { "hide": 38, "snipe": 95, "cover": 56, "open": 376 }
+[match    5.9] Pinsan Gardo (team 0) landed at (-116.0, 1.0, -142.0), 4.9 m/s, health 100; teammates -
+[match    7.7] Aling Nena (team 1) landed at (169.0, 1.0, -11.0), 4.9 m/s, health 100; teammates -
+[match    8.8] Ate Load Dito (team 1) landed at (175.0, 1.0, -20.0), 4.2 m/s, health 100; teammates 12 m
+[match    9.3] Kumareng Marites (team 0) landed at (-109.0, 1.0, -127.0), 4.9 m/s, health 100; teammates 7 m
+[match   15.0] status: { "ground": 21 }; armed 21; shots 0; zone 0 wait r=348; corpses 0; server tick avg 2.44 ms, p99 5.37 ms, max 21.61 ms over 900 ticks; objects 22477
+[match   15.0] dm teams: North Team 7 at (-102.0, -104.0) spread 7 m; East Team 7 at (150.0, -5.0) spread 11 m; South Team 7 at (-54.0, 158.0) spread 19 m; gap 271 m; zone centre (-23.0, 19.0)
+[match   15.0] bots: { "hunt": 8, "zone": 4, "roam": 4, "follow": 5 }; containers searched by bots 0 (all players 0); plan steps done 0; guns carried 42
+[match   15.0] roles: { "stalker": { "hunt": 7, "follow": 1, "zone": 1 }, "looter": { "zone": 1, "roam": 2, "follow": 1 }, "sniper": { "roam": 1, "follow": 3 }, "rusher": { "zone": 2, "hunt": 1, "roam": 1 } }; stuck now 0; waypoints 565; team { "lines": 6, "pings": 0, "laser_follow": 0, "learned_cells": 0, "blocked_cells": 0, "squads": 6, "following_humans": 0 }
+[match   15.0] [lootstats] bots on the ground 21 (in water 0); armed 21; armed with ammo for a gun 21; long guns 21; attachments fitted 111; rounds of unusable ammo carried 0; items on the ground 6271; bot pickups { "detours": 0, "detour_taken": 0, "fetches": 0, "fetch_done": 0, "items_taken": 0 }
+exit 124

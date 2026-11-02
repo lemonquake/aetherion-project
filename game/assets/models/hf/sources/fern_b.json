@@ -11,11 +11,11 @@
   "attribution_required": false,
   "kind": "model",
   "resolution": "1k",
-  "modifications": "Kept fern_02_c of the set; leaves thinned to 672 triangles (whole leaves dropped, the rest enlarged up to 1.2x), kept cut out; 2,248 -> 672 triangles (tools/blender/process_hf.py).",
+  "modifications": "Kept fern_02_c of the set; leaves thinned to 352 triangles (whole leaves dropped, the rest enlarged up to 1.4x), kept cut out; 2,248 -> 352 triangles (tools/blender/process_hf.py).",
   "retrieved": "2026-10-25",
   "files": {
-    "fern_b.gltf": "fad8ed1b0bf7b8a58506b441d2bce1e777ccbe3cb29ce66bca6025ab3f05e78b",
-    "fern_b.bin": "8b69e94666650a1ef4d1a2b9a5e5154ef005bce97a62016a7f6db706ab2fbf44"
+    "fern_b.gltf": "aab887a2c36871e42c12a95576acd04eed63cfa5d11e792e10235201bd7114bf",
+    "fern_b.bin": "80c245850ddec0340c79b8f33b5ca15369826fa04b95ed2b436d03dd14c01c8e"
   },
   "processed_from": "game/assets/thirdparty/polyhaven/models/fern_02/fern_02_1k.gltf"
 }

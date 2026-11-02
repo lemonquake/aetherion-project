@@ -12,11 +12,11 @@
   "attribution_required": true,
   "kind": "model",
   "purpose": "banana plant",
-  "modifications": "Scaled to 3.2 m tall; leaves thinned to 4,023 triangles (whole leaves dropped, the rest enlarged up to 1.4x), kept cut out; 4,702 -> 4,023 triangles (tools/blender/process_hf.py).",
+  "modifications": "Scaled to 3.2 m tall; leaves thinned to 1,185 triangles (whole leaves dropped, the rest enlarged up to 1.5x), kept cut out; 4,702 -> 1,185 triangles (tools/blender/process_hf.py).",
   "retrieved": "2026-11-02",
   "files": {
-    "banana.gltf": "339de2dbb2ac7d425a67966d39c66339785a82705fe9143ecb4cbe926490e1d6",
-    "banana.bin": "cac7236d25a1ae7d33b88e6f997c91dec8655fa4141d96af694b62f19d758607"
+    "banana.gltf": "671b843e759c11a0e1cfd8d8c0fab6870be884f4c6bcd4c8206446f9c39290fd",
+    "banana.bin": "157e3c70035694554d8cd73bdcbc8795e0e72f30d35fc10d67532fb42ac80d5d"
   },
   "processed_from": "tools/cache/sketchfab/hf_banana_plant2/hf_banana_plant2.glb"
 }

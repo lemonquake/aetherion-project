@@ -12,11 +12,11 @@
   "attribution_required": true,
   "kind": "model",
   "purpose": "taro (elephant ear)",
-  "modifications": "Scaled to 1.7 m tall; leaves thinned to 1,260 triangles (whole leaves dropped, the rest enlarged up to 1.0x), kept cut out; 1,260 -> 1,260 triangles (tools/blender/process_hf.py).",
+  "modifications": "Scaled to 1.7 m tall; leaves thinned to 680 triangles (whole leaves dropped, the rest enlarged up to 1.1x), kept cut out; 1,260 -> 680 triangles (tools/blender/process_hf.py).",
   "retrieved": "2026-11-02",
   "files": {
-    "taro.gltf": "d1f16314e7ee5dff4434d2aa1ad7cde91fc5339ff1638f6a4e2885687d81c27d",
-    "taro.bin": "a9cd52b7abe4ead1778155d64f8496a4c293e850c22745f543b8a76c73d2982f"
+    "taro.gltf": "59dd5738fd166cd3e06d38243dbf7956e9f702305d516633c3c0ddaad477c886",
+    "taro.bin": "c407d5785afd9768485a71e5973d064f704761508b798da48245a36b1c809e11"
   },
   "processed_from": "tools/cache/sketchfab/hf_taro/hf_taro.glb"
 }

@@ -431,7 +431,9 @@ func instantiate() -> void:
 		mmi.visibility_range_end_margin = 10.0
 		mmi.visibility_range_fade_mode = GeometryInstance3D.VISIBILITY_RANGE_FADE_SELF
 		mmi.cast_shadow = GeometryInstance3D.SHADOW_CASTING_SETTING_ON if e.shadow else GeometryInstance3D.SHADOW_CASTING_SETTING_OFF
-		if e.interior:
+		if e.interior or not bool(e.get("lamp_shadow", true)):
+			# (r27) also big trees that opt out of lamp shadows: lamps and muzzle flashes leave this layer out of their
+			# shadow maps (a torch would otherwise redraw every tree in the cell), the moon still shadows them
 			mmi.layers = Defs.RENDER_INTERIOR_PROPS
 		if not str(key).contains("|leaf_"):
 			# Props never animate here (they are hidden or shown in one step), so no interpolation buffers either.
@@ -531,7 +533,8 @@ func _instance(name: String, xf: Transform3D, interior: bool = false) -> Array:
 	var ck := Vector2i(floori(xf.origin.x / cell), floori(xf.origin.z / cell))
 	var key := "%d,%d|%s|%s" % [ck.x, ck.y, name, "i" if interior else "e"]
 	if not _mm.has(key):
-		_mm[key] = {"mesh": md.mesh, "xforms": [], "node": null, "range": pol.range, "shadow": pol.shadow, "interior": interior}
+		_mm[key] = {"mesh": md.mesh, "xforms": [], "node": null, "range": pol.range, "shadow": pol.shadow, "interior": interior,
+			"lamp_shadow": not bool(models.spec(name).get("no_lamp_shadow", false))}
 	var off: Vector3 = md.get("offset", Vector3.ZERO)
 	_mm[key].xforms.append(xf * Transform3D(Basis(), off))
 	return [key, _mm[key].xforms.size() - 1]
@@ -561,7 +564,7 @@ func _policy(name: String, md: Dictionary, interior: bool) -> Dictionary:
 	var want := 80.0
 	var shadow := size > 1.2 and surf <= 4
 	if kind == "tree" or (kind == "plant" and size > 2.5):
-		cell = 96.0
+		cell = float(s.get("cell", 96.0))   # (r27) a model may ask for smaller cells (a jungle's many big trees)
 		want = 200.0
 		shadow = true
 	elif kind == "plant":

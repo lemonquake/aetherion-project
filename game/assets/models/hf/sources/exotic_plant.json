@@ -12,11 +12,11 @@
   "attribution_required": true,
   "kind": "model",
   "purpose": "exotic broadleaf plant",
-  "modifications": "Scaled to 1.3 m tall; leaves thinned to 2,600 triangles (whole leaves dropped, the rest enlarged up to 1.0x), kept cut out; 3,120 -> 2,600 triangles (tools/blender/process_hf.py).",
+  "modifications": "Scaled to 1.3 m tall; leaves thinned to 304 triangles (whole leaves dropped, the rest enlarged up to 1.1x), kept cut out; 3,120 -> 304 triangles (tools/blender/process_hf.py).",
   "retrieved": "2026-11-02",
   "files": {
-    "exotic_plant.gltf": "dbffa3d3117716a0d453edef0a0058514b14869b42c9f68bc5c0353f5f996e81",
-    "exotic_plant.bin": "04478e0fe6279a744b06d91072a1da32fe9b5f2b955bfbe46296e2582865ca83"
+    "exotic_plant.gltf": "0b44fa8225e4400d3b478e3047a325321eb7bc67b6c00f0454dab7eb32f69672",
+    "exotic_plant.bin": "5a0b1943c05f0d94a9b602d6656de584babeb306c61c345052960687cdeb0612"
   },
   "processed_from": "tools/cache/sketchfab/hf_pink_plant/hf_pink_plant.glb"
 }

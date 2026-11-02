@@ -92,99 +92,99 @@
   {
    "bufferView": 0,
    "componentType": 5126,
-   "count": 1739,
+   "count": 642,
    "max": [
-    0.22745272517204285,
-    0.7925965189933777,
-    0.32002660632133484
+    0.2261863797903061,
+    0.7928584814071655,
+    0.325461745262146
    ],
    "min": [
-    -0.26153722405433655,
-    0.39905112981796265,
-    -0.3116135001182556
+    -0.24795730412006378,
+    0.4510566294193268,
+    -0.31290626525878906
    ],
    "type": "VEC3"
   },
   {
    "bufferView": 1,
    "componentType": 5126,
-   "count": 1739,
+   "count": 642,
    "type": "VEC3"
   },
   {
    "bufferView": 2,
    "componentType": 5126,
-   "count": 1739,
+   "count": 642,
    "type": "VEC2"
   },
   {
    "bufferView": 3,
    "componentType": 5126,
-   "count": 1739,
+   "count": 642,
    "type": "VEC2"
   },
   {
    "bufferView": 4,
    "componentType": 5123,
-   "count": 1739,
+   "count": 642,
    "normalized": true,
    "type": "VEC4"
   },
   {
    "bufferView": 5,
    "componentType": 5123,
-   "count": 1739,
+   "count": 642,
    "normalized": true,
    "type": "VEC4"
   },
   {
    "bufferView": 6,
    "componentType": 5123,
-   "count": 5766,
+   "count": 2040,
    "type": "SCALAR"
   }
  ],
  "bufferViews": [
   {
    "buffer": 0,
-   "byteLength": 20868,
+   "byteLength": 7704,
    "byteOffset": 0,
    "target": 34962
   },
   {
    "buffer": 0,
-   "byteLength": 20868,
-   "byteOffset": 20868,
+   "byteLength": 7704,
+   "byteOffset": 7704,
    "target": 34962
   },
   {
    "buffer": 0,
-   "byteLength": 13912,
-   "byteOffset": 41736,
+   "byteLength": 5136,
+   "byteOffset": 15408,
    "target": 34962
   },
   {
    "buffer": 0,
-   "byteLength": 13912,
-   "byteOffset": 55648,
+   "byteLength": 5136,
+   "byteOffset": 20544,
    "target": 34962
   },
   {
    "buffer": 0,
-   "byteLength": 13912,
-   "byteOffset": 69560,
+   "byteLength": 5136,
+   "byteOffset": 25680,
    "target": 34962
   },
   {
    "buffer": 0,
-   "byteLength": 13912,
-   "byteOffset": 83472,
+   "byteLength": 5136,
+   "byteOffset": 30816,
    "target": 34962
   },
   {
    "buffer": 0,
-   "byteLength": 11532,
-   "byteOffset": 97384,
+   "byteLength": 4080,
+   "byteOffset": 35952,
    "target": 34963
   }
  ],
@@ -196,7 +196,7 @@
  ],
  "buffers": [
   {
-   "byteLength": 108916,
+   "byteLength": 40032,
    "uri": "periwinkle.bin"
   }
  ]

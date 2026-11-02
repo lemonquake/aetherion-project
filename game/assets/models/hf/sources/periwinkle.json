@@ -10,11 +10,11 @@
   "attribution_required": false,
   "kind": "model",
   "resolution": "1k",
-  "modifications": "Kept periwinkle_plant_01_LOD0 of the set; scaled 2x (grown into a jungle-sized plant); leaves thinned to 1,922 triangles (whole leaves dropped, the rest enlarged up to 1.1x), kept cut out; 11,252 -> 1,922 triangles (tools/blender/process_hf.py).",
+  "modifications": "Kept periwinkle_plant_01_LOD0 of the set; scaled 2x (grown into a jungle-sized plant); leaves thinned to 680 triangles (whole leaves dropped, the rest enlarged up to 1.3x), kept cut out; 11,252 -> 680 triangles (tools/blender/process_hf.py).",
   "retrieved": "2026-11-02",
   "files": {
-    "periwinkle.gltf": "7bb2567b84f79ef73f4841a25570c8bbc22bc287ee74fceb1df5f915b3f06dc0",
-    "periwinkle.bin": "12ebcd41e5ff1b116c9ad91e87c4ccf8cf03bc9b078d5ab086a2bdc66986b166"
+    "periwinkle.gltf": "ae3516e84a644bb5c679c52ef552898ee54a00c1d966390ae19e9e2e3c9e7533",
+    "periwinkle.bin": "c47a5adaa2a8bd7fd63b6092b47d2b44e336d2430c5b94ba72791ece73ffb7d7"
   },
   "processed_from": "game/assets/thirdparty/polyhaven/models/periwinkle_plant/periwinkle_plant_1k.gltf"
 }

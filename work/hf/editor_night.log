@@ -1,0 +1,23 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+Vulkan 1.4.329 - Forward+ - Using Device #0: NVIDIA - NVIDIA GeForce RTX 4060
+
+[map editor] hidden_forest: 770 pieces, 0 notes (57 ms)
+[mapedit test] PASS open: 770 piece nodes for 770 pieces in res://maps/hidden_forest/map.json (3110 ms)
+[mapedit test] PASS previews: 759 of 770 pieces drawn (11 invisible clip pieces)
+[mapedit test] PASS unchanged_on_save: every piece the editor writes is the piece it read (770)
+[mapedit test] PASS move_turn: eg_cap1 moved to [-48.375, 2.8, 35.5], bearing 30.0
+[mapedit test] PASS scale_resizes: eg_cap1 size (9.102, 0.3, 1.2) -> (18.2, 0.3, 1.2), scale back to (1.0, 1.0, 1.0)
+[mapedit test] PASS wall_length: eg_wall1 8.80 m -> 10.80 m about the same middle
+[mapedit test] PASS pick: a ray down at (57.5, 24.0) hits jg_colroof (jg_colroof expected)
+[map editor] baked the ground of hidden_forest: 385 x 385 heights (OK)
+[map editor] saved res://maps/hidden_forest/map.json: 770 pieces, 1 notes
+[mapedit test] PASS qa_note: N1 pinned on court, saved to res://maps/hidden_forest/qa.json
+[mapedit test] picture A:/Python/aetherion-project/.claude/worktrees/hidden-forest-map-design-6c5420/work/hf/editor_night/editor_view_map.png (1346x2005)
+[mapedit test] picture A:/Python/aetherion-project/.claude/worktrees/hidden-forest-map-design-6c5420/work/hf/editor_night/editor_window_map.png (1920x1017)
+[mapedit test] picture A:/Python/aetherion-project/.claude/worktrees/hidden-forest-map-design-6c5420/work/hf/editor_night/editor_view_hall.png (1346x2005)
+[mapedit test] picture A:/Python/aetherion-project/.claude/worktrees/hidden-forest-map-design-6c5420/work/hf/editor_night/editor_window_selected.png (1920x1017)
+[mapedit test] PASS (8 checks)
+ERROR: Can't use get_node() with absolute paths from outside the active scene tree.
+   at: get_node_or_null (scene/main/node.cpp:1910)
+WARNING: Scan thread aborted...
+   at: _notification (editor/file_system/editor_file_system.cpp:1757)

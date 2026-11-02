@@ -14,10 +14,11 @@ const MapDoc := preload("res://src/world/maps/authored/map_doc.gd")
 const MapTerrain := preload("res://src/world/maps/authored/map_terrain.gd")
 
 ## Ground cover: how far each kind is drawn (metres; Terrain3D's lod0 range is also its last), and whether it shadows.
+## No ground cover casts shadows: a fern in a torch's or the moon's shadow map costs as much again as drawing it.
 const COVER := {
-	"fern_a": [30.0, false], "fern_b": [28.0, false], "weed_leaves": [22.0, false], "periwinkle": [20.0, false],
-	"taro": [42.0, true], "exotic_plant": [32.0, false], "banana": [60.0, true], "banana_tree": [95.0, true],
-	"mossrock_s1": [45.0, false], "mossrock_s3": [40.0, false], "root_flat": [30.0, false],
+	"fern_a": [22.0, false], "fern_b": [20.0, false], "weed_leaves": [16.0, false], "periwinkle": [15.0, false],
+	"taro": [32.0, false], "banana": [42.0, false], "banana_tree": [70.0, false],
+	"mossrock_s1": [34.0, false], "mossrock_s3": [30.0, false], "root_flat": [24.0, false],
 }
 ## Metres one texture repeat covers on the ground, per set (Terrain3D's uv_scale is repeats a metre).
 const TEX_REPEAT := {"litter": 3.2, "sprouts": 3.0, "soil": 3.0, "roots": 3.5, "trail": 3.2, "lichen_rock": 4.0,
@@ -110,7 +111,7 @@ func _run() -> void:
 
 	# ------------------------------------------------ the terrain itself
 	var t: Node3D = ClassDB.instantiate("Terrain3D")
-	t.set("region_size", int(s.region_size))
+	# (the default region size is 256, the size this draft is cut for; setting it resizes data, an editor action)
 	t.set("vertex_spacing", float(s.spacing))
 	t.set("collision_mode", 0)
 	t.set("assets", assets)

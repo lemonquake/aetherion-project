@@ -6,6 +6,7 @@ textures (with a real alpha channel) stay PNG. The Sketchfab sources export thei
 
 Large JPEGs (over 400 KB, re-saved by Blender from Poly Haven's) are written again at quality 85.
 """
+import hashlib
 import json
 from pathlib import Path
 
@@ -13,6 +14,9 @@ import numpy as np
 from PIL import Image
 
 HF = Path(__file__).resolve().parent.parent / "game" / "assets" / "models" / "hf"
+# Colour grades for textures that read wrong at night: the ceiba's bark came out pale, its trunk a white obelisk
+# between the dark trees. Applied once to each fresh export (textures/graded.json keeps the graded files' hashes).
+GRADE = {"ceiba_atlas_diff.jpg": (0.42, 0.46, 0.38)}
 
 
 def main():
@@ -53,6 +57,16 @@ def main():
             im.load()
             im.convert("RGB").save(jpg, quality=85, optimize=True)
             saved += s0 - jpg.stat().st_size
+    done_path = tex / "graded.json"
+    done = json.loads(done_path.read_text()) if done_path.exists() else {}
+    for name, k in GRADE.items():
+        f = tex / name
+        if not f.exists() or done.get(name) == hashlib.sha256(f.read_bytes()).hexdigest():
+            continue
+        a = np.asarray(Image.open(f).convert("RGB")).astype(np.float32) / 255.0 * np.array(k, np.float32)
+        Image.fromarray((np.clip(a, 0, 1) * 255 + 0.5).astype(np.uint8)).save(f, quality=88)
+        done[name] = hashlib.sha256(f.read_bytes()).hexdigest()
+    done_path.write_text(json.dumps(done, indent=1))
     print("%d textures to JPEG, %.1f MB saved" % (len(renamed), saved / 1e6))
 
 

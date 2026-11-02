@@ -69,6 +69,7 @@ var _loading := false
 var _env: Node3D = null
 var _outline: MeshInstance3D = null
 var _saved_owners := []
+var _night_set := false
 
 
 func _ready() -> void:
@@ -153,6 +154,9 @@ func load_map() -> void:
 	var b: Array = doc.get("bounds", [-40, -40, 40, 40])
 	bounds = Rect2(float(b[0]), float(b[1]), float(b[2]) - float(b[0]), float(b[3]) - float(b[1]))
 	night_only = bool(doc.get("night_only", false))
+	if night_only and not _night_set:
+		night_preview = true   # (r27) a night-only map opens at night; untick Night Preview to edit it in daylight
+		_night_set = true
 	for nm in ["Layers", "Notes"]:
 		var old := get_node_or_null(nm)
 		if old != null:
@@ -244,11 +248,11 @@ func save_map() -> void:
 func _ensure_terrain() -> void:
 	## (r27) The map's Terrain3D ground under the pieces, kept in this scene (its data lives in the map's folder).
 	var s := MapTerrain.spec_of(doc)
-	if s.is_empty():
+	if s.is_empty() or OS.get_environment("AETHERION_MAPEDIT_NO_TERRAIN") == "1":
 		return
 	var t := get_node_or_null("Terrain3D")
 	if t == null:
-		t = MapTerrain.make_node(s, false)
+		t = MapTerrain.make_node(s, false, false)
 		if t == null:
 			push_warning("[map editor] %s has Terrain3D ground but the Terrain3D extension is not loaded" % map_id)
 			return
@@ -366,7 +370,7 @@ func _preview_env() -> void:
 	env.background_mode = Environment.BG_SKY
 	var sky := Sky.new()
 	var sm := ProceduralSkyMaterial.new()
-	if night_preview or night_only:
+	if night_preview:
 		sm.sky_top_color = Color(0.02, 0.025, 0.045)
 		sm.sky_horizon_color = Color(0.09, 0.06, 0.05)
 		sm.ground_horizon_color = Color(0.05, 0.04, 0.04)
@@ -384,8 +388,8 @@ func _preview_env() -> void:
 	_env.add_child(we)
 	var sun := DirectionalLight3D.new()
 	sun.rotation_degrees = Vector3(-52, -35, 0)
-	sun.light_energy = 0.08 if (night_preview or night_only) else 1.1
-	sun.light_color = Color(0.6, 0.7, 1.0) if (night_preview or night_only) else Color(1.0, 0.96, 0.88)
+	sun.light_energy = 0.08 if night_preview else 1.1
+	sun.light_color = Color(0.6, 0.7, 1.0) if night_preview else Color(1.0, 0.96, 0.88)
 	sun.shadow_enabled = true
 	_env.add_child(sun)
 
