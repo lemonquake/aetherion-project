@@ -44,6 +44,13 @@ def excluded() -> list:
     return out
 
 
+# (r27) The Linux server draws nothing, and Terrain3D has no Linux build here: the server collides with each map's baked
+# heights (maps/<id>/terrain/heights.res), so the addon and the maps' Terrain3D drawing data stay out of it (Godot
+# refuses to export an extension whose library is missing for the platform).
+SERVER_EXCLUDED = ["addons/terrain_3d/*", "maps/*/terrain/terrain3d*.res", "maps/*/terrain/assets.tres",
+                   "maps/*/terrain/material*.tres", "maps/*/terrain/tex/*"]
+
+
 def main() -> None:
     ver = project_version()
     # Android version code: minor * 100 + patch (0.17.1 -> 1701), so a patch release installs over the one before it.
@@ -58,6 +65,7 @@ seed=0
 encrypt_pck=false
 encrypt_directory=false
 script_export_mode=2'''
+    server_common = common.replace(f'exclude_filter="{ex}"', 'exclude_filter="%s"' % ", ".join([ex] + SERVER_EXCLUDED))
     text = f'''[preset.0]
 
 name="Windows Desktop"
@@ -203,7 +211,7 @@ runnable=false
 advanced_options=false
 dedicated_server=false
 custom_features=""
-{common}
+{server_common}
 export_path="../builds/release/linux/aetherion_server.x86_64"
 
 [preset.4.options]

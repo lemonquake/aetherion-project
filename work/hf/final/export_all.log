@@ -7,3 +7,19 @@ drwxr-xr-x 1 Azrin Azrael 197121          0 Nov  2 02:27 ..
 -rw-r--r-- 1 Azrin Azrael 197121 2302704202 Nov  2 08:21 aetherion_server.pck
 -rw-r--r-- 1 Azrin Azrael 197121   73519416 Nov  2 08:21 aetherion_server.x86_64
 [export] Windows Release -> ../builds/release/windows/Aetherion.exe
+[export] Windows Release exit 0 in 38 s
+SCRIPT ERROR: Invalid call. Nonexistent function 'get_version' in base 'Nil'.
+total 2383380
+drwxr-xr-x 1 Azrin Azrael 197121          0 Nov  2 08:22 .
+drwxr-xr-x 1 Azrin Azrael 197121          0 Nov  2 02:27 ..
+-rwxr-xr-x 1 Azrin Azrael 197121  109268480 Nov  2 08:22 Aetherion.exe
+-rw-r--r-- 1 Azrin Azrael 197121 2329826001 Nov  2 08:22 Aetherion.pck
+-rwxr-xr-x 1 Azrin Azrael 197121    1475584 Nov  2 08:22 libterrain.windows.release.x86_64.dll
+[export] macOS -> ../builds/release/macos/Aetherion.zip
+[export] macOS exit 0 in 182 s
+SCRIPT ERROR: Invalid call. Nonexistent function 'get_version' in base 'Nil'.
+ERROR: Failed to open 'A:/Python/aetherion-project/.claude/worktrees/hidden-forest-map-design-6c5420/game/addons/terrain_3d/bin/libterrain.macos.release.framework'.
+total 1525368
+drwxr-xr-x 1 Azrin Azrael 197121          0 Nov  2 08:23 .
+drwxr-xr-x 1 Azrin Azrael 197121          0 Nov  2 02:27 ..
+-rw-r--r-- 1 Azrin Azrael 197121 1561971002 Nov  2 08:25 Aetherion.zip

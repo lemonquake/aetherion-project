@@ -24,6 +24,13 @@ UNICODES = "U+0020-007E,U+00A0-00FF,U+2010-2027,U+2030-203A,U+2190-2193,U+2212,U
 
 # (output name, source, caption is in index.html)
 SCREENS = [
+    # 0.27.0: Hidden Forest, always night (tools/map_preview.tscn --map=hidden_forest --times=30 --size=1920x1080
+    # --cams=..., work/release_shots/r27)
+    ("hidden-forest", SHOTS / "r27" / "sun_t30.png"),
+    # the exported Windows game hosting a Hidden Forest match with bots (--shot after 40 s, work/hf/final/exe_smoke)
+    ("hidden-forest-match", SHOTS / "r27" / "in_match.png"),
+    ("hidden-forest-well", SHOTS / "r27" / "well_t30.png"),
+    ("hidden-forest-skulls", SHOTS / "r27" / "skulls_t30.png"),
     # 0.25.0: the gun carried at a sprint (--autotest=r25 --r25_only=sprint --size=1920x1080, work/release_shots/r25)
     ("sprint", SHOTS / "r25" / "01_r25_sprint_gun.png"),
     # 0.24.0: the Workbench (--autotest=r24 --r24_only=workbench --size=1920x1080, work/release_shots/r24)
