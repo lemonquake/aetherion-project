@@ -6,6 +6,7 @@ extends Node
 const WeaponState := preload("res://src/weapons/weapon_state.gd")
 const Attach := preload("res://src/weapons/attachments.gd")
 const DayCycle := preload("res://src/world/day_cycle.gd")
+const GrenadePickups := preload("res://src/match/grenade_pickups.gd")
 
 var world = null
 var phase := "idle"          # idle, plane, playing, round_end, ended
@@ -220,6 +221,16 @@ func _reset_dm_field(rng: RandomNumberGenerator) -> void:
 	_field_watch.clear()
 	_crush_snd.clear()
 	_next_zone()
+	_place_grenades()
+
+
+func _place_grenades() -> void:
+	## (r28) A round's grenade pickups (grenade_pickups.gd): last round's cleared, this round's laid out.
+	var rng := RandomNumberGenerator.new()
+	rng.seed = Game.match_seed * 13 + round_number * 1009 + 3
+	var gone := GrenadePickups.clear(world)
+	var at := GrenadePickups.place(world, rng, spawn_info)
+	log_event("[grenades] round %d: %d pickups at %s (%d cleared)" % [round_number, at.size(), str(at.map(func(p): return (p as Vector3).snapped(Vector3.ONE * 0.1))), gone])
 
 
 func _start_next_round() -> void:

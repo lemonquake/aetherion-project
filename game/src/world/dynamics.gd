@@ -762,6 +762,9 @@ func randomize_for_match(is_server: bool) -> void:
 	# under it, or inside something, stays empty.
 	var spawn := []
 	var space := PhysicsServer3D.space_get_direct_state(space_rid if space_rid.is_valid() else root.get_world_3d().space)
+	# (r28) Deathmatch's grenades are the round's pickups only (grenade_pickups.gd): floor loot and containers roll none
+	# (every machine knows the mode, so all drop the same ones and the floor items keep the same ids everywhere).
+	var no_nades: bool = world != null and world.has_method("is_dm") and world.is_dm()
 	for s in loot_spots:
 		var sp: Vector3 = s.pos
 		var down := PhysicsRayQueryParameters3D.create(sp + Vector3.UP * 0.35, sp + Vector3.DOWN * 0.45, Defs.PHYS_WORLD | Defs.PHYS_PROP)
@@ -773,6 +776,8 @@ func randomize_for_match(is_server: bool) -> void:
 		s.pos = Vector3(sp.x, (hit.position as Vector3).y + 0.01, sp.z)
 		var entries := roll_table(str(s.table), floor_rng)
 		for e in entries:
+			if no_nades and str(e.id) == "frag_grenade":
+				continue
 			# Items of one spot lie a little apart, each on the surface under it (or at the spot itself when the
 			# nudge would put it on a step or under something).
 			var yaw := floor_rng.randf() * TAU
@@ -791,6 +796,8 @@ func randomize_for_match(is_server: bool) -> void:
 	# Container contents stay hidden: rolled on the server only.
 	for c in containers:
 		c.entries = roll_table(str(c.table))
+		if no_nades:
+			c.entries = c.entries.filter(func(e): return str(e.id) != "frag_grenade")
 		c.searched = false
 
 

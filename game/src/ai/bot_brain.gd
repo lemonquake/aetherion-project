@@ -234,6 +234,11 @@ var _tick := 0
 var _f_o = null                   # fight: the target, its range and the yaw that is on it (set by _fight_aim)
 var _f_d := 0.0
 var _f_want_yaw := 0.0
+# --- r28: Deathmatch grenade pickups (grenade_pickups.gd)
+var _nade_rolled := {}            # pickup item id -> true: seen, and the one roll to take it made
+var _nade_want := -1              # the pickup this bot decided to take (fetched by the objective, ahead of a hold)
+var _nade := {}                   # the throw under way: {aim, yaw, pitch, cook, t, pulled}
+var _nade_cd := 0.0               # seconds before another throw is considered
 var _f_side := 0.0                # pro: which way it strafes, and the class of the gun in hand (set by _pro_tick)
 var _f_cls := ""
 
@@ -507,6 +512,8 @@ func _think_tick(dt: float) -> bool:
 	if dm:
 		BotTeam.mark_seen(ch.team, ch.global_position)   # r22: the team's sweep map
 		_endgame_eval()
+		_nade_look()
+		_nade_decide()
 	return true
 
 
@@ -515,6 +522,7 @@ func _finish(dt: float) -> void:
 	_lights(_cmd)
 	_field_escape(_cmd, dt)
 	_guard_edges(_cmd)
+	_nade_step(dt)
 	yaw = float(_cmd.yaw)
 	pitch = float(_cmd.pitch)
 	BotTeam.note_state(state, dt)
@@ -1868,7 +1876,14 @@ func _pick_fetch() -> bool:
 	var best := {}
 	var bd := INF
 	var here: Vector3 = ch.global_position
-	for id in world.map.dyn.items_near(here, reach):
+	if _nade_want >= 0:
+		# (r28) the grenade pickup it chose to take, wherever it lies (it saw it)
+		if world.map.dyn.items.has(_nade_want):
+			best = {"kind": "item", "id": _nade_want, "p": (world.map.dyn.items[_nade_want].xf as Transform3D).origin}
+			bd = 0.0
+		else:
+			_nade_want = -1
+	for id in (world.map.dyn.items_near(here, reach) if best.is_empty() else []):
 		if _skip.has("item:%d" % id):
 			continue
 		var it: Dictionary = world.map.dyn.items[id]
@@ -1882,7 +1897,7 @@ func _pick_fetch() -> bool:
 		if dd < bd and _in_sight(p + Vector3.UP * 0.1):
 			bd = dd
 			best = {"kind": "item", "id": id, "p": p}
-	for c in site_boxes:
+	for c in (site_boxes if best.is_empty() or bd > 0.0 else []):
 		if c.searched or _skip.has("container:%d" % int(c.id)):
 			continue
 		var p2: Vector3 = c.pos
@@ -1926,8 +1941,12 @@ func _fetch_step(cmd: Dictionary, dt: float) -> void:
 		_fetch.still = 0.0
 	else:
 		_fetch.still = float(_fetch.still) + dt
-	if gone or float(_fetch.t) > 25.0 or float(_fetch.still) > 4.0:
+	# (r28) a grenade pickup may be up a stair or round a wall: more patience on the way
+	var nade: bool = _fetch.kind == "item" and int(_fetch.id) == _nade_want
+	if gone or float(_fetch.t) > (40.0 if nade else 25.0) or float(_fetch.still) > (10.0 if nade else 4.0):
 		_skip[key] = true
+		if nade:
+			_nade_want = -1
 		_fetch = {}
 		state = "roam"
 		goal = Vector3.INF
@@ -1936,7 +1955,12 @@ func _fetch_step(cmd: Dictionary, dt: float) -> void:
 	if flat.length() < 1.4:
 		counts.fetch_done += 1
 		if _fetch.kind == "item":
-			world.interaction.bot_take_item(ch, int(_fetch.id))
+			var took: bool = world.interaction.bot_take_item(ch, int(_fetch.id), nade)
+			if nade:
+				_nade_want = -1
+				if _logging():
+					world.match_server.log_event("[grenades] %s %s the pickup %d (carries %d)" % [ch.pname, "took" if took else "could not take",
+						int(_fetch.id), ch.inv.count(NADE)])
 		else:
 			var tv: Vector3 = p - ch.eye_position()
 			cmd.yaw = atan2(-tv.x, -tv.z)
@@ -1985,6 +2009,145 @@ func _equip_best(cmd: Dictionary, dist: float = 20.0) -> void:
 			best = s
 	if best >= 0:
 		cmd.slot = best
+
+
+# ------------------------------------------------------------------ r28: Deathmatch grenades
+# A grenade pickup in sight gets one roll per bot (rules deathmatch.grenade_pickups.bot_take_chance, 30%); a taken one
+# is fetched by the objective (bot_mind.gd: ahead of a hold). A bot carrying a grenade always uses it on the enemy: an
+# enemy in sight (once it has reacted), or one its team called out in the last few seconds, between bot_throw_min_m and
+# bot_throw_max_m, with no teammate near where it would land. It stands, cooks it so it goes off soon after landing,
+# and throws along an arc it has traced clear of walls and ceilings (pressing G like a player: grenades.gd).
+
+const NADE := "frag_grenade"
+const Grenades := preload("res://src/weapons/grenades.gd")
+
+
+func _nade_rule(key: String, default_value):
+	return Defs.rule("deathmatch.grenade_pickups." + key, default_value)
+
+
+func _nade_look() -> void:
+	## Decision tick: pickups newly in sight get their roll.
+	if _nade_want >= 0 and not world.map.dyn.items.has(_nade_want):
+		_nade_want = -1
+	if ch.mode != Motor.GROUND:
+		return
+	var eye: Vector3 = ch.eye_position()
+	var fwd := -Basis.from_euler(Vector3(0, yaw, 0)).z
+	for id in world.map.dyn.items_near(ch.global_position, float(_nade_rule("bot_see_m", 22.0))):
+		if _nade_rolled.has(id) or str(world.map.dyn.items[id].entry.get("id", "")) != NADE:
+			continue
+		var p: Vector3 = (world.map.dyn.items[id].xf as Transform3D).origin + Vector3.UP * 0.1
+		var to := p - eye
+		if to.length() > 5.0 and fwd.dot(to.normalized()) < 0.3:
+			continue   # not looked at yet
+		if not _in_sight(p):
+			continue
+		_nade_rolled[id] = true
+		var take := rng.randf() < float(_nade_rule("bot_take_chance", 0.3))
+		if take and _nade_want < 0:
+			_nade_want = id
+		if _logging():
+			world.match_server.log_event("[grenades] %s saw the pickup %d %.0f m away: %s" % [ch.pname, id, to.length(), "goes for it" if take else "leaves it"])
+
+
+func _nade_decide() -> void:
+	## Decision tick: start a throw when there is a grenade in the bag and an enemy to throw it at.
+	_nade_cd = maxf(_nade_cd - 0.25, 0.0)
+	if not _nade.is_empty() or _nade_cd > 0.0 or ch.mode != Motor.GROUND or ch.inv == null or ch.inv.count(NADE) <= 0 \
+			or ch.held_prop_id >= 0 or world.grenades.is_cooking(ch):
+		return
+	var aim := Vector3.INF
+	var o = world.characters.get(target_eid) if target_eid >= 0 else null
+	if o != null and o.mode in [Motor.GROUND, Motor.DOWNED]:
+		if reaction > 0.0:
+			return
+		aim = o.global_position
+	else:
+		o = null
+		var it: Dictionary = BotTeam.board(ch.team).get_var(&"intel", {})
+		if not it.is_empty() and Time.get_ticks_msec() - int(it.t) < 5000:
+			aim = it.p
+	if aim == Vector3.INF:
+		return
+	var flat := Vector2(aim.x - ch.global_position.x, aim.z - ch.global_position.z)
+	if flat.length() < float(_nade_rule("bot_throw_min_m", 7.0)) or flat.length() > float(_nade_rule("bot_throw_max_m", 28.0)):
+		return
+	for m in world.characters.values():
+		if m != ch and m.team == ch.team and m.mode in [Motor.GROUND, Motor.DOWNED] and m.global_position.distance_to(aim) < 6.0:
+			return   # a teammate is there
+	# Short of the feet: it bounces and rolls on into them.
+	var land := aim - Vector3(flat.x, 0.0, flat.y).normalized() * 0.8
+	var sol := _nade_solve(land)
+	if sol.is_empty():
+		_nade_cd = 0.5   # no clear arc from here: look again shortly
+		return
+	var fuse := float(Defs.item(NADE).get("fuse_s", 4.0))
+	_nade = {"aim": aim, "yaw": sol.yaw, "pitch": sol.pitch, "cook": clampf(fuse - float(sol.t) - 1.0, 0.0, 1.5), "t": 0.0, "pulled": false}
+	if _logging():
+		world.match_server.log_event("[grenades] %s throws at %s, %.0f m (%s), flight %.1f s, cook %.1f s" % [ch.pname,
+			str(aim.snapped(Vector3.ONE * 0.1)), flat.length(), "in sight" if o != null else "called out", float(sol.t), float(_nade.cook)])
+
+
+func _nade_solve(land: Vector3) -> Dictionary:
+	## The flattest throw (G let go without aiming: the overarm throw of grenades.gd) whose arc, traced against the
+	## world, comes down within 2.5 m of land: {yaw, pitch, t (seconds in the air)}, or {} when every arc is blocked.
+	var speed := float(Defs.item(NADE).get("throw_speed", 17.0))
+	var eye: Vector3 = ch.eye_position()
+	var to := land - eye
+	var want_yaw := atan2(-to.x, -to.z)
+	var space: PhysicsDirectSpaceState3D = world.get_world_3d().direct_space_state
+	var step := 0.05
+	for i in 32:
+		var pitch_try := -0.25 + i * 0.04
+		var dir := -Basis.from_euler(Vector3(pitch_try, want_yaw, 0.0)).z
+		var p: Vector3 = eye + dir * 0.35 + Vector3.DOWN * 0.1
+		var v: Vector3 = dir * speed + Vector3.UP * 2.5
+		var t := 0.0
+		while t < 3.0:
+			v.y -= 9.81 * step
+			var q := p + v * step
+			var r := space.intersect_ray(PhysicsRayQueryParameters3D.create(p, q, Grenades.MASK))
+			if not r.is_empty():
+				if (r.position as Vector3).distance_to(land) < 2.5:
+					return {"yaw": want_yaw, "pitch": pitch_try, "t": t}
+				break
+			p = q
+			t += step
+	return {}
+
+
+func _nade_step(dt: float) -> void:
+	## Every tick of a throw: stand, face along the arc, hold G until cooked, then let go (the release throws it).
+	if _nade.is_empty():
+		return
+	_nade.t = float(_nade.t) + dt
+	var cooking: bool = world.grenades.is_cooking(ch)
+	if cooking:
+		_nade.pulled = true
+	if ch.mode != Motor.GROUND or (not cooking and (bool(_nade.pulled) or float(_nade.t) > 0.6)) or float(_nade.t) > 5.0:
+		# thrown (or the pin never came out): carry on
+		_nade = {}
+		_nade_cd = 2.0
+		return
+	var o = world.characters.get(target_eid) if target_eid >= 0 else null
+	if o != null and o.mode == Motor.GROUND and o.global_position.distance_to(_nade.aim) > 1.5 and Engine.get_physics_frames() % 8 == 0:
+		# it moved: the arc again, to where it is now
+		var to: Vector3 = o.global_position - ch.global_position
+		var sol := _nade_solve(o.global_position - Vector3(to.x, 0.0, to.z).normalized() * 0.8)
+		if not sol.is_empty():
+			_nade.aim = o.global_position
+			_nade.yaw = sol.yaw
+			_nade.pitch = sol.pitch
+	_cmd.yaw = lerp_angle(yaw, float(_nade.yaw), minf(dt * 20.0, 1.0))
+	_cmd.pitch = lerpf(pitch, float(_nade.pitch), minf(dt * 20.0, 1.0))
+	_cmd.mx = 0.0
+	_cmd.my = 0.0
+	_cmd.btn &= ~(Motor.B_FIRE | Motor.B_AIM | Motor.B_RELOAD | Motor.B_USE | Motor.B_SPRINT | Motor.B_JUMP)
+	var cooked := float(world.grenades.cooking.get(ch.eid, 0.0))
+	var on_line := absf(wrapf(float(_nade.yaw) - yaw, -PI, PI)) < 0.06 and absf(float(_nade.pitch) - pitch) < 0.06
+	if not cooking or cooked < float(_nade.cook) or not on_line:
+		_cmd.btn |= Motor.B_THROW
 
 
 # r22: the fight's leaf skills. The combat tree (bot_mind.gd) runs them every tick: _fight_aim, then unarmed

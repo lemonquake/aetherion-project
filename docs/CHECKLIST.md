@@ -10,6 +10,25 @@ Evidence folders (not committed, regenerate with the commands in the README): `w
 play-through), `work/screens/net/` (two clients), `work/screens/L1`, `L2` (lighting previews), `work/items/`
 (model checks), bot-match logs from `--matchlog`, `work/scale/` (map size, benchmarks, 40-bot matches).
 
+## 2026-11-02 r28 run (version 0.28.0): Deathmatch grenade pickups
+
+Evidence: `work/r28/` (`dm_maps.sh`: headless dedicated servers, 20 bots, `--matchlog`, 240-300 s per map; logs
+`<map>.log` seed 28, `b_<map>.log` seed 91). Code: `game/src/match/grenade_pickups.gd`, bots in `bot_brain.gd` (r28).
+
+- **Tested** Every round on every Deathmatch map (Malasugue Mall, Freight Delight, Lawless Sub, Hidden Forest), 4 single
+  frag grenades are placed on the bots' analysed hiding and cover spots that are corners or indoors, away from spawns;
+  the next round clears what is left on the floor and places 4 new ones (e.g. Freight Delight rounds 1-4, "2 cleared",
+  "4 cleared"). Deathmatch floor loot and containers roll no grenades, kits carry none.
+- **Tested** Hidden Forest: its spots sit at 0 m and 4 m over uneven ground; the pickups are set on the ground under them
+  (first run left them at the spot height, fixed).
+- **Tested** Bots roll once per pickup they see: 21 of 75 sightings went for it (28%; rules 30%). Takers picked them up
+  (`took the pickup`, Hidden Forest second run 5, each of whom threw it before the run ended) at an enemy in sight or called out, 17-28 m, cooked
+  1.2-1.5 s: Freight Delight 2 throws killed 5, Hidden Forest 5 throws killed 4.
+- **Incomplete** A bot that takes a grenade and dies before an enemy is in its throw range (7-28 m, clear arc) carries
+  it to its body; first Freight run: 2 pickups taken in round 1, no throw that round.
+- **Implemented** A human player takes a pickup with Use and throws with G as with any grenade (unchanged code paths); not
+  run with a player this time.
+
 ## 2026-11-01 r21 run (version 0.21.0): bots and walls, BotNav
 
 Evidence: `work/r21nav/` (`base_mall` before, `final2_mall` after: 10-minute 21-bot matches with `--navwatch`; route

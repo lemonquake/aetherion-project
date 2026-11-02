@@ -742,12 +742,13 @@ func bot_take_entry(ch, e: Dictionary) -> Dictionary:
 	return give(ch, e.duplicate(true))
 
 
-func bot_take_item(ch, id: int) -> bool:
-	## A bot picks up an item it is standing next to (same reach rule as Use).
+func bot_take_item(ch, id: int, wanted: bool = false) -> bool:
+	## A bot picks up an item it is standing next to (same reach rule as Use). wanted: taken whatever LootSense makes
+	## of it ((r28) a Deathmatch grenade pickup the bot chose to take).
 	var it: Dictionary = world.map.dyn.items.get(id, {})
 	if it.is_empty() or (it.xf as Transform3D).origin.distance_to(ch.global_position) > REACH + 0.4:
 		return false
-	if LootSense.value(ch, it.entry) <= 0.0:
+	if not wanted and LootSense.value(ch, it.entry) <= 0.0:
 		return false
 	var left := bot_take_entry(ch, (it.entry as Dictionary).duplicate(true))
 	world.server_sound("pickup", ch.global_position + Vector3.UP, 0.0, -1)

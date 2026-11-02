@@ -416,7 +416,7 @@ func _searching() -> bool:
 
 
 func _holding() -> bool:
-	return b.state in ["camp", "overwatch"] and b._hold_t > 0.0
+	return b.state in ["camp", "overwatch"] and b._hold_t > 0.0 and b._nade_want < 0   # (r28) a grenade to fetch ends a hold
 
 
 func _out_of_house(_d: float) -> int:
@@ -424,8 +424,9 @@ func _out_of_house(_d: float) -> int:
 
 
 func _may_fetch() -> bool:
-	# Classic: everyone loots until armed; Deathmatch bots start armed and loot only when low on rounds
-	return not b.dm or not LootSense.armed_ok(b.ch)
+	# Classic: everyone loots until armed; Deathmatch bots start armed and loot only when low on rounds, or (r28) go for
+	# a grenade pickup they chose to take
+	return not b.dm or not LootSense.armed_ok(b.ch) or b._nade_want >= 0
 
 
 func _fetch(_d: float) -> int:

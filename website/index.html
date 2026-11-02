@@ -53,7 +53,7 @@
     <img src="/assets/img/hero.webp" alt="" width="2400" height="1350" fetchpriority="high">
   </picture>
   <div class="wrap hero-body">
-    <p class="eyebrow">Open playtest · <span class="mono" data-fill="game-version">0.27.0</span></p>
+    <p class="eyebrow">Open playtest · <span class="mono" data-fill="game-version">0.28.0</span></p>
     <h1 id="hero-title">Drop into Sitio&nbsp;Kalinaw.</h1>
     <p class="lede">A battle royale under an artificial sun. Parachute in, loot weapons and gear, and stay ahead of the
       closing forcefield, on PC or on your phone, in the same matches.</p>
@@ -86,7 +86,7 @@
       </article>
       <article class="server" data-mode="deathmatch">
         <div class="server-top"><h3>Deathmatch</h3><span class="tag">Malasugue Mall · Freight Delight · Hidden Forest · Lawless Sub</span></div>
-        <p class="server-desc">Four maps. Malasugue Mall is a five-storey mall with damaged shops, two bloodied elevators and hiding spots along the upper galleries, and each team starts on its own floor. Freight Delight is a container-yard slum at night for two teams of up to 12, with a second floor reached by three stairs. Hidden Forest is an ancient city swallowed by the jungle, always at night, with temples, terraces and a rope bridge above its trails. Lawless Sub is the subdivision. Up to three teams of 7 play the mall, the forest and the subdivision. Choose the map on the Home screen; the official server plays them in turn. Pick a primary and a secondary gun and fit them with sights, magazines and more; everyone starts with armour and a helmet. Hosts set how well the bots play: Easy, Normal, Hard or Pro. Team Wipe is the default: the last team standing earns 1 point, in a race to 10, 20, 30 or 50. Everyone returns with full health and their chosen guns for each new round. The mall's and the yard's fields are disabled by default; hosts can enable the usual countdown and closing schedule, capped at half their starting radius. Kill-score, timed-score and single-round elimination rules are also available.</p>
+        <p class="server-desc">Four maps. Malasugue Mall is a five-storey mall with damaged shops, two bloodied elevators and hiding spots along the upper galleries, and each team starts on its own floor. Freight Delight is a container-yard slum at night for two teams of up to 12, with a second floor reached by three stairs. Hidden Forest is an ancient city swallowed by the jungle, always at night, with temples, terraces and a rope bridge above its trails. Lawless Sub is the subdivision. Up to three teams of 7 play the mall, the forest and the subdivision. Choose the map on the Home screen; the official server plays them in turn. Pick a primary and a secondary gun and fit them with sights, magazines and more; everyone starts with armour and a helmet. Hosts set how well the bots play: Easy, Normal, Hard or Pro. Team Wipe is the default: the last team standing earns 1 point, in a race to 10, 20, 30 or 50. Everyone returns with full health and their chosen guns for each new round. Four frag grenades lie in corners and inside buildings each round, for whoever finds them first, bots included. The mall's and the yard's fields are disabled by default; hosts can enable the usual countdown and closing schedule, capped at half their starting radius. Kill-score, timed-score and single-round elimination rules are also available.</p>
         <p class="server-state">Live status needs JavaScript.</p>
       </article>
     </div>
@@ -98,7 +98,7 @@
   <div class="wrap">
     <div class="section-head">
       <h2 id="download-title">Get the game</h2>
-      <p class="section-sub">Your game must be the same version as the servers: <b class="mono" data-fill="game-version">0.27.0</b>.</p>
+      <p class="section-sub">Your game must be the same version as the servers: <b class="mono" data-fill="game-version">0.28.0</b>.</p>
     </div>
     <div class="platforms">
       <article class="platform" id="get-windows">
@@ -130,7 +130,7 @@
           <li>For a new version, download the APK again and install it over the old one. Your profile stays.</li>
         </ol>
         <a class="btn btn-primary btn-block" href="/downloads/Aetherion.apk" download>
-          <span><b>Download the APK</b><small><span data-fill="apk-size">690 MB</span> · version <span data-fill="apk-version">0.27.0</span></small></span>
+          <span><b>Download the APK</b><small><span data-fill="apk-size">690 MB</span> · version <span data-fill="apk-version">0.28.0</span></small></span>
         </a>
         <p class="alt">Black screen or a crash when the game starts? Install the
           <a href="/downloads/Aetherion-opengl.apk" download>compatibility build</a> (<span data-fill="apk-gl-size">690 MB</span>) instead.
@@ -259,16 +259,14 @@
 <section class="band" id="notes" aria-labelledby="notes-title">
   <div class="wrap narrow">
     <div class="section-head">
-      <h2 id="notes-title">What's new in <span data-fill="game-version">0.27.0</span></h2>
+      <h2 id="notes-title">What's new in <span data-fill="game-version">0.28.0</span></h2>
       <p class="section-sub" id="notes-date"></p>
     </div>
     <ul class="notes" id="notes-list">
-      <li>New Deathmatch map: Hidden Forest. An ancient city swallowed by the jungle, always at night, for three teams of up to seven. Fight over the Temple of the Sun, the Heart of the Forest pyramid with a crypt through its base, the Moon Well, the Ball Court, the Observatory and the Court of Skulls.</li>
-      <li>The jungle floor rises and falls: trails and clearings run between steep earth banks, and temple tops, terraces, the ball court platforms and a rope bridge make a second level above them.</li>
-      <li>Torches and braziers burn with live, flickering flames, vines hang from the ruins and fireflies drift over every clearing. Narrow hidden paths cut between the areas, two of them under giant fig roots.</li>
-      <li>Bots know Hidden Forest from the first match: its routes, stairs, hiding places and sniping spots.</li>
-      <li>The official Deathmatch server takes Hidden Forest in turn with the other maps.</li>
-      <li>Update the game to 0.27.0 on every device to join the updated servers.</li>
+      <li>Deathmatch: frag grenades now lie on the map. Every round, on every Deathmatch map, four grenades are placed at random in corners and inside buildings, always somewhere you can walk to and never at a team's spawn. Walk up and press E to take one, then hold G to cook it and let go to throw.</li>
+      <li>Those four are the only grenades in a Deathmatch round: kits, floor loot and boxes carry none, and the next round clears them and places four new ones.</li>
+      <li>Bots that see a grenade go for it about one time in three. A bot carrying one always throws it at the enemy: cooked, on a clear arc, at someone it can see or a teammate just called out, and never where its own team stands.</li>
+      <li>Update the game to 0.28.0 on every device to join the updated servers.</li>
     </ul>
   </div>
 </section>
@@ -342,7 +340,7 @@
   <div class="wrap foot-row">
     <p><b>Aetherion Project</b> by Aljay Leodones · AzAz Games ·
       Also by AzAz Games: <a href="https://15-235-246-87.sslip.io/updates/">Beyond Heroes ↗</a></p>
-    <p>Game <span class="mono" data-fill="game-version">0.27.0</span> · Servers in Singapore ·
+    <p>Game <span class="mono" data-fill="game-version">0.28.0</span> · Servers in Singapore ·
       Fonts: Barlow (<a href="/assets/fonts/OFL-Barlow.txt">OFL</a>), Share Tech Mono (<a href="/assets/fonts/OFL-ShareTechMono.txt">OFL</a>),
       Cinzel (<a href="/assets/fonts/OFL-Cinzel.txt">OFL</a>)</p>
   </div>

@@ -1,0 +1,315 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+[server] dedicated server listening on 7803
+[dyn] 0 prop models, breakable ones cut into chunks in 0 ms
+[world] map built in 778 ms
+[map] 0 buildings, 0 doors, 0 containers, 0 props, #00000000 on PC
+[nav] levels: 34890 points, 3 links, 89 ms
+[botnav] walk check: 617 of 34890 cells closed by the real collision, 283 ms
+[botnav] link check: 0 links between open cells cross a wall, 368 ms
+[nav] r21: 617 cells closed by the physics check, main walk 34227 of 34282 points (55 in pockets), 186 ms
+[botnav] freight_delight: analysing 1241 candidate spots (walk check 283 ms)
+[waypoints] freight_delight: 1237 nodes, 3923 edges (auto, res://data/waypoints/freight_delight.json), 1 off the main graph, 58 ms { "plaza": 236, "road": 240, "junction": 125, "snipe": 54, "hide": 46, "area": 220, "corner": 301, "stair": 15 }
+[bots] learned from 33 cells, 0 stuck spots, 0 spots learned from play, 22 spot records (user://bot_memory_freight_delight.json)
+[loadout] Ate Load Dito bolt_308 [scope_6x,suppressor_rifle,mag_ext_sniper,cheek_pad] mag 8/8 | pistol_9 [sight_reddot,suppressor_light,mag_extquick_light,weapon_light] mag 21/21
+[loadout] Kapitan Tikoy smg_vector [sight_reddot,suppressor_light,mag_extquick_light,stock_heavy] mag 33/33 | pistol_45 [suppressor_light,mag_extquick_light,weapon_light] mag 12/12
+[loadout] Kapitbahay Lito shotgun_double [choke,bullet_loops] mag 2/2 | pistol_45 [sight_reddot,suppressor_light,mag_extquick_light,weapon_light] mag 12/12
+[loadout] Mang Tomas Ketchup marksman_308 [scope_thermal,suppressor_rifle,mag_ext_sniper,cheek_pad] mag 30/30 | pistol_45 [sight_reflex,suppressor_light] mag 7/7
+[loadout] Ate Bebang shotgun_pump [sight_reddot,bullet_loops,weapon_light] mag 6/6 | pistol_deagle [sight_reddot,suppressor_light,mag_extquick_light,weapon_light] mag 10/10
+[loadout] Mang Kanor shotgun_pump [choke,weapon_light] mag 6/6 | revolver_357 [sight_reddot] mag 6/6
+[loadout] Totoy Bibo shotgun_double [choke,bullet_loops] mag 2/2 | pistol_9 [mag_extquick_light] mag 21/21
+[loadout] Lolo Kalesa smg_ump45 [suppressor_light,weapon_light] mag 25/25 | pistol_deagle [sight_reddot,mag_extquick_light,weapon_light] mag 10/10
+[loadout] Totoy Kulot rifle_m762 [scope_3x,grip_heavy,weapon_light] mag 30/30 | pistol_deagle [sight_reflex,mag_extquick_light,weapon_light] mag 10/10
+[loadout] Tatay Kulas rifle_m762 [scope_3x,suppressor_rifle,grip_heavy,mag_extquick_rifle] mag 40/40 | pistol_45 [mag_extquick_light,weapon_light] mag 12/12
+[loadout] Manong Guard bolt_awp [scope_6x,suppressor_sniper,cheek_pad] mag 5/5 | pistol_deagle [suppressor_light,mag_extquick_light,weapon_light] mag 10/10
+[loadout] Tsong Ramil bolt_308 [scope_6x,suppressor_rifle,mag_ext_sniper,cheek_pad] mag 8/8 | pistol_9 [sight_reflex,suppressor_light,mag_extquick_light] mag 21/21
+[loadout] Inday Rice Cooker bolt_kar98 [scope_8x] mag 5/5 | pistol_45 [mag_extquick_light,weapon_light] mag 12/12
+[loadout] Bunso Badong machine_pistol [sight_holo,suppressor_light,laser_sight,mag_extquick_light,stock_tactical] mag 45/45 | revolver_357 [] mag 6/6
+[loadout] Kumpare Ambo dmr_sks [scope_6x,suppressor_rifle,mag_ext_sniper,cheek_pad] mag 20/20 | pistol_9 [sight_reddot,weapon_light] mag 15/15
+[loadout] Pinsan Gardo bolt_kar98 [scope_6x,suppressor_rifle] mag 5/5 | pistol_9 [sight_reddot,mag_extquick_light,weapon_light] mag 21/21
+[loadout] Pareng Pandesal smg_ump45 [scope_2x,mag_drum_light,weapon_light] mag 45/45 | pistol_9 [sight_reflex,mag_extquick_light,weapon_light] mag 21/21
+[loadout] Tsong Balut rifle_scar [scope_3x,grip_vertical,mag_drum_rifle,weapon_light] mag 60/60 | pistol_9 [sight_reflex,mag_extquick_light,weapon_light] mag 21/21
+[loadout] Tito Videoke dmr_sks [scope_lpvo,suppressor_rifle,mag_ext_sniper,cheek_pad] mag 20/20 | pistol_45 [sight_reddot,suppressor_light,mag_extquick_light] mag 12/12
+[loadout] Pareng Jun shotgun_double [choke,bullet_loops] mag 2/2 | pistol_45 [suppressor_light,mag_extquick_light,weapon_light] mag 12/12
+[match    0.0] [grenades] round 1: 4 pickups at [(28.2, 0.1, 20.2), (-17.7, 0.1, 18.2), (-29.7, 0.4, -27.7), (-53.4, 0.1, 32.6)] (0 cleared)
+[match    0.0] deathmatch start on freight_delight: 20 players, 2 teams; spawns (-52.0, 0.0, 0.0), (50.0, 0.0, 0.0) (103/103 m apart, layout); day offset 0 s; zone centre (-2.0, -2.0) r=92; win by wipe
+[match    0.0] status: { "ground": 20 }; armed 20; shots 0; zone -1 hold r=92; corpses 0; levels { "L1": 20 }
+[match    0.0] dm teams: West Team 10 at (-51.0, 1.0) spread 4 m; East Team 10 at (52.0, 2.0) spread 7 m; gap 102 m; zone centre (-2.0, -2.0)
+[match    0.0] bots: { "roam": 20 }; containers searched by bots 0 (all players 0); plan steps done 0; guns carried 40
+[match    0.0] roles: { "stalker": { "roam": 5 }, "rusher": { "roam": 4 }, "sniper": { "roam": 6 }, "looter": { "roam": 5 } }; stuck now 0; waypoints 791; team { "lines": 0, "pings": 0, "laser_follow": 0, "learned_cells": 33, "blocked_cells": 0, "squads": 0, "following_humans": 0, &"learned_spots": 0 }
+[match    0.0] [lootstats] bots on the ground 20 (in water 0); armed 20; armed with ammo for a gun 20; long guns 20; attachments fitted 114; rounds of unusable ammo carried 0; items on the ground 4; bot pickups { "detours": 0, "detour_taken": 0, "fetches": 0, "fetch_done": 0, "items_taken": 0 }
+[botnav] saved user://botnav/freight_delight.json (258 spots)
+[botnav] freight_delight: 258 spots from 1241 candidates in 89 ms of ticks { "hide": 102, "snipe": 83, "cover": 45, "open": 28 }
+[match    7.5] Ate Bebang (team 1) landed at (54.0, 0.0, 6.0), 5.5 m/s, health 100; teammates -
+[match    9.4] [grenades] Tsong Ramil saw the pickup 3 18 m away: leaves it
+[match   10.5] [grenades] Tsong Balut saw the pickup 4 8 m away: leaves it
+[match   12.4] Manong Guard (team 1) landed at (34.0, 0.0, -22.0), 7.7 m/s, health 100; teammates 53 m
+[match   13.1] Mang Kanor (team 0) landed at (-25.0, 0.0, -1.0), 4.9 m/s, health 100; teammates -
+[match   13.6] Kapitbahay Lito (team 1) landed at (43.0, 0.0, -15.0), 5.7 m/s, health 100; teammates 50 m, 10 m
+[match   14.2] [hold] Tsong Balut camp spot 23 37s
+[match   14.5] [hold] Mang Kanor overwatch spot 167 109s
+[match   14.7] [hold] Tsong Ramil camp spot 20 48s
+[match   15.0] [botstates] 299 bot-s: roam 52%, hunt 26%, follow 20%, fight 2%, camp 0%, overwatch 0%, investigate 0%
+[match   15.0] [botskill] normal shots 12 hits 1 reaction_avg 0.31 (n 6) dmg 16 bots 20
+[match   15.0] status: { "ground": 20 }; armed 20; shots 14; zone -1 hold r=92; corpses 0; levels { "between": 1, "L1": 18, "L2": 1 }; server tick avg 2.62 ms, p99 9.05 ms, max 22.81 ms over 900 ticks; objects 6561
+[match   15.0] dm teams: West Team 10 at (-23.0, 6.0) spread 15 m; East Team 10 at (27.0, -2.0) spread 22 m; gap 51 m; zone centre (-2.0, -2.0)
+[match   15.0] bots: { "hunt": 3, "investigate": 2, "follow": 5, "fight": 8, "camp": 2 }; containers searched by bots 0 (all players 0); plan steps done 0; guns carried 40
+[match   15.0] roles: { "stalker": { "hunt": 3, "fight": 2 }, "rusher": { "investigate": 1, "fight": 2, "follow": 1 }, "sniper": { "follow": 3, "investigate": 1, "fight": 2 }, "looter": { "follow": 1, "camp": 2, "fight": 2 } }; stuck now 0; waypoints 258; team { "lines": 5, "pings": 0, "laser_follow": 0, "learned_cells": 33, "blocked_cells": 0, "squads": 5, "following_humans": 0, &"learned_spots": 0 }
+[match   15.0] [lootstats] bots on the ground 20 (in water 0); armed 20; armed with ammo for a gun 20; long guns 20; attachments fitted 114; rounds of unusable ammo carried 0; items on the ground 4; bot pickups { "detours": 0, "detour_taken": 0, "fetches": 0, "fetch_done": 0, "items_taken": 0 }
+[match   15.9] Kumpare Ambo killed by Mang Tomas Ketchup (gunshot); 2 teams left
+[match   15.9] alive: West Team 10, East Team 9; score { 0: 0, 1: 0 }
+[match   17.0] Totoy Bibo killed by Mang Tomas Ketchup (gunshot); 2 teams left
+[match   17.0] alive: West Team 10, East Team 8; score { 0: 0, 1: 0 }
+[match   17.5] Ate Load Dito (team 1) landed at (35.0, 0.0, -19.0), 7.9 m/s, health 100; teammates 9 m, 53 m, 3 m
+[match   17.8] Mang Tomas Ketchup killed by Tito Videoke (gunshot); 2 teams left
+[match   17.8] alive: West Team 9, East Team 8; score { 0: 0, 1: 0 }
+[match   18.7] Inday Rice Cooker killed by Kapitan Tikoy (gunshot); 2 teams left
+[match   18.7] alive: West Team 9, East Team 7; score { 0: 0, 1: 0 }
+[match   23.8] Kapitan Tikoy killed by Tito Videoke (gunshot); 2 teams left
+[match   23.8] alive: West Team 8, East Team 7; score { 0: 0, 1: 0 }
+[match   25.5] Tito Videoke killed by Pareng Jun (gunshot); 2 teams left
+[match   25.5] alive: West Team 8, East Team 6; score { 0: 0, 1: 0 }
+[match   27.1] Totoy Kulot killed by Bunso Badong (gunshot); 2 teams left
+[match   27.1] alive: West Team 8, East Team 5; score { 0: 0, 1: 0 }
+[match   28.4] Bunso Badong (team 0) landed at (4.0, 0.0, -3.0), 4.9 m/s, health 59; teammates 21 m
+[match   29.0] Tatay Kulas killed by Ate Load Dito (gunshot); 2 teams left
+[match   29.0] alive: West Team 7, East Team 5; score { 0: 0, 1: 0 }
+[match   29.1] [hold] Mang Kanor overwatch spot 163 106s
+[match   30.0] [botstates] 534 bot-s: roam 31%, hunt 24%, follow 21%, fight 15%, camp 6%, investigate 1%, order 1%, heal 1%, overwatch 0%
+[match   30.0] [botskill] normal shots 208 hits 37 reaction_avg 0.39 (n 50) dmg 941 bots 12
+[match   30.0] status: { "ground": 12 }; armed 12; shots 208; zone -1 hold r=92; corpses 8; levels { "L1": 12 }; server tick avg 3.70 ms, p99 11.85 ms, max 41.34 ms over 900 ticks; objects 5725
+[match   30.0] dm teams: West Team 7 at (-15.0, -4.0) spread 26 m; East Team 5 at (32.0, 9.0) spread 22 m; gap 49 m; zone centre (-2.0, -2.0)
+[match   30.0] bots: { "hunt": 5, "roam": 1, "follow": 3, "overwatch": 1, "camp": 2 }; containers searched by bots 0 (all players 0); plan steps done 0; guns carried 24
+[match   30.0] roles: { "stalker": { "hunt": 4 }, "sniper": { "roam": 1, "overwatch": 1, "follow": 2 }, "looter": { "follow": 1, "camp": 2 }, "rusher": { "hunt": 1 } }; stuck now 0; waypoints 258; team { "lines": 32, "pings": 0, "laser_follow": 0, "learned_cells": 35, "blocked_cells": 0, "squads": 5, "following_humans": 0, &"learned_spots": 0 }
+[match   30.0] [lootstats] bots on the ground 12 (in water 0); armed 12; armed with ammo for a gun 12; long guns 12; attachments fitted 70; rounds of unusable ammo carried 0; items on the ground 4; bot pickups { "detours": 0, "detour_taken": 0, "fetches": 0, "fetch_done": 0, "items_taken": 0 }
+[match   38.3] Bunso Badong killed by Ate Load Dito (gunshot); 2 teams left
+[match   38.3] alive: West Team 6, East Team 5; score { 0: 0, 1: 0 }
+[match   39.2] Ate Load Dito killed by Pareng Jun (gunshot); 2 teams left
+[match   39.2] alive: West Team 6, East Team 4; score { 0: 0, 1: 0 }
+[match   45.0] [botstates] 702 bot-s: roam 26%, hunt 24%, follow 21%, fight 16%, camp 9%, order 1%, investigate 1%, overwatch 1%, heal 1%
+[match   45.0] [botskill] normal shots 263 hits 55 reaction_avg 0.41 (n 62) dmg 1250 bots 10
+[match   45.0] status: { "ground": 10 }; armed 10; shots 263; zone -1 hold r=92; corpses 10; levels { "L1": 10 }; server tick avg 2.14 ms, p99 4.49 ms, max 15.90 ms over 900 ticks; objects 5498
+[match   45.0] dm teams: West Team 6 at (-18.0, -5.0) spread 27 m; East Team 4 at (35.0, 15.0) spread 20 m; gap 57 m; zone centre (-2.0, -2.0)
+[match   45.0] bots: { "fight": 3, "follow": 2, "roam": 2, "camp": 2, "hunt": 1 }; containers searched by bots 0 (all players 0); plan steps done 0; guns carried 20
+[match   45.0] roles: { "sniper": { "fight": 1, "roam": 2, "follow": 1 }, "looter": { "follow": 1, "camp": 2 }, "stalker": { "fight": 2, "hunt": 1 } }; stuck now 0; waypoints 258; team { "lines": 48, "pings": 0, "laser_follow": 0, "learned_cells": 38, "blocked_cells": 0, "squads": 5, "following_humans": 0, &"learned_spots": 0 }
+[match   45.0] [lootstats] bots on the ground 10 (in water 0); armed 10; armed with ammo for a gun 10; long guns 10; attachments fitted 57; rounds of unusable ammo carried 0; items on the ground 4; bot pickups { "detours": 0, "detour_taken": 0, "fetches": 0, "fetch_done": 0, "items_taken": 0 }
+[match   45.1] Pinsan Gardo killed by Manong Guard (gunshot); 2 teams left
+[match   45.1] alive: West Team 5, East Team 4; score { 0: 0, 1: 0 }
+[match   49.2] [hold] Mang Kanor overwatch spot 174 88s
+[match   49.6] [hold] Kapitbahay Lito overwatch spot 109 80s
+[match   51.8] [hold] Tsong Balut camp spot 23 39s
+[match   54.9] [hold] Pareng Jun overwatch spot 114 87s
+[match   60.0] [botstates] 837 bot-s: roam 24%, hunt 23%, follow 21%, fight 14%, camp 11%, overwatch 4%, order 1%, investigate 1%, heal 1%
+[match   60.0] [botskill] normal shots 264 hits 56 reaction_avg 0.41 (n 62) dmg 1316 bots 9
+[match   60.0] status: { "ground": 9 }; armed 9; shots 264; zone -1 hold r=92; corpses 11; levels { "L1": 9 }; server tick avg 1.31 ms, p99 2.87 ms, max 15.23 ms over 900 ticks; objects 5392
+[match   60.0] dm teams: West Team 5 at (-34.0, -1.0) spread 19 m; East Team 4 at (37.0, 24.0) spread 13 m; gap 76 m; zone centre (-2.0, -2.0)
+[match   60.0] bots: { "overwatch": 3, "follow": 2, "hunt": 2, "camp": 2 }; containers searched by bots 0 (all players 0); plan steps done 0; guns carried 18
+[match   60.0] roles: { "sniper": { "overwatch": 3, "follow": 1 }, "looter": { "follow": 1, "camp": 2 }, "stalker": { "hunt": 2 } }; stuck now 0; waypoints 258; team { "lines": 52, "pings": 0, "laser_follow": 0, "learned_cells": 39, "blocked_cells": 0, "squads": 5, "following_humans": 0, &"learned_spots": 0 }
+[match   60.0] [lootstats] bots on the ground 9 (in water 0); armed 9; armed with ammo for a gun 9; long guns 9; attachments fitted 52; rounds of unusable ammo carried 0; items on the ground 4; bot pickups { "detours": 0, "detour_taken": 0, "fetches": 0, "fetch_done": 0, "items_taken": 0 }
+[match   62.9] [hold] Tsong Ramil camp spot 20 39s
+[match   75.0] [botstates] 972 bot-s: hunt 23%, follow 21%, roam 21%, camp 12%, fight 12%, overwatch 8%, order 1%, investigate 1%, heal 1%
+[match   75.0] [botskill] normal shots 264 hits 56 reaction_avg 0.41 (n 62) dmg 1316 bots 9
+[match   75.0] status: { "ground": 9 }; armed 9; shots 264; zone -1 hold r=92; corpses 11; levels { "L1": 9 }; server tick avg 1.27 ms, p99 2.81 ms, max 6.73 ms over 900 ticks; objects 5392
+[match   75.0] dm teams: West Team 5 at (-34.0, -1.0) spread 19 m; East Team 4 at (26.0, 24.0) spread 22 m; gap 66 m; zone centre (-2.0, -2.0)
+[match   75.0] bots: { "overwatch": 3, "follow": 2, "hunt": 2, "camp": 2 }; containers searched by bots 0 (all players 0); plan steps done 0; guns carried 18
+[match   75.0] roles: { "sniper": { "overwatch": 3, "follow": 1 }, "looter": { "follow": 1, "camp": 2 }, "stalker": { "hunt": 2 } }; stuck now 0; waypoints 258; team { "lines": 54, "pings": 0, "laser_follow": 0, "learned_cells": 40, "blocked_cells": 0, "squads": 5, "following_humans": 0, &"learned_spots": 0 }
+[match   75.0] [lootstats] bots on the ground 9 (in water 0); armed 9; armed with ammo for a gun 9; long guns 9; attachments fitted 52; rounds of unusable ammo carried 0; items on the ground 4; bot pickups { "detours": 0, "detour_taken": 0, "fetches": 0, "fetch_done": 0, "items_taken": 0 }
+[match   88.6] Pareng Pandesal (team 1) landed at (38.0, 0.0, 35.0), 4.9 m/s, health 100; teammates 31 m, 2 m, 22 m
+[match   90.0] [botstates] 1107 bot-s: hunt 23%, follow 21%, roam 18%, camp 14%, overwatch 11%, fight 10%, order 1%, investigate 1%, heal 0%
+[match   90.0] [botskill] normal shots 264 hits 56 reaction_avg 0.41 (n 62) dmg 1316 bots 9
+[match   90.0] status: { "ground": 9 }; armed 9; shots 264; zone -1 hold r=92; corpses 11; levels { "L1": 9 }; server tick avg 1.29 ms, p99 2.28 ms, max 6.38 ms over 900 ticks; objects 5392
+[match   90.0] dm teams: West Team 5 at (-34.0, -1.0) spread 19 m; East Team 4 at (37.0, 21.0) spread 14 m; gap 74 m; zone centre (-2.0, -2.0)
+[match   90.0] bots: { "overwatch": 3, "follow": 2, "hunt": 2, "camp": 2 }; containers searched by bots 0 (all players 0); plan steps done 0; guns carried 18
+[match   90.0] roles: { "sniper": { "overwatch": 3, "follow": 1 }, "looter": { "follow": 1, "camp": 2 }, "stalker": { "hunt": 2 } }; stuck now 0; waypoints 258; team { "lines": 55, "pings": 0, "laser_follow": 0, "learned_cells": 40, "blocked_cells": 0, "squads": 5, "following_humans": 0, &"learned_spots": 0 }
+[match   90.0] [lootstats] bots on the ground 9 (in water 0); armed 9; armed with ammo for a gun 9; long guns 9; attachments fitted 52; rounds of unusable ammo carried 0; items on the ground 4; bot pickups { "detours": 0, "detour_taken": 0, "fetches": 0, "fetch_done": 0, "items_taken": 0 }
+[match   90.1] [endgame] West Team mates 5 foes 4 nocontact 45s
+[match   90.1] [sweep] Tsong Ramil -> cell (-2, -2, 1) spot 143 stale 120s 19 m
+[match   90.1] [sweep] Pareng Jun -> cell (2, 1, 0) spot 91 stale 120s 69 m
+[match   90.2] [endgame] East Team mates 4 foes 5 nocontact 45s
+[match   90.2] [sweep] Kapitbahay Lito -> cell (-2, 0, 0) spot 175 stale 120s 74 m
+[match   90.2] [sweep] Tsong Balut -> cell (-1, 2, 0) spot 126 stale 120s 44 m
+[match   90.2] [sweep] Mang Kanor -> cell (0, -2, 1) spot 11 stale 120s 38 m
+[match   92.2] [sweep] Manong Guard -> cell (-4, -1, 0) spot 257 stale 122s 75 m
+[match   98.8] Tsong Balut (team 0) landed at (-37.0, 0.0, 38.0), 3.2 m/s, health 100; teammates 43 m
+[match  103.4] Kapitbahay Lito killed by Pareng Jun (gunshot); 2 teams left
+[match  103.4] alive: West Team 5, East Team 3; score { 0: 0, 1: 0 }
+[match  104.5] Lolo Kalesa (team 0) landed at (-37.0, 0.0, -7.0), 5.5 m/s, health 98; teammates 15 m, 27 m
+[match  104.7] Pareng Jun killed by Manong Guard (gunshot); 2 teams left
+[match  104.7] alive: West Team 4, East Team 3; score { 0: 0, 1: 0 }
+[match  105.0] [botstates] 1240 bot-s: hunt 25%, follow 21%, roam 19%, camp 12%, fight 11%, overwatch 10%, order 1%, investigate 1%, heal 0%
+[match  105.0] [botskill] normal shots 290 hits 70 reaction_avg 0.47 (n 69) dmg 1513 bots 7
+[match  105.0] status: { "ground": 7 }; armed 7; shots 290; zone -1 hold r=92; corpses 13; levels { "L1": 6, "between": 1 }; server tick avg 1.91 ms, p99 4.88 ms, max 10.57 ms over 900 ticks; objects 5170
+[match  105.0] dm teams: West Team 4 at (-40.0, 2.0) spread 18 m; East Team 3 at (19.0, 23.0) spread 14 m; gap 62 m; zone centre (-2.0, -2.0)
+[match  105.0] bots: { "follow": 2, "roam": 3, "hunt": 2 }; containers searched by bots 0 (all players 0); plan steps done 0; guns carried 14
+[match  105.0] roles: { "looter": { "follow": 1, "roam": 2 }, "sniper": { "roam": 1, "follow": 1 }, "stalker": { "hunt": 2 } }; stuck now 0; waypoints 258; team { "lines": 67, "pings": 0, "laser_follow": 0, "learned_cells": 40, "blocked_cells": 0, "squads": 5, "following_humans": 0, &"learned_spots": 0 }
+[match  105.0] [lootstats] bots on the ground 7 (in water 0); armed 7; armed with ammo for a gun 7; long guns 7; attachments fitted 41; rounds of unusable ammo carried 0; items on the ground 4; bot pickups { "detours": 0, "detour_taken": 0, "fetches": 0, "fetch_done": 0, "items_taken": 0 }
+[match  105.4] [hold] Mang Kanor overwatch spot 178 110s
+[match  108.3] [grenades] Tsong Ramil saw the pickup 4 2 m away: leaves it
+[match  109.6] [hold] Tsong Ramil camp spot 23 58s
+[match  115.8] [grenades] Tsong Balut saw the pickup 3 5 m away: leaves it
+[match  117.6] [hold] Tsong Balut camp spot 20 51s
+[match  118.0] [hold] Mang Kanor overwatch spot 154 93s
+[match  120.0] [botstates] 1345 bot-s: hunt 25%, follow 22%, roam 19%, camp 12%, fight 10%, overwatch 10%, order 1%, investigate 1%, heal 0%
+[match  120.0] [botskill] normal shots 290 hits 70 reaction_avg 0.47 (n 69) dmg 1513 bots 7
+[match  120.0] status: { "ground": 7 }; armed 7; shots 290; zone -1 hold r=92; corpses 13; levels { "L1": 7 }; server tick avg 1.34 ms, p99 2.63 ms, max 4.74 ms over 900 ticks; objects 5172
+[match  120.0] dm teams: West Team 4 at (-40.0, -4.0) spread 23 m; East Team 3 at (13.0, 27.0) spread 18 m; gap 61 m; zone centre (-2.0, -2.0)
+[match  120.0] bots: { "follow": 2, "overwatch": 1, "hunt": 2, "camp": 2 }; containers searched by bots 0 (all players 0); plan steps done 0; guns carried 14
+[match  120.0] roles: { "looter": { "follow": 1, "camp": 2 }, "sniper": { "overwatch": 1, "follow": 1 }, "stalker": { "hunt": 2 } }; stuck now 0; waypoints 258; team { "lines": 70, "pings": 0, "laser_follow": 0, "learned_cells": 40, "blocked_cells": 0, "squads": 5, "following_humans": 0, &"learned_spots": 0 }
+[match  120.0] [lootstats] bots on the ground 7 (in water 0); armed 7; armed with ammo for a gun 7; long guns 7; attachments fitted 41; rounds of unusable ammo carried 0; items on the ground 4; bot pickups { "detours": 0, "detour_taken": 0, "fetches": 0, "fetch_done": 0, "items_taken": 0 }
+[match  135.0] [botstates] 1450 bot-s: hunt 25%, follow 22%, roam 18%, camp 13%, overwatch 10%, fight 9%, order 1%, investigate 1%, heal 0%
+[match  135.0] [botskill] normal shots 290 hits 70 reaction_avg 0.47 (n 69) dmg 1513 bots 7
+[match  135.0] status: { "ground": 7 }; armed 7; shots 290; zone -1 hold r=92; corpses 13; levels { "L1": 7 }; server tick avg 1.33 ms, p99 2.71 ms, max 7.12 ms over 900 ticks; objects 5172
+[match  135.0] dm teams: West Team 4 at (-38.0, 0.0) spread 21 m; East Team 3 at (9.0, 23.0) spread 27 m; gap 53 m; zone centre (-2.0, -2.0)
+[match  135.0] bots: { "follow": 1, "overwatch": 1, "fight": 2, "camp": 2, "hunt": 1 }; containers searched by bots 0 (all players 0); plan steps done 0; guns carried 14
+[match  135.0] roles: { "looter": { "follow": 1, "camp": 2 }, "sniper": { "overwatch": 1, "fight": 1 }, "stalker": { "fight": 1, "hunt": 1 } }; stuck now 0; waypoints 258; team { "lines": 72, "pings": 0, "laser_follow": 0, "learned_cells": 40, "blocked_cells": 0, "squads": 5, "following_humans": 0, &"learned_spots": 0 }
+[match  135.0] [lootstats] bots on the ground 7 (in water 0); armed 7; armed with ammo for a gun 7; long guns 7; attachments fitted 41; rounds of unusable ammo carried 0; items on the ground 4; bot pickups { "detours": 0, "detour_taken": 0, "fetches": 0, "fetch_done": 0, "items_taken": 0 }
+[match  142.1] Manong Guard killed by Lolo Kalesa (gunshot); 2 teams left
+[match  142.1] alive: West Team 4, East Team 2; score { 0: 0, 1: 0 }
+[match  142.2] [endgame] West Team mates 4 foes 2 nocontact 0s
+[match  142.5] [endgame] East Team mates 2 foes 4 nocontact 0s
+[match  142.5] [sweep] Mang Kanor -> cell (-2, -1, 1) spot 188 stale 172s 13 m
+[match  150.0] [botstates] 1547 bot-s: hunt 26%, follow 22%, roam 17%, camp 13%, fight 10%, overwatch 9%, order 1%, investigate 1%, heal 0%
+[match  150.0] [botskill] normal shots 320 hits 80 reaction_avg 0.46 (n 75) dmg 1628 bots 6
+[match  150.0] status: { "ground": 6 }; armed 6; shots 320; zone -1 hold r=92; corpses 14; levels { "L1": 6 }; server tick avg 1.65 ms, p99 4.30 ms, max 7.02 ms over 900 ticks; objects 5058
+[match  150.0] dm teams: West Team 4 at (-33.0, -5.0) spread 14 m; East Team 2 at (46.0, 27.0) spread 5 m; gap 85 m; zone centre (-2.0, -2.0)
+[match  150.0] bots: { "follow": 2, "hunt": 4 }; containers searched by bots 0 (all players 0); plan steps done 0; guns carried 12
+[match  150.0] roles: { "looter": { "follow": 1, "hunt": 2 }, "sniper": { "hunt": 1, "follow": 1 }, "stalker": { "hunt": 1 } }; stuck now 0; waypoints 258; team { "lines": 79, "pings": 0, "laser_follow": 0, "learned_cells": 40, "blocked_cells": 0, "squads": 5, "following_humans": 0, &"learned_spots": 0 }
+[match  150.0] [lootstats] bots on the ground 6 (in water 0); armed 6; armed with ammo for a gun 6; long guns 6; attachments fitted 35; rounds of unusable ammo carried 0; items on the ground 4; bot pickups { "detours": 0, "detour_taken": 0, "fetches": 0, "fetch_done": 0, "items_taken": 0 }
+[match  152.9] [sweep] Mang Kanor -> cell (-1, -2, 1) spot 217 stale 183s 29 m
+[match  163.9] [sweep] Mang Kanor -> cell (-2, -1, 1) spot 204 stale 194s 8 m
+[match  165.0] [botstates] 1637 bot-s: hunt 28%, follow 23%, roam 16%, camp 13%, fight 9%, overwatch 9%, order 1%, investigate 1%, heal 0%
+[match  165.0] [botskill] normal shots 320 hits 80 reaction_avg 0.46 (n 75) dmg 1628 bots 6
+[match  165.0] status: { "ground": 6 }; armed 6; shots 320; zone -1 hold r=92; corpses 14; levels { "L1": 6 }; server tick avg 1.42 ms, p99 4.05 ms, max 4.88 ms over 900 ticks; objects 5061
+[match  165.0] dm teams: West Team 4 at (-30.0, -11.0) spread 9 m; East Team 2 at (6.0, 15.0) spread 6 m; gap 44 m; zone centre (-2.0, -2.0)
+[match  165.0] bots: { "follow": 2, "hunt": 4 }; containers searched by bots 0 (all players 0); plan steps done 0; guns carried 12
+[match  165.0] roles: { "looter": { "follow": 1, "hunt": 2 }, "sniper": { "hunt": 1, "follow": 1 }, "stalker": { "hunt": 1 } }; stuck now 0; waypoints 258; team { "lines": 83, "pings": 0, "laser_follow": 0, "learned_cells": 40, "blocked_cells": 0, "squads": 5, "following_humans": 0, &"learned_spots": 0 }
+[match  165.0] [lootstats] bots on the ground 6 (in water 0); armed 6; armed with ammo for a gun 6; long guns 6; attachments fitted 35; rounds of unusable ammo carried 0; items on the ground 4; bot pickups { "detours": 0, "detour_taken": 0, "fetches": 0, "fetch_done": 0, "items_taken": 0 }
+[match  165.4] [sweep] Tsong Ramil -> cell (-2, -1, 1) spot 188 stale 195s 12 m
+[match  167.0] Tsong Ramil (team 0) landed at (-24.0, 0.0, 1.0), 4.9 m/s, health 100; teammates 6 m, 10 m, 31 m
+[match  172.1] [sweep] Tsong Balut -> cell (0, -3, 0) spot 213 stale 202s 44 m
+[match  176.6] [sweep] Pareng Pandesal -> cell (-4, -1, 0) spot 251 stale 207s 59 m
+[match  180.0] [botstates] 1727 bot-s: hunt 30%, follow 23%, roam 15%, camp 12%, fight 9%, overwatch 8%, order 1%, investigate 1%, heal 0%
+[match  180.0] [botskill] normal shots 323 hits 83 reaction_avg 0.47 (n 77) dmg 1649 bots 6
+[match  180.0] status: { "ground": 6 }; armed 6; shots 323; zone -1 hold r=92; corpses 14; levels { "L1": 5, "between": 1 }; server tick avg 1.18 ms, p99 3.32 ms, max 6.02 ms over 900 ticks; objects 5063
+[match  180.0] dm teams: West Team 4 at (-25.0, -8.0) spread 13 m; East Team 2 at (-4.0, 12.0) spread 5 m; gap 29 m; zone centre (-2.0, -2.0)
+[match  180.0] bots: { "follow": 1, "hunt": 3, "fight": 2 }; containers searched by bots 0 (all players 0); plan steps done 0; guns carried 12
+[match  180.0] roles: { "looter": { "follow": 1, "hunt": 2 }, "sniper": { "hunt": 1, "fight": 1 }, "stalker": { "fight": 1 } }; stuck now 0; waypoints 258; team { "lines": 85, "pings": 0, "laser_follow": 0, "learned_cells": 40, "blocked_cells": 0, "squads": 5, "following_humans": 0, &"learned_spots": 0 }
+[match  180.0] [lootstats] bots on the ground 6 (in water 0); armed 6; armed with ammo for a gun 6; long guns 6; attachments fitted 35; rounds of unusable ammo carried 0; items on the ground 4; bot pickups { "detours": 0, "detour_taken": 0, "fetches": 0, "fetch_done": 0, "items_taken": 0 }
+[match  183.1] Pareng Pandesal killed by Lolo Kalesa (gunshot); 2 teams left
+[match  183.1] alive: West Team 4, East Team 1; score { 0: 0, 1: 0 }
+[match  191.2] Ate Bebang killed by Tsong Balut (gunshot); 1 teams left
+[match  191.2] alive: West Team 4, East Team 0; score { 0: 0, 1: 0 }
+[match  191.2] round 1 over: winner 0, scores { 0: 1, 1: 0 }
+[match  194.2] [grenades] round 2: 4 pickups at [(-17.7, 0.1, 22.2), (12.2, 0.1, 22.2), (32.2, 0.0, -13.7), (28.2, 0.0, -31.7)] (4 cleared)
+[loadout] Pareng Jun dmr_sks [scope_thermal,mag_ext_sniper,cheek_pad] mag 20/20 | pistol_deagle [sight_reflex,suppressor_light,weapon_light] mag 7/7
+[match  194.2] Pareng Jun respawned at (-54.0, 0.0, 2.0) (nearest enemy 1000 m)
+[match  194.2] round 2 started; scores { 0: 1, 1: 0 }
+[match  194.2] [roundtime] remove 1.5 ms, field 8.7 ms
+[loadout] Tito Videoke marksman_308 [scope_thermal,mag_ext_sniper,cheek_pad] mag 30/30 | revolver_357 [sight_reddot] mag 6/6
+[match  194.2] Tito Videoke respawned at (53.0, 0.0, -8.0) (nearest enemy 107 m)
+[match  194.2] [endgame] East Team mates 1 foes 1 nocontact 0s
+[loadout] Tsong Balut dmr_sks [scope_6x,mag_ext_sniper,cheek_pad] mag 20/20 | pistol_9 [sight_reddot,suppressor_light,mag_drum_light,weapon_light] mag 27/27
+[match  194.2] Tsong Balut respawned at (-54.0, 0.0, 5.0) (nearest enemy 107 m)
+[match  194.2] [endgame] West Team mates 2 foes 1 nocontact 0s
+[loadout] Pareng Pandesal rifle_m762 [scope_night,suppressor_rifle,grip_vertical,weapon_light] mag 30/30 | pistol_9 [sight_reddot,suppressor_light,weapon_light] mag 15/15
+[match  194.2] Pareng Pandesal respawned at (53.0, 0.0, -11.0) (nearest enemy 107 m)
+[loadout] Pinsan Gardo machine_pistol [sight_reddot,suppressor_light,laser_sight,mag_extquick_light,stock_heavy] mag 45/45 | pistol_9 [sight_reddot,suppressor_light,mag_extquick_light,weapon_light] mag 21/21
+[match  194.2] Pinsan Gardo respawned at (-56.0, 0.0, 2.0) (nearest enemy 109 m)
+[loadout] Kumpare Ambo rifle_scar [scope_3x,suppressor_rifle,weapon_light] mag 30/30 | revolver_357 [sight_reddot] mag 6/6
+[match  194.3] Kumpare Ambo respawned at (53.0, 0.0, -5.0) (nearest enemy 106 m)
+[loadout] Bunso Badong smg_vector [sight_holo,suppressor_light,mag_extquick_light,stock_heavy,weapon_light] mag 33/33 | pistol_deagle [sight_reddot,suppressor_light,mag_extquick_light,weapon_light] mag 10/10
+[match  194.3] Bunso Badong respawned at (-56.0, 0.0, -2.0) (nearest enemy 109 m)
+[loadout] Inday Rice Cooker dmr_mini14 [scope_4x,mag_ext_sniper,cheek_pad] mag 30/30 | revolver_357 [sight_reddot] mag 6/6
+[match  194.3] Inday Rice Cooker respawned at (53.0, 0.0, 5.0) (nearest enemy 106 m)
+[loadout] Tsong Ramil lmg_m249 [sight_reddot,muzzle_brake,laser_sight,stock_heavy,weapon_light] mag 100/100 | pistol_deagle [suppressor_light,mag_extquick_light,weapon_light] mag 10/10
+[match  194.3] Tsong Ramil respawned at (-56.0, 0.0, -5.0) (nearest enemy 109 m)
+[loadout] Manong Guard marksman_308 [scope_thermal,mag_ext_sniper,cheek_pad] mag 30/30 | pistol_deagle [sight_reddot,mag_extquick_light] mag 10/10
+[match  194.3] Manong Guard respawned at (53.0, 0.0, 11.0) (nearest enemy 106 m)
+[loadout] Tatay Kulas machine_pistol [suppressor_light,laser_sight,mag_extquick_light,stock_heavy] mag 45/45 | pistol_deagle [sight_reddot,suppressor_light,weapon_light] mag 7/7
+[match  194.3] Tatay Kulas respawned at (-54.0, 0.0, -2.0) (nearest enemy 106 m)
+[loadout] Totoy Kulot marksman_308 [scope_6x,suppressor_sniper,mag_ext_sniper,cheek_pad] mag 30/30 | pistol_9 [sight_reddot,suppressor_light,mag_extquick_light] mag 21/21
+[match  194.4] Totoy Kulot respawned at (53.0, 0.0, 8.0) (nearest enemy 106 m)
+[loadout] Lolo Kalesa smg_tommy [suppressor_light,grip_vertical,mag_extquick_light] mag 50/50 | pistol_deagle [sight_reddot,suppressor_light,mag_extquick_light,weapon_light] mag 10/10
+[match  194.4] Lolo Kalesa respawned at (-54.0, 0.0, -5.0) (nearest enemy 106 m)
+[loadout] Totoy Bibo shotgun_saiga [sight_reflex,choke,mag_extquick_rifle,weapon_light] mag 8/8 | pistol_9 [mag_extquick_light,weapon_light] mag 21/21
+[match  194.4] Totoy Bibo respawned at (50.0, 0.0, 8.0) (nearest enemy 104 m)
+[loadout] Mang Kanor rifle_m762 [scope_thermal,suppressor_rifle,grip_heavy,mag_extquick_rifle,weapon_light] mag 40/40 | pistol_9 [sight_reflex,mag_extquick_light,weapon_light] mag 21/21
+[match  194.4] Mang Kanor respawned at (-51.0, 0.0, -2.0) (nearest enemy 102 m)
+[loadout] Ate Bebang smg_9 [scope_2x,grip_heavy,mag_extquick_light,weapon_light] mag 40/40 | pistol_deagle [sight_reflex,suppressor_light,mag_extquick_light,weapon_light] mag 10/10
+[match  194.4] Ate Bebang respawned at (50.0, 0.0, 11.0) (nearest enemy 102 m)
+[loadout] Mang Tomas Ketchup rifle_556 [suppressor_rifle,grip_thumb,mag_drum_rifle] mag 60/60 | pistol_deagle [sight_reddot,suppressor_light,mag_drum_light,weapon_light] mag 13/13
+[match  194.4] Mang Tomas Ketchup respawned at (-56.0, 0.0, 5.0) (nearest enemy 106 m)
+[loadout] Kapitbahay Lito rifle_762 [suppressor_rifle,laser_sight] mag 30/30 | pistol_deagle [mag_extquick_light,weapon_light] mag 10/10
+[match  194.5] Kapitbahay Lito respawned at (50.0, 0.0, -11.0) (nearest enemy 102 m)
+[loadout] Kapitan Tikoy bolt_kar98 [scope_6x,cheek_pad] mag 5/5 | revolver_357 [sight_reddot] mag 6/6
+[match  194.5] Kapitan Tikoy respawned at (-51.0, 0.0, 2.0) (nearest enemy 102 m)
+[loadout] Ate Load Dito shotgun_pump [sight_holo,choke,weapon_light] mag 6/6 | revolver_357 [] mag 6/6
+[match  194.5] Ate Load Dito respawned at (50.0, 0.0, -8.0) (nearest enemy 102 m)
+[match  194.5] [roundtime] 20 respawns, slowest 3.6 ms, median 3.2 ms
+[match  195.0] status: { "ground": 20 }; armed 20; shots 379; zone -1 hold r=96; corpses 0; levels { "L1": 20 }; server tick avg 1.94 ms, p99 5.96 ms, max 10.87 ms over 720 ticks; objects 6618
+[match  195.0] dm teams: West Team 10 at (-54.0, 0.0) spread 3 m; East Team 10 at (52.0, 0.0) spread 9 m; gap 106 m; zone centre (-1.0, -6.0)
+[match  195.0] bots: { "roam": 20 }; containers searched by bots 0 (all players 0); plan steps done 0; guns carried 40
+[match  195.0] roles: { "looter": { "roam": 6 }, "stalker": { "roam": 5 }, "rusher": { "roam": 5 }, "sniper": { "roam": 4 } }; stuck now 0; waypoints 258; team { "lines": 96, "pings": 0, "laser_follow": 0, "learned_cells": 41, "blocked_cells": 0, "squads": 5, "following_humans": 0, &"learned_spots": 0 }
+[match  195.0] [lootstats] bots on the ground 20 (in water 0); armed 20; armed with ammo for a gun 20; long guns 20; attachments fitted 123; rounds of unusable ammo carried 0; items on the ground 4; bot pickups { "detours": 0, "detour_taken": 0, "fetches": 0, "fetch_done": 0, "items_taken": 0 }
+[match  198.0] [botstates] 1859 bot-s: hunt 29%, follow 22%, roam 18%, camp 11%, fight 9%, overwatch 8%, order 1%, investigate 1%, heal 1%
+[match  198.0] [botskill] normal shots 377 hits 102 reaction_avg 0.48 (n 86) dmg 1939 bots 20
+[match  203.2] Ate Load Dito (team 1) landed at (47.0, 0.0, -2.0), 2.5 m/s, health 100; teammates -
+[match  209.2] [hold] Pinsan Gardo camp spot 23 37s
+[match  209.7] Lolo Kalesa killed by Inday Rice Cooker (gunshot); 2 teams left
+[match  209.7] alive: West Team 9, East Team 10; score { 0: 1, 1: 0 }
+[match  210.0] status: { "ground": 19 }; armed 19; shots 394; zone -1 hold r=96; corpses 1; levels { "L2": 1, "L1": 18 }; server tick avg 2.85 ms, p99 5.95 ms, max 20.81 ms over 900 ticks; objects 6530
+[match  210.0] dm teams: West Team 9 at (-25.0, 4.0) spread 18 m; East Team 10 at (16.0, 6.0) spread 10 m; gap 41 m; zone centre (-1.0, -6.0)
+[match  210.0] bots: { "roam": 2, "hunt": 2, "fight": 6, "camp": 1, "order": 1, "follow": 4, "investigate": 3 }; containers searched by bots 0 (all players 0); plan steps done 0; guns carried 38
+[match  210.0] roles: { "looter": { "roam": 2, "camp": 1, "order": 1, "follow": 1, "fight": 1 }, "stalker": { "hunt": 2, "fight": 1, "follow": 1 }, "rusher": { "fight": 3, "investigate": 2 }, "sniper": { "follow": 2, "fight": 1, "investigate": 1 } }; stuck now 0; waypoints 258; team { "lines": 102, "pings": 0, "laser_follow": 0, "learned_cells": 41, "blocked_cells": 0, "squads": 10, "following_humans": 0, &"learned_spots": 0 }
+[match  210.0] [lootstats] bots on the ground 19 (in water 0); armed 19; armed with ammo for a gun 19; long guns 19; attachments fitted 116; rounds of unusable ammo carried 0; items on the ground 4; bot pickups { "detours": 0, "detour_taken": 0, "fetches": 0, "fetch_done": 0, "items_taken": 0 }
+[match  210.3] Pareng Pandesal killed by Ate Bebang (gunshot); 2 teams left
+[match  210.3] alive: West Team 9, East Team 9; score { 0: 1, 1: 0 }
+[match  210.6] Tsong Balut killed by Mang Tomas Ketchup (gunshot); 2 teams left
+[match  210.6] alive: West Team 8, East Team 9; score { 0: 1, 1: 0 }
+[match  210.9] Mang Tomas Ketchup killed by Ate Bebang (gunshot); 2 teams left
+[match  210.9] alive: West Team 7, East Team 9; score { 0: 1, 1: 0 }
+[match  212.1] Tsong Ramil killed by Totoy Kulot (gunshot); 2 teams left
+[match  212.1] alive: West Team 6, East Team 9; score { 0: 1, 1: 0 }
+[match  212.7] [grenades] Mang Kanor saw the pickup 5 20 m away: leaves it
+[match  213.0] [botstates] 2148 bot-s: hunt 30%, follow 22%, roam 19%, camp 10%, fight 9%, overwatch 7%, order 1%, investigate 1%, heal 1%
+[match  213.0] [botskill] normal shots 465 hits 113 reaction_avg 0.39 (n 120) dmg 2320 bots 15
+[match  213.8] Mang Kanor (team 0) landed at (-24.0, 0.0, 7.0), 4.9 m/s, health 100; teammates -
+[match  214.6] Totoy Bibo killed by Ate Load Dito (gunshot); 2 teams left
+[match  214.6] alive: West Team 6, East Team 8; score { 0: 1, 1: 0 }
+[match  214.9] Inday Rice Cooker killed by Kumpare Ambo (gunshot); 2 teams left
+[match  214.9] alive: West Team 6, East Team 7; score { 0: 1, 1: 0 }
+[match  215.4] Tatay Kulas killed by Kumpare Ambo (gunshot); 2 teams left
+[match  215.4] alive: West Team 5, East Team 7; score { 0: 1, 1: 0 }
+[match  216.9] Pareng Jun (team 0) landed at (-30.0, 3.0, -27.0), 4.4 m/s, health 100; teammates 42 m
+[match  217.3] Bunso Badong (team 0) landed at (-24.0, 0.0, -18.0), 4.9 m/s, health 100; teammates 10 m, 33 m
+[match  218.5] [hold] Pareng Jun camp spot 17 49s
+[match  219.4] [hold] Mang Kanor camp spot 33 42s
+[match  224.6] Totoy Kulot killed by Bunso Badong (gunshot); 2 teams left
+[match  224.6] alive: West Team 5, East Team 6; score { 0: 1, 1: 0 }
+[match  225.0] status: { "ground": 11 }; armed 11; shots 578; zone -1 hold r=96; corpses 9; levels { "L2": 1, "L1": 10 }; server tick avg 3.27 ms, p99 8.80 ms, max 11.76 ms over 900 ticks; objects 5634
+[match  225.0] dm teams: West Team 5 at (-29.0, 5.0) spread 25 m; East Team 6 at (14.0, 1.0) spread 11 m; gap 43 m; zone centre (-1.0, -6.0)
+[match  225.0] bots: { "order": 2, "hunt": 1, "camp": 1, "heal": 2, "fight": 3, "roam": 1, "investigate": 1 }; containers searched by bots 0 (all players 0); plan steps done 0; guns carried 22
+[match  225.0] roles: { "looter": { "order": 2, "camp": 1, "heal": 2, "roam": 1 }, "stalker": { "hunt": 1, "fight": 1 }, "sniper": { "fight": 2, "investigate": 1 } }; stuck now 0; waypoints 258; team { "lines": 130, "pings": 0, "laser_follow": 0, "learned_cells": 41, "blocked_cells": 0, "squads": 10, "following_humans": 0, &"learned_spots": 0 }
+[match  225.0] [lootstats] bots on the ground 11 (in water 0); armed 11; armed with ammo for a gun 11; long guns 11; attachments fitted 63; rounds of unusable ammo carried 0; items on the ground 4; bot pickups { "detours": 0, "detour_taken": 0, "fetches": 0, "fetch_done": 0, "items_taken": 0 }
+[match  226.0] Ate Load Dito killed by Kumpare Ambo (gunshot); 2 teams left
+[match  226.0] alive: West Team 5, East Team 5; score { 0: 1, 1: 0 }
+[match  227.5] Bunso Badong killed by Kapitbahay Lito (gunshot); 2 teams left
+[match  227.5] alive: West Team 4, East Team 5; score { 0: 1, 1: 0 }
+[match  227.7] Kapitan Tikoy (team 0) landed at (-13.0, 0.0, 11.0), 4.9 m/s, health 61; teammates 40 m, 13 m
+[match  228.0] [botstates] 2328 bot-s: hunt 28%, follow 21%, roam 19%, fight 11%, camp 10%, overwatch 6%, order 2%, heal 2%, investigate 1%
+[match  228.0] [botskill] normal shots 590 hits 131 reaction_avg 0.40 (n 153) dmg 2716 bots 9
+[match  231.5] [grenades] Tito Videoke saw the pickup 7 10 m away: leaves it
+[match  232.4] Ate Bebang killed by Kapitan Tikoy (gunshot); 2 teams left
+[match  232.4] alive: West Team 4, East Team 4; score { 0: 1, 1: 0 }
+[match  232.7] Tito Videoke (team 1) landed at (35.0, 0.0, -22.0), 7.7 m/s, health 100; teammates -
+[match  233.2] Kapitan Tikoy killed by Kapitbahay Lito (gunshot); 2 teams left
+[match  233.2] alive: West Team 3, East Team 4; score { 0: 1, 1: 0 }
+[match  234.5] [hold] Pareng Jun camp spot 64 46s
+[match  240.0] status: { "ground": 7 }; armed 7; shots 603; zone -1 hold r=96; corpses 13; levels { "L1": 7 }; server tick avg 1.67 ms, p99 5.37 ms, max 14.45 ms over 900 ticks; objects 5181
+[match  240.0] dm teams: West Team 3 at (-44.0, 8.0) spread 19 m; East Team 4 at (-7.0, -3.0) spread 21 m; gap 39 m; zone centre (-1.0, -6.0)
+[match  240.0] bots: { "fight": 2, "hunt": 1, "camp": 1, "order": 1, "roam": 2 }; containers searched by bots 0 (all players 0); plan steps done 0; guns carried 14
+[match  240.0] roles: { "looter": { "fight": 2, "camp": 1, "order": 1 }, "stalker": { "hunt": 1 }, "sniper": { "roam": 2 } }; stuck now 0; waypoints 258; team { "lines": 147, "pings": 0, "laser_follow": 0, "learned_cells": 41, "blocked_cells": 0, "squads": 10, "following_humans": 0, &"learned_spots": 0 }
+[match  240.0] [lootstats] bots on the ground 7 (in water 0); armed 7; armed with ammo for a gun 7; long guns 7; attachments fitted 40; rounds of unusable ammo carried 0; items on the ground 4; bot pickups { "detours": 0, "detour_taken": 0, "fetches": 0, "fetch_done": 0, "items_taken": 0 }
+[match  240.0] match ended early (test): winner team 1 after 240 s
+[bots] saved 41 learned cells, 31 spot records, 0 spots learned from play to user://bot_memory_freight_delight.json
+[game] results: {}

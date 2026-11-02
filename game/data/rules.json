@@ -38,7 +38,9 @@
       ]
     },
     "day_offsets": [0], "_day_offsets": "r17: a round always starts at night (was 0/150/300/450 s into the cycle).",
-    "round_break_s": 3.0, "_round_break_s": "r24: the winner is announced, then the next round starts 3 s later (with a countdown)."
+    "round_break_s": 3.0, "_round_break_s": "r24: the winner is announced, then the next round starts 3 s later (with a countdown).",
+    "grenade_pickups": {"_doc": "r28: every round, on every Deathmatch map, this many single frag grenades lie in corners and inside buildings on the bots' walk (no more are in play: kits, floor loot and containers carry none in Deathmatch). A bot that sees one takes it at bot_take_chance (one roll per grenade) and always throws what it carries at the enemy, between the throw distances.",
+      "count": 4, "min_gap_m": 18.0, "spawn_clear_m": 14.0, "bot_take_chance": 0.3, "bot_see_m": 22.0, "bot_throw_min_m": 7.0, "bot_throw_max_m": 28.0}
   },
   "lobby": {"min_players_to_start": 1, "countdown_s": 5, "fill_with_bots": true},
   "official": {

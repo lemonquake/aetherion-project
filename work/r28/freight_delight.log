@@ -1,0 +1,536 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+[server] dedicated server listening on 7802
+[dyn] 0 prop models, breakable ones cut into chunks in 0 ms
+[world] map built in 2856 ms
+[map] 0 buildings, 0 doors, 0 containers, 0 props, #00000000 on PC
+[nav] levels: 34890 points, 3 links, 125 ms
+[nav] r21: 617 cells closed by the physics check, main walk 34227 of 34282 points (55 in pockets), 179 ms
+[botnav] freight_delight: walk check and 258 spots from res://data/botnav/freight_delight.json { "hide": 102, "snipe": 83, "cover": 45, "open": 28 }
+[waypoints] freight_delight: 1237 nodes, 3923 edges (auto, res://data/waypoints/freight_delight.json), 1 off the main graph, 75 ms { "plaza": 236, "road": 240, "junction": 125, "snipe": 54, "hide": 46, "area": 220, "corner": 301, "stair": 15 }
+[loadout] Pareng Pandesal rifle_762 [scope_3x,suppressor_rifle,laser_sight,mag_extquick_rifle] mag 40/40 | pistol_45 [suppressor_light,mag_extquick_light,weapon_light] mag 12/12
+[loadout] Bossing Dodong bolt_awp [scope_6x,suppressor_sniper,mag_ext_sniper,cheek_pad] mag 8/8 | revolver_357 [sight_reddot] mag 6/6
+[loadout] Bossing Barbecue shotgun_saiga [sight_holo,muzzle_tactical,weapon_light] mag 5/5 | pistol_deagle [sight_reddot,suppressor_light,mag_extquick_light,weapon_light] mag 10/10
+[loadout] Tito Karaoke King dmr_sks [suppressor_sniper,mag_ext_sniper,cheek_pad] mag 20/20 | pistol_deagle [suppressor_light,mag_extquick_light] mag 10/10
+[loadout] Lolo Kalesa rifle_556 [scope_3x,suppressor_rifle,weapon_light] mag 30/30 | revolver_357 [] mag 6/6
+[loadout] Utoy Kalabaw bolt_308 [scope_6x,suppressor_rifle,mag_ext_sniper] mag 8/8 | revolver_357 [sight_reflex] mag 6/6
+[loadout] Mang Jolo bolt_awp [suppressor_sniper,mag_ext_sniper,cheek_pad] mag 8/8 | pistol_45 [sight_reddot,suppressor_light,mag_extquick_light,weapon_light] mag 12/12
+[loadout] Kumpare Ambo shotgun_saiga [sight_reddot,compensator,mag_extquick_rifle,weapon_light] mag 8/8 | pistol_deagle [sight_reddot,mag_extquick_light,weapon_light] mag 10/10
+[loadout] Toto Pancit bolt_awp [scope_6x,mag_ext_sniper,cheek_pad] mag 8/8 | pistol_deagle [sight_reddot,suppressor_light,mag_extquick_light,weapon_light] mag 10/10
+[loadout] Aling Nena rifle_scar [scope_3x,suppressor_rifle,grip_heavy,weapon_light] mag 30/30 | pistol_45 [suppressor_light,weapon_light] mag 7/7
+[loadout] Ate Bebang bolt_308 [scope_6x,suppressor_rifle,cheek_pad] mag 5/5 | revolver_357 [sight_reddot] mag 6/6
+[loadout] Kuya Fishball smg_vector [sight_holo,suppressor_light,grip_heavy,mag_extquick_light] mag 33/33 | pistol_45 [sight_reflex,suppressor_light,mag_extquick_light,weapon_light] mag 12/12
+[loadout] Aling Taho machine_pistol [suppressor_light,laser_sight,mag_extquick_light,weapon_light] mag 45/45 | pistol_deagle [sight_reddot,suppressor_light,weapon_light] mag 7/7
+[loadout] Kuya Wifi dmr_mini14 [scope_4x,suppressor_sniper,mag_ext_sniper,cheek_pad] mag 30/30 | pistol_9 [sight_reflex,suppressor_light,mag_extquick_light] mag 21/21
+[loadout] Tito Boy rifle_556 [suppressor_rifle,grip_heavy,weapon_light] mag 30/30 | revolver_357 [] mag 6/6
+[loadout] Bebot Karaoke smg_9 [muzzle_tactical,grip_ergonomic,weapon_light] mag 30/30 | pistol_9 [sight_reddot,suppressor_light,weapon_light] mag 15/15
+[loadout] Lolo Pepe smg_9 [mag_extquick_light] mag 40/40 | pistol_9 [sight_reddot,suppressor_light,mag_drum_light,weapon_light] mag 27/27
+[loadout] Mang Isko shotgun_pump [sight_reddot,choke,laser_green] mag 6/6 | pistol_45 [sight_reflex,suppressor_light,weapon_light] mag 7/7
+[loadout] Pareng Jun lmg_m249 [sight_reddot,muzzle_brake,laser_sight,stock_heavy,weapon_light] mag 100/100 | pistol_deagle [sight_reddot,mag_extquick_light,weapon_light] mag 10/10
+[loadout] Kulot Sabaw rifle_m416 [scope_3x,suppressor_rifle,grip_vertical,mag_extquick_rifle] mag 40/40 | pistol_deagle [sight_reddot,suppressor_light,weapon_light] mag 7/7
+[match    0.0] [grenades] round 1: 4 pickups at [(-17.7, 0.1, 38.2), (-33.7, 0.0, -15.7), (16.2, 0.1, -5.7), (30.6, 0.1, 18.6)] (0 cleared)
+[match    0.0] deathmatch start on freight_delight: 20 players, 2 teams; spawns (-52.0, 0.0, 0.0), (50.0, 0.0, 0.0) (103/103 m apart, layout); day offset 0 s; zone centre (-2.0, 0.0) r=92; win by wipe
+[match    0.0] status: { "ground": 20 }; armed 20; shots 0; zone -1 hold r=92; corpses 0; levels { "L1": 20 }
+[match    0.0] dm teams: West Team 10 at (-51.0, 1.0) spread 4 m; East Team 10 at (52.0, 2.0) spread 7 m; gap 102 m; zone centre (-2.0, 0.0)
+[match    0.0] bots: { "roam": 20 }; containers searched by bots 0 (all players 0); plan steps done 0; guns carried 40
+[match    0.0] roles: { "rusher": { "roam": 8 }, "stalker": { "roam": 5 }, "sniper": { "roam": 4 }, "looter": { "roam": 3 } }; stuck now 0; waypoints 258; team { "lines": 0, "pings": 0, "laser_follow": 0, "learned_cells": 0, "blocked_cells": 0, "squads": 0, "following_humans": 0 }
+[match    0.0] [lootstats] bots on the ground 20 (in water 0); armed 20; armed with ammo for a gun 20; long guns 20; attachments fitted 119; rounds of unusable ammo carried 0; items on the ground 4; bot pickups { "detours": 0, "detour_taken": 0, "fetches": 0, "fetch_done": 0, "items_taken": 0 }
+[match    6.2] Pareng Jun (team 1) landed at (47.0, 0.0, -3.0), 2.5 m/s, health 100; teammates -
+[match    6.4] [grenades] Tito Karaoke King saw the pickup 2 19 m away: leaves it
+[match    7.1] Lolo Pepe (team 1) landed at (48.0, 0.0, 0.0), 2.5 m/s, health 100; teammates 2 m
+[match    8.9] [grenades] Utoy Kalabaw saw the pickup 2 19 m away: leaves it
+[match    9.8] Toto Pancit (team 1) landed at (47.0, 0.0, 0.0), 2.5 m/s, health 100; teammates 11 m, 14 m
+[match   11.0] [grenades] Kulot Sabaw saw the pickup 2 8 m away: leaves it
+[match   11.2] [grenades] Kuya Fishball saw the pickup 2 19 m away: leaves it
+[match   12.1] [grenades] Mang Isko saw the pickup 2 8 m away: leaves it
+[match   12.2] Mang Jolo (team 1) landed at (35.0, 0.0, -23.0), 7.7 m/s, health 100; teammates 24 m, 10 m, 28 m
+[match   13.7] [grenades] Kuya Wifi saw the pickup 2 9 m away: goes for it
+[match   15.0] [botstates] 299 bot-s: roam 43%, hunt 35%, follow 20%, fight 1%, investigate 0%
+[match   15.0] [botskill] normal shots 5 hits 0 reaction_avg 0.38 (n 4) dmg 0 bots 20
+[match   15.0] status: { "ground": 20 }; armed 20; shots 7; zone -1 hold r=92; corpses 0; levels { "L1": 18, "between": 2 }; server tick avg 2.59 ms, p99 7.08 ms, max 15.49 ms over 900 ticks; objects 6554
+[match   15.0] dm teams: West Team 10 at (-25.0, -5.0) spread 18 m; East Team 10 at (21.0, -2.0) spread 12 m; gap 46 m; zone centre (-2.0, 0.0)
+[match   15.0] bots: { "fight": 11, "hunt": 3, "order": 2, "follow": 3, "investigate": 1 }; containers searched by bots 0 (all players 0); plan steps done 0; guns carried 40
+[match   15.0] roles: { "rusher": { "fight": 6, "hunt": 1, "investigate": 1 }, "stalker": { "hunt": 2, "order": 1, "follow": 1, "fight": 1 }, "sniper": { "fight": 3, "follow": 1 }, "looter": { "order": 1, "follow": 1, "fight": 1 } }; stuck now 1; waypoints 258; team { "lines": 5, "pings": 0, "laser_follow": 0, "learned_cells": 0, "blocked_cells": 0, "squads": 4, "following_humans": 0 }
+[match   15.0] [lootstats] bots on the ground 20 (in water 0); armed 20; armed with ammo for a gun 20; long guns 20; attachments fitted 119; rounds of unusable ammo carried 0; items on the ground 4; bot pickups { "detours": 0, "detour_taken": 0, "fetches": 0, "fetch_done": 0, "items_taken": 0 }
+[match   15.2] [grenades] Pareng Jun saw the pickup 3 12 m away: leaves it
+[match   15.4] Ate Bebang killed by Lolo Kalesa (gunshot); 2 teams left
+[match   15.4] alive: West Team 10, East Team 9; score { 0: 0, 1: 0 }
+[match   15.6] Kuya Fishball (team 0) landed at (-33.0, 0.0, 6.0), 4.9 m/s, health 100; teammates -
+[match   16.2] Aling Nena killed by Lolo Kalesa (gunshot); 2 teams left
+[match   16.2] alive: West Team 9, East Team 9; score { 0: 0, 1: 0 }
+[match   16.3] Bebot Karaoke killed by Lolo Pepe (gunshot); 2 teams left
+[match   16.3] alive: West Team 8, East Team 9; score { 0: 0, 1: 0 }
+[match   16.5] Pareng Jun killed by Pareng Pandesal (gunshot); 2 teams left
+[match   16.5] alive: West Team 8, East Team 8; score { 0: 0, 1: 0 }
+[match   16.5] Pareng Pandesal killed by Kulot Sabaw (gunshot); 2 teams left
+[match   16.5] alive: West Team 8, East Team 7; score { 0: 0, 1: 0 }
+[match   17.6] Bossing Dodong killed by Lolo Kalesa (gunshot); 2 teams left
+[match   17.6] alive: West Team 7, East Team 7; score { 0: 0, 1: 0 }
+[match   18.1] Tito Karaoke King (team 0) landed at (-34.0, 0.0, -27.0), 4.6 m/s, health 100; teammates 37 m
+[match   18.4] [grenades] Bossing Barbecue saw the pickup 3 11 m away: leaves it
+[match   19.2] [grenades] Lolo Kalesa saw the pickup 3 14 m away: leaves it
+[match   19.9] Utoy Kalabaw killed by Bossing Barbecue (gunshot); 2 teams left
+[match   19.9] alive: West Team 6, East Team 7; score { 0: 0, 1: 0 }
+[match   24.4] Bossing Barbecue killed by Kumpare Ambo (gunshot); 2 teams left
+[match   24.4] alive: West Team 6, East Team 6; score { 0: 0, 1: 0 }
+[match   24.5] Kumpare Ambo killed by Toto Pancit (gunshot); 2 teams left
+[match   24.5] alive: West Team 5, East Team 6; score { 0: 0, 1: 0 }
+[match   28.6] [hold] Tito Boy overwatch spot 138 76s
+[match   29.1] [grenades] Aling Taho saw the pickup 3 17 m away: goes for it
+[match   29.8] Aling Taho killed by Kulot Sabaw (gunshot); 2 teams left
+[match   29.8] alive: West Team 5, East Team 5; score { 0: 0, 1: 0 }
+[match   30.0] [botstates] 497 bot-s: roam 32%, hunt 26%, follow 19%, fight 14%, investigate 4%, order 3%, heal 2%, overwatch 0%
+[match   30.0] [botskill] normal shots 165 hits 46 reaction_avg 0.34 (n 62) dmg 898 bots 10
+[match   30.0] status: { "ground": 10 }; armed 10; shots 166; zone -1 hold r=92; corpses 10; levels { "L1": 10 }; server tick avg 3.55 ms, p99 10.47 ms, max 79.93 ms over 900 ticks; objects 5485
+[match   30.0] dm teams: West Team 5 at (-21.0, -11.0) spread 12 m; East Team 5 at (19.0, -7.0) spread 12 m; gap 40 m; zone centre (-2.0, 0.0)
+[match   30.0] bots: { "order": 2, "investigate": 1, "fight": 4, "roam": 1, "follow": 1, "overwatch": 1 }; containers searched by bots 0 (all players 0); plan steps done 0; guns carried 20
+[match   30.0] roles: { "stalker": { "order": 1, "fight": 1 }, "rusher": { "investigate": 1 }, "sniper": { "order": 1, "overwatch": 1, "fight": 2 }, "looter": { "roam": 1, "follow": 1, "fight": 1 } }; stuck now 0; waypoints 258; team { "lines": 34, "pings": 0, "laser_follow": 0, "learned_cells": 10, "blocked_cells": 0, "squads": 4, "following_humans": 0 }
+[match   30.0] [lootstats] bots on the ground 10 (in water 0); armed 10; armed with ammo for a gun 10; long guns 10; attachments fitted 58; rounds of unusable ammo carried 0; items on the ground 4; bot pickups { "detours": 0, "detour_taken": 0, "fetches": 0, "fetch_done": 0, "items_taken": 0 }
+[match   30.3] [grenades] Toto Pancit saw the pickup 3 12 m away: leaves it
+[match   32.9] Toto Pancit killed by Kulot Sabaw (gunshot); 2 teams left
+[match   32.9] alive: West Team 5, East Team 4; score { 0: 0, 1: 0 }
+[match   38.2] [hold] Kuya Fishball camp spot 23 58s
+[match   40.8] Lolo Kalesa (team 1) landed at (4.0, 0.0, -4.0), 4.9 m/s, health 47; teammates 9 m, 15 m
+[match   41.1] Mang Isko killed by Tito Boy (bleeding); 2 teams left
+[match   41.1] alive: West Team 4, East Team 4; score { 0: 0, 1: 0 }
+[match   42.5] Kulot Sabaw killed by Kuya Wifi (gunshot); 2 teams left
+[match   42.5] alive: West Team 3, East Team 4; score { 0: 0, 1: 0 }
+[match   45.0] [botstates] 628 bot-s: roam 28%, hunt 21%, fight 20%, follow 16%, order 7%, investigate 4%, heal 3%, overwatch 1%, camp 0%
+[match   45.0] [botskill] normal shots 259 hits 61 reaction_avg 0.41 (n 88) dmg 1197 bots 7
+[match   45.0] status: { "ground": 7 }; armed 7; shots 260; zone -1 hold r=92; corpses 13; levels { "L1": 7 }; server tick avg 2.27 ms, p99 5.36 ms, max 25.58 ms over 900 ticks; objects 5148
+[match   45.0] dm teams: West Team 3 at (-27.0, -7.0) spread 17 m; East Team 4 at (10.0, -7.0) spread 7 m; gap 37 m; zone centre (-2.0, 0.0)
+[match   45.0] bots: { "order": 3, "fight": 2, "heal": 1, "roam": 1 }; containers searched by bots 0 (all players 0); plan steps done 0; guns carried 14
+[match   45.0] roles: { "stalker": { "order": 1, "heal": 1 }, "rusher": { "fight": 1 }, "looter": { "roam": 1, "fight": 1, "order": 1 }, "sniper": { "order": 1 } }; stuck now 1; waypoints 258; team { "lines": 55, "pings": 0, "laser_follow": 0, "learned_cells": 14, "blocked_cells": 0, "squads": 4, "following_humans": 0 }
+[match   45.0] [lootstats] bots on the ground 7 (in water 0); armed 7; armed with ammo for a gun 7; long guns 7; attachments fitted 38; rounds of unusable ammo carried 0; items on the ground 4; bot pickups { "detours": 0, "detour_taken": 0, "fetches": 0, "fetch_done": 0, "items_taken": 0 }
+[match   46.5] Lolo Kalesa killed by Kuya Wifi (gunshot); 2 teams left
+[match   46.5] alive: West Team 3, East Team 3; score { 0: 0, 1: 0 }
+[match   48.5] [grenades] Tito Boy saw the pickup 3 9 m away: leaves it
+[match   51.9] [hold] Kuya Fishball camp spot 33 63s
+[match   55.8] [hold] Kuya Wifi camp spot 20 33s
+[match   56.2] [hold] Tito Boy overwatch spot 109 104s
+[match   60.0] [botstates] 720 bot-s: roam 28%, hunt 20%, fight 18%, follow 14%, order 10%, investigate 4%, heal 3%, camp 2%, overwatch 1%, fetch 1%
+[match   60.0] [botskill] normal shots 266 hits 64 reaction_avg 0.43 (n 90) dmg 1287 bots 6
+[match   60.0] status: { "ground": 6 }; armed 6; shots 267; zone -1 hold r=92; corpses 14; levels { "L1": 6 }; server tick avg 1.16 ms, p99 2.94 ms, max 6.28 ms over 900 ticks; objects 5037
+[match   60.0] dm teams: West Team 3 at (-24.0, -8.0) spread 24 m; East Team 3 at (10.0, -6.0) spread 23 m; gap 34 m; zone centre (-2.0, 0.0)
+[match   60.0] bots: { "fight": 2, "hunt": 1, "camp": 2, "overwatch": 1 }; containers searched by bots 0 (all players 0); plan steps done 0; guns carried 12
+[match   60.0] roles: { "stalker": { "fight": 1, "hunt": 1 }, "looter": { "camp": 2, "fight": 1 }, "sniper": { "overwatch": 1 } }; stuck now 0; waypoints 258; team { "lines": 63, "pings": 0, "laser_follow": 0, "learned_cells": 15, "blocked_cells": 0, "squads": 4, "following_humans": 0 }
+[match   60.0] [lootstats] bots on the ground 6 (in water 0); armed 6; armed with ammo for a gun 6; long guns 6; attachments fitted 35; rounds of unusable ammo carried 0; items on the ground 3; bot pickups { "detours": 0, "detour_taken": 0, "fetches": 1, "fetch_done": 1, "items_taken": 1 }
+[match   61.1] Lolo Pepe killed by Tito Karaoke King (gunshot); 2 teams left
+[match   61.1] alive: West Team 3, East Team 2; score { 0: 0, 1: 0 }
+[match   61.6] [endgame] East Team mates 2 foes 3 nocontact 0s
+[match   61.6] [endgame] West Team mates 3 foes 2 nocontact 0s
+[match   64.3] Mang Jolo killed by Tito Karaoke King (gunshot); 2 teams left
+[match   64.3] alive: West Team 3, East Team 1; score { 0: 0, 1: 0 }
+[match   66.2] Tito Boy (team 1) landed at (33.0, 0.0, 0.0), 4.9 m/s, health 93; teammates -
+[match   67.7] [sweep] Tito Karaoke King -> cell (0, -1, 1) spot 150 stale 98s 13 m
+[match   75.0] [botstates] 785 bot-s: roam 25%, hunt 24%, fight 17%, follow 13%, order 9%, investigate 4%, heal 3%, camp 2%, overwatch 1%, fetch 1%
+[match   75.0] [botskill] normal shots 279 hits 74 reaction_avg 0.44 (n 94) dmg 1489 bots 4
+[match   75.0] status: { "ground": 4 }; armed 4; shots 281; zone -1 hold r=92; corpses 16; levels { "L1": 3, "L2": 1 }; server tick avg 1.27 ms, p99 5.10 ms, max 13.19 ms over 900 ticks; objects 4808
+[match   75.0] dm teams: West Team 3 at (-23.0, -8.0) spread 27 m; East Team 1 at (39.0, -19.0) spread 0 m; gap 64 m; zone centre (-2.0, 0.0)
+[match   75.0] bots: { "hunt": 4 }; containers searched by bots 0 (all players 0); plan steps done 0; guns carried 8
+[match   75.0] roles: { "stalker": { "hunt": 1 }, "looter": { "hunt": 2 }, "sniper": { "hunt": 1 } }; stuck now 0; waypoints 258; team { "lines": 71, "pings": 0, "laser_follow": 0, "learned_cells": 16, "blocked_cells": 0, "squads": 4, "following_humans": 0 }
+[match   75.0] [lootstats] bots on the ground 4 (in water 0); armed 4; armed with ammo for a gun 4; long guns 4; attachments fitted 23; rounds of unusable ammo carried 0; items on the ground 3; bot pickups { "detours": 0, "detour_taken": 0, "fetches": 1, "fetch_done": 1, "items_taken": 1 }
+[match   90.0] [botstates] 845 bot-s: hunt 30%, roam 24%, fight 16%, follow 12%, order 9%, investigate 3%, heal 3%, camp 2%, overwatch 1%, fetch 0%
+[match   90.0] [botskill] normal shots 279 hits 74 reaction_avg 0.44 (n 94) dmg 1489 bots 4
+[match   90.0] status: { "ground": 4 }; armed 4; shots 281; zone -1 hold r=92; corpses 16; levels { "L1": 4 }; server tick avg 1.14 ms, p99 4.10 ms, max 4.64 ms over 900 ticks; objects 4808
+[match   90.0] dm teams: West Team 3 at (-27.0, -19.0) spread 18 m; East Team 1 at (40.0, -15.0) spread 0 m; gap 67 m; zone centre (-2.0, 0.0)
+[match   90.0] bots: { "hunt": 4 }; containers searched by bots 0 (all players 0); plan steps done 0; guns carried 8
+[match   90.0] roles: { "stalker": { "hunt": 1 }, "looter": { "hunt": 2 }, "sniper": { "hunt": 1 } }; stuck now 0; waypoints 258; team { "lines": 71, "pings": 0, "laser_follow": 0, "learned_cells": 16, "blocked_cells": 0, "squads": 4, "following_humans": 0 }
+[match   90.0] [lootstats] bots on the ground 4 (in water 0); armed 4; armed with ammo for a gun 4; long guns 4; attachments fitted 23; rounds of unusable ammo carried 0; items on the ground 3; bot pickups { "detours": 0, "detour_taken": 0, "fetches": 1, "fetch_done": 1, "items_taken": 1 }
+[match   94.1] [sweep] Tito Karaoke King -> cell (2, 0, 0) spot 120 stale 124s 54 m
+[match   94.2] [sweep] Kuya Wifi -> cell (-2, -2, 1) spot 95 stale 124s 6 m
+[match   96.7] [sweep] Kuya Fishball -> cell (0, -1, 1) spot 243 stale 127s 38 m
+[match   96.8] Kuya Wifi (team 0) landed at (-34.0, 0.0, -25.0), 3.1 m/s, health 93; teammates 33 m, 3 m
+[match  102.7] [grenades] Tito Karaoke King saw the pickup 3 10 m away: goes for it
+[match  103.4] [sweep] Tito Boy -> cell (-3, -1, 0) spot 148 stale 133s 88 m
+[match  105.0] [botstates] 905 bot-s: hunt 34%, roam 22%, fight 15%, follow 11%, order 8%, investigate 3%, heal 3%, camp 2%, overwatch 1%, fetch 1%
+[match  105.0] [botskill] normal shots 279 hits 74 reaction_avg 0.44 (n 94) dmg 1489 bots 4
+[match  105.0] status: { "ground": 4 }; armed 4; shots 281; zone -1 hold r=92; corpses 16; levels { "L1": 4 }; server tick avg 0.99 ms, p99 3.43 ms, max 4.17 ms over 900 ticks; objects 4810
+[match  105.0] dm teams: West Team 3 at (-8.0, -16.0) spread 18 m; East Team 1 at (39.0, 0.0) spread 0 m; gap 50 m; zone centre (-2.0, 0.0)
+[match  105.0] bots: { "hunt": 4 }; containers searched by bots 0 (all players 0); plan steps done 0; guns carried 8
+[match  105.0] roles: { "stalker": { "hunt": 1 }, "looter": { "hunt": 2 }, "sniper": { "hunt": 1 } }; stuck now 0; waypoints 258; team { "lines": 72, "pings": 0, "laser_follow": 0, "learned_cells": 16, "blocked_cells": 0, "squads": 4, "following_humans": 0 }
+[match  105.0] [lootstats] bots on the ground 4 (in water 0); armed 4; armed with ammo for a gun 4; long guns 4; attachments fitted 23; rounds of unusable ammo carried 0; items on the ground 2; bot pickups { "detours": 0, "detour_taken": 0, "fetches": 2, "fetch_done": 2, "items_taken": 2 }
+[match  110.8] Tito Karaoke King killed by Tito Boy (gunshot); 2 teams left
+[match  110.8] alive: West Team 2, East Team 1; score { 0: 0, 1: 0 }
+[match  111.0] Tito Boy killed by Kuya Fishball (gunshot); 1 teams left
+[match  111.0] alive: West Team 2, East Team 0; score { 0: 0, 1: 0 }
+[match  111.0] round 1 over: winner 0, scores { 0: 1, 1: 0 }
+[match  114.0] [grenades] round 2: 4 pickups at [(-17.7, 0.1, 18.2), (42.6, 0.1, 32.6), (8.2, 3.2, 17.2), (-27.4, 0.1, 40.6)] (2 cleared)
+[loadout] Kulot Sabaw shotgun_pump [sight_holo,choke,bullet_loops,weapon_light] mag 6/6 | pistol_45 [sight_reddot,suppressor_light,mag_extquick_light,weapon_light] mag 12/12
+[match  114.0] Kulot Sabaw respawned at (-51.0, 0.0, 5.0) (nearest enemy 1000 m)
+[match  114.0] round 2 started; scores { 0: 1, 1: 0 }
+[match  114.0] [roundtime] remove 0.8 ms, field 8.3 ms
+[loadout] Pareng Jun machine_pistol [suppressor_light,laser_sight,mag_extquick_light,weapon_light] mag 45/45 | revolver_357 [sight_reddot] mag 6/6
+[match  114.1] Pareng Jun respawned at (53.0, 0.0, -5.0) (nearest enemy 104 m)
+[match  114.1] [endgame] West Team mates 1 foes 1 nocontact 0s
+[loadout] Mang Isko smg_tommy [suppressor_light,grip_light,mag_extquick_light] mag 50/50 | pistol_deagle [sight_reflex,suppressor_light,mag_extquick_light,weapon_light] mag 10/10
+[match  114.1] Mang Isko respawned at (-56.0, 0.0, 2.0) (nearest enemy 109 m)
+[loadout] Lolo Pepe bolt_awp [scope_6x,suppressor_sniper,cheek_pad] mag 5/5 | pistol_45 [sight_reflex,suppressor_light,mag_extquick_light] mag 12/12
+[match  114.1] Lolo Pepe respawned at (53.0, 0.0, -11.0) (nearest enemy 105 m)
+[loadout] Bebot Karaoke rifle_scar [scope_night,grip_ergonomic,mag_extquick_rifle] mag 40/40 | revolver_357 [] mag 6/6
+[match  114.1] Bebot Karaoke respawned at (-56.0, 0.0, -2.0) (nearest enemy 109 m)
+[match  114.1] [endgame] East Team mates 2 foes 3 nocontact 0s
+[loadout] Tito Boy rifle_m416 [scope_night,muzzle_brake,grip_stubby,mag_extquick_rifle,stock_tactical,weapon_light] mag 40/40 | pistol_9 [sight_reflex,suppressor_light,mag_extquick_light,weapon_light] mag 21/21
+[match  114.1] Tito Boy respawned at (53.0, 0.0, -8.0) (nearest enemy 105 m)
+[loadout] Kuya Wifi dmr_sks [scope_4x,suppressor_rifle,mag_ext_sniper,cheek_pad] mag 20/20 | pistol_9 [suppressor_light,mag_extquick_light,weapon_light] mag 21/21
+[match  114.1] Kuya Wifi respawned at (-54.0, 0.0, -2.0) (nearest enemy 106 m)
+[loadout] Aling Taho shotgun_double [choke,bullet_loops] mag 2/2 | revolver_357 [sight_reddot] mag 6/6
+[match  114.2] Aling Taho respawned at (53.0, 0.0, 11.0) (nearest enemy 104 m)
+[loadout] Kuya Fishball rifle_m762 [scope_night,suppressor_rifle,mag_drum_rifle,weapon_light] mag 60/60 | pistol_deagle [sight_reddot,mag_drum_light,weapon_light] mag 13/13
+[match  114.2] Kuya Fishball respawned at (-54.0, 0.0, 5.0) (nearest enemy 106 m)
+[loadout] Ate Bebang smg_vector [suppressor_light,grip_heavy,mag_drum_light] mag 34/34 | revolver_357 [] mag 6/6
+[match  114.2] Ate Bebang respawned at (50.0, 0.0, -5.0) (nearest enemy 102 m)
+[loadout] Aling Nena bolt_awp [scope_6x,cheek_pad] mag 5/5 | revolver_357 [] mag 6/6
+[match  114.2] Aling Nena respawned at (-56.0, 0.0, 5.0) (nearest enemy 107 m)
+[loadout] Toto Pancit smg_ump45 [scope_2x,suppressor_light,grip_stubby,mag_extquick_light,weapon_light] mag 35/35 | pistol_45 [sight_reflex,suppressor_light,mag_extquick_light,weapon_light] mag 12/12
+[match  114.2] Toto Pancit respawned at (53.0, 0.0, 8.0) (nearest enemy 104 m)
+[loadout] Kumpare Ambo rifle_scar [scope_3x,suppressor_rifle,mag_drum_rifle,weapon_light] mag 60/60 | pistol_9 [sight_reddot,suppressor_light,weapon_light] mag 15/15
+[match  114.2] Kumpare Ambo respawned at (-54.0, 0.0, 2.0) (nearest enemy 104 m)
+[loadout] Mang Jolo smg_vector [scope_2x,suppressor_light,grip_heavy,stock_tactical,weapon_light] mag 19/19 | revolver_357 [] mag 6/6
+[match  114.3] Mang Jolo respawned at (50.0, 0.0, -8.0) (nearest enemy 102 m)
+[loadout] Utoy Kalabaw shotgun_pump [sight_holo,duckbill,bullet_loops,weapon_light] mag 6/6 | revolver_357 [] mag 6/6
+[match  114.3] Utoy Kalabaw respawned at (-56.0, 0.0, -5.0) (nearest enemy 106 m)
+[loadout] Lolo Kalesa rifle_762 [scope_3x,mag_drum_rifle,weapon_light] mag 60/60 | pistol_deagle [sight_reddot] mag 7/7
+[match  114.3] Lolo Kalesa respawned at (53.0, 0.0, 5.0) (nearest enemy 104 m)
+[loadout] Tito Karaoke King smg_9 [suppressor_light,grip_thumb] mag 30/30 | pistol_9 [sight_reflex,mag_drum_light,weapon_light] mag 27/27
+[match  114.3] Tito Karaoke King respawned at (-51.0, 0.0, -2.0) (nearest enemy 101 m)
+[loadout] Bossing Barbecue smg_vector [sight_reddot,grip_heavy,mag_extquick_light,stock_heavy] mag 33/33 | pistol_45 [sight_reddot,mag_extquick_light,weapon_light] mag 12/12
+[match  114.3] Bossing Barbecue respawned at (50.0, 0.0, 11.0) (nearest enemy 102 m)
+[loadout] Bossing Dodong machine_pistol [suppressor_light,laser_sight,mag_extquick_light,stock_heavy,weapon_light] mag 45/45 | pistol_9 [sight_reddot,suppressor_light,mag_extquick_light] mag 21/21
+[match  114.3] Bossing Dodong respawned at (-54.0, 0.0, -5.0) (nearest enemy 104 m)
+[loadout] Pareng Pandesal lmg_m249 [sight_holo,muzzle_brake,laser_sight] mag 100/100 | pistol_deagle [sight_reddot,mag_extquick_light,weapon_light] mag 10/10
+[match  114.4] Pareng Pandesal respawned at (50.0, 0.0, 8.0) (nearest enemy 101 m)
+[match  114.4] [roundtime] 20 respawns, slowest 3.5 ms, median 3.1 ms
+[match  120.0] status: { "ground": 20 }; armed 20; shots 301; zone -1 hold r=93; corpses 0; levels { "L1": 20 }; server tick avg 1.91 ms, p99 5.88 ms, max 7.55 ms over 720 ticks; objects 6612
+[match  120.0] dm teams: West Team 10 at (-53.0, -1.0) spread 4 m; East Team 10 at (50.0, 1.0) spread 7 m; gap 103 m; zone centre (2.0, 3.0)
+[match  120.0] bots: { "follow": 6, "hunt": 7, "roam": 7 }; containers searched by bots 0 (all players 0); plan steps done 0; guns carried 40
+[match  120.0] roles: { "looter": { "follow": 3, "roam": 3 }, "sniper": { "follow": 2, "roam": 2 }, "stalker": { "hunt": 3, "roam": 1, "follow": 1 }, "rusher": { "hunt": 4, "roam": 1 } }; stuck now 0; waypoints 258; team { "lines": 78, "pings": 0, "laser_follow": 0, "learned_cells": 19, "blocked_cells": 0, "squads": 8, "following_humans": 0 }
+[match  120.0] [lootstats] bots on the ground 20 (in water 0); armed 20; armed with ammo for a gun 20; long guns 20; attachments fitted 116; rounds of unusable ammo carried 0; items on the ground 4; bot pickups { "detours": 0, "detour_taken": 0, "fetches": 2, "fetch_done": 2, "items_taken": 2 }
+[match  120.6] Lolo Kalesa (team 1) landed at (47.0, 0.0, 2.0), 2.5 m/s, health 100; teammates -
+[match  121.5] Ate Bebang (team 1) landed at (47.0, 0.0, -1.0), 2.5 m/s, health 100; teammates 1 m
+[match  123.0] [botstates] 1104 bot-s: hunt 32%, roam 29%, fight 12%, follow 11%, order 7%, investigate 3%, heal 2%, camp 1%, overwatch 1%, fetch 1%
+[match  123.0] [botskill] normal shots 299 hits 82 reaction_avg 0.44 (n 98) dmg 1641 bots 20
+[match  123.4] [grenades] Bossing Barbecue saw the pickup 6 5 m away: leaves it
+[match  126.5] [hold] Ate Bebang camp spot 38 41s
+[match  127.8] Kulot Sabaw (team 0) landed at (-50.0, 0.0, -14.0), 4.9 m/s, health 100; teammates -
+[match  128.1] Pareng Jun (team 1) landed at (35.0, 0.0, 0.0), 4.9 m/s, health 100; teammates 25 m, 10 m
+[match  130.3] Toto Pancit killed by Kumpare Ambo (bleeding); 2 teams left
+[match  130.3] alive: West Team 10, East Team 9; score { 0: 1, 1: 0 }
+[match  131.5] Bossing Barbecue (team 1) landed at (24.0, 0.0, 33.0), 4.9 m/s, health 100; teammates 32 m, 42 m, 28 m
+[match  132.2] Mang Jolo killed by Tito Karaoke King (gunshot); 2 teams left
+[match  132.2] alive: West Team 10, East Team 8; score { 0: 1, 1: 0 }
+[match  132.8] Kuya Wifi killed by Pareng Pandesal (gunshot); 2 teams left
+[match  132.8] alive: West Team 9, East Team 8; score { 0: 1, 1: 0 }
+[match  133.0] Kumpare Ambo killed by Tito Boy (gunshot); 2 teams left
+[match  133.0] alive: West Team 8, East Team 8; score { 0: 1, 1: 0 }
+[match  135.0] status: { "ground": 16 }; armed 16; shots 594; zone -1 hold r=93; corpses 4; levels { "L1": 16 }; server tick avg 4.35 ms, p99 10.34 ms, max 12.22 ms over 900 ticks; objects 6177
+[match  135.0] dm teams: West Team 8 at (-20.0, -10.0) spread 13 m; East Team 8 at (19.0, 8.0) spread 14 m; gap 43 m; zone centre (2.0, 3.0)
+[match  135.0] bots: { "fight": 8, "hunt": 1, "heal": 1, "roam": 1, "investigate": 2, "follow": 1, "order": 2 }; containers searched by bots 0 (all players 0); plan steps done 0; guns carried 32
+[match  135.0] roles: { "looter": { "fight": 3, "heal": 1, "roam": 1 }, "sniper": { "fight": 3, "investigate": 1 }, "stalker": { "hunt": 1, "investigate": 1, "follow": 1, "order": 1 }, "rusher": { "fight": 2, "order": 1 } }; stuck now 0; waypoints 258; team { "lines": 95, "pings": 0, "laser_follow": 0, "learned_cells": 19, "blocked_cells": 0, "squads": 8, "following_humans": 0 }
+[match  135.0] [lootstats] bots on the ground 16 (in water 0); armed 16; armed with ammo for a gun 16; long guns 16; attachments fitted 88; rounds of unusable ammo carried 0; items on the ground 4; bot pickups { "detours": 0, "detour_taken": 0, "fetches": 2, "fetch_done": 2, "items_taken": 2 }
+[match  135.2] Tito Boy killed by Tito Karaoke King (gunshot); 2 teams left
+[match  135.2] alive: West Team 8, East Team 7; score { 0: 1, 1: 0 }
+[match  138.0] [botstates] 1378 bot-s: hunt 30%, roam 26%, fight 17%, follow 13%, order 6%, investigate 3%, heal 2%, camp 2%, overwatch 1%, fetch 0%
+[match  138.0] [botskill] normal shots 652 hits 125 reaction_avg 0.35 (n 179) dmg 2294 bots 15
+[match  139.0] Utoy Kalabaw (team 0) landed at (-13.0, 0.0, 9.0), 4.7 m/s, health 5; teammates 29 m
+[match  139.0] Pareng Pandesal killed by Tito Karaoke King (gunshot); 2 teams left
+[match  139.0] alive: West Team 8, East Team 6; score { 0: 1, 1: 0 }
+[match  139.6] Bossing Dodong killed by Lolo Kalesa (gunshot); 2 teams left
+[match  139.6] alive: West Team 7, East Team 6; score { 0: 1, 1: 0 }
+[match  143.1] Utoy Kalabaw killed by Pareng Jun (gunshot); 2 teams left
+[match  143.1] alive: West Team 6, East Team 6; score { 0: 1, 1: 0 }
+[match  143.6] [hold] Aling Nena overwatch spot 181 101s
+[match  143.8] Aling Nena (team 0) landed at (-24.0, 0.0, -13.0), 4.9 m/s, health 100; teammates 6 m
+[match  145.0] Pareng Jun killed by Kuya Fishball (gunshot); 2 teams left
+[match  145.0] alive: West Team 6, East Team 5; score { 0: 1, 1: 0 }
+[match  148.0] Lolo Pepe killed by Aling Taho (gunshot); 2 teams left
+[match  148.0] alive: West Team 6, East Team 4; score { 0: 1, 1: 0 }
+[match  150.0] status: { "ground": 10 }; armed 10; shots 803; zone -1 hold r=93; corpses 10; levels { "L1": 10 }; server tick avg 3.71 ms, p99 7.85 ms, max 10.95 ms over 900 ticks; objects 5503
+[match  150.0] dm teams: West Team 6 at (-12.0, -12.0) spread 11 m; East Team 4 at (23.0, 11.0) spread 16 m; gap 42 m; zone centre (2.0, 3.0)
+[match  150.0] bots: { "heal": 3, "fight": 2, "order": 2, "roam": 2, "hunt": 1 }; containers searched by bots 0 (all players 0); plan steps done 0; guns carried 20
+[match  150.0] roles: { "looter": { "heal": 2, "order": 1, "fight": 1 }, "stalker": { "fight": 1, "order": 1, "hunt": 1 }, "sniper": { "heal": 1, "roam": 2 } }; stuck now 0; waypoints 258; team { "lines": 124, "pings": 0, "laser_follow": 0, "learned_cells": 20, "blocked_cells": 0, "squads": 8, "following_humans": 0 }
+[match  150.0] [lootstats] bots on the ground 10 (in water 0); armed 10; armed with ammo for a gun 10; long guns 10; attachments fitted 49; rounds of unusable ammo carried 0; items on the ground 4; bot pickups { "detours": 0, "detour_taken": 0, "fetches": 2, "fetch_done": 2, "items_taken": 2 }
+[match  153.0] [botstates] 1552 bot-s: hunt 28%, roam 24%, fight 19%, follow 12%, order 7%, heal 4%, investigate 3%, camp 1%, overwatch 1%, fetch 0%
+[match  153.0] [botskill] normal shots 801 hits 142 reaction_avg 0.34 (n 227) dmg 2879 bots 10
+[match  153.4] [hold] Aling Nena overwatch spot 132 60s
+[match  154.4] [grenades] Kuya Fishball saw the pickup 7 3 m away: leaves it
+[match  154.7] [hold] Tito Karaoke King overwatch spot 181 67s
+[match  159.3] Kuya Fishball killed by Ate Bebang (gunshot); 2 teams left
+[match  159.3] alive: West Team 5, East Team 4; score { 0: 1, 1: 0 }
+[match  159.5] Mang Isko (team 0) landed at (-5.0, 0.0, -13.0), 4.7 m/s, health 34; teammates 4 m, 11 m
+[match  160.8] Ate Bebang killed by Tito Karaoke King (gunshot); 2 teams left
+[match  160.8] alive: West Team 5, East Team 3; score { 0: 1, 1: 0 }
+[match  164.7] [hold] Tito Karaoke King overwatch spot 134 101s
+[match  165.0] status: { "ground": 8 }; armed 8; shots 985; zone -1 hold r=93; corpses 12; levels { "L1": 7, "between": 1 }; server tick avg 2.69 ms, p99 5.96 ms, max 11.71 ms over 900 ticks; objects 5279
+[match  165.0] dm teams: West Team 5 at (-8.0, -18.0) spread 7 m; East Team 3 at (18.0, 2.0) spread 1 m; gap 33 m; zone centre (2.0, 3.0)
+[match  165.0] bots: { "order": 2, "heal": 3, "roam": 1, "overwatch": 1, "hunt": 1 }; containers searched by bots 0 (all players 0); plan steps done 0; guns carried 16
+[match  165.0] roles: { "looter": { "order": 2, "heal": 1 }, "stalker": { "heal": 2, "hunt": 1 }, "sniper": { "roam": 1, "overwatch": 1 } }; stuck now 2; waypoints 258; team { "lines": 143, "pings": 0, "laser_follow": 0, "learned_cells": 21, "blocked_cells": 0, "squads": 8, "following_humans": 0 }
+[match  165.0] [lootstats] bots on the ground 8 (in water 0); armed 8; armed with ammo for a gun 8; long guns 8; attachments fitted 39; rounds of unusable ammo carried 0; items on the ground 4; bot pickups { "detours": 0, "detour_taken": 0, "fetches": 2, "fetch_done": 2, "items_taken": 2 }
+[match  168.0] [hold] Aling Nena overwatch spot 178 89s
+[match  168.0] [botstates] 1687 bot-s: hunt 26%, roam 24%, fight 20%, follow 11%, order 8%, heal 5%, investigate 3%, camp 1%, overwatch 1%, fetch 0%
+[match  168.0] [botskill] normal shots 982 hits 164 reaction_avg 0.34 (n 265) dmg 3228 bots 8
+[match  171.9] Aling Taho killed by Mang Isko (bleeding); 2 teams left
+[match  171.9] alive: West Team 5, East Team 2; score { 0: 1, 1: 0 }
+[match  172.2] [endgame] East Team mates 2 foes 5 nocontact 0s
+[match  172.3] [endgame] West Team mates 5 foes 2 nocontact 0s
+[match  179.0] Bossing Barbecue killed by Bebot Karaoke (gunshot); 2 teams left
+[match  179.0] alive: West Team 5, East Team 1; score { 0: 1, 1: 0 }
+[match  180.0] status: { "ground": 6 }; armed 6; shots 1160; zone -1 hold r=93; corpses 14; levels { "L1": 6 }; server tick avg 2.40 ms, p99 5.15 ms, max 8.23 ms over 900 ticks; objects 5053
+[match  180.0] dm teams: West Team 5 at (-3.0, -11.0) spread 15 m; East Team 1 at (13.0, 6.0) spread 0 m; gap 24 m; zone centre (2.0, 3.0)
+[match  180.0] bots: { "fight": 4, "heal": 1, "hunt": 1 }; containers searched by bots 0 (all players 0); plan steps done 0; guns carried 12
+[match  180.0] roles: { "looter": { "fight": 2 }, "stalker": { "heal": 1, "fight": 1 }, "sniper": { "hunt": 1, "fight": 1 } }; stuck now 0; waypoints 258; team { "lines": 158, "pings": 0, "laser_follow": 0, "learned_cells": 22, "blocked_cells": 0, "squads": 8, "following_humans": 0 }
+[match  180.0] [lootstats] bots on the ground 6 (in water 0); armed 6; armed with ammo for a gun 6; long guns 6; attachments fitted 29; rounds of unusable ammo carried 0; items on the ground 4; bot pickups { "detours": 0, "detour_taken": 0, "fetches": 2, "fetch_done": 2, "items_taken": 2 }
+[match  180.0] Lolo Kalesa killed by Bebot Karaoke (gunshot); 1 teams left
+[match  180.0] alive: West Team 5, East Team 0; score { 0: 1, 1: 0 }
+[match  180.1] round 2 over: winner 0, scores { 0: 2, 1: 0 }
+[match  183.1] [grenades] round 3: 4 pickups at [(-21.7, 0.0, 6.2), (-29.7, 0.4, -27.7), (-27.4, 0.1, 40.6), (16.2, 0.1, 32.2)] (4 cleared)
+[loadout] Kulot Sabaw rifle_scar [suppressor_rifle,weapon_light] mag 30/30 | pistol_45 [sight_reddot,suppressor_light,mag_extquick_light,weapon_light] mag 12/12
+[match  183.1] Kulot Sabaw respawned at (-49.0, 0.0, -5.0) (nearest enemy 1000 m)
+[loadout] Pareng Jun smg_vector [scope_2x,suppressor_light,grip_heavy,mag_extquick_light,stock_heavy,weapon_light] mag 33/33 | pistol_45 [sight_reddot,suppressor_light,mag_drum_light,weapon_light] mag 13/13
+[match  183.1] Pareng Jun respawned at (53.0, 0.0, -11.0) (nearest enemy 102 m)
+[match  183.1] round 3 started; scores { 0: 2, 1: 0 }
+[match  183.1] [roundtime] remove 2.1 ms, field 9.9 ms
+[match  183.1] [endgame] East Team mates 1 foes 1 nocontact 0s
+[loadout] Mang Isko bolt_308 [scope_6x,suppressor_sniper,cheek_pad] mag 5/5 | pistol_45 [sight_reddot,suppressor_light,mag_extquick_light,weapon_light] mag 12/12
+[match  183.1] Mang Isko respawned at (-56.0, 0.0, 5.0) (nearest enemy 110 m)
+[match  183.1] [endgame] West Team mates 2 foes 1 nocontact 0s
+[loadout] Lolo Pepe rifle_762 [suppressor_rifle,laser_sight,weapon_light] mag 30/30 | revolver_357 [] mag 6/6
+[match  183.1] Lolo Pepe respawned at (53.0, 0.0, 8.0) (nearest enemy 102 m)
+[loadout] Bebot Karaoke smg_ump45 [sight_holo,suppressor_light,grip_ergonomic,mag_extquick_light,weapon_light] mag 35/35 | revolver_357 [sight_reflex] mag 6/6
+[match  183.1] Bebot Karaoke respawned at (-56.0, 0.0, 2.0) (nearest enemy 109 m)
+[loadout] Tito Boy shotgun_saiga [sight_reddot,mag_extquick_rifle] mag 8/8 | pistol_45 [mag_extquick_light,weapon_light] mag 12/12
+[match  183.1] Tito Boy respawned at (53.0, 0.0, 11.0) (nearest enemy 103 m)
+[loadout] Kuya Wifi bolt_awp [scope_6x,mag_ext_sniper,cheek_pad] mag 8/8 | pistol_deagle [sight_reddot] mag 7/7
+[match  183.1] Kuya Wifi respawned at (-54.0, 0.0, 2.0) (nearest enemy 106 m)
+[loadout] Aling Taho smg_9 [scope_2x,suppressor_light,grip_vertical,mag_extquick_light] mag 40/40 | revolver_357 [sight_reflex] mag 6/6
+[match  183.1] Aling Taho respawned at (50.0, 0.0, 5.0) (nearest enemy 100 m)
+[loadout] Kuya Fishball shotgun_pump [choke,bullet_loops,weapon_light] mag 6/6 | pistol_deagle [sight_reflex,suppressor_light,mag_extquick_light,weapon_light] mag 10/10
+[match  183.2] Kuya Fishball respawned at (-56.0, 0.0, -5.0) (nearest enemy 107 m)
+[loadout] Ate Bebang shotgun_pump [sight_holo,bullet_loops] mag 6/6 | pistol_45 [sight_reddot,suppressor_light] mag 7/7
+[match  183.2] Ate Bebang respawned at (53.0, 0.0, 5.0) (nearest enemy 102 m)
+[loadout] Aling Nena rifle_556 [scope_3x,suppressor_rifle,grip_vertical,mag_extquick_rifle] mag 40/40 | pistol_9 [sight_reddot,suppressor_light,mag_drum_light] mag 27/27
+[match  183.2] Aling Nena respawned at (-56.0, 0.0, -2.0) (nearest enemy 106 m)
+[loadout] Toto Pancit bolt_308 [suppressor_sniper,mag_ext_sniper,cheek_pad] mag 8/8 | pistol_deagle [sight_reddot,suppressor_light,weapon_light] mag 7/7
+[match  183.2] Toto Pancit respawned at (53.0, 0.0, -5.0) (nearest enemy 101 m)
+[loadout] Kumpare Ambo smg_tommy [suppressor_light,mag_extquick_light] mag 50/50 | pistol_deagle [sight_reddot,suppressor_light,weapon_light] mag 7/7
+[match  183.2] Kumpare Ambo respawned at (-54.0, 0.0, -5.0) (nearest enemy 104 m)
+[loadout] Mang Jolo shotgun_pump [sight_holo,choke,bullet_loops,weapon_light] mag 6/6 | pistol_9 [sight_reddot,suppressor_light,mag_extquick_light] mag 21/21
+[match  183.2] Mang Jolo respawned at (50.0, 0.0, 8.0) (nearest enemy 100 m)
+[loadout] Utoy Kalabaw rifle_762 [scope_night,suppressor_rifle,mag_extquick_rifle] mag 40/40 | revolver_357 [sight_reddot] mag 6/6
+[match  183.2] Utoy Kalabaw respawned at (-54.0, 0.0, -2.0) (nearest enemy 104 m)
+[loadout] Lolo Kalesa dmr_mini14 [scope_thermal,suppressor_sniper,mag_ext_sniper] mag 30/30 | pistol_deagle [sight_reddot,suppressor_light,mag_extquick_light,weapon_light] mag 10/10
+[match  183.2] Lolo Kalesa respawned at (50.0, 0.0, -5.0) (nearest enemy 99 m)
+[loadout] Tito Karaoke King bolt_kar98 [scope_8x,suppressor_rifle,cheek_pad] mag 5/5 | pistol_45 [sight_reddot,suppressor_light,mag_drum_light,weapon_light] mag 13/13
+[match  183.2] Tito Karaoke King respawned at (-51.0, 0.0, -2.0) (nearest enemy 101 m)
+[loadout] Bossing Barbecue lmg_m249 [sight_reflex,muzzle_brake,stock_heavy,weapon_light] mag 100/100 | pistol_9 [sight_reflex,suppressor_light,weapon_light] mag 15/15
+[match  183.2] Bossing Barbecue respawned at (50.0, 0.0, -11.0) (nearest enemy 99 m)
+[loadout] Bossing Dodong rifle_m762 [scope_3x,muzzle_brake,mag_extquick_rifle] mag 40/40 | revolver_357 [sight_reflex] mag 6/6
+[match  183.3] Bossing Dodong respawned at (-51.0, 0.0, 2.0) (nearest enemy 101 m)
+[loadout] Pareng Pandesal smg_ump45 [scope_2x,suppressor_light,mag_extquick_light,weapon_light] mag 35/35 | revolver_357 [sight_reddot] mag 6/6
+[match  183.3] Pareng Pandesal respawned at (50.0, 0.0, 11.0) (nearest enemy 100 m)
+[match  183.3] [roundtime] 20 respawns, slowest 3.3 ms, median 2.4 ms
+[match  186.0] [botstates] 1830 bot-s: roam 25%, hunt 25%, fight 21%, follow 10%, order 8%, heal 5%, investigate 3%, camp 1%, overwatch 1%, fetch 0%
+[match  186.0] [botskill] normal shots 1157 hits 178 reaction_avg 0.33 (n 293) dmg 3422 bots 20
+[match  189.8] Lolo Kalesa (team 1) landed at (47.0, 0.0, -1.0), 2.5 m/s, health 100; teammates -
+[match  190.3] Lolo Pepe (team 1) landed at (47.0, 0.0, 1.0), 2.5 m/s, health 100; teammates 2 m
+[match  191.0] Aling Nena (team 0) landed at (-53.0, 0.0, 3.0), 4.9 m/s, health 100; teammates -
+[match  191.2] [hold] Mang Jolo camp spot 38 67s
+[match  192.0] [grenades] Utoy Kalabaw saw the pickup 10 22 m away: goes for it
+[match  192.3] [grenades] Kuya Fishball saw the pickup 10 22 m away: goes for it
+[match  192.6] [grenades] Tito Karaoke King saw the pickup 10 16 m away: leaves it
+[match  192.7] [grenades] Mang Isko saw the pickup 9 22 m away: leaves it
+[match  192.9] Pareng Jun (team 1) landed at (46.0, 0.0, -1.0), 4.9 m/s, health 100; teammates 4 m, 5 m
+[match  194.0] [grenades] Kulot Sabaw saw the pickup 9 12 m away: goes for it
+[match  195.0] status: { "ground": 20 }; armed 20; shots 1160; zone -1 hold r=95; corpses 0; levels { "L1": 20 }; server tick avg 2.79 ms, p99 6.40 ms, max 8.15 ms over 720 ticks; objects 6641
+[match  195.0] dm teams: West Team 10 at (-38.0, -7.0) spread 17 m; East Team 10 at (33.0, 5.0) spread 13 m; gap 72 m; zone centre (4.0, 3.0)
+[match  195.0] bots: { "fetch": 3, "follow": 6, "roam": 4, "hunt": 6, "camp": 1 }; containers searched by bots 0 (all players 0); plan steps done 0; guns carried 40
+[match  195.0] roles: { "looter": { "fetch": 1, "roam": 3, "camp": 1, "follow": 1 }, "sniper": { "follow": 4, "roam": 1, "fetch": 2 }, "stalker": { "hunt": 4, "follow": 1 }, "rusher": { "hunt": 2 } }; stuck now 0; waypoints 258; team { "lines": 161, "pings": 0, "laser_follow": 0, "learned_cells": 22, "blocked_cells": 0, "squads": 13, "following_humans": 0 }
+[match  195.0] [lootstats] bots on the ground 20 (in water 0); armed 20; armed with ammo for a gun 20; long guns 20; attachments fitted 115; rounds of unusable ammo carried 0; items on the ground 4; bot pickups { "detours": 0, "detour_taken": 0, "fetches": 5, "fetch_done": 2, "items_taken": 2 }
+[match  195.6] [grenades] Bossing Dodong saw the pickup 10 18 m away: goes for it
+[match  195.9] [grenades] Bebot Karaoke saw the pickup 10 18 m away: leaves it
+[match  196.2] [grenades] Aling Nena saw the pickup 10 16 m away: leaves it
+[match  199.6] [hold] Mang Isko camp spot 32 61s
+[match  200.3] [hold] Kumpare Ambo camp spot 24 58s
+[match  200.3] Kumpare Ambo (team 0) landed at (-53.0, 0.0, 32.0), 3.7 m/s, health 100; teammates 60 m
+[match  201.0] [botstates] 2130 bot-s: roam 27%, hunt 25%, fight 19%, follow 12%, order 7%, heal 4%, investigate 3%, camp 2%, fetch 1%, overwatch 1%
+[match  201.0] [botskill] normal shots 1196 hits 188 reaction_avg 0.34 (n 302) dmg 3536 bots 20
+[match  201.2] Kuya Wifi killed by Ate Bebang (gunshot); 2 teams left
+[match  201.2] alive: West Team 9, East Team 10; score { 0: 2, 1: 0 }
+[match  202.2] [hold] Utoy Kalabaw overwatch spot 178 112s
+[match  202.9] Kulot Sabaw (team 0) landed at (-30.0, 0.0, 14.0), 4.9 m/s, health 100; teammates 37 m, 30 m
+[match  204.2] [hold] Kulot Sabaw camp spot 49 60s
+[match  204.3] Bebot Karaoke (team 0) landed at (-37.0, 0.0, -26.0), 4.9 m/s, health 100; teammates 45 m, 6 m, 60 m
+[match  206.4] [grenades] Utoy Kalabaw throws at (-10.3, 0.0, -10.7), 18 m (in sight), flight 0.9 s, cook 1.5 s
+[match  207.1] Mang Isko killed by Pareng Pandesal (gunshot); 2 teams left
+[match  207.1] alive: West Team 8, East Team 10; score { 0: 2, 1: 0 }
+[match  207.6] Ate Bebang killed by Aling Nena (gunshot); 2 teams left
+[match  207.6] alive: West Team 8, East Team 9; score { 0: 2, 1: 0 }
+[match  209.1] Mang Jolo (team 1) landed at (53.0, 0.0, 12.0), 4.9 m/s, health 100; teammates 59 m, 55 m, 63 m
+[match  209.4] Utoy Kalabaw killed by Aling Taho (gunshot); 2 teams left
+[match  209.4] alive: West Team 7, East Team 9; score { 0: 2, 1: 0 }
+[match  210.0] status: { "ground": 16 }; armed 16; shots 1354; zone -1 hold r=95; corpses 4; levels { "L1": 15, "between": 1 }; server tick avg 4.19 ms, p99 8.80 ms, max 11.01 ms over 900 ticks; objects 6190
+[match  210.0] dm teams: West Team 7 at (-35.0, -10.0) spread 20 m; East Team 9 at (10.0, 2.0) spread 22 m; gap 46 m; zone centre (4.0, 3.0)
+[match  210.0] bots: { "roam": 2, "order": 3, "fight": 5, "investigate": 2, "hunt": 2, "follow": 1, "camp": 1 }; containers searched by bots 0 (all players 0); plan steps done 0; guns carried 32
+[match  210.0] roles: { "looter": { "roam": 2, "camp": 1, "order": 1, "fight": 1 }, "sniper": { "order": 1, "fight": 3, "investigate": 1, "follow": 1 }, "stalker": { "hunt": 2, "order": 1, "fight": 1, "investigate": 1 } }; stuck now 1; waypoints 258; team { "lines": 185, "pings": 0, "laser_follow": 0, "learned_cells": 26, "blocked_cells": 0, "squads": 13, "following_humans": 0 }
+[match  210.0] [lootstats] bots on the ground 16 (in water 0); armed 16; armed with ammo for a gun 16; long guns 16; attachments fitted 96; rounds of unusable ammo carried 0; items on the ground 2; bot pickups { "detours": 0, "detour_taken": 0, "fetches": 5, "fetch_done": 4, "items_taken": 4 }
+[match  210.5] Aling Taho killed by Utoy Kalabaw (explosion); 2 teams left
+[match  210.5] alive: West Team 7, East Team 8; score { 0: 2, 1: 0 }
+[match  210.5] Bossing Barbecue killed by Utoy Kalabaw (explosion); 2 teams left
+[match  210.5] alive: West Team 7, East Team 7; score { 0: 2, 1: 0 }
+[match  211.7] [grenades] Kulot Sabaw throws at (-7.9, 0.0, -3.4), 23 m (called out), flight 1.4 s, cook 1.5 s
+[match  215.7] Pareng Jun killed by Kulot Sabaw (explosion); 2 teams left
+[match  215.7] alive: West Team 7, East Team 6; score { 0: 2, 1: 0 }
+[match  215.7] Lolo Kalesa killed by Kulot Sabaw (explosion); 2 teams left
+[match  215.7] alive: West Team 7, East Team 5; score { 0: 2, 1: 0 }
+[match  215.7] Pareng Pandesal killed by Kulot Sabaw (explosion); 2 teams left
+[match  215.7] alive: West Team 7, East Team 4; score { 0: 2, 1: 0 }
+[match  216.0] [botstates] 2379 bot-s: roam 25%, hunt 23%, fight 21%, follow 12%, order 7%, heal 4%, investigate 4%, camp 2%, fetch 1%, overwatch 1%
+[match  216.0] [botskill] normal shots 1436 hits 220 reaction_avg 0.33 (n 363) dmg 4468 bots 11
+[match  217.4] Toto Pancit killed by Kulot Sabaw (gunshot); 2 teams left
+[match  217.4] alive: West Team 7, East Team 3; score { 0: 2, 1: 0 }
+[match  219.2] Lolo Pepe killed by Kuya Fishball (gunshot); 2 teams left
+[match  219.2] alive: West Team 7, East Team 2; score { 0: 2, 1: 0 }
+[match  219.4] [endgame] West Team mates 7 foes 2 nocontact 0s
+[match  219.5] [endgame] East Team mates 2 foes 7 nocontact 0s
+[match  225.0] status: { "ground": 9 }; armed 9; shots 1477; zone -1 hold r=95; corpses 11; levels { "L1": 9 }; server tick avg 2.74 ms, p99 6.52 ms, max 9.94 ms over 900 ticks; objects 5393
+[match  225.0] dm teams: West Team 7 at (-37.0, -11.0) spread 11 m; East Team 2 at (11.0, -10.0) spread 13 m; gap 48 m; zone centre (4.0, 3.0)
+[match  225.0] bots: { "order": 3, "hunt": 4, "investigate": 1, "follow": 1 }; containers searched by bots 0 (all players 0); plan steps done 0; guns carried 18
+[match  225.0] roles: { "looter": { "order": 1, "hunt": 2, "follow": 1 }, "sniper": { "hunt": 2, "order": 1 }, "stalker": { "investigate": 1, "order": 1 } }; stuck now 0; waypoints 258; team { "lines": 212, "pings": 0, "laser_follow": 0, "learned_cells": 26, "blocked_cells": 0, "squads": 13, "following_humans": 0 }
+[match  225.0] [lootstats] bots on the ground 9 (in water 0); armed 9; armed with ammo for a gun 9; long guns 9; attachments fitted 53; rounds of unusable ammo carried 0; items on the ground 2; bot pickups { "detours": 0, "detour_taken": 0, "fetches": 5, "fetch_done": 4, "items_taken": 4 }
+[match  231.0] [botstates] 2519 bot-s: hunt 24%, roam 24%, fight 20%, follow 12%, order 8%, heal 4%, investigate 4%, camp 2%, fetch 1%, overwatch 1%
+[match  231.0] [botskill] normal shots 1477 hits 230 reaction_avg 0.34 (n 371) dmg 4650 bots 9
+[match  233.2] Kumpare Ambo killed by Tito Boy (gunshot); 2 teams left
+[match  233.2] alive: West Team 6, East Team 2; score { 0: 2, 1: 0 }
+[match  234.1] Mang Jolo killed by Kulot Sabaw (gunshot); 2 teams left
+[match  234.1] alive: West Team 6, East Team 1; score { 0: 2, 1: 0 }
+[match  235.5] Kuya Fishball (team 0) landed at (-31.0, 3.0, -16.0), 2.7 m/s, health 92; teammates 5 m, 8 m, 6 m
+[match  239.2] Tito Karaoke King (team 0) landed at (-42.0, 3.0, -10.0), 4.2 m/s, health 49; teammates 7 m, 20 m, 1 m, 5 m
+[match  240.0] status: { "ground": 7 }; armed 7; shots 1546; zone -1 hold r=95; corpses 13; levels { "between": 2, "L1": 3, "L2": 2 }; server tick avg 1.82 ms, p99 4.88 ms, max 8.59 ms over 900 ticks; objects 5166
+[match  240.0] dm teams: West Team 6 at (-38.0, -6.0) spread 6 m; East Team 1 at (-9.0, -13.0) spread 0 m; gap 29 m; zone centre (4.0, 3.0)
+[match  240.0] bots: { "order": 4, "fight": 2, "hunt": 1 }; containers searched by bots 0 (all players 0); plan steps done 0; guns carried 14
+[match  240.0] roles: { "looter": { "order": 2 }, "sniper": { "fight": 1, "hunt": 1, "order": 1 }, "stalker": { "fight": 1, "order": 1 } }; stuck now 0; waypoints 258; team { "lines": 223, "pings": 0, "laser_follow": 0, "learned_cells": 27, "blocked_cells": 0, "squads": 13, "following_humans": 0 }
+[match  240.0] [lootstats] bots on the ground 7 (in water 0); armed 7; armed with ammo for a gun 7; long guns 7; attachments fitted 41; rounds of unusable ammo carried 0; items on the ground 2; bot pickups { "detours": 0, "detour_taken": 0, "fetches": 5, "fetch_done": 4, "items_taken": 4 }
+[match  240.2] Bebot Karaoke killed by Tito Boy (gunshot); 2 teams left
+[match  240.2] alive: West Team 5, East Team 1; score { 0: 2, 1: 0 }
+[match  246.0] [botstates] 2624 bot-s: hunt 24%, roam 23%, fight 20%, follow 12%, order 9%, heal 4%, investigate 4%, camp 2%, fetch 1%, overwatch 0%
+[match  246.0] [botskill] normal shots 1546 hits 243 reaction_avg 0.34 (n 379) dmg 4921 bots 6
+[match  248.5] [sweep] Tito Boy -> cell (-2, -1, 1) spot 188 stale 95s 9 m
+[match  255.0] status: { "ground": 6 }; armed 6; shots 1573; zone -1 hold r=95; corpses 14; levels { "between": 1, "L1": 5 }; server tick avg 1.35 ms, p99 3.68 ms, max 7.25 ms over 900 ticks; objects 5056
+[match  255.0] dm teams: West Team 5 at (-30.0, -3.0) spread 6 m; East Team 1 at (-20.0, -9.0) spread 0 m; gap 12 m; zone centre (4.0, 3.0)
+[match  255.0] bots: { "order": 3, "fight": 3 }; containers searched by bots 0 (all players 0); plan steps done 0; guns carried 12
+[match  255.0] roles: { "looter": { "order": 1, "fight": 1 }, "stalker": { "fight": 1, "order": 1 }, "sniper": { "fight": 1, "order": 1 } }; stuck now 0; waypoints 258; team { "lines": 234, "pings": 0, "laser_follow": 0, "learned_cells": 28, "blocked_cells": 0, "squads": 13, "following_humans": 0 }
+[match  255.0] [lootstats] bots on the ground 6 (in water 0); armed 6; armed with ammo for a gun 6; long guns 6; attachments fitted 35; rounds of unusable ammo carried 0; items on the ground 2; bot pickups { "detours": 0, "detour_taken": 0, "fetches": 5, "fetch_done": 4, "items_taken": 4 }
+[match  255.0] Tito Boy killed by Kuya Fishball (gunshot); 1 teams left
+[match  255.0] alive: West Team 5, East Team 0; score { 0: 2, 1: 0 }
+[match  255.0] round 3 over: winner 0, scores { 0: 3, 1: 0 }
+[match  258.0] [grenades] round 4: 4 pickups at [(-27.2, 0.1, 19.7), (42.6, 0.1, 40.6), (14.2, 0.1, 40.2), (-7.7, 0.1, 20.2)] (2 cleared)
+[loadout] Kulot Sabaw rifle_m416 [scope_3x,suppressor_rifle,grip_angled,mag_drum_rifle,stock_tactical,weapon_light] mag 60/60 | pistol_deagle [suppressor_light,mag_drum_light] mag 13/13
+[match  258.0] Kulot Sabaw respawned at (-54.0, 0.0, 2.0) (nearest enemy 1000 m)
+[loadout] Pareng Jun rifle_762 [scope_night,suppressor_rifle,mag_extquick_rifle,weapon_light] mag 40/40 | pistol_9 [sight_reddot,suppressor_light,laser_green] mag 15/15
+[match  258.0] Pareng Jun respawned at (53.0, 0.0, -8.0) (nearest enemy 107 m)
+[match  258.0] round 4 started; scores { 0: 3, 1: 0 }
+[match  258.0] [roundtime] remove 1.9 ms, field 10.5 ms
+[loadout] Mang Isko rifle_556 [suppressor_rifle,grip_stubby,mag_extquick_rifle] mag 40/40 | pistol_45 [sight_reflex,suppressor_light,weapon_light] mag 7/7
+[match  258.1] Mang Isko respawned at (-56.0, 0.0, 2.0) (nearest enemy 109 m)
+[loadout] Lolo Pepe bolt_308 [scope_6x,suppressor_sniper,mag_ext_sniper,bullet_loops] mag 8/8 | revolver_357 [sight_reddot] mag 6/6
+[match  258.1] Lolo Pepe respawned at (53.0, 0.0, 11.0) (nearest enemy 107 m)
+[match  258.1] [endgame] East Team mates 2 foes 2 nocontact 0s
+[loadout] Bebot Karaoke rifle_scar [scope_3x,suppressor_rifle,grip_vertical,weapon_light] mag 30/30 | revolver_357 [sight_reflex] mag 6/6
+[match  258.1] Bebot Karaoke respawned at (-56.0, 0.0, -2.0) (nearest enemy 109 m)
+[loadout] Tito Boy smg_ump45 [sight_reflex,mag_extquick_light,weapon_light] mag 35/35 | revolver_357 [sight_reddot] mag 6/6
+[match  258.1] Tito Boy respawned at (53.0, 0.0, 5.0) (nearest enemy 106 m)
+[loadout] Kuya Wifi rifle_762 [scope_night,mag_extquick_rifle,weapon_light] mag 40/40 | pistol_deagle [suppressor_light,mag_extquick_light] mag 10/10
+[match  258.1] Kuya Wifi respawned at (-56.0, 0.0, -5.0) (nearest enemy 109 m)
+[loadout] Aling Taho shotgun_saiga [mag_extquick_rifle,weapon_light] mag 8/8 | revolver_357 [] mag 6/6
+[match  258.1] Aling Taho respawned at (50.0, 0.0, -8.0) (nearest enemy 104 m)
+[loadout] Kuya Fishball bolt_kar98 [scope_8x,muzzle_brake,cheek_pad] mag 5/5 | pistol_deagle [sight_reflex,suppressor_light,mag_extquick_light] mag 10/10
+[match  258.1] Kuya Fishball respawned at (-56.0, 0.0, 5.0) (nearest enemy 107 m)
+[loadout] Ate Bebang bolt_awp [mag_ext_sniper] mag 8/8 | pistol_deagle [mag_extquick_light,weapon_light] mag 10/10
+[match  258.1] Ate Bebang respawned at (50.0, 0.0, 5.0) (nearest enemy 104 m)
+[loadout] Aling Nena smg_ump45 [sight_holo,suppressor_light,grip_ergonomic,weapon_light] mag 25/25 | pistol_deagle [suppressor_light,mag_extquick_light,weapon_light] mag 10/10
+[match  258.2] Aling Nena respawned at (-51.0, 0.0, 2.0) (nearest enemy 101 m)
+[loadout] Toto Pancit bolt_awp [suppressor_sniper,mag_ext_sniper] mag 8/8 | pistol_9 [sight_reflex,suppressor_light] mag 15/15
+[match  258.2] Toto Pancit respawned at (53.0, 0.0, -11.0) (nearest enemy 105 m)
+[loadout] Kumpare Ambo bolt_308 [scope_6x,mag_ext_sniper,cheek_pad] mag 8/8 | revolver_357 [] mag 6/6
+[match  258.2] Kumpare Ambo respawned at (-54.0, 0.0, 5.0) (nearest enemy 104 m)
+[loadout] Mang Jolo machine_pistol [sight_holo,suppressor_light,laser_sight,mag_extquick_light,stock_heavy,weapon_light] mag 45/45 | pistol_deagle [sight_reddot,suppressor_light,weapon_light] mag 7/7
+[match  258.2] Mang Jolo respawned at (53.0, 0.0, 8.0) (nearest enemy 104 m)
+[loadout] Utoy Kalabaw smg_tommy [suppressor_light,grip_heavy] mag 30/30 | pistol_deagle [sight_reddot,suppressor_light,mag_extquick_light,weapon_light] mag 10/10
+[match  258.2] Utoy Kalabaw respawned at (-54.0, 0.0, -2.0) (nearest enemy 104 m)
+[loadout] Lolo Kalesa shotgun_saiga [sight_reflex,muzzle_tactical,mag_extquick_rifle,weapon_light] mag 8/8 | revolver_357 [sight_reddot] mag 6/6
+[match  258.2] Lolo Kalesa respawned at (53.0, 0.0, -5.0) (nearest enemy 104 m)
+[loadout] Tito Karaoke King smg_tommy [suppressor_light,grip_thumb,mag_extquick_light] mag 50/50 | pistol_deagle [sight_reddot,suppressor_light,weapon_light] mag 7/7
+[match  258.2] Tito Karaoke King respawned at (-51.0, 0.0, -5.0) (nearest enemy 101 m)
+[loadout] Bossing Barbecue bolt_308 [suppressor_rifle,cheek_pad] mag 5/5 | pistol_9 [sight_reddot,mag_extquick_light,weapon_light] mag 21/21
+[match  258.3] Bossing Barbecue respawned at (50.0, 0.0, 8.0) (nearest enemy 102 m)
+[loadout] Bossing Dodong marksman_308 [scope_6x,suppressor_sniper,mag_ext_sniper,cheek_pad] mag 30/30 | pistol_9 [suppressor_light,mag_extquick_light,weapon_light] mag 21/21
+[match  258.3] Bossing Dodong respawned at (-49.0, 0.0, -2.0) (nearest enemy 99 m)
+[loadout] Pareng Pandesal smg_vector [sight_reddot,suppressor_light,grip_stubby,stock_heavy,weapon_light] mag 19/19 | revolver_357 [sight_reddot] mag 6/6
+[match  258.3] Pareng Pandesal respawned at (50.0, 0.0, 11.0) (nearest enemy 100 m)
+[match  258.3] [roundtime] 20 respawns, slowest 3.7 ms, median 3.0 ms
+[match  264.0] [botstates] 2794 bot-s: roam 25%, hunt 23%, fight 19%, follow 12%, order 9%, heal 4%, investigate 4%, camp 2%, fetch 1%, overwatch 0%
+[match  264.0] [botskill] normal shots 1570 hits 252 reaction_avg 0.34 (n 384) dmg 5101 bots 20
+[match  265.3] Tito Boy (team 1) landed at (47.0, 0.0, 3.0), 2.5 m/s, health 100; teammates -
+[match  267.0] Aling Taho (team 1) landed at (47.0, 0.0, 3.0), 2.5 m/s, health 100; teammates 7 m
+[match  267.8] Mang Jolo (team 1) landed at (47.0, 0.0, 3.0), 2.5 m/s, health 100; teammates 10 m, 2 m
+[match  267.9] Lolo Pepe (team 1) landed at (47.0, 0.0, 2.0), 2.5 m/s, health 100; teammates 11 m, 2 m, 1 m
+[match  268.7] [hold] Bossing Barbecue overwatch spot 109 92s
+[match  270.0] status: { "ground": 20 }; armed 20; shots 1573; zone -1 hold r=93; corpses 0; levels { "L1": 19, "between": 1 }; server tick avg 2.53 ms, p99 6.60 ms, max 7.81 ms over 720 ticks; objects 6644
+[match  270.0] dm teams: West Team 10 at (-35.0, 4.0) spread 12 m; East Team 10 at (33.0, -3.0) spread 10 m; gap 68 m; zone centre (-3.0, 1.0)
+[match  270.0] bots: { "follow": 6, "hunt": 10, "roam": 3, "overwatch": 1 }; containers searched by bots 0 (all players 0); plan steps done 0; guns carried 40
+[match  270.0] roles: { "stalker": { "follow": 1, "hunt": 4 }, "looter": { "roam": 2, "follow": 1 }, "rusher": { "follow": 1, "hunt": 6 }, "sniper": { "follow": 3, "roam": 1, "overwatch": 1 } }; stuck now 0; waypoints 258; team { "lines": 237, "pings": 0, "laser_follow": 0, "learned_cells": 28, "blocked_cells": 0, "squads": 17, "following_humans": 0 }
+[match  270.0] [lootstats] bots on the ground 20 (in water 0); armed 20; armed with ammo for a gun 20; long guns 20; attachments fitted 109; rounds of unusable ammo carried 0; items on the ground 4; bot pickups { "detours": 0, "detour_taken": 0, "fetches": 5, "fetch_done": 4, "items_taken": 4 }
+[match  270.4] Toto Pancit (team 1) landed at (34.0, 0.0, -22.0), 7.7 m/s, health 100; teammates 22 m, 25 m, 22 m, 22 m
+[match  270.5] [hold] Utoy Kalabaw overwatch spot 174 98s
+[match  273.6] [hold] Mang Isko camp spot 20 49s
+[match  273.8] Pareng Pandesal (team 1) landed at (34.0, 0.0, -22.0), 7.7 m/s, health 100; teammates 27 m, 36 m, 28 m, 4 m, 23 m
+[match  274.8] [hold] Tito Karaoke King camp spot 23 35s
+[match  274.9] Tito Boy killed by Lolo Pepe (gunshot); 2 teams left
+[match  274.9] alive: West Team 10, East Team 9; score { 0: 3, 1: 0 }
+[match  274.9] Kuya Fishball killed by Tito Boy (gunshot); 2 teams left
+[match  274.9] alive: West Team 9, East Team 9; score { 0: 3, 1: 0 }
+[match  275.6] Lolo Kalesa killed by Bebot Karaoke (gunshot); 2 teams left
+[match  275.6] alive: West Team 9, East Team 8; score { 0: 3, 1: 0 }
+[match  276.0] Bebot Karaoke killed by Mang Jolo (gunshot); 2 teams left
+[match  276.0] alive: West Team 8, East Team 8; score { 0: 3, 1: 0 }
+[match  277.2] Ate Bebang killed by Utoy Kalabaw (gunshot); 2 teams left
+[match  277.2] alive: West Team 8, East Team 7; score { 0: 3, 1: 0 }
+[match  277.4] [grenades] Aling Nena saw the pickup 16 20 m away: leaves it
+[match  278.3] Aling Taho killed by Bossing Dodong (gunshot); 2 teams left
+[match  278.3] alive: West Team 8, East Team 6; score { 0: 3, 1: 0 }
+[match  278.6] Lolo Pepe killed by Bossing Dodong (gunshot); 2 teams left
+[match  278.6] alive: West Team 8, East Team 5; score { 0: 3, 1: 0 }
+[match  279.0] [botstates] 3077 bot-s: hunt 24%, roam 24%, fight 19%, follow 13%, order 9%, heal 4%, investigate 3%, camp 2%, overwatch 1%, fetch 1%
+[match  279.0] [botskill] normal shots 1733 hits 277 reaction_avg 0.33 (n 425) dmg 5638 bots 13
+[match  282.0] Bossing Dodong killed by Mang Jolo (gunshot); 2 teams left
+[match  282.0] alive: West Team 7, East Team 5; score { 0: 3, 1: 0 }
+[match  283.1] Pareng Jun killed by Kulot Sabaw (gunshot); 2 teams left
+[match  283.1] alive: West Team 7, East Team 4; score { 0: 3, 1: 0 }
+[match  283.7] Kuya Wifi (team 0) landed at (-44.0, 0.0, 22.0), 4.9 m/s, health 100; teammates -
+[match  285.0] status: { "ground": 11 }; armed 11; shots 1860; zone -1 hold r=93; corpses 9; levels { "L1": 11 }; server tick avg 4.05 ms, p99 8.56 ms, max 14.90 ms over 900 ticks; objects 5624
+[match  285.0] dm teams: West Team 7 at (-25.0, 3.0) spread 24 m; East Team 4 at (22.0, -8.0) spread 10 m; gap 49 m; zone centre (-3.0, 1.0)
+[match  285.0] bots: { "fight": 7, "follow": 1, "investigate": 1, "order": 1, "camp": 1 }; containers searched by bots 0 (all players 0); plan steps done 0; guns carried 22
+[match  285.0] roles: { "stalker": { "fight": 3 }, "looter": { "fight": 1, "follow": 1, "camp": 1 }, "rusher": { "fight": 1 }, "sniper": { "fight": 2, "investigate": 1, "order": 1 } }; stuck now 0; waypoints 258; team { "lines": 264, "pings": 0, "laser_follow": 0, "learned_cells": 30, "blocked_cells": 0, "squads": 17, "following_humans": 0 }
+[match  285.0] [lootstats] bots on the ground 11 (in water 0); armed 11; armed with ammo for a gun 11; long guns 11; attachments fitted 65; rounds of unusable ammo carried 0; items on the ground 4; bot pickups { "detours": 0, "detour_taken": 0, "fetches": 5, "fetch_done": 4, "items_taken": 4 }
+[match  287.6] Mang Isko (team 0) landed at (-30.0, 0.0, -19.0), 4.9 m/s, health 100; teammates 49 m
+[match  289.4] Aling Nena (team 0) landed at (7.0, 0.0, -6.0), 4.9 m/s, health 19; teammates 44 m, 67 m
+[match  291.2] Mang Jolo killed by Kulot Sabaw (gunshot); 2 teams left
+[match  291.2] alive: West Team 7, East Team 3; score { 0: 3, 1: 0 }
+[match  291.9] Kumpare Ambo killed by Bossing Barbecue (gunshot); 2 teams left
+[match  291.9] alive: West Team 6, East Team 3; score { 0: 3, 1: 0 }
+[match  292.9] Bossing Barbecue killed by Utoy Kalabaw (gunshot); 2 teams left
+[match  292.9] alive: West Team 6, East Team 2; score { 0: 3, 1: 0 }
+[match  293.1] [endgame] East Team mates 2 foes 6 nocontact 0s
+[match  293.3] [endgame] West Team mates 6 foes 2 nocontact 0s
+[match  293.4] Aling Nena killed by Toto Pancit (gunshot); 2 teams left
+[match  293.4] alive: West Team 5, East Team 2; score { 0: 3, 1: 0 }
+[match  294.0] [botstates] 3242 bot-s: hunt 23%, roam 23%, fight 21%, follow 13%, order 9%, heal 4%, investigate 3%, camp 2%, overwatch 1%, fetch 1%
+[match  294.0] [botskill] normal shots 1951 hits 317 reaction_avg 0.35 (n 460) dmg 6528 bots 7
+[match  296.0] Pareng Pandesal killed by Kulot Sabaw (gunshot); 2 teams left
+[match  296.0] alive: West Team 5, East Team 1; score { 0: 3, 1: 0 }
+[match  299.8] Toto Pancit killed by Kulot Sabaw (gunshot); 1 teams left
+[match  299.8] alive: West Team 5, East Team 0; score { 0: 3, 1: 0 }
+[match  299.9] round 4 over: winner 0, scores { 0: 4, 1: 0 }
+[match  300.0] match ended early (test): winner team 0 after 300 s
+[bots] saved 33 learned cells, 22 spot records, 0 spots learned from play to user://bot_memory_freight_delight.json
+[game] results: {}
